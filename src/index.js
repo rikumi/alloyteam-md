@@ -3,6 +3,7 @@ const url = require('url');
 const path = require('path');
 const uuid = require('uuid');
 const mime = require('mime');
+const yaml = require('yaml');
 const axios = require('axios').default;
 const pangu = require('pangu');
 const mkdirp = require('mkdirp');
@@ -60,10 +61,10 @@ const getContent = async ($) => {
     el = $(el);
     let code = el.find('.crayon-line').toArray().map((el) => $(el).text()).join('\n');
 
-    // 探测语言，把 java 修正为 JS
+    // 探测语言，把 java/php/c++ 修正为 JS
     const language = detectLang(code).toLowerCase()
       .replace(/^unknown$/, '')
-      .replace(/^java$/, 'javascript');
+      .replace(/^java|php|c\+\+$/, 'javascript');
 
     // 格式化 JS 代码
     if (language === 'javascript' || language === 'html' || language === 'css') {
@@ -142,10 +143,10 @@ const formatFileName = (src) => {
 
 const formatFile = ({ src, title, date, author, content }) => (`
 ---
-title: ${title}
-date: ${date}
-author: ${author}
-source_link: ${src}
+title: ${yaml.stringify(title)}
+date: ${yaml.stringify(date)}
+author: ${yaml.stringify(author)}
+source_link: ${yaml.stringify(src)}
 ---
 
 ${content}

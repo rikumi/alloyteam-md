@@ -84,7 +84,7 @@ const getContent = async ($, src) => {
     // 普通文本中的 script 标签不知道为啥不会被转义，先手动加上代码块
     .replace(/(<script\b[\s\S]*?>[\s\S]*?<\/\s*script>)/ig, '\n```html\n$1\n```\n')
 
-    // 暂时隔开 {% %} 标记，防止部署到 Jekyll 的时候出错
+    // 暂时隔开 { % % } 标记，防止部署到 Jekyll 的时候出错
     .replace(/\{(%[\s\S]*?%)\}/g, '{ $1 }')
   
   const formattedMD = (
@@ -166,7 +166,7 @@ const dir = path.join(__dirname, '../docs');
 mkdirp.sync(dir);
 
 const indexFile = path.join(dir, 'index.md');
-fs.writeFileSync(indexFile, '');
+fs.writeFileSync(indexFile, '# 文章\n\n');
 
 /**
  * 解析文件
@@ -181,7 +181,7 @@ const processFile = async (src) => {
     const relative = formatFileName(src);
     const file = path.join(dir, relative);
     fs.writeFileSync(file, formatFile({ src, title, date, author, content }));
-    fs.appendFileSync(indexFile, `${date} [${title}](./${relative}) by ${author}`);
+    fs.appendFileSync(indexFile, `${date} [${title}](./${relative}) by ${author}\n`);
   });
   return { next };
 };

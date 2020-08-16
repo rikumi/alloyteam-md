@@ -2,6 +2,10 @@
 
 一个 AlloyTeam 博客文章本地备份爬虫，自动加盘古之白，自动格式化代码，图片和附件自动上传 COS，转换为带 FrontMatter 的精美的 Markdown，博客迁移时有备无患。
 
+## Markdown 文件
+
+每天 0 点更新的 Markdown 文件列表参见 [docs 目录](https://github.com/rikumi/alloyteam-md/tree/master/docs)。
+
 ## 演示站
 
 https://rikumi.dev/alloyteam-md/

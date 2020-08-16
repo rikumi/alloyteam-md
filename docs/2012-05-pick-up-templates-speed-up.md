@@ -108,7 +108,7 @@ content = content.replace(regex, function (m, $1, $2) {
 fs.writeFileSync(outputHtmlFile, content);
 content = fs.readFileSync(inputJsFile).toString();
 var templateStr = JSON.stringify(result);
-content = content.replace("{%HtmlTemplates%}", templateStr);
+content = content.replace("{ %HtmlTemplates% }", templateStr);
 fs.writeFileSync(outputJsFile, content);
 ```
 

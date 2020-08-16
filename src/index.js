@@ -143,9 +143,8 @@ const formatFile = ({ src, title, date, author, content }) => (`
 title: ${title}
 date: ${date}
 author: ${author}
+source_link: ${src}
 ---
-
-<!-- 文章转换自 ${src} -->
 
 ${content}
 `.trim());

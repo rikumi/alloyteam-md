@@ -1,0 +1,30 @@
+{
+  "name": "alloyteam-md",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "axios-retry": "^3.1.8",
+    "cheerio": "^1.0.0-rc.3",
+    "cos-nodejs-sdk-v5": "^2.6.2",
+    "dotenv": "^8.2.0",
+    "html-escaper": "^3.0.0",
+    "jsdom": "^16.4.0",
+    "lang-detector": "^1.0.6",
+    "mime": "^2.4.6",
+    "mkdirp": "^1.0.4",
+    "pangu": "^4.0.7",
+    "prettier": "^2.0.5",
+    "remark": "^12.0.1",
+    "remark-pangu": "^2.1.1",
+    "showdown": "^1.9.1",
+    "turndown": "^6.0.0",
+    "turndown-plugin-gfm": "^1.0.2"
+  }
+}

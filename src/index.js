@@ -27,7 +27,8 @@ process.on('unhandledRejection', (e) => { throw e });
 
 dotenv.config();
 
-axiosRetry(axios, { retries: 3 });
+axios.defaults.timeout = 5000;
+axiosRetry(axios, { retries: 3, shouldResetTimeout: true });
 
 const td = new Turndown({
   codeBlockStyle: 'fenced',

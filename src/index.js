@@ -159,6 +159,9 @@ source_link: ${yaml.stringify(src).trim()}
 ${content}
 `.trim());
 
+const indexFile = path.join(__dirname, '../docs/index.md');
+fs.writeFileSync(indexFile, '');
+
 /**
  * 解析文件
  */
@@ -167,12 +170,14 @@ const processFile = async (src) => {
   const title = getTitle($);
   const date = getDate($);
   const author = getAuthor($);
-  const content = await getContent($, src);
   const next = getNext($);
-  const file = path.join(__dirname, '../posts', formatFileName(src));
-
-  mkdirp.sync(path.dirname(file));
-  fs.writeFileSync(file, formatFile({ src, title, date, author, content }));
+  getContent($, src).then(content => {
+    const relative = formatFileName(src);
+    const file = path.join(__dirname, '../docs', relative);
+    mkdirp.sync(path.dirname(file));
+    fs.writeFileSync(file, formatFile({ src, title, date, author, content }));
+    fs.appendFileSync(indexFile, `${date} [${title}](./${relative}) by ${author}`);
+  });
   return { next };
 };
 

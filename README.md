@@ -4,7 +4,7 @@
 
 ## 使用
 
-创建 .env 文件：
+如果需要自动上传 COS，需要创建 .env 文件：
 
 ```ini
 COS_SECRET_ID=<COS 的 SecretId>

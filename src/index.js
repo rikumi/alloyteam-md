@@ -34,10 +34,11 @@ const td = new Turndown({
 
 td.use(gfm.gfm);
 
-const cos = new COS({
+const enableCOS = !!process.env.COS_SECRET_ID;
+const cos = enableCOS ? new COS({
   SecretId: process.env.COS_SECRET_ID,
   SecretKey: process.env.COS_SECRET_KEY,
-});
+}) : null;
 
 /**
  * 抓取文章页面
@@ -111,6 +112,7 @@ const getNext = ($) => $('link[rel="next"]').attr('href');
  * 下载文件并上传到 COS
  */
 const transformAttachment = async (src) => {
+  if (!enableCOS) return src;
   try {
     const { data, headers } = await axios.get(src, { responseType: 'arraybuffer' });
     const contentType = headers['Content-Type'] || headers['content-type'] || 'image/jpeg';

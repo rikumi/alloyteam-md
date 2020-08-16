@@ -298,4 +298,5 @@ init 总结为几步
 
 上面的代码可以看出，一旦数组的具有 then 方法，就可被 tryConvertToPromise 方法转换为一个 Promise 对象，如果 then 方法未实现 promise 规范，那么 Promise 对象就会处于 Pending 的状态，Promise.all 方法永远就不会达到 fulfilled 的条件，问题也就明白了
 
+
 <!-- {% endraw %} - for jekyll -->

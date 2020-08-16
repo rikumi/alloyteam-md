@@ -34,4 +34,5 @@ clipToPadding 就是说控件的绘制区域是否在 padding 里面的，true �
 
 Actionbar 半透明就不详细说了，只要设置 actionbarOverlay 为 true 并为 ActionBar 设置一个半透明的 background 即可.
 
+
 <!-- {% endraw %} - for jekyll -->

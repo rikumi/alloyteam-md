@@ -178,4 +178,5 @@ function doSomethingElse() {
 [这里](http://caniuse.com/use-strict)有各款浏览器对严格模式支持情况的一个汇总。  
 可以在[这个页面](http://java-script.limewebs.com/strictMode/test_hosted.html)对当前浏览器的严格模式支持度进行测试。
 
+
 <!-- {% endraw %} - for jekyll -->

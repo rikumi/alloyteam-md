@@ -367,4 +367,5 @@ compilation.assets[this.options.basename].source = function () {
 
 有兴趣可以试用一下 [html-res-webpack-plugin](https://github.com/lcxfs1991/html-res-webpack-plugin/) 这个插件（为什么要写一个新的 html 生成插件，我在 readme 里写了，此处不赘述），看看有哪些用得不爽之处。目前只是第一版，还不适合用于生产环境。希望第二版的时候能适用于更多的场景，以及性能更好。到是，我也会写第二篇插件开发文章，将本文还没提到的地方一一补充完整。也欢迎大家在这里发贴，或者指出本人的谬误之处。
 
+
 <!-- {% endraw %} - for jekyll -->

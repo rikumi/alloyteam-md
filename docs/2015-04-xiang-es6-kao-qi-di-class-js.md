@@ -234,4 +234,5 @@ console.log(bigPig instanceof Animal); //true
 其余的方法可通过 this.\_super. 方法名 (xxxx) 去访问父类方法，如果自身没有定义父类同名的方法，也可以直接通过 this. 方法名去访问父类的方法。  
 欢迎使用，玩得愉快。
 
+
 <!-- {% endraw %} - for jekyll -->

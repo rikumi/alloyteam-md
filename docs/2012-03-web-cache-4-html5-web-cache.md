@@ -91,4 +91,5 @@ Localstorage 设计的本意可能是用来存储一些用户操作的个性化�
 
 可以说，HTML5 的 Manifest 和 localstorage 是给我们在考虑 Web 缓存的时候提供了多一种思路，当你开发的应用只面对现代浏览器的时候，不妨可以考虑一下。
 
+
 <!-- {% endraw %} - for jekyll -->

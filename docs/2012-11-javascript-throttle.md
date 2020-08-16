@@ -161,4 +161,5 @@ var throttleV2 = function (fn, delay, mustRunDelay) {
 
 最后我们可以整合了第二、三种方法，封装成一个函数，其实第二种方法也就是第三种方法的特例而已。还可以以 hash 对象封装参数：执行函数、上下文、延迟、必须执行的时间间隔。这比较简单就不在这里贴出来了。
 
+
 <!-- {% endraw %} - for jekyll -->

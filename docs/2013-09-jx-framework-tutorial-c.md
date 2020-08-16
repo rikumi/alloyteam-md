@@ -59,4 +59,5 @@ boxy.getPanel().setHtml("<h1>Message</h1><p>Welcome to alloyteam.com</p>"); //�
 就是这样简单，点击[这里看运行结果](http://www.alloyteam.com/wp-content/uploads/2013/09/jx_ui_demo.html)。  
 希望这个例子能给你一些启示。[更多活生生的 demo](http://alloyteam.github.io/JXLiveDemo/) 在这里。
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -248,4 +248,5 @@ OK，到这里，便可以用我们的 inject 来模拟 angular 的依赖注入�
 
 参考资料：[关于 anjularjs 双向绑定的研究](http://www.nihaoshijie.com.cn/index.php/archives/306)
 
+
 <!-- {% endraw %} - for jekyll -->

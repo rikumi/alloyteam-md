@@ -103,4 +103,5 @@ Mountain Lion 的听写功能在几乎所有应用中都可以使用，只要 Ma
 
 ![苹果 OS X Mountain Lion 操作系统](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/053114d79.jpg "苹果 OS X Mountain Lion 操作系统")
 
+
 <!-- {% endraw %} - for jekyll -->

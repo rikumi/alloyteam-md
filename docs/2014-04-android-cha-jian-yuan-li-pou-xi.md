@@ -163,4 +163,5 @@ ClassLoader classLoader= context.getClassLoader() ;
 
 下面探讨另一个问题，有没有可能在主程序里不打包插件 SDK 也可以实现动态加载但现在的逻辑代码不变？还有上面的例子做成插件的是普通的类，Activity 能不能也一样可以做到，升级插件了怎么办？答案是两个都可以实现，原理也是使用 DexClassLoader，篇幅和利益关系这里不做介绍。
 
+
 <!-- {% endraw %} - for jekyll -->

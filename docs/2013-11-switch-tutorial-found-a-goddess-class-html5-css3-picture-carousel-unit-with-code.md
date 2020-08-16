@@ -144,4 +144,5 @@ l slideshow.effects.js          这个是向 JXAnimation 中添加一些�
 
 <http://bbs.miaov.com/forum.php?mod=viewthread&tid=7374&fromuid=11876>
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -25,4 +25,5 @@ source_link: http://www.alloyteam.com/2012/10/little-chrome-plugin-tabsrecorder/
 
 功能还比较弱，自己用够用了，目前只支持一个窗口（当前窗口），多个窗口的情况没做判断。有兴趣的同学可以试用下～～
 
+
 <!-- {% endraw %} - for jekyll -->

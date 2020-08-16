@@ -201,4 +201,5 @@ AlloyTicker.prototype = {
 Github: <https://github.com/AlloyTeam/AlloyTicker>  
 Demo: <http://alloyteam.github.io/AlloyTicker/>
 
+
 <!-- {% endraw %} - for jekyll -->

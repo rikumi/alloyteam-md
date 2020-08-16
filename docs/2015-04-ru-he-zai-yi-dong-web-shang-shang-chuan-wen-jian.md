@@ -284,4 +284,5 @@ function uploadFile(img) {
 
 <http://stackoverflow.com/questions/15639070/empty-files-uploaded-in-android-native-browser/28809955#28809955>
 
+
 <!-- {% endraw %} - for jekyll -->

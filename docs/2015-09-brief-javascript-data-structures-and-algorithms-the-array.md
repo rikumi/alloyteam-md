@@ -433,4 +433,5 @@ bool del(struct Arr * pArr, int pos, int * pVal) {
 
 如果有一种数据结构进行任何插入、删除和查找操作都很快（O (1) 或者 O (logN)）, 那就太爽了哈。后面我们会向这一目标靠近。
 
+
 <!-- {% endraw %} - for jekyll -->

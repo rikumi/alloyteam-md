@@ -173,4 +173,5 @@ yield\* 的官方名字叫做 [Delegating yield](http://wiki.ecmascript.org/doku
 
 yield\* 的功能是将迭代控制权交给后面的迭代器，达到递归迭代的目的，就好比将 genFun1 的代码直接写在 genFun2 里面一样。
 
+
 <!-- {% endraw %} - for jekyll -->

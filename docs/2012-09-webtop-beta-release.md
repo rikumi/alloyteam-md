@@ -154,4 +154,5 @@ webtop 中定义了一些自定义事件，如下
 -   webtopP2PInitInfo：调用 connect 之后，p2p 初始化之后触发，e.detail 的结构如下：{ip:'192.168.0.102',port:64656}。ip 为当前 webtop 窗口使用的 ip，port 当前 webtop 窗口使用的端口
 -   webtopP2PUpdateUserList：调用 getUsers 函数之后的回调事件。e.detail 的结构如下 {list:\['192.168.0.102:55654_melody','192.168.0.101:55354_yukin'],ip:'192.168.0.102',port:64656}。其中 192.168.0.102 为该用户的 ip，55654 为该用户的端口，melody 为该用户的用户名。ip 为当前 webtop 窗口使用的 ip，port 当前 webtop 窗口使用的端口
 
+
 <!-- {% endraw %} - for jekyll -->

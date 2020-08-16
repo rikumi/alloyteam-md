@@ -43,7 +43,7 @@ SodaRender 是一款具有类似 Angular 模板写法的模板引擎，使用 So
 如果你还想继续为一大堆的 % 噩梦所揪挠，那你的模板可能看起来是这样的
 
 ```javascript
-<div class="<% if(item.status === 'curr'){ %>active<% }else{ %>common<% }%>">
+<div class="<% if(item.status === 'curr'){%>active<%}else{%>common<%}%>">
     <%=item.name%>
 </div>
 ```
@@ -79,5 +79,6 @@ SodaRender 是一款具有类似 Angular 模板写法的模板引擎，使用 So
 ```
 
 如果你希望改善你的模板中的这些状况，或者你不幸被我说中了，那么请移步这里吧 [SodaRender](https://github.com/AlloyTeam/SodaRender)
+
 
 <!-- {% endraw %} - for jekyll -->

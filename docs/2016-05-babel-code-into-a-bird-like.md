@@ -1015,4 +1015,5 @@ babel es2015 中 loose 模式主要是针对下面几个 plugin：
 -   <http://www.2ality.com/2015/12/babel6-loose-mode.html>
 -   <http://www.2ality.com/2015/02/es6-classes-final.html>
 
+
 <!-- {% endraw %} - for jekyll -->

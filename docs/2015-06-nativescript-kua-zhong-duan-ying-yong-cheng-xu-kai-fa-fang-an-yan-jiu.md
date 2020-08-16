@@ -222,4 +222,5 @@ main-page.xml android 上布局的文件，类似 vm 模板，注意，是 xml �
 
 当然这次只分析了个简单的例子，后面自己搞个复杂的例子来分享下，敬请期待 (类似的还有 samurai-native 和 react-native，坐等 android 支持)~
 
+
 <!-- {% endraw %} - for jekyll -->

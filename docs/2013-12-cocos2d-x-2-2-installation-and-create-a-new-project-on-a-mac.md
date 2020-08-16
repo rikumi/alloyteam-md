@@ -31,4 +31,5 @@ source_link: http://www.alloyteam.com/2013/12/cocos2d-x-2-2-installation-and-cre
 
 然后按照上述文章在命令行中执行，就可以创建一个新的工程了。
 
+
 <!-- {% endraw %} - for jekyll -->

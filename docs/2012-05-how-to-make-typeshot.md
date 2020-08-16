@@ -239,4 +239,5 @@ Laro.register('TypeShot.$fsm', function (La) {
 
 好吧，大致的思路就写到这里，感兴趣的同学可以直接查看 [demo 源码](https://github.com/AlloyTeam/Laro/tree/master/examples/typeshot), 当然，代码里面有一些处理的不够好的地方，因为仅作演示而已。
 
+
 <!-- {% endraw %} - for jekyll -->

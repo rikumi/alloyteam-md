@@ -73,4 +73,5 @@ source_link: http://www.alloyteam.com/2016/10/ac2016-shi-xiaoyong-lecturer-inter
 
 当然，我们也不排除以后随着标准的进行，H5 的性能会变得越来越好，RN、小程序甚至是 Native 都会被慢慢替代，成为王者。让我们一起期待这一天。
 
+
 <!-- {% endraw %} - for jekyll -->

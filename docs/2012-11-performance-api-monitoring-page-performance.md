@@ -53,4 +53,5 @@ PerformanceTiming  文档解析各个步骤的耗时.  这个是我们在测�
 
 暂时还木有真正开始解析 dom 文档的时间，不过这个 ie9, 有个私有属性 msFirstPaint chrome 下则是 chrome.loadTimes ().firstPaintTime
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -71,4 +71,5 @@ icons[i].parentNode.style.background = color;
 
 AlloyImage V1.2 版本，更多功能，敬请期待！
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -194,8 +194,8 @@
 - 2013-12-31 [Node.js 异常捕获的一些实践](./2013-12-node-js-series-exception-caught.md) by TAT.dmyang
 - 2013-12-31 [JS 计算字符串所占字节数](./2013-12-js-calculate-the-number-of-bytes-occupied-by-a-string.md) by TAT.iAzrael
 - 2013-12-31 [Node.js 系列之 —— 事件代理](./2013-12-node-js-series-event-agent.md) by TAT.Perlt
-- 2014-01-01 [git 系列 (1) – 从 git 中的引用开始说起](./2014-01-git-series-1-open-talk-from-git-reference.md) by TAT.kerry
-- 952014-01-03 [在浏览器端用 JS 创建和下载文件](./2014-01-use-js-file-download.md) by TAT.iAzrael
+- 2014-01-01 [git 系列 (1) – 从 git 中的引用开始说起](./2014-01-git-series-1-open-talk-from-git-reference.md) by TAT.kerry95
+- 2014-01-03 [在浏览器端用 JS 创建和下载文件](./2014-01-use-js-file-download.md) by TAT.iAzrael
 - 2014-01-05 [视差滚动的爱情故事](./2014-01-parallax-scrolling-love-story.md) by TAT.bizai
 - 2014-01-05 [【打造家庭云】1 - 背景和前言](./2014-01-background-and-overview.md) by TAT.Rehorn
 - 2014-01-07 [Chrome 开发者工具更新要点（2013.12）【译】](./2014-01-chrome-developer-tools-update-points-2013-12-translation.md) by TAT.gctang
@@ -211,8 +211,8 @@
 - 2014-02-27 [grunt 快速学习小记](./2014-02-grunt-quickly-learn-a-small-note.md) by TAT.dorsywang
 - 2014-02-28 [用 d3.js 实现基于 SVG 的柱状图](./2014-02-d3-bar-chart.md) by TAT.云中飞扬
 - 2014-03-01 [停不下来的前端，自动化流程](./2014-03-frontend-workflow.md) by TAT.yuanyan
-- 2014-03-03 [JS、CSS 以及 img 对 DOMContentLoaded 事件的影响](./2014-03-effect-js-css-and-img-event-of-domcontentloaded.md) by TAT.kerry
-- 952014-03-03 [更快的异步执行](./2014-03-faster-asynchronous-execution.md) by TAT.Cson
+- 2014-03-03 [JS、CSS 以及 img 对 DOMContentLoaded 事件的影响](./2014-03-effect-js-css-and-img-event-of-domcontentloaded.md) by TAT.kerry95
+- 2014-03-03 [更快的异步执行](./2014-03-faster-asynchronous-execution.md) by TAT.Cson
 - 2014-03-04 [前端相关数据监控](./2014-03-front-end-data-monitoring.md) by TAT.Perlt
 - 2014-03-10 [全新理念的 Web 前端开发方式 ——AlloyDesigner](./2014-03-alloydesigner-lai-zi-xing-xing-di-web-qian-duan-kai-fa-fang-shi.md) by TAT.Kinvix
 - 2014-03-24 [如何解决 compass 中遇到的：Errno::EACCES on line [“897”] of C: Permission denied 问题。](./2014-03-ru-he-jie-jue-compass-zhong-yu-dao-di-errnoeacces-on-line-897-of-c-permission-denied-wen-ti.md) by TAT.Minren
@@ -465,8 +465,8 @@
 - 2016-10-19 [AC2016 讲师专访 —— 张磊 dnt](./2016-10-zhang-lei-ac2016-lecturers-interview-dnt.md) by TAT.Johnny
 - 2016-10-19 [AC2016 讲师专访 —— 郭林烁 joey](./2016-10-interview-ac2016-instructor-lin-guo-shuo-joey.md) by TAT.Johnny
 - 2016-10-20 [你所需要知道的 AC2016—— 倒数 3 天](./2016-10-what-you-need-to-know-ac2016-the-last-3-days.md) by TAT.Johnny
-- 2016-10-22 [实现一个简单的模板引擎](./2016-10-implement-a-simple-template-engine.md) by june
-- 012016-10-24 [来自 AC2016 的最新报道 | 大会小结](./2016-10-latest-reports-from-ac2016-summary-of-the-general-assembly.md) by TAT.Johnny
+- 2016-10-22 [实现一个简单的模板引擎](./2016-10-implement-a-simple-template-engine.md) by june01
+- 2016-10-24 [来自 AC2016 的最新报道 | 大会小结](./2016-10-latest-reports-from-ac2016-summary-of-the-general-assembly.md) by TAT.Johnny
 - 2016-11-03 [用 webgl 打造一款简单第一人称射击游戏](./2016-11-with-webgl-to-build-a-simple-first-person-shooter-games.md) by TAT.vorshen
 - 2016-11-05 [漫谈 Nuclear Web 组件化入门篇](./2016-11-talk-about-nuclear-web-component-threshold.md) by TAT.dnt
 - 2016-11-11 [超小 Web 手势库 AlloyFinger 原理](./2016-11-11568.md) by TAT.dnt
@@ -489,8 +489,8 @@
 - 2016-12-29 [AlloyTouch 实战–60 行代码搞定 QQ 看点资料卡](./2016-12-alloytouch-combat-60-lines-of-code-get-qq-aspect-data-card.md) by TAT.dnt
 - 2017-01-04 [HTTP2 Server Push 的研究](./2017-01-http2-server-push-research.md) by TAT.tennylv
 - 2017-01-09 [AlloyTouch 实现下拉刷新](./2017-01-alloytouch-implementing-dropdown-refresh.md) by TAT.dnt
-- 2017-01-10 [模块加载工具制造指南](./2017-01-module-loading-tools-guide.md) by june
-- 012017-01-13 [从零开始 React 服务器渲染](./2017-01-react-from-scratch-server-render.md) by TAT.rocket
+- 2017-01-10 [模块加载工具制造指南](./2017-01-module-loading-tools-guide.md) by june01
+- 2017-01-13 [从零开始 React 服务器渲染](./2017-01-react-from-scratch-server-render.md) by TAT.rocket
 - 2017-01-16 [webgl 世界 matrix 入门](./2017-01-getting-started-with-webgl-world-matrix.md) by TAT.vorshen
 - 2017-02-08 [2017 年试试 Web 组件化框架 Omi](./2017-02-2017-try-web-component-framework-omi.md) by TAT.dnt
 - 2017-02-27 [线条之美，玩转 SVG 线条动画](./2017-02-the-beauty-of-the-lines-break-lines-svg-animation.md) by TAT.tennylv
@@ -500,8 +500,8 @@
 - 2017-03-15 [CSS Modules 入门及 React 中实践](./2017-03-getting-started-with-css-modules-and-react-in-practice.md) by burlin
 - 2017-03-15 [Omi 应用 md2site-0.5.0 发布 - 支持动态 markdown 拉取解析](./2017-03-omi-md2site-0-5-0-released-supports-dynamic-markdown-pull-parsing.md) by TAT.dnt
 - 2017-03-15 [教你用 webgl 快速创建一个小世界](./2017-03-teach-you-to-use-webgl-to-quickly-create-a-small-world.md) by TAT.vorshen
-- 2017-03-16 [png 的故事：获取图片信息和像素内容](./2017-03-the-story-of-png-get-images-and-pixel-content.md) by june
-- 012017-03-20 [Omi v1.0 震撼发布 – 开放现代的 Web 组件化框架](./2017-03-omi-v1-0-shock-released-suffocating-web-component-framework.md) by TAT.dnt
+- 2017-03-16 [png 的故事：获取图片信息和像素内容](./2017-03-the-story-of-png-get-images-and-pixel-content.md) by june01
+- 2017-03-20 [Omi v1.0 震撼发布 – 开放现代的 Web 组件化框架](./2017-03-omi-v1-0-shock-released-suffocating-web-component-framework.md) by TAT.dnt
 - 2017-03-20 [脚本错误量极致优化 - 监控上报与 Script error](./2017-03-jserror1.md) by TAT.joeyguo
 - 2017-03-21 [移动端输入框填坑系列（一）](./2017-03-moves-the-input-box-fill-series-a.md) by TAT.yana
 - 2017-03-22 [Omi v1.0.3 发布 – 正式支持传递 javascript 表达式](./2017-03-omi-v1-0-3-released-the-official-support-passing-javascript-expressions.md) by TAT.dnt
@@ -518,8 +518,8 @@
 - 2017-05-15 [Styled Components：让样式也成为组件](./2017-05-guide-styled-components.md) by TAT.rocket
 - 2017-05-15 [哈希函数介绍](./2017-05-hash-functions-introduction.md) by lin, dongpeng
 - 2017-05-17 [腾讯 Web 前端大会 <TFC2017 /> 热力来袭](./2017-05-tfc2017.md) by TAT.joeyguo
-- 2017-06-21 [png 的故事：隔行扫描算法](./2017-06-the-story-of-png-deinterlacing-algorithm.md) by june
-- 012017-06-22 [腾讯 Web 前端大会最强参会攻略](./2017-06-12748.md) by TAT.heyli
+- 2017-06-21 [png 的故事：隔行扫描算法](./2017-06-the-story-of-png-deinterlacing-algorithm.md) by june01
+- 2017-06-22 [腾讯 Web 前端大会最强参会攻略](./2017-06-12748.md) by TAT.heyli
 - 2017-06-27 [腾讯 Web 前端大会 分享浅析 — 主会场篇](./2017-06-12790.md) by TAT.heyli
 - 2017-07-03 [使用 pasition 制作酷炫 Path 过渡动画](./2017-07-12803.md) by TAT.dnt
 - 2017-07-05 [腾讯 Web 前端大会精彩回顾](./2017-07-12806.md) by TAT.heyli
@@ -539,16 +539,16 @@
 - 2017-09-12 [使用 gka 加速 createjs 动画开发及图片优化](./2017-09-gka3-2.md) by TAT.joeyguo
 - 2017-09-15 [用 threejs 制作一款简单的赛车游戏](./2017-09-13139.md) by TAT.vorshen
 - 2017-09-20 [现代化富文本编辑器 Quill Editor](./2017-09-13191.md) by lin, dongpeng
-- 2017-09-24 [gif 的故事：解剖表情动图的构成](./2017-09-13121.md) by june
-- 012018-03-08 [要做软件工程师，而不是前端工程师](./2018-03-13344.md) by TAT.heyli
+- 2017-09-24 [gif 的故事：解剖表情动图的构成](./2017-09-13121.md) by june01
+- 2018-03-08 [要做软件工程师，而不是前端工程师](./2018-03-13344.md) by TAT.heyli
 - 2018-04-25 [快速制作多倍图帧动画方式及原理:gka [–ratio]](./2018-04-gka-ratio.md) by TAT.joeyguo
 - 2018-04-29 [多个动画间存在部分相同动画的优化方案:gka](./2018-04-gka-optimize.md) by TAT.joeyguo
 - 2018-09-24 [小程序的全栈开发新时代](./2018-09-13428.md) by TAT.heyli
 - 2018-09-24 [云开发初探 —— 更简便的小程序开发模式丨掘金开发者大会](./2018-09-13430.md) by TAT.heyli
 - 2018-09-24 [小程序・云开发的云函数路由高级玩法](./2018-09-13433.md) by TAT.heyli
 - 2018-11-07 [Omi 拥抱 60FPS 的 Web 动画](./2018-11-13436.md) by TAT.dnt
-- 2018-12-08 [论如何进行小程序自定义组件的单元测试](./2018-12-13440.md) by june
-- 012019-07-12 [React Hooks 使用实例（一）](./2019-07-13486.md) by TAT. zhongzhong
+- 2018-12-08 [论如何进行小程序自定义组件的单元测试](./2018-12-13440.md) by june01
+- 2019-07-12 [React Hooks 使用实例（一）](./2019-07-13486.md) by TAT. zhongzhong
 - 2019-07-12 [伊斯坦布尔测试覆盖率的实现原理](./2019-07-13481.md) by TAT.steph
 - 2019-07-13 [React Hooks 使用实例（二）](./2019-07-13561.md) by TAT. zhongzhong
 - 2019-07-15 [浅谈正则表达式原理](./2019-07-13574.md) by TAT.liberty

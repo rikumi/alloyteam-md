@@ -262,4 +262,5 @@ async componentDidMount() {
 -   当下的 JS 引擎还没有原生支持 async/await 的，不过现在就可以使用 babel 转换成 ES5 等效代码，你甚至可以在生产环境中使用
 -   虽然 async/await 是 ES2016 才支持的新特性，目前尚处于草案状态，不过其作用和用法基本不会变了，一些其他语言已实现该特性，看来确实是大势所趋
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -191,4 +191,5 @@ function touchEnd(event) {
 
 后续会对这个组件增加一些新的功能 例如增加 canvas 涂抹元素和可拖拽元素等等，如果大家有好的建议也可以留言。
 
+
 <!-- {% endraw %} - for jekyll -->

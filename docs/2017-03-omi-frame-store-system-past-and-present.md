@@ -364,4 +364,5 @@ Omi Store 体系以前通过 addView 进行视图收集，store 进行 update �
 
 ![](http://images2015.cnblogs.com/blog/105416/201702/105416-20170208095745213-1049686133.png)
 
+
 <!-- {% endraw %} - for jekyll -->

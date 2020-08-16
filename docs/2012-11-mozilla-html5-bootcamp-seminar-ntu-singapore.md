@@ -30,4 +30,5 @@ source_link: http://www.alloyteam.com/2012/11/mozilla-html5-bootcamp-seminar-ntu
 
 [![](http://www.alloyteam.com/wp-content/uploads/2012/11/Oscar-on-the-stage-11-1021x1024.jpg "Oscar on the stage 1")](http://www.alloyteam.com/wp-content/uploads/2012/11/Oscar-on-the-stage-11.jpg)
 
+
 <!-- {% endraw %} - for jekyll -->

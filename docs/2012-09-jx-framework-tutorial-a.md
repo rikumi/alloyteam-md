@@ -112,4 +112,5 @@ JX 的源码目前开源在 Github，可以从 [http://alloyteam.github.com/JX/#
 
 下一篇：[JX 框架入门教程 (二)](http://www.alloyteam.com/2013/08/jx-framework-tutorial-b/ "JX 框架入门教程 (二)")
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -193,4 +193,5 @@ function addEvent(eventTarget, eventType, eventHandler) {
 
 [![yidama](http://www.alloyteam.com/wp-content/uploads/2014/01/yidama.jpg)](http://www.alloyteam.com/wp-content/uploads/2014/01/yidama.jpg)
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -137,4 +137,5 @@ device pixel ratio = render resolution \\ logical resolution
 5.  [CSS, Retina, and Physical Pixels](https://n12v.com/css-retina-and-physical-pixels/)
 6.  [1px on retina](http://efe.baidu.com/blog/1px-on-retina/)
 
+
 <!-- {% endraw %} - for jekyll -->

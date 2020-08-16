@@ -92,4 +92,5 @@ var createMask = singleton(createMask);
 
 好吧，如果你偏要这么做，那也只需要把新函数的 prototype 绑到旧函数的 prototype 上就可以了.
 
+
 <!-- {% endraw %} - for jekyll -->

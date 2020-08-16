@@ -46,4 +46,5 @@ source_link: http://www.alloyteam.com/2015/06/xing-neng-you-hua-he-xin-ding-yi-j
 
 其实在性能优化领域还有很多细节值得探索和挖掘，这篇文章先让大家对核心性能优化有一个直观的了解以及认识，下篇文章将会从性能工具角度考虑，如何检测性能优化中遇到的问题。
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -47,4 +47,5 @@ The Verge 把 MacBook Pro 15 英寸视网膜版与刚发布的 13 英寸 MacBook
 
 ![全新 Retina Macbook Pro 第一手真机照片](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/051326oFD.jpg)
 
+
 <!-- {% endraw %} - for jekyll -->

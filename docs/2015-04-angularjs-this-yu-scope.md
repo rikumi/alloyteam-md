@@ -172,4 +172,5 @@ function CCtrl($scope) {
 
 <http://codetunnel.io/angularjs-controller-as-or-scope/>
 
+
 <!-- {% endraw %} - for jekyll -->

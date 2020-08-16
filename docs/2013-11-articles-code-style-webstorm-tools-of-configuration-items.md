@@ -21,4 +21,5 @@ Project- 指的就是 project 级别的 code style（ps：我们习惯称： c
 
 Global- 除 project 之外的所以其他的 scheme 都会是 global 生效的，默认是预定义的 default（ps：这个 scheme 是不可更改的，当发生更改时，webstorm 会生成一个新的 scheme）。
 
+
 <!-- {% endraw %} - for jekyll -->

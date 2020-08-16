@@ -98,9 +98,9 @@ backbonejs
     
 ```html
 <script type=’text/template’ id=’list_template’ >
-        <% for( var p in data ){ %>
-        <li <%if(data[p].done){ %>class=’done-true’<% }%> >’  <%if(data[p].done){ %>checked<% }%> ><%=data[p].todo%></li>
-        <% }%>
+        <% for( var p in data ){%>
+        <li <%if(data[p].done){%>class=’done-true’<%}%> >’  <%if(data[p].done){%>checked<%}%> ><%=data[p].todo%></li>
+        <%}%>
     </script>
 ```
 
@@ -542,5 +542,6 @@ render 方法的调用条件是当前组件数据改变而调用 setState 时。
 
 最后这篇文章的目的，有需要的时候，为大家的技术选型提供一些其它的思路。  
 欢迎大家探讨和拍砖 。
+
 
 <!-- {% endraw %} - for jekyll -->

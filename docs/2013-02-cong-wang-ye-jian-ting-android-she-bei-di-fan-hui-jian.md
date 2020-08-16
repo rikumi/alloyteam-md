@@ -38,4 +38,5 @@ XBack.listen(function () {
 
 But anyway，对于结构和逻辑比较简单的跳转页来说（就是为了返回 App 用的），这个方法还是蛮实用的，对不对？嘻嘻～
 
+
 <!-- {% endraw %} - for jekyll -->

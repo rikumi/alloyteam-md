@@ -105,4 +105,5 @@ chart.append("g").attr("class", "y axis").call(yAxis);
 
 由于篇幅关系，本篇文章就暂时只介绍最基本的柱状图是怎么完成的，后续会更新动态柱状图以及为柱状图添加交互系效果的实现方法，敬请期待！
 
+
 <!-- {% endraw %} - for jekyll -->

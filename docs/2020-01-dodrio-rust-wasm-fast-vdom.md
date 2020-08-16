@@ -329,4 +329,5 @@ Dodrio 是一个新的虚拟 DOM 库，旨在通过广泛使用快速指针碰�
 
 感谢 Luke Wagner 和 Alex Crichton 为 Dodrio 的设计做出了贡献，并参加了头脑风暴和橡皮鸭环节。我们还与 React、Elm 和 Ember 团队的核心开发人员一起讨论，我们感谢他们的知识和理解，使得这些讨论成果最终进入了 Dodrio 的设计中。最后感谢 Jason Orendorff，Lin Clark，Till Schneidereit，Alex Crichton，Luke Wagner，Evan Czaplicki 和 Robin Heggelund Hansen 提供的对本文早期草稿的宝贵反馈。
 
+
 <!-- {% endraw %} - for jekyll -->

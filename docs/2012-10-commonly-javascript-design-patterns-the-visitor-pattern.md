@@ -9,4 +9,5 @@ source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-pattern
 
 待续。。
 
+
 <!-- {% endraw %} - for jekyll -->

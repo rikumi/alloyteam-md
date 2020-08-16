@@ -32,4 +32,5 @@ source_link: http://www.alloyteam.com/2013/12/css-cover-up-the-use-of-border-fli
 
 至于另一个特点：使用四周空白较多的图片。**使用这种图片的好处是消除翻转的时候处在图片边缘的图纹被隐藏所带来的视觉破绽**，具体这里说不清楚，不过大家找一张图片四周也有较多图纹的图片试试就清楚了。
 
+
 <!-- {% endraw %} - for jekyll -->

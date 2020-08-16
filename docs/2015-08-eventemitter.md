@@ -130,4 +130,5 @@ emitter.emit("jerry");
 
 EventEmitter 为 node 的事件注册和分发提供了较好的形式。提高的代码的可读性及维护的便利性。
 
+
 <!-- {% endraw %} - for jekyll -->

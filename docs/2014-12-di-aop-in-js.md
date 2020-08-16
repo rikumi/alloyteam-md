@@ -144,4 +144,5 @@ ns.foo();
 1. 在 JS 中实现 DI：利用函数的 toString 方法  
 2. 在 JS 中实现 AOP：重写原函数
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -285,4 +285,5 @@ Javascript 单元测试，我们真的需要吗？
 
 接触 "抹茶" 的起因是项目驱动需要写些单元测试用例，knight 大哥推荐了 Mocha 和 Chai 组合来实现我们单元测试的需求。Javascripte 单元测试工具比较著名的还有 Qunit，JsUnit，JsTestDriver 等等，笔者也是刚刚接触，上面的也是基础学习的分享，不敢乱下定论哪款框架好，花时间去研究哪款框架好用，不如试试 “抹茶” 这种 Hour 级的学习成本，值得你们尝试学习。
 
+
 <!-- {% endraw %} - for jekyll -->

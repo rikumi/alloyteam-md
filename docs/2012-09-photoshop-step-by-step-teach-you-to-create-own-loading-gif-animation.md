@@ -133,4 +133,5 @@ source_link: http://www.alloyteam.com/2012/09/photoshop-step-by-step-teach-you-t
 
 总结：知道 gif 动画的初步制作原理后，以后为我们制作逐帧动画也奠定了一定基础！如有表述不对是我地方可以给我留言哦～\\(^o^)/~
 
+
 <!-- {% endraw %} - for jekyll -->

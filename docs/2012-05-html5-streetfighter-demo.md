@@ -190,4 +190,5 @@ If ( move || jump || attack ) return false;
 
 **转载请注明原地址：**<http://www.alloyteam.com/2012/05/html5-streetfighter-demo/>
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -89,4 +89,5 @@ assert，搞编程的应该对这个单词不陌生：断言。使用 console.as
 1.  conssole.timestamp & console.profile 这两个函数对应 chrome 调试面板的两个 tab，调试性能时可用上，有兴趣的童鞋可以看看：[Google 开发者文档之 console](https://developers.google.com/chrome-developer-tools/docs/console-api)
 2.  本文的[演示版本地址](http://www.ipresst.com/play/52774e16d1bf21205e000d3f)
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -106,4 +106,5 @@ Etag 是服务器自动生成或者由开发者生成的对应资源在服务器
 4.  POST 请求无法被缓存
 5.  HTTP 响应头中不包含 Last-Modified/Etag，也不包含 Cache-Control/Expires 的请求无法被缓存
 
+
 <!-- {% endraw %} - for jekyll -->

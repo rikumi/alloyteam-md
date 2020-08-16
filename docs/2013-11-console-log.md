@@ -98,4 +98,5 @@ console.log("%d + %d =", 1, 1, 2);
 
 [下集入口](http://www.alloyteam.com/2013/11/console-log-2/)
 
+
 <!-- {% endraw %} - for jekyll -->

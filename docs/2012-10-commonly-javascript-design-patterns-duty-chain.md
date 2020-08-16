@@ -38,4 +38,5 @@ js 中的事件冒泡就是作为一个职责链来实现的。一个事件在�
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
 
+
 <!-- {% endraw %} - for jekyll -->

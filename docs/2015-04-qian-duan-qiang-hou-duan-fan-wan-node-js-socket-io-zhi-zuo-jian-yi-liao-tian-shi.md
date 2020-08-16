@@ -343,4 +343,5 @@ this.io.on("connection", function (socket) {
 
 [![](https://github.com/lcxfs1991/chat-socket.io/raw/master/websocket_support.png)](https://github.com/lcxfs1991/chat-socket.io/blob/master/websocket_support.png)
 
+
 <!-- {% endraw %} - for jekyll -->

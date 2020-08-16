@@ -59,4 +59,5 @@ var ellipsis = function (element) {
 
 通过不断添加新字符并监测添加后的宽度，就可以做到自适应不同的字体和字体大小了。具体例子[点击](http://alloyteam.com/demo/text-overflow-ellipsis-demo.html "text-overflow-ellipsis-demo")这里查看，这个 demo 对 text-overflow 的支持进行了检测，如果支持 ellipsis，就直接使用 css 的，毕竟 js 计算能省一点是一点。检测 css 属性及其支持情况可以查看[这篇文章](http://alloyteam.com/2011/10/%e5%88%a4%e6%96%ad%e6%b5%8f%e8%a7%88%e5%99%a8%e6%98%af%e5%90%a6%e6%94%af%e6%8c%81%e6%8c%87%e5%ae%9acss%e5%b1%9e%e6%80%a7%e5%92%8c%e6%8c%87%e5%ae%9a%e5%80%bc/ "判断浏览器是否支持指定 CSS 属性和指定值")。
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -69,4 +69,5 @@ var stopEvent = function (e) {
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
 
+
 <!-- {% endraw %} - for jekyll -->

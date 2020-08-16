@@ -114,4 +114,5 @@ var timeout = "timeout" in option ? option.timeout : 1000;
 
 再废话一句吧，ES2015 是趋势，新的语法简洁清晰，虽然现在支持的环境并不多，不过[搭配 babel 可以转换成主流环境都支持的语法](http://www.alloyteam.com/2015/08/its-time-to-use-es2015/)。
 
+
 <!-- {% endraw %} - for jekyll -->

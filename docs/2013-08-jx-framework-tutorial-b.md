@@ -179,4 +179,5 @@ wrapEl.innerHTML = J.string.template("vcardTmpl", data.responseJSON);
 
 更多 JX 框架活生生的 Demo，请猛戳 [JX Live Demo](http://alloyteam.github.io/JXLiveDemo/ "JX Live Demo")。
 
+
 <!-- {% endraw %} - for jekyll -->

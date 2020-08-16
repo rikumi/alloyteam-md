@@ -110,12 +110,13 @@ content = content.replace(regex, function (m, $1, $2) {
 fs.writeFileSync(outputHtmlFile, content);
 content = fs.readFileSync(inputJsFile).toString();
 var templateStr = JSON.stringify(result);
-content = content.replace("{ %HtmlTemplates% }", templateStr);
+content = content.replace("{%HtmlTemplates%}", templateStr);
 fs.writeFileSync(outputJsFile, content);
 ```
 
 ### 收尾
 
 经过这么一搞，把模板代码抽出来之后，首页的大小立马从 37KB 降到 1.7KB. 虽然是个小技巧，也足以成大谋。那感觉，可是跟涨薪一样爽哇～～
+
 
 <!-- {% endraw %} - for jekyll -->

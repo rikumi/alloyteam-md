@@ -194,4 +194,5 @@ if (_loadedScriptCount === count) {
 点击这里: [jsready demo](http://kmdjs.github.io/jsready/)  
 React 的 Class base 的风格还是非常讨人喜欢的，自我感觉 jsready 这个特性非常重要，刚接触 reactjs 半天 = =!，欢迎吐槽：)
 
+
 <!-- {% endraw %} - for jekyll -->

@@ -159,7 +159,10 @@ source_link: ${yaml.stringify(src).trim()}
 ${content}
 `.trim());
 
-const indexFile = path.join(__dirname, '../docs/index.md');
+const dir = path.join(__dirname, '../docs');
+mkdirp.sync(dir);
+
+const indexFile = path.join(dir, 'index.md');
 fs.writeFileSync(indexFile, '');
 
 /**
@@ -173,8 +176,7 @@ const processFile = async (src) => {
   const next = getNext($);
   getContent($, src).then(content => {
     const relative = formatFileName(src);
-    const file = path.join(__dirname, '../docs', relative);
-    mkdirp.sync(path.dirname(file));
+    const file = path.join(dir, relative);
     fs.writeFileSync(file, formatFile({ src, title, date, author, content }));
     fs.appendFileSync(indexFile, `${date} [${title}](./${relative}) by ${author}`);
   });

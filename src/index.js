@@ -82,10 +82,7 @@ const getContent = async ($, src) => {
   const parsedMD = td.turndown(content.html())
     
     // 普通文本中的 script 标签不知道为啥不会被转义，先手动加上代码块
-    .replace(/(<script\b[\s\S]*?>[\s\S]*?<\/\s*script>)/ig, '\n```html\n$1\n```\n')
-
-    // 暂时隔开 { % % } 标记，防止部署到 Jekyll 的时候出错
-    .replace(/\{(%[\s\S]*?%)\}/g, '{ $1 }')
+    .replace(/(<script\b[\s\S]*?>[\s\S]*?<\/\s*script>)/ig, '\n```html\n$1\n```\n');
   
   const formattedMD = (
     await remark()
@@ -159,7 +156,11 @@ author: ${yaml.stringify(author).trim()}
 source_link: ${yaml.stringify(src).trim()}
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ${content}
+
+<!-- {% endraw %} - for jekyll -->
 `.trim());
 
 const dir = path.join(__dirname, '../docs');

@@ -150,10 +150,10 @@ const formatFileName = (src) => {
 
 const formatFile = ({ src, title, date, author, content }) => (`
 ---
-title: ${yaml.stringify(title)}
-date: ${yaml.stringify(date)}
-author: ${yaml.stringify(author)}
-source_link: ${yaml.stringify(src)}
+title: ${yaml.stringify(title).trim()}
+date: ${yaml.stringify(date).trim()}
+author: ${yaml.stringify(author).trim()}
+source_link: ${yaml.stringify(src).trim()}
 ---
 
 ${content}

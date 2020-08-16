@@ -11,11 +11,15 @@ module.exports = {
     summaryLength: 120,
     nav: [
       {
-        text: '官网',
+        text: '项目主页',
+        link: 'https://github.com/rikumi/alloyteam-md'
+      },
+      {
+        text: 'AlloyTeam 官网',
         link: 'http://www.alloyteam.com/'
       },
       {
-        text: '博客',
+        text: 'AlloyTeam 博客',
         link: 'http://www.alloyteam.com/page/0/'
       },
       {

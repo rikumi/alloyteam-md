@@ -50,7 +50,7 @@ const fetchDocument = (url) => axios.get(url).then(({ data }) => cheerio.load(da
 /**
  * 转换文章正文
  */
-const getContent = async ($) => {
+const getContent = async ($, src) => {
   const content = $('.content_banner .text');
 
   // 处理万恶的后端代码高亮
@@ -65,7 +65,7 @@ const getContent = async ($) => {
     // 探测语言，把 java/php/c++ 修正为 JS
     const language = detectLang(code).toLowerCase()
       .replace(/^unknown$/, '')
-      .replace(/^java|php|c\+\+$/, 'javascript');
+      .replace(/^(java|php|c\+\+)$/, 'javascript');
 
     // 格式化 JS 代码
     if (language === 'javascript' || language === 'html' || language === 'css') {
@@ -78,7 +78,12 @@ const getContent = async ($) => {
     el.replaceWith(`<pre><code class="language-${language}">${htmlEscape.escape(code)}</code></pre>`);
   });
 
-  const parsedMD = td.turndown(content.html());
+  // 解析 HTML 为 Markdown
+  const parsedMD = td.turndown(content.html())
+    
+    // 普通文本中的 script 标签不知道为啥不会被转义，先手动加上代码块
+    .replace(/(<script\b[\s\S]*?>[\s\S]*?<\/\s*script>)/ig, '\n```html\n$1\n```\n')
+  
   const formattedMD = (
     await remark()
       // 盘古之白
@@ -90,6 +95,7 @@ const getContent = async ($) => {
         visit(tree, 'image', (node) => attachmentNodes.push(node));
         visit(tree, 'link', (node) => attachmentNodes.push(node));
         await Promise.all(attachmentNodes.map(async (node) => {
+          node.url = url.resolve(src, node.url);
           if (node.type === 'image' || ~node.url.indexOf('/wp-content/uploads/')) {
             node.url = await transformAttachment(node.url);
           }
@@ -161,7 +167,7 @@ const processFile = async (src) => {
   const title = getTitle($);
   const date = getDate($);
   const author = getAuthor($);
-  const content = await getContent($);
+  const content = await getContent($, src);
   const next = getNext($);
   const file = path.join(__dirname, '../posts', formatFileName(src));
 

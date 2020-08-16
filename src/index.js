@@ -85,7 +85,7 @@ const getContent = async ($, src) => {
     .replace(/(<script\b[\s\S]*?>[\s\S]*?<\/\s*script>)/ig, '\n```html\n$1\n```\n')
 
     // 暂时隔开 {% %} 标记，防止部署到 Jekyll 的时候出错
-    .replace(/{(%[\s\S]*?%)}/ig, '{ $1 }')
+    .replace(/\{(%[\s\S]*?%)\}/g, '{ $1 }')
   
   const formattedMD = (
     await remark()

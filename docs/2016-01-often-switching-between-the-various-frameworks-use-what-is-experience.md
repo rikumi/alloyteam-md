@@ -97,7 +97,7 @@ backbonejs
 ```html
 <script type=’text/template’ id=’list_template’ >
         <% for( var p in data ){%>
-        <li <%if(data[p].done){%>class=’done-true’<%}%> >’  <%if(data[p].done){%>checked<%}%> ><%=data[p].todo%></li>
+        <li <%if(data[p].done){ %>class=’done-true’<% }%> >’  <%if(data[p].done){ %>checked<% }%> ><%=data[p].todo%></li>
         <%}%>
     </script>
 ```

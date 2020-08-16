@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/%e7%94%a8html5-audio-api%e5%bc%80%e5%8f%91%e6%b8%b8%e6%88%8f%e7%9a%843d%e9%9f%b3%e6%95%88%e5%92%8c%e6%b7%b7%e9%9f%b3/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **支持的浏览器：![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/14475238f.jpg)**
 
 **难度：中等**
@@ -331,3 +333,5 @@ source_link: http://www.alloyteam.com/2012/05/%e7%94%a8html5-audio-api%e5%bc%80%
 **译自：**<http://www.html5rocks.com/en/tutorials/webaudio/games/>
 
 出处：蒋宇捷的博客
+
+<!-- {% endraw %} - for jekyll -->

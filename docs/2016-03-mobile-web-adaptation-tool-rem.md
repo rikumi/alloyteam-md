@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前言  
 
 * * *
@@ -297,3 +299,5 @@ rem 进行屏幕适配总结
 聚划算：<https://jhs.m.taobao.com/m/index.htm#!all>
 
 参考资料：<http://www.nihaoshijie.com.cn/index.php/archives/593>
+
+<!-- {% endraw %} - for jekyll -->

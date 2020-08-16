@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/the-html5-dreamworks-code-jam-guangdong-area-live-coverage-of-the/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## HTML5 Code Jam 梦开始的地方
 
 [HTML5 梦工场](http://www.html5dw.com/)的【HTML5 Code Jam】广东区第二期火热开始了，新的两天一夜，会产生什么大作出来呢？请大家密切关注我们的博客，我们将全程直播整个 CodeJam 过程！
@@ -89,3 +91,5 @@ source_link: http://www.alloyteam.com/2012/05/the-html5-dreamworks-code-jam-guan
 本文地址：<http://www.alloyteam.com/?p=1162>
 
 —— 各位敬爱的 Coder 请继续关注我们，明天将会继续直播现场作品进展。。。
+
+<!-- {% endraw %} - for jekyll -->

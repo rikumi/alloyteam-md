@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-template-method-pattern/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 模式方法是预先定义一组算法，先把算法的不变部分抽象到父类，再将另外一些可变的步骤延迟到子类去实现。听起来有点像工厂模式 (非前面说过的简单工厂模式).  
 最大的区别是，工厂模式的意图是根据子类的实现最终获得一种对象。而模版方法模式着重于父类对子类的控制.  
 
@@ -124,3 +126,5 @@ var 斗地主 = function () {};
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

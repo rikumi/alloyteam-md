@@ -5,6 +5,8 @@ author: TAT.ycxu
 source_link: http://www.alloyteam.com/2015/06/zai-scss-zhong-zhu-shi-mo-kuai-jie-gou/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 一般来说，有重构的团队，工作流程是这样的：设计师出稿 > 重构转静态页面 > jser 拉取数据实现交互等 … 这样我们总是有静态页面在备份的，下次遇到修改什么的或者换一个人，还是可以由这个简单的静态页面熟悉下 html 结构。
 
 而没有重构或一个人一条龙服务的，那就是：设计师出稿 > 边写页面边拉取数据实现交互… 这种模式下，是不存在静态页面备份的，如果碰到修改什么或者换人，那看到的直接就是源代码中的各种逻辑判断，如果是你自己写的代码那恭喜你，如果不是的话要不就连猜带蒙要不就咬紧牙关啃吧，当然最后还是免不了各种 bug。
@@ -29,3 +31,5 @@ source_link: http://www.alloyteam.com/2015/06/zai-scss-zhong-zhu-shi-mo-kuai-jie
 -   多行判断采用 `if`,`else`,`end if`
 
 当然这中方法也有局限性，但是用在以模块化开发的 scss 文件中却是再好不过。
+
+<!-- {% endraw %} - for jekyll -->

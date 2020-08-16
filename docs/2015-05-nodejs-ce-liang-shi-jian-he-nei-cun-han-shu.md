@@ -5,6 +5,8 @@ author: TAT.Perlt
 source_link: http://www.alloyteam.com/2015/05/nodejs-ce-liang-shi-jian-he-nei-cun-han-shu/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 本篇文章用来介绍在 nodejs 中，用来测量[时间](http://baike.baidu.com/subview/4019/7140954.htm)和内存的函数
 
 process.memoryUsage  
@@ -52,3 +54,5 @@ setTimeout(function () {
     benchmark took 1000000527 nanoseconds
 
 相应 api 链接为 [https://nodejs.org/api/process.html#process_process_hrtime](https://nodejs.org/api/process.html#process_process_hrtime "process.hrtime")
+
+<!-- {% endraw %} - for jekyll -->

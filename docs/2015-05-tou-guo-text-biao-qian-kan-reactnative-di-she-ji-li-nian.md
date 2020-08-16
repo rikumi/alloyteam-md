@@ -5,6 +5,8 @@ author: TAT.bizai
 source_link: http://www.alloyteam.com/2015/05/tou-guo-text-biao-qian-kan-reactnative-di-she-ji-li-nian/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 现在前端圈子最热的莫过于 ReactNative。以 Web 的开发方式来开发 Native，并且仗这 facebook 这个国际互联网公司做保证，这种革命性的产品都让前端 coder 和客户端 coder 都炸开了。本文打算以 ReactNative 的 Text 标签的角度，这个最基本的标签，来带你跨入入 ReactNative 的世界的第一步。
 
 如果把 React Native 上的 View 标签对应成 web 的 div 标签，那么想把 Text 标签对应为 web 的 Span 标签或者 P 标签真是大错特错。严格来说，你应该把 Text 当初一个 ReactNative 的组件！（是的，本身就是！）Text 标签在 ReactNative 上非常非常的常用，其属性方法，内部细节为开发者所必须掌握的。同时我们能透过 Text 标签，也能理解 ReactNative 上的一些设计理念。
@@ -94,3 +96,5 @@ Text 元素是一种特殊的相对布局。如果 Text 标签嵌套 Text 标签
 一方面，React 组件设计时考虑到更加严谨的独立隔离环境，这一你的这个组件就能够在任何应用程序上应用而不带有任何依赖，包括样式。只要相信组件传递的属性是相同的，组件渲染和行为都是一样的。如果我们的文本风格按照 Web 上的继承关系，组件间的样式将会相互影响，而违背组件的独立性。而**这样严谨的独立性，对于组件的复用和可移植性来讲是必不可少的**
 
 另一方面，这一的设计对代码实现是简单的。我们不需要遍历整个 Dom 树来决定要显示的每一个文本节点。文本样式继承只是在组件内部，不影响其他组件和系统本身。这样在 ReactNative 的实现机制上，**简单而又高效**，一举两得。
+
+<!-- {% endraw %} - for jekyll -->

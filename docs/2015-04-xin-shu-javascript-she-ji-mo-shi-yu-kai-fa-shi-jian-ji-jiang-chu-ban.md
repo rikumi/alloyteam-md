@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2015/04/xin-shu-javascript-she-ji-mo-shi-yu-kai-fa-shi-jian-ji-jiang-chu-ban/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **HI**
 
 经过 2 年准备，7 个月写作，8 个月修改，《JavaScript 设计模式与开发实践》即将出版（5 月 20 号左右）。
@@ -30,3 +32,5 @@ source_link: http://www.alloyteam.com/2015/04/xin-shu-javascript-she-ji-mo-shi-y
 更多样章可以移步到图灵社区：
 
 <http://www.ituring.com.cn/book/1632>
+
+<!-- {% endraw %} - for jekyll -->

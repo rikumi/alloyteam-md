@@ -5,6 +5,8 @@ author: TAT.dmyang
 source_link: http://www.alloyteam.com/2012/11/page-visibility-api/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 一开始先看个[小小 demo](http://www.alloyteam.com/wp-content/uploads/2012/11/page-visibility.html "page visibility demo")，**切换 tab 对比下！**
 
 不得不说，浏览器的多 tab（and 多窗口）设计确实是满足了用户同时浏览很多个网页的需求，但是，网上有成千上万的页面，这些页面性能又参差不齐，对于某些性能很差的页面，用户停留在这个页面倒还好，但是当用户切换了到了其他 tab 页时，有可能会出现由于性能差的页面卡死导致整个浏览器卡死甚至机器卡死，其他页面好冤，浏览器好冤，机子好冤 \[汗]。
@@ -63,3 +65,5 @@ bPrefix 是浏览器前缀，如 webkit。
 1\.[W3C PageVisibility API Spec](http://www.w3.org/TR/page-visibility)
 
 2\.[Using the PageVisibility API](http://www.html5rocks.com/en/tutorials/pagevisibility/intro/)
+
+<!-- {% endraw %} - for jekyll -->

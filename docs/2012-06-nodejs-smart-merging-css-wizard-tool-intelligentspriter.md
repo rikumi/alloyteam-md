@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2012/06/nodejs-smart-merging-css-wizard-tool-intelligentspriter/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 一、引子
 
 根据雅虎的网站优化准则，合并页面用到的图片，可以减少加载时发起的 http 请求数目，可以加速页面加载。具体能提速多少，本人没测试过，也就不好说了。
@@ -182,3 +184,5 @@ spriter.merge(configFileName);
 ```
 
 BTW：isptriter 已经更新啦，请转向这里继续了解：[【更新】iSpriter – 智能合并 CSS 精灵图](http://www.alloyteam.com/2012/09/update-ispriter-smart-merging-css-sprite/ "【更新】iSpriter – 智能合并 CSS 精灵图")。
+
+<!-- {% endraw %} - for jekyll -->

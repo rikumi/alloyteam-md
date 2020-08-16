@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/%e5%a6%82%e4%bd%9530%e5%88%86%e9%92%9f%e6%9e%84%e5%bb%bawindows8-metro%e9%a3%8e%e6%a0%bc%e7%9a%84web-app22/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 We’re now going to see how to display the details of each article. We will use for that a **transition animation**, we will play with the**simulator** and we will continue to discover Blend to use **CSS3 Multi-columns** for instance.
 
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/1401465pN.png)
@@ -220,3 +222,5 @@ Thanks for reading! If you’d like to go further, here are some good articles t
 - [Create your first Metro style app using JavaScript](http://msdn.microsoft.com/en-us/library/windows/apps/br211385.aspx) covering the same topic and complementary to these 2 articles.
 
 David
+
+<!-- {% endraw %} - for jekyll -->

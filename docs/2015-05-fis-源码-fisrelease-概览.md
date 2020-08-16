@@ -5,6 +5,8 @@ author: TAT.casperchen
 source_link: http://www.alloyteam.com/2015/05/fis%e6%ba%90%e7%a0%81-fisrelease%e6%a6%82%e8%a7%88/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前面已经已 `fis server open` 为例，讲解了 FIS 的整体架构设计，以及命令解析 & 执行的过程。下面就进入 FIS 最核心的部分，看看执行 `fis release` 这个命令时，FIS 内部的代码逻辑。
 
 这一看不打紧，基本把 `fis-kernel` 的核心模块翻了个遍，虽然大部分细节已经在脑海里里，但是要完整清晰的写出来不容易。于是决定放弃大而全的篇幅，先来个概要的分析，后续文章再针对涉及的各个环节的细节进行展开。
@@ -209,3 +211,5 @@ readSourcesAndReleaseToDest(options);
 前面说了，细节非常多，后续文章继续展开。。。
 
 文章: casperchen
+
+<!-- {% endraw %} - for jekyll -->

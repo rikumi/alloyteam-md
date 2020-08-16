@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/12/alloyteam-front-end-technology-conference-ac-2015/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![AC2015](http://www.alloyteam.com/wp-content/uploads/2015/12/AC2015.png)](http://www.alloyteam.com/wp-content/uploads/2015/12/AC2015.png)
 
 活动介绍  
@@ -98,3 +100,5 @@ AlloyTeam 负责人，HTML5 梦工场深圳负责人，十年 Web 前端从业�
 * * *
 
 [![qrcode_for_gh_1c54f4aa2190_430](http://www.alloyteam.com/wp-content/uploads/2012/05/qrcode_for_gh_1c54f4aa2190_430.jpg)](http://www.alloyteam.com/wp-content/uploads/2012/05/qrcode_for_gh_1c54f4aa2190_430.jpg)
+
+<!-- {% endraw %} - for jekyll -->

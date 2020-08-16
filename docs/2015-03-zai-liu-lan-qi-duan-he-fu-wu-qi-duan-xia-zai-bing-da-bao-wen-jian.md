@@ -5,6 +5,8 @@ author: TAT.felix
 source_link: http://www.alloyteam.com/2015/03/zai-liu-lan-qi-duan-he-fu-wu-qi-duan-xia-zai-bing-da-bao-wen-jian/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ```html
 假设我们有以下目录结构：
  
@@ -326,3 +328,5 @@ ajax 异步下载文件，如何得知所有文件下载完成呢？ 可以自�
 - <a href="https://github.com/eligrey/FileSaver.js">[FileSaver](https://github.com/eligrey/FileSaver.js)</a> 
 - <a href="https://github.com/petkaantonov/bluebird">[bluebird](https://github.com/petkaantonov/bluebird) </a>
 ```
+
+<!-- {% endraw %} - for jekyll -->

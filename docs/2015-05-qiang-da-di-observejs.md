@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/05/qiang-da-di-observejs/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 写在前面  
 
 * * *
@@ -161,3 +163,5 @@ Github
 <https://github.com/kmdjs/observejs>
 
 现在开始，请愉快地使用吧！
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.JohnnyYoav Weiss
 source_link: http://www.alloyteam.com/2016/05/preload-what-is-it-good-for-part1/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文：<https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/>
 
 作者：[Yoav Weiss](https://www.smashingmagazine.com/author/yoav-weiss/ "Posts by Yoav Weiss")
@@ -154,3 +156,5 @@ onload="var script = document.createElement('script');
 \\======================== 译文分割线 ===========================
 
 由于本文篇幅较长，便于大家吸收消化，更多网络细节以及 HTTP/2 相关内容，将于下一篇博客与各位见面～
+
+<!-- {% endraw %} - for jekyll -->

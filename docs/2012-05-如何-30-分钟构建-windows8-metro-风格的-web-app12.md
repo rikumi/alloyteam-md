@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/%e5%a6%82%e4%bd%9530%e5%88%86%e9%92%9f%e6%9e%84%e5%bb%bawindows8-metro%e9%a3%8e%e6%a0%bc%e7%9a%84web-app12/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Starting from scratch, we’re going to learn through these 2 tutorials how to build a small RSS reader with **HTML5**, **CSS3** and **WinJS**, the Microsoft JavaScript framework for Windows 8 Metro Style Apps. We’ll try also to follow the Metro design guidelines by using**Expression Blend 5**. If everything goes fine, you should be able to follow these 2 articles in 30 minutes.
 
 This first article will help you to create the welcome screen that will use a WinJS ListView control. This control will display all the blog posts recently published via nice thumbnails. The 2nd one will work on the detail view displayed when you’ll click on one of the items. At last, you’ll find a video at the end of this article playing in real-time the following steps as well as the final solution to download. See them as useful complementary resources if you need to clarify some parts of this article.
@@ -422,3 +424,5 @@ We’ve made good progress so far. We now need to display the detail of each art
 See you in the next article for that.
 
 David
+
+<!-- {% endraw %} - for jekyll -->

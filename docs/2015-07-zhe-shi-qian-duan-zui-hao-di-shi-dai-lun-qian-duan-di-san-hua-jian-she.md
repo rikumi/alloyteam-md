@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/07/zhe-shi-qian-duan-zui-hao-di-shi-dai-lun-qian-duan-di-san-hua-jian-she/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **CSDN 原文链接：**<http://www.csdn.net/article/2015-07-17/2825243-alloy-team-leehey>
 
 **摘要：**深 JS 大会近日在深圳举办，涵盖了 JS 领域众多热点话题，很多专家的精彩分享更是引起参会者的诸多思考，如赫门演讲中提出的 “每 18 至 24 个月，前端都会难一倍”。本文来自腾讯 AlloyTeam 李成熙，分享了他参会的所见所感。
@@ -62,3 +64,5 @@ AlloyTeam 内部其实有类似的更完善的方案 —— MVVM 框架 [Q.js](h
 **结语**
 
 前端的自动化、服务化和实时化是前端开发中正在发生的变化，是一系列深刻的变革。这些变革使前端的能力更加丰富、创造的应用更加完美。在深圳举办的这次中国 Javascript 大会上的讲座，都相当精彩，有意无意地反应出业界的这些变化。希望下一届的大会能更加国际化，为我们带来更多的技术干货。
+
+<!-- {% endraw %} - for jekyll -->

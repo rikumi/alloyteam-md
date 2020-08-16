@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/05/observejs-gai-shan-zu-jian-kai-fa-ti-yan/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 传送门  
 
 * * *
@@ -170,3 +172,5 @@ observejs 也许是你的另一选择，欢迎尝试，感谢对 observejs 提�
 observejs：<https://github.com/kmdjs/observejs>  
 本文演示：<http://kmdjs.github.io/observejs/list/>  
 本文代码：<https://github.com/kmdjs/observejs/tree/master/example/list>
+
+<!-- {% endraw %} - for jekyll -->

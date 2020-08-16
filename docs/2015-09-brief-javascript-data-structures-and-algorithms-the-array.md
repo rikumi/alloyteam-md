@@ -5,6 +5,8 @@ author: TAT.李强
 source_link: http://www.alloyteam.com/2015/09/brief-javascript-data-structures-and-algorithms-the-array/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # 为什么先讲数组
 
 * * *
@@ -430,3 +432,5 @@ bool del(struct Arr * pArr, int pos, int * pVal) {
 在一个无序数组中可以很快进行插入（O (1)），但是查找却要花费较多的时间 O (N)。在一个有序数组中可以查找的很快（O (logN)），但是插入却要 O (N)。对于有序和无序数组，由于平均半数的数据项需要移动，所以删除操作平均需要花费 O (N)。
 
 如果有一种数据结构进行任何插入、删除和查找操作都很快（O (1) 或者 O (logN)）, 那就太爽了哈。后面我们会向这一目标靠近。
+
+<!-- {% endraw %} - for jekyll -->

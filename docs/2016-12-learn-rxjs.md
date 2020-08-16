@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2016/12/learn-rxjs/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文地址](https://github.com/joeyguo/blog/issues/11)
 
 最近在 Alloyteam Conf 2016 分享了《使用 RxJS 构建流式前端应用》，会后在线上线下跟大家交流时发现对于 RxJS 的态度呈现出两大类：有用过的都表达了 RxJS 带来的优雅编码体验，未用过的则反馈太难入门。所以，这里将结合自己对 RxJS 理解，通过 RxJS 的实现原理、基础实现及实例来一步步分析，提供 RxJS 较为全面的指引，感受下使用 RxJS 编码是怎样的体验。
@@ -530,3 +532,5 @@ RxJS 作为一个库，可以与众多框架结合使用，但并不是每一种
 附:  
 RxJS(JavaScript) <https://github.com/Reactive-Extensions/RxJS>  
 RxJS(TypeScript ) <https://github.com/ReactiveX/rxjs>
+
+<!-- {% endraw %} - for jekyll -->

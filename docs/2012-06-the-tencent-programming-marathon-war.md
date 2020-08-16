@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/the-tencent-programming-marathon-war/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 经过近一个月的准备和宣传工作，[腾讯编程马拉松 Tencent Hackathon](http://www.alloyteam.com/tag/%E8%85%BE%E8%AE%AF%E7%BC%96%E7%A8%8B%E9%A9%AC%E6%8B%89%E6%9D%BE/ "腾讯编程马拉松网站") 终于在 6 月 9 日在腾讯总部大厦 24F 开战！本次 [@腾讯编程马拉松](http://t.qq.com/hackathon "腾讯编程马拉松微博 http&#x3A;//t.qq.com/hackathon")活动参赛者 66 人，NPC 同学 9+n 人，组成了 13 个团队展开角逐，13 个团队的策划案有 4 个游戏、9 个应用项目。
 
 [![](http://www.alloyteam.com/wp-content/uploads/2012/06/IMG_5366-1024x764.jpg "IMG_5366")](http://www.alloyteam.com/wp-content/uploads/2012/06/IMG_5366.jpg)
@@ -63,3 +65,5 @@ Hackathon 是把很多程序员相聚在一起，参与者除了热衷钻研技�
 业界传说中的 [@彪叔](http://t.qq.com/twinsen)作为本次编程马拉松的 NPC 之一，在大家现场组队时表示：“**其实 4 个人组队是团队的最佳状态，同时分工一定要均衡。** ”
 
 转载请注明本文地址：<http://www.alloyteam.com/2012/06/the-tencent-programming-marathon-war/>
+
+<!-- {% endraw %} - for jekyll -->

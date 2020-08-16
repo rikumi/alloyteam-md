@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/05/web-components-based-on-nuclear-todo-ten-one-way/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 刀耕火种
 
     刀耕火种是新石器时代残留的农业经营方式。又称迁移农业，为原始生荒耕作制。
@@ -424,3 +426,5 @@ Nuclear 就是不妥协的结果。因为简单的设计，所以可以有很多
 Nuclear Github： <https://github.com/AlloyTeam/Nuclear>
 
 加入 Nuclear，一起让组件化开发体验更加惬意、舒适..
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/11/alloyteam-event-countdown-3-days-dry-presenting-react-technology-blog/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 React 诞生以来，我们团队就对其保持关注。下面是我们博客中有关 React 技术的一些探讨
 
 React 初探
@@ -46,3 +48,5 @@ React Native 之 JSBridge
 ​(微博)
 
 [![微博](http://www.alloyteam.com/wp-content/uploads/2015/11/微博.png)](http://www.alloyteam.com/wp-content/uploads/2015/11/微博.png)
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: flyfu wang
 source_link: http://www.alloyteam.com/2020/06/fast-open-h5/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 在传统的 web 优化中，我们可以采取压缩、拆包、动态加载等方法减少首屏资源大小，也能通过离线包、页面直出等方案加速 html 返回，之前一篇 [h5 秒开大全](http://www.alloyteam.com/2019/10/h5-performance-optimize/)有部分简析。在大部分场景中，这些方案都足够用，也能得到出色的效果。但仍有两种无法尽善尽美的地方：其一是短暂的白屏现象不可避免，其二是对于超大型 web 应用难以做到秒开。结合客户端特性，我们有没有办法，进一步做到极致，打开 web 页面和打开客户端页面无差异的体验呢？  
 ![](https://docimg2.docs.qq.com/image/8zwAeo1rX71VJztnruHf9g?w=360&h=200)
 
@@ -185,3 +187,5 @@ initA () {
 ## 待优化的问题
 
 容器化方案用各种预创建 webview 的方式换取了打开速度，app 内存占用上会比未使用容器化方案要大非常多，webview 的释放时机、预加载数据的策略优化，及从客户端到 web 端，如何更好的做内存管理是接下来需要进一步优化的点。
+
+<!-- {% endraw %} - for jekyll -->

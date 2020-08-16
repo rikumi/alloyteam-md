@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/08/a-simple-generic-singleton-implementation/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 在 javascript 中，一个原生的 json 对象实际上就是一个单例。我们现在讨论另外一种.
 
 假设现在在写一个小功能，点击按钮的时候需要弹出一个遮罩层.
@@ -89,3 +91,5 @@ var createMask = singleton(createMask);
 不过这应该不是问题 . javascript 里创建对象的方式有无数种，如果要用到函数的 prototype, 绝大部分时候都是为了共享不同对象之间的原型链而提高性能。既然需要不同的对象，这种时候实在不应该使用单例.
 
 好吧，如果你偏要这么做，那也只需要把新函数的 prototype 绑到旧函数的 prototype 上就可以了.
+
+<!-- {% endraw %} - for jekyll -->

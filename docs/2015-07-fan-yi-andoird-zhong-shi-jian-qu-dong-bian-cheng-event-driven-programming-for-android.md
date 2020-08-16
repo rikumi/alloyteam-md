@@ -5,6 +5,8 @@ author: TAT.iptton
 source_link: http://www.alloyteam.com/2015/07/fan-yi-andoird-zhong-shi-jian-qu-dong-bian-cheng-event-driven-programming-for-android/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **Event-driven programming for Android**
 
 **Andoird 中事件驱动编程**
@@ -60,3 +62,5 @@ EventBus，来自 greenrobot。这个库已为 Android 做优化，具有一些�
 The next article will explore how to implement basic functions in EventBus
 
 下一篇会展示如何使用 EventBus。
+
+<!-- {% endraw %} - for jekyll -->

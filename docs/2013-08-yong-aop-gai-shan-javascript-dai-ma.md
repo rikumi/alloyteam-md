@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2013/08/yong-aop-gai-shan-javascript-dai-ma/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Aop 又叫面向切面编程，用过 spring 的同学肯定对它非常熟悉，而在 js 中，AOP 是一个被严重忽视的技术点，这篇就通过下面这几个小例子，来说说 AOP 在 js 中的妙用.
 
 1, 防止 window.onload 被二次覆盖.  
@@ -130,3 +132,5 @@ Plugin_Upload 会继承父类，得到 Upload 的大部分功能，然后对控�
 用更轻的组合方式，可以直接给原来的 start_upload 函数装饰上扫描功能，甚至不需要衍生一个额外的子类.
 
 [![](http://www.alloyteam.com/wp-content/uploads/2013/08/20.gif "20")](http://www.alloyteam.com/wp-content/uploads/2013/08/20.gif)
+
+<!-- {% endraw %} - for jekyll -->

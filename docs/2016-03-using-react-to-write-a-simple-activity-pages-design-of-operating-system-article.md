@@ -5,6 +5,8 @@ author: TAT.felix
 source_link: http://www.alloyteam.com/2016/03/using-react-to-write-a-simple-activity-pages-design-of-operating-system-article/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 介绍这个工具前不得不先介绍一下积木系统。
 
 积木系统是 imweb 团队出品、为产品运营而生的一套活动页面发布系统，详细介绍见 [PPT](http://vdisk.weibo.com/s/cSKQveSBDMPco)
@@ -414,3 +416,5 @@ window.addEventListener(
 ```
 
 > 本文是项目设计介绍，欢迎大家多多指正。等我把鉴权功能和版本管理加上，就可以用于生产环境啦，敬请期待.
+
+<!-- {% endraw %} - for jekyll -->

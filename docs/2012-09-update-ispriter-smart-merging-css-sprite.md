@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2012/09/update-ispriter-smart-merging-css-sprite/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 号外号外，iSpriter 更新啦！
 
 什么？你不知道 iSpriter 是什么？那你太 out 啦，必须先看看[这个文章](http://www.alloyteam.com/2012/06/nodejs-smart-merging-css-wizard-tool-intelligentspriter/ "NodeJs 智能合并 CSS 精灵图工具 iSpriter")了。简单的一句话介绍：基于 NodeJs 的开源 CSS 精灵图合并工具，不用改变原有的 css 编写方式，就能自动帮你解决 css sprite 的合并问题。目前源码托管在 github（[https://github.com/iazrael/ispriter](https://github.com/iazrael/ispriter "智能合并 CSS 精灵图")），欢迎各位同学来一起完善。
@@ -89,3 +91,5 @@ spriter.merge(configFile);
 感谢 [node-pngjs](https://github.com/niegowski/node-pngjs) 的作者，现在 ispriter 把 node-canvas 替换成了跟平台无关的 node-pngjs，再也不用费劲心机的安装 node-canvas 啦！
 
 鼓掌，哗啦啦 O (∩\_∩) O 哈哈～
+
+<!-- {% endraw %} - for jekyll -->

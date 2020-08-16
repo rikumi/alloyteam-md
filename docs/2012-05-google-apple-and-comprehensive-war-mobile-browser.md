@@ -5,6 +5,8 @@ author: TAT.pel
 source_link: http://www.alloyteam.com/2012/05/google-apple-and-comprehensive-war-mobile-browser/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://www.alloyteam.com/wp-content/uploads/2012/05/100707124335581-297x300.jpg "谷歌苹果等全面参战移动浏览器")  
 国外媒体刊载文章称，一场围绕着移动互联网浏览器市场主导权而展开的 “战争” 正在升级，谷歌、苹果、微软和雅虎都卷入了这场战争，挪威人开发的 Opera 浏览器和 Mozilla 的开源火狐浏览器也同样涉足其中。
 
@@ -47,3 +49,5 @@ Mozilla 法律总顾问哈维・安德森（Harvey Anderson）在一篇博客文
 席尔瓦指出：“亚马逊既拥有内容，又出售产品，还拥有网络服务。亚马逊拥有大量资产，而且已经取得了成功。我将会关注这家公司。”
 
 出处：腾讯科技
+
+<!-- {% endraw %} - for jekyll -->

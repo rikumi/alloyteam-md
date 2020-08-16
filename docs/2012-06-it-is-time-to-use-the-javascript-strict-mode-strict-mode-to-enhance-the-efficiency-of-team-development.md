@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/it-is-time-to-use-the-javascript-strict-mode-strict-mode-to-enhance-the-efficiency-of-team-development/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 随着 WebApp 突飞猛进的发展，Javascript 写的 WebApp 规模越来越庞大，比如典型的代表产品[腾讯 WebQQ](http://web.qq.com/)、HTML5 游戏等等，Javascript 越来越需要大量的开发人员多多人协作开发。同时 HTML5、CSS3 等新技术和 NodeJs 项目的高速发展，这几年 JavaScript 语言借着各种新 API 陆续被运用到从移动设备到服务器的多个” 新领域” 中。
 
 但 JavaScript 语言自身由于 ECMAScript 第四版被放弃而一直没有多少改进。和借 HTML5 之名过度宣传的各种新 API 相比，语法层面通过严格模式 (Strict Mode) 进行的改进几乎可以用不为人知来形容。学习了解严格模式之后，就算不马上进行实践，也会让我们对 JavaScript 中坏气味的一方面有更清晰的认识，从而帮助我们写出更好的代码。  
@@ -175,3 +177,5 @@ function doSomethingElse() {
 
 [这里](http://caniuse.com/use-strict)有各款浏览器对严格模式支持情况的一个汇总。  
 可以在[这个页面](http://java-script.limewebs.com/strictMode/test_hosted.html)对当前浏览器的严格模式支持度进行测试。
+
+<!-- {% endraw %} - for jekyll -->

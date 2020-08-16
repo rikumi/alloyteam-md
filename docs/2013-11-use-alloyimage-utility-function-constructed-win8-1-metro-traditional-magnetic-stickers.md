@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2013/11/use-alloyimage-utility-function-constructed-win8-1-metro-traditional-magnetic-stickers/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 <!-- h2{ font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times; font-weight: bold; } -->
 
 ## 扁平化的设计
@@ -68,3 +70,5 @@ icons[i].parentNode.style.background = color;
 ## [在线 Demo](http://alloyteam.github.io/AlloyPhoto/demos/demoForTools.html)
 
 AlloyImage V1.2 版本，更多功能，敬请期待！
+
+<!-- {% endraw %} - for jekyll -->

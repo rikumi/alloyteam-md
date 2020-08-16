@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2015/12/websockets-ability-to-explore-it-with-voice-pictures/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 说到 websocket 想比大家不会陌生，如果陌生的话也没关系，一句话概括
 
 **“WebSocket protocol 是 HTML5 一种新的协议。它实现了浏览器与服务器全双工通信”**
@@ -643,3 +645,5 @@ function receive(e) {
 最后通过两个 demo 看到了 websocket 的潜力，关于语音聊天室的 demo 涉及的较广，没有接触过 AudioContext 对象的同学最好先了解下 AudioContext
 
 文章到这里就结束啦～有什么想法和问题欢迎大家提出来一起讨论探索～
+
+<!-- {% endraw %} - for jekyll -->

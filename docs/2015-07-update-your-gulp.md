@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2015/07/update-your-gulp/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [  
 ![](https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png)  
 ](http://gulpjs.com/)
@@ -187,3 +189,5 @@ gulp.task('dist', gulp.series(
 另外再说一点，只要在 gulpfile.js 中没有使用 gulp.task 传三个参数的用法，gulp 4.0 也是兼容老版本的 gulpfile.js 的。
 
 [官方升级日志](https://github.com/gulpjs/gulp/blob/4.0/CHANGELOG.md)中也列出了一些其他的说明，想升级到 4.0 又想完全兼容老版本 gulpfile.js 的开发者最好还是看看咯。
+
+<!-- {% endraw %} - for jekyll -->

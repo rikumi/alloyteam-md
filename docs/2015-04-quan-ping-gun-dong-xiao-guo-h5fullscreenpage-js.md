@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2015/04/quan-ping-gun-dong-xiao-guo-h5fullscreenpage-js/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **前提：**
 
 介于现在很多活动都使用了 类似全屏滚动效果 尤其在微信里面 我自己开发了一个快速构建 此类项目的控件 与市面上大部分控件不同的是此控件还支持元素的动画效果 并提供多种元素效果 基于 zepto.js 
@@ -188,3 +190,5 @@ function touchEnd(event) {
 更详细的文档可以查看：<http://lvming6816077.github.io/H5FullscreenPage/>
 
 后续会对这个组件增加一些新的功能 例如增加 canvas 涂抹元素和可拖拽元素等等，如果大家有好的建议也可以留言。
+
+<!-- {% endraw %} - for jekyll -->

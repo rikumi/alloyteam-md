@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2017/03/teach-you-to-use-webgl-to-quickly-create-a-small-world/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Webgl 的魅力在于可以创造一个自己的 3D 世界，但相比较 canvas2D 来说，除了物体的移动旋转变换完全依赖矩阵增加了复杂度，就连生成一个物体都变得很复杂。
 
 什么？！为什么不用 Threejs？Threejs 等库确实可以很大程度的提高开发效率，而且各方面封装的非常棒，但是不推荐初学者直接依赖 Threejs，最好是把 webgl 各方面都学会，再去拥抱 Three 等相关库。
@@ -337,3 +339,5 @@ void main() {
 这里将放在下一篇 webgl 相关优化中去说
 
 本文就到这里啦，有问题和建议的小伙伴欢迎留言一起讨论～！
+
+<!-- {% endraw %} - for jekyll -->

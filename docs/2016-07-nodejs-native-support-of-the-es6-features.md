@@ -5,6 +5,8 @@ author: TAT.李强
 source_link: http://www.alloyteam.com/2016/07/nodejs-native-support-of-the-es6-features/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 随着 React 的风靡，配合 Webpack 以及 Babel 等技术，越来越多的前端同学将 ECMAScript 2015 (ES6) 的特性运用在项目中，import、export、class、箭头函数、块级作用域等特性屡试不爽。而对于 Node.js 实现的后台代码来说，我们也同样希望使用这些 ES6 特性，下面将以 v4.4.4 (LTS version) 长期支持版本为例展开话题，从兼容性以及性能两方面着手分析 Node.js 对 ES6 的支持情况。
 
 # 兼容性
@@ -266,3 +268,5 @@ console.log(duration);
 # 总结
 
 对于 ES6 来说，我们不仅要了解其特性的兼容性，也要从性能上做到心中有数，从上面的测试结果可以看到，大部分 ES6 新特性相对 ES5 原生方法要慢得多，但是我依然坚信，ES6 是未来的趋势，随着 Node 版本的更新，相信这些兼容性以及性能问题在不久的将来都将迎刃而解。
+
+<!-- {% endraw %} - for jekyll -->

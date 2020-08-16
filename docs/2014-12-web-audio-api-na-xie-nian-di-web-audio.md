@@ -5,6 +5,8 @@ author: TAT.Jdo
 source_link: http://www.alloyteam.com/2014/12/web-audio-api-na-xie-nian-di-web-audio/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 这主题主要是早期对 web audio api 的一些尝试，这里整理一下以便以后翻阅，如有错误，诚请指正。
 
 在这之前，先回顾一下那些年我们一起走过的 web audio：
@@ -108,3 +110,5 @@ function handleWithSample(e) {
 未完待续...
 
 下期预告：[【Web Audio API】— 初探音频上下文与音频节点](http://www.alloyteam.com/2015/01/web-audio-api-yin-pin-shang-xia-wen-yu-yin-pin-jie-dian-di-shi-yong-fang-shi/)
+
+<!-- {% endraw %} - for jekyll -->

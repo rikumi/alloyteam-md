@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/high-quality-javascript-boutique-library-collection/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 编辑器
 
 1、[Code Mirror](http://www.oschina.net/p/codemirror)
@@ -107,3 +109,5 @@ Socket.IO 旨在让各种浏览器与移动设备上实现实时 app 功能，�
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/121143csU.png)
 
 via [zoomzum.com](http://zoomzum.com/list-of-highly-useful-javascript-libraries-for-developers/), [OSChina.NET](http://www.oschina.net/) 原创编译
+
+<!-- {% endraw %} - for jekyll -->

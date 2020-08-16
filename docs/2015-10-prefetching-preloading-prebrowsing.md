@@ -5,6 +5,8 @@ author: TAT.yunsheng
 source_link: http://www.alloyteam.com/2015/10/prefetching-preloading-prebrowsing/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 译者说明  
 
 * * *
@@ -161,3 +163,5 @@ Steve Souders 的[文章](http://www.stevesouders.com/blog/2013/11/07/prebrowsin
 -   [Harry Roberts on DNS prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:dns-prefetching)
 -   [HTML5 prefetch](https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d#.yl37ya9a1)
 -   [Preload hints for webfonts](http://www.bramstein.com/writing/preload-hints-for-web-fonts.html)
+
+<!-- {% endraw %} - for jekyll -->

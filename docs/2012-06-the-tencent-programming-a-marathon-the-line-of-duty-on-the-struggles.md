@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2012/06/the-tencent-programming-a-marathon-the-line-of-duty-on-the-struggles/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
  由于小女子有幸参加第一届[@腾讯编程马拉松](http://t.qq.com/hackathon)，让**师姐**这个名字被更多的人所熟知。在此，真心谢谢大家的关注和支持，对于在这次活动中取得的成就，就像一首歌所写的那样：“没有人能随随便便成功”，而**机会是留给有准备的人**。这篇文章主要和大家分享一下我参加这次活动的感受和经历，希望对以后参加马拉松的同学们有所帮助，以及和大家一起分享，一起学习。
 
 ## **一、赛前充分准备**
@@ -72,3 +74,5 @@ source_link: http://www.alloyteam.com/2012/06/the-tencent-programming-a-marathon
 ](http://www.alloyteam.com/wp-content/uploads/2012/06/460.jpg)[![](http://www.alloyteam.com/wp-content/uploads/2012/06/460.jpg "460")](http://www.alloyteam.com/wp-content/uploads/2012/06/460.jpg)
 
 转载请注明原文链接：<http://www.alloyteam.com/2012/06/the-tencent-programming-a-marathon-the-line-of-duty-on-the-struggles/>
+
+<!-- {% endraw %} - for jekyll -->

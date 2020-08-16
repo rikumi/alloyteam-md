@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2013/12/web-design-basics-two/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **序：**设计对于我们技术人员来说也是一门不可或缺的知识，学习设计就像学习一门新的语言一样，它也有遵从自己的一套规则。知道越多关于设计的知识，你就越能理解设计师的工作和意义，和设计师的交流也会更加畅通无阻。下面主要围绕 3 个方面给大家介绍设计的基础知识：
 
 **1、What is design?**  
@@ -97,3 +99,5 @@ source_link: http://www.alloyteam.com/2013/12/web-design-basics-two/
 [![图片 13](http://www.alloyteam.com/wp-content/uploads/2013/12/图片13.png)](http://www.alloyteam.com/wp-content/uploads/2013/12/图片13.png)
 
 #### /\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*[接下文  《Web 设计基础知识三)》](http://www.alloyteam.com/?p=4976&preview=true)\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2012/08/codetank-development-tutorial/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![](http://www.alloyteam.com/wp-content/uploads/2012/08/codetank-3.png "codetank-3")](http://www.alloyteam.com/wp-content/uploads/2012/08/codetank-3.png)
 
 **一、坦克结构组成：**
@@ -352,3 +354,5 @@ OK，还有更多的 API 和玩法就等待大家自己去发掘了，相信 cod
 
 -   [CodeTank 智能代码坦克机器人 - 全世界 Javascript 程序员的游戏](http://www.alloyteam.com/2012/08/welcome-to-codetank/)
 -   CodeTank 的微博：[腾讯微博 @CodeTank](http://t.qq.com/CodeTank)，[新浪微博 @CodeTank](http://www.weibo.com/CodeTank)
+
+<!-- {% endraw %} - for jekyll -->

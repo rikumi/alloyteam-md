@@ -5,6 +5,8 @@ author: flyfu wang
 source_link: http://www.alloyteam.com/2019/12/kbone-analyze/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 在微信小程序的开发的过程中，我们会存在小程序和 H5 页面共存的场景，而让小程序原生和 web h5 独立开发，往往会遇到需要两套人力去维护。对开发者而言，加大了工作量成本，对于产品而言，容易出现展示形态同步不及时问题。在这种情况下，我们急需要找到一个既能平衡性能，也能满足快速迭代的方案。
 
 ## 主流的小程序同构方案
@@ -255,3 +257,5 @@ if (!process.env.isWxMiniProgram) {
 通过对目前各种小程序同构方案的对比与实践，kbone 是一种非常值得推荐的新思路，新方法，兼具性能与灵活。唯一不足的地方就是目前仍有不少底层工作需要适配，更多的问题在继续探索中，相信随着不断迭代及采坑后的反馈，kbone 会变得越来稳定和成熟。
 
 （最后感谢作者 junexie 及 dntzhang 大神的鼎力支持～～也欢迎大家一起参与共建 [kbone](https://github.com/wechat-miniprogram/kbone "kbone")）
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/jony-ive-apples-chief-designer-disclosed-the-secret-of-apple-design/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 苹果的首席设计师 Jony Ive 最近接受了采访，大师透露的第一点设计经验之谈是要务实不要务虚：
 
 **设计这个词既含义丰富又空洞无物。我们平时都不谈设计，而是讨论创意形成和产品制造。**
@@ -24,3 +26,5 @@ Ive 说：
 他说苹果及其设计团队所极力避免的事情是，**永远不要为了设计产品而设计产品**。
 
 他说**关怀的感觉对他们很有吸引力**，所以他们不会向日程表妥协，不会向公司或别的竞争性安排让路，而是要**诚心诚意地为大家设计出最好的产品**。
+
+<!-- {% endraw %} - for jekyll -->

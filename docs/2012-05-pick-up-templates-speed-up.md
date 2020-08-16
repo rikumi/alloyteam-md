@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2012/05/pick-up-templates-speed-up/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 开篇
 
 现在 Web 富应用越来越多，越来越多网站朝单页面发展，所有功能模块都在一个页面中创建。作为一个合格的前端，所负责的模块一定是逻辑跟 UI 分离的，通常的做法就是页面代码编写成模板，然后往模板填充数据并输出到页面上。关于前端模板的介绍和使用我就不说了，不了解的可以先看看这篇文章 (<http://www.css88.com/archives/4564>), 这里讨论下使用模板引擎引入的另外一个问题 (也不是 Bug 啦～) -- 页面模板代码放哪？
@@ -115,3 +117,5 @@ fs.writeFileSync(outputJsFile, content);
 ### 收尾
 
 经过这么一搞，把模板代码抽出来之后，首页的大小立马从 37KB 降到 1.7KB. 虽然是个小技巧，也足以成大谋。那感觉，可是跟涨薪一样爽哇～～
+
+<!-- {% endraw %} - for jekyll -->

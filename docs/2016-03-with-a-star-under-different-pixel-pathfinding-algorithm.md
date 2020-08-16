@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2016/03/with-a-star-under-different-pixel-pathfinding-algorithm/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 先贴上文地址：<http://www.alloyteam.com/2016/03/and-a-star-on-different-pixel-pathfinding-algorithm/>
 
 之前说到了起点和终点连线平移方式的不足，那这篇文章就介绍另一个给力的方法
@@ -283,3 +285,5 @@ function computeDistance(arr) {
 结语：总算码完了上下文，累死。在最后多说一句，大部分游戏还是推荐用格子做，因为格子的存在能减少能多事情，或者说减少很多计算量，打比方就是真・随机生成（并不是标死多个出生点那种随机生成），格子就方便很多。
 
 大家如果有什么想法和 idea 欢迎留言讨论～
+
+<!-- {% endraw %} - for jekyll -->

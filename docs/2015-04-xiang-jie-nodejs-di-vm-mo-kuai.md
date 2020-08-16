@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2015/04/xiang-jie-nodejs-di-vm-mo-kuai/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 什么是 VM？
 
 VM 模块是 NodeJS 里面的核心模块，支撑了 require 方法和 NodeJS 的运行机制，我们有些时候可能也要用到 VM 模板来做一些特殊的事情。  
@@ -86,3 +88,5 @@ runInThisContext 里面的代码可以访问外部的 global 对象，但外面�
 执行结果如下  
 object (global 存在）  
 11（顶部 global 的 p)
+
+<!-- {% endraw %} - for jekyll -->

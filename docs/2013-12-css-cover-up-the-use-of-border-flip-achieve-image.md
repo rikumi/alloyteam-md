@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2013/12/css-cover-up-the-use-of-border-flip-achieve-image/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 兼容：IE7 8 9 10 chrome firefox  
 [demo 地址](http://www.alloyteam.com/wp-content/uploads/2013/12/rotate.html "demo 地址")
 
@@ -29,3 +31,5 @@ source_link: http://www.alloyteam.com/2013/12/css-cover-up-the-use-of-border-fli
 之所以我之前说的选择的图片最好要有上面那两个特点：完全对称和四周空白较多。**那是因为如果图片不对称，那么图片翻转过去之后，图片的显示就会不合理（没有达到镜像的显示效果，显示位置不对）**，但是，我也在程序里提供了 onHalfLoop 和 onFullLoop 两个回调函数的接口，分别是翻转 90 度和 180 度后触发的回调函数。大家完全可以使用 ps 把一张图片左右（或上下）翻转，然后在 onHalfLoop 里把图片路径设置为该翻转后图片的路径，在 onFullLoop 里把路径还原，**这样就可以完全克服需要使用完全对称图片这个障碍，使不对称的图片也可以实现翻转。**
 
 至于另一个特点：使用四周空白较多的图片。**使用这种图片的好处是消除翻转的时候处在图片边缘的图纹被隐藏所带来的视觉破绽**，具体这里说不清楚，不过大家找一张图片四周也有较多图纹的图片试试就清楚了。
+
+<!-- {% endraw %} - for jekyll -->

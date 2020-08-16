@@ -5,6 +5,8 @@ author: TAT.donaldyang
 source_link: http://www.alloyteam.com/2015/06/qian-duan-ce-shi-hui-gu-ji-wo-men-wei-shi-me-xuan-ze-karma/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 > 前端测试，或者 UI 测试一直是业界一大难题。最近 `Q.js` 使用 [Karma](https://github.com/karma-runner/karma) 作为测试任务管理工具，本文在回顾前端测试方案的同时，也分析下为什么 `Q.js` 选用 Karma 而不是其他测试框架。
 
 ### 像素级全站对比
@@ -152,3 +154,5 @@ SUMMARY:
 -   较为通用的开源解决方案，google 出品
 -   Q.js 是一个 js 库，不需要像素级测试，由于是程序员我们也不需要录制测试，我们需要的是静态测试（开发阶段）、以及持续集成测试（集成阶段）
 -   可以根据不同环境，选择不同浏览器进行测试。例如原来我们只能使用 `PhantomJS` 进行测试，现在我们可以在集成系统中使用 `Firefox` 和 `PhantomJS` 进行测试，在本地环境我们还可以 `Chrome`、`IE` 进行自动化测试。如果有钱，我们更可以购买 `Sauce Labs`（关键没钱＝ ＝）的服务来得到更多浏览器支持。
+
+<!-- {% endraw %} - for jekyll -->

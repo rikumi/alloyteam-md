@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/11/getting-started-with-mobile-web-tool-transformjs/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 简介  
 
 * * *
@@ -159,3 +161,5 @@ transformjs
 开始使用吧：  
 官方网站：<http://alloyteam.github.io/AlloyTouch/transformjs/>  
 Github 地址：<https://github.com/AlloyTeam/AlloyTouch/tree/master/transformjs>
+
+<!-- {% endraw %} - for jekyll -->

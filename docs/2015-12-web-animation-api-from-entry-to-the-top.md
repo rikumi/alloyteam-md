@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2015/12/web-animation-api-from-entry-to-the-top/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
   一、远观：认识 WAAPI  
 
 * * *
@@ -189,3 +191,5 @@ Google’s demos  如果你希望用 WAAPI 挑战更炫酷的动画，特别�
 5.  Polyfill： https://github.com/web-animations/web-animations-js
 6.  Resources：https://developers.google.com/web/updates/2015/10/web-animations-resources
 ```
+
+<!-- {% endraw %} - for jekyll -->

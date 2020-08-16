@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/04/koa-socket-io-zhi-zuo-jian-yi-liao-tian-shi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **前言**
 
 上期，本菜在 [《](http://www.alloyteam.com/2015/04/qian-duan-qiang-hou-duan-fan-wan-node-js-socket-io-zhi-zuo-jian-yi-liao-tian-shi/)[前端抢后端饭碗 — Node.js + Socket.io 制作简易聊天室》](http://www.alloyteam.com/2015/04/qian-duan-qiang-hou-duan-fan-wan-node-js-socket-io-zhi-zuo-jian-yi-liao-tian-shi/)一文中谈到如何用 node.js 中的 express 框架。如要阅读此文，请先阅读前文。
@@ -131,3 +133,5 @@ server.listen(3000);
 以上是本菜的处理办法。原代码在这里：<https://github.com/lcxfs1991/koa-socket.io>
 
 另外，kosjs 团队融合 socket.io 弄了一个 [koa.io](https://github.com/koajs/koa.io) 的库，也相当好用。有兴趣可以点击直接前往其 github 页面。
+
+<!-- {% endraw %} - for jekyll -->

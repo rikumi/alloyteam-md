@@ -5,6 +5,8 @@ author: TAT.yuanyan
 source_link: http://www.alloyteam.com/2012/10/appcache-facts/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Application cache 是 HTML5 中在规范完整性上比较糟糕的特性之一，规范上的不到位导致浏览器厂商在实现上也存在些许差异，而产生本文档的目的即让开发者们知晓那些潜规则，摆脱问题的困惑与束缚，正确的使用离线缓存真正让 Web 加速。
 
 **Fact** ：设计 Appcache 的目的虽是能让 Web 应用能在离线的情况的运行而无需要求连接网络，但同时 Appcache 也可在网络在线的情况的使用，如此来减少页面需要加载的资源数量来提速页面，速度上将是一个数量级的提升。
@@ -69,3 +71,5 @@ if (window.applicationCache) {
 -   A List Apart – [Application Cache is a Douchebag](http://www.alistapart.com/articles/application-cache-is-a-douchebag/)
 
 © 2012 [Mark Christian](http://twitter.com/shinypb) & [Dustin Diaz](http://twitter.com/ded). License: [CC Attribution 3.0](http://creativecommons.org/licenses/by/3.0/).
+
+<!-- {% endraw %} - for jekyll -->

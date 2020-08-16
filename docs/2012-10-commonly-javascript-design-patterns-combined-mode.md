@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-combined-mode/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 组合模式又叫部分 - 整体模式，它将所有对象组合成树形结构。使得用户只需要操作最上层的接口，就可以对所有成员做相同的操作。  
 一个再好不过的例子就是 jquery 对象，大家都知道 1 个 jquery 对象其实是一组对象集合。比如在这样一个 HTML 页面
 
@@ -83,3 +85,5 @@ form.validata = function () {
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

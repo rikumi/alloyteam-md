@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2016/11/alloyteam-conf-2016/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![banner](http://www.alloyteam.com/wp-content/uploads/2016/11/banner.gif)](http://www.alloyteam.com/wp-content/uploads/2016/11/banner.gif)  
 
 ==============================================================================================================================================
@@ -186,3 +188,5 @@ source_link: http://www.alloyteam.com/2016/11/alloyteam-conf-2016/
 [![21](http://www.alloyteam.com/wp-content/uploads/2016/11/21.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/11/21.jpg)
 
 [![22](http://www.alloyteam.com/wp-content/uploads/2016/11/22-1024x319.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/11/22.jpg)
+
+<!-- {% endraw %} - for jekyll -->

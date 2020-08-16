@@ -5,6 +5,8 @@ author: TAT.aishen
 source_link: http://www.alloyteam.com/2012/10/css3-draw-qq-logo/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![](http://www.alloyteam.com/wp-content/uploads/2012/10/result.png "result")](http://download.alloyteam.com/demo/css3-tencent-qq-logo-basic/ "点击查看 Demo")
 
 [CSS3 绘制腾讯 QQ 的企鹅 Logo 效果](http://www.alloyteam.com/wp-content/demos/css3-tencent-qq-logo-basic/ "点击查看 Demo")
@@ -125,3 +127,5 @@ border-bottom-right-radius: 70px 70px;
 [![](http://www.alloyteam.com/wp-content/uploads/2012/10/result.png "result")](http://www.alloyteam.com/wp-content/uploads/2012/10/result.png)
 
 请点击查看[**实例 DEMO**](http://www.alloyteam.com/wp-content/demos/css3-tencent-qq-logo-basic/ "查看 demo")，今天的分享就这么多了，之后会添加一些颜色效果和 CSS 动画效果，让我们的小企鹅变得迷人，敬请期待！
+
+<!-- {% endraw %} - for jekyll -->

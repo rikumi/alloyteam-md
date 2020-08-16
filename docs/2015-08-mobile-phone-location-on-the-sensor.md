@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2015/08/mobile-phone-location-on-the-sensor/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 位置传感器  
 
 * * *
@@ -210,3 +212,5 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
 
 感谢大家阅读，同事感谢小伙伴 junda 对文章提出的专业建议！O(∩\_∩)O
 ```
+
+<!-- {% endraw %} - for jekyll -->

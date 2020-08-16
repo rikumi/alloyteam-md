@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/04/xiang-es6-kao-qi-di-class-js/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **写在前面**  
 
 * * *
@@ -231,3 +233,5 @@ console.log(bigPig instanceof Animal); //true
 使用和 ES6 一样，除了构造函数 ctor 方法可以直接通过 this.\_super 方法去访问 parent.ctor,  
 其余的方法可通过 this.\_super. 方法名 (xxxx) 去访问父类方法，如果自身没有定义父类同名的方法，也可以直接通过 this. 方法名去访问父类的方法。  
 欢迎使用，玩得愉快。
+
+<!-- {% endraw %} - for jekyll -->

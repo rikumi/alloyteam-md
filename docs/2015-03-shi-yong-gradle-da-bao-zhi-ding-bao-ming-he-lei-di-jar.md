@@ -5,6 +5,8 @@ author: TAT.zhipingfeng
 source_link: http://www.alloyteam.com/2015/03/shi-yong-gradle-da-bao-zhi-ding-bao-ming-he-lei-di-jar/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ```javascript
 在开发sdk生成jar在eclipse里相对比较容易操作，只要导出class时指定哪里导出就可以，
 但在用AndroidStudio开发时要导出jar就没那么容易，需要写gradle脚本，但gradle脚本
@@ -47,3 +49,5 @@ source_link: http://www.alloyteam.com/2015/03/shi-yong-gradle-da-bao-zhi-ding-ba
     //    exclude('R.class')
     //    exclude{ it.name.startsWith('R$');}
     }
+
+<!-- {% endraw %} - for jekyll -->

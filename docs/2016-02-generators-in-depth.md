@@ -5,6 +5,8 @@ author: TAT.ronnie
 source_link: http://www.alloyteam.com/2016/02/generators-in-depth/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 随着 Javascript 语言的发展，ES6 规范为我们带来了许多新的内容，其中生成器 Generators 是一项重要的特性。利用这一特性，我们可以简化迭代器的创建，更加令人兴奋的，是 Generators 允许我们在函数执行过程中暂停、并在将来某一时刻恢复执行。这一特性改变了以往函数必须执行完成才返回的特点，将这一特性应用到异步代码编写中，可以有效的简化异步方法的写法，同时避免陷入回调地狱。
 
 本文将对 Generators 进行简单介绍，然后结合笔者在 C# 上的一点经验，重点探讨 Generators 运行机制及在 ES5 的实现原理。
@@ -340,3 +342,5 @@ var record = tryCatch(innerFn, self, context);
 4\.[ES6 Generators:How do they work?](http://x-team.com/2015/04/generators-work/)
 
 5\.[Behind the scenes of the C# yield keyword](https://startbigthinksmall.wordpress.com/2008/06/09/behind-the-scenes-of-the-c-yield-keyword/)
+
+<!-- {% endraw %} - for jekyll -->

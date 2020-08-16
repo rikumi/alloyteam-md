@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2017/02/2017-try-web-component-framework-omi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![Omi](http://images2015.cnblogs.com/blog/105416/201701/105416-20170120114244046-622856943.png)](https://github.com/AlloyTeam/omi)
 
 Open and modern framework for building user interfaces.
@@ -130,3 +132,5 @@ Omi.render(new Test(), "#test");
 Github: <https://github.com/AlloyTeam/omi>
 
 I need you.
+
+<!-- {% endraw %} - for jekyll -->

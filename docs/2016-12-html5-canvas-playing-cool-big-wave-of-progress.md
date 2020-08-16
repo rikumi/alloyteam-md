@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/html5-canvas-playing-cool-big-wave-of-progress/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://images2015.cnblogs.com/blog/105416/201612/105416-20161213115104620-1393781477.gif)
 
 如上图所见，本文就是要实现上面那种效果。  
@@ -144,3 +146,5 @@ img.src = "asset/alloy.png";
 Github：<https://github.com/AlloyTeam/AlloyTouch>  
 未完待续预告：《AlloyTouch 大波浪刷新》  
 
+
+<!-- {% endraw %} - for jekyll -->

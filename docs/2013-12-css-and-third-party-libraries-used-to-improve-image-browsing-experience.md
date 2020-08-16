@@ -5,6 +5,8 @@ author: TAT.zerozheng
 source_link: http://www.alloyteam.com/2013/12/css-and-third-party-libraries-used-to-improve-image-browsing-experience/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 你是否关注过浏览、点击图片这个微妙的过程，不同的图片展现、交互方式各带来什么样的观感？本文聚焦于图片浏览这个过程以及如何使用 CSS3 和第三方库来提升体验。
 
 先看下 Pinterest、Flickr 等时下热门图片分享类网站。
@@ -172,3 +174,5 @@ draggie.on("dragMove", function () {
     //处理的函数
 });
 ```
+
+<!-- {% endraw %} - for jekyll -->

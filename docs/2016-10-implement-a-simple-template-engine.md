@@ -5,6 +5,8 @@ author: june01
 source_link: http://www.alloyteam.com/2016/10/implement-a-simple-template-engine/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 简介  
 
 * * *
@@ -401,3 +403,5 @@ const regmap = [ 
 前面也提到过，基于字符串的模板引擎最大的好处在于语法自由，你可以做到完全不需要关心模板的类型，你可以写一个 css 文件的模板，也可以写一个 html 文件的模板，只要有对应的模板就会有相应的输出，并且前后端可以共用。
 
 如果你想要看完整的代码的话，请戳[这里](https://github.com/JuneAndGreen/demos/blob/master/template_engine/string_base/src/tpl.js)。
+
+<!-- {% endraw %} - for jekyll -->

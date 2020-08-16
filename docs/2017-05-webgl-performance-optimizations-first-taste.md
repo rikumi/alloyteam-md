@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2017/05/webgl-performance-optimizations-first-taste/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 上次文章介绍了如何用 webgl 快速创建一个自己的小世界，在我们入门 webgl 之后，并且可以用原生 webgl 写 demo 越来越复杂之后，大家可能会纠结一点：就是我使用 webgl 的姿势对不对。因为 webgl 可以操控 shader 加上超底层 API，带来了一个现象就是同样一个东西，可以有多种的实现方式，而此时我们该如何选择呢？这篇文章将稍微深入一点 webgl，给大家介绍一点 webgl 的优化知识。
 
 讲 webgl 优化之前我们先简单回忆一下 canvas2D 的优化，常用的 display list、动态区域重绘等等。用 canvas2D 多的同学应该对以上的优化或多或少都有了解，但是你对 webgl 的优化了解么，如果不了解的话往下看就对了～这里会先从底层图像是如何渲染到屏幕上开始，逐步开始我们的 webgl 优化。  
@@ -230,3 +232,5 @@ vertexShader 和 fragmentShader 执行的次数可以说都是一样的，但是
 ## 结语
 
 我们这里从原理触发，尝试了 webgl 的一些优化～如果你有什么建议和疑惑～欢迎留言讨论～
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2015/03/es6-generator-introduction/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ```c
 function* generateNaturalNumber() {
     var i = 0;
@@ -170,3 +172,5 @@ yield\* 后面只能跟迭代器，所以 `yield* genFun1` 会因为 genFun1 不
 yield\* 的官方名字叫做 [Delegating yield](http://wiki.ecmascript.org/doku.php?id=harmony:generators)。
 
 yield\* 的功能是将迭代控制权交给后面的迭代器，达到递归迭代的目的，就好比将 genFun1 的代码直接写在 genFun2 里面一样。
+
+<!-- {% endraw %} - for jekyll -->

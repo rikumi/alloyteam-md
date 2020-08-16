@@ -5,6 +5,8 @@ author: TAT.jerojiang
 source_link: http://www.alloyteam.com/2015/05/sublime%e7%9a%84colorscheme/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 想让 `markdown` 高亮，找了点插件，比如
 
 [https://github.com/jonschlinkert/sublime-markdown-extended](http://www.alloyteam.com/2015/05/sublime%e7%9a%84colorscheme/sublime-markdown-extended)
@@ -1104,3 +1106,5 @@ Perfect!
 </plist>
  
 ```
+
+<!-- {% endraw %} - for jekyll -->

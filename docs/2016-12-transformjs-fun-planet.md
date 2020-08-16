@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/transformjs-fun-planet/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://images2015.cnblogs.com/blog/105416/201612/105416-20161205081805476-861034303.gif)
 
 如你所见。这篇就是要讲下使用 [transformjs](https://github.com/AlloyTeam/AlloyTouch/tree/master/transformjs) 制作星球的过程。你也可以无视文章，直接去看源码和在线演示：
@@ -248,3 +250,5 @@ transformjs 提供了基础的 transformation 能力，不与任何时间和运�
 
 所有例子可以在上面找到。  
 
+
+<!-- {% endraw %} - for jekyll -->

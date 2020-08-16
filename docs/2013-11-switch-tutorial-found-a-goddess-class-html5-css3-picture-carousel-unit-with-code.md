@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2013/11/switch-tutorial-found-a-goddess-class-html5-css3-picture-carousel-unit-with-code/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 最近在学习 HTML5 和 CSS3，印象最深的是 CSS3 的动画功能，不仅有浏览器原生支持，执行效率高，而且免去在 js 中自己管理 timer。
 
 本来想写一个图片轮播器练练手，结果在网上发现一个国人写的开源的图片轮播器。不仅效果很酷，而且是 “女神级” 的。什么？你问是不是妹子写的？这个我不知道，我说的是这个 Demo 中的图片都是女神呀，性感火辣，丰满妩媚…… 咳咳，回正题。
@@ -141,3 +143,5 @@ l slideshow.effects.js          这个是向 JXAnimation 中添加一些�
 请访问原文下载源代码
 
 <http://bbs.miaov.com/forum.php?mod=viewthread&tid=7374&fromuid=11876>
+
+<!-- {% endraw %} - for jekyll -->

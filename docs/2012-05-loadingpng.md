@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2012/05/loadingpng/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 你是否遇到过这样的情景：
 
 1、用 gif 格式的 loading 菊花会有背景颜色，与页面背景格格不入  
@@ -86,3 +88,5 @@ O(∩\_∩) O 哈哈～～就这样我们的 loading 菊花就顺利完成了，
 ## ](<http://www.alloyteam.com/wp-content/uploads/2012/05/index.html>)
 
 PS：如果你用不支持 CSS3 动画属性的浏览器来打开这个 demo，恐怕你要失望了～(\*^\_\_^\*) 嘻嘻……
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.felix
 source_link: http://www.alloyteam.com/2015/08/vps-notes/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 > 不作死就不会死， 不捣鼓就不会活 -- via 菲利克斯・肖恩莱特
 
 什么是作死？作死就是不懂原理乱写代码，不懂环境乱配，不懂工具乱用，打掉一个 bug 再怀上一个 bug，伤元气瞎折腾。
@@ -352,3 +354,5 @@ VPS 折腾总结
     // | 是 *nix 中流式传输的思想，意为将前面程序的输出结果，当作后续程序的输入源
     // wc -l 表示计算数量，并将其列出
     $ find ./ -name "*.png" | wc -l
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2012/09/share-codetank-years-using-the-web-worker-to-avoid-cheating-user-code/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **【场景】：**
 
 由于 CodeTank 是一个 JS 的编程游戏，所以用户的代码都可以在 CodeTank 平台上执行，从而控制 tank 的个性化行为。
@@ -120,3 +122,5 @@ worker 里会直接把断点忽略，这样的话会给用户对自己坦克的�
 兼容低版本浏览器的 Blob 的使用：
 
 [![](http://www.alloyteam.com/wp-content/uploads/2012/09/Blob.jpg "Blob")](http://www.alloyteam.com/wp-content/uploads/2012/09/Blob.jpg)
+
+<!-- {% endraw %} - for jekyll -->

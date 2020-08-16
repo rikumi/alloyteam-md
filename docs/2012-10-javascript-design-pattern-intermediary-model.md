@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/javascript-design-pattern-intermediary-model/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 中介者对象可以让各个对象之间不需要显示的相互引用，从而使其耦合松散，而且可以独立的改变它们之间的交互。
 
 打个比方，军火买卖双方为了安全起见，找了一个信任的中介来进行交易。买家 A 把钱交给中介 B，然后从中介手中得到军火，卖家 C 把军火卖给中介，然后从中介手中拿回钱。一场交易完毕，A 甚至不知道 C 是一只猴子还是一只猛犸。因为中介的存在，A 也未必一定要买 C 的军火，也可能是 D，E，F。  
@@ -64,3 +66,5 @@ var controler2 = Controler.create( mode2 view2, function(){
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

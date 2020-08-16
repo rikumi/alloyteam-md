@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2013/02/rang-java-gen-javascript-geng-jia-qin-mi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 在移动 App 开发中，为了快速迭代，通常都会使用 Native+Web 的模式开发。具体来说就是使用 Java 提供接口，使用 WebView 控件嵌套 Web 页面来实现 UI 和交互。
 
 在 Android 中，Java 可以很方便的提供接口给 WebView 中的 Js 进行调用，只要以下一行代码就能搞定：
@@ -91,3 +93,5 @@ jsb.addJavascriptMethod("alert", function (params) {
 IOS 的话就要反过来了，要改成由 Objective-C 来轮询 Js，来实现 Js 对 Native 的调用。
 
 嗯，等改天有时间了，就把 IOS 也封装进来，用起来就简单多了。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Rehorn
 source_link: http://www.alloyteam.com/2012/03/web-cache-2-browser-cache/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 \\==== 索引 =====
 
 [【Web 缓存机制系列】1 – Web 缓存的作用与类型](http://alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
@@ -103,3 +105,5 @@ Etag 是服务器自动生成或者由开发者生成的对应资源在服务器
 3.  经过 HTTPS 安全加密的请求（有人也经过测试发现，ie 其实在头部加入 Cache-Control：max-age 信息，firefox 在头部加入 Cache-Control:Public 之后，能够对 HTTPS 的资源进行缓存，参考《[HTTPS 的七个误解](http://www.ruanyifeng.com/blog/2011/02/seven_myths_about_https.html "HTTPS 七个误解")》）
 4.  POST 请求无法被缓存
 5.  HTTP 响应头中不包含 Last-Modified/Etag，也不包含 Cache-Control/Expires 的请求无法被缓存
+
+<!-- {% endraw %} - for jekyll -->

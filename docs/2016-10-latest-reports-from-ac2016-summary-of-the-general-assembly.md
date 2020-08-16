@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2016/10/latest-reports-from-ac2016-summary-of-the-general-assembly/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/10/071652Iqr.jpg)
 
 经历了短暂的一天，AlloyTeam Conf 2016 圆满结束。目睹了一整天精彩议程小编，为大家递上最新鲜的 AC2016 大会快报～（福利在最后哦）
@@ -141,3 +143,5 @@ JavaScript 的世界发展太快，虽然小编还能跟得上，不过来自广
 从主持人退居下来的小编，今天受到了一万点伤害，因为显然大家更喜欢我们的校花做主持 T_T，那就…… 满足你们吧～
 
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/10/071654b4f.jpg)
+
+<!-- {% endraw %} - for jekyll -->

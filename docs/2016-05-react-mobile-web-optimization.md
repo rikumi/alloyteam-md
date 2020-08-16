@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2016/05/react-mobile-web-optimization/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文地址](https://github.com/lcxfs1991/blog/issues/8)
 
 最近一个季度，我们都在为手 Q 家校群做重构优化，将原有那套问题不断的框架换掉。经过一些斟酌，决定使用 react 进行重构。选择 react，其实也主要是因为它具有下面的三大特性。
@@ -347,3 +349,5 @@ _extends(a, b);
 ```
 
 如有错误，请斧正！
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.rocket
 source_link: http://www.alloyteam.com/2017/01/react-from-scratch-server-render/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 一。前言
 
 当我们选择使用 Node+React 的技术栈开发 Web 时，React 提供了一种优雅的方式实现服务器渲染。使用 React 实现服务器渲染有以下好处：
@@ -288,3 +290,5 @@ github 上还有其他的服务器渲染的例子，有兴趣的同学可以参�
 5\.[React Server Side Rendering 解决 SPA 应用的 SEO 问题](https://blog.coding.net/blog/React-Server-Side-Rendering-for-SPA-SEO)
 
 6\.[Server-Side Rendering with React + React-Router](https://ifelse.io/2015/08/28/server-side-rendering-with-react-and-react-router/)
+
+<!-- {% endraw %} - for jekyll -->

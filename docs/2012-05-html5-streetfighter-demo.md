@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/05/html5-streetfighter-demo/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **[![](http://www.alloyteam.com/wp-content/uploads/2012/05/未命名1.jpg "未命名")](http://www.alloyteam.com/wp-content/uploads/2012/05/未命名1.jpg)**
 
 -   试玩地址:  <http://alloyteam.github.com/StreetFighter/>
@@ -187,3 +189,5 @@ If ( move || jump || attack ) return false;
 当要执行一个新的动作的时候，比如攻击的时候突然被踢倒。会先比较 2 个动作的锁的级别。如果后面动作的级别大于之前动作的级别。就会打破之前的锁，执行新的动作。反之会无视新的动作。比如攻击的时候移动和跳跃都是没用的.
 
 **转载请注明原地址：**<http://www.alloyteam.com/2012/05/html5-streetfighter-demo/>
+
+<!-- {% endraw %} - for jekyll -->

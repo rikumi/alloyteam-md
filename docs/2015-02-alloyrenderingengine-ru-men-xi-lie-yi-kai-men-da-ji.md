@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/02/alloyrenderingengine-ru-men-xi-lie-yi-kai-men-da-ji/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 快速入口
 
 不读文章可以直接拐向这里：
@@ -212,3 +214,5 @@ define("Main", ["ARE"], {
 
 这篇主要讲了下目录结构以及 kmdjs 在 are 中的作用，还有 are 的 build 工具的使用以及模块化的看法，确切说还没有进入主题，甚至跑题，  
 但是非常重要，待续。
+
+<!-- {% endraw %} - for jekyll -->

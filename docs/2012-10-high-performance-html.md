@@ -5,6 +5,8 @@ author: TAT.yuanyan
 source_link: http://www.alloyteam.com/2012/10/high-performance-html/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 避免使用 Iframe
 
 Iframe 也叫内联 frame，可以把一个 HTML 文档嵌入到另一个文档中。使用 iframe 的好处是被嵌入的文档可以完全独立于其父文档，凭借此特点我们通常可以使浏览器模拟多线程，需要注意的是使用 iframe 并不会增加同域名下的并行下载数，浏览器对同域名的连接总是共享浏览器级别的连接池，即使是跨窗口或跨标签页，这在所有主流浏览器都是如此。也因为这样这让 iframe 带来的好处大打折扣。
@@ -77,3 +79,5 @@ HTML 页面开始时指定字符集，有助于浏览器可以立即开始解析
 
  </body>
 ```
+
+<!-- {% endraw %} - for jekyll -->

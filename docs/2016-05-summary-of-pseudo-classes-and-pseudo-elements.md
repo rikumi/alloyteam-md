@@ -5,6 +5,8 @@ author: TAT.rocket
 source_link: http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 熟悉前端的人都会听过 css 的伪类与伪元素，然而大多数的人都会将这两者混淆。本文从解析伪类与伪元素的含义出发，区分这两者的区别，并且列出大部分伪类与伪元素的具体用法，即使你有用过伪类与伪元素，但里面总有一两个你没见过的吧。
 
 **1. 伪类与伪元素**
@@ -1034,3 +1036,5 @@ h1:fullscreen::backdrop {
 1. [An Ultimate Guide To CSS Pseudo-Classes And Pseudo-Elements](https://www.smashingmagazine.com/2016/05/an-ultimate-guide-to-css-pseudo-classes-and-pseudo-elements/#disabled)
 
 2. [CSS 伪类与 CSS 伪元素的区别及由来](http://swordair.com/origin-and-difference-between-css-pseudo-classes-and-pseudo-elements/)
+
+<!-- {% endraw %} - for jekyll -->

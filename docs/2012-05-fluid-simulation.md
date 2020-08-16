@@ -5,6 +5,8 @@ author: TAT.岑安
 source_link: http://www.alloyteam.com/2012/05/fluid-simulation/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![](http://hongru.github.com/resource/images/fluid.png "fluid simulation")](https://github.com/hongru/fluid)
 
 以技术预研的心态做的一个东东。基于【双密度松弛算法】
@@ -23,3 +25,5 @@ source_link: http://www.alloyteam.com/2012/05/fluid-simulation/
 另有一个 html5 版本的 粒子 流体模拟；实现思路略有不同，可以参考：[http://www.music.mcgill.ca/~sinclair/content/blog/liquid\\\_simulator\\\_ported\\\_to\\\_canvas](http://www.music.mcgill.ca/~sinclair/content/blog/liquid/_simulator/_ported/_to/_canvas)
 
 使用 js 来做这种高计算量的事情，还是有点吃不住.
+
+<!-- {% endraw %} - for jekyll -->

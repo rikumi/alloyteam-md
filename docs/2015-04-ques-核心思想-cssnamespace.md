@@ -5,6 +5,8 @@ author: TAT.donaldyang
 source_link: http://www.alloyteam.com/2015/04/ques%e6%a0%b8%e5%bf%83%e6%80%9d%e6%83%b3-cssnamespace/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 > Facebook’s challenges are applicable to any very complex websites with many developers. Or any situation where CSS is bundled into multiple files and loaded asynchronously, and often loaded lazily.  
 > ——@vjeux  
 > 将 Facebook 换成 Tencent 同样适用。
@@ -143,3 +145,5 @@ Shadow DOM 的样式是完全隔离的，这就意味着即使你在主文档中
 2.  Component 可以任意改名，或复制重构，不会产生任何影响，便于 Component 的重构和扩展
 3.  Component 相对隔离，不会对外部产生影响
 4.  Component 非绝对隔离，外部可以对其产生一定影响
+
+<!-- {% endraw %} - for jekyll -->

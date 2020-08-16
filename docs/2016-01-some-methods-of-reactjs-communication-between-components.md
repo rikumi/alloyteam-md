@@ -5,6 +5,8 @@ author: TAT.rocket
 source_link: http://www.alloyteam.com/2016/01/some-methods-of-reactjs-communication-between-components/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 刚入门 React 可能会因为 React 的单向数据流的特性而遇到组件间沟通的麻烦，这篇文章主要就说一说如何解决组件间沟通的问题。
 
 * * *
@@ -587,3 +589,5 @@ Transdux 的传送门在下面，有兴趣的同学可以去看看：
 3. <http://stackoverflow.com/questions/21285923/reactjs-two-components-communicating>
 
 4. <https://blog.jscrambler.com/react-js-communication-between-components-with-contexts/>
+
+<!-- {% endraw %} - for jekyll -->

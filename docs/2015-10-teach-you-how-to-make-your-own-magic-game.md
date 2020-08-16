@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2015/10/teach-you-how-to-make-your-own-magic-game/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 文章背景：在朋友手机上看到一个有趣的魔性游戏（不知道的无须百度，下面直接看我的就好～），一拍脑袋想把 navtive 端的移植到 web 上面来～虽然游戏玩法和主题是抄袭，但是技术可以保证百分百自己实现～
 
 **PS：写完发现网上已经有标准的 web 版，UI 和 native 一样，而我的是赶时间之作…… 一比较 UI，我很尴尬，请勿太介意……**
@@ -183,3 +185,5 @@ yCenterArr 是六边形中 7 行中心点 Y 值，还有一个 xCenterArr，定�
 文章很长，能把看完一定非常不容易，在此万分感谢，愿读者看完之后可以写出比原版还 nice 的魔性游戏～
 
 有想法和问题可以留言交流～
+
+<!-- {% endraw %} - for jekyll -->

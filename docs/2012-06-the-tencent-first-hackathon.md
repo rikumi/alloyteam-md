@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/the-tencent-first-hackathon/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 2012 年 6 月，腾讯公司举办了公司成立 14 年来**首届腾讯编程马拉松 -** **Tencent Hackathon**，这次 Hackathon 的主题是围绕 HTML5 等 Web 新技术方面的，笔者有幸参与了本次 Hackathon 的全部过程，通过这次全程深度体验腾讯编程马拉松的现场，**深切感受到了与以往开发模式完全不同的体验，每个团队在短短的两天一夜 33\*\***个小时中所迸发出来的灵感和激情超乎想像 \*\*。
 
 腾讯公司举办这次编程马拉松 Hackathon 除了激发开发工程师的热情，也是为了鼓励员工的创新思想，提高创新实战能力，并**希望通过这次活动推动整个业界在创新方法上的探索，以及对 \*\***HTML5、CSS3 等 Web\***\* 新技术的使用**。
@@ -123,3 +125,5 @@ source_link: http://www.alloyteam.com/2012/06/the-tencent-first-hackathon/
 通过举办这次编程马拉松鼓励了更多的员工在创新方面做出贡献，以及希望通过本次活动推动整个业界在创新方法上的探索。
 
 转载请注明原文连接：<http://www.alloyteam.com/2012/06/the-tencent-first-hackathon/>
+
+<!-- {% endraw %} - for jekyll -->

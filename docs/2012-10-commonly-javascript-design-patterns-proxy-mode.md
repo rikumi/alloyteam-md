@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-proxy-mode/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 代理模式的定义是把对一个对象的访问，交给另一个代理对象来操作.
 
 举一个例子，我在追一个 MM 想给她送一束花，但是我因为我性格比较腼腆，所以我托付了 MM 的一个好朋友来送。
@@ -78,3 +80,5 @@ request.done(function () {});
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

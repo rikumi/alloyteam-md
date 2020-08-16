@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2015/06/clip-path-dong-hua-fen-xiang/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 CSS 样式的 clip-path 来源于 SVG<clipPath> 元素，它们的本质都是剪切
 
 每个人都知道剪切，那么 clip-path 实现的剪切有什么特别之处呢？
@@ -74,3 +76,5 @@ IE 是完全不支持，尽量使用 webkit 内核，需要加上内核前缀 - 
 所以做动画还是 Canvas 大法好～那么下一篇文章确定了，还是动画，不过是 Canvas 相关
 
 结语：整篇文章代码很少（就是没有代码……），没有把某个效果具体从开始第一秒到最后一秒具体去实现，因为 clip-path 本身不难，也不算什么新东西～有哪些属性值，怎么使用，网上一搜一大堆，我这里就不罗列了啊～如果有什么疑问大家一起交流吼吼～
+
+<!-- {% endraw %} - for jekyll -->

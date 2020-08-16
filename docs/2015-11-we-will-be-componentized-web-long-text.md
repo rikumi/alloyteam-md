@@ -5,6 +5,8 @@ author: TAT.bizai
 source_link: http://www.alloyteam.com/2015/11/we-will-be-componentized-web-long-text/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 这篇文章将从两年前的一次技术争论开始。争论的聚焦就是下图的两个目录分层结构。我说按模块划分好，他说你傻逼啊，当然是按资源划分。
 
 [![mulu_left](http://www.alloyteam.com/wp-content/uploads/2015/11/mulu_left.png)](http://www.alloyteam.com/wp-content/uploads/2015/11/mulu_left.png) 《=》[![mulu_right](http://www.alloyteam.com/wp-content/uploads/2015/11/mulu_right.png)](http://www.alloyteam.com/wp-content/uploads/2015/11/mulu_right.png)
@@ -611,3 +613,5 @@ webpack 和 react 还有很多新非常重要的特性和功能，介于本文�
 对于这样的前端未来，有所期待，不是很好吗
 
 至此，感谢你的阅读。
+
+<!-- {% endraw %} - for jekyll -->

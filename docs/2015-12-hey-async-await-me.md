@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2015/12/hey-async-await-me/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 背景
 
 笔者在前面的文章介绍过[如何使用 generator 来解决 callback hell](http://www.alloyteam.com/2015/04/solve-callback-hell-with-generator/)，尽管现在多数浏览器特别是移动端浏览器还不支持该 ES2015 新特性，但你可以通过 [Babel](https://babeljs.io/) 等转换工具转化成 ES5 兼容的等效代码，从而在生产环境使用。
@@ -259,3 +261,5 @@ async componentDidMount() {
 -   async/await 只是一套语法糖，其他语言的 async/await 可能是协程或者多线程编程的语法糖，JS 本身是单线程的，async/await 与传统的 callback 或者 promise 执行起来并无两样
 -   当下的 JS 引擎还没有原生支持 async/await 的，不过现在就可以使用 babel 转换成 ES5 等效代码，你甚至可以在生产环境中使用
 -   虽然 async/await 是 ES2016 才支持的新特性，目前尚处于草案状态，不过其作用和用法基本不会变了，一些其他语言已实现该特性，看来确实是大势所趋
+
+<!-- {% endraw %} - for jekyll -->

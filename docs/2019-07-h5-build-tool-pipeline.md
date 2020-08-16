@@ -5,6 +5,8 @@ author: TAT. cntchen
 source_link: http://www.alloyteam.com/2019/07/h5-build-tool-pipeline/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 背景
 
 [页面可视化搭建工具](https://github.com/CntChen/cntchen.github.io/issues/15), 是互联网公司中常见的运营工具，实现了运营人员快速生成和发布页面，提升页面上线效率；且无需开发人员介入，节省开发人力.
@@ -427,3 +429,5 @@ Pipeline 实现了编辑器和页面前端框架的分离，可以支持不同�
     > <https://i.yunfengdie.com/>
 
 ## EOF
+
+<!-- {% endraw %} - for jekyll -->

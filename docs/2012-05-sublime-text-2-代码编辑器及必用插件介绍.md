@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/sublime-text-2%e4%bb%a3%e7%a0%81%e7%bc%96%e8%be%91%e5%99%a8%e5%8f%8a%e5%bf%85%e7%94%a8%e6%8f%92%e4%bb%b6%e4%bb%8b%e7%bb%8d/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 最近试用了一款新的编辑器 [Sublime Text 2](http://www.sublimetext.com/)，跨平台，Sublime Text 2 是一个轻量、简洁、高效、跨平台的编辑器，方便的配色以及兼容 vim 快捷键等各种优点博得了很多前端开发人员的喜爱，我一用就爱上他了，本文推荐一些好用的插件和扩展。
 
 ![sublimetext2](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/024014NkH.png)
@@ -147,3 +149,5 @@ Prefixr，CSS3 私有前缀自动补全插件，显然也很有用哇
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/0240187WW.png "git")
 
 该插件基本上实现了 git 的所有功能。（转自前端观察）
+
+<!-- {% endraw %} - for jekyll -->

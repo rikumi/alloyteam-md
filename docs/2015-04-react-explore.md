@@ -5,6 +5,8 @@ author: TAT.felix
 source_link: http://www.alloyteam.com/2015/04/react-explore/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 React 简单介绍  
 
 * * *
@@ -919,3 +921,5 @@ ref 属性可以是一个回调函数而不是名字，这个回调会在组件 
 ```
 
 注意不要在 render 方法中访问 refs 属性。
+
+<!-- {% endraw %} - for jekyll -->

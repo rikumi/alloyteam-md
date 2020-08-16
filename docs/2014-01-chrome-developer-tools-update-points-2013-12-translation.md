@@ -5,6 +5,8 @@ author: TAT.gctang
 source_link: http://www.alloyteam.com/2014/01/chrome-developer-tools-update-points-2013-12-translation/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 在 2013 年 12 月份里 Chrome 开发者工具更新了一些大小不一的特性。
 
 接下来我们将开始讨论查看元素面板还有控制台 (console)，时间线等等的更新。
@@ -58,3 +60,5 @@ source_link: http://www.alloyteam.com/2014/01/chrome-developer-tools-update-poin
 英文原文地址：<http://updates.html5rocks.com/2013/12/DevTools-Digest-December-2013>
 
 近期项目比较紧急的缘故，目前只做摘要翻译，后续继续更多的补全更新
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2015/08/its-time-to-use-es2015/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 在 Web 中使用 ES 2015  
 
 ====================
@@ -196,3 +198,5 @@ const opt = { url, type };
 这样轻松就能让 opt 成为 options 的一个子集了，在做字段过滤和参数白名单过滤的时候很有用。
 
 好了，时间已经很晚了，本期就先写到这里了。
+
+<!-- {% endraw %} - for jekyll -->

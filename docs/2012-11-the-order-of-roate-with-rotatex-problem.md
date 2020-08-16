@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2012/11/the-order-of-roate-with-rotatex-problem/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 我觉得 CCS3 的 transform 中的学问很深，可以出不少面试题了，[之前的文章谈到过 perspective 属性的位置问题](http://www.alloyteam.com/2012/10/the-css3-transform-perspective-property/)，我们今天看看 rotate 的顺序，首先看看下面两个 CSS3 的 keyframe 动画：
 
 两个动画的起始状态和结束状态都是是一摸一样的（其实就是原始位置），不同的只不过是 rotate 和 rotateX 的顺序。但是动画效果却有惊人的差别。
@@ -92,3 +94,5 @@ CSS 代码如下：
 这样也就可以解释为什么 perspective 为什么要放在 transform 的第一位了。
 
 PS：以上结论是基于逻辑推理得来，本人没有看过这部分的浏览器源代码，请看过的同学指正。
+
+<!-- {% endraw %} - for jekyll -->

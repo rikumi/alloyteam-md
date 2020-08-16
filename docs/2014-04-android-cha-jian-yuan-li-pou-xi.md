@@ -5,6 +5,8 @@ author: TAT.zhipingfeng
 source_link: http://www.alloyteam.com/2014/04/android-cha-jian-yuan-li-pou-xi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 前言
 
 关于插件，已经在各大平台上出现过很多，eclipse 插件、chrome 插件、3dmax 插件，所有这些插件大概都为了在一个主程序中实现比较通用的功能，把业务相关或者让可以让用户自定义扩展的功能不附加在主程序中，主程序可在运行时安装和卸载。
@@ -160,3 +162,5 @@ ClassLoader classLoader= context.getClassLoader() ;
 好了，到现在为止，如何实现插件还有使用不同方式编译加载出现的错误原因我们也知道了也就是 JAVA 是用类加载器来加载类的，加载类时会先使用父的加载器加载后再从使用自己的父加载器去加载，同一个类不同的加载器加载的类也被认为不同的类。
 
 下面探讨另一个问题，有没有可能在主程序里不打包插件 SDK 也可以实现动态加载但现在的逻辑代码不变？还有上面的例子做成插件的是普通的类，Activity 能不能也一样可以做到，升级插件了怎么办？答案是两个都可以实现，原理也是使用 DexClassLoader，篇幅和利益关系这里不做介绍。
+
+<!-- {% endraw %} - for jekyll -->

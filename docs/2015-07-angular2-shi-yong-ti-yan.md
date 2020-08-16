@@ -5,6 +5,8 @@ author: TAT.simplehuang
 source_link: http://www.alloyteam.com/2015/07/angular2-shi-yong-ti-yan/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Angular2 开发者预览版出来已有一段时间，这个以速度与移动性能为目的的框架到底如何，今天我们来尝试一下。
 
 在官网有一段号称 5 分钟入门的教程：
@@ -134,3 +136,5 @@ export class TodoStore {
 运行示例：
 
 [![QQ 图片 20150731233925](http://www.alloyteam.com/wp-content/uploads/2015/07/QQ图片20150731233925.png)](http://www.alloyteam.com/wp-content/uploads/2015/07/QQ图片20150731233925.png)
+
+<!-- {% endraw %} - for jekyll -->

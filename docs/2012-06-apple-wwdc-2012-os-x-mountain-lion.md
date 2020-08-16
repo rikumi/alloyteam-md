@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/apple-wwdc-2012-os-x-mountain-lion/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![OSX Mountain Lion](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/052957HTz.jpg "OSX Mountain Lion")
 
 苹果全球开发者大会 2012 上隆重介绍的新产品之二就是 OS X Mountain Lion 操作系统。这是苹果的下一代桌面操作系统，是在 OS X Lion 发布后约一年左右将要推出的深度整合 iCloud、内置大量 iOS 优秀特性的操作系统……
@@ -100,3 +102,5 @@ Mountain Lion 的听写功能在几乎所有应用中都可以使用，只要 Ma
 ![苹果 OS X Mountain Lion 操作系统](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/0531125Jh.jpg "苹果 OS X Mountain Lion 操作系统")
 
 ![苹果 OS X Mountain Lion 操作系统](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/053114d79.jpg "苹果 OS X Mountain Lion 操作系统")
+
+<!-- {% endraw %} - for jekyll -->

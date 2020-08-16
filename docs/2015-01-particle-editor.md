@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/01/particle-editor/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # **写在前面**
 
 大家阅读此文之前，可以先看一篇 MiloYip 的文章：[用 JavaScript 玩转游戏物理 (一) 运动学模拟与粒子系统](http://www.cnblogs.com/miloyip/archive/2010/06/14/Kinematics_ParticleSystem.html)，看完之后再看此文，更加容易理解。
@@ -113,3 +115,5 @@ github: [https://github.com/AlloyTeam/ParticleEditor](https://github.com/AlloyT
 ps: 编辑器使用小测验：你能使用 demo 的粒子编辑器实现下面那只企鹅效果吗？:)
 
 # [![sh](http://www.alloyteam.com/wp-content/uploads/2015/01/sh.png)](http://www.alloyteam.com/wp-content/uploads/2015/01/sh.png)
+
+<!-- {% endraw %} - for jekyll -->

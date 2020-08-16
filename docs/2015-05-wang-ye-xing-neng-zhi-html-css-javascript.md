@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2015/05/wang-ye-xing-neng-zhi-html-css-javascript/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **前言**
 
 html css javascript 可以算是前端必须掌握的东西了，但是我们的浏览器是怎样解析这些东西的呢 我们如何处理 html css javascript 这些东西来让我们的网页更加合理，在我这里做了一些实验，总结起来给大家看看。
@@ -297,3 +299,5 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 <http://www.haorooms.com/post/web_xnyh_jscss>
 
 4 如果有哪里说的不清楚或者错误的地方，欢迎留言反馈。
+
+<!-- {% endraw %} - for jekyll -->

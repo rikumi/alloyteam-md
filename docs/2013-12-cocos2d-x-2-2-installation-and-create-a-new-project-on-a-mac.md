@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2013/12/cocos2d-x-2-2-installation-and-create-a-new-project-on-a-mac/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 手边有一台 iMac，听说 cocos2d 比较流行就想尝试一下。
 
 首先到官网看文档，<http://www.cocos2d-x.org/wiki>
@@ -28,3 +30,5 @@ source_link: http://www.alloyteam.com/2013/12/cocos2d-x-2-2-installation-and-cre
 接下来安装 python，安装时注意要在设置－安全性与隐私中打开未知开发者的限制。然后就 ok 了，也不用设置劳什子的环境变量，mac 就是爽呀。
 
 然后按照上述文章在命令行中执行，就可以创建一个新的工程了。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: burlin
 source_link: http://www.alloyteam.com/2017/05/how-to-lower-version-node-running-node-process/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # 如何在低版本 node 运行高版本 node 子进程
 
 -   如何在低版本 node 运行高版本 node 子进程
@@ -451,3 +453,5 @@ ps.on("exit", function (code, signal) {
 -   四个创建子进程的函数
 -   结合 nvm 切换构建子进程环境变量
 -   进程和信号量，进程异常退出的检测好方法
+
+<!-- {% endraw %} - for jekyll -->

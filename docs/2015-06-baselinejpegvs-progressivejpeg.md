@@ -5,6 +5,8 @@ author: TAT.helondeng
 source_link: http://www.alloyteam.com/2015/06/baselinejpegvs-progressivejpeg/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 JPEG 有两种存储格式：baseline 和 progressive。Baseline JPEG 会在数据可用时，`一行一行自上而下`显示。Progressive JPEG 会`先显示模糊图片，然后逐渐清晰`。
 
 ![01-02_baseline_vs_progressive](https://cloud.githubusercontent.com/assets/3880323/7693875/e38c96d2-fe0a-11e4-9fc9-5a116df51920.jpg)  
@@ -51,3 +53,5 @@ Progressive 比较耗 CPU， 对于移动设备来讲，这是一个顾虑，在
 
 原文地址：  
 <https://github.com/imweb/mobile/issues/4>
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.bizai
 source_link: http://www.alloyteam.com/2014/02/html5-skeletal-animation/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![allotstick_head2](http://www.alloyteam.com/wp-content/uploads/2014/02/allotstick_head2.jpg)](http://www.alloyteam.com/wp-content/uploads/2014/02/allotstick_head2.jpg)
 
 What's AlloyStick
@@ -41,3 +43,5 @@ How is it ?
 AlloyStick 只负责动画部分，不带游戏引擎，最终版本是能够嵌入第三方游戏引擎中。当然你也可以期待我们的游戏引擎，带上碰撞检测的特性，这样就会变得非常有趣。现版本是：我们只做动画的实现，跟游戏引擎独立分离。
 
 目前，AlloyStick 还处于开发阶段。js 库部分还有很多计划中的功能没有实现。我们需要把时间投放在动画编辑器上。因为，我们的动画编辑器还在加班加点中。。。
+
+<!-- {% endraw %} - for jekyll -->

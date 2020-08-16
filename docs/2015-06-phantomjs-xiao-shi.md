@@ -5,6 +5,8 @@ author: TAT.dongdongli
 source_link: http://www.alloyteam.com/2015/06/phantomjs-xiao-shi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 简单来说，phantomjs 就是一个运行在 node 上的 webkit 内核，支持 DOM 渲染，css 选择器，Canvas，SVG 等，在浏览器上能做的事情，理论上，phantomjs 都能模拟做到。
 
 ## phantomjs 使用场景：
@@ -98,3 +100,5 @@ page.onLoadFinished = <span class="keyword">function</span>() {
 ## 延伸阅读
 
 [CasperJS](http://casperjs.org/)：一个开源的导航脚本处理和高级测试工具
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2015/05/memory-leak-caused-by-promise/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![Promise](https://camo.githubusercontent.com/936320d9d13426d9631ff49d817b5d542e135d10/687474703a2f2f7777772e616c6c6f797465616d2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30352f515125453625383825414125453525394225424532303135303533303230313332382e706e67)](http://www.alloyteam.com/wp-content/uploads/2015/05/QQ%E6%88%AA%E5%9B%BE20150530201328.png)
 
 [Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)  
@@ -153,3 +155,5 @@ done 的作用是告诉引擎没有任何地方需要等 Promise resolve 或者 
 -   相信 Promise 会越来越好用，各个 js 引擎也会对 Promise 进行优化
 
 以上纯属基于简单技术模型的研究，实际中遇到 Promise 内存泄漏往往很不好排查问题，如发现文章中有不足之处还望在留言中指出。
+
+<!-- {% endraw %} - for jekyll -->

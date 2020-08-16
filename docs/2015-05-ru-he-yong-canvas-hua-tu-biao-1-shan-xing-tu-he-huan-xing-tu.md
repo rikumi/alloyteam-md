@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/05/ru-he-yong-canvas-hua-tu-biao-1-shan-xing-tu-he-huan-xing-tu/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 现在 canvas 图表的库越来越多，也越来越成熟，以致于大家想到图表制作都直接想着用第三方库，而忽略了自己动手制作的可能性。其实要绘制一个简单基本的 canvas 图表库并不难。下面就让我展开介绍。
 
 [![canvas](http://www.alloyteam.com/wp-content/uploads/2015/05/canvas.jpg)](http://www.alloyteam.com/wp-content/uploads/2015/05/canvas.jpg)
@@ -110,3 +112,5 @@ canvas 高级动画 <https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Can
 canvas 像素操作 <https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Canvas_tutorial/Pixel_manipulation_with_canvas>
 
 canvas 的优化 <https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Canvas_tutorial/Optimizing_canvas>
+
+<!-- {% endraw %} - for jekyll -->

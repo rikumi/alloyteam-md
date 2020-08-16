@@ -5,6 +5,8 @@ author: TAT.pel
 source_link: http://www.alloyteam.com/2012/09/jx-framework-tutorial-a/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # 什么是 JX 框架
 
 JX 框架 (Javascript eXtension tools) 是模块化的非侵入式 Web 前端框架，适用于 Web Page 和 Web App 项目的开发，特别适合构建和组织大规模、工业级的 Web App，腾讯 WebQQ、腾讯 Q + 等产品都是采用 JX 框架开发，兼容目前所有主流浏览器。  
@@ -109,3 +111,5 @@ var el = J.dom.id("myButton");
 JX 的源码目前开源在 Github，可以从 [http://alloyteam.github.com/JX/#download](http://alloyteam.github.com/JX/#download "下载 JX") 获取。
 
 下一篇：[JX 框架入门教程 (二)](http://www.alloyteam.com/2013/08/jx-framework-tutorial-b/ "JX 框架入门教程 (二)")
+
+<!-- {% endraw %} - for jekyll -->

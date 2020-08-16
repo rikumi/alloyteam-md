@@ -5,6 +5,8 @@ author: TAT.lqlongli
 source_link: http://www.alloyteam.com/2015/06/mvvm-xue-xi-vue-shi-jian-xiao-jie/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 1 mvvm 学习
 
 ### 1.1 实现原理
@@ -287,3 +289,5 @@ mvvm 模式还是值得我们去深入学习的，而在实践中，我们也能
 用一种不一样的思想和思维去开发的体验也会令我们在看待问题，处理问题的道路上有所收获
 
 最后，期待 q 的发展，我已经整装待发了哟
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2016/07/httphttp2-0spdyhttps-reading-this-is-enough/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 作为一个经常和 web 打交道的程序员，了解这些协议是必须的，本文就向大家介绍一下这些协议的区别和基本概念，文中可能不局限于前端知识，还包括一些运维，协议方面的知识，希望能给读者带来一些收获，如有不对之处还请指出。
 
 **1. web 始祖 HTTP**  
@@ -172,3 +174,5 @@ SPDY 位于 HTTP 之下，TCP 和 SSL 之上，这样可以轻松兼容老版本
 好书推荐 [《](http://www.ituring.com.cn/book/1632)[HTTPS 权威指南：在服务器和 Web 应用上部署 SSL/TLS 和 PKI](http://www.ituring.com.cn/book/1734)[》](http://www.ituring.com.cn/book/1632)
 
 [![1734.826](http://www.alloyteam.com/wp-content/uploads/2016/07/1734.826.jpg)](http://www.ituring.com.cn/book/1734)
+
+<!-- {% endraw %} - for jekyll -->

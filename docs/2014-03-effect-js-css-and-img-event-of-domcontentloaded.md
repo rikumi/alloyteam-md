@@ -5,6 +5,8 @@ author: TAT.kerry95
 source_link: http://www.alloyteam.com/2014/03/effect-js-css-and-img-event-of-domcontentloaded/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 最近在做性能有关的数据上报，发现了两个非常有意思的东西：Chrome 开发者工具的 Timeline 分析面板，以及 DOMContentLoaded 事件。一个是强大的令人发指的性能分析工具，一个是重要的性能指标，于是就用 Timeline 对 DOMContentLoaded 事件进行了一番研究。
 
 ## 前端的纯技术就是对规范的认知
@@ -201,3 +203,5 @@ main.js:
 PS.
 
 以上测试环境为 windows/chrome，并用 Fiddler 模拟慢速网络
+
+<!-- {% endraw %} - for jekyll -->

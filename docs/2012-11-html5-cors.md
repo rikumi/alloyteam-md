@@ -5,6 +5,8 @@ author: TAT.yukin
 source_link: http://www.alloyteam.com/2012/11/html5-cors/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 HTML 5 以前的标准由于考虑到浏览器安全问题并不允许直接跨域通信，于是为了达到跨域通信的目的各种蛋疼的解决办法出现了，常用的有：jsonp、使用代理文件、地址栏 hash 等等，这些办法的出现在达到解决跨域问题的同时，也增加了前端页面的性能开销和维护成本。HTML5 新的标准中，增加了” Cross-Origin Resource Sharing” 特性，这个特性的出现使得跨域通信只需通过配置 http 协议头来即可解决。
 
 Cross-Origin Resource Sharing 详细解释见：  
@@ -48,3 +50,5 @@ xhr.onerror = function () {
 };
 xhr.send();
 ```
+
+<!-- {% endraw %} - for jekyll -->

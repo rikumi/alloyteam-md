@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/codenow%e8%ae%a9%e4%bd%a0%e5%9c%a8%e6%b5%8f%e8%a7%88%e5%99%a8%e5%ae%9e%e6%97%b6%e8%b0%83%e8%af%95%e4%bb%a3%e7%a0%81%e4%bd%a0%e7%9a%84api%e4%bb%a3%e7%a0%81/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/064644lO0.jpg "codenow")](http://www.alloyteam.com/?attachment_id=106339)
 
 几乎所有互联网巨头都会开放自己的 API，但是对于开发者来说试新 API 却是件棘手的事。在开始写第一行代码之前，也许得折腾几个小时来做好设置、获得权限，还得先学习语法。因此，由 Amazon 前员工设立的初创企业[**CodeNow.com**](http://www.codenow.com/)瞄准了这一点需求，帮助开发者简化测试 API 前的准备步骤。
@@ -28,3 +30,5 @@ CodeNow 几乎支持所有的 API，包括 Dropbox、Twilio 以及 Facebook 等�
 CodeNow 是在[**AngelPad**](http://angelpad.org/)孵化器登录的第一家初创企业。其货币化计划是提供 API 发现功能，向 API 提供商收取费用。
 
 (转自 36kr)
+
+<!-- {% endraw %} - for jekyll -->

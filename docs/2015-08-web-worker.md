@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2015/08/web-worker/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ##### 来源：[How fast are web workers?](https://hacks.mozilla.org/2015/07/how-fast-are-web-workers/)
 
 下一版本的 Firefox OS 移动操作系统将通过使用其多核处理器来充分利用设备的性能，JavaScript 虽然在单线程上执行，但通过使用 web workers 可以实现代码的并行执行，这样将释放浏览器中任何可能阻塞主线程的程序，UI 动画也将因此更顺畅的执行。
@@ -128,3 +130,5 @@ channel.onmessage = (evt) => {
 -   broadcast channel 的最大传输数据大小 -》200 kB
 
 基准测试用来确保你所使用的解决方案是非常快的。这个过程将大量的猜测从 web 开发中消除。
+
+<!-- {% endraw %} - for jekyll -->

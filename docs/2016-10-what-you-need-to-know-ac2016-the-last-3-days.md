@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2016/10/what-you-need-to-know-ac2016-the-last-3-days/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![AC2016](http://www.alloyteam.com/wp-content/uploads/2016/10/AC2016-1024x576.png)](http://www.alloyteam.com/wp-content/uploads/2016/10/AC2016.png)
 
 经过了前期踊跃的报名（已超过 2000 人报名），AC2016 即将在 10 月 23 日盛大举行。什么，抢不到邀请码？别着急，这里有最全的 AC2016 参会指引～
@@ -56,3 +58,5 @@ AC 大会（Alloyteam Conf），是腾讯前端团队 AlloyTeam 发起的前端�
 最后还有什么好的建议，可以随时在下方留言，欢迎关注我们的公众号和加入 QQ 群～
 
 [![公众号 & QQ 群](http://www.alloyteam.com/wp-content/uploads/2016/10/QQ截图20161020203444.png)](http://www.alloyteam.com/wp-content/uploads/2016/10/QQ截图20161020203444.png)
+
+<!-- {% endraw %} - for jekyll -->

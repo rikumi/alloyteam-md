@@ -5,6 +5,8 @@ author: TAT.bizai
 source_link: http://www.alloyteam.com/2013/12/hour-class-learning-costs-javascript-unit-testing-tool-matcha-mocha-and-chai/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # 基本介绍
 
 mocha 是一个 javascript 的测试框架，chai 是一个断言库，两者搭配使用更佳，所以合称 “抹茶”（其实 mocha 是咖啡）。“抹茶” 特点是： 简单，Hour 级学习成本，node 和浏览器都可运行，有趣。
@@ -282,3 +284,5 @@ Javascript 单元测试，我们真的需要吗？
 \--- 单元测试能够避免代码出现回归，编写完成后，可快速运行测试。
 
 接触 "抹茶" 的起因是项目驱动需要写些单元测试用例，knight 大哥推荐了 Mocha 和 Chai 组合来实现我们单元测试的需求。Javascripte 单元测试工具比较著名的还有 Qunit，JsUnit，JsTestDriver 等等，笔者也是刚刚接触，上面的也是基础学习的分享，不敢乱下定论哪款框架好，花时间去研究哪款框架好用，不如试试 “抹茶” 这种 Hour 级的学习成本，值得你们尝试学习。
+
+<!-- {% endraw %} - for jekyll -->

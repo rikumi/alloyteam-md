@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2014/03/ru-he-jie-jue-compass-zhong-yu-dao-di-errnoeacces-on-line-897-of-c-permission-denied-wen-ti/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 如果你在 3 月 23 日左右升级了 compass，你可能会遇到这样的错误：
 
 ```javascript
@@ -29,3 +31,5 @@ gem install sass --version "3.2.10"
 gem install compass --version "0.12.2"
 
 这样就可以消除上述错误了。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.李强
 source_link: http://www.alloyteam.com/2015/06/javascript-shu-ju-jie-gou-he-suan-fa-jian-shu-qian-yan/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 为什么要使用数据结构和算法（程序 = 数据结构 + 算法）
 
 * * *
@@ -362,3 +364,5 @@ print(dog.feeling); // happy
 可以下载 [javascript shell](http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/)（进入该页面并滚动到底部，选择系统版本进行下载）使用 shell 交互模式编写代码并执行。博文中主要利用 javascript 中数组和对象的特性对数据结构和算法进行描述，在描述原理的同时，使用 javascript 实现示例代码。只有真正明白数据结构的基础，才能对其应用自如。
 
 【未完待续 JavaScript 数据结构和算法简述 —— 数组】
+
+<!-- {% endraw %} - for jekyll -->

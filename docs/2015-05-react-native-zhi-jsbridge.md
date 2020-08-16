@@ -5,6 +5,8 @@ author: TAT.simplehuang
 source_link: http://www.alloyteam.com/2015/05/react-native-zhi-jsbridge/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **React Native 综述：**
 
 在 React Native 中，JavaScript 跟 Object-C 均有一个对应的中间件负责交互，源码中称为 bridge，它们通过 callback 的形式进行传参，通过参数配置来触发 OC 的控件，从而达到以 JavaScript 来控制 Native 的目的。
@@ -84,3 +86,5 @@ IOS 暴露的模块：
 ![](http://www.alloyteam.com/wp-content/uploads/2015/05/react_native_pic10.jpg)
 
 基于 JSBrige 的工作流程及原理如上所述，下期将讲解 React Native 中 JSX 的解析及 Component 的生成。
+
+<!-- {% endraw %} - for jekyll -->

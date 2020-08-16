@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2012/10/js-dynamic-management-of-css/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 #  添加 CSS
 
 通常情况 CSS 不论是内嵌还是外联，都是预先定义好的。其实利用 JavaScript，我们也可以动态在页面中插入或删除 CSS。
@@ -121,3 +123,5 @@ elem.className += " " + className;
 ```
 
 这个函数中并没有考虑其他情况，比如 #elementCSS 的情况。读者可以自行扩展该函数。
+
+<!-- {% endraw %} - for jekyll -->

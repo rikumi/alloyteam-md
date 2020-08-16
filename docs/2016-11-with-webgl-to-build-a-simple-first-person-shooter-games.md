@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2016/11/with-webgl-to-build-a-simple-first-person-shooter-games/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 背景：不知道大家还记不记得上次那个 3D 迷宫游戏，有同事吐槽说游戏中间有一个十字瞄准器，就感觉少了一把枪。好吧，那这次就带来一款第一人称射击游戏。写 demo 锻炼，所以依旧用的原生 webgl，这次重点会说一下 webgl 中关于摄像头相关的知识，点开全文在线试玩～～
 
 simpleFire 在线试玩：<https://vorshen.github.io/simpleFire/index.html（推荐开声音……> 否则没有打击感会觉得游戏有点呆……）
@@ -361,3 +363,5 @@ webgl 是一个世界，你要在世界中创造，但也要满足世界的规�
 下次带来的不一定是 3D 小游戏，3D 小游戏写起来还是挺累的，素材什么的比 2D 麻烦很多
 
 这篇文章也就到此结束啦，写的好累 T_T。。有问题和建议的小伙伴欢迎留言一起探讨～
+
+<!-- {% endraw %} - for jekyll -->

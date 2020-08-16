@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/07/nuclear-kai-shi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 为什么 Nuclear
 
 这里列举 Nuclear 在竞品中的优势：
@@ -136,3 +138,5 @@ new HelloMessage 的第二个参数是组件的容器。
 ## Q&A
 
 任何问题可以留言回复或者 [issues](https://github.com/AlloyTeam/Nuclear/issues/new) 发过来
+
+<!-- {% endraw %} - for jekyll -->

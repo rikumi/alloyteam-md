@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/04/alloyrenderingengine-ji-cheng/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 写在前面  
 
 * * *
@@ -149,3 +151,5 @@ stage.add(button);
 演示地址:<http://alloyteam.github.io/AlloyGameEngine/tutorial/lesson2.html>  
 Class.js:<https://github.com/AlloyTeam/AlloyGameEngine/blob/master/src/are/base.js>  
 AlloyGameEngine:<https://github.com/AlloyTeam/AlloyGameEngine>
+
+<!-- {% endraw %} - for jekyll -->

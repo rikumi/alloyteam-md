@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2014/01/powerfuljs-2-to-download-large-files-using-js/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **[先看 Demo 点击这里](http://alloyteam.github.io/AlloyPhoto/demos/download/)**  
 康哥的 [《在浏览器端用 JS 创建和下载文件》](http://www.alloyteam.com/2014/01/use-js-file-download/), 这篇文章写的很不错，其中关于下载这部分，解决了一些困扰已久的问题，本文基于保存文件的基础上，做一些新的尝试（当然，老外比我们走得早一些，已经将此方法用在站点上）
 
@@ -77,3 +79,5 @@ IE11 下表现也是很乖的，完全可以运行，便其不管什么文件都
 [![ie11 下表现](http://www.alloyteam.com/wp-content/uploads/2014/01/QQ截图20140108001201.png)](http://www.alloyteam.com/wp-content/uploads/2014/01/QQ截图20140108001201.png)
 
 **[具体 Demo 请点击这里](http://alloyteam.github.io/AlloyPhoto/demos/download/)**
+
+<!-- {% endraw %} - for jekyll -->

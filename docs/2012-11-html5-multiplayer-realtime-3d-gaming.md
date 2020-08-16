@@ -5,6 +5,8 @@ author: TAT.iptton
 source_link: http://www.alloyteam.com/2012/11/html5-multiplayer-realtime-3d-gaming/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文：<http://blog.artillery.com/2012/05/realtime-multiplayer-3d-gaming-html5.html>
 
 这篇文章国内有些机器译的版本，但实在太难阅读，这里试译了下。  
@@ -86,3 +88,5 @@ Flash 和 Unity 已经建立了一个良好的开发环境，iOS 和 Xbox Live A
 -   [What every programmer needs to know about game networking](http://gafferongames.com/networking-for-game-programmers/what-every-programmer-needs-to-know-about-game-networking/)
 -   [Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization](https://developer.valvesoftware.com/wiki/Latency_Compensating_Methods_in_Client/Server_In-game_Protocol_Design_and_Optimization)
 -   [A Stream-based Time Synchronization Technique For Networked Computer Games](http://www.mine-control.com/zack/timesync/timesync.html)
+
+<!-- {% endraw %} - for jekyll -->

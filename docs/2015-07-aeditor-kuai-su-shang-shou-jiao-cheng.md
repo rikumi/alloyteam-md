@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2015/07/aeditor-kuai-su-shang-shou-jiao-cheng/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 本教程演示如何使用 AEditor 制作一个简单的 H5 交互页 demo:
 
 [![37](http://www.alloyteam.com/wp-content/uploads/2015/07/37.jpg)](http://www.alloyteam.com/wp-content/uploads/2015/07/37.jpg)
@@ -278,3 +280,5 @@ AEditor 访问地址：
 更多关于 AEditor 的详细教程：
 
 <http://www.alloyteam.com/2015/06/h5-jiao-hu-ye-bian-ji-qi-aeditor-jie-shao/>
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.simplehuang
 source_link: http://www.alloyteam.com/2016/03/react-native-for-android-windows/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **环境搭建**
 
 **1. 准备工作**
@@ -337,3 +339,5 @@ module.exports = Slider;
 [![1846.743](http://www.alloyteam.com/wp-content/uploads/2016/03/1846.743.jpg)](http://www.ituring.com.cn/book/1846)
 
 好书推荐 [《](http://www.ituring.com.cn/book/1846)[React Native 开发指南》](http://www.ituring.com.cn/book/1846)
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.ouvenzhang
 source_link: http://www.alloyteam.com/2015/05/polymer%e7%bb%84%e4%bb%b6%e5%8c%96%e4%b8%8evm%e7%89%b9%e6%80%a7/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 #### 一、Polymer
 
 Polymer 是 Google 在 2013 年的 Google I/O 大会上提出了一个新的 UI 框架。Polymer 的实现使用了 WebComponent 标准，并且 Polymer 可保证针对包含各种平台的 Web Component 规范本地实现的浏览器、库和组件的使用效果完全相同。
@@ -180,3 +182,5 @@ angular2.0 已明确提出将支持 Node 绑定、模板集成、元素自定义
 #### 4. 开发者的其它小众解决方案
 
 在企业中，针对企业特殊性的业务，企业前端开发者也可以根据 webComponent 的思想自己实现更加灵活可用的组件拼装解决方案。相比之下，这个方向的探索研究甚至会更加受欢迎，因为只有开发者才关注关注自己的组件怎么管理。例如目前 qiqi 项目所用的方案就比较符合这个方向。
+
+<!-- {% endraw %} - for jekyll -->

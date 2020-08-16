@@ -5,6 +5,8 @@ author: TAT.polar
 source_link: http://www.alloyteam.com/2016/01/let-see-css-world/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 写在最前  
 
 =======
@@ -358,3 +360,5 @@ flex 重要特性之一，可以指定 flex 布局下的元素如何分配空间
 行文匆忙，如大家发现错误欢迎指正。
 
 感谢你的阅读！
+
+<!-- {% endraw %} - for jekyll -->

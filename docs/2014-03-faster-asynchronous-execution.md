@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2014/03/faster-asynchronous-execution/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 如果要异步执行一个函数，我们最先想到的方法肯定会是 setTimeout  
 例如：setTimeout (function ( /\* 1s 后做点什么 \*/){},1000}
 
@@ -99,3 +101,5 @@ var setZeroTimeout = (function () {
     }
 })();
 ```
+
+<!-- {% endraw %} - for jekyll -->

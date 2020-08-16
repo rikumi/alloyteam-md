@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2016/10/zhang-lei-ac2016-lecturers-interview-dnt/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![dnt](http://www.alloyteam.com/wp-content/uploads/2016/10/dnt-300x253.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/10/dnt.jpg)
 
 讲师介绍  
@@ -67,3 +69,5 @@ source_link: http://www.alloyteam.com/2016/10/zhang-lei-ac2016-lecturers-intervi
 最后：各种性能优化，上面提到的每个点都有大量的优化和探索空间。
 
 **更多精彩内容，敬请期待张磊在 AC2016 上的分享 ——《3D 引擎架构设计》**
+
+<!-- {% endraw %} - for jekyll -->

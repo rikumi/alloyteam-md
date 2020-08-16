@@ -5,6 +5,8 @@ author: TAT.dmyang
 source_link: http://www.alloyteam.com/2014/01/node-stepify-module/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Node.js 中基本都是异步编程，我们回想下为什么初学者很容易写出深度嵌套 callback 的代码？因为直观啊，一眼即懂。当然实际写的时候肯定不推荐 callback 套 callback，需要一个工具来把一个任务完整的串起来。
 
 我们知道，在项目管理里面有一个很出名的理论，叫番茄工作法（不知道的自行 google），它所做的事情是把未来一段时间要做的事情都按照时间段拆分成一个个很小的任务，然后逐个完成。
@@ -109,3 +111,5 @@ var workflow = Stepify()
 可以看到，一个复杂的工作流，通过 stepify 定制，每一步都是那么清晰可读！
 
 欢迎选用，如果遇到 bug 请提交到[这里](https://github.com/chemdemo/node-stepify/issues)，也欢迎 pull request。
+
+<!-- {% endraw %} - for jekyll -->

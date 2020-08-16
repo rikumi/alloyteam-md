@@ -5,6 +5,8 @@ author: TAT.felix
 source_link: http://www.alloyteam.com/2015/09/explore-performance/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 使用 window.performance 提供了一组精确的数据，经过简单的计算就能得出一些网页性能数据。  
 
 ========================================================
@@ -312,3 +314,5 @@ console.log(domReadyMeasure);
 ===========================
 
 熟悉 Chrome 开发者工具的朋友应该知道：在开发环境下，其实我们自己打开 Chrome 的开发者工具，切换到网络面板，就能很详细的看到网页性能相关的数据。但当我们需要统计分析用户打开我们网页时的性能如何时，我们将 performance 原始信息或通过简单计算后的信息 (如上面写到的 getPerformanceTiming ()  和 getEntryTiming ()) 上传到服务器，配合其他信息（如 HTTP 请求头信息），就完美啦～
+
+<!-- {% endraw %} - for jekyll -->

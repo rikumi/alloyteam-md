@@ -5,6 +5,8 @@ author: TAT.huhu
 source_link: http://www.alloyteam.com/2015/03/jian-dan-wan-zhuan-manifest-json/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 回想最早年资源版本控制，是不是类似如下
 
 ````html
@@ -146,3 +148,5 @@ dist/js
 
 可以看到根据自能匹配规则，js 目录下有三个文件被自动 md5，而调试文件因为没有 md5 标识保留了源文件拷贝。
 ```
+
+<!-- {% endraw %} - for jekyll -->

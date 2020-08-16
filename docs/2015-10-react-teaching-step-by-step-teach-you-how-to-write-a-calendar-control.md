@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2015/10/react-teaching-step-by-step-teach-you-how-to-write-a-calendar-control/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
  [React](https://facebook.github.io/react/) 是一个用于构建用户界面的 javascript 库 (官网定义)，很多人认为 React  是 [MVC](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)  中的 V（视图），React  采用下面几个主要的思想
 
 **简单**
@@ -464,3 +466,5 @@ var node2 = arry2.map(function (item) {
     学习 react 需要理论和实践结合，如果需要对 react 有更深入的了解，大家可以试着做一些小 demo，比如用 react 写一个跟 iphone 手机上那样的计算器。欢迎小伙伴投稿写教程，我会把优秀文章到时候发布到 alloyteam 博客平台上，分享给更多的小伙伴。
 
     最后感谢大家阅读！
+
+<!-- {% endraw %} - for jekyll -->

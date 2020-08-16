@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2013/12/how-millet-wifi-predetermined-page-aloud/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 小米又做了一个成功的营销。在首页上放了 7 个三色的小米随身 WIFI 图片，每个图片是一个琴键，各代表一个音节，按照提示可以弹出《铃儿响叮当》。然后就出现了小米 WIFI 的预订页面。
 
 这个页面估计又要在微博、微信中疯转了。小米的互联网营销技巧实在是无法望其项背。所以这里就谈谈技术实现吧。
@@ -22,3 +24,5 @@ source_link: http://www.alloyteam.com/2013/12/how-millet-wifi-predetermined-page
 看了一下这库的功能还比较强大，可以支持 Flash、HTML5 多种方式。压缩之后 11k。还有一个环形的播放器，使用 canvas 实现的。
 
 11k 对手机可能有点大，估计如果只用 HTML5 的话应该可以再小点。这要研究一下。
+
+<!-- {% endraw %} - for jekyll -->

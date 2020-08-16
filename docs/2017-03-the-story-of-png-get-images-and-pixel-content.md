@@ -5,6 +5,8 @@ author: june01
 source_link: http://www.alloyteam.com/2017/03/the-story-of-png-get-images-and-pixel-content/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 前言
 
 现在时富媒体时代，图片的重要性对于数十亿互联网用户来说不言而喻，图片本身就是像素点阵的合集，但是为了如何更快更好的存储图片而诞生了各种各样的图片格式：jpeg、png、gif、webp 等，而这次我们要拿来开刀的，就是 png。
@@ -477,3 +479,5 @@ png 的解析流程可以由这一张图简单概括：
 -   <https://www.w3.org/TR/PNG/>
 -   <http://www.libpng.org/pub/png/>
 -   <https://en.wikipedia.org/wiki/Portable_Network_Graphics>
+
+<!-- {% endraw %} - for jekyll -->

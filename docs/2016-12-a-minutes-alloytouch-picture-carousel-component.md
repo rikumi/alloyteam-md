@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/a-minutes-alloytouch-picture-carousel-component/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 轮播图也涉及到触摸和触摸反馈，同时，AlloyTouch 可以把惯性运动打开或者关闭，并且设置 min 和 max 为运动区域，超出会自动回弹。  
 除了一般的竖向滚动，AlloyTouch 也可以支持横向滚动，甚至任何属性的运动，因为它的设计的本质就是属性无关，触摸可以反馈到任何属性的运动。所以 [AlloyTouch](https://github.com/AlloyTeam/AlloyTouch) 制作各种各样的轮播组件还是得心应手。
 
@@ -187,3 +189,5 @@ step 是当前的步长
 所有例子演示和代码可以在 Github 上找到。  
 Github：<https://github.com/AlloyTeam/AlloyTouch>  
 
+
+<!-- {% endraw %} - for jekyll -->

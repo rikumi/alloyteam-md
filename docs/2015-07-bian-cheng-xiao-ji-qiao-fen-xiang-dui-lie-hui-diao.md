@@ -5,6 +5,8 @@ author: TAT.finlay
 source_link: http://www.alloyteam.com/2015/07/bian-cheng-xiao-ji-qiao-fen-xiang-dui-lie-hui-diao/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # 场景描述
 
 > 有时候我们会碰到这样的任务场景，需要在一个界面上展示，许多图表内容，而获取图表数据的 CGI 做得非常原子化，也不方便更改，那么只能发很多个请求来拉取数据，展示图表，大致像下面的界面。  
@@ -90,3 +92,5 @@ queuePool.run();
 这里我做的事情就是将队列函数，交给调用方自己来决定，何时执行。  
 同时 run 是个幂等函数，方便随时调用，还可以保证只有一个队列在执行，且不被多次调用。  
 这样就满足了开场需求，在 ajax 中顺序回调：)
+
+<!-- {% endraw %} - for jekyll -->

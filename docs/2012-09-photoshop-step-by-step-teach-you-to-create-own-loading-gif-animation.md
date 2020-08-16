@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2012/09/photoshop-step-by-step-teach-you-to-create-own-loading-gif-animation/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![](http://www.alloyteam.com/wp-content/uploads/2012/09/14.png "1")  
 ](http://www.alloyteam.com/wp-content/uploads/2012/09/14.png)作为一个混迹互联网的 IT 人士，如果想各方面都了解点得话，那么设计 gif 动画也是个不错的学习方向哦！
 
@@ -130,3 +132,5 @@ source_link: http://www.alloyteam.com/2012/09/photoshop-step-by-step-teach-you-t
 最终结果如下所示![](http://sheran.li/wp-content/uploads/loading.gif)
 
 总结：知道 gif 动画的初步制作原理后，以后为我们制作逐帧动画也奠定了一定基础！如有表述不对是我地方可以给我留言哦～\\(^o^)/~
+
+<!-- {% endraw %} - for jekyll -->

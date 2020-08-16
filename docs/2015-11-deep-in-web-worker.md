@@ -5,6 +5,8 @@ author: TAT.ronnie
 source_link: http://www.alloyteam.com/2015/11/deep-in-web-worker/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 上一篇文章 [《从 setTimeout 说事件循环模型》](http://www.alloyteam.com/2015/10/turning-to-javascript-series-from-settimeout-said-the-event-loop-model/)从 setTimeout 入手，探讨了 Javascript 的事件循环模型。有别于 Java/C# 等编程语言，Javascript 运行在一个单线程环境中，对 setTimeout/setInterval、ajax 和 dom 事件的异步处理是依赖事件循环实现的。作为一个转向 Javascript 的开发人员，很自然的产生一个疑问，如何实现 Javascript 多线程编程呢？随着学习的深入，我了解到 HTML5 Web Worker，本文将分析 Web Worker 为 Javascript 带来了什么，同时带大家看看 worker 模型在其他语言的应用。
 
 **1.Web Worker 是什么**
@@ -218,3 +220,5 @@ Web Worker 最简单的应用就是用来做后台计算，而这种计算并不
 6. SwingWorker 的用法
 
 [http://blog.csdn.net/vking\\\_wang/article/details/8994882](http://blog.csdn.net/vking/_wang/article/details/8994882)
+
+<!-- {% endraw %} - for jekyll -->

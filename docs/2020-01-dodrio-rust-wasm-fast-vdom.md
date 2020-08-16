@@ -5,6 +5,8 @@ author: TAT.haoyue
 source_link: http://www.alloyteam.com/2020/01/dodrio-rust-wasm-fast-vdom/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 > [英文原文链接](https://hacks.mozilla.org/2019/03/fast-bump-allocated-virtual-doms-with-rust-and-wasm/)
 
 [Dodrio](https://github.com/fitzgen/dodrio) 是一个用 Rust 和 WebAssembly 编写的虚拟 DOM 库。它利用了 Wasm 的线性内存和 Rust 的低层次控制 api ，围绕指针碰撞（bump allocation）的方式来设计虚拟 DOM 渲染机制。初步的基准测试结果表明它比现有的虚拟 DOM 库性能都高。
@@ -326,3 +328,5 @@ Evan Czaplicki 向我们指出了另一个可以用来进一步评估 Dodrio 的
 Dodrio 是一个新的虚拟 DOM 库，旨在通过广泛使用快速指针碰撞分配来利用 Wasm 线性内存和 Rust 的低层级控制的优势。如果您想了解有关 Dodrio 的更多信息，建议您查看其 github 仓库和示例！
 
 感谢 Luke Wagner 和 Alex Crichton 为 Dodrio 的设计做出了贡献，并参加了头脑风暴和橡皮鸭环节。我们还与 React、Elm 和 Ember 团队的核心开发人员一起讨论，我们感谢他们的知识和理解，使得这些讨论成果最终进入了 Dodrio 的设计中。最后感谢 Jason Orendorff，Lin Clark，Till Schneidereit，Alex Crichton，Luke Wagner，Evan Czaplicki 和 Robin Heggelund Hansen 提供的对本文早期草稿的宝贵反馈。
+
+<!-- {% endraw %} - for jekyll -->

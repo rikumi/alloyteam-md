@@ -5,6 +5,8 @@ author: TAT.Rehorn
 source_link: http://www.alloyteam.com/2014/01/background-and-overview/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 #  **背景**
 
 笔记本换成 macbook air 之后，发现 128g 的硬盘确实是有点捉襟见肘，加上终端设备越来越多，发觉在移动硬盘、平板、手机、kindle、智能机顶盒等之间共享和同步数据是件蛮恶心的事情。于是开始在想，如果在家里的内部网络构建一个数据中心，能够方便各终端共享和互联，那应该会很便捷。经过一番 google，发觉目前这块已经有蛮多讨论和实践，萌生了写一个系列，总结并结合自己折腾经历做一些备忘，一起讨论。
@@ -50,3 +52,5 @@ source_link: http://www.alloyteam.com/2014/01/background-and-overview/
 9、智能家居与扩展
 
 待续...
+
+<!-- {% endraw %} - for jekyll -->

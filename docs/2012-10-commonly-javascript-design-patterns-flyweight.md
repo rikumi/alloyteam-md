@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 享元模式主要用来减少程序所需的对象个数。有一个例子，我们这边的前端同学几乎人手一本《javascript 权威指南》. 从省钱的角度讲，大约三本就够了。放在部门的书柜里，谁需要看的时候就去拿，看完了还回去。如果同时有 4 个同学需要看，此时再去多买一本.  
 在 webqq 里面，打开 QQ 好友列表往下拉的时候，会为每个好友创建一个 div (如果算上 div 中的子节点，还远不只 1 个元素).  
 
@@ -62,3 +64,5 @@ div.innerHTML = "${userinfo}";
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

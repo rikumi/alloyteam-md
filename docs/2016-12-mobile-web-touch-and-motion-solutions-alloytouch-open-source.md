@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/mobile-web-touch-and-motion-solutions-alloytouch-open-source/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 传送门  
 
 * * *
@@ -101,3 +103,5 @@ Github 地址：<https://github.com/AlloyTeam/AlloyTouch>
 欢迎 issues:<https://github.com/AlloyTeam/AlloyTouch/issues>  
 我们会在第一时间响应你的意见和建议。  
 
+
+<!-- {% endraw %} - for jekyll -->

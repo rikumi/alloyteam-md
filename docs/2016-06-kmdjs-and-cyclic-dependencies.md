@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/06/kmdjs-and-cyclic-dependencies/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 循环依赖
 
 循环依赖是非常必要的，有的程序写着写着就循环依赖了，可以提取出一个对象来共同依赖解决循环依赖，但是有时会破坏程序的逻辑自封闭和高内聚。所以没解决好循环依赖的模块化库、框架、编译器都不是一个好库、框架、编译器。
@@ -284,3 +286,5 @@ main = (function (bom, Ball, test) {
 ### Github
 
 <https://github.com/kmdjs/kmdjs>
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/04/qian-duan-qiang-hou-duan-fan-wan-node-js-socket-io-zhi-zuo-jian-yi-liao-tian-shi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **1. 前言**
 
 看到这个题目的时候干后端的别打我。在接触 Socket.io 之前曾经用 PHP + jQuery 写了一个低效的长轮询只有消息同步功能的小聊天室就已经耗尽心力，更不用说利用 PHP 的 Socket 接口写 WebSocket 的聊天室，那更是灾难。
@@ -340,3 +342,5 @@ this.io.on("connection", function (socket) {
 虽然 socket.io 自诩支持所有浏览器，其实只是支持比较新的现代浏览器，如果想测试你的浏览器是否支持 websocket 可以访问下面网站进行测试。如果不支持，只好用 comet 作为替代方案。<http://www.websocket.org/aboutwebsocket.html>
 
 [![](https://github.com/lcxfs1991/chat-socket.io/raw/master/websocket_support.png)](https://github.com/lcxfs1991/chat-socket.io/blob/master/websocket_support.png)
+
+<!-- {% endraw %} - for jekyll -->

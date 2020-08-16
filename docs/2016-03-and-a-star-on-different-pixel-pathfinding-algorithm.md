@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2016/03/and-a-star-on-different-pixel-pathfinding-algorithm/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前言：
 
 寻路是游戏中非常重要的一项功能，这项功能将直接体现出 AI 的智商如何。那说起寻路的算法，就不得不提标题上面的 A star 算法了。A Star（又称 A\*），是结合了 Dijkstra 算法和贪心算法优点的算法，对此不了解的同学可以去搜索一下，这里不具体介绍实现，而是简单的说一下原理，为后面我们的主角铺垫。
@@ -458,3 +460,5 @@ changeX 和 changeY 是 x 方向和 y 方向变动的值，根据斜率计算出
 请看下文：
 
 <http://www.alloyteam.com/2016/03/with-a-star-under-different-pixel-pathfinding-algorithm/>
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.melody
 source_link: http://www.alloyteam.com/2012/07/webtop-engine/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **新版发布，敬请关注**
 
 这是个什么东西？这是个用 web 开发桌面 app 的引擎，或者你可以简单的认为它是一个透明浏览器。可是它能做的不仅仅如此，它提供了大量的本地 api，使 web 的能力得到从所未有的提升，也使开发桌面 app 变得如此轻松简单。你有试想过自己开发一个浏览器吗？或者一个 qq。以前，或许你会说这太难了。可是，从今天开始，这一切都变得如此简单。这不是预想，这是已经实现的事情。
@@ -122,3 +124,5 @@ source_link: http://www.alloyteam.com/2012/07/webtop-engine/
 <http://www.alloyteam.com/2012/07/webtop-engine/>
 
 **这一切，只是为了我们能生活得更好～**
+
+<!-- {% endraw %} - for jekyll -->

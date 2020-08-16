@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/play-lego-lego-on-google-map/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![Build Lego onto a Google Map](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111221qTb.jpg)
 
 Google 又放出了很帅又充满了 Google 式小清新风格的 HTML5 在线游戏，这次和 LEGO 合作 —— 在 Google Map 上砌 LEGO 积木：
@@ -95,3 +97,5 @@ Google 又放出了很帅又充满了 Google 式小清新风格的 HTML5 在线�
                                               :    ,'
                                               ~~~~~
 ```
+
+<!-- {% endraw %} - for jekyll -->

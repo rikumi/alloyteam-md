@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2015/10/accessing-property-in-strong-mode/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 最近在着手把手上的 Nodejs 代码全面升级到 strong 模式，strong 模式是 V8 实现的一种新的模式，主要的变化我在[前面的文章](http://www.alloyteam.com/2015/06/strong-mode-jie-shao/)中已经写过。
 
 从报错开始  
@@ -111,3 +113,5 @@ var timeout = "timeout" in option ? option.timeout : 1000;
 完全等价
 
 再废话一句吧，ES2015 是趋势，新的语法简洁清晰，虽然现在支持的环境并不多，不过[搭配 babel 可以转换成主流环境都支持的语法](http://www.alloyteam.com/2015/08/its-time-to-use-es2015/)。
+
+<!-- {% endraw %} - for jekyll -->

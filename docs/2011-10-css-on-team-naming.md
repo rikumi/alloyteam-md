@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2011/10/css-on-team-naming/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 关于团队合作的 css 命名规范
 
 常用的 css 命名规则：  
@@ -166,3 +168,5 @@ class 的命名：
 -   打印 print.css
 
 ### <http://www.qianduan.net/css-selectors-naming-2.html>
+
+<!-- {% endraw %} - for jekyll -->

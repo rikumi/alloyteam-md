@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-pattern-observer-mode/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 观察者模式 (又叫发布者 - 订阅者模式) 应该是最常用的模式之一。在很多语言里都得到大量应用。包括我们平时接触的 dom 事件。也是 js 和 dom 之间实现的一种观察者模式.
 
 ```javascript
@@ -183,3 +185,5 @@ adultTv .trigger(  ''play',  { 'name': '麻生希' }  )
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

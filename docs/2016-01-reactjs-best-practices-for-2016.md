@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2016/01/reactjs-best-practices-for-2016/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文：<https://blog.risingstack.com/react-js-best-practices-for-2016/>
 
 作者：[Péter Márton](https://blog.risingstack.com/author/peter-marton/)
@@ -357,3 +359,5 @@ GraphQL 和 Relay 是相关的新技术。在 RisingStack，我们不在生产�
 有些优秀的技术和库其实跟 React 都没什么关系，关键在于要关注社区都在做些什么。2015 这一年，React 社区被 [Elm 架构](https://github.com/evancz/elm-architecture-tutorial/)启发了很多。
 
 如果你知道其他 2016 年大家应该使用的 React.js 工具，请留言告诉我们。
+
+<!-- {% endraw %} - for jekyll -->

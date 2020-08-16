@@ -5,6 +5,8 @@ author: TAT.李强
 source_link: http://www.alloyteam.com/2015/10/react-virtual-analysis-of-the-dom/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
        在 Web 开发中，需要将数据的变化实时反映到 UI 上，这时就需要对 DOM 进行操作，但是复杂或频繁的 DOM 操作通常是性能瓶颈产生的原因，为此，React 引入了虚拟 DOM（Virtual DOM）的机制。
 
 1.  [什么是虚拟 DOM？](http://www.alloyteam.com/2015/10/react-virtual-analysis-of-the-dom/#1)
@@ -107,3 +109,5 @@ function Raw() {
         React 从来没有说过 “React 比原生操作 DOM 快”。React 给我们的保证是，在不需要手动优化的情况下，它依然可以给我们提供过得去的性能。
 
         React 掩盖了底层的 DOM 操作，可以用更声明式的方式来描述我们目的，从而让代码更容易维护。下面还是借鉴了知乎上的回答：没有任何框架可以比纯手动的优化 DOM 操作更快，因为框架的 DOM 操作层需要应对任何上层 API 可能产生的操作，它的实现必须是普适的。针对任何一个 benchmark，我都可以写出比任何框架更快的手动优化，但是那有什么意义呢？在构建一个实际应用的时候，你难道为每一个地方都去做手动优化吗？出于可维护性的考虑，这显然不可能。
+
+<!-- {% endraw %} - for jekyll -->

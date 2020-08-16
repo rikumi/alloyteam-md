@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2013/12/canvas-animation-optimized-discussion/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 在使用 canvas 制作动画时，最传统的方式是对 canvas **update -> clear -> draw** 的过程
 
 [![e1](http://www.alloyteam.com/wp-content/uploads/2013/12/e1.png)](http://www.alloyteam.com/wp-content/uploads/2013/12/e1.png)
@@ -32,3 +34,5 @@ source_link: http://www.alloyteam.com/2013/12/canvas-animation-optimized-discuss
 然而，对于方案 3，还存在一些在实现上需要考虑的问题，例如如何保存运动元素的脏矩形列表，对于重叠元素如何处理等等，具体的流程可以参考下图：
 
 [![e13](http://www.alloyteam.com/wp-content/uploads/2013/12/e13.png)](http://www.alloyteam.com/wp-content/uploads/2013/12/e13.png)
+
+<!-- {% endraw %} - for jekyll -->

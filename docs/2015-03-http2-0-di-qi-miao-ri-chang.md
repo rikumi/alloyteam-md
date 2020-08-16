@@ -5,6 +5,8 @@ author: TAT.bizai
 source_link: http://www.alloyteam.com/2015/03/http2-0-di-qi-miao-ri-chang/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
  【交代：时间是在距今的 5 年后，由于我的智能滑板鞋，还有智能小内内的创业失败，为了在这个先看胸再看脸的时代活下去，我不得不重操旧业，去面试 web 前端工程师的工作。多年没有接触 web 开发了，找了个 AlloyTeam 的老同事晨伯帮我温习一下知识，好让面试通过】
 
  “多年没见，你的女神后来什么样了” 晨伯总是这么八卦我的女神，而不是我。
@@ -132,3 +134,5 @@ source_link: http://www.alloyteam.com/2015/03/http2-0-di-qi-miao-ri-chang/
 <http://chimera.labs.oreilly.com/books/1230000000545/ch12.html#_sending_application_data>
 
 <https://thecustomizewindows.com/2014/08/http-2-0-changes-expected-new-standard-2/>
+
+<!-- {% endraw %} - for jekyll -->

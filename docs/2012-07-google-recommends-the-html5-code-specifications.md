@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/07/google-recommends-the-html5-code-specifications/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Google 作为业界的领头羊，为 HTML5 代码规范作出了详尽实用的规范，一起来学习吧！
 
 **1. 协议头：**
@@ -127,3 +129,5 @@ background: url(//www.google.com/images/example);<br>
 <table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div></td><td><div><div><code>&lt;blockquote&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;&lt;br&gt;</code></div><div><code>&lt;/blockquote&gt;&lt;br&gt;</code></div><div><code>&lt;ul&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;li&gt;Moe&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;li&gt;Larry&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;li&gt;Curly&lt;br&gt;</code></div><div><code>&lt;/ul&gt;&lt;br&gt;</code></div><div><code>&lt;table&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;thead&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;tr&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;th scope=</code><code>"col"</code><code>&gt;Income&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;th scope=</code><code>"col"</code><code>&gt;Taxes&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;tbody&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;tr&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;td&gt;$ 5.00&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;td&gt;$ 4.50&lt;br&gt;</code></div><div><code>&lt;/table&gt;</code></div></div></td></tr></tbody></table>
 
 对于使用 HTML5 的朋友，可以参考。当然，不同团队还会整理出适合自己的代码规范，上述应该来说属于比较基本的规则内容。
+
+<!-- {% endraw %} - for jekyll -->

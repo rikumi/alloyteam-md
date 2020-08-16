@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2016/05/babel-code-into-a-bird-like/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文链接](https://github.com/lcxfs1991/blog/issues/9)
 
 前言  
@@ -1012,3 +1014,5 @@ babel es2015 中 loose 模式主要是针对下面几个 plugin：
 -   <http://ryerh.com/javascript/2016/03/27/babel-module-implementation.html>
 -   <http://www.2ality.com/2015/12/babel6-loose-mode.html>
 -   <http://www.2ality.com/2015/02/es6-classes-final.html>
+
+<!-- {% endraw %} - for jekyll -->

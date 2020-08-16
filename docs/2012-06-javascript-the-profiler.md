@@ -5,6 +5,8 @@ author: TAT.yuanyan
 source_link: http://www.alloyteam.com/2012/06/javascript-the-profiler/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **每一字节代码都有其温度，而我们提供代码的温度计。**
 
 ```javascript
@@ -29,3 +31,5 @@ for (var i = 0; i < 100; i++) {
 -   Github 开源：<https://github.com/yuanyan/jsprofiler>
 
 转载请注明原文地址：<http://www.alloyteam.com/2012/06/javascript-the-profiler>
+
+<!-- {% endraw %} - for jekyll -->

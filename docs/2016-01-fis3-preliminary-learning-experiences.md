@@ -5,6 +5,8 @@ author: TAT.yana
 source_link: http://www.alloyteam.com/2016/01/fis3-preliminary-learning-experiences/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 作为前端开发，或多或少都会接触很多前端构建工具，最近的业务使用到了百度 FIS 团队的 fis3，想和大家分享下我所理解的 fis3。
 
 **使用方法简单说**
@@ -268,3 +270,5 @@ define("pages/index/timeDegree-list-tmpl_tpl", function (
 [![3](http://www.alloyteam.com/wp-content/uploads/2016/01/3-300x66.png)](http://www.alloyteam.com/wp-content/uploads/2016/01/3.png)
 
 可见构建输出时间 grunt>fis3>gulp，这只是我做的初步试验，具体选择哪种工具进行构建还需要开发人员仔细斟酌。
+
+<!-- {% endraw %} - for jekyll -->

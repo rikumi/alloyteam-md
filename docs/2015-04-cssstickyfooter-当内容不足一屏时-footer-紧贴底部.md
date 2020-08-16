@@ -5,6 +5,8 @@ author: TAT.ycxu
 source_link: http://www.alloyteam.com/2015/04/cssstickyfooter-%e5%bd%93%e5%86%85%e5%ae%b9%e4%b8%8d%e8%b6%b3%e4%b8%80%e5%b1%8f%e6%97%b6footer%e7%b4%a7%e8%b4%b4%e5%ba%95%e9%83%a8/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 一般来说我们的 footer 是跟着内容走的，所以当内容较少不足一屏的时候，footer 也会跟着内容往上走，导致下面一段空白。所以这里我们来探讨下当内容不足一屏时 footer 也要紧贴底部的情况，因为比较难以描述，所以干脆使用了英文标题，要实现的效果如下：
 
 第一个和第三个为正常不处理的情况，第二个和第三个是我们要实现的情况
@@ -81,3 +83,5 @@ body{
     flex: <span class="number">1</span>; <span class="comment">/* 内容占满所有剩余空间 */</span>
 }
 ```
+
+<!-- {% endraw %} - for jekyll -->

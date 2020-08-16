@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2015/08/eventemitter/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 EventEmitter 简单介绍  
 
 * * *
@@ -127,3 +129,5 @@ emitter.emit("jerry");
 ```
 
 EventEmitter 为 node 的事件注册和分发提供了较好的形式。提高的代码的可读性及维护的便利性。
+
+<!-- {% endraw %} - for jekyll -->

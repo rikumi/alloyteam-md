@@ -5,6 +5,8 @@ author: TAT.Rehorn
 source_link: http://www.alloyteam.com/2012/05/dev-tools-chrome-live-reload/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 摘要
 
  ** [Live Reload](https://chrome.google.com/webstore/detail/pccddenngcbofbojodpghgpbheckgddn?hl=zh-CN "安装 Live Reload")** 是一个旨在提高 web 前端开发者开发效率的 **chrome** 扩展。当你在心爱的编辑器中更新页面资源（html,js,css）的时候，Chrome 浏览器会自动获取最新的文件并重新载入，避免开发过程需要频繁按 F5 页面的烦恼。特别适合在双屏环境下进行 web 前端开发，不必在编辑器和浏览器之间不停的切换，大大提升开发体验。  
@@ -88,3 +90,5 @@ ps:  前面有提到，使用 Chrome 进行开发的时候，按 F5 之后貌�
 给大家提供一个 bookmarklet，把下面链接拖到 Chrome 收藏栏，点击试试 ^\_^
 
 [QuickReload](javascript:location.reload();)
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2013/12/powerfuljs-1-to-operate-an-html-document-using-js/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 blockquote { background:#f9f9f9; border-left:10px solid #ccc; margin:1.5em 10px; padding:.5em 10px; quotes:"\\201C""\\201D""\\2018""\\2019"; } blockquote:before { color:#ccc; content:open-quote; font-size:4em; line-height:.1em; margin-right:.25em; vertical-align:-.4em; } blockquote p { display:inline; font-style: italic; } em{ font-style: italic; }
 
 > 做为一个刚吃过肉的人，看过大海，思考过人生，决定还是要静下心做点总结。
@@ -122,3 +124,5 @@ OK，通过解析 CSS String，我们可以拿到我们想要的东西，但问�
 -   对于 ie 系的几个倔强大哥们，都不支持 getMatchedCSSRules 方法，鉴于 CSS 语法的简单性，可以尝试通过 ajax 请求文档 CSS 文档来进行解析 CSS 语法，然后拿到对应的命中规则。
 
 肉消化的差不多，CSS 篇也写完了，有问题还请指教～
+
+<!-- {% endraw %} - for jekyll -->

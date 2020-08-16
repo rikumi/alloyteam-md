@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2012/07/convert-picture-to-sketch-by-canvas/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## [![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/0208516qY.png "sketch")](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/0208516qY.png)
 
 ## 一、引子
@@ -96,3 +98,5 @@ sketching 图示
 素描
 
 怎么样，效果是不是还不错咧，嘎嘎嘎。当然，这个算法未必是最好的，欢迎各位童鞋踊跃拍砖，^\_^
+
+<!-- {% endraw %} - for jekyll -->

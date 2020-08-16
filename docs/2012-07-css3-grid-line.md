@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2012/07/css3-grid-line/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 话说昨天在写[在线素描](http://www.alloyteam.com/2012/07/convert-picture-to-sketch-by-canvas/ "使用 Canvas 把照片转换成素描画")的时候，想着给画布加上些网格，就跟 PS 里面的一样。但是用 canvas 画是不行的（注：不是它不行……），图片又让我不齿，就作罢了。
 
 [![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/044033iwQ.png "ps-grid")](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/044033iwQ.png)
@@ -65,3 +67,5 @@ source_link: http://www.alloyteam.com/2012/07/css3-grid-line/
 [![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/044036Cjn.png "css colorful grid")](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/044036Cjn.png)
 
 嗯，剩下的就各位自由发挥了，hoho～～
+
+<!-- {% endraw %} - for jekyll -->

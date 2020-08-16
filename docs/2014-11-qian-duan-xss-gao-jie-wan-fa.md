@@ -5,6 +5,8 @@ author: TAT.gctang
 source_link: http://www.alloyteam.com/2014/11/qian-duan-xss-gao-jie-wan-fa/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 故事源于某一天，笔者的一位后台同事突然在 RTX 找到了我，然后抛出了一道一看就要跪的题，
 
 以下是他给我的原题：
@@ -175,3 +177,5 @@ console.log("done!");
 其中涵盖了各种的 XSS 玩法，值得一读。
 
 祝玩得愉快！
+
+<!-- {% endraw %} - for jekyll -->

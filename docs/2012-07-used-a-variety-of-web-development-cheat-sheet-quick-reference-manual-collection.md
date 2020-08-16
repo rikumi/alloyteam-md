@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/07/used-a-variety-of-web-development-cheat-sheet-quick-reference-manual-collection/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 网络上关于各种语言和应用软件的速查手册和快速参考指南有很多很多，不幸的是当我们需要的时候，总是很难找到，所以我决定花点时间尽可能的收集更多的资源并分享给大家，记得推荐一下哦 🙂
 
 ### 索引
@@ -469,3 +471,5 @@ source_link: http://www.alloyteam.com/2012/07/used-a-variety-of-web-development-
 希望你能够从上面列出的 100 多个速查手册和参考指南中找到有用的资料。
 
 如果你有更好的资源或者其它反馈，请留言，同时记得推荐和分享本文 🙂
+
+<!-- {% endraw %} - for jekyll -->

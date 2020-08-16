@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2015/05/shi-yong-sodarender-gou-jian-jian-jie-di-qian-duan-mo-ban/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 \[
 
 ## SodaRender
@@ -77,3 +79,5 @@ SodaRender 是一款具有类似 Angular 模板写法的模板引擎，使用 So
 ```
 
 如果你希望改善你的模板中的这些状况，或者你不幸被我说中了，那么请移步这里吧 [SodaRender](https://github.com/AlloyTeam/SodaRender)
+
+<!-- {% endraw %} - for jekyll -->

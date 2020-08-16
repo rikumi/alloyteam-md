@@ -5,6 +5,8 @@ author: TAT.dmyang
 source_link: http://www.alloyteam.com/2014/05/javascript-promise-mode/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 本篇，主要普及 promise 的用法。
 
 一直以来，JavaScript 处理异步都是以 callback 的方式，在前端开发领域 callback 机制几乎深入人心。在设计 API 的时候，不管是浏览器厂商还是 SDK 开发商亦或是各种类库的作者，基本上都已经遵循着 callback 的套路。
@@ -279,3 +281,5 @@ github 原文: <https://github.com/chemdemo/chemdemo.github.io/issues/6>
 -   [when.js](https://github.com/cujojs/when)
 -   [Asynch JS: The Power Of $.Deferred](http://www.html5rocks.com/en/tutorials/async/deferred/)
 -   [jQuery: $.Deferred()](https://github.com/jquery/jquery/blob/master/src/deferred.js)
+
+<!-- {% endraw %} - for jekyll -->

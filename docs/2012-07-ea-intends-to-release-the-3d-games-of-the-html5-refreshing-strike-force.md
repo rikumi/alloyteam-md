@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/07/ea-intends-to-release-the-3d-games-of-the-html5-refreshing-strike-force/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/030341lSa.png)
 
 通过使用 HTML5 来编写游戏，EA 公司不需要支付昂贵的游戏开发工具，而且游戏代码维护方面也比以前轻松。其创意总监 Richard Hilleman 透露，这款游戏完全是由大学实习生所开发的，整个过程仅花费了 5 个月的时间。
@@ -16,3 +18,5 @@ source_link: http://www.alloyteam.com/2012/07/ea-intends-to-release-the-3d-games
 不过话说回来，HTML5 的游戏正在萌芽发展时期，商业回报可能相对缓慢。HTML5 在 Web 开发上的确是未来的趋势，游戏开发涉及的技术更为专业，需要用的类库也非常的多，有的时候需要自己开发特定的类来满足相应的功能。总而言之，用 HTML5 开发游戏越来越成熟了。
 
 Via：theverge
+
+<!-- {% endraw %} - for jekyll -->

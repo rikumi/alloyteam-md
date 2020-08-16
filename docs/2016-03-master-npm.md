@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2016/03/master-npm/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![NPM](https://camo.githubusercontent.com/3fd81ee99a8ca86aee5e7450cb41b40b0d6f8da5/687474703a2f2f7777772e616c6c6f797465616d2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031362f30332f6e706d2e706e67)](https://camo.githubusercontent.com/3fd81ee99a8ca86aee5e7450cb41b40b0d6f8da5/687474703a2f2f7777772e616c6c6f797465616d2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031362f30332f6e706d2e706e67)
 
 [npm](https://www.npmjs.com/) 本来是 Node.js 的包管理工具，但随着 JS 这几年的蓬勃发展，现在的 npm 已经成了几乎所有跟 JS 相关的工具和软件包的管理工具了，并且还在不断发展完善中。
@@ -196,3 +198,5 @@ npm 在安装包的时候没有这么 “智能”，不过 npm dedupe 命令做
 这才是最优且符合预期的结构，看来在每次安装 / 卸载了包之后最好重新执行 npm dedupe，以保证包结构是最优的。
 
 npm3 通过将依赖模块扁平化安装，避免了冗余又解决了 windows 上一大头疼问题。
+
+<!-- {% endraw %} - for jekyll -->

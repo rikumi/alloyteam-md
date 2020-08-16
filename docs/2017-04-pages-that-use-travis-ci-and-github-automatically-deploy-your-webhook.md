@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2017/04/pages-that-use-travis-ci-and-github-automatically-deploy-your-webhook/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文链接](https://github.com/lcxfs1991/blog/issues/19)
 
 —— 以 webpack 文档部署为例子
@@ -127,3 +129,5 @@ Don’t forget to configure your **nginx/apache** to serve your static files in 
 ## Reference
 
 [Auto-deploying built products to gh-pages with Travis](https://gist.github.com/domenic/ec8b0fc8ab45f39403dd)
+
+<!-- {% endraw %} - for jekyll -->

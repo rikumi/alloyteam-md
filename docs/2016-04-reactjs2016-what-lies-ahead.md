@@ -5,6 +5,8 @@ author: TAT.will
 source_link: http://www.alloyteam.com/2016/04/reactjs2016-what-lies-ahead/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 > 译者按：2016 年 React.js 大会在今年 1 月份举行，2 月底放出了视频，本文翻译的是其中一个演讲 [What Lies Ahead](https://www.youtube.com/watch?v=-RJf2jYzs8A&index=2&list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY)(自备梯子), 介绍了 React 目前的进展，以及未来的研发方向。
 
 Hi, 我是 Ben，在 React 团队工作，今天我要介绍的是我们对 React 未来的构想。
@@ -132,3 +134,5 @@ Hi, 我是 Ben，在 React 团队工作，今天我要介绍的是我们对 Reac
 在 2015 年，我们有 300 个人给 react 贡献代码，600 个人给 react-native 贡献代码，这么多人，估计这个会场都坐不下了。我们在 Github 上获得了 36000 个 star，只是个虚荣的数字，我提到这个数字是因为我们想知道有多少开发者在使用 React 了，而 Google 可以告诉我们，已经有 225,000 个人安装了 Chrome 的 react-devtools，这意味着成千上万人已经在用 React 构建应用了，这太令人兴奋了。不仅仅是数字，我们还有很多关于 React 的优秀项目，比如 Redux、material-ui，react-routers，enzyme，解决了很多我们都没考虑过的问题。
 
 正如我刚才所说，希望大家能从这次分享得到灵感，贡献更多鹅妹子樱 (amazing) 的项目，谢谢大家！
+
+<!-- {% endraw %} - for jekyll -->

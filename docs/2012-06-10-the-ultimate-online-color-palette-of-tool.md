@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/10-the-ultimate-online-color-palette-of-tool/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 看着那些极具 Web 2.0 气质的颜色搭配不由得心生羡慕，本文收集了 10 个在线颜色调色板，特别是 [ColourLovers](http://www.colourlovers.com/ "Colour Lovers")、[EasyRGB](http://www.easyrgb.com/harmonies.php "EasyRGB") 和 [Kuler](http://kuler.adobe.com/ "Kuler") 非常不错，有兴趣的朋友值得一看。
 
 10\.[ColourLovers](http://www.colourlovers.com/ "Colour Lovers")
@@ -46,3 +48,5 @@ source_link: http://www.alloyteam.com/2012/06/10-the-ultimate-online-color-palet
 1\.[Colr.org](http://www.colr.org/ "Colr.org")
 
 ![](http://www.bookmarkbliss.com/wp-content/uploads/2007/04/windowslivewritertoolsforcolorcoordination-10a7ecolr3.jpg)
+
+<!-- {% endraw %} - for jekyll -->

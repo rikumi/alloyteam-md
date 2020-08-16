@@ -5,6 +5,8 @@ author: TAT.Perlt
 source_link: http://www.alloyteam.com/2014/03/front-end-data-monitoring/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 项目开发完成外发后，没有一个监控系统，我们很难了解到发布出去的代码在用户机器上执行是否正确，所以需要建立前端代码性能相关的监控系统。
 
 所以我们需要做以下的一些模块：
@@ -115,3 +117,5 @@ function _performance(){
 -   [html5 performance en](https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html)
 -   [html5 performance cn](http://www.alloyteam.com/2012/11/performance-api-monitoring-page-performance/)
 -   [javascript onerror api](http://www.w3school.com.cn/js/js_onerror.asp)
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.gctang
 source_link: http://www.alloyteam.com/2013/12/front-end-development-tools-vim-introduce-common-plug-ins/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 作为一名开发者，应该对编辑器之神 [Vim](http://en.wikipedia.org/wiki/Vim_(text_editor) "vim wiki") 与神之编辑器 [Emacs](http://en.wikipedia.org/wiki/Emacs "Emacs wiki") 有所耳闻吧。编辑器之战的具体细节有兴趣的童鞋可以 google 之。
 
 Vim 最大的特点是打开速度快，功能强大，一旦掌握了其中的命令，编程过程双手就不需要离开键盘了。
@@ -106,3 +108,5 @@ Vim 中的代码补全插件比较多，一般补全的智能性依赖于插件�
 快捷键神马的自己在 vimrc 中配置即可，
 
 打造自己的 IDE 的过程虽然折腾，但是之后使用的过程还是挺爽的呢~~~~
+
+<!-- {% endraw %} - for jekyll -->

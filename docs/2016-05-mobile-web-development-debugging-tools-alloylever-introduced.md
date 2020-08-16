@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/05/mobile-web-development-debugging-tools-alloylever-introduced/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 简介
 
 web 调试有几个非常频繁的刚需：看 log、看 error、看 AJAX 发包与回包。其他的如 timeline 和 cookie 以及 localstorage 就不是那么频繁，但是 AlloyLever 都支持。如你所见：
@@ -137,3 +139,5 @@ Issues： <https://github.com/AlloyTeam/AlloyLever/issues>
 微信部门也有个的 [vConsole](https://github.com/WechatFE/vConsole) 工具用于移动端 Console.log
 
 欢迎大家试用反馈。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.casperchen
 source_link: http://www.alloyteam.com/2015/05/fis%e5%ba%94%e7%94%a8%e5%ae%9e%e4%be%8b-require-jscmd%e6%a8%a1%e5%9d%97/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前面文章讲了 FIS 的源码实现细节，这篇文章偏实战一些，给出 `FIS` 跟 `require.js` 结合的简单例子。
 
 ## FIS 编译流程
@@ -172,3 +174,5 @@ fis.config.merge({
 本文简单介绍 CMD 到 AMD 的转换，距离实战还有很多事情要做，比如 `require.js` 的配置支持，打包部署等，这里也就抛个思路，感兴趣的童鞋可以进一步扩展。
 
 文章: casperchen
+
+<!-- {% endraw %} - for jekyll -->

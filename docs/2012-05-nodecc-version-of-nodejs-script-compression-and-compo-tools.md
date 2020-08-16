@@ -5,6 +5,8 @@ author: TAT.岑安
 source_link: http://www.alloyteam.com/2012/05/nodecc-version-of-nodejs-script-compression-and-compo-tools/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 对于 Web 前端的开发而言，为了降低文件大小，js 文件和 css 文件的压缩和组合几乎是默认的规矩。
 
 我们利用 YUI Compressor 和 google Compiler 可以很容易的完成文件的压缩。 甚至 yui compressor 本身都已经支持 多文件的批量压缩。
@@ -93,3 +95,5 @@ source_link: http://www.alloyteam.com/2012/05/nodecc-version-of-nodejs-script-co
     即可。
 
 好了，工具很简单，代码也很简单，希望能给有需要的同学提供一点点帮助 🙂
+
+<!-- {% endraw %} - for jekyll -->

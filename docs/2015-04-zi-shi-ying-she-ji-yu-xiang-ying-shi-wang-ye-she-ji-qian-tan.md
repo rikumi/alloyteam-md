@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2015/04/zi-shi-ying-she-ji-yu-xiang-ying-shi-wang-ye-she-ji-qian-tan/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 目前非常流行自适应设计与响应式设计，而且经常让人混淆，自适应设计不应与自适应布局混为一谈，它们是完全不一样的概念。
 
 **在这先说明下这两者的异同：**  
@@ -218,3 +220,5 @@ float 的好处是，如果宽度太小，放不下两个元素，后面的元�
 上诉网页你可以用浏览器和手机打开浏览。发现在 PC 和移动端显示有很大变化。简单说呢就针对不同的屏幕分辨率应用不同的 CSS 样式。
 
 最好感谢大家阅读～如有疑问欢迎留言 ^\_^！
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2014/02/d3-bar-chart/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 之前用 6 步实现了[基于 SVG 的折线图](http://www.alloyteam.com/2013/12/d3-line-chart/)，这一篇文章将回到比折线图更基本的图表 —— 柱状图。
 
 本篇直接从创建 SVG 讲起，引入 d3 等简单的准备工作参见[用 d3.js 实现基于 SVG 的线形图](http://www.alloyteam.com/2013/12/d3-line-chart/)。
@@ -102,3 +104,5 @@ chart.append("g").attr("class", "y axis").call(yAxis);
 完整的代码请移步 [jsFiddle](http://jsfiddle.net/jarvisjiang/RqK4P/)
 
 由于篇幅关系，本篇文章就暂时只介绍最基本的柱状图是怎么完成的，后续会更新动态柱状图以及为柱状图添加交互系效果的实现方法，敬请期待！
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.ycxu
 source_link: http://www.alloyteam.com/2015/03/%e6%8b%a5%e6%8a%b1sass%ef%bc%8c%e6%8a%9b%e5%bc%83compass/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 为什么要用 sass
 
 在选择 sass 之前，我们先说下为什么要使用 CSS Preprocessor。
@@ -224,3 +226,5 @@ sass 之所以能够在 2 年内反超 less，成为现在的首选，就是因�
 最后问题来了，如果选择了 sass，抛弃了 compass，用哪个做基础的框架比较合适？
 
 请听下回分解。
+
+<!-- {% endraw %} - for jekyll -->

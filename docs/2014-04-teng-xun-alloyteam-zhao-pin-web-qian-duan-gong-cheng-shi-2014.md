@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2014/04/teng-xun-alloyteam-zhao-pin-web-qian-duan-gong-cheng-shi-2014/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 腾讯 AlloyTeam 时隔 2 年，再次对外开放社会招聘机会，想加入 AlloyTeam 的 Web 前端开发工程师请抓紧！工作职责主要负责腾讯手机 QQ、PC QQ 中的 Web 业务的前端开发。如果你热爱面向 Web 的前端开发工作，欢迎前来应聘，机会难得，各种挑战等着你～～
 
 ## 岗位名称：Web 前端开发工程师（T2-T3 级别）
@@ -31,3 +33,5 @@ source_link: http://www.alloyteam.com/2014/04/teng-xun-alloyteam-zhao-pin-web-qi
 -   深圳腾讯大厦（总部）
 
 如果你相信自己，相信 W3C 标准，也相信爱情，请发送简历至：**Kinvix\[a]QQ.com**
+
+<!-- {% endraw %} - for jekyll -->

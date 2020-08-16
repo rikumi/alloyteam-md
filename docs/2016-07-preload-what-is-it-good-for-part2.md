@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2016/07/preload-what-is-it-good-for-part2/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 \\============== 接上篇 [Preload：有什么好处？（上）](http://www.alloyteam.com/2016/05/preload-what-is-it-good-for-part1/)\\=================
 
 译者注：上文讲到了利用 Preload，我们可以做到哪些事情，从这里继续～
@@ -104,3 +106,5 @@ Preload 另一个好处就是可以进行内容协商，而 HTTP/2 Push 不能�
 ========
 
 我希望你现在确信，Preload 开辟了一套以前并不可行的加载功能，欢迎去 Chrome Canary 中使用它～
+
+<!-- {% endraw %} - for jekyll -->

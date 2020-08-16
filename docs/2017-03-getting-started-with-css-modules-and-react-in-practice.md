@@ -5,6 +5,8 @@ author: burlin
 source_link: http://www.alloyteam.com/2017/03/getting-started-with-css-modules-and-react-in-practice/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 写在前面
 
 读文先看此图，能先有个大体概念：
@@ -285,3 +287,5 @@ export default Table；
 CSS Modules 很好的解决了 CSS 目前面临的模块化难题。支持与 CSS 处理器搭配使用，能充分利用现有技术积累。如果你的产品中正好遇到类似问题，非常值得一试。
 
 希望大家都能写出健壮并且可扩展的 CSS，以上。
+
+<!-- {% endraw %} - for jekyll -->

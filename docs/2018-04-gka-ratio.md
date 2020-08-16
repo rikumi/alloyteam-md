@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2018/04/gka-ratio/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文地址](https://github.com/gkajs/gka/wiki/%E5%BF%AB%E9%80%9F%E5%88%B6%E4%BD%9C%E5%A4%9A%E5%80%8D%E5%9B%BE%E5%B8%A7%E5%8A%A8%E7%94%BB%E6%96%B9%E5%BC%8F%E5%8F%8A%E5%8E%9F%E7%90%86:gka%5B--ratio%5D)
 
 ![gka](https://user-images.githubusercontent.com/10385585/28303811-86f0aad0-6bc7-11e7-82da-8ee3a412eb43.jpg)
@@ -147,3 +149,5 @@ Github：<https://github.com/gkajs/gka>
 欢迎使用 gka ，欢迎任何意见或建议，谢谢 ：D
 
 GitHub: <https://github.com/gkajs/gka>
+
+<!-- {% endraw %} - for jekyll -->

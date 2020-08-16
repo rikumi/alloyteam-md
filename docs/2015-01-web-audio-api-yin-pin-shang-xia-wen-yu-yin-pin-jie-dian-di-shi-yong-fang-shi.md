@@ -5,6 +5,8 @@ author: TAT.Jdo
 source_link: http://www.alloyteam.com/2015/01/web-audio-api-yin-pin-shang-xia-wen-yu-yin-pin-jie-dian-di-shi-yong-fang-shi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 这主题主要是早期对 web audio api 的一些尝试，这里整理一下以便以后翻阅，如有错误，诚请指正。
 
 在真正进入 Web Audio API 开发之前，需要先弄清两个概念：音频上下文（AudioContext）、音频节点（AudioNode）;
@@ -167,3 +169,5 @@ if (AudioContext) {
 ```
 
 未完待续…
+
+<!-- {% endraw %} - for jekyll -->

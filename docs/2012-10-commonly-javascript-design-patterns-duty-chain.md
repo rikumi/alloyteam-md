@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 职责链模式是一个对象 A 向另一个对象 B 发起请求，如果 B 不处理，可以把请求转给 C，如果 C 不处理，又可以把请求转给 D。一直到有一个对象愿意处理这个请求为止。
 
 打个比方，客户让老板写个 php 程序。老板肯定不写，然后老板交给了部门经理。部门经理不愿意写，又交给项目经理。项目经理不会写，又交给程序员。最后由码农来完成。  
@@ -35,3 +37,5 @@ js 中的事件冒泡就是作为一个职责链来实现的。一个事件在�
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

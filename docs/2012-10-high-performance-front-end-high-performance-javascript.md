@@ -5,6 +5,8 @@ author: TAT.yuanyan
 source_link: http://www.alloyteam.com/2012/10/high-performance-front-end-high-performance-javascript/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 使用事件代理
 
 有时候我们会感觉到页面反应迟钝，这是因为 DOM 树元素中附加了过多的事件句柄并且些事件句病被频繁地触发。这就是为什么说使用事件代理是一种好方法了。如果你在一个 div 中有 10 个按钮，你只需要在 div 上附加一次事件句柄就可以了，而不用去为每一个按钮增加一个句柄。事件冒泡时你可以捕捉到事件并判断出是哪个事件发出的。
@@ -41,3 +43,5 @@ cached.find("p.classB");
 ## 使用微类库
 
 通常开发者都会使用 JavaScript 类库，如 jQuery、Mootools、YUI、Dojo 等，但是开发者往往只是使用 JavaScript 类库中的部分功能。为了更大的提升性能，应尽量避免使用这类大而全的类库，而是按需使用微类库来辅助开发。
+
+<!-- {% endraw %} - for jekyll -->

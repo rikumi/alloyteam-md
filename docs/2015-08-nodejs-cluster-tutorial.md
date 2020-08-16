@@ -5,6 +5,8 @@ author: TAT.yunsheng
 source_link: http://www.alloyteam.com/2015/08/nodejs-cluster-tutorial/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
         在如今机器的 CPU 都是多核的背景下，Node 的单线程设计已经没法更充分的 "压榨" 机器性能了。所以从 v0.8 开始，Node 新增了一个内置模块 ——“cluster”，故名思议，它可以通过一个父进程管理一坨子进程的方式来实现集群的功能。
 
 快速上手  
@@ -182,3 +184,5 @@ cluster 适用于在单台机器上，如果应用的流量巨大，多机器是
 -   [Node.js clustering made easy with PM2](https://keymetrics.io/2015/03/26/pm2-clustering-made-easy/)
 -   [Cluster in Node.js tutorial](https://codeforgeek.com/2014/12/cluster-node-js-performance/)
 -   [How to Create a Node.js Cluster for Speeding Up Your Apps](http://www.sitepoint.com/how-to-create-a-node-js-cluster-for-speeding-up-your-apps/)
+
+<!-- {% endraw %} - for jekyll -->

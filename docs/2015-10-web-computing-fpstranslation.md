@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/10/web-computing-fpstranslation/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 帧率（FPS）用于描述成像装置产生连续图像的频率 动画其实就是显示连续帧产生的错觉。如果 FPS 太低，动画将不平滑，甚至人眼都能看到每一帧图像。 一般运动图像的帧率为 24 FPS, 电视使用 30 FPS。在现代游戏中，玩家必须在视觉跟踪动画对象 ，并迅速作出反应，帧速率一般是每秒 30 帧和 60 帧之间。然而，快速移动的物体，可能需要更高的帧速率 ，以避免不希望的视觉假象（闪现）。虽然从理论上讲，我们可以达到极高的帧速率，在 FPS 由显示器的刷新速率的限制 。现代的液晶电视能 120 FPS，甚至 240 FPS。在手机，显示器是最有可能限制为 60 FPS。
 
 图 1：1 秒内不同动画帧速率比较
@@ -52,3 +54,5 @@ FishIE
 -   Vellamo Mobile Web Benchmark (<https://market.android.com/details?id=com.quicinc.vellamo>)
 
 英文原文： <https://www.codeaurora.org/blogs/mbapst/measuring-fps-web>
+
+<!-- {% endraw %} - for jekyll -->

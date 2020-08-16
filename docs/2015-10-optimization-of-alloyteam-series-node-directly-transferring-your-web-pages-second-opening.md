@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-node-directly-transferring-your-web-pages-second-opening/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **项目： 手 Q 群成员分布直出**
 
 **基本概念：**
@@ -488,3 +490,5 @@ co(function* (req, res) {
 [【AlloyTeam 优化系列】纯前端优化首屏时间](http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-the-first-screen-time/)
 
 [【AlloyTeam 优化系列】Node 直出让你的网页秒开](http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-node-directly-transferring-your-web-pages-second-opening/)
+
+<!-- {% endraw %} - for jekyll -->

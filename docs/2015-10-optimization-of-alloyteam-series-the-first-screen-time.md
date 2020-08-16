@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-the-first-screen-time/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **背景：**
 
 1. 对构建的改造已经完成，目前构建的能力可以较为灵活地支撑进一步的优化
@@ -84,3 +86,5 @@ source_link: http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-t
 [【AlloyTeam 优化系列】纯前端优化首屏时间](http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-the-first-screen-time/)
 
 [【AlloyTeam 优化系列】Node 直出让你的网页秒开](http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-node-directly-transferring-your-web-pages-second-opening/)
+
+<!-- {% endraw %} - for jekyll -->

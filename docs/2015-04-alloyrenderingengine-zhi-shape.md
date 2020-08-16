@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/04/alloyrenderingengine-zhi-shape/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## [](http://www.alloyteam.com/2015/04/alloyrenderingengine-zhi-shape/#写在前面)写在前面
 
 不读文章，只对代码感兴趣可以直接跳转到这里 [](https://github.com/AlloyTeam/AlloyGameEngine)<https://github.com/AlloyTeam/AlloyGameEngine>  
@@ -79,3 +81,5 @@ stage.onMouseWheel(function (evt) {
 
 [](https://github.com/AlloyTeam/AlloyGameEngine)<https://github.com/AlloyTeam/AlloyGameEngine>  
 据说 star 一下不会怀孕 = =！多谢支持：)！
+
+<!-- {% endraw %} - for jekyll -->

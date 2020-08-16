@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2012/11/google-already-allows-google-users-to-install-android-applications-directly-in-the-flow-of-information/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![](http://img01.36krcnd.com/wp-content/uploads/2012/11/Screen-Shot-2012-11-15-at-上午9.38.08.png "Screen Shot 2012-11-15 at 上午 9.38.08")](http://www.36kr.com/p/170996.html/screen-shot-2012-11-15-at-%e4%b8%8a%e5%8d%889-38-08)
 
 对于 Google + 的用户来说，以后在信息流里看到朋友分享某个好的 Android 应用时，不需要通过到 Google Play 里搜索再下载安装应用这么麻烦的操作了。如果有朋友在 Google + 里分享了某个应用的链接地址，现在可以直接在 Google + 里下载安装。
@@ -20,3 +22,5 @@ source_link: http://www.alloyteam.com/2012/11/google-already-allows-google-users
 [![](http://img03.36krcnd.com/wp-content/uploads/2012/11/Screen-Shot-2012-11-15-at-上午9.37.30.png "Screen Shot 2012-11-15 at 上午 9.37.30")](http://www.36kr.com/p/170996.html/screen-shot-2012-11-15-at-%e4%b8%8a%e5%8d%889-37-30)
 
 转载自: 36 氪 <http://www.36kr.com/p/170996.html>
+
+<!-- {% endraw %} - for jekyll -->

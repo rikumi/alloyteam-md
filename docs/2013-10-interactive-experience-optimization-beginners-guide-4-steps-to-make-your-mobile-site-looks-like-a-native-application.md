@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2013/10/interactive-experience-optimization-beginners-guide-4-steps-to-make-your-mobile-site-looks-like-a-native-application/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 译自：[  
 A Beginner's Guide to Perceived Performance: 4 Ways to Make Your Mobile Site Feel Like a Native App](http://www.mobify.com/blog/beginners-guide-to-perceived-performance/)  
 原作者：Kyle leads  
@@ -222,3 +224,5 @@ Topcoat 和 Effeckt.css 可以结合一起使用，Topcoat 可以直接使用 Ef
 **重要的是如何让你的网站看起来或者感觉上是最快的。那些用户无法感知的高速网站是毫无意义的。**
 
 如果你有更多提高体验性能的建议，请在评论中发表。
+
+<!-- {% endraw %} - for jekyll -->

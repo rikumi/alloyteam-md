@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2014/02/grunt-quickly-learn-a-small-note/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 <!-- h3{ font-weight: 100; color: rgb(13, 120, 186); font-family: "Helvetica Neue",Helvetica,STHeiTi,"Microsoft YaHei",sans-serif; } h3 span{ color: rgb(13, 120, 186); font-size: 24px; font-family: Georgia; margin-right: 10px; } -->
 
 快速过了一下 grunt，做个小记与总结。
@@ -245,3 +247,5 @@ dist 目录下同样生成了一个去掉注释的 html 文件
 一个去注释的功能就这样完成了
 
 学习时间仓促，错误内容还望指正
+
+<!-- {% endraw %} - for jekyll -->

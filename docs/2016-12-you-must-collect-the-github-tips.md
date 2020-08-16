@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/you-must-collect-the-github-tips/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 一秒钟把 Github 项目变成前端网站  
 
 * * *
@@ -145,3 +147,5 @@ Github 推荐：<https://github.com/explore>
 好了，我就会这么多，也是我经常使用的技巧。欢迎补充**实用的技巧**\~~ 我会持续更新上去...  
 我们团队的 Github: <http://alloyteam.github.io/>  
 
+
+<!-- {% endraw %} - for jekyll -->

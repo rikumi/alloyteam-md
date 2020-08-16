@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/11/tencent-alloyteam-alloycrop-official-mobile-web-clipping-components-open-source/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 简介  
 
 * * *
@@ -80,3 +82,5 @@ A: 目前 AlloyCrop 主要是兴趣部落、QQ 群等 Web 业务在用，刚刚�
 Github 地址：<https://github.com/AlloyTeam/AlloyFinger/tree/master/alloy_crop>
 
 欢迎使用！
+
+<!-- {% endraw %} - for jekyll -->

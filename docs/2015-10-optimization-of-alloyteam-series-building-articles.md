@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-building-articles/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **背景：**
 
 **1. 接手新项目，发现项目最基本的文件压缩没有，离线包有多余文件，md5 也并没有做好，**
@@ -128,3 +130,5 @@ source_link: http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-b
 [【AlloyTeam 优化系列】纯前端优化首屏时间](http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-the-first-screen-time/)
 
 [【AlloyTeam 优化系列】Node 直出让你的网页秒开](http://www.alloyteam.com/2015/10/optimization-of-alloyteam-series-node-directly-transferring-your-web-pages-second-opening/)
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2015/06/yi-dong-web-wen-ti-xiao-jie/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### **Meta 标签：**
 
 ```html
@@ -354,3 +356,5 @@ type search
 未完待续
 
 参考资料：<http://www.nihaoshijie.com.cn/index.php/archives/455>
+
+<!-- {% endraw %} - for jekyll -->

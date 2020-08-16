@@ -5,6 +5,8 @@ author: lin, dongpeng
 source_link: http://www.alloyteam.com/2017/05/hash-functions-introduction/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # 哈希函数介绍
 
 ## 什么是哈希
@@ -401,3 +403,5 @@ da8693466068523c9e26afdd0764a21d2372bde7f607af6bcbc8fd4a325ad942688ee770efdf0383
 -   <http://blog.jobbole.com/106733/>
 -   <http://aras-p.info/blog/2016/08/09/More-Hash-Function-Tests/>
 -   <https://github.com/SheetJS/js-crc32>
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2017/03/omi-md2site-release-markdown-go-web-site-tool/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 写在前面
 
 Md2site 是基于 [Omi](https://github.com/AlloyTeam/omi) 的一款 Markdown 转网站工具，使用简单，生成的文件轻巧，功能强大。  
@@ -117,3 +119,5 @@ export default config;
 -   <https://github.com/AlloyTeam/omi/tree/master/md2site>
 -   真实案例:<http://alloyteam.github.io/omi/website/docs-cn.html>
 -   欢迎使用，愉快地书写精美的网站吧～～
+
+<!-- {% endraw %} - for jekyll -->

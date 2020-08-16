@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2016/10/ac2016-li-chengxi-lecturer-interview-lee/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![李成熙](http://www.alloyteam.com/wp-content/uploads/2016/10/李成熙-300x300.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/10/李成熙.jpg)
 
 讲师介绍  
@@ -48,3 +50,5 @@ Webpack 作为 React 开发的御用打包工具，在我看来，由于它生�
 不过由于 Webpack 的内容非常丰富，因此我提前在 9 月份的时候，在 Coding x 掘金的技术沙龙上已经讲了一部份。但此次在 AC 大会上讲的内容，会有些不一样，我规划会讲一下 Webpack 的原理，以及介绍一下 Webpack2.0 的一些新的功能，还有目前我们在项目中使用的一些情况。
 
 **更多精彩内容，敬请期待李成熙在 AC2016 上的分享 ——《Webpack 支撑大规模应用开发最佳实践及原理》**
+
+<!-- {% endraw %} - for jekyll -->

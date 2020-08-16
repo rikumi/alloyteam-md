@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2012/11/compare-wpf-and-html5-in-windows8-development/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Windows8 风格程序支持使用 WPF 和 HTML 两种方式进行编程。本人之前曾使用 WPF 开发过[概念版 QQ](http://im.qq.com/qq/gainian/ "概念版 QQ")，现在又在使用 HTML5。两种技术都略懂，略懂。所以将两者做了个比较。虽然 WPF 的命运多舛，应用不太广泛，但技术本身还是有很多亮点的。值得我们学习一下，开阔眼界。
 
 严格说 WPF 与 Silverlight 都属于.Net 技术体系下新一代的界面技术，都使用标记语言 XAML 搭建界面，程序语可以选择 C# 等.Net 体系的语言。
@@ -92,3 +94,5 @@ Windows8 风格程序支持使用 WPF 和 HTML 两种方式进行编程。本人
 # 15. 其他
 
      地理信息呀、WebWorker 呀、WebSockets 呀什么的可比较性不强。这里就不说。
+
+<!-- {% endraw %} - for jekyll -->

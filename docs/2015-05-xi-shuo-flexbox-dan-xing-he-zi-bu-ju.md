@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2015/05/xi-shuo-flexbox-dan-xing-he-zi-bu-ju/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
  flexbox 是一个新的盒子模型，当你给一个元素使用了 flexbox 模块，那么它的子元素就会指定的方向在水平或者纵向方向排列。这些子元素会按照一定的比例进行扩展或收缩来填补容器的可用空间。flexbox 有许多很好用的地方，下面就着重讲述一下它的一些使用场景：
 
 **Example 1： flexbox 等分布局**
@@ -275,3 +277,5 @@ Example 4： flexbox 的居中布局
 [![图片 8](http://www.alloyteam.com/wp-content/uploads/2015/05/图片8.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/图片8.png)
 
 使用 flexbox 你还可以做的更多，这里只是一些让你了解概念的例子，想了解更多请看：<https://css-tricks.com/snippets/css/a-guide-to-flexbox/>
+
+<!-- {% endraw %} - for jekyll -->

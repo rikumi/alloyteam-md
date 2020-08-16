@@ -5,6 +5,8 @@ author: TAT.rocket
 source_link: http://www.alloyteam.com/2015/08/shi-yong-js-shi-xian-si-wei-dao-tu/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 本文主要阐述使用 js 实现思维导图的关键技术点，如果还不知道什么是思维导图的同学，请自行度娘。以下是 demo 和源码的传送门：  
 demo：<http://rockyren.github.io/mindmaptree/>  
 源码：<http://github.com/RockyRen/mindmaptree/tree/master>
@@ -106,3 +108,5 @@ function resetBrotherPosition(node, areaHeight) {
 非根节点时，会按顺序触发 mouseup、mousemove、mousedown 三个事件，分别对应按下鼠标、鼠标移动和放下鼠标三个状态。在按下鼠标状态下，会以当前节点为原型克隆一个节点用于占位。在拖动鼠标状态下，通过改变节点的坐标实现节点位置的改变。在放下鼠标状态下，会判断当前节点是否与其他节点重叠，如果重叠则使重叠节点变为当前节点的父节点，否则，当前节点返回原来的位置。
 
 其他技术点我就不一一列出来了，有兴趣的同学可以到上面的传送门看看源码。
+
+<!-- {% endraw %} - for jekyll -->

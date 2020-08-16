@@ -5,6 +5,8 @@ author: TAT.will
 source_link: http://www.alloyteam.com/2016/01/reactnative-animated/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
    
 
 ====
@@ -461,3 +463,5 @@ Animated.div = class extends React.Component{
 [![1846.743](http://cdn.alloyteam.com/wp-content/uploads/2016/03/1846.743.jpg)](http://www.ituring.com.cn/book/1846)
 
 好书推荐 [《](http://www.ituring.com.cn/book/1846)[React Native 开发指南》](http://www.ituring.com.cn/book/1846)
+
+<!-- {% endraw %} - for jekyll -->

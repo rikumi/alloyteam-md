@@ -5,6 +5,8 @@ author: TAT.woshayawo
 source_link: http://www.alloyteam.com/2013/11/articles-one-integrated-tool-webstorm-ant/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前端项目越做越大，自然就少不了自动化工具，种种好就不废话了，各种自动化工具也不一一对比了，（ps：稍后我们会推出前端自动化工具的视频教程）这里就单说说 ant。
 
 前提是你电脑上已经安装了 ant，并且运行正常。
@@ -53,3 +55,5 @@ Ok
 发现已经多了一个 ant
 
 6. 点击 ant 直接运行，前提是你项目的根目录下有 build.xml 文件哦。
+
+<!-- {% endraw %} - for jekyll -->

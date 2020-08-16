@@ -5,6 +5,8 @@ author: TAT.helondeng
 source_link: http://www.alloyteam.com/2015/04/rosinvsjsconsole/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Rosin 是一个 Fiddler 插件，协助开发者进行移动端页面开发调试。
 
 ##### 特性
@@ -92,3 +94,5 @@ JSConsole 是一个 JS 命令行调试工具。
 
 -   iframe 中内嵌的页面收到消息后，通过 EventSource 向 server 发送信息内容（类似于 socket）
 -   日志显示在 jsconsole.com 上面
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/javascriptc-speed/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/035346uKN.jpg)  
 512x512 像素，每像素 10000 个采样，Intel C++ OpenMP 版本渲染时间为 18 分 36 秒。估计 Ruby 版本約需 351 天。
 
@@ -95,3 +97,5 @@ C++ 和.Net 的测试结果和上一篇博文相若，而 C# 和 F# 无显著区
 -   2010/7/11: 园友 noremorse 撰文 [《Swifter C# 之 inline 还是不 inline，这是个问题》](http://www.cnblogs.com/noremorse/archive/2010/07/10/inline_or_not.html)，以本例研究.Net Runtime 的内联机制。
 
 出处：Milo 的游戏开发
+
+<!-- {% endraw %} - for jekyll -->

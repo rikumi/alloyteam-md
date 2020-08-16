@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2014/02/browser-sync-responsive-web-development-and-debugging-tool/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![QQ 截图 20140214151148](http://www.alloyteam.com/wp-content/uploads/2014/02/QQ截图20140214151148.png)](http://www.alloyteam.com/wp-content/uploads/2014/02/QQ截图20140214151148.png)
 
 快速的移动 Web 开发模式，是我们团队一直在探索的一项内容。今天给大家介绍一种高效的开发方式，在开始内容前，我们先了解与分析一下目前主流开发模式的现状（本文聚焦响应式 Web 开发，这里主要指页面重构的工作）。
@@ -59,3 +61,5 @@ Workspace 是 Chrome DevTools 的一项功能，现在已加入到 Chrome stable
 参考：<http://addyosmani.com/blog/browser-sync/>
 
 发表在情人节 & 元宵节，祝大家节日快乐 : )
+
+<!-- {% endraw %} - for jekyll -->

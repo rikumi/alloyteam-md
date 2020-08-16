@@ -5,6 +5,8 @@ author: TAT.yana
 source_link: http://www.alloyteam.com/2017/03/moves-the-input-box-fill-series-a/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 输入在移动端是一个很常用的功能，那么输入框必然是一个很重要的部分。然而，移动端输入框总会遇到各种各样的问题，无论是样式还是 ios 和 android 两端体验不一致都是很让我们头疼的问题，那么如何使移动 web 的输入框体验更贴近原生也成了一个需要我们多多思考和研究的问题。
 
 ## 一、文字输入限制问题
@@ -96,3 +98,5 @@ android 效果：
      
 
 未完待续...
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.horde
 source_link: http://www.alloyteam.com/2012/11/performance-api-monitoring-page-performance/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 对于前端开发来说，知道整个页面从开始加载到有内容展示出来的时间是很重要的事情.
 
 通常我们要知道页面加载的时间的话。是采用计算几个关键的时间点的方法来得出页面加载的时间。但是这个方式存在一些问题，比如：我们不知道浏览器在开始解析页面之前卸载前一个文档，解析 dns 的时间.
@@ -50,3 +52,5 @@ PerformanceTiming  文档解析各个步骤的耗时.  这个是我们在测�
 这个接口还有啥缺陷？
 
 暂时还木有真正开始解析 dom 文档的时间，不过这个 ie9, 有个私有属性 msFirstPaint chrome 下则是 chrome.loadTimes ().firstPaintTime
+
+<!-- {% endraw %} - for jekyll -->

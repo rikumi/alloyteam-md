@@ -5,6 +5,8 @@ author: TAT.polar
 source_link: http://www.alloyteam.com/2015/04/translate-top-10-common-nodejs-developer-mistakes/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 .text p {line-height: 1.7 !important;}
 
 原文地址：[http://www.toptal.com/nodejs/top-10-common-nodejs-developer-mistakes](http://www.toptal.com/nodejs/top-10-common-nodejs-developer-mistakes?utm_source=javascriptweekly&utm_medium=email)
@@ -342,3 +344,5 @@ Node.js 有太多的监控程序可以使用了，例如：
 **总结**
 
 你可以看到，这其中的一些错误能给你的程序造成破坏性的影响，在你尝试使用 Node.js 实现一些很简单的功能时一些错误也可能会导致你受挫。即使 Node.js 已经使得新手上手十分简单，但它依然有些地方容易让人混乱。从其他语言过来的开发者可能已知道了这其中某些错误，但在 Node.js 新手里这些错误都是很常见的。幸运的是，它们都可以很容易地避免。我希望这个简短指南能帮助新手更好地编写 Node.js 代码，而且能够给我们大家开发出健壮高效的软件。
+
+<!-- {% endraw %} - for jekyll -->

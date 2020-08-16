@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/06/kmdjs-integrated-uglifyjs2-to-build-the-ultimate-programming-experience/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 回顾
 
 [上篇](http://www.cnblogs.com/iamzhanglei/p/5581606.html)文章大概展示了 kmdjs0.1.x 时期的编程范式：  
@@ -238,3 +240,5 @@ build 出来的包，当然全都加上了 namespace。再也不用区分循环�
 
 上面的所有代码可以 Github 上找到：  
 <https://github.com/kmdjs/kmdjs>
+
+<!-- {% endraw %} - for jekyll -->

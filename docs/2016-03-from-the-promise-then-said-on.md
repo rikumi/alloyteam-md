@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2016/03/from-the-promise-then-said-on/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **Promise 让代码变得更人性化**
 
 曾经我一直在思考，为什么代码会比较难读。后来发现，我们平时要阅读的所有媒体：报纸、书、新闻，我们在阅读的时候，都是从上到下一直读下去的，然而，我们的在读代码的时候，经常要跳着去读，这种阅读方式其实是反人类的，如果我们能在读代码的时候，也可以从上往下一直读下去，那么，代码就会变得可读性提高很多。
@@ -295,3 +297,5 @@ init 总结为几步
    4\. 其他， 终止
 
 上面的代码可以看出，一旦数组的具有 then 方法，就可被 tryConvertToPromise 方法转换为一个 Promise 对象，如果 then 方法未实现 promise 规范，那么 Promise 对象就会处于 Pending 的状态，Promise.all 方法永远就不会达到 fulfilled 的条件，问题也就明白了
+
+<!-- {% endraw %} - for jekyll -->

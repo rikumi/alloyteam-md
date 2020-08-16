@@ -5,6 +5,8 @@ author: TAT.yunsheng
 source_link: http://www.alloyteam.com/2014/12/editor-config/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 前言
 
 `EditorConfig` 是一套用于统一代码格式的解决方案，很多项目都有用到，比如 `Bootstrap`、`jQuery`、`Underscore` 和 `Ruby` 等等。[官方网站](http://editorconfig.org/)说的很简明，为了方便大家快速上手，我做了简单的翻译。
@@ -133,3 +135,5 @@ _译注：_支持的编辑器 / IDE 很多，使用也都很简单，大家自�
 ## 后言
 
 可以看到，`EditorConfig` 目前支持的属性非常少，且只局限于基本的文件缩进、换行等格式（当然这与其定位有关），虽然并不能满足团队里代码规范统一的要求，但是其简单易上手、跨编辑器且静默生效的特点，建议在项目中使用。
+
+<!-- {% endraw %} - for jekyll -->

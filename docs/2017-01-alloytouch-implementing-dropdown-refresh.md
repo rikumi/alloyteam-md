@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2017/01/alloytouch-implementing-dropdown-refresh/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文地址:<https://github.com/AlloyTeam/AlloyTouch/wiki/Pull-to-refresh>
 
 效果展示  
@@ -169,3 +171,5 @@ Github：<https://github.com/AlloyTeam/AlloyTouch>
 
 任何意见和建议欢迎 [new issue](https://github.com/AlloyTeam/AlloyTouch/issues)，AlloyTouch 团队会第一时间反馈。  
 
+
+<!-- {% endraw %} - for jekyll -->

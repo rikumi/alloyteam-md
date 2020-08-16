@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2017/03/omi-md2site-0-5-0-released-supports-dynamic-markdown-pull-parsing/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 写在前面
 
 Md2site 是基于 [Omi](https://github.com/AlloyTeam/omi) 的一款 Markdown 转网站工具，使用简单，生成的文件轻巧，功能强大。
@@ -96,3 +98,5 @@ asyncUpdate() {
 -   <https://github.com/AlloyTeam/omi/tree/master/md2site>
 
 欢迎使用～～
+
+<!-- {% endraw %} - for jekyll -->

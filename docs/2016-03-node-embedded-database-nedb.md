@@ -5,6 +5,8 @@ author: TAT.李强
 source_link: http://www.alloyteam.com/2016/03/node-embedded-database-nedb/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 一、简介  
 
 =======
@@ -907,3 +909,5 @@ Find: 25440 ops
 Update: 4490 ops
 
 Remove: 6620 ops
+
+<!-- {% endraw %} - for jekyll -->

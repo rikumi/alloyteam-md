@@ -5,6 +5,8 @@ author: TAT.yuanyan
 source_link: http://www.alloyteam.com/2014/03/frontend-workflow/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![2014-03-04_171121](http://www.alloyteam.com/wp-content/uploads/2014/03/2014-03-04_171121.png)](http://www.alloyteam.com/wp-content/uploads/2014/03/2014-03-04_171121.png)
 
 ## 流程
@@ -315,3 +317,5 @@ Mod.js 支持 2 种生态的插件：Mod.js 与 Grunt。插件的配置同样是
 ## [](http://www.alloyteam.com/2014/03/frontend-workflow/#%E6%9C%8D%E5%8A%A1%E5%8C%96)服务化
 
 了解完如何实施 Mod.js 进行自动化时，仅是停留在工具的层面，如何将其进一步的提升？了解一个事实，服务优于工具。如何将其封装成服务，用户无需安装 Mod.js，无需执行命令，只需做一次事情：提交代码，中间的过程无需关注，最终把持续构建的结果反馈给用户。这是下一步需要去完善的，建立接入机制，让工具以服务的形式完全融入流程中。
+
+<!-- {% endraw %} - for jekyll -->

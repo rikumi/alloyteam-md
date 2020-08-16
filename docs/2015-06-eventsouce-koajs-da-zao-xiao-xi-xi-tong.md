@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/06/eventsouce-koajs-da-zao-xiao-xi-xi-tong/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 之前写过两篇文章，分别是 [《前端抢后端饭碗 — Node.js + Socket.io 制作简易聊天室》](http://www.alloyteam.com/2015/04/qian-duan-qiang-hou-duan-fan-wan-node-js-socket-io-zhi-zuo-jian-yi-liao-tian-shi/) 和 [《koa + socket.io 制作简易聊天室》](http://www.alloyteam.com/2015/04/koa-socket-io-zhi-zuo-jian-yi-liao-tian-shi/)，实质上都是利用了浏览器的 websocket 属性进去前后端的消息交流。今天我们要介绍另外一种比较新但更为简洁的消息传输方式，eventsource。
 
 下面是关于 eventsource 的浏览器支持情况。除了 IE 和 Opera Mini 之后，其它浏览器的支持情况良好。除了浏览器的兼容性问题之外，eventsource 其实 写起来更为简洁方便。
@@ -81,3 +83,5 @@ retrey: 10000;
 `retry`
 
 一个整数值，指定了重新连接的时间 (单位为毫秒), 如果该字段值不是整数，则会被忽略.  **也就是说，你希望后台每几毫秒给前台传消息，那就填多少毫秒。**
+
+<!-- {% endraw %} - for jekyll -->

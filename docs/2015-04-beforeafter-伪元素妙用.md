@@ -5,6 +5,8 @@ author: TAT.lqlongli
 source_link: http://www.alloyteam.com/2015/04/beforeafter%e4%bc%aa%e5%85%83%e7%b4%a0%e5%a6%99%e7%94%a8/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 这两个伪元素分别表示元素内容的【前】【后】，利用这两个伪元素可以在元素内容的前后添加内容，其实这没有什么前后的概念，如果应用了 absolute 的特性之后，你可以把这些伪元素放在任何位置，有了这两个伪元素，就代表每个元素都有两个助手可供使用，灵活运用它们的话将会得到很多有趣的实现，简化许多实现。
 
 > 伪元素特性（目前已经遇到的）
@@ -175,3 +177,5 @@ source_link: http://www.alloyteam.com/2015/04/beforeafter%e4%bc%aa%e5%85%83%e7%b
 
 -   不利于 SEO
 -   代码读起来 “可能” 会有疑惑
+
+<!-- {% endraw %} - for jekyll -->

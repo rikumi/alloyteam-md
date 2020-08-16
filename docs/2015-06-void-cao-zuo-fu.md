@@ -5,6 +5,8 @@ author: TAT.Perlt
 source_link: http://www.alloyteam.com/2015/06/void-cao-zuo-fu/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 语法
 
 ```c
@@ -94,3 +96,5 @@ Safari Mobile (yes)
 [void 运算符](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 [void operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+<!-- {% endraw %} - for jekyll -->

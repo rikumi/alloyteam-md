@@ -5,6 +5,8 @@ author: TAT.yana
 source_link: http://www.alloyteam.com/2015/08/dont-make-me-think-2/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
         最近读了 Steve Krug 的《Don’t Make Me Think》，这本书对于 Web 和移动可用性设计有着很有趣的见解。对于其他可用性设计的书来说，这本书更加的浅显易懂。
 
 **一、Don't make me think！！！**
@@ -34,3 +36,5 @@ source_link: http://www.alloyteam.com/2015/08/dont-make-me-think-2/
 **最后**
 
         可用性设计是 Web 开发中最重要的部分，《Don't make me think》给出了很多简单易学的可用性设计建议，非常适合我们 Web 开发人员阅读，推荐～
+
+<!-- {% endraw %} - for jekyll -->

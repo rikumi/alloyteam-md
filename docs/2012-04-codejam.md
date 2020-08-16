@@ -5,6 +5,8 @@ author: TAT.林挺
 source_link: http://www.alloyteam.com/2012/04/codejam/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 2012 年 3 月 24 日及 25 日，HTML5 研究小组携手腾讯 Q + 前端团队、中青宝互动（本次活动由中青宝互动全程赞助）在深圳中青宝成功举办广东省首期 HTML5 Code Jam！活动现场参赛者活力四射，激情投入，在经过近 32 小时的沟通协作及相互配合后，最终创作的作品在整体质量上超越北京、上海场。
 
 ![](http://file.service.qq.com/qqfans-files/uploadfile2012/3/30/164550.jpg)
@@ -38,3 +40,5 @@ HTML5 Code Jam 现场开发是 HTML5 研究小组在国内的首创现场开发�
 获奖队伍
 
 更多精彩，请点击 <http://blog.sina.com.cn/u/1911313045>
+
+<!-- {% endraw %} - for jekyll -->

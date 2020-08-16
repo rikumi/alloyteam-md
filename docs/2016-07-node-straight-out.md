@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2016/07/node-straight-out/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文地址](https://github.com/joeyguo/blog/issues/8)
 
 直出是什么？到底是怎样的性能优化？本文将结合从在浏览器输入 url，到展示最终页面的过程来对其进行一步步分析，并将在手 Q web 中的实际应用实践进行总结。
@@ -133,3 +135,5 @@ source_link: http://www.alloyteam.com/2016/07/node-straight-out/
 对于文章一开始提及的前端路由，对路由的实现原理感兴趣的也可点击查看  [前端路由实现与 react-router 源码分析](https://github.com/joeyguo/blog/issues/2)
 
 感谢指教！
+
+<!-- {% endraw %} - for jekyll -->

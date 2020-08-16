@@ -5,6 +5,8 @@ author: TAT.lqlongli
 source_link: http://www.alloyteam.com/2015/05/%e6%b5%85%e5%b0%9diconfont/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 1. iconfont 简介
 
 什么是 iconfont？正如字面意思，就是图标字体，下面我给大家慢慢道来
@@ -140,3 +142,5 @@ iconfont 有以下优点：
 另外，阿里巴巴主要业务都已经广泛应用 iconfont，并且还有成熟的线上站点支持，最起码在可行性方面是可以不用过多考虑的，虽然在使用 iconfont 的过程中可能会遇到许多问题，但是鉴于 iconfont 应用广泛的前提下，线上的资源也会非常丰富，应该不需要过多的担心
 
 最后想说，我们业务是可以考虑使用的！如果要应用 iconfont，我们还需要设计们的支持！
+
+<!-- {% endraw %} - for jekyll -->

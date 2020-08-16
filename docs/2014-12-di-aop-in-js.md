@@ -5,6 +5,8 @@ author: TAT.Fujun
 source_link: http://www.alloyteam.com/2014/12/di-aop-in-js/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前些时候有使用过 AngularJS 一些时间，最大的感受就是 Angular 完全颠覆了我们开发 Web 应用的方式，自己被其许多耳目一新的设计思想所折服。
 
 首先想说的就是依赖注入（DI），这也意味着，你在使用某一个模块时，不需要去手动 require () 一下，你需要的模块会自己注入到的函数所在的作用域中，如：
@@ -141,3 +143,5 @@ ns.foo();
 小结：  
 1. 在 JS 中实现 DI：利用函数的 toString 方法  
 2. 在 JS 中实现 AOP：重写原函数
+
+<!-- {% endraw %} - for jekyll -->

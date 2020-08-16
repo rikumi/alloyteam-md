@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/the-apple-wwdc2012-conference-ios6-articles/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![iOS6](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/0526035lU.jpg "iOS6")
 
 这是本次**苹果全球开发者大会**的第三个也是最后一个重点话题：**iOS 6**。在这款苹果公司的**第六代移动平台操作系统**中，有超过 **200 个新增功能**，比如会中文、能查询中国地名、商务信息等内容的 Siri、整合 Facebook、改进的电话应用、照片流共享、全新的 Passbook 应用、内置 3D 模型和 GPS 导航的地图应用等，当然也含有大量专为中国用户优化的功能……
@@ -128,3 +130,5 @@ iOS 6 将会支持 [iPhone](http://www.ipc.me/.htmliphone) 3GS 及更新款手�
 [![苹果 iOS 6 移动操作系统](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/052715c4a.jpg "苹果 iOS 6 移动操作系统")](http://www.ipc.me/wwdc-2012-ios-6.html)
 
 ### iOS6 全功能上手试用视频
+
+<!-- {% endraw %} - for jekyll -->

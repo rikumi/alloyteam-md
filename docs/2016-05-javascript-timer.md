@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2016/05/javascript-timer/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![Timer](http://www.alloyteam.com/wp-content/uploads/2016/05/timer.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/05/timer.jpg)
 
 从 JS 执行机制说起  
@@ -187,3 +189,5 @@ process.nextTick 是 Nodejs 的 API，比 Promise 更早执行。
 事实上，process.nextTick 是不会进入异步队列的，而是直接在主线程队列尾强插一个任务，虽然不会阻塞主线程，但是会阻塞异步任务的执行，如果有嵌套的 process.nextTick，那异步任务就永远没机会被执行到了。
 
 使用的时候要格外小心，除非你的代码明确要在本次事件循环结束之前执行，否则使用 setImmediate 或者 Promise 更保险。
+
+<!-- {% endraw %} - for jekyll -->

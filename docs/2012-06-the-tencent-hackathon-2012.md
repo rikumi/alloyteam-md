@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/the-tencent-hackathon-2012/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 2012 首届 [#腾讯编程马拉松 #](http://k.t.qq.com/k/%E8%85%BE%E8%AE%AF%E7%BC%96%E7%A8%8B%E9%A9%AC%E6%8B%89%E6%9D%BE)开幕啦！
 
 **[![](http://www.alloyteam.com/wp-content/uploads/2012/06/IMG_6440-1024x682.jpg "腾讯编程马拉松 Tencent Hackathon")](http://www.alloyteam.com/wp-content/uploads/2012/06/IMG_6440.jpg)**
@@ -156,3 +158,5 @@ source_link: http://www.alloyteam.com/2012/06/the-tencent-hackathon-2012/
 [![](http://www.alloyteam.com/wp-content/uploads/2012/06/2000.png "2000")](http://www.alloyteam.com/wp-content/uploads/2012/06/2000.png)
 
 转载请注明本文地址：<http://www.alloyteam.com/2012/06/the-tencent-hackathon-2012/>
+
+<!-- {% endraw %} - for jekyll -->

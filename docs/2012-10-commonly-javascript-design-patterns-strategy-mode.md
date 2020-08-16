@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-strategy-mode/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 策略模式的意义是定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。  
 一个小例子就能让我们一目了然。  
 回忆下 jquery 里的 animate 方法.  
@@ -60,3 +62,5 @@ validataList = {
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

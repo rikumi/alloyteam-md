@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2015/10/react-native-android-steps-on-tour/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **前言**
 
 Facebook  在 2015.9.15 发布了 React Native for Android，把 JavaScript  开发技术扩展到了移动 Android 平台。基于 React 的 React Native  让前端开发者使用 JavaScript  和 React  编写应用，利用相同的核心代码就可以创建  基于 Web，iOS  和 Android  平台的原生应用。在 React Native for Android 出来之后，本人花了些时间从环境搭建到做出几个 demo，从体验来看都挺流畅，具体将此间遇到和问题和具体的新的体会，向大家分享一下。
@@ -84,3 +86,5 @@ Facebook  在 2015.9.15 发布了 React Native for Android，把 JavaScript 
 不断跟新中
 
 参考资料：<http://www.nihaoshijie.com.cn/index.php/archives/550>
+
+<!-- {% endraw %} - for jekyll -->

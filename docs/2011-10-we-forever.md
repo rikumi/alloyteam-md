@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2011/10/we_forever/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Hello，everyone~ Tencent Alloy Team 博客正式开通咯（鼓掌，撒花，转圈），博客的第一篇文章，好紧张！！~~~・⊙﹏⊙b 汗~~欢迎大家多多拍砖～～：）
 
 **首先，我们为什么要建设这个博客呢**
@@ -53,3 +55,5 @@ Hello，everyone~ Tencent Alloy Team 博客正式开通咯（鼓掌，撒花，�
 7.  个性，坚持自己的特质，要的就是不一样的你
 8.  永远不要抛开你的队友
 9.  超越自我的团队意识
+
+<!-- {% endraw %} - for jekyll -->

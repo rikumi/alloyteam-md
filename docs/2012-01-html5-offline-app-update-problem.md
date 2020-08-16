@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2012/01/html5-offline-app-update-problem/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
  一、些许前提
 
 最近在制作一个 Web 应用，其中用到了 HTML5 的离线应用功能 (offline application), 离线应用的概念就不再阐述，可以查看这两篇文章:
@@ -82,3 +84,5 @@ Vary: Accept-Encoding
 Firefox 的 ApplicationCache
 
 <http://hi.baidu.com/erik168/blog/item/aadff9547720d8013b293559.html>
+
+<!-- {% endraw %} - for jekyll -->

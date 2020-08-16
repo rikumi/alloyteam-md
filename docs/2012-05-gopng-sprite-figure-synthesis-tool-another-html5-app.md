@@ -5,6 +5,8 @@ author: TAT.duwei
 source_link: http://www.alloyteam.com/2012/05/gopng-sprite-figure-synthesis-tool-another-html5-app/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Css Sprite，有时也称为雪碧图、精灵图，是每一个前端开都会遇到的问题，也是常见的小图片加载优化手段。相信各位同学都清楚其原理，具体就不赘述了。
 
 之前一直有动机利用 html5 实现一个合成雪碧图的工具，方便小项目的快速开发，减少一些诸如开 photoshop、fireworks 等工具来合图的机械劳动，最近终于抽出时间将构思实现。
@@ -78,3 +80,5 @@ Css Sprite，有时也称为雪碧图、精灵图，是每一个前端开都会�
 **即可复原：**
 
 [![](http://www.alloyteam.com/wp-content/uploads/2012/05/recoverworkspace.png "复原")](http://www.alloyteam.com/wp-content/uploads/2012/05/recoverworkspace.png)
+
+<!-- {% endraw %} - for jekyll -->

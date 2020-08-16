@@ -5,6 +5,8 @@ author: TAT.Rehorn
 source_link: http://www.alloyteam.com/2012/03/web-cache-1-web-cache-overview/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 \\==== 索引 =====
 
 [【Web 缓存机制系列】1 – Web 缓存的作用与类型](http://alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
@@ -74,3 +76,5 @@ CDN（Content delivery networks）缓存，也叫网关缓存、反向代理缓�
 应用层缓存指的是从代码层面上，通过代码逻辑和缓存策略，实现对数据，页面，图片等资源的缓存，可以根据实际情况选择将数据存在文件系统或者内存中，减少数据库查询或者读写瓶颈，提高响应效率。
 
 后续将从 Web 前端的角度讨论浏览器缓存机制、前端应用层缓存。
+
+<!-- {% endraw %} - for jekyll -->

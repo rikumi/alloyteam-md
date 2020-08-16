@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/03/internet-explorer-10-%e5%bc%80%e5%8f%91%e8%80%85%e6%8c%87%e5%8d%97/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Internet Explorer 10 开发者指南让你提前了解下一版本的 Windows Internet Explorer 中即将推出的开发者功能，以及最新的 HTML5、JavaScript 和级联样式表级别 3 (CSS3) 功能（可供 Windows 8 Consumer Preview 中使用 JavaScript 的 Metro 风格的应用程序的开发者使用）。通过使用本指南中的文档和示例，开发者和设计者就可以做好准备使用这些新功能了。
 
 Internet Explorer 10 当前不适用于 Windows 7。适用于 Windows 7 的最新版本是 2011 年 6 月 29 日推出的 Internet Explorer 10 Platform Preview Build 2。因此，你将注意到，本指南中提到的较新功能对于面向 Windows 7 的最新版本的 Internet Explorer 10 Platform Preview 尚不可用。有关对于 Internet Explorer Platform Preview Build 2 的更改的列表，请参阅[修订历史记录](http://msdn.microsoft.com/zh-cn/library/ie/hh673560.aspx)。有关所有新功能的全面列表，请参阅下文。
@@ -76,3 +78,5 @@ Internet Explorer 10 在发布之后将适用于 Windows 7、Windows 8 Consum
     -   [setImmediate 方法](http://msdn.microsoft.com/zh-cn/library/ie/hh673556.aspx#setimmediate)
     -   [导航计时](http://msdn.microsoft.com/zh-cn/library/ie/hh673556.aspx#Navigation_Timing)
 -   [修订历史记录](http://msdn.microsoft.com/zh-cn/library/ie/hh673560.aspx)
+
+<!-- {% endraw %} - for jekyll -->

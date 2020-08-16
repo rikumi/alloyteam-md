@@ -5,6 +5,8 @@ author: TAT.fishineyuan
 source_link: http://www.alloyteam.com/2015/04/%e4%bd%bf%e7%94%a8xposed%e5%bc%ba%e5%88%b6androidwebview%e5%bc%80%e5%90%afdebug%e6%a8%a1%e5%bc%8f/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 从 <https://developer.chrome.com/devtools/docs/remote-debugging> 我们可以知道在 android 4.4 + 可以通过在 apk 中使用下面的代码开启 webview 的 chrome 远程调试
 
 ```html
@@ -61,3 +63,5 @@ Xposed 工作原理可以参考文档： <https://github.com/rovo89/XposedBridge
 2、安装 Xposed 框架
 
 3、已开启 QQ WebView 的 Apk： [webviewdebughook.Apk](http://7tszky.com1.z0.glb.clouddn.com/FkA_G7UGdW8X4DZ2IKsRjVG0gEpz)
+
+<!-- {% endraw %} - for jekyll -->

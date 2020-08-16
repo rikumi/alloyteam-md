@@ -5,6 +5,8 @@ author: TAT.岑安
 source_link: http://www.alloyteam.com/2012/08/animations-in-canvas/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 #### ![](http://hongru.github.com/proj/laro/test/resources/fighter/RYU1_wait.gif)
 
 #### 关于 Canvas 中动画的处理和实现
@@ -63,3 +65,5 @@ source_link: http://www.alloyteam.com/2012/08/animations-in-canvas/
 【结语】
 
 本文只是对于 canvas 中实现各种动画做了一个大致框架性的介绍和一些 demo 演示。后续如果有需要可以针对每一种动画在实现的一些细节上进行更深入的讲解。
+
+<!-- {% endraw %} - for jekyll -->

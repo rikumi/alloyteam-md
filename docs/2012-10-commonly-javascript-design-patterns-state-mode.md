@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 待续。
 
 -   [单例模式](http://www.alloyteam.com/2012/10/common-javascript-design-patterns/ "单例模式")
@@ -24,3 +26,5 @@ source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-pattern
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

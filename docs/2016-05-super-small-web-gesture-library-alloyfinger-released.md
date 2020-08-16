@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/05/super-small-web-gesture-library-alloyfinger-released/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 简介  
 
 =====
@@ -141,3 +143,5 @@ Github
 =========
 
 <https://github.com/AlloyTeam/AlloyFinger>
+
+<!-- {% endraw %} - for jekyll -->

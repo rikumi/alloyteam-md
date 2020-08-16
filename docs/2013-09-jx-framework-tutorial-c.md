@@ -5,6 +5,8 @@ author: TAT.pel
 source_link: http://www.alloyteam.com/2013/09/jx-framework-tutorial-c/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 开发者问得比较多的一个问题是，JX 的 ui 组件怎么用。其实只要记住，JX 是遵循驼峰式命名法，“小驼峰式（小写字母开头）” 的是变量、方法名，“大驼峰式（大写字母开头）” 的是类名，这个问题就会简单明了了。
 
 # 类和继承
@@ -56,3 +58,5 @@ boxy.getPanel().setHtml("<h1>Message</h1><p>Welcome to alloyteam.com</p>"); //�
 
 就是这样简单，点击[这里看运行结果](http://www.alloyteam.com/wp-content/uploads/2013/09/jx_ui_demo.html)。  
 希望这个例子能给你一些启示。[更多活生生的 demo](http://alloyteam.github.io/JXLiveDemo/) 在这里。
+
+<!-- {% endraw %} - for jekyll -->

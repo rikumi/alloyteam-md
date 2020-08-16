@@ -5,6 +5,8 @@ author: TAT.ouvenzhang
 source_link: http://www.alloyteam.com/2015/06/ionichybrid-kua-zhong-duan-ying-yong-cheng-xu-kai-fa-fang-an-yan-jiu/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ionic 是最近一个很流行的 Hybird 移动开发解决方案，个人兴趣研究了一下，还是不错的  
 <https://github.com/driftyco/ionic>
 
@@ -148,3 +150,5 @@ ionic 使用了 angular 作为基础开发库，并用组件化的方案来管�
 1.  直接将页面打包发布会使得迭代不好解决，如果使用离线包机制可以解决这一问题，但是客户端的定制化仍然我们对预 - - 处理后的代码进行较大的二次修改
 2.  依然停留在 webview 开发阶段，不能突破 webview 解析 dom 的性能问题
 3.  目前没有自动化调试，需借助外部工具来做
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.mandyluo
 source_link: http://www.alloyteam.com/2015/06/shen-ru-qian-chu-directive/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 在 Angular, Vue.js 等 MVVM 框架中，都涉及到指令（directive）的概念，directive 实际上是一种针对 DOM 操作的抽象封装，并通过框架处理，将 DOM 操作逻辑与 DOM 元素进行自动化绑定，用一个简单的声明式语法简化了 DOM 操作逻辑中的 “_给元素命名”_，“_查询目标元素_”，“_进行 DOM 操作”_步骤。  
 
 举个小例子，比如我们有一个 header 组件，它的 HTML 片段内容是：  
@@ -93,3 +95,5 @@ Object.defineProperty(data, "isOn", {
 ```
 
 个人认为，使用属性声明的方式自动化绑定优于具名选择器的方式操作 DOM 元素。从开发效率角度，我们省去了 “_给元素命名”_／“_查询目标元素_”／“_进行 DOM 操作_” 这 3 步操作，从维护性角度，我们也省却了 “_知道文档结构”_／“_知道选择器标志_”2 个步骤。
+
+<!-- {% endraw %} - for jekyll -->

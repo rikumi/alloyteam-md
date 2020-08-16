@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2017/03/omi-frame-store-system-past-and-present/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文链接](https://github.com/AlloyTeam/omi/tree/master/tutorial)
 
 ## 写在前面
@@ -361,3 +363,5 @@ Omi Store 体系以前通过 addView 进行视图收集，store 进行 update �
 -   如果想更加方便的交流关于 Omi 的一切可以加入 QQ 的 Omi 交流群 (256426170)
 
 ![](http://images2015.cnblogs.com/blog/105416/201702/105416-20170208095745213-1049686133.png)
+
+<!-- {% endraw %} - for jekyll -->

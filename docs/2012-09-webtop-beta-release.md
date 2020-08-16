@@ -5,6 +5,8 @@ author: TAT.melody
 source_link: http://www.alloyteam.com/2012/09/webtop-beta-release/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![](http://www.alloyteam.com/wp-content/uploads/2012/09/1.png "1")](http://www.alloyteam.com/wp-content/uploads/2012/09/1.png)  
 Webtop——html5 桌面 app 开发引擎。基于 webtop，你可以使用 html5 和 css3 等新技术构建桌面 app，即开发直接运行于 windows 上的软件，使用透明渲染模式能将网页直接渲染在桌面上，轻松实现透明阴影等特效。而且，提供了大量的本地 api，使你的 app 能达到跟本地 app 一样的体验。基于它，你可以开发诸如浏览器，QQ，PS，桌面 widget 等桌面 app。这种开发软件的方式，相比传统桌面软件开发方式的开发效率，个人认为至少是其的 10 倍。
 
@@ -151,3 +153,5 @@ webtop 中定义了一些自定义事件，如下
 -   webtopP2PRecieveMessage：在 webtop 窗口收到 p2p 消息时触发，e.detail 的结构如下：{ip:'192.168.0.102',port:64656,msg:'sfsdfsfasdf'}。ip 为发送方的 ip，port 为发送方的端口，msg 为对方发送的消息
 -   webtopP2PInitInfo：调用 connect 之后，p2p 初始化之后触发，e.detail 的结构如下：{ip:'192.168.0.102',port:64656}。ip 为当前 webtop 窗口使用的 ip，port 当前 webtop 窗口使用的端口
 -   webtopP2PUpdateUserList：调用 getUsers 函数之后的回调事件。e.detail 的结构如下 {list:\['192.168.0.102:55654_melody','192.168.0.101:55354_yukin'],ip:'192.168.0.102',port:64656}。其中 192.168.0.102 为该用户的 ip，55654 为该用户的端口，melody 为该用户的用户名。ip 为当前 webtop 窗口使用的 ip，port 当前 webtop 窗口使用的端口
+
+<!-- {% endraw %} - for jekyll -->

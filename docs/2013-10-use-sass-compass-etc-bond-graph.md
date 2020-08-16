@@ -5,6 +5,8 @@ author: TAT.woshayawo
 source_link: http://www.alloyteam.com/2013/10/use-sass-compass-etc-bond-graph/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
        相信大部分同学都或多或少的对 sass 和 compass 有所了解， 但为了扫盲， 我们还是多少介绍一下背景。
 
        Sass 的官方网站：[http://sass-lang.com](http://sass-lang.com/ "sass 官网")
@@ -43,3 +45,5 @@ source_link: http://www.alloyteam.com/2013/10/use-sass-compass-etc-bond-graph/
        金山快盘：[http://www.kuaipan.cn/file/id_48820047145120357.htm?source=1](http://www.kuaipan.cn/file/id_48820047145120357.htm?source=1 "利用 sass/compass 进行合图等图片操作")
 
        下载好以后，直接双击 sass_compass_sprites.html 进行观看。
+
+<!-- {% endraw %} - for jekyll -->

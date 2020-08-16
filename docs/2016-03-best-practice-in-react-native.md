@@ -5,6 +5,8 @@ author: TAT.ronnie
 source_link: http://www.alloyteam.com/2016/03/best-practice-in-react-native/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 react native 给了我们使用 javascript 开发原生 app 的能力，在使用 react native 完成兴趣部落安卓端发现 tab 改造后，我们开始对由 react native 实现的界面进行持续优化。目标只有一个，在享受 react native 带来的新特性的同时，在体验上无限逼近原生实现。作为一名前端开发，本文会从前端角度，探索 react native 首屏渲染最佳实践。
 
 **1. 首屏耗时计算方法**  
@@ -160,3 +162,5 @@ react native 框架给了我们新的能力，使得我们可以用 javascript �
 [![1846.743](http://cdn.alloyteam.com/wp-content/uploads/2016/03/1846.743.jpg)](http://www.ituring.com.cn/book/1846)
 
 好书推荐 [《](http://www.ituring.com.cn/book/1846)[React Native 开发指南》](http://www.ituring.com.cn/book/1846)
+
+<!-- {% endraw %} - for jekyll -->

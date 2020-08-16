@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2016/05/h5-camera-literacy/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 视频直播这么火，再不学就 out 了。
 
 为了紧跟潮流，本文将向大家介绍一下视频直播中的基本流程和主要的技术点，包括但不限于前端技术。
@@ -203,3 +205,5 @@ demo 地址：[https://github.com/lvming6816077/LMVideoTest/](https://github.com
 ReactNative 下拉刷新组件：<https://github.com/lvming6816077/react-native-pullRefreshScrollView>
 
 欢迎使用！
+
+<!-- {% endraw %} - for jekyll -->

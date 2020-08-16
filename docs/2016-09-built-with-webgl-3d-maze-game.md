@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2016/09/built-with-webgl-3d-maze-game/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 背景：前段时间自己居然迷路了，有感而发就想到写一个可以让人迷路的小游戏，可以消 (bao) 遣 (fu) 时 (she) 间 (hui)
 
 没有使用 threejs，就连 glMatrix 也没有用，纯原生 webgl 干，写起来还是挺累的，不过代码结构还是挺清晰的，注释也挺全的，点开全文开始迷宫之旅～
@@ -412,3 +414,5 @@ move: function(e){
 写累死，这还是在把 webgl 里面知识点大部分丢掉的情况下。迷宫整体比较简单，就两张贴图，地面也很简陋，最近需求比较多，很忙，没太多时间去美化。有兴趣的同学可以做一款属于自己棒棒的迷宫游戏～
 
 感兴趣有疑问的可以留言一起交流～
+
+<!-- {% endraw %} - for jekyll -->

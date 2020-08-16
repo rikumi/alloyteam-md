@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2015/04/solve-callback-hell-with-generator/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![callback hell](https://camo.githubusercontent.com/406dc1d925e99d9a5602ae99a569af5c9ab40935/687474703a2f2f7777772e616c6c6f797465616d2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30332f6e6f64652d6a732d63616c6c6261636b2d68656c6c2e6a7067)](https://camo.githubusercontent.com/406dc1d925e99d9a5602ae99a569af5c9ab40935/687474703a2f2f7777772e616c6c6f797465616d2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30332f6e6f64652d6a732d63616c6c6261636b2d68656c6c2e6a7067)
 
 （图片来源于互联网）
@@ -269,3 +271,5 @@ stream.on(
 * * *
 
 co 的优点让人无法抗拒，而基于 co 的[第三方库](https://github.com/tj/co/wiki)更是多得受不了。 将 co 用到极致的是 TJ 的另一个作品 [Koa](https://github.com/koajs/koa)... 不解释更多了，谁用谁知道，上手 CO 最快的方法就是写一个基于 Koa 的服务端程序。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2015/06/strong-mode-jie-shao/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **_If it is too strong, then you are too weak._**
 
 # [](http://www.alloyteam.com/2015/06/strong-mode-jie-shao/#就算是背景吧)就算是背景吧
@@ -179,3 +181,5 @@ function test(...args) {
     console.log(args);
 }
 ```
+
+<!-- {% endraw %} - for jekyll -->

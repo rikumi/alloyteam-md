@@ -5,6 +5,8 @@ author: TAT.老教授
 source_link: http://www.alloyteam.com/2014/03/runningcoders/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 !\[](file:///F:\\ 我的文档 \\Tencent Files\\975312314\\Image\\Image10\\BE \[AJ@K% RO} Y1T0X7FL08~3.jpg)
 
 [![前端突击队宣传 banner](http://www.alloyteam.com/wp-content/uploads/2014/03/banner.jpg)](http://www.alloyteam.com/wp-content/uploads/2014/03/banner.jpg)
@@ -26,3 +28,5 @@ source_link: http://www.alloyteam.com/2014/03/runningcoders/
 终点没有对手的痕迹，但我已经轰炸过（= = 这又是什么歪句）。别再寂寞地码着代码，这个展现前端能力的舞台等着你的到来！
 
 [《前端突击队》入口](http://codestar.alloyteam.com/ "CodeStar 第二季《前端突击队》")
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/10/web-accessibility-nvda-screen-reader-software-user-guide/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 最近公司在推行 Web 网页的无障碍化，所以转载此文，很多国内互联网项目开始重视网页无障碍，开始更好的为视障用户提供更好的便利，这方面做的比较好的有腾讯 QQ、朋友网和 QQ 空间，还有淘宝网等。
 
 然而平时测试并不是很方便，因为绝大部分读屏软件都是收费的。[NVDA](http://www.nvda-project.org/) 是一个免费开源的读屏软件，而且做的很不错。所以它就是我们平时测试网站可用性的首选。
@@ -32,3 +34,5 @@ NVDA 比较好的是有一个[完整的用户指南](http://www.nvda-project.org
 国内专注信息无障碍的网站并不多，如果大家有关注或者发现好的这方面的网站，请一定要分享给我～～
 
 文：神飞 - 前端观察
+
+<!-- {% endraw %} - for jekyll -->

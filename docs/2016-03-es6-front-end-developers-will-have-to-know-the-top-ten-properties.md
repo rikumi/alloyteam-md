@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2016/03/es6-front-end-developers-will-have-to-know-the-top-ten-properties/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
         [![2](http://www.alloyteam.com/wp-content/uploads/2016/03/2-300x240.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/03/2.jpg)
 
 ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，提高开发人员的效率。
@@ -606,3 +608,5 @@ ES6 总结
 最后感谢大家阅读，感谢小龙、教授、高工的指正建议，欢迎大家指出探讨![laugh](http://www.alloyteam.com/wp-content/plugins/ckeditor-for-wordpress/ckeditor/plugins/smiley/images/teeth_smile.png "laugh")  
 
 =======================================================================================================================================================================
+
+<!-- {% endraw %} - for jekyll -->

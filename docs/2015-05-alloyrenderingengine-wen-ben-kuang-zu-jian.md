@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/05/alloyrenderingengine-wen-ben-kuang-zu-jian/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 写在前面  
 
 * * *
@@ -164,3 +166,5 @@ Github: <https://github.com/AlloyTeam/AlloyGameEngine>
 大部分代码都做了解释，不再重复阐述。
 
 Github: <https://github.com/AlloyTeam/AlloyGameEngine>
+
+<!-- {% endraw %} - for jekyll -->

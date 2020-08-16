@@ -5,6 +5,8 @@ author: TAT.dmyang
 source_link: http://www.alloyteam.com/2012/10/little-chrome-plugin-tabsrecorder/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **用途**：关闭 chrome 之前，点击记录当前窗口打开的所有 tabs，当再次打开 chrome 时，点击插件可以恢复所有的 tabs
 
 我们每天上班时，都会先打开自己定的咨询、邮件、文档等，尤其是来自各个技术群里发出来的网址，所以每天都会开很多个 tabs。但是毕竟我们是来上班的，上班是要干活儿的，干活儿就没法一一去细读打开的内容。很多时候在下班前，发现还有很多文章没读完，这些文章里可能还有很多干货没捡到。
@@ -22,3 +24,5 @@ source_link: http://www.alloyteam.com/2012/10/little-chrome-plugin-tabsrecorder/
 [![icon 截图](http://www.alloyteam.com/wp-content/uploads/2012/10/i.jpg "i")](http://www.alloyteam.com/wp-content/uploads/2012/10/i.jpg)
 
 功能还比较弱，自己用够用了，目前只支持一个窗口（当前窗口），多个窗口的情况没做判断。有兴趣的同学可以试用下～～
+
+<!-- {% endraw %} - for jekyll -->

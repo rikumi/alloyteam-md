@@ -5,6 +5,8 @@ author: TAT.pel
 source_link: http://www.alloyteam.com/2012/05/facebook-is-interested-in-acquiring-the-opera/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://www.alloyteam.com/wp-content/uploads/2012/05/f7426d8d24935c44b21bba18-300x207.png "Opera 浏览器")  
 据国外媒体报道，科技博客网站 Pocket-lint 援引一名 “可靠消息人士” 的话报道称，Facebook 在尝试收购浏览器开发厂商 Opera Software (以下简称 “Opera”)，这可能是 Facebook 考虑推出浏览器的一个信号。
 
@@ -21,3 +23,5 @@ Opera 称，在各种平台上的用户总数约为 2 亿。
 Facebook 未就此置评。
 
 出处：腾讯科技
+
+<!-- {% endraw %} - for jekyll -->

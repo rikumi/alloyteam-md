@@ -5,6 +5,8 @@ author: TAT.云中飞扬
 source_link: http://www.alloyteam.com/2013/12/d3-line-chart/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 D3 全称 Data-Driven-Documents，这里说的不是暗黑 III，d3 是一款可视化 js 库，其主要用途是用 HTML 或者 SVG 生动地展现数据。
 
 相信网站开发者大都接入过 ga 来分析各种数据，例如 pv 图。ga 的图都是基于 SVG 的，下面笔者就用 d3 来一步一步实现类似 ga 的 pv 线形图，并假设读者具有一定的 SVG 基础（没有？没关系，[w3school](http://www.w3school.com.cn/svg/) 帮你快速上手）。
@@ -272,3 +274,5 @@ container
 查看最后的代码请移步 <http://jsfiddle.net/jarvisjiang/wh877/>
 
 That‘s all.
+
+<!-- {% endraw %} - for jekyll -->

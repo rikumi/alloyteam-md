@@ -5,6 +5,8 @@ author: TAT.yana
 source_link: http://www.alloyteam.com/2015/09/use-parallax-js-to-implement-simple-parallax-effect/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
         作为一只网瘾少女，各种酷炫的网页效果已经不能再引起我的注意了，直到有一天我看到了这个 <http://matthew.wagerfield.com/parallax/> ，瞬间晕船了。嗯，我喜欢这种微醺的感觉。这时我的脑洞突然开了一下，想起了前段时间票圈疯转的各种 360° 全景摄影。当手机绕着你 360° 转动的时候，就好像置身照片中的场景一样，那这个框架应该可以做成这样的效果～（虽然后来知道这个效果并不是用 parallax.js 做的![sad](http://www.alloyteam.com/wp-content/plugins/ckeditor-for-wordpress/ckeditor/plugins/smiley/images/sad_smile.png "sad")）。于是开启了我用 parallax.js 来变身炫酷少女之路。
 
 **Parallax.js 到底干嘛的**
@@ -50,3 +52,5 @@ source_link: http://www.alloyteam.com/2015/09/use-parallax-js-to-implement-simpl
         以下就是一个简单的视差效果页面
 
 ![](http://www.alloyteam.com/wp-content/uploads/2015/09/afa.gif)
+
+<!-- {% endraw %} - for jekyll -->

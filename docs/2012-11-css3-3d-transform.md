@@ -5,6 +5,8 @@ author: TAT.bizai
 source_link: http://www.alloyteam.com/2012/11/css3-3d-transform/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Minren 哥前面已经写了一些关于这方面的 blog 了，大家也可以在团队 blog 里面参考。
 
 [http://www.alloyteam.com/2012/10/the-css3-transform-perspective-property/](http://www.alloyteam.com/2012/10/the-css3-transform-perspective-property/ "CSS3 Transform 属性 perspective")
@@ -157,3 +159,5 @@ Perspective-origin 为视点的位置。就像上面那张解析 perspective 图
 **结语：**
 
 本来好像还要为大家分享一个 3D slider 的，但是感觉博文略长略长了，分篇幅，下篇博文在分享一下 css3 3D 的实际使用。
+
+<!-- {% endraw %} - for jekyll -->

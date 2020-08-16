@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2017/04/secrets-of-mobile-web-scroll-bars-and-drop-refresh/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # 知识点 1: 移动 web 滚动问题
 
 > 在移动端，使用滚动来处理业务逻辑的情况有很多，例如列表的滚动加载数据，下拉刷新等等都需要利用滚动的相关知识，但是滚动事件在不同的移动端机型却又有不同的表现，下面就来一一总结一下。
@@ -78,3 +80,5 @@ source_link: http://www.alloyteam.com/2017/04/secrets-of-mobile-web-scroll-bars-
 1.  基于上述知识点，我写了一个下拉刷新组件，各位可以参考使用，如有问题，请多多指出！
 
 <https://github.com/AlloyTeam/AlloyPullRefresh/>
+
+<!-- {% endraw %} - for jekyll -->

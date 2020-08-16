@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2015/07/shi-yong-abstract-2-0-gou-jian-ye-mian/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 为什么是 2.0?
 
 Abstract 1.0 去哪了？1.0 就在这里  
@@ -352,3 +354,5 @@ page.rock();
 ## Abstract 2.0 的地址
 
 [点击这里访问更多信息吧](http://alloyteam.github.io/Abstract.js/)
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/transformjs-polluting-the-dom/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文链接: <https://github.com/AlloyTeam/AlloyTouch/wiki/Powerful-transformjs>
 
 写在前面  
@@ -419,3 +421,5 @@ img.src = "asset/img/test.png";
 
 最后，多谢大家对 transformjs 的建议，有了你们中肯建议和意见，才让它变得更好更灵活更强大。  
 
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.dmyang
 source_link: http://www.alloyteam.com/2013/12/node-js-series-exception-caught/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 本文 [github 地址](https://github.com/chemdemo/chemdemo.github.io/blob/master/blogs/exception_catch.md)
 
 本篇谈谈 Node.js 捕获异常的一些探索。
@@ -295,3 +297,5 @@ if (this.domain && this !== process) this.domain.enter();
 -   <https://github.com/joyent/node>
 -   <http://www.slideshare.net/domenicdenicola/domains-20010482>
 -   <http://deadhorse.me/nodejs/2013/04/13/exception_and_domain.html>
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/alloytouch-0-2-0-released-have-your-cake-and-eat-it-too/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文链接：<https://github.com/AlloyTeam/AlloyTouch/wiki/AlloyTouch-0.2.0>
 
 背景  
@@ -131,3 +133,5 @@ Github：<https://github.com/AlloyTeam/AlloyTouch>
 
 任何意见和建议欢迎 [new issue](https://github.com/AlloyTeam/AlloyTouch/issues)，我们会第一时间反馈。  
 
+
+<!-- {% endraw %} - for jekyll -->

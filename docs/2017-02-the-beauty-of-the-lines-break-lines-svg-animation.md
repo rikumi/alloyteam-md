@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2017/02/the-beauty-of-the-lines-break-lines-svg-animation/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 通常来说 web 前端实现动画效果主要通过下面几种方案：
 
 -   css 动画；利用 css3 的样式效果可以将 dom 元素做出动画的效果来。
@@ -330,3 +332,5 @@ L194.589,212.583z"/>
 效果：
 
 [![](https://oc5n93kni.qnssl.com/qq.gif)](https://oc5n93kni.qnssl.com/qq.gif)
+
+<!-- {% endraw %} - for jekyll -->

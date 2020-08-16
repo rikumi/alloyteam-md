@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2015/06/shi-yong-web-mo-ni-shou-q-shui-di-xia-la-shua-xin-xiao-guo/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 兴趣部落页面中，为了加强下拉刷新的体验效果，我们用 web 模拟了 ios 下手 Q 下拉刷新时的水滴效果，实现效果如下。  
 
 [![2](http://alloyteam.github.io/AlloyImage/demos/source/pull.gif)](http://alloyteam.github.io/AlloyImage/demos/source/pull.gif)
@@ -153,3 +155,5 @@ ctx.stroke();
 **关于 Android**
 
 Android 鉴于无法拉下负的 scrollTop，而且 Android 的下拉样式不是这个样子的，所以这个方案就只用在 ios 上了。
+
+<!-- {% endraw %} - for jekyll -->

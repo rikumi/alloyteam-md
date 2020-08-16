@@ -5,6 +5,8 @@ author: TAT.gctang
 source_link: http://www.alloyteam.com/2014/11/whydidwebuildreact/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 目前已经有很多 JavaScript MVC 框架了。为什么我们还要创造 React 而为什么你会想使用它呢？
 
 ## React 不是一个 MVC 框架
@@ -62,3 +64,5 @@ React 采用了不同的方法。
 随后的文章里面将会对 React 的使用与原理进行剖析，并横向地与 Angular 进行关联对比。
 
 敬请期待。
+
+<!-- {% endraw %} - for jekyll -->

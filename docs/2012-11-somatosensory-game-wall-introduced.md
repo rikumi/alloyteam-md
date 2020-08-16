@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2012/11/somatosensory-game-wall-introduced/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 一 .《墙来了》简介
 
 《墙来了》是一款基于 HTML5 的**体感游戏**，第三届**腾讯创意马拉松的一等奖作品**，由 腾讯 [AlloyTeam](http://www.alloyteam.com/) 和 [HTML5 梦工场](http://www.html5dw.com)联合出品。《墙来了》 采用 HTML5、Javascript、CSS3 等全新 Web 技术来构建一个在线的体感游戏，只要有一个浏览器和一个摄像头，就可以通过身体的摆动，体验穿墙的刺激与快感。
@@ -78,3 +80,5 @@ source_link: http://www.alloyteam.com/2012/11/somatosensory-game-wall-introduced
 **在游戏过程中遇到任何问题，或者有任何建议，欢迎在下方向给我们留言～**
 
 **Enjoy youself！**
+
+<!-- {% endraw %} - for jekyll -->

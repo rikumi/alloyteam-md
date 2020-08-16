@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/the-javascript-framework-list/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 此列表会一直更新、维护下去，以帮助大家了解、推动国内 Web 前端技术框架的发展，请记住我们的永久地址：<http://www.alloyteam.com/?p=1009>，同时欢迎大家留言补充！
 
 -   Arale - <http://aralejs.org/>
@@ -37,3 +39,5 @@ source_link: http://www.alloyteam.com/2012/05/the-javascript-framework-list/
 框架是拿来用的，不是拿来看的，以最低的成本，完成最多的事情的框架才是好框架  
 无论是用开源的，还是自己开发，你真的应该用一个能让你雇的最菜的程序员也能 5 分钟学会的框架  
 总的来说，不同类型的项目需要不同类型的框架来支撑，你为你的项目选到合适的 Web 前端框架了吗？
+
+<!-- {% endraw %} - for jekyll -->

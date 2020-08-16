@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/11/tencent-14-years-creative-marathon/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![](http://www.alloyteam.com/wp-content/uploads/2012/11/1352791789_55.bmp "1352791789_55")](http://www.alloyteam.com/wp-content/uploads/2012/11/1352791789_55.bmp)
 
 2012 年 11 月 11 日[腾讯 14 周年庆](http://v.qq.com/page/x/s/3/x00119isxs3.html)，腾讯公司在深圳、北京两地联袂组织第三届【**[@腾讯创意马拉松](http://t.qq.com/hackathon)**】活动，活动的发起者是 CSDN 论坛的老人 [emu](http://my.csdn.net/emu)，并由腾讯 SNG 的  [Tea](http://www.alloyteam.com/author/tealin/)、 [PuterJam](http://www.pjhome.net/)、 [JohnnyGuo](http://www.alloyteam.com/author/johnny/)、 [TwinsenLiang](http://www.twinsenliang.net/)、 [Tommy](http://tommyfan.com/)、 [Lydia](http://t.qq.com/lydialiu_ly)、 [Kinvix](http://www.alloyteam.com/author/kinvix) 等人参与组织。
@@ -56,3 +58,5 @@ Hackathon 这个词诞生于 1999 年卡尔加里举办的一次密码学开发�
 这里是创意制造者的聚会，产品、开发、设计一个都不能少。这里不只是代码间的较量，创意、UI 也决定着最终的结果。各种靠谱、不靠谱的想法，在这里都可以去尝试一把，并让你度过两天难忘的欢乐时光，这就是【腾讯创意马拉松】的魅力所在。。。
 
 附【腾讯首届编程马拉松】报道网址：<http://www.alloyteam.com/2012/06/the-tencent-hackathon-2012/>
+
+<!-- {% endraw %} - for jekyll -->

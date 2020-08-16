@@ -5,6 +5,8 @@ author: TAT.littenli
 source_link: http://www.alloyteam.com/2015/06/he-xian-tui-dao-luo-ji-jian-xi-yu-shi-xian-yi-ji-raphael-ku-shi-yong/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://litten.github.io/assets/blogImg/chord1.jpg)
 
 诚然，吉他有上千个和弦。世界上最厉害的吉他大师，也无法一眼辨识出所有的和弦。  
@@ -248,3 +250,5 @@ circle.mousedown(<span class="keyword">function</span> () {
 并且尝试用 A 指型，自动生成了 C 调的 7 个常用和弦。
 
 End.
+
+<!-- {% endraw %} - for jekyll -->

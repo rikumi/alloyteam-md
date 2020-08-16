@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/11/alloyteam-event-countdown-1-day-dry-present-team-open-source-project/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **AlloyTeam 一直致力于开源项目，今年由于贡献突出，获得公司级行业贡献大奖。下面是 AlloyTeam 的一些优秀开源项目：**
 
 [![获奖](http://www.alloyteam.com/wp-content/uploads/2015/11/获奖.jpg)](http://www.alloyteam.com/wp-content/uploads/2015/11/获奖.jpg)
@@ -58,3 +60,5 @@ source_link: http://www.alloyteam.com/2015/11/alloyteam-event-countdown-1-day-dr
 **​(微博)**
 
 **![微博](https://lh5.googleusercontent.com/FdgxbqxjVfl7e7n_6BjYpe7IaMaXeJ21UdUwuNo6kU3jF7XqZWqCrxRONDI6HV2PPfm06j4CSl4h7UXvyjHeRrEGm2huI0QywHMyEA8fOQxIRMPo2J7UffvKttwPTi1fKU_aPIs2)**
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2012/11/ios-platform-features/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **ios 平台特点**
 
 使用 iOS 的设备拥有一些共性，这些特点会影响其程序的使用体验。与这些特性相适应的程序会更加成功，与设备一起为用户提供超凡的使用体验。  
@@ -117,3 +119,5 @@ iOS 上的 Safari 不支持 Flash 和 Java, 或者其他第三方插件。作为
 iOS 上的 Safari 将手势解释为对 “如何展示内容” 的操控，而非对内容本身。轻敲可以触发 Sagari 给网页发送一个 onclick 事件，这与鼠标单击相似。但是很多鼠标动作没有相匹配的姿势，比如说 hover。
 
 iOS 上的 Safari 容许网络应用以全屏模式运行。网络应用可以通过 “Web Clip” 的图标来登录，这样能隐藏 Safari 的界面控件，看起来就更像是一个本地的应用。
+
+<!-- {% endraw %} - for jekyll -->

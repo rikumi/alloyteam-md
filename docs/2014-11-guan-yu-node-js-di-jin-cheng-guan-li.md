@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2014/11/guan-yu-node-js-di-jin-cheng-guan-li/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 如果是单纯的运行一个 node 进程，那会比较简单，例如：
 
     node ./example.js
@@ -159,3 +161,5 @@ socket.on("data", function () {
 其中包含了上面功能的实现源码。我们可以通过 Resume.js 进行简单的 node 进程管理。
 
 此文同步更新在 [http://www.cnblogs.com/Cson/p/4069868.html](http://www.cnblogs.com/Cson/p/4069868.html "http&#x3A;//www.cnblogs.com/Cson/p/4069868.html")
+
+<!-- {% endraw %} - for jekyll -->

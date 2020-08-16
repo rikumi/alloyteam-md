@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/and-transformjs-rock/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 写在前面  
 
 * * *
@@ -115,3 +117,5 @@ transformjs 会计算出 matrix3d 赋给 dom 的 transform msTransform OTransfor
 主页：<http://alloyteam.github.io/AlloyTouch/transformjs/>  
 Github ：<https://github.com/AlloyTeam/AlloyTouch/tree/master/transformjs>  
 
+
+<!-- {% endraw %} - for jekyll -->

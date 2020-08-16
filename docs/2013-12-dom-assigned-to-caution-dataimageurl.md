@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2013/12/dom-assigned-to-caution-dataimageurl/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 最近在更新 [JX.Animate](http://alloyteam.github.io/jxanimate/) 的 Demo，我想让首页的美女图动起来。用的是 Canvas 实现的，过几天大家就可以看到一边移动一边缩放的效果了。
 
 在切换图片的时候，过场动画是用 m×n 个 div 的 CSS3 动画实现的。此时 div 上显示的图片必须要和 Canvas 大图上的一致。
@@ -20,3 +22,5 @@ DataImageURL 字符串必然是一个巨长无比的字符串，用这么长的�
 现在试试用 m×n 个 canvas 代替 div，用 Canvas 之间的图像复制替代 DataImageURL 试试看。
 
 后续和大家汇报最新进展。
+
+<!-- {% endraw %} - for jekyll -->

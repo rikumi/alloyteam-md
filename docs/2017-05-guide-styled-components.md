@@ -5,6 +5,8 @@ author: TAT.rocket
 source_link: http://www.alloyteam.com/2017/05/guide-styled-components/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 前言
 
 为了应对越来越复杂的 web 应用，组件化应运而生，React、Vue 等组件化框架使我们的程序更简单更加可维护。在一个组件内会将结构、样式和逻辑写在一起，虽然这违背了关注点分离的原则，但是这有利于组件间的隔离。为了顺应组件化的潮流，人们开始考虑使用 JS 上编写 CSS，[styled components](https://github.com/styled-components/styled-components) 就是其中一种解决方案。styled components 是一个 React 第三方库，作用是可以将样式写成组件的形式，实现在 JS 上编写 CSS。
@@ -179,3 +181,5 @@ styled components 一种全新的控制样式的编程方式，它能解决 CSS 
 1\.[Styled Components: Enforcing Best Practices In Component-Based Systems](https://www.smashingmagazine.com/2017/01/styled-components-enforcing-best-practices-component-based-systems/)  
 2.[\[译\] 一个关于 Styled Components 的五分钟介绍](https://github.com/sqrthree/sqrthree.github.io/issues/11)  
 3.[CSS Modules vs Styled Components](https://hashnode.com/post/css-modules-vs-styled-components-ciz2g9dt7000h7c535j35rbfu)
+
+<!-- {% endraw %} - for jekyll -->

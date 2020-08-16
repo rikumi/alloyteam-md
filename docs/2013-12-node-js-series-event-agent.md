@@ -5,6 +5,8 @@ author: TAT.Perlt
 source_link: http://www.alloyteam.com/2013/12/node-js-series-event-agent/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 本篇介绍关于 Node.js 事件代理的一个解决方案。
 
 项目实践中，有遇到使用 nodejs 解决实际问题场景。Node.js 以 Javascript 作为语言，解决问题时，采用了 EventProxy 做事件代理，避免事件嵌套回调。
@@ -125,3 +127,5 @@ var ep = new EventProxy();
 -   <https://github.com/JacksonTian/eventproxy>
 -   <https://github.com/JacksonTian/eventproxy/blob/master/lib/eventproxy.js>
 -   <http://nodejs.org/api/process.html#process_process_nexttick_callback>
+
+<!-- {% endraw %} - for jekyll -->

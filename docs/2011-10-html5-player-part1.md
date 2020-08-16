@@ -5,6 +5,8 @@ author: TAT.pel
 source_link: http://www.alloyteam.com/2011/10/html5-player-part1/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 过去在网页上播放声音一般使用 wmp（windows media player）控件，但是 wmp 控件提供的 js 接口非常有限，更致命的是 IE only。如果不想接受 wmp 的界面，又或者想要跨平台，只能借助于 flash 了。现在 html5 标准已经原生支持音频播放，并且各大浏览器都不同程度地实现了。  
 ![](http://alloyteam.com/wp-content/uploads/2011/10/audio-player-img1.png)  
 
@@ -154,3 +156,5 @@ function onPlayButtonClick() {
     }
 }
 ```
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.vienwu
 source_link: http://www.alloyteam.com/2015/05/%e5%85%b3%e4%ba%8eangular%e5%92%8creact/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 * * *
 
 react 是 facebook 推出一个用来构建用户界面的 js 库。官方介绍的三大特性如下：
@@ -191,3 +193,5 @@ React.render(
 react 只是让组件式开发和复用更加简单好用，外加逆天的性能，仅此而已。
 
 最后，到底应该用什么，看你的心情吧，我要赶去改 bug 了。。
+
+<!-- {% endraw %} - for jekyll -->

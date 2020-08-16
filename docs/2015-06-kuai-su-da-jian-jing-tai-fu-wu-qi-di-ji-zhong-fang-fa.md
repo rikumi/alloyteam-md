@@ -5,6 +5,8 @@ author: TAT.Fujun
 source_link: http://www.alloyteam.com/2015/06/kuai-su-da-jian-jing-tai-fu-wu-qi-di-ji-zhong-fang-fa/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 作为一名前端开发人员，经常也是需要有一个静态服务器的。下面让我们来分分钟搭建自己的静态服务器吧
 
 **一：使用 http-server**
@@ -65,3 +67,5 @@ Tomcat 中虚拟目录配置是位于 Tomcat/conf/server.xml。在在 host 标�
 
 **小结：**  
 如果没有特别要求，使用 http-server 基本就能满足我们前端对服务器的要求了
+
+<!-- {% endraw %} - for jekyll -->

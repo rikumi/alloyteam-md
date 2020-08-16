@@ -5,6 +5,8 @@ author: TAT.Rehorn
 source_link: http://www.alloyteam.com/2014/07/nodejs-debug-proxy-livepool/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [**LivePool**](http://rehorn.github.io/livepool/ "LivePool HomePage")
 
 LivePool 是一个基于 NodeJS，类似 Fiddler 能够支持抓包和本地替换的 Web 开发调试工具，是 [Tencent AlloyTeam](http://www.alloyteam.com/2014/07/nodejs-debug-proxy-livepool/alloyteam.github.io) 在开发实践过程总结出的一套的便捷的 WorkFlow 以及调试方案。
@@ -75,3 +77,5 @@ github: <https://github.com/rehorn/livepool>
 讨论 & bug: <https://github.com/rehorn/livepool/issues>
 
 ### **还在内测，未经过大量测试，欢迎提建议，star & fork & issue**
+
+<!-- {% endraw %} - for jekyll -->

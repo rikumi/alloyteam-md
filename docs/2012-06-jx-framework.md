@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/jx-framework/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 一个类似 Google Closure Library 的 Web 前端开发框架，服役于 WebQQ 等大规模的 WebApp
 
 by [Tencent AlloyTeam](http://www.alloyteam.com/)
@@ -93,3 +95,5 @@ JX 框架同时适用于 Web Page 和 Web App 项目的开发，特别适合构�
 感谢团队每一位成员做出的努力，有你我们会更精彩！
 
 Tencent Alloy Team 2012
+
+<!-- {% endraw %} - for jekyll -->

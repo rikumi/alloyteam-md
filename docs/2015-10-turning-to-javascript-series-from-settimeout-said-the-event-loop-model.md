@@ -5,6 +5,8 @@ author: TAT.ronnie
 source_link: http://www.alloyteam.com/2015/10/turning-to-javascript-series-from-settimeout-said-the-event-loop-model/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 作为一个从其他编程语言（C#/Java）转到 Javascript 的开发人员，在学习 Javascript 过程中，setTimeout () 方法的运行原理是我遇到的一个不太好理解的部分，本文尝试结合其他编程语言的实现，从 setTimeout 说事件循环模型
 
 1. 从 setTimeout 说起  
@@ -214,3 +216,5 @@ console.log("end while");
 5.How WebKit’s event model works.<http://brrian.tumblr.com/post/13951629341/how-webkits-event-model-works>
 
 6.Timer 实现.<http://blog.csdn.net/shunzi__1984/article/details/6193023>
+
+<!-- {% endraw %} - for jekyll -->

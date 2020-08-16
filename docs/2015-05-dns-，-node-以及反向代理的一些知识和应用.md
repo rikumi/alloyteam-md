@@ -5,6 +5,8 @@ author: TAT.moonye
 source_link: http://www.alloyteam.com/2015/05/dns%ef%bc%8cnode%e4%bb%a5%e5%8f%8a%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86%e7%9a%84%e4%b8%80%e4%ba%9b%e7%9f%a5%e8%af%86%e5%92%8c%e5%ba%94%e7%94%a8/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 概念
 
 域名系统（英文：Domain Name System，缩写：DNS）是因特网的一项服务。它作为将域名和 IP 地址相互映射的一个分布式数据库，能够使人更方便的访问互联网。DNS 使用 TCP 和 UDP 端口 53。当前，对于每一级域名长度的限制是 63 个字符，域名总长度则不能超过 253 个字符。  
@@ -79,3 +81,5 @@ dns.resolve4(<span class="string">'www.google.com'</span>, <span class="keyword"
 
 实现一个本地的服务，对于普通文件则直接取本地文件，对于请求则转发到服务器上，可配置希望转发的具体 ip。  
 代码会上传到 github 上。
+
+<!-- {% endraw %} - for jekyll -->

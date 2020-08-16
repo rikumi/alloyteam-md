@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2016/02/use-the-css-of-the-mask-to-achieve-a-picture-diagonal-mosaic/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 每次必说题外话
 
 话说貌似好久没有写技术文章了，自从娃娃出来后，很少能有时间做技术研究，思考的时间也不足。不过有得必有失，世上事也就酱紫了。但是作为一个前端攻城师，不写代码，不研究技术，是会被后浪拍死在沙滩上的。
@@ -150,3 +152,5 @@ But，如果你这么做了，会发现看到的是完整的图，并没有被�
 怎么样，很简单是吧？
 
 CSS3 有很多新鲜（其实这个不新鲜了～）的特性可以实现很多有趣的应用，如果你有其他方案，欢迎留言讨论，O (∩\_∩) O 谢谢阅读！
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Rehorn
 source_link: http://www.alloyteam.com/2012/03/web-cache-4-html5-web-cache/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 \\==== 索引 =====
 
 [【Web 缓存机制系列】1 – Web 缓存的作用与类型](http://alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
@@ -88,3 +90,5 @@ Localstorage 设计的本意可能是用来存储一些用户操作的个性化�
 按照目前标准，目前浏览器只给每个独立的域名提供 5m 的存储空间，当存储超过 5m，浏览器就会弹出警告框。
 
 可以说，HTML5 的 Manifest 和 localstorage 是给我们在考虑 Web 缓存的时候提供了多一种思路，当你开发的应用只面对现代浏览器的时候，不妨可以考虑一下。
+
+<!-- {% endraw %} - for jekyll -->

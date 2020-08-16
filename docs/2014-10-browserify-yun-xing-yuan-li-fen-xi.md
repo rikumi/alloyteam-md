@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2014/10/browserify-yun-xing-yuan-li-fen-xi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 目前对于前端工程师而言，如果只针对浏览器编写代码，那么很简单，只需要在页面的 script 脚本中引入所用 js 就可以了。
 
 但是某些情况下，我们可能需要在服务端也跑一套类似的逻辑代码，考虑如下这些情景（以 node 作为后端为例）：
@@ -284,3 +286,5 @@ t[o][0].call(
 
 此文同步更新在：  
 <http://www.cnblogs.com/Cson/p/4039144.html>
+
+<!-- {% endraw %} - for jekyll -->

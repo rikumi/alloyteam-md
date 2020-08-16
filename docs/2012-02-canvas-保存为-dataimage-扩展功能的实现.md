@@ -5,6 +5,8 @@ author: TAT.岑安
 source_link: http://www.alloyteam.com/2012/02/canvas%e4%bf%9d%e5%ad%98%e4%b8%badataimage%e6%89%a9%e5%b1%95%e5%8a%9f%e8%83%bd%e7%9a%84%e5%ae%9e%e7%8e%b0/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 【已知】  
 canvas 提供了 toDataURL 的接口，可以方便的将 canvas 画布转化成 base64 编码的 image。目前支持的最好的是 png 格式，jpeg 格式的现代浏览器基本也支持，但是支持的不是很好。
 
@@ -276,3 +278,5 @@ var Canvas2Image = function () {
 4）由于是强制改 mimeType 来实现的自动下载，所以下载的时候文件类型不会自动识别。
 
 本文也同步发表到博主另一个 [blog](http://hongru.cnblogs.com/) 中
+
+<!-- {% endraw %} - for jekyll -->

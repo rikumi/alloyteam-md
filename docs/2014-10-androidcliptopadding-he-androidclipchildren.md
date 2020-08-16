@@ -5,6 +5,8 @@ author: TAT.zhipingfeng
 source_link: http://www.alloyteam.com/2014/10/androidcliptopadding-he-androidclipchildren/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 假设我们要做一个效果，界面最顶部是一个 ActionBar 并且是半透明的，ActionBar 下面是一个 ListView，在初始状态下，ListView 是 top 是在 ActionBar 的 bottom 位置的，但当 ListView 滚动的时候可以透过 ActionBar 看到下面的 ListView 的内容。如下面两张图所示：
 
 正常态：
@@ -31,3 +33,5 @@ clipToPadding 就是说控件的绘制区域是否在 padding 里面的，true �
 ```
 
 Actionbar 半透明就不详细说了，只要设置 actionbarOverlay 为 true 并为 ActionBar 设置一个半透明的 background 即可.
+
+<!-- {% endraw %} - for jekyll -->

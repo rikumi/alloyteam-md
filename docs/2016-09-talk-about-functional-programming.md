@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2016/09/talk-about-functional-programming/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文地址](https://github.com/joeyguo/blog/issues/10)
 
 函数式编程 (Functional Programming) 是一种以函数为基础的编程方式和代码组织方式，能够带来更好的代码调试及项目维护的优势。[本篇](https://github.com/joeyguo/blog/issues/10)主要结合笔者在实际项目开发中的一些应用，简要谈谈函数式编程。
@@ -193,3 +195,5 @@ export default function compose(...funcs) {
 好书推荐 [《JavaScript 设计模式与开发实践》](http://www.ituring.com.cn/book/1632)
 
 [![1632.236](http://www.alloyteam.com/wp-content/uploads/2016/09/1632.236.jpg)](http://www.ituring.com.cn/book/1632)
+
+<!-- {% endraw %} - for jekyll -->

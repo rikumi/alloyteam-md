@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/11/alloyteam-present-dry-event-countdown-2-days-performance-optimization-blog/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **团队成员对 web 的性能优化的追求孜孜不倦，我们也有一些博文专门探讨这块领域。**
 
 **【高性能前端 1】高性能 HTML**
@@ -66,3 +68,5 @@ source_link: http://www.alloyteam.com/2015/11/alloyteam-present-dry-event-countd
 ​(微博)
 
 [![微博](http://www.alloyteam.com/wp-content/uploads/2015/11/微博.png)](http://www.alloyteam.com/wp-content/uploads/2015/11/微博.png)
+
+<!-- {% endraw %} - for jekyll -->

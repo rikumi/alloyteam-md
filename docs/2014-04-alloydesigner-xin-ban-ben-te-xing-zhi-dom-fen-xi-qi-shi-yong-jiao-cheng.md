@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2014/04/alloydesigner-xin-ban-ben-te-xing-zhi-dom-fen-xi-qi-shi-yong-jiao-cheng/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 DOM 分析器是 AlloyDesigner 在 V1.1.0 版本中引入的新特性  
 DOM 分析器有以下几个特点
 
@@ -18,3 +20,5 @@ DOM 分析器有以下几个特点
 [![s222](http://www.alloyteam.com/wp-content/uploads/2014/04/s222.jpg)](http://www.alloyteam.com/wp-content/uploads/2014/04/s222.jpg)
 
 [体验地址](https://chrome.google.com/webstore/detail/alloydesigner/ojooeaohlmgpcjajikhmibcnbebfenid?hl=zh-CN&authuser=1)
+
+<!-- {% endraw %} - for jekyll -->

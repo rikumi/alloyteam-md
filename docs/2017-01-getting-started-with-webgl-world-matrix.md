@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2017/01/getting-started-with-webgl-world-matrix/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 这次没有带来游戏啦，本来还是打算用一个小游戏来介绍阴影，但是发现阴影这块想完完整整介绍一次太大了，涉及到很多，再加上业务时间的紧张，所以就暂时放弃了游戏，先好好介绍一遍 webgl 中的 Matrix。  
 这篇文章算是 webgl 的基础知识，因为如果想不走马观花的说阴影的话，需要打牢一定的基础，文章中我尽力把知识点讲的更易懂。内容偏向刚上手 webgl 的同学，至少知道着色器是什么，webgl 中 drawElements 这样的 API 会使用～
 
@@ -217,3 +219,5 @@ excuse me？？？所有文章说 webgl 都是右手坐标系啊，为什么这�
 至于具体的 PMatrix 和 OMatrix 是怎么来的，Matrix 能否进行一些优化，我们下次再说～
 
 有疑问和建议的欢迎留言一起讨论～
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2016/10/ac2016-lecturers-interview-he-jun-yussica/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![yussicahe](http://www.alloyteam.com/wp-content/uploads/2016/10/yussicahe-300x300.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/10/yussicahe.jpg)
 
 讲师介绍  
@@ -41,3 +43,5 @@ source_link: http://www.alloyteam.com/2016/10/ac2016-lecturers-interview-he-jun-
 当然不会这么简单了。  
 “什么都略懂一点，生活更多彩一些”，我认为这是做到全栈的第一步，只有这样你才能对每个项目都有一个整体的把握，可以与其他小伙伴进行高效的沟通。之后你需要在某个领域不断实践，积累经验，做精做细，成为这方面的专家。其实，在前面的过程中，除了在某个领域足够深的知识积累，更重要的是你的思维方式、学习能力、分析解决问题的能力都得到了极大的提升，这时，再开始向其他领域拓展，相信很快就可以补齐之前的短板了。总的来说，想要成为全栈工程师，需要**先广**，**再深**，**然后再广**，这是我的看法。  
 学习 Nodejs 只是让我们具备了 server 开发的能力，后续要走的路还很漫长，还有很多问题值得我们去思考，比如 server 端代码的组织和模块化，如何进一步提升性能等，当然解决这些问题最好的方式就是实践。
+
+<!-- {% endraw %} - for jekyll -->

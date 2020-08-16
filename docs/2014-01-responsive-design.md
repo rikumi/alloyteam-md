@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2014/01/responsive-design/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 网上的教程好复杂，我写一个简版的。
 
 简单说呢就针对不同的屏幕分辨率应用不同的 CSS 样式。比如在电脑、Pad 设备上，屏幕比较宽，就可以一行放 2 个 Div。
@@ -86,3 +88,5 @@ Media Query 的语法比较复杂，这里个大家推荐一个工具，可以�
 <http://www.responsivewebcss.com/>
 
 ![](http://www.responsivewebcss.com/content/images/home/step1.png)![](http://www.responsivewebcss.com/content/images/home/step2.png)![](http://www.responsivewebcss.com/content/images/home/step3.png)
+
+<!-- {% endraw %} - for jekyll -->

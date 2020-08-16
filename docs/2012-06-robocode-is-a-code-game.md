@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/robocode-is-a-code-game/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [Robocode](http://robocode.sourceforge.net/) 是我最喜欢的一个编程游戏，如果你还不了解，下面就给你一一介绍。Robocode 是用游戏来学习 Java 技术还是用 Java 来玩游戏呢？如果你会 Java，那么用你的 Java 来玩游戏吧！不会 Java？那就用游戏来学习 Java 吧！
 
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/104345HBg.jpg)
@@ -303,3 +305,5 @@ setBack(move);
 -   它是由 JAVA 编写的，且 JAVA 非常适合当作初学语言
 
 文 / 异次元软件世界
+
+<!-- {% endraw %} - for jekyll -->

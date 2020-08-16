@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2017/01/http2-server-push-research/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 1，HTTP2 的新特性。  
 
 * * *
@@ -177,3 +179,5 @@ pushItem.end(fs.readFileSync("/css/bootstrap.min.css", "binary"));
 1.  HTTP2 官方标准：<https://tools.ietf.org/html/rfc7540>
 2.  维基百科：<https://en.wikipedia.org/wiki/HTTP/2_Server_Push>
 3.  <https://www.nihaoshijie.com.cn/index.php/archives/651>
+
+<!-- {% endraw %} - for jekyll -->

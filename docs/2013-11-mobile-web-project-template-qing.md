@@ -5,6 +5,8 @@ author: TAT.yuanyan
 source_link: http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 什么是 [Qing](https://github.com/AlloyTeam/Qing)？Qing 是一套基础开发模版，来源于我们在手机与 PC 端上的大量工程实践。Qing 所提供不是冷冰冰的文件，  
 而是一套 Web 前端解决方案，所以 Qing 不只是关注项目的初始状态，而是整体的工作流程，  
 这是 Qing 与现有开源的开发模版显著差异的一点。Qing 的体验必须是高效且愉悦的，拒绝繁琐与重复。  
@@ -730,3 +732,5 @@ Qing 总是想法设法的让开发过程更自动更流畅，在 Qing 模版的
 
 需求、改进与建议，可在 [Github issues](https://github.com/AlloyTeam/Qing/issues) 提单，会一一解答。同时 Qing 是面向社区的开源项目，  
 邀请社区朋友共同参与贡献，如你觉得 Qing 很棒很酷，也可以帮助我们在微博与博客中推广与传播。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.moonye
 source_link: http://www.alloyteam.com/2015/03/bigpipe%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 背景
 
 当前网速越来越快，但是随着网页内容越来越丰富，其实我们打开网页的速度并未得到什么提升，相反，过多的内容会导致网页打开速度变慢。于是，出现了一些性能优化的方法。  
@@ -135,3 +137,5 @@ http.createServer(<span class="keyword">function</span>(request, response) {
 1.seo  
 设置 useagent，爬虫来的时候给完整页面（有淘宝同学说这里存在 seo 问题，是否有 seo 问题还待确认，因为本身页面是在一个请求内完成）
 ```
+
+<!-- {% endraw %} - for jekyll -->

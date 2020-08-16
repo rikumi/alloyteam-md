@@ -5,6 +5,8 @@ author: TAT.oliverzli
 source_link: http://www.alloyteam.com/2020/06/css-pixels/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 先从一个需求说起
 
 之前在做界面组件的时候，有很多地方都用到了边框，我都是顺手就打上了 1px 的宽度。但是 MR 上去以后，组里的大佬问我有没有听说过一个极细边框的技术，我就赶紧去 google 了一下，发现这个概念原来很早就有了。早在 2014 的 WWDC 上面 Ted O’Connor 就讨论过有关 “retina hairlines” 的技术，可以实现比 1px 还细的边框。
@@ -134,3 +136,5 @@ device pixel ratio = render resolution \\ logical resolution
 4.  [CSS retina hairline, the easy way.](http://dieulot.net/css-retina-hairline)
 5.  [CSS, Retina, and Physical Pixels](https://n12v.com/css-retina-and-physical-pixels/)
 6.  [1px on retina](http://efe.baidu.com/blog/1px-on-retina/)
+
+<!-- {% endraw %} - for jekyll -->

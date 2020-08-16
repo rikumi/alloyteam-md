@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/alloytouch-full-screen-scroll-plugin-released-30-seconds-to-get-smooth-page-h5/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文链接：<https://github.com/AlloyTeam/AlloyTouch/wiki/AlloyTouch-FullPage-Plugin>
 
 先验货  
@@ -174,3 +176,5 @@ animationEnd 就是运动结束之后的回调函数，会去执行用户从 All
 Github：<https://github.com/AlloyTeam/AlloyTouch>  
 任何意见和建议欢迎 [new issue](https://github.com/AlloyTeam/AlloyTouch/issues)，我们会第一时间反馈。  
 
+
+<!-- {% endraw %} - for jekyll -->

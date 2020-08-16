@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2012/08/lightweight-solution-for-an-iframe-cross-domain-communication/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![2 个信使的情况](http://www.alloyteam.com/wp-content/uploads/2012/08/two_messenger.png "图 2")](http://www.alloyteam.com/wp-content/uploads/2012/08/two_messenger.png)
 
 此方案已有新版本，请查看 [《iframe 跨域通信的通用解决方案 - 第二弹！（终极解决方案）》](http://www.alloyteam.com/2013/11/the-second-version-universal-solution-iframe-cross-domain-communication/)。本文章可做技术学习供继续交流。
@@ -81,3 +83,5 @@ messenger.send(message);
 **脚本下载：<http://biqing.alloyteam.com/lab/messenger/messenger.js>**
 
 **GitHub：<https://github.com/biqing/MessengerJS>**
+
+<!-- {% endraw %} - for jekyll -->

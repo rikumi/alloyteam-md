@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2018/04/gka-optimize/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文地址](https://github.com/gkajs/gka/wiki/%E5%A4%9A%E4%B8%AA%E5%8A%A8%E7%94%BB%E9%97%B4%E5%AD%98%E5%9C%A8%E9%83%A8%E5%88%86%E7%9B%B8%E5%90%8C%E5%8A%A8%E7%94%BB%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88:gka)
 
 ![gka-animation](https://user-images.githubusercontent.com/10385585/39403647-31b92066-4bb3-11e8-9881-f181bb125354.gif)
@@ -84,3 +86,5 @@ Github：<https://github.com/gkajs/gka>
 欢迎使用 gka ，欢迎任何意见或建议，谢谢 ：D
 
 GitHub: <https://github.com/gkajs/gka>
+
+<!-- {% endraw %} - for jekyll -->

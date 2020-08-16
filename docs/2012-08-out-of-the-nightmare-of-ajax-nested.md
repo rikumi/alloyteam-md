@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/08/out-of-the-nightmare-of-ajax-nested/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 一 介绍
 
 随着 web2.0 的兴起。越来越多的网站开始重视用户体验。传统的服务器吐出页面的方式很多场景下逐渐被 ajax 取代。用 ajax 的方式一来可以无刷新的更新页面数据。二来可以大大减少服务器跟浏览器的数据交换量.
@@ -294,3 +296,5 @@ queue.stopCache();
 ## /\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*8 月 9 号\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
 
 用 coffeeScript 重写了一次。跟原始的版本放一起提供下载.
+
+<!-- {% endraw %} - for jekyll -->

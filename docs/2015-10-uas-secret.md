@@ -5,6 +5,8 @@ author: TAT.finlay
 source_link: http://www.alloyteam.com/2015/10/uas-secret/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 UA 的秘密
 
 userAgent, 这种大众脸，大家一定不陌生，平时似乎没什么用.  
@@ -131,3 +133,5 @@ Mozilla/5.0 (Linux; U; Android 4.1.1; zh-cn; MI 2S Build/JRO03L) AppleWebKit/534
     console.log( format_str );
 })();
 ```
+
+<!-- {% endraw %} - for jekyll -->

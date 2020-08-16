@@ -5,6 +5,8 @@ author: TAT.horde
 source_link: http://www.alloyteam.com/2015/04/ru-he-zai-yi-dong-web-shang-shang-chuan-wen-jian/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 xmlhttprequest2.0 可以支持文件上传。这东东很方便，但是在实际使用中碰到了一些问题。这里记录下.
 
 正常情况下我们是这样生成 2 进制文件的.
@@ -281,3 +283,5 @@ function uploadFile(img) {
 参考:
 
 <http://stackoverflow.com/questions/15639070/empty-files-uploaded-in-android-native-browser/28809955#28809955>
+
+<!-- {% endraw %} - for jekyll -->

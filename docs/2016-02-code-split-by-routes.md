@@ -5,6 +5,8 @@ author: he, terence
 source_link: http://www.alloyteam.com/2016/02/code-split-by-routes/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 随着移动设备的升级、网络速度的提高，用户对于 web 应用的要求越来越高，web 应用要提供的功能越来越。功能的增加导致的最直观的后果就是资源文件越来越大。为了维护越来越庞大的客户端代码，提出了模块化的概念来组织代码。webpack 作为一种模块化打包工具，随着 react 的流行也越来越流行。
 
 webpack 在官方文档上解释为什么又做一个模块打包工具的时候，是这样说的：
@@ -312,3 +314,5 @@ module.exports = function (cb) {
 大多数路由库都可以做到上面三点，所以这篇文章提出的是比较普遍的办法。当然，如果你用 React 或者 Vue，他们配套的路由会比这个优化的更全面。
 
 注：这篇文章的内容参考了 <https://medium.com/@somebody32/how-to-split-your-apps-by-routes-with-webpack-36b7a8a6231#.ncyca72ms>，但是最后作者提出的方案也比较复杂，所以就自己写了一篇，最后的办法比较简单。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-simple-factory-pattern/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 简单工厂模式是由一个方法来决定到底要创建哪个类的实例，而这些实例经常都拥有相同的接口。这种模式主要用在所实例化的类型在编译期并不能确定， 而是在执行期决定的情况。 说的通俗点，就像公司茶水间的饮料机，要咖啡还是牛奶取决于你按哪个按钮。
 
 简单工厂模式在创建 ajax 对象的时候也非常有用.
@@ -72,3 +74,5 @@ alert(a.name); //svenzeng
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

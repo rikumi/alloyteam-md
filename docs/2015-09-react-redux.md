@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2015/09/react-redux/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### [原文地址](https://github.com/joeyguo/blog/issues/3)
 
 ### 继 Facebook 提出 Flux 架构来管理 React 数据流后，相关架构开始百花齐放，本文简单分析 React 中管理数据流的方式，以及对 Redux  进行较为仔细的介绍。
@@ -327,3 +329,5 @@ Provider.prototype.render = function render() {
 编辑状态的实时预览 redux-dev-tools <https://github.com/gaearon/redux-devtools>
 
 大量的相关参考 awesome-redux <https://github.com/xgrommx/awesome-redux>
+
+<!-- {% endraw %} - for jekyll -->

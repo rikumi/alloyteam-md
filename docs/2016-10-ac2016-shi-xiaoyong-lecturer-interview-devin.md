@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2016/10/ac2016-shi-xiaoyong-lecturer-interview-devin/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![石小勇](http://www.alloyteam.com/wp-content/uploads/2016/10/粘贴图片_20160928202740-300x257.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/10/粘贴图片_20160928202740.jpg)
 
 讲师介绍  
@@ -70,3 +72,5 @@ source_link: http://www.alloyteam.com/2016/10/ac2016-shi-xiaoyong-lecturer-inter
 [![装逼表情](http://www.alloyteam.com/wp-content/uploads/2016/10/装逼表情.png)](http://www.alloyteam.com/wp-content/uploads/2016/10/装逼表情.png)
 
 当然，我们也不排除以后随着标准的进行，H5 的性能会变得越来越好，RN、小程序甚至是 Native 都会被慢慢替代，成为王者。让我们一起期待这一天。
+
+<!-- {% endraw %} - for jekyll -->

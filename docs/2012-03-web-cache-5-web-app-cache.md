@@ -5,6 +5,8 @@ author: TAT.Rehorn
 source_link: http://www.alloyteam.com/2012/03/web-cache-5-web-app-cache/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 \\==== 索引 =====
 
 [【Web 缓存机制系列】1 – Web 缓存的作用与类型](http://alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
@@ -72,3 +74,5 @@ Web App 的概念逐渐被业界认可，各大互联网公司也纷纷推出 We
 <http://sofish.de/1449>
 
 <http://www.fovweb.com/web/web-cache.html>
+
+<!-- {% endraw %} - for jekyll -->

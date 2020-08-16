@@ -5,6 +5,8 @@ author: TAT.老教授
 source_link: http://www.alloyteam.com/2013/11/console-log/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![控制台美女](http://www.alloyteam.com/wp-content/uploads/2013/11/QQ20131130-1@2x.jpg)](http://www.alloyteam.com/wp-content/uploads/2013/11/QQ20131130-1@2x.jpg)
 
 `console.log`，作为一个前端开发者，可能每天都会用它来分析调试，但这个简单函数背后不简单那一面，你未必知道……
@@ -95,3 +97,5 @@ console.log("%d + %d =", 1, 1, 2);
 个人感觉，控制台富样式输出虽然最后输出看到起来很上流，但开发者会写得很纠结，毕竟没法控制 dom 节点应用正常的 css 样式。其中图片输出真是一个非 (sang) 常 (xin) 强 (bing) 大 (kuang) 的功能。
 
 [下集入口](http://www.alloyteam.com/2013/11/console-log-2/)
+
+<!-- {% endraw %} - for jekyll -->

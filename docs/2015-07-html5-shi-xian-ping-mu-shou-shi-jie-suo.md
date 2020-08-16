@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2015/07/html5-shi-xian-ping-mu-shou-shi-jie-suo/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **效果展示**
 
 ![](http://7jpp2v.com1.z0.glb.clouddn.com/testh5lock.gif)  
@@ -155,3 +157,5 @@ function storePass(psw) {
 二维码体验： ![](https://camo.githubusercontent.com/7f4c6fe6bd74d440af5f03240c4c67a23dcd0f7a/687474703a2f2f6c766d696e67363831363037372e6769746875622e696f2f483546756c6c73637265656e506167652f48356c6f636b64656d6f2f313433363731333937352e706e67)
 
 参考资料：<http://www.nihaoshijie.com.cn/index.php/archives/537>
+
+<!-- {% endraw %} - for jekyll -->

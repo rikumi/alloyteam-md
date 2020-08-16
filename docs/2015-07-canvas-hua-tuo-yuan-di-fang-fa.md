@@ -5,6 +5,8 @@ author: TAT.vorshen
 source_link: http://www.alloyteam.com/2015/07/canvas-hua-tuo-yuan-di-fang-fa/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 虽然标题是画椭圆，但是我们先来说说 Canvas 中的圆
 
 相信大家对于 Canvas 画圆都不陌生
@@ -201,3 +203,5 @@ function EllipseFive(context, x, y, a, b) {
 光栅法的原理在这里就不说啦，那个说的话篇幅很大，在这里也不推荐用光栅法去画椭圆，针对不同线宽很麻烦
 
 ok 这篇文章就到这啦，Thanks~
+
+<!-- {% endraw %} - for jekyll -->

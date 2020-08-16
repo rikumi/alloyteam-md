@@ -5,6 +5,8 @@ author: TAT.李强
 source_link: http://www.alloyteam.com/2016/01/react-animation-practice/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **一、 动画重要性**  
 
 ===============
@@ -483,3 +485,5 @@ var Todo = React.createClass(
         2、 需要定制的功能比较多的话，建议不要使用 React 自带额 CSSTransitionGroup 插件。比如说我们想在动画结束传入一个 onEnd 回调，如果修改 React 源码，有一万多行，CSSTransitionGroup 依赖 transitionGroup，transitionGroup 又依赖其他插件和方法，很难改，也很容易改出问题来。我自己实现了一套 CSSTransitionGroup 插件，后续会做进一步的分享。
 
 谢谢阅读
+
+<!-- {% endraw %} - for jekyll -->

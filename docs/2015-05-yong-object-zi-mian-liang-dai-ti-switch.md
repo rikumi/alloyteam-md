@@ -5,6 +5,8 @@ author: TAT.mandyluo
 source_link: http://www.alloyteam.com/2015/05/yong-object-zi-mian-liang-dai-ti-switch/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 有时候我们的代码有很多的条件判断，我们只能用 switch 语句来让代码更好看一点。
 
 ```javascript
@@ -129,3 +131,5 @@ console.log(drink); // 'Default item'
 ```
 
 就是这样啦，其实可能我们已经在无意中用到了这种方法，我想说的是，当你看到某段代码不顺眼的时候，就应该想办法改造它啦。
+
+<!-- {% endraw %} - for jekyll -->

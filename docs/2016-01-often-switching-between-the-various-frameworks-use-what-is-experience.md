@@ -5,6 +5,8 @@ author: TAT.finlay
 source_link: http://www.alloyteam.com/2016/01/often-switching-between-the-various-frameworks-use-what-is-experience/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前言:
 
 在一个喜欢尝鲜的团队里面工作，总会碰到这种情况。前一个项目用的这个框架这种构建，下一个项目就变成新的框架那种构建，上来就 blablabla 先学一通，刚觉得安心，接到个另外需求，到手一看。又变了一套 T,T ， 又要重复上述步骤.. 如果能在各种框架和开发思路里面游刃有余，当然是最好的，可是多少总会对开发同学产生一些影响，那么各个框架之间的差异到底有多大呢？切换来去又会影响到哪些开发体验呢？且看我边做示例边分解…
@@ -540,3 +542,5 @@ render 方法的调用条件是当前组件数据改变而调用 setState 时。
 
 最后这篇文章的目的，有需要的时候，为大家的技术选型提供一些其它的思路。  
 欢迎大家探讨和拍砖 。
+
+<!-- {% endraw %} - for jekyll -->

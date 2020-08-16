@@ -5,6 +5,8 @@ author: TAT.will
 source_link: http://www.alloyteam.com/2015/10/usage-of-content-attibute-of-pseudo-elements/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 日常开发中，我们常用:before,:after 来实现一些效果，比如
 
 \- 边框   
@@ -47,3 +49,5 @@ content: url("./image.png");
 以及 [counter](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters) 方法实现自增，在此不多加叙述。
 
 参考文章：[移动端做文本尾行留空截断处理的一个方案](http://www.w3ctech.com/topic/616)
+
+<!-- {% endraw %} - for jekyll -->

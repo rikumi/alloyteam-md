@@ -5,6 +5,8 @@ author: TAT.Fujun
 source_link: http://www.alloyteam.com/2015/07/react-zu-jian-jian-tong-xin/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 通信是发送者通过某种媒体以某种格式来传递信息到收信者以达致某个目的（摘至维基百科）。
 
 前两天为了练习 react，自己写了如下一个 Demo，功能很简单，展示学生成绩列表，支持按性别和姓名筛选。效果如下：
@@ -726,3 +728,5 @@ React.render(<StudentScoreTable />, document.querySelector(".j-score"));
 最后，由于本人水平有限，也缺少 React 实战经验，有不严谨或不对的地方，还望大家指正。
 
 附上源代码：<http://share.weiyun.com/08ee52ccec9e21897d9f56ec0e62ec17>
+
+<!-- {% endraw %} - for jekyll -->

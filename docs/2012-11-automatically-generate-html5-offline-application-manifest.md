@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2012/11/automatically-generate-html5-offline-application-manifest/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 碎碎念
 
 HTML5 的离线应用（[Offline Application](http://www.w3.org/TR/offline-webapps/)）已经广为人知了。无论是用来给 WebApp 提供离线使用的功能，还是仅仅用来加速页面加载，离线应用都是个让人很爽的特性。
@@ -75,3 +77,5 @@ HTML5 的离线应用（[Offline Application](http://www.w3.org/TR/offline-webap
     require('ioffline').generate({ /*一些配置*/ });
 
 好了，把麻烦事抛给电脑，现在可以尽情的去玩咯。哇哈哈哈～～
+
+<!-- {% endraw %} - for jekyll -->

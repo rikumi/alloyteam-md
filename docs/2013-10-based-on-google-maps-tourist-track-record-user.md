@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2013/10/based-on-google-maps-tourist-track-record-user/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 在参加飞跃马拉松的时候，小组的项目构思是基于移动社交网络做一个记录用户旅游轨迹和照片的 APP 应用。
 
 即当用户在旅游过程中，手机会不间断的上报 GPS 坐标到服务器，服务器会保存所有坐标到数据库，然后用户打开自己的旅游记录后，我们会在手机上创建一个全屏的地图，通过服务器 CGI 获取所有 GPS 的坐标点，然后通过这些坐标点绘制出一条线。
@@ -84,3 +86,5 @@ mapTypeControl、panControl、zoomControl 、streetViewControl 这些都是我�
 除了滑动功能，通过 touchstart 、touchmove、 touchend 也是可以实现多点触摸，判断用户操作是浏览下一张图片还是放大缩小图片的。这次产品中由于时间比较紧，所以除了多点触摸，以上 iPhone 相册的功能全部都在 WEB 端实现了。
 
 以上就是基于 google 地图记录用户旅游轨迹 WEB 端整个过程了，谢谢大家阅读，祝大家国庆快乐！
+
+<!-- {% endraw %} - for jekyll -->

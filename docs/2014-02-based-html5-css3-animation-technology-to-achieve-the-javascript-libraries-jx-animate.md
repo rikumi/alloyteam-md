@@ -5,6 +5,8 @@ author: TAT.Minren
 source_link: http://www.alloyteam.com/2014/02/based-html5-css3-animation-technology-to-achieve-the-javascript-libraries-jx-animate/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![JX20140226181130](http://www.alloyteam.com/wp-content/uploads/2014/02/JX20140226181130.png)](http://www.alloyteam.com/wp-content/uploads/2014/02/JX20140226181130.png)
 
 What’s JX.Animate
@@ -76,3 +78,5 @@ JXAnimate.flipInY(
 ```
 
 Demo 效果请点击 <http://alloyteam.github.io/JXAnimate/demo1.html>
+
+<!-- {% endraw %} - for jekyll -->

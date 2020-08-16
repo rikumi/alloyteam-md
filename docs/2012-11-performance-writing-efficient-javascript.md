@@ -5,6 +5,8 @@ author: TAT.JohnnyAddy Osmani
 source_link: http://www.alloyteam.com/2012/11/performance-writing-efficient-javascript/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文：<http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/>
 
 作者：[Addy Osmani](http://coding.smashingmagazine.com/author/addy-osmani/?rel=author "Posts by Addy Osmani")
@@ -677,3 +679,5 @@ _图片来源: [Sally Hunter](http://www.flickr.com/photos/38891164@N02/4266609
 同时注意，虽然 JavaScript 引擎越来越快，但下一个真正的瓶颈是 DOM。回流和重绘的减少也是重要的，所以必要时再去动 DOM。还有就是要关注网络，HTTP 请求是珍贵的，特别是移动终端上，因此要使用 HTTP 的缓存去减少资源的加载。
 
 记住这几点可以保证你获取了本文的大部分信息，希望对你有所帮助！
+
+<!-- {% endraw %} - for jekyll -->

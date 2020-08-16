@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/08/zhe-xian-zhuan-qu-xian/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 写在前面  
 
 * * *
@@ -151,3 +153,5 @@ Demo
 * * *
 
 [点我点我](http://kmdjs.github.io/sm/)
+
+<!-- {% endraw %} - for jekyll -->

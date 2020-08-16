@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/google%ef%bc%9aui%e8%ae%be%e8%ae%a1%e7%9a%84%e7%be%8e%e8%a7%82%e6%80%a7%e4%b8%8e%e5%8f%af%e7%94%a8%e6%80%a7%e5%85%b3%e8%81%94%e5%ba%a6%e7%a0%94%e7%a9%b6/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 应用设计有一条原则是，好看的就是有用的。但是 Google 新近的一项研究表明，情况并非如此。
 
 [![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/085305pPk.jpg "utility-knife_conew1")](http://www.alloyteam.com/?attachment_id=109695)
@@ -26,3 +28,5 @@ Google 的这项研究分析的是可用性与美观性的关联性。研究让 
 研究的全文可到[此处](http://t.cn/zOnYFJ4)下载。
 
 出处：36 氪
+
+<!-- {% endraw %} - for jekyll -->

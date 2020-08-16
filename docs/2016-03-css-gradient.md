@@ -5,6 +5,8 @@ author: TAT.yunsheng
 source_link: http://www.alloyteam.com/2016/03/css-gradient/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前言  
 
 =====
@@ -298,3 +300,5 @@ div {
 2.  [CSS-Tricks: CSS Gradients](https://css-tricks.com/css3-gradients/)
 3.  [大漠：CSS3 Gradient](http://www.w3cplus.com/content/css3-gradient)
 4.  MDN: CSS [linear-graient()](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient), [radial-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/radial-gradient), [Using CSS gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients)
+
+<!-- {% endraw %} - for jekyll -->

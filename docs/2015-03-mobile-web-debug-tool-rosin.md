@@ -5,6 +5,8 @@ author: TAT.jessedeng
 source_link: http://www.alloyteam.com/2015/03/mobile-web-debug-tool-rosin/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 前言
 
 随着 Web 前端开发由 PC 转向 Mobile，作为前端工程师，除了需要去学习掌握移动端的新特性外，还需要面对大量移动端特有的难题，其中之一就是 —— 怎么调试移动端页面？ 针对调试的问题，现在已经有一些很好的解决方案，比如：weinre、chrome remote、手 Q 浏览器 Inspector，不过这些方案的门槛都较高，需要满足一些额外的条件。目前，在日常的开发调试工作中，打日志依然是一种常见的调试手段，通过日志内容来判断当前页面运行的状态，而日志的输出形式又有很多种，有 img 请求、dialog 弹窗、alert 等等，但这些输出方式都不能很好的满足我们的需要，甚至存在一些问题，所以 Rosin 诞生了。
@@ -78,3 +80,5 @@ v0.0.1 -- 2014.12.03
 \* 支持 fiddler 日志展示  
 \* 支持页面规则配置  
 \* 支持日志列表展示
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/08/codetank-0/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://www.alloyteam.com/wp-content/uploads/2012/08/CodeTank代码坦克海报图2.png "CodeTank 代码坦克海报图 2")
 
 欢迎来到 [CodeTank](http://codetank.alloyteam.com/) 的世界，将会带你进入一个**神奇**和**充满挑战**的代码机器人的世界！
@@ -58,3 +60,5 @@ CodeTank 源于 2005 年第一次接触到一些编程游戏，非常着迷，�
 
 -   [CodeTank 智能代码坦克机器人 - 全世界 Javascript 程序员的游戏](http://www.alloyteam.com/2012/08/welcome-to-codetank/)
 -   CodeTank 的微博：[腾讯微博 @CodeTank](http://t.qq.com/CodeTank)，[新浪微博 @CodeTank](http://www.weibo.com/CodeTank)
+
+<!-- {% endraw %} - for jekyll -->

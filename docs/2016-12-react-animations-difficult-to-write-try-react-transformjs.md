@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/react-animations-difficult-to-write-try-react-transformjs/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 简介  
 
 * * *
@@ -211,3 +213,5 @@ react：
 Github 地址：<https://github.com/AlloyTeam/AlloyTouch/tree/master/transformjs>  
 任何问题和意见欢迎 [new issue](https://github.com/AlloyTeam/AlloyTouch/issues) 给我们。  
 
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/07/the-tencent-of-the-q-recruitment-web-front-end-development-engineers/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 腾讯招聘 Web 前端开发工程师，主要负责腾讯 Q+、WebQQ 等 Web App 业务的 Web 前端开发。如果你热爱面向 Web 的前端开发工作，欢迎前来应聘，机会难得，各种挑战等着你～～
 
 ## 岗位名称：Web 前端开发工程师
@@ -28,3 +30,5 @@ source_link: http://www.alloyteam.com/2012/07/the-tencent-of-the-q-recruitment-w
 -   深圳腾讯大厦（总部）
 
 如果你相信自己，相信 W3C 标准，也相信爱情，请发送简历至：**Kinvix\[a]QQ.com**
+
+<!-- {% endraw %} - for jekyll -->

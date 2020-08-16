@@ -5,6 +5,8 @@ author: TAT.dorsywang
 source_link: http://www.alloyteam.com/2017/04/analysis-of-babel-babel-overview/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 **名词解释**
 
 **AST：**Abstract Syntax Tree, 抽象语法树
@@ -524,3 +526,5 @@ babel 插件 cookbook: <https://github.com/thejameskyle/babel-handbook/blob/mast
 babel-packages: <https://github.com/babel/babel/tree/7.0/packages>
 
 babel-types-definitions: <https://github.com/babel/babel/tree/7.0/packages/babel-types/src/definitions>
+
+<!-- {% endraw %} - for jekyll -->

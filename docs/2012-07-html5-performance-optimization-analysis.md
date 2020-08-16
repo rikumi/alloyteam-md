@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/07/html5-performance-optimization-analysis/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/044547vwr.jpg)
 
 从性能角度来说，HTML5 首先是缩减了 HTML 文档，使这件事情变得更简单。
@@ -109,3 +111,5 @@ CHROME，如果要看这个东西有没有生效，可能通过 CHROME 这个伪
 第三，requestAnimationFrame。这是专门为渲染优化的一个方法。它本身的原理是这样的，当浏览器每过一桢的时候，会触发这个方法，当我在触发的时候，Canvas 得到这个浏览器已经准备好做下桢的事情。如果用传统的方法，是不会去考虑你更多的东西，它只会知道我过了多少时间，我就要执行。假如说用户之前被阻塞了，每 10 秒钟执行这一方法，在 10 秒之内，实际他之前的事情还没有做完，然后这个事情就会被延后。它就是为了动画看上去更流畅而优化的，因为每一桢的时候，它就告诉你说，你可以做一些事情。
 
 Via：InfoQ
+
+<!-- {% endraw %} - for jekyll -->

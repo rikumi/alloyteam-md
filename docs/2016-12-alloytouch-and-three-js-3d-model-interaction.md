@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/alloytouch-and-three-js-3d-model-interaction/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://images2015.cnblogs.com/blog/105416/201612/105416-20161207093956632-718807571.gif)
 
 如你所见，上面的 cube 的旋转、加速、减速停止都是通过 AlloyTouch 去实现的。
@@ -131,3 +133,5 @@ Github 地址：[https://github.com/AlloyTeam/AlloyTouch](https://github.com/All
 欢迎 issues:[https://github.com/AlloyTeam/AlloyTouch/issues](https://github.com/AlloyTeam/AlloyTouch/issues)  
 
 ```
+
+<!-- {% endraw %} - for jekyll -->

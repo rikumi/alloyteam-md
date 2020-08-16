@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2016/10/interview-ac2016-instructor-lin-guo-shuo-joey/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![郭林烁](http://www.alloyteam.com/wp-content/uploads/2016/10/郭林烁-300x167.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/10/郭林烁.jpg)
 
 讲师介绍  
@@ -43,3 +45,5 @@ source_link: http://www.alloyteam.com/2016/10/interview-ac2016-instructor-lin-gu
 首先是被函数式编程（FP）所吸引的，特别是在研究 Redux 的源码后更为着迷。神使鬼差，后面开始燃起了对响应式编程（RP）的兴趣，也就在项目中尝试用了用 RxJS，RxJS 是 Reactive Extensions for javascript 的缩写，是一个可以和任何框架混用的库。“流” 是 Rx 中核心概念之一，Rx 提供了创建、结束以及一系列强大的操作、管理流的方式。经过了一段时间的使用，也逐渐对 “ 流” 的概念有了更多的体会，所以此次想分享一下自己对 RxJS 及流的一些理解。
 
 **更多精彩内容，敬请期待郭林烁在 AC2016 上的分享 ——《\*\***使用 RxJS 构建流式前端应用 \***\*》**
+
+<!-- {% endraw %} - for jekyll -->

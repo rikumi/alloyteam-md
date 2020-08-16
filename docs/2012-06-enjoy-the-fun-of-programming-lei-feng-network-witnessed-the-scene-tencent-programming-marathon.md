@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/enjoy-the-fun-of-programming-lei-feng-network-witnessed-the-scene-tencent-programming-marathon/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 自从 Hackathon（编程马拉松）在 1999 年诞生后，世界各地的科技圈子里都能发现这个活动的踪影。Facebook、Google 以及其它科技领域的巨头都用过这种比赛的方式发掘人才。
 
 近日，腾讯首次开展**以 Web 前端 HTML5 等新技术为主题的编程马拉松 Hackathon 活动**。对于一个旁观者来讲，看着大家噼里啪啦的敲键盘是一件相当无趣的事情。但当你真的融入其中，就发现这里带给你的激动心情不亚于一场精彩的球赛！
@@ -42,3 +44,5 @@ source_link: http://www.alloyteam.com/2012/06/enjoy-the-fun-of-programming-lei-f
 其实更重要的是，**你能玩的开心**。
 
 出处：雷锋网
+
+<!-- {% endraw %} - for jekyll -->

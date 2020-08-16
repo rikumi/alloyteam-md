@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/07/clock-programming-alloyticker/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 熵与负熵  
 
 * * *
@@ -198,3 +200,5 @@ AlloyTicker.prototype = {
 
 Github: <https://github.com/AlloyTeam/AlloyTicker>  
 Demo: <http://alloyteam.github.io/AlloyTicker/>
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2015/06/chrome-diao-shi-ji-qiao/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## **前言：**
 
 除了我们日常使用的调试方法，在 Chrome 中，其含有一些有意思的方法，有助于提高我们的开发调试效率。
@@ -109,3 +111,5 @@ console.timeEnd("测试用时");
 **关闭 Console 界面** 
 
 ESC...
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/07/the-tencent-programming-marathon-winning-entries-html5-somatosensory-game-guardian-of-lapu-da/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/070405gPc.jpg "title")
 
 ## **拉普达是什么？**
@@ -64,3 +66,5 @@ PS:Demo 代码正在整理，体验地址会稍后放出。
 ![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/0704181wK.jpg "photo_副本")
 
 文 /benny
+
+<!-- {% endraw %} - for jekyll -->

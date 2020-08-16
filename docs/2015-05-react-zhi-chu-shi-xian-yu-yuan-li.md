@@ -5,6 +5,8 @@ author: TAT.donaldyang
 source_link: http://www.alloyteam.com/2015/05/react-zhi-chu-shi-xian-yu-yuan-li/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 > [前一篇文章](https://github.com/miniflycn/qvd/issues/1)我们介绍了虚拟 DOM 的实现与原理，这篇文章我们来讲讲 React 的直出。  
 > 比起 MVVM，React 比较容易实现直出，那么 React 的直出是如何实现，有什么值得我们学习的呢？
 
@@ -252,3 +254,5 @@ React.render(
  
  
 ```
+
+<!-- {% endraw %} - for jekyll -->

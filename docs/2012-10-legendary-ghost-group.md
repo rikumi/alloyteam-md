@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/10/legendary-ghost-group/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 做 Web 开发很多年了，专门做 Web 前端开发也有 8 年多了，期间自然加过很多优秀的 Web 前端 QQ 讨论群，今天跟大家推荐一个传说中氛围最好的一个，而且其中很多牛人，那就是 —— 鬼懿 IT
 
 ## 鬼群简介
@@ -207,3 +209,5 @@ source_link: http://www.alloyteam.com/2012/10/legendary-ghost-group/
 
 -   作者： CJ
 -   作品： JavaScript 视频教程 <http://www.verycd.com/topics/2852355/>
+
+<!-- {% endraw %} - for jekyll -->

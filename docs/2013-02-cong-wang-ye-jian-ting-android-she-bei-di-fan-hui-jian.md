@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2013/02/cong-wang-ye-jian-ting-android-she-bei-di-fan-hui-jian/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 最近搞 Android 项目的时候，遇到一个比较蛋疼的需求，需要从 Client App 调用系统浏览器打开一个页面，进行杂七杂八的一些交互之后，返回到 App。如何打开浏览器和如何返回 App 这里就不说了，有兴趣的童鞋可私下交流。
 
 之所以说这个需求蛋疼，是因为 Android 有个物理返回键啊…… 返回键啊…… 键啊…… 啊……
@@ -35,3 +37,5 @@ XBack.listen(function () {
 2.  浏览器的后退按钮点击以及调用 history.back () 也会被当成按下了返回键。
 
 But anyway，对于结构和逻辑比较简单的跳转页来说（就是为了返回 App 用的），这个方法还是蛮实用的，对不对？嘻嘻～
+
+<!-- {% endraw %} - for jekyll -->

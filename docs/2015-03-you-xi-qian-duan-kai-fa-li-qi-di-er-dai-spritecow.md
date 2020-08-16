@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/03/you-xi-qian-duan-kai-fa-li-qi-di-er-dai-spritecow/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 快速入口
 
 不读文章可以直接拐向这里：
@@ -69,3 +71,5 @@ function correctingVertexList(vertexList) {
 赶紧体验一把 :<https://kmdjs.github.io/arejs-tool-sprite/>
 
 Have Fun！
+
+<!-- {% endraw %} - for jekyll -->

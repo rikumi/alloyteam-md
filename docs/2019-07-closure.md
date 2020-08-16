@@ -5,6 +5,8 @@ author: TAT.yaoyao
 source_link: http://www.alloyteam.com/2019/07/closure/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 闭包这个概念是前端工程师必须要深刻理解的，但是网上确实有一些文章会让初学者觉得晦涩难懂，而且闭包的文章描述不一。
 
 本文面向初级的程序员，聊一聊我对闭包的理解。当然如果你看到闭包联想不到`作用域链`与`垃圾回收`也不妨看一眼。希望读了它之后你不再对闭包蒙圈。
@@ -222,3 +224,5 @@ NodeJS 会给每个文件包上这样一层函数，引入模块使用 `require`
 -   [bind 的实现](https://github.com/huyaocode/webKnowledge/blob/master/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/bind%E3%80%81apply%E5%AE%9E%E7%8E%B0.md)
 
 最后，如果你对闭包有更好的理解或者我文章里写的不好的地方，还请指教。
+
+<!-- {% endraw %} - for jekyll -->

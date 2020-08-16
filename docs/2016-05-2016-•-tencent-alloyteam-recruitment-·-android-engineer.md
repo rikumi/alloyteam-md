@@ -5,6 +5,8 @@ author: TAT.Alloy
 source_link: http://www.alloyteam.com/2016/05/2016-%e2%80%a2-tencent-alloyteam-recruitment-%c2%b7-android-engineer/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 腾讯 AlloyTeam 开始社会招聘啦，想加入 AlloyTeam 的工程师们请抓紧！欢迎前来应聘，机会难得，各种挑战等着你～～
 
 岗位名称：**Android 高级工程师**  
@@ -36,3 +38,5 @@ source_link: http://www.alloyteam.com/2016/05/2016-%e2%80%a2-tencent-alloyteam-r
 -   深圳腾讯大厦（总部）
 
 如果你相信自己，也相信爱情，请发送简历至：**atlas\[at]imatlas.com**_（请把 \[at] 替换成 @）_
+
+<!-- {% endraw %} - for jekyll -->

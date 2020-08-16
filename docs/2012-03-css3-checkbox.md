@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2012/03/css3-checkbox/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 话说，很久很久以前，一直到不久前，浏览器原生的 checkbox (复选框) 的样式大部分都不能改的，在各个浏览器中的外观和行为都不一致，这是一件相当让人蛋疼的事.
 
 而在那个远古的蛮荒时代，还生活着一种叫攻城师的生物，每天被产品经理们强迫着，想方设法让 checkbox 外观一统江湖，苦不堪言.
@@ -87,3 +89,5 @@ source_link: http://www.alloyteam.com/2012/03/css3-checkbox/
 另外，利用:checked 和兄弟选择符还能做更多的事哦，比如，checkbox 没选中的时候显示一个下拉框，没选中的时候显示另一个下拉框，效果还是看例子吧.
 
 故事到此为止，后面就由你续写啦～～
+
+<!-- {% endraw %} - for jekyll -->

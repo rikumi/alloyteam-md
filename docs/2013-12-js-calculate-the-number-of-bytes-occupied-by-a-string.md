@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2013/12/js-calculate-the-number-of-bytes-occupied-by-a-string/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 废话不说，直接正题吧。
 
 最近项目有个需求要用 js 计算一串字符串写入到 localStorage 里所占的内存，众所周知的，js 是使用 Unicode 编码的。而 Unicode 的实现有 N 种，其中用的最多的就是 UTF-8 和 UTF-16。因此本文只对这两种编码进行讨论。
@@ -84,3 +86,5 @@ source_link: http://www.alloyteam.com/2013/12/js-calculate-the-number-of-bytes-o
         return total;
     }
 ```
+
+<!-- {% endraw %} - for jekyll -->

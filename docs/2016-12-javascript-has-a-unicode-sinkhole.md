@@ -5,6 +5,8 @@ author: TAT.will
 source_link: http://www.alloyteam.com/2016/12/javascript-has-a-unicode-sinkhole/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 * * *
 
 最近笔者在项目中遇到了 emoji 表情的处理，期间发现 js 处理多字节字符时会有较多坑，记录一下与各位分享。  
@@ -182,3 +184,5 @@ String.fromCharCode 可以将一个码点转换为字符，比如
 参考资料：  
 [Unicode 与 JavaScript 详解](http://www.ruanyifeng.com/blog/2014/12/unicode.html)  
 [JavaScript has a Unicode problem](https://mathiasbynens.be/notes/javascript-unicode)
+
+<!-- {% endraw %} - for jekyll -->

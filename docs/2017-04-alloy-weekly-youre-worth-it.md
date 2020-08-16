@@ -5,6 +5,8 @@ author: TAT.yana
 source_link: http://www.alloyteam.com/2017/04/alloy-weekly-youre-worth-it/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![](http://www.alloyteam.com/wp-content/uploads/2017/04/QQ20170415-090819-2@2x.jpg)
 
 在现在这样一个前端技术迅速发展的时代，一不留神就出现了许多新的技术知识。  
@@ -30,3 +32,5 @@ AlloyTeam 决定发行 [Alloy 周刊](http://www.alloyteam.com/alloyshare/weekly
 [Alloy 周刊（第一期）](http://www.alloyteam.com/alloyshare/weekly/p/1)
 
 ![](http://www.alloyteam.com/wp-content/uploads/2017/04/3eae54b6319ca3e5338b1f495260f6f1.jpg)
+
+<!-- {% endraw %} - for jekyll -->

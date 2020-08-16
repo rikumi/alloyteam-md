@@ -5,6 +5,8 @@ author: TAT.pel
 source_link: http://www.alloyteam.com/2013/08/jx-framework-tutorial-b/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # Ajax 和模版
 
 当你需要不刷新页面而加载更多数据，ajax 是个不错的选择，怎么把 ajax 异步加载的数据优雅地拼接起来，就需要用到模版引擎了。复杂的交互都离不开 ajax 和模版，下面介绍如何在 JX 中使用 ajax 和模版。  
@@ -176,3 +178,5 @@ wrapEl.innerHTML = J.string.template("vcardTmpl", data.responseJSON);
     });
 
 更多 JX 框架活生生的 Demo，请猛戳 [JX Live Demo](http://alloyteam.github.io/JXLiveDemo/ "JX Live Demo")。
+
+<!-- {% endraw %} - for jekyll -->

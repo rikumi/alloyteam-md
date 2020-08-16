@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2014/12/animation-and-device-application/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 一、动态：动画表达的设计应用
 
 ” 动态 “的设计常常能使页面的呈现更加动感，有活力，富有吸引力。具体来说，” 动态” 的设计在产品应用中常用于以下几种情形：
@@ -149,3 +151,5 @@ Android Sensors Overview：[http](http://developer.android.com/guide/topics/sens
 …
 
 最后感谢大家阅读，转载请注明出处！O (∩\_∩) O 谢谢！
+
+<!-- {% endraw %} - for jekyll -->

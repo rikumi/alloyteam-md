@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2016/06/tencent-news-react-isomorphic-straight-out-optimization/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文地址](https://github.com/lcxfs1991/blog/issues/10)  
 [本文 start kit: steamer-react](https://github.com/SteamerTeam/steamer-react)
 
@@ -286,3 +288,5 @@ plugins: [
 * * *
 
 可能你会惊诧于习惯写长文的我居然只写这么少，但 React 同构下出真的就是这么简单，而借助脱胎于手 Q 家校群，验证于腾讯新闻的 [steamer-react](https://github.com/SteamerTeam/steamer-react) start kit，你会更事半功倍。
+
+<!-- {% endraw %} - for jekyll -->

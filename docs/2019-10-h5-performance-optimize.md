@@ -5,6 +5,8 @@ author: flyfu wang
 source_link: http://www.alloyteam.com/2019/10/h5-performance-optimize/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 老板说，页面打开速度过慢？页面加载性能不达标？下面我们来看下各个大厂和团队的秒开经典方案，有没有一款适合你去探索？
 
 本页面会列举和总结偏向与客户端结合的 hybrid 秒开方案，纯前端方案也会部分提及。
@@ -103,3 +105,5 @@ NSR 将 SSR 渲染的过程分发到了各个用户的端中，在减少了后�
 [腾讯手 Q VasSonic 秒开](https://www.infoq.cn/article/vassonic-manual-q-open-source-hybrid-framework "腾讯手 Q VasSonic 秒开")  
 [UC 信息流 “闪开” 优化实践](https://www.infoq.cn/article/9UKos4Xh_6wL4Fh1FOGL "UC 信息流 “闪开” 优化实践")  
 [头条 H5 秒开方案](https://yuweiguocn.github.io/android-h5/ "头条 H5 秒开方案")
+
+<!-- {% endraw %} - for jekyll -->

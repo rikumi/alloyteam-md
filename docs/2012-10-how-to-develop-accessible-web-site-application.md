@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/10/how-to-develop-accessible-web-site-application/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Web 无障碍设计（Accessibility in Web design，也叫网站可及性 ）是要让所创建的网站对所有用户都可用 / 可访问，不管用户的生理 / 身体能力如何、不管用户是以何种方式访问网站。
 
 ## 为什么无障碍如此重要（帮助残障人士）
@@ -642,3 +644,5 @@ Web 开发人员可以借助这几种工具验证所开发的 Web 页面是否�
 本文介绍了开发测试可访问无障碍的 Web 应用的工具，步骤以及开发中的最佳实践。应用这些最佳实践与小技巧能帮助您在开发中迅速的为您的 Web 应用提供 A11Y 的支持。
 
 文：IBM
+
+<!-- {% endraw %} - for jekyll -->

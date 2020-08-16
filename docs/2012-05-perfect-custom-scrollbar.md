@@ -5,6 +5,8 @@ author: TAT.melody
 source_link: http://www.alloyteam.com/2012/05/perfect-custom-scrollbar/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 今天写了一个滚动条 UI 组件。欢迎大家体验：<http://alloyteam.github.com/ui/>
 
 为何称之为完美呢？只因其具有以下优点：
@@ -124,3 +126,5 @@ el.parentNode.insertBefore(container, el);
 ## 四。组件的使用。
 
 仅需一句代码 ScrollUI (el)//el 为要使用自定义滚动条的元素
+
+<!-- {% endraw %} - for jekyll -->

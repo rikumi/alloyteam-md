@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/12/alloytouch-combat-60-lines-of-code-get-qq-aspect-data-card/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文链接：<https://github.com/AlloyTeam/AlloyTouch/wiki/kandian>
 
 先验货  
@@ -248,3 +250,5 @@ Github：<https://github.com/AlloyTeam/AlloyTouch>
 
 任何意见和建议欢迎 [new issue](https://github.com/AlloyTeam/AlloyTouch/issues)，AlloyTouch 团队会第一时间反馈。  
 
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2017/04/guide-http2-server-push-part2/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 \\============== 接上篇 [HTTP/2 Server Push 详解（上）](http://www.alloyteam.com/2017/04/guide-http2-server-push-part1)\\=================
 
 译者注：上文介绍了 HTTP/2 Server Push 的基本概念和用法，下面继续深入实际使用的性能和考量。
@@ -184,3 +186,5 @@ Server Push 也有一些有损性能的的情况，对于访问网站的回头�
 -   “[Server Push](https://tools.ietf.org/html/rfc7540#section-8.2),” “Hypertext Transfer Protocol Version 2 (HTTP/2),” Internet Engineering Task Force
 -   “[Modernizing Our Progressive Enhancement Delivery](https://www.filamentgroup.com/lab/modernizing-delivery.html),” Scott Jehl, Filament Group
 -   “[Innovating with HTTP 2.0 Server Push](https://www.igvita.com/2013/06/12/innovating-with-http-2.0-server-push/),” Ilya Grigorik
+
+<!-- {% endraw %} - for jekyll -->

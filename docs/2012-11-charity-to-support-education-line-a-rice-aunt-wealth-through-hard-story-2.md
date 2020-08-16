@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2012/11/charity-to-support-education-line-a-rice-aunt-wealth-through-hard-story-2/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### **【腾讯公益慈善基金会 - 筑梦新乡村，讲师公益行】 人物 采访记**
 
 ![](http://y.photo.qq.com/img?s=qrzdh49aT&l=y.jpg)
@@ -36,3 +38,5 @@ source_link: http://www.alloyteam.com/2012/11/charity-to-support-education-line-
 ### 《筑梦新乡村一起去支教–铜关第八小队随笔》<http://ecd.tencent.com/volunteer-tongguan.html>
 
 ### 《“筑梦学堂，一起去支教” 拥抱自然，回归田园》<http://www.alloyteam.com/2012/11/4152/>
+
+<!-- {% endraw %} - for jekyll -->

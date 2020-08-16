@@ -5,6 +5,8 @@ author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2016/01/webpack-loader-1/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文地址](https://github.com/joeyguo/blog/issues/4)
 
 [![webpack](http://www.alloyteam.com/wp-content/uploads/2016/01/webpack.png)](http://www.alloyteam.com/wp-content/uploads/2016/01/webpack.png)
@@ -162,3 +164,5 @@ emitFile((name: string), (content: Buffer | String), (sourceMap: { ... }));
 话不多说
 
 针对 Loader 的基础介绍大致就到这了，不多，希望这篇文章能够对 Webpack Loader 有一个大致的了解。 更多进阶的方案及实战经验容我再整理整理，迟些输出。
+
+<!-- {% endraw %} - for jekyll -->

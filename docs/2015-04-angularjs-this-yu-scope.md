@@ -5,6 +5,8 @@ author: TAT.simplehuang
 source_link: http://www.alloyteam.com/2015/04/angularjs-this-yu-scope/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 最近在 Angular 项目中遇到关于 controller 内使用 $scope&this  暴露数据的问题，下面来分析一下：
 
  “controller as” 是 Angular 在 1.2 版本后新增的语法，我将从引用方式，作用范围，对象对比三个方面做两者的比较：
@@ -169,3 +171,5 @@ function CCtrl($scope) {
 <http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers>
 
 <http://codetunnel.io/angularjs-controller-as-or-scope/>
+
+<!-- {% endraw %} - for jekyll -->

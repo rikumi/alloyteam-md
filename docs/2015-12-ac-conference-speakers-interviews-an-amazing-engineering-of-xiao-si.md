@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2015/12/ac-conference-speakers-interviews-an-amazing-engineering-of-xiao-si/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![csonlai2](http://www.alloyteam.com/wp-content/uploads/2015/12/csonlai2.png)](http://www.alloyteam.com/wp-content/uploads/2015/12/csonlai2.png)
 
 **本期看点： 跨 webview 优化 LocalStorage 优化 滚动长列表优化 兴趣部落**
@@ -70,3 +72,5 @@ source_link: http://www.alloyteam.com/2015/12/ac-conference-speakers-interviews-
 [![赖晓思 1](http://www.alloyteam.com/wp-content/uploads/2015/12/赖晓思1.jpg)](http://www.alloyteam.com/wp-content/uploads/2015/12/赖晓思1.jpg)
 
 更多有关前端交互的内容，请关注 **AC 大会**。或添加 **AlloyTeam** 的公众号 **AlloyTeam**，或搜索 **AlloyTeam** 的微博。
+
+<!-- {% endraw %} - for jekyll -->

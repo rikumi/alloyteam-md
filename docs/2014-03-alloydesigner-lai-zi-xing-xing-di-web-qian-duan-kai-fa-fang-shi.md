@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2014/03/alloydesigner-lai-zi-xing-xing-di-web-qian-duan-kai-fa-fang-shi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## AlloyDesigner 介绍
 
 　　AlloyDesigner 的创意来自于 “临摹” 的灵感，使用 AlloyDesigner 后，你可以把设计稿拖进你的 Web 页面铺在页面的最底层，然后就可以对着设计稿来构建 DOM 元素和 CSS 样式啦，这样子是不是直观了很多？通过 AlloyDesigner 直观地调整页面，迅速达到与视觉稿一致的目的。
@@ -44,3 +46,5 @@ AlloyDesigner 安装使用方法有 3 种：
 　　AlloyDesigner 同时也方便产品经理、设计师、测试同学进行产品的 UI 走查，甚至未来可以根据你开发的页面和交互稿的差异程度打一个分数。
 
 　　未来 AlloyDesigner 将会加入更多可视化的 UI 构建工具，比如通过拖拽直接修改 DOM 尺寸、边距、样式，提高开发效率，做成一个全面的可视化 Web 开发设计工具，有什么建议和想法就提给我们吧 ^\_Q!
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/05/web%e5%88%9b%e5%bb%ba%e5%b7%a5%e5%85%b7zoho-sites%ef%bc%9a%e9%9b%b6%e7%bc%96%e7%a8%8b%e5%bf%ab%e9%80%9f%e5%88%9b%e5%bb%baweb%e7%bd%91%e7%ab%99/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/090255XBx.jpg "zoho")](http://img01.36krcnd.com/resize/w_678/h_1000/wp-content/uploads/2012/05/zoho.jpg)
 
 基于 Web 的生产力工具套件服务商 Zoho 今日又发布一项新服务，再次与最大竞争对手 Google 针锋相对。新服务名为 [Zoho Sites](http://www.zoho.com/sites/)，是一个以拖拽方式创建网站的工具。它可以让任何人在没有 HTML、CSS 基础的情况下，快速建立漂亮的网站。
@@ -20,3 +22,5 @@ Zoho Sites 同时集成了 Google 两个产品的功能：一个是简单的网�
 Via [TC](http://techcrunch.com/2012/05/15/watch-out-google-zoho-just-launched-a-better-diy-website-builder-and-it-does-mobile-too/)
 
 出处：36 氪
+
+<!-- {% endraw %} - for jekyll -->

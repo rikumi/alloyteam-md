@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2014/02/tencent-mobile-web-overall-solution-spirit/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 移动 Web 开发是一块新的领域，给 Web 带来更多机会的同时，也带来了更多的挑战。为了让开发者在移动 Web 的道路上走得更加顺畅，开发更加高效，[Spirit](http://alloyteam.github.io/Spirit/index.html)（勇气号）由此而生。
 
 ## Spirit 官网：<http://alloyteam.github.io/Spirit/>
@@ -34,3 +36,5 @@ source_link: http://www.alloyteam.com/2014/02/tencent-mobile-web-overall-solutio
 　　[Mars](https://github.com/AlloyTeam/Mars) 是一个移动 Web 前端知识库，收集与归纳移动 Web 开发中常见的问题。主要介绍移动端 Web 解决方案，包括[代码结构规范](https://github.com/AlloyTeam/Mars/blob/master/solutions/project-structure.md)、[字体设置最佳实践](https://github.com/AlloyTeam/Mars/blob/master/solutions/font-family.md)、[模拟原生效果实践](https://github.com/AlloyTeam/Mars/blob/master/solutions)、[工具类方法汇总](https://github.com/AlloyTeam/Mars/blob/master/tools)、[iOS 与 Android 平台上问题列表](https://github.com/AlloyTeam/Mars/blob/master/issues)、[高性能 Mobile Web 开发](https://github.com/AlloyTeam/Mars/blob/master/performance)、类库依赖推荐等等，后续还在进一步完善中，如果你也在移动 Web 遇到了问题，欢迎你积极加入，到 [Mars](https://github.com/AlloyTeam/Mars) 项目提交 Issue。
 
 最后 [AlloyTeam](http://www.alloyteam.com/) 团队邀请更多的朋友加入到完善移动 Web 开发的工程中，共同解决在移动 Web 开发道路中所遇到的难题，提供面向亿万用户的移动端 Web 解决方案，欢迎 [Fork](https://github.com/AlloyTeam/Mars/fork) & [Pull Request](https://github.com/AlloyTeam/Mars/pulls)。
+
+<!-- {% endraw %} - for jekyll -->

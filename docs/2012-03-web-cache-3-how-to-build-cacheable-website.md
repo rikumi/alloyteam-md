@@ -5,6 +5,8 @@ author: TAT.Rehorn
 source_link: http://www.alloyteam.com/2012/03/web-cache-3-how-to-build-cacheable-website/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 \\==== 索引 =====
 
 [【Web 缓存机制系列】1 – Web 缓存的作用与类型](http://alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
@@ -84,3 +86,5 @@ _// business code here_
 _// todo_
 
 _?>_
+
+<!-- {% endraw %} - for jekyll -->

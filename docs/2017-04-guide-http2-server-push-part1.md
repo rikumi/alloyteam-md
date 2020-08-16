@@ -5,6 +5,8 @@ author: TAT.JohnnyJeremy Wagner
 source_link: http://www.alloyteam.com/2017/04/guide-http2-server-push-part1/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 原文：<https://www.smashingmagazine.com/2017/04/guide-http2-server-push/>
 
 作者：[Jeremy Wagner](https://www.smashingmagazine.com/author/jeremywagner/ "Posts by Jeremy Wagner")
@@ -130,3 +132,5 @@ Link: </css/styles.css>; rel=preload; as=style, <https://fonts.gstatic.com>; rel
 这种语法相比一长串逗号分隔的字符串更为方便，且达到的作用是相同的。唯一的缺点就是没那么紧凑，而且会多一点字节量的网络传输，但提供的便利是值得的。
 
 现在知道了如何推送资源，在本文下半部分，我们继续看推送是否生效，且表现性能如何。
+
+<!-- {% endraw %} - for jekyll -->

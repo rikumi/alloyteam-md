@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/11/talk-about-nuclear-web-component-threshold/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 目前来看，团队内部前端项目已全面实施组件化开发。组件化的好处太多，如：按需加载、可复用、易维护、可扩展、少挖坑、不改组件代码直接切成服务器端渲染（如 [Nuclear](https://github.com/AlloyTeam/Nuclear) 组件化可以做到，大家叫同构)...  
 怎么做到这么强大的优势，来回忆下以前见过的坑，或者现有项目里的坑。
 
@@ -508,3 +510,5 @@ Nuclear Github
 * * *
 
 <https://github.com/AlloyTeam/Nuclear>
+
+<!-- {% endraw %} - for jekyll -->

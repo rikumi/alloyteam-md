@@ -5,6 +5,8 @@ author: TAT.zhipingfeng
 source_link: http://www.alloyteam.com/2015/06/yong-volley-cai-di-keng/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 　　相信 volley 绝大部分做 android 的人已经知道了，关于 volley 的使用网上也是一抓一大把，都是说 volley 如何如何好用，下面分享下自己在使用 volley 过程中踩过的坑。
 
 　　volley 好用的一个原因是封装的 api 看起来也比较直接，但是其回调的 api 做的是一般般，其中有一个 JsonObjectRequest 类，网上的使用说明也一大把，基本上都是最简单的情形：
@@ -120,3 +122,5 @@ public String getBodyContentType() {
 ```
 
 聪明的你肯定想到了吧，希望给同样用 volley 的同学有帮助～～
+
+<!-- {% endraw %} - for jekyll -->

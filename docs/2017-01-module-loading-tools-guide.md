@@ -5,6 +5,8 @@ author: june01
 source_link: http://www.alloyteam.com/2017/01/module-loading-tools-guide/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前言  
 
 * * *
@@ -483,3 +485,5 @@ var loadResource = (function () {
 其实把上面贴出来的代码拼起来，就是一个完整、可用的简易版模块加载工具了。就如同开始所说的，这是拿来学习用的轮子，如果想拿来直接用其实也没什么问题，不过有些兼容性的问题或者功能的扩充就得自己完善（比如低版本 ie，比如支持配置根路径等）。
 
 想看完整的代码的话，请戳[这里](https://github.com/JuneAndGreen/treasure-box/blob/master/modules_require/modules_require.js)。
+
+<!-- {% endraw %} - for jekyll -->

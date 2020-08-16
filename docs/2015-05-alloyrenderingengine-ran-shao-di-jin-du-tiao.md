@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2015/05/alloyrenderingengine-ran-shao-di-jin-du-tiao/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 写在前面  
 
 * * *
@@ -156,3 +158,5 @@ HTML 5 新增了 progress 标签，那么再去使用 AlloyRenderingEngine 去�
 ```
 
 最新动态请关注 Github: <https://github.com/AlloyTeam/AlloyGameEngine>
+
+<!-- {% endraw %} - for jekyll -->

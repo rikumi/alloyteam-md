@@ -5,6 +5,8 @@ author: TAT.yuanyan
 source_link: http://www.alloyteam.com/2012/10/high-performance-css/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 避免使用 @import
 
 有两种方式加载样式文件，一种是 link 元素，另一种是 CSS 2.1 加入 @import。而在外部的 CSS 文件中使用 @import 会使得页面在加载时增加额外的延迟。虽然规则允许在样式中调用 @import 来导入其它的 CSS，但浏览器不能并行下载样式，就会导致页面增添了额外的往返耗时。比如，第一个 CSS 文件 first.css 包含了以下内容：@import url ("second.css")。那么浏览器就必须先把 first.css 下载、解析和执行后，才发现及处理第二个文件 second.css。简单的解决方法是使用<link> 标记来替代 @import，比如下面的写法就能够并行下载 CSS 文件，从而加快页面加载速度：
@@ -87,3 +89,5 @@ CSS3 添加了复杂的属性选择器，可以通过类正则表达式的方式
 第一，删除无用的样式后可以缩减样式文件的体积，加快资源下载速度；
 
 第二，对于浏览器而言，所有的样式规则的都会被解析后索引起来，即使是当前页面无匹配的规则。移除无匹配的规则，减少索引项，加快浏览器查找速度；
+
+<!-- {% endraw %} - for jekyll -->

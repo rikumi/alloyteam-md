@@ -5,6 +5,8 @@ author: TAT.Fujun
 source_link: http://www.alloyteam.com/2015/03/sexpressmysql/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 NodeJS 对前端来说无疑具有里程碑意义，在其越来越流行的今天，掌握 NodeJS 已经不再是加分项，而是前端攻城师们必须要掌握的技能。本文将与同志们一起完成一个基于 Express+MySQL 的入门级服务端应用，即可以对数据库中的一张表进行简单的 CRUD 操作。但本人还是斗胆认为，通过这个应用，可以让没怎么接触后端开发的同志对使用 Node 进行后端开发有一个大致了解。
 
 **Express 工程环境准备**
@@ -363,3 +365,5 @@ fail.jade
 小结：
 
 一个 Express 的 helloWorld 就差不多完成了，可以通过这个链接下载此例子源代码 <http://pan.baidu.com/s/1jGvd4Bc。更多> Express 的功能（如日志，自动化测试等），等待大家去解锁，愿玩得愉快！
+
+<!-- {% endraw %} - for jekyll -->

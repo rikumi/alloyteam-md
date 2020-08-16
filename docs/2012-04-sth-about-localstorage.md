@@ -5,6 +5,8 @@ author: TAT.pel
 source_link: http://www.alloyteam.com/2012/04/sth-about-localstorage/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 # 什么是本地存储
 
 以下内容从网上抄来的
@@ -103,3 +105,5 @@ try{
 对于 IE6 和 IE7，有 userData，可以提供最多 1024kb 的空间，虽然 userData 可以设置有效期，但是仍然存在写满报错的问题，并且 userData 创建的存储文件不能被枚举，因此需要人为地维护。  
 另外还可以使用内嵌 flash 控件，使用 flash 的本地存储空间，flash 默认提供 100kb，使用更多需要用户授权。  
 这两种方法的使用成本较高，本文就不再展开讨论了。
+
+<!-- {% endraw %} - for jekyll -->

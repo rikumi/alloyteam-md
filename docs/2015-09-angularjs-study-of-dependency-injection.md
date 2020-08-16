@@ -5,6 +5,8 @@ author: TAT.tennylv
 source_link: http://www.alloyteam.com/2015/09/angularjs-study-of-dependency-injection/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 什么是依赖注入呢，我的理解，简单点就是说我的东西我自己并不像来拿着，我想要我依赖的那个人来帮我拿着，当我需要的时候，他给我就行了。当然这只是简单的理解，还是用代码解释比较清楚一些。
 
 这里有一个 function，很简单。
@@ -245,3 +247,5 @@ OK，到这里，便可以用我们的 inject 来模拟 angular 的依赖注入�
 以上观点都是我的个人见解，如有错误欢迎指正！
 
 参考资料：[关于 anjularjs 双向绑定的研究](http://www.nihaoshijie.com.cn/index.php/archives/306)
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.heyli
 source_link: http://www.alloyteam.com/2017/03/from-an-engineering-point-of-view-discusses-how-to-construct-reliable-components-react/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [原文链接](https://github.com/lcxfs1991/blog/issues/18)
 
 ## 前言
@@ -190,3 +192,5 @@ scrollContainer.dispatchEvent(// ... );
 本文主要是提取了开发组件工程化的一些关键要点，具体的开发脚手架可以参考 [steamer-react-component](https://github.com/SteamerTeam/steamer-react-component)，里面主要举了 [pure-render-deepCompare-decorator](https://github.com/SteamerTeam/pure-render-deepCompare-decorator) 和 [react-list-scroll](https://github.com/SteamerTeam/react-list-scroll)，一个逻辑组件，一个 UI 组件，共两个示例，对照着脚手架的文档，从目录规范、开发流程、发布都写得较为清楚，大家开发组件的时候，可以根据情况做些调整。
 
 如有谬误，恳请斧正。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.donaldyang
 source_link: http://www.alloyteam.com/2015/04/%e5%89%8d%e6%b2%bf%e6%8a%80%e6%9c%af%e8%a7%a3%e5%af%86-virtualdom/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 > 作为 `React` 的核心技术之一 `Virtual DOM`，一直披着神秘的面纱。
 
 > 实际上，Virtual DOM 包含：
@@ -124,3 +126,5 @@ React 提供自定义元素，所以匹配更加简单。
 
 1.  @Matt-Esch 实现的：[virtual-dom](https://github.com/Matt-Esch/virtual-dom)
 2.  我们自己做的简版实现，用于 Mobile 页面渲染的：[qvd](https://github.com/miniflycn/qvd)
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Johnny
 source_link: http://www.alloyteam.com/2013/11/the-second-version-universal-solution-iframe-cross-domain-communication/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 一年前，我发过一篇关于跨文档通信方案的文章 [《iframe 跨域通信的通用解决方案》](http://www.alloyteam.com/2012/08/lightweight-solution-for-an-iframe-cross-domain-communication/)，提供了一种基于创建 iframe 与轮询 window.name 的方案。
 
 一年后，很高兴地带来彻底改造的新版本。实际上新方案已经用了很久了，一直没有时间抽象出来，最近终于挤时间分享出来了！~
@@ -112,3 +114,5 @@ Demo: <http://biqing.github.io/labs/messenger/parent.html>
 项目主页：<http://biqing.github.io/MessengerJS/>
 
 欢迎反馈，使用中遇到问题一定要告诉我哟！
+
+<!-- {% endraw %} - for jekyll -->

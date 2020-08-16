@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2015/10/canvas-attempts-to-draw-list/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 为什么尝试使用 Canvas 绘制列表？使用 canvas 绘制列表的好处在于页面只有一个 dom 元素，这样对于大量 dom 元素组成的列表来说，无疑更节省页面内存。
 
 本文将一步一步分析，如何实现一个 canvas 绘制的长列表。
@@ -146,3 +148,5 @@ iphone5c: 50 左右
 **其他需要注意的问题：**
 
 由于元素都绘制在 Canvas 上，因此不能被读屏软件识别，影响无障碍化。
+
+<!-- {% endraw %} - for jekyll -->

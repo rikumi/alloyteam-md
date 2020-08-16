@@ -5,6 +5,8 @@ author: TAT.岑安
 source_link: http://www.alloyteam.com/2012/08/texture-mapping-on-context2d/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 我们在做一些图像变换或者 3D 建模时，骨架或者网格的 “蒙皮” 是少不了的。
 
 在 webGL 中，也就是 “experimental-webgl” 的 context 中，webGL 跟 openGL 一样，提供了一个非常方便的
@@ -55,3 +57,5 @@ ok，看起来基本已经达到目的了。可以适应任意不规则四边形
 当然，继续下去，完成一个图片展示的应用也未尝不可，并不需要 webGL。如下一个简单的 Demo
 
 [![](http://www.alloyteam.com/wp-content/uploads/2012/08/demo-300x237.png "demo")](http://hongru.github.com/test/rubik/zoom/index.html)
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2015/06/h5-jiao-hu-ye-bian-ji-qi-aeditor-jie-shao/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### **AEditor 是什么？**
 
 AEditor 是一个方便广大 web 开发者进行 H5 动画交互页开发的工具，开发者可以在 AEditor 上对交互动画以进行编辑，最终导出页面项目。与面向大众的 H5 交互页编辑平台（如玉兔，易企秀等）不同的是，AEditor 面向开发者，在提供预设动画模式的同时，支持对动画进行帧的编辑，事件通知模型，以及可二次开发的特性，从而让开发者能更灵活地实现各种自定义的动画交互需求。
@@ -424,3 +426,5 @@ Css：
 最终播放的动画中，图层容器就拥有其自定义内容了：
 
 [![62](http://www.alloyteam.com/wp-content/uploads/2015/06/62.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/62.png)
+
+<!-- {% endraw %} - for jekyll -->

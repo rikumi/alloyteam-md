@@ -5,6 +5,8 @@ author: TAT.bizai
 source_link: http://www.alloyteam.com/2014/01/parallax-scrolling-love-story/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 故事说起在一个冰冷幽暗的夜晚上，我正思考的十分重要的人生问题，这周末该去那里 happy 好呢？是宅在家里好呢，或者宅在家里好呢，还是宅在家里好呢？这时，万年隐身的 QQ 竟然浮起浅色聊天框，我去！不得了，居然是女神主动联系我，女神一定是因为我俊朗的五官，185 的模特身材而深深地迷恋上我了，呵呵呵呵呵呵。
 
 “诶，谭伟 X，你在干嘛呢？”  
@@ -190,3 +192,5 @@ function addEvent(eventTarget, eventType, eventHandler) {
 真是一个感动的爱（diao）情（si）故事
 
 [![yidama](http://www.alloyteam.com/wp-content/uploads/2014/01/yidama.jpg)](http://www.alloyteam.com/wp-content/uploads/2014/01/yidama.jpg)
+
+<!-- {% endraw %} - for jekyll -->

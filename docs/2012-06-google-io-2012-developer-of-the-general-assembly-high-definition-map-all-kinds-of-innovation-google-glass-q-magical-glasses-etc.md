@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/google-io-2012-developer-of-the-general-assembly-high-definition-map-all-kinds-of-innovation-google-glass-q-magical-glasses-etc/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Google（谷歌）今年的【Google I/O 2012 开发者大会】将于北京时间 6 月 28 日开始。日程安排如下：
 
 -   第一天的主题演讲时间在 00：30 分举行
@@ -604,3 +606,5 @@ Sergey 表示很满意自己目前的眼镜，可以捕捉和共享很多令人�
 发布会进入回放环节，本次发布会时间长达 2 小时多，感谢各位的熬夜观看。
 
 ![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112011U5C.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112011U5C.jpg)
+
+<!-- {% endraw %} - for jekyll -->

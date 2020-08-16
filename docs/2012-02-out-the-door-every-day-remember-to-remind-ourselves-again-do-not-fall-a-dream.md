@@ -5,6 +5,8 @@ author: TAT.岑安
 source_link: http://www.alloyteam.com/2012/02/out-the-door-every-day-remember-to-remind-ourselves-again-do-not-fall-a-dream/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 好久没有更新 blog 了。今天终于有了心再写一篇。算是对自己工作和生活的一种回顾吧。
 
 11 年底和 12 年初的时候自己都没有写什么总结性质的博文，或者之类的东西。但是心里确是有稍微对过去的时间做一点结算工作的。
@@ -51,3 +53,5 @@ source_link: http://www.alloyteam.com/2012/02/out-the-door-every-day-remember-to
 有兴趣的朋友可以看看：<http://v.youku.com/v_show/id_XMzA1NTU5MDI4.html>
 
 好了，今天到此为止，各位**晚安**。
+
+<!-- {% endraw %} - for jekyll -->

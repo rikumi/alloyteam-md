@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-adapter-mode/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 去年年前当时正在开发 dev.qplus.com, 有个存储应用分类 id 的 js 文件，分类 id 的结构最开始设计的比较笨重。于是我决定重构它。我把它定义成一个 json 树的形式，大概是这样:  
 
 ```javascript
@@ -53,3 +55,5 @@ $id = function (id) {
 -   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
 -   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
 -   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.Perlt
 source_link: http://www.alloyteam.com/2014/01/source-map-version-3-introduction/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 背景
 
 source map 提案的作用在于可以在浏览器中的开发者工具 Closure Inspector 中像调试源代码一样地调试生成后的 Javascript 代码。
@@ -130,3 +132,5 @@ Chrome 开发者工具中勾选 enable javascript source maps 开启。另外�
 -   [JavaScript Source Map 详解](http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html)
 -   [Introduction to JavaScript Source Maps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/)
 -   [website-security-for-webmasters](http://googleonlinesecurity.blogspot.com/2011/05/website-security-for-webmasters.html)
+
+<!-- {% endraw %} - for jekyll -->

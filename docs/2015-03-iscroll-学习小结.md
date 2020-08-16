@@ -5,6 +5,8 @@ author: TAT.lqlongli
 source_link: http://www.alloyteam.com/2015/03/iscroll%e5%ad%a6%e4%b9%a0%e5%b0%8f%e7%bb%93/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 前言
 
 最近项目需要实现一个 fixed 标题栏的功能，很普通的功能，实现核心也是在 sroll 事件中切换到 fixed 状态即可，但是在某些版本 ios 的某些内核中，在惯性滚动过程中不执行任何 js 代码，亦即不会触发 scroll 事件，基本任何事情都做不了，为了解决这个问题不得不使用 div 内滚动，然后使用 iscroll 库实现滚动逻辑。
@@ -273,3 +275,5 @@ iScroll.isAnimating = <span class="keyword">false</span>
 
 在使用 iScroll 的过程中遇到不少坑，但使用起来还是比较容易的，文档也比较齐全。  
 iScroll 在实现上也非常成熟，里面许多实现细节都是值得学习的
+
+<!-- {% endraw %} - for jekyll -->

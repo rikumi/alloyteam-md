@@ -5,6 +5,8 @@ author: TAT.Kinvix
 source_link: http://www.alloyteam.com/2012/06/new-apple-retina-macbook-pro-photos/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ![苹果 Retina Macbook Pro 照片](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/0512484Bn.jpg "苹果 Retina Macbook Pro 照片")
 
 虽然之前已经有大量相关传闻曝光，但配备 Retina 视网膜屏幕的 Macbook Pro 还是成为了今年 [WWDC 大会](http://www.iplaysoft.com/wwdc2012-june.html)的焦点。科技博客 The verge 在现场把玩了一番[新款的 Macbook Pro](http://www.ipc.me/retina-macbook-pro-pictures.html)，并拍摄了大量的真机[照片](http://www.ipc.me/tag/%E7%85%A7%E7%89%87)。这也应该是全新的 Retina Macbook Pro 第一手真机照片……
@@ -44,3 +46,5 @@ The Verge 把 MacBook Pro 15 英寸视网膜版与刚发布的 13 英寸 MacBook
 ![全新 Retina Macbook Pro 第一手真机照片](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/0513242P7.jpg)
 
 ![全新 Retina Macbook Pro 第一手真机照片](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/051326oFD.jpg)
+
+<!-- {% endraw %} - for jekyll -->

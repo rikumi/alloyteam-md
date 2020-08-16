@@ -5,6 +5,8 @@ author: TAT.iAzrael
 source_link: http://www.alloyteam.com/2014/01/use-js-file-download/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前端很多项目中，都有文件下载的需求，特别是 JS 生成文件内容，然后让浏览器执行下载操作（例如在线图片编辑、在线代码编辑、[iPresst](http://www.ipresst.com/) 等）。
 
 但受限于浏览器，很多情况下我们都只能给出个链接，让用户点击打开 -》另存为。如下面这个链接：
@@ -74,3 +76,5 @@ function downloadFile(fileName, content) {
 现在，只要一调用 downloadFile，文件就自动下载了，是不是很爽咧，^\_^。
 
 **注：**目前（2014-01-02）Blob 和 URL.createObjectURL 在标准浏览器里面都不再需要加私有前缀，可以放心使用啦啦啦～～如果你不放心，可以查查 [Can I Use](http://caniuse.com/#search=Blob)。
+
+<!-- {% endraw %} - for jekyll -->

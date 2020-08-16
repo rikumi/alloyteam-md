@@ -5,6 +5,8 @@ author: TAT.sheran
 source_link: http://www.alloyteam.com/2012/11/the-css3-ui-lib-library-introduction/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 [CSS3 UI Lib](http://css3lib.alloyteam.com/) 库是由腾讯 [AlloyTeam](http://www.AlloyTeam.com) 前端开发团队建立，主要收集国内外友好体验和创意的界面组件 Demo。它除了使用 CSS3 技术外，还使用了 HTML5，JS，[JX](http://alloyteam.github.com/JX/)，[jQuery](http://jquery.com/) 等技术，来达到完美的外观表现以及交互体验。此项目自 2011 年 10 月份成立以来，经过团队一年多的整理和收集，已经趋于成熟。
 
 -   **CSS3 UI Lib 库：**[Http://CSS3Lib.alloyteam.com](http://css3lib.alloyteam.com/)
@@ -86,3 +88,5 @@ source_link: http://www.alloyteam.com/2012/11/the-css3-ui-lib-library-introducti
 最后，欢迎大家多多体验，多提意见，更多作品，请访问我们的团队 Blog - [http://www.AlloyTeam.com](http://www.alloyteam.com/)
 
 **声明：**本 CSS3 UI 库部分 Demo 来自互联网，版权归作者所有。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.岑安
 source_link: http://www.alloyteam.com/2012/05/how-to-make-typeshot/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 废话不多说，直接进入正题，这篇文章主要为大家讲解一下一个类似【Z-Type】的 html5 小游戏的开发思路。
 
 [【Z-Type】](http://www.phoboslab.org/ztype/ "【Z-Type】")不知大家是否有玩过，[Impactjs](http://impactjs.com/ "Impactjs") 的一个演示 demo。一个需要 99$ 的 html5 游戏框架。咱们暂且先不管他实现的思路，以下我们按自己的思路来一步步实现。
@@ -236,3 +238,5 @@ Laro.register('TypeShot.$fsm', function (La) {
 \\============================
 
 好吧，大致的思路就写到这里，感兴趣的同学可以直接查看 [demo 源码](https://github.com/AlloyTeam/Laro/tree/master/examples/typeshot), 当然，代码里面有一些处理的不够好的地方，因为仅作演示而已。
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: burlin
 source_link: http://www.alloyteam.com/2015/07/qian-duan-luo-ji-he-node-zhi-chu-fu-yong-yu-zhong-gou-2/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ### 不得不聊到的重构简介
 
 要实现软件演化基本准则，最关键的策略就是重构，Martin Fowler 将其定义为” 在不改版软件外部行为的前提下，对其内部结构进行改变，使之更容易理解并便于修改 “。
@@ -95,3 +97,5 @@ if (typeof nodeOut !== "undefined") {
     return;
 }
 ````
+
+<!-- {% endraw %} - for jekyll -->

@@ -5,6 +5,8 @@ author: TAT.simplehuang
 source_link: http://www.alloyteam.com/2015/06/mongoosekoa-shi-yong-ru-men/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 一、概念解析：
 
 ### Mongoose:
@@ -141,3 +143,5 @@ CRUD 操作如今需要加入 yield 来确保我们主调调能耐心等待 new
 ```
 
 以上是 Mongoose 与 KOA 框架结合的一个简单入门，因为时间关系就只介绍到这里了，希望能对 mongoose 新手有所帮助。
+
+<!-- {% endraw %} - for jekyll -->

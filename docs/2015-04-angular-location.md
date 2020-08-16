@@ -5,6 +5,8 @@ author: TAT.yunsheng
 source_link: http://www.alloyteam.com/2015/04/angular-location/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 前言  
 
 * * *
@@ -110,3 +112,5 @@ Angular 内部做了向下兼容，采用本模式后，在低版本的浏览器
 **服务端也要做相应的配置！**
 
 因为是单页应用，所以其他链接请求到服务器时，根本找不到对应的 html，就会忧伤的返回 404。所以需要将所有到应用根路径下的请求都重定向到某个页面（比如 index.html）。这样浏览器里先由 index.html 启动应用，Angular 发现 URL 变化了再定位到真正请求的路由上。
+
+<!-- {% endraw %} - for jekyll -->

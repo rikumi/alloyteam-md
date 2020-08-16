@@ -5,6 +5,8 @@ author: TAT.yana
 source_link: http://www.alloyteam.com/2015/10/css3-in-loading-animation/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
      虽然现在互联网的网速越来越快，但永远都跟不上我们生活节奏的加快。资深网瘾少女表示，这世上最刺眼的不是阳光，而是 “正在加载”；最长的不是周杰伦的电影，而是 “ 正在加载”；最痛心的事情不是你不爱我，而是 “ 正在加载”（语文老师告诉我排比要至少写三句）。
 
 **这是为什么呢**
@@ -97,3 +99,5 @@ source_link: http://www.alloyteam.com/2015/10/css3-in-loading-animation/
  css3 动画十分简单有趣，只要通过简单的平移变换的组合就可以做出很多可爱的动效。
 
  如果 loading 动画不再是菊花，那么等待也不再是件痛苦的事了。
+
+<!-- {% endraw %} - for jekyll -->

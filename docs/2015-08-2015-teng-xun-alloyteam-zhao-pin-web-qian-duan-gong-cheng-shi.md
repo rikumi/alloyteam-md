@@ -5,6 +5,8 @@ author: TAT.Alloy
 source_link: http://www.alloyteam.com/2015/08/2015-teng-xun-alloyteam-zhao-pin-web-qian-duan-gong-cheng-shi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 > 腾讯 AlloyTeam 诚邀您加入团队，一起打造最好用的在线文档
 
 腾讯文档的推出标志着腾讯正式进军文档办公领域，目前市场反馈和项目前景都非常好，AlloyTeam 正在寻找优秀小伙伴加入腾讯文档项目，一起做业界最好的在线文档。 本次招聘中级、高级 web 工程师，岗位信息如下：
@@ -61,3 +63,5 @@ AlloyTeam 是国内影响力最大的前端团队之一，核心成员来自前 
 
 PS：腾讯文档在 2018.4.18 正式对外发布，也许你已经看到过朋友圈流传的这个截图，关于一个需求也需要提 8 年的小马哥。  
 ![](http://www.alloyteam.com/wp-content/uploads/2018/05/C636020E@6DEA48105-02-14-31-56.png)
+
+<!-- {% endraw %} - for jekyll -->

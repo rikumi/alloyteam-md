@@ -5,6 +5,8 @@ author: TAT.will
 source_link: http://www.alloyteam.com/2015/07/flow-a-static-type-checker-for-javascript-from-facebook/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 起源
 
 众所周知，js 是一门弱类型的语言，类型转换往往隐含在各种业务代码中，同时也埋下了不少的坑。比如以下代码
@@ -104,3 +106,5 @@ flow 提供了后台静默运行的方式，可以只检测改变的文件部分
 
 参考文档：<http://flowtype.org/docs/getting-started.html>  
 <https://code.facebook.com/posts/1505962329687926/flow-a-new-static-type-checker-for-javascript/>
+
+<!-- {% endraw %} - for jekyll -->

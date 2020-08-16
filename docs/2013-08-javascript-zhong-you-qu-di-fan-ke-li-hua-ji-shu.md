@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2013/08/javascript-zhong-you-qu-di-fan-ke-li-hua-ji-shu/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 反柯里化 (uncurrying, 非 currying) 的话题来自 javascript 之父 Brendan Eich 去年的一段 twitter. 近几天研究了一下，觉得这个东东非常有意思，分享一下。先忘记它的名字，看下它能做什么.
 
 [![](http://www.alloyteam.com/wp-content/uploads/2013/08/1.gif "1")](http://www.alloyteam.com/wp-content/uploads/2013/08/1.gif)
@@ -117,3 +119,5 @@ return this.length;
 var push = Array.prototype.push.uncurrying();  
 push( obj, 'first' );  
 [![](http://www.alloyteam.com/wp-content/uploads/2013/08/14.gif "14")](http://www.alloyteam.com/wp-content/uploads/2013/08/14.gif)
+
+<!-- {% endraw %} - for jekyll -->

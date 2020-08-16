@@ -5,6 +5,8 @@ author: TAT.Cson
 source_link: http://www.alloyteam.com/2015/06/h5-ye-mian-di-kua-webview-yu-la-qu-shu-ju-chang-shi/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 对于传统的页面模型来说，数据的拉取 + 渲染模型如下：
 
 [![1](http://www.alloyteam.com/wp-content/uploads/2015/06/1.jpg)](http://www.alloyteam.com/wp-content/uploads/2015/06/1.jpg)
@@ -26,3 +28,5 @@ source_link: http://www.alloyteam.com/2015/06/h5-ye-mian-di-kua-webview-yu-la-qu
 由于客户端接口通信速度比网络通信要快，因此可借此减少首屏数据渲染的等待时间，另外也同时可以改善二次渲染的问题：
 
 [![2](http://www.alloyteam.com/wp-content/uploads/2015/06/21.jpg)](http://www.alloyteam.com/wp-content/uploads/2015/06/21.jpg)
+
+<!-- {% endraw %} - for jekyll -->

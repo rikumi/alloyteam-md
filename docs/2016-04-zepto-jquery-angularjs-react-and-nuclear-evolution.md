@@ -5,6 +5,8 @@ author: TAT.dnt
 source_link: http://www.alloyteam.com/2016/04/zepto-jquery-angularjs-react-and-nuclear-evolution/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 写在前面  
 
 * * *
@@ -326,3 +328,5 @@ new TodoApp({ items: [] }, "#todoListContainer");
 Github： <https://github.com/AlloyTeam/Nuclear>
 
 感谢阅读～～
+
+<!-- {% endraw %} - for jekyll -->

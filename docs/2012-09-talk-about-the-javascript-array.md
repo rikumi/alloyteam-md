@@ -5,6 +5,8 @@ author: TAT.svenzeng
 source_link: http://www.alloyteam.com/2012/09/talk-about-the-javascript-array/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 Javascript 里的数组对象构建自 Array 构造器。比如:  
 var ary = new Array (1, 2, 3) 或者 var ary = \[ 1, 2, 3 ]
 
@@ -157,3 +159,5 @@ Array.prototype.push.call( obj, ''first" );
 alert ( obj.length ); //1
 alert( obj[0] ) //  'first"
 ```
+
+<!-- {% endraw %} - for jekyll -->

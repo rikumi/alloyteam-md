@@ -5,6 +5,8 @@ author: TAT.yunsheng
 source_link: http://www.alloyteam.com/2015/01/chrome-devtools-blackbox/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 代码难免会有 Bug，每次我们在 Chrome 调试代码时，总是会进入各种各样的库代码（比如 jQuery、Zepto），但实际上很多时候我们并不希望这样，要是能把这些库代码 “拉黑” 多好啊。
 
 广大码农喜闻乐见的事情，隔壁家火狐已经实现了的功能，而且也有人给 Chromium 提了 [Issue-407024](https://code.google.com/p/chromium/issues/detail?id=407024%20%E2%80%9CIssue%E2%80%9D)。自然 Chrome 最终也提供了这个功能 --**Blackbox**。**Blackbox** 允许屏蔽指定的 JS 文件，这样调试的时候就会绕过它们了。
@@ -64,3 +66,5 @@ _注意_：如果项目对 JS 文件做了 MD5 重命名的话，建议在 **Set
 参考
 
 -   [官方说明](https://developer.chrome.com/devtools/docs/blackboxing "\[官方文档] Blackbox JavaScript Source Files")
+
+<!-- {% endraw %} - for jekyll -->

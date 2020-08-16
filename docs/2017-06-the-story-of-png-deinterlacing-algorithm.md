@@ -5,6 +5,8 @@ author: june01
 source_link: http://www.alloyteam.com/2017/06/the-story-of-png-deinterlacing-algorithm/
 ---
 
+<!-- {% raw %} - for jekyll -->
+
 ## 前言
 
 前文已经讲解过如何解析一张 png 图片，然而对于扫描算法里只是说明了逐行扫描的方式。其实 png 还支持一种隔行扫描技术，即 Adam7 隔行扫描算法。
@@ -156,3 +158,5 @@ return pixelsBuffer;
 -   <https://www.w3.org/TR/PNG/>
 -   <http://www.libpng.org/pub/png/>
 -   <https://en.wikipedia.org/wiki/Portable_Network_Graphics>
+
+<!-- {% endraw %} - for jekyll -->

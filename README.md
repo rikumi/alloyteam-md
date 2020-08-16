@@ -8,7 +8,7 @@
 
 ## 演示站
 
-https://rikumi.dev/alloyteam-md/
+用 GitHub Pages 托管的简易演示站：https://rikumi.dev/alloyteam-md/
 
 ## 使用
 

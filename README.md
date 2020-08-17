@@ -21,7 +21,7 @@ COS_BUCKET=<COS 的 Bucket>
 COS_REGION=<COS 的 Region>
 ```
 
-然后运行 `npm run start` 即可在 `docs` 里看到生成的文章。
+然后运行 `npm run build` 即可在 `docs` 里看到生成的文章。
 
 ## 效果
 

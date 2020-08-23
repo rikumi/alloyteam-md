@@ -71,159 +71,18 @@ counterB(); // 2
 在函数定义的时候，他还获得 \[\[scope]]。这个是里面包含该函数的作用域链，初始值为引用着上一层作用域链里面所有的作用域，后面执行的时候还会将 AO 对象添加进去 。作用域链就是执行上下文对象的集合，这个集合是链条状的。
 
 ```javascript
-function a() {
-    // （1）创建 a函数的AO对象：{ x: undfind,  b: function(){...}  , 作用域链上层：window的AO对象}
-    var x = 1;
-    function b() {
-        // （3）创建 b函数的AO对象：{ y: undfind , 作用域链上层：a函数AO对象}
-        var y = 2; // （4）b函数的AO对象：{ y: 2 , 作用域链上层：a函数AO对象}
-        console.log(x, y); // 在 b函数的AO对象中没有找到x, 会到a函数AO对象中查找
-    } //（2）此时 a函数的AO对象：{ x: 1,  b: function(){...} , 作用域链上层：window的AO对象}
-    b();
-}
-a();
+function a () {
+    // （1）创建 a函数的AO对象：{ x: undfind,  b: function(){...}  , 作用域链上层：window的AO对象}
+    var x = 1;
+    function b () {
+        // （3）创建 b函数的AO对象：{ y: undfind , 作用域链上层：a函数AO对象}
+        var y = 2;
+        // （4）b函数的AO对象：{ y: 2 , 作用域链上层：a函数AO对象}
+        console.log(x, y);  // 在 b函数的AO对象中没有找到x, 会到a函数AO对象中查找
+    }
+    //（2）此时 a函数的AO对象：{ x: 1,  b: function(){...} , 作用域链上层：window的AO对象}
+    b(
 ```
-
-正常情况函数每次执行后 AO 对象都被销毁，且每次执行时都是生成新的 AO 对象。我们得出这个结论： 只要是这个函数每次调用的结果不一样，那么这个函数内部一定是使用了函数外部的变量。
-
-#### 垃圾回收
-
-如何确定哪些内存需要回收，哪些内存不需要回收，这依赖于**活对象**这个概念。我们可以这样假定：**一个对象为活对象当且仅当它被一个根对象 或另一个活对象指向**。根对象永远是活对象。
-
-```javascript
-function a() {
-    var x = 1;
-    function b() {
-        var y = 2; // b函数执行完了，b函数AO被销毁，y 被回收
-    }
-    b(); //a 函数执行完了，a函数AO被销毁, x 和 b 都被回收
-}
-a();
-// 这里是在全局下，window中的 a 直到页面关闭才被回收。
-```
-
-#### 分析闭包结构
-
-```javascript
-// 生成闭包的函数
-function counterCreator() {
-    // 被返回函数所依赖的变量
-    var index = 1; // 被返回的函数
-    function counter() {
-        return index++;
-    }
-    return counter;
-}
-// 被赋值为闭包函数
-var counterA = counterCreator();
-// 使用
-counterA();
-```
-
-闭包的创造函数必定包含两部分：
-
-1.  一些闭包函数执行时依赖的变量，每次执行闭包函数时都能访问和修改
-2.  返回的函数，这个函数中必定使用到上面所说的那些变量
-
-```javascript
-// 被赋值的闭包函数
-var counterA = counterCreator();
-var counterB = counterCreator();
-```
-
-而上面这两句代码很重要，它其实是把闭包函数赋值给了一个变量，这个变量是一个活对象，这活对象引用了闭包函数，闭包函数又引用了 AO 对象，所以这个时候 AO 对象也是一个活对象。此时闭包函数的作用域链得以保存，不会被垃圾回收机制所回收。
-
-当我们想重新创建一个新的计数器时，只需要重新再调用一次 `counterCreator`， 他会新生成了一个新的执行期上下文，所以 `counterB` 与 `counterA` 是互不干扰的。
-
-`counterCreator` 执行  
-![](http://www.alloyteam.com/wp-content/uploads/2019/07/counterCreatorDo.png)
-
-`counterCreator` 执行完毕，返回 `counter`  
-![](http://www.alloyteam.com/wp-content/uploads/2019/07/counterCreatorDone-1.png)
-
-### 总结
-
-闭包的原理，就是把闭包函数的作用域链保存了下来。
-
-### 使用闭包
-
-带你手写一个简单的防抖函数，趁热打铁。
-
-第一步，先把闭包的架子搭起来，因为我们已经分析了闭包生成函数内部一定有的两部分内容。
-
-```javascript
-function debunce(func, timeout) {
-    // 闭包函数执行时依赖的变量，每次执行闭包函数时都能访问和修改
-    return function () {
-        // 这个函数最终会被赋值给一个变量
-    };
-}
-```
-
-第二步： 把闭包第一次执行的情况写出来
-
-```javascript
-function debunce(func, timeout) {
-    timeout = timeout || 300;
-    return function (...args) {
-        var _this = this;
-        setTimeout(function () {
-            func.apply(_this, args);
-        }, timeout);
-    };
-}
-```
-
-第三步： 加上一些判断条件。就像我们最开始写计数器的 `index` 一样，不过这一次你不是把变量写在全局下，而是写在闭包生成器的内部。
-
-```javascript
-function debunce(func, timeout) {
-    timeout = timeout || 300;
-    var timer = null; // 被闭包函数使用
-    return function (...args) {
-        var _this = this;
-        clearTimeout(timer); // 做一些逻辑让每次执行效果可不一致
-        timer = setTimeout(function () {
-            func.apply(_this, args);
-        }, timeout);
-    };
-}
-// 测试：
-function log(...args) {
-    console.log("log: ", args);
-}
-var d_log = debunce(log, 1000);
-d_log(1); // 预期：不输出
-d_log(2); // 预期：1s后输出
-setTimeout(function () {
-    d_log(3); // 预期：不输出
-    d_log(4); // 预期：1s后输出
-}, 1500);
-```
-
-### 闭包运用
-
-闭包用到的真的是太多了，再举几个例子再来巩固一下：
-
-#### 模块化
-
-例 NodeJS 模块化原理：  
-NodeJS 会给每个文件包上这样一层函数，引入模块使用 `require`，导出使用 `exports`，而那些文件中定义的变量也将留在这个闭包中，不会污染到其他地方。
-
-    (funciton(exports, require, module, __filename, __dirname) {
-        /* 自己写的代码  */
-    })();
-
-#### 高阶函数
-
-一些使用闭包的经典例子:
-
--   [节流函数](https://github.com/huyaocode/webKnowledge/blob/master/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81.md#%E8%8A%82%E6%B5%81-throttle)
--   [柯里化（Currying）](https://github.com/huyaocode/webKnowledge/blob/master/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E6%9F%AF%E9%87%8C%E5%8C%96.md)
--   [组合（Composing）](https://github.com/huyaocode/webKnowledge/blob/master/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/compose.md)
--   [bind 的实现](https://github.com/huyaocode/webKnowledge/blob/master/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/bind%E3%80%81apply%E5%AE%9E%E7%8E%B0.md)
-
-最后，如果你对闭包有更好的理解或者我文章里写的不好的地方，还请指教。
 
 
 <!-- {% endraw %} - for jekyll -->

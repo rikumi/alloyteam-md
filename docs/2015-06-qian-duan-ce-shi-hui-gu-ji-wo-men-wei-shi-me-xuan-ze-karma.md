@@ -79,81 +79,23 @@ Karma 是一个测试任务管理工具，可以很容易和 Jasmine、Mocha 等
 
 所以目前在各大开源项目中使用，下面是使用 `Q.js` 进行测试的完整输出：
 
-```javascript
-bogon:Q.js miniflycn$ gulp test
-[23:58:30] Using gulpfile ~/github/Q.js/gulpfile.js
-[23:58:30] Starting 'test'...
-INFO [framework.browserify]: 70617 bytes written (0.30 seconds)
-INFO [framework.browserify]: bundle built
-INFO [karma]: Karma v0.12.35 server started at http://localhost:9876/
-INFO [launcher]: Starting browser Chrome
-INFO [launcher]: Starting browser PhantomJS
-INFO [Chrome 41.0.2272 (Mac OS X 10.10.2)]: Connected on socket YFLQOvttbrfH9Mmxvqeu with id 10368837
-WARN [web-server]: 404: /favicon.ico
-INFO [PhantomJS 1.9.8 (Mac OS X 0.0.0)]: Connected on socket E1mb7b7zs7Ugi4u-vqev with id 68559341
- 
-Start:
-  data
-    ✔ should able to get a vm data
-    ✔ should able to set a vm data
-    ✔ should able to pop a vm data
-    ✔ should able to unshift a vm data
-    ✔ should able to shift a vm data
-    ✔ should able to call indexOf for a DataArray
-    ✔ should able to call splice for a DataArray
-    ✔ should return itself when key is undefined
-    ✔ should able to watch vm change
-    ✔ should able traversing a array which has some property
-    ✔ should able to watch push method
-  class
-    ✔ should able to define & require a hello component
-    ✔ should able to create a child component
-    ✔ should able to set the data of a children component
-  custom
-    ✔ should able to create a custom filter
-    ✔ should able to toggle class
-    ✔ should able to set a class
-  if
-    ✔ should able to use if directive
-  attrbute
-    ✔ should able to set src
-    ✔ should able to set attribute
-  on
-    ✔ should able bind event
-  repeat
-    ✔ should able repeat
-    ✔ should able push a data
-    ✔ should able splice a data
-    ✔ should able multiple repeat
-    ✔ should not throw a error when repeat element has been modified
-    ✔ should throw a error when a filter hasn't implemented
-    ✔ should able to use double repeat
-  utils
-    ✔ should find a element
-    ✔ should able to copy a array use slice
-    ✔ should able check contains
-    ✔ should able to set and get data
-    ✔ should able to add & remove event
-    ✔ should able to extend objects
-    ✔ should able to extend from multiple srouces
-    ✔ should able to add & remove class
-    ✔ should able to check a object
- 
-Finished in 2.447 secs / 2.318 secs
- 
-SUMMARY:
-✔ 78 tests completed
- 
-```
-
-在这个构成中，Karma 会根据我们设定的配置，自动在本地启动 `Chrome` 和 `PhantomJS` 进行测试。
-
-那么我们为什么选择用 Karma 来测试呢？
-
--   方便集成测试
--   较为通用的开源解决方案，google 出品
--   Q.js 是一个 js 库，不需要像素级测试，由于是程序员我们也不需要录制测试，我们需要的是静态测试（开发阶段）、以及持续集成测试（集成阶段）
--   可以根据不同环境，选择不同浏览器进行测试。例如原来我们只能使用 `PhantomJS` 进行测试，现在我们可以在集成系统中使用 `Firefox` 和 `PhantomJS` 进行测试，在本地环境我们还可以 `Chrome`、`IE` 进行自动化测试。如果有钱，我们更可以购买 `Sauce Labs`（关键没钱＝ ＝）的服务来得到更多浏览器支持。
+    bogon:Q.js miniflycn$ gulp test
+    [23:58:30] Using gulpfile ~/github/Q.js/gulpfile.js
+    [23:58:30] Starting 'test'...
+    INFO [framework.browserify]: 70617 bytes written (0.30 seconds)
+    INFO [framework.browserify]: bundle built
+    INFO [karma]: Karma v0.12.35 server started at http://localhost:9876/
+    INFO [launcher]: Starting browser Chrome
+    INFO [launcher]: Starting browser PhantomJS
+    INFO [Chrome 41.0.2272 (Mac OS X 10.10.2)]: Connected on socket YFLQOvttbrfH9Mmxvqeu with id 10368837
+    WARN [web-server]: 404: /favicon.ico
+    INFO [PhantomJS 1.9.8 (Mac OS X 0.0.0)]: Connected on socket E1mb7b7zs7Ugi4u-vqev with id 68559341
+     
+    Start:
+      data
+        ✔ should able to get a vm data
+        ✔ should able to set a vm data
+        ✔ should able to pop a 
 
 
 <!-- {% endraw %} - for jekyll -->

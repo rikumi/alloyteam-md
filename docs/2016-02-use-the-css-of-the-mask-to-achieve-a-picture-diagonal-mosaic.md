@@ -68,8 +68,90 @@ OK，先看代码，然后我再来解释。
         background: url(img/right.jpg);
         background-size: cover;
         width: 100%;
-        height: 10
+        height: 100px;
+    }
 ```
+
+OK，看下效果
+
+[![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035703Jiv.png)](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035703Jiv.png)
+
+小明：尼玛，这不是坑爹么，这么简单谁不会？
+
+小朋友，别急，我们两个主角还没上了。
+
+#### **画个斜线**
+
+为了实现斜线拼接，你总得有个斜线吧？把 img-right 的背景换成一个带有 “斜线” 的图，这个就不用 “ 真” 图片啦，CSS 渐变就能完成，如下：
+
+```css
+    .img-right{
+        background: -webkit-linear-gradient(left top, blue 50%, white 50%);
+    }
+```
+
+![QQ 截图 20160204112221](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035703IQS.png)
+
+好，把背景换成真实的美女，渐变图作为 mask
+
+```css
+.img-right{
+    background: url(img/right.jpg);
+    background-size: cover;
+    -webkit-mask-image: -webkit-linear-gradient(left top, blue 50%, white 50%);
+}
+```
+
+But，如果你这么做了，会发现看到的是完整的图，并没有被遮盖，跟下图一样。
+
+[![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035703Jiv.png)](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035703Jiv.png)
+
+这是因为 css mask 的原理是，它只会把遮罩图里透明像素所对应的原图部分进行隐藏，而我们的渐变图是完全不透明的（我们是蓝白色相间的），所以没有遮罩效果。那么把蓝色改成透明试试。
+
+```css
+.img-right{
+    background: url(img/right.jpg);
+    background-size: cover;
+    -webkit-mask-image: -webkit-linear-gradient(left top, transparent 50%, white 50%);
+}
+```
+
+[![QQ 截图 20160204113645](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035704fmA.png)](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035704fmA.png)
+
+当当当～～美女只显示一半啦！♪(^∇^\*)
+
+#### **层叠**
+
+最后，把第二张图层在第一章上面，由于第二张图左边一半都是透明的，背景里的美女也能直接透过来啦。
+
+```css
+.img-right{
+    position: absolute;
+    left: 0;
+    top: 0; 
+}
+```
+
+[![拼接效果图](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/0357027HZ.png)](http://demo.imatlas.com/use-css-mask-slash-achieve-image-stitching.html)
+
+看下最终 img-right 所需要的样式代码
+
+```css
+.img-right{
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: url(img/right.jpg);
+        background-size: cover;
+        -webkit-mask-image: -webkit-linear-gradient(left top, transparent 50%, white 50%);
+        width: 100%;
+        height: 100%;
+}
+```
+
+怎么样，很简单是吧？
+
+CSS3 有很多新鲜（其实这个不新鲜了～）的特性可以实现很多有趣的应用，如果你有其他方案，欢迎留言讨论，O (∩\_∩) O 谢谢阅读！
 
 
 <!-- {% endraw %} - for jekyll -->

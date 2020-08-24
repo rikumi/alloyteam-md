@@ -59,8 +59,124 @@ this 在被赋值之前会一直保持为 undefined, 这意味着当一个构造
 
 ```javascript
 function Person(name) {
-    this.name 
+    this.name = name;
+}
+//在严格模式中会报错
+var me = Person("Nicholas");
 ```
+
+在上面的代码中，Person 构造函数运行时因为之前没有 new, 函数中的 this 会保留为 undefined, 由于你不能为 undefined 设置属性，上面的代码会抛出错误。 在非 strict 模式环境中，没有被复制的 this 会默认指向 window 全局变量，运行的结果将是意外的为 window 全局变量设置 name 属性。
+
+### 防止重名
+
+当编写大量代码时，对象属性和函数参数很容易一不小心被设置成一个重复的名字。严格模式在这种情况下会显性的抛出错误
+
+```javascript
+//重复的变量名,在严格模式下会报错
+function doSomething(value1, value2, value1) {
+    //code
+}
+//重复的对象属性名,在严格模式下会报错:
+var object = {
+    foo: "bar",
+    foo: "baz",
+};
+```
+
+以上的代码在严格模式中都会被认为是语法错误而在执行前就让你能得到提示。
+
+### 安全的 eval ()
+
+虽然 eval () 语句最终没有被移除，但在严格模式中仍然对它进行了一些改进。最大的改变是在 eval () 中执行的变量和函数申明不会直接在当前作用域中创建相应变量或函数，例如:
+
+```javascript
+(function () {
+    eval("var x = 10;"); // 非严格模式中,alert 10 // 严格模式中则因x未被定义而抛出异常,
+    alert(x);
+})();
+```
+
+任何在 eval () 执行过程中创建的变量或者函数保留在 eval () 中。但你能明确的从 eval () 语句的返回值来获取 eval () 中的执行结果，例如:
+
+```javascript
+(function () {
+    var result = eval("var x = 10, y = 20; x + y"); // 在strict或非strict模式中都能正确的运行余下的语句.(resulst为30)
+    alert(result);
+})();
+```
+
+### 对只读属性修改时抛出异常
+
+ECMAScript5 中还引入为对象的特定属性设为只读，或让整个对象不可修改的能力。 但在非严格模式中，尝试修改一个只读属性只会默不做声的失败。 在你和一些浏览器原生 API 打交道过程中，你很可能遇到这种情况。严格模式会在这种情况下明确的抛出异常，提醒你修改这个属性是不被允许的。
+
+```javascript
+var person = {};
+Object.defineProperty(person, "name" {
+    writable: false,
+    value: "Nicholas"
+});
+// 在非严格模式时,沉默的失败,在严格模式则抛出异常.
+person.name = "John";
+```
+
+上面的例子中，name 属性被设为只读，非严格模式中执行对 name 属性的修改不会引发报错，但修改不会成功。但严格模式则会明确的抛出异常。
+
+**_NOTE:_** 强烈建议你在使用任何 ECMAScript 属性特性指定时开启严格模式。
+
+### 如何使用？
+
+在现代浏览器中开启严格模式非常容易，只需要在 JavaScript 代码中出现以下指令即可
+
+    "use strict";
+
+虽然看上去上面的代码仅仅只是未赋予某个变量的字符串，它实际上起到指示 JavaScript 引擎切换到严格模式的作用 (不支持严格模式的浏览器会忽略以上代码，不会对后续的执行产生任何影响)。虽然你能把这个指令作用到全局或某个函数中，但这里还是要提醒，**_不要在全局环境下启用严格模式_**。
+
+```javascript
+// 请不要这么使用
+"use strict";
+function doSomething() {
+    // 这部分代码会运行于严格模式
+}
+function doSomethingElse() {
+    // 这部分代码也会运行于严格模式
+}
+```
+
+虽然上面的代码看起来不算一个大问题。但当你不负责维护页面中引入的全部代码时，这样使用 strict 模式会让你面临由于第三方代码没有为严格模式做好准备而引发的问题。
+
+因此，最好把开启严格模式的指令作用于函数中，例如:
+
+```javascript
+function doSomething() {
+    "use strict"; // 这个函数中的代码将会运行于严格模式
+}
+function doSomethingElse() {
+    // 这个函数中代码不会运行于严格模式
+}
+```
+
+如果你想让严格模式在不止一个函数中开启，请使用立即执行函数表达式 (immediately-invoked function expression ,IIFE):
+
+```javascript
+(function () {
+    "use strict";
+    function doSomething() {
+        // 这个函数运行于严格模式
+    }
+    function doSomethingElse() {
+        // 这个函数同样运行于严格模式
+    }
+})();
+```
+
+## 结论
+
+我强烈建议你从现在开始就启用 JavaScript 严格模式，它能帮你发现代码中未曾注意到的错误。不要在全局环境中启用，但你能尽量多的使用 IIFE (立即执行函数表达式) 来把严格模式作用到多个函数范围内。一开始，你会遇到之前未曾碰到过的错误提示，这是正常的。当启用严格模式后，请确保在支持的浏览器中做了测试，以发现新的潜在问题。一定不要仅仅在代码中添加一行”use strict” 就假定余下的代码能正常工作。最后，请在严格模式下开始编写更好的代码。
+
+## 注：
+
+[这里](http://caniuse.com/use-strict)有各款浏览器对严格模式支持情况的一个汇总。  
+可以在[这个页面](http://java-script.limewebs.com/strictMode/test_hosted.html)对当前浏览器的严格模式支持度进行测试。
 
 
 <!-- {% endraw %} - for jekyll -->

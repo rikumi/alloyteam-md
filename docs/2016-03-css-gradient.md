@@ -96,5 +96,210 @@ Gradient 有几个子特性，下面一一列出。
 
 所以，gradient line 的长度计算公式是：
 
+    abs(W * sin(A)) + abs(H * cos(A))
+    A是角度，W是gradient box的宽，H为高
+
+是不是看完有种然并卵的感觉：前端工程师哪里需要知道这些鬼啊。
+
+非也非也，在开发 UI 的时候，清楚的知道浏览器原理，才能在脑中根据视觉稿正确的解构出 CSS 代码，否则只能在那里傻傻的试了又试。
+
+🌰[栗子一](http://codepen.io/sxlzll/pen/vGYzPe)
+
+以下的写法效果其实都一样 
+
+```css
+  background-image: linear-gradient(yellow, green); // 默认方向为to bottom
+  background-image: linear-gradient(to bottom, yellow, green); // 使用关键字指定方向
+  background-image: linear-gradient(180deg, yellow, green); // 使用角度指定方向
+  background-image: linear-gradient(to top, green, yellow);
+  background-image: linear-gradient(to bottom, yellow 0%, green 100%); // 指定颜色断点
+```
+
+           [![CSS Gradient 4](http://www.alloyteam.com/wp-content/uploads/2016/02/41.png)](http://www.alloyteam.com/wp-content/uploads/2016/02/41.png)
+
+🌰[栗子二](http://codepen.io/sxlzll/pen/yOLmgR)
+
+当然多个颜色断点也可以：
+
+```css
+background-image: linear-gradient(to bottom, #FF0000 14.28%, #FFA500 14.28%, #FFA500 28.57%, #FFFF00 28.57%, #FFFF00 42.85%, #008000 42.85%, #008000 57.14%, #0000FF 57.14%, #0000FF 71.42%, #4B0082 71.42%, #4B0082 85.71%, #800880 85.71%, #800880 100%);
+```
+
+[![CSS Gradient 5](http://www.alloyteam.com/wp-content/uploads/2016/02/52.png)](http://www.alloyteam.com/wp-content/uploads/2016/02/52.png)
+
+这个例子还有个小技巧，Gradient 中两个不同颜色间默认是渐变的，但如果我们需要做出图中这种颜色明显变化的效果（锐变），就可以用同一个位置不同颜色的方式实现。
+
+🌰[栗子三](http://codepen.io/sxlzll/pen/ZWYEKa)
+
+在颜色上设置透明度渐变
+
+```css
+.gradient-1 {
+  background-image: url(http://a57.foxnews.com/global.fncstatic.com/static/managed/img/fn2/876/493/EmmaWatsonBrown.jpg);
+  background-size: 100% 100%;
+}
+ 
+.gradient-2 {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url(http://a57.foxnews.com/global.fncstatic.com/static/managed/img/fn2/876/493/EmmaWatsonBrown.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+```
+
+效果如下，左边原图，右边增加了一层遮罩，这个效果其实是利用了 [CSS3 的多背景语法](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Background_and_Borders/Using_CSS_multiple_backgrounds)
+
+[![CSS Gradient 6](http://www.alloyteam.com/wp-content/uploads/2016/02/62-e1456750931790.png)](http://www.alloyteam.com/wp-content/uploads/2016/02/62-e1456750931790.png)
+
+更多例子可以在这里看 <http://lea.verou.me/css3patterns/>
+
+径向渐变（radial-gradient）  
+
+========================
+
+radial gradient 其实就是颜色从一个点以同心圆或者椭圆向外渐变。
+
+[![CSS Gradient 7](http://www.alloyteam.com/wp-content/uploads/2016/02/72.png)](http://www.alloyteam.com/wp-content/uploads/2016/02/72.png)
+
+简化版语法如下：
+
+    radial-gradient() = radial-gradient(
+      [ || ]? [ at ]? ,
+      <color-stop-list>
+    )
+
+-   position 用来指定渐变圆心的位置，默认为 center，[赋值规则](https://drafts.csswg.org/css-backgrounds-3/#position)与 background-positon 的类似；
+
+-   ending-shape 可以是 circle 或者 elipse，如果省略，则默认值与 size 相关，size 指定一个值就是圆形，否则是椭圆；
+
+-   size 可以是具体的值，也可以用关键字指定，默认值是 farthest-corner。如果是具体值，圆形需要一个数值，椭圆需要两个。关键字则包括：
+
+    -   closest-side 指 gradient box 某一边到盒子中心最近的距离；
+    -   farthest-side 指 gradient box 某一边到盒子中心最远的距离；
+    -   closest-corner 指 gradient box 某一顶点到盒子中心最近的距离；
+    -   farthest-corner 指 gradient box 某一顶点到盒子中心最远的距离；
+
+-   color-stop-list 与 linear-gradient 类似
+
+注意：
+
+-   size 的数值不能是负数
+-   W3C 规范规定，百分比的数值只能用于椭圆，不能用于圆形。
+-   position 的值可以是负数
+
+所以，复杂版语法如下：
+
+    radial-gradient() = radial-gradient(
+      [ [ circle               || ]                          [ at ]? , |
+        [ ellipse              || [ | ]{2} ]    [ at ]? , |
+        [ [ circle | ellipse ] || ]                  [ at ]? , |
+        at <position> ,
+      ]?
+      <color-stop> [ ,
+    ]+
+    )
+    <extent-keyword> = closest-corner | closest-side | farthest-corner | farthest-side
+
+🌰[栗子一](http://codepen.io/sxlzll/pen/vGEBRa)
+
+以下几种写法是等价的
+
+```css
+.gradient-1 {
+  background-image: radial-gradient(yellow, green);
+}
+ 
+.gradient-2 {
+  background-image: radial-gradient(ellipse at center, yellow 0%, green 100%);
+}
+ 
+.gradient-3 {
+  background-image: radial-gradient(farthest-corner at 50% 50%, yellow, green);
+}
+ 
+.gradient-4 {
+  background-image: radial-gradient(ellipse farthest-corner at 50% 50%, yellow, green);
+}
+```
+
+[![CSS Gradient 8](http://www.alloyteam.com/wp-content/uploads/2016/02/82.png)](http://www.alloyteam.com/wp-content/uploads/2016/02/82.png)
+
+🌰[栗子二](http://codepen.io/sxlzll/pen/xVbKyP)
+
+看下 size 各种关键字的效果
+
+```css
+.gradient-1 {
+  background-image: radial-gradient(circle closest-side at 30% 50%, yellow, green);
+}
+ 
+.gradient-2 {
+  background-image: radial-gradient(circle farthest-side at 30% 50%, yellow, green);
+}
+ 
+.gradient-3 {
+  background-image: radial-gradient(circle closest-corner at 30% 50%, yellow, green);
+}
+ 
+.gradient-4 {
+  background-image: radial-gradient(circle farthest-corner at 30% 50%, yellow, green);
+}
+```
+
+[![CSS Gradient 9](http://www.alloyteam.com/wp-content/uploads/2016/02/92.png)](http://www.alloyteam.com/wp-content/uploads/2016/02/92.png)
+
+圆心没设置在中心是因为矩形的对角线相等且平分，所以 closest-corner = farthest-corner，就没法比较差异了。
+
+重复渐变（Repeating Gradients）  
+
+============================
+
+基本语法与上面的线性渐变和径向渐变类似，就是增加了重复的特性。
+
+从 [Can I use](http://caniuse.com/#feat=css-repeating-gradients) 的数据看目前支持程度不乐观，PC 除了 IE 都还不错，移动端 Android4.0 以下都红 o (╯□╰) o。。
+
+但是了解下还是必要的
+
+[![CSS Gradient 10](http://www.alloyteam.com/wp-content/uploads/2016/02/102.png)](http://www.alloyteam.com/wp-content/uploads/2016/02/102.png)
+
+重复的规则简单说就是用最后一个颜色断点的位置减去第一个颜色断点位置的距离作为区间长度，不断的重复。比如 repeating-linear-gradient (red 10px, blue 50px)  就相当于 linear-gradient (..., red -30px, blue 10px, red 10px, blue 50px, red 50px, blue 90px, ...)
+
+至于首尾颜色距离为 0 等特殊情况，这里就不细说 了，可以到 [W3C 规范](https://drafts.csswg.org/css-images-3/#funcdef-repeating-radial-gradient)自行研究。
+
+🌰[栗子](http://codepen.io/sxlzll/pen/EKxdKN)
+
+```css
+div {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 1px solid blue;
+  float: left;
+}
+ 
+.repeat-linear {
+  background-image: repeating-linear-gradient( 45deg, white, white 10px, red 10px, red 20px);
+}
+ 
+.repeat-radial {
+  background: repeating-radial-gradient( circle at bottom left, white, white 10px, red 10px, red 20px);
+}
+```
+
+[![CSS Gradient 11](http://www.alloyteam.com/wp-content/uploads/2016/02/112.png)](http://www.alloyteam.com/wp-content/uploads/2016/02/112.png)
+
+根据上面说的规则，这个例子里的区间长度是首尾颜色的位置之差，是 20px。
+
+我们可以验证下，两张图里都有约 7 个红白条，矩形宽高均 100px，对角线则是约 140px，140px/7=20px，bingo！
+
+注：本文例子的代码在 [codepen](http://codepen.io/collection/Xkkwve/) 可以查看
+
+参考文章  
+
+=======
+
+1.  [W3C: Gradients](https://drafts.csswg.org/css-images-3/#gradients)
+2.  [CSS-Tricks: CSS Gradients](https://css-tricks.com/css3-gradients/)
+3.  [大漠：CSS3 Gradient](http://www.w3cplus.com/content/css3-gradient)
+4.  MDN: CSS [linear-graient()](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient), [radial-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/radial-gradient), [Using CSS gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients)
+
 
 <!-- {% endraw %} - for jekyll -->

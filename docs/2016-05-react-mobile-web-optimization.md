@@ -150,5 +150,205 @@ export default class List extends Component { ... }
 
 这样写除了保证在父元素那一层知晓数据 (key 值）不同需要重新渲染之外，也保证了 React 底层渲染知道这是两组不同的数据。在 React 源文件里有一个 ReactChildReconciler.js 主要是写 children 的渲染逻辑。其中的 updateChildren 里面有具体如何比较前后 children，然后再决定是否要重新渲染。在比较的时候它调用了 shouldUpdateReactComponent 方法。我们看到它有对 key 值做比较。在两个列表中有不同的 key，在数据相似的情况下，能保证两者切换的时候能重新渲染。
 
+```javascript
+function shouldUpdateReactComponent(prevElement, nextElement) {
+    var prevEmpty = prevElement === null || prevElement === false;
+    var nextEmpty = nextElement === null || nextElement === false;
+    if (prevEmpty || nextEmpty) {
+        return prevEmpty === nextEmpty;
+    }
+    var prevType = typeof prevElement;
+    var nextType = typeof nextElement;
+    if (prevType === "string" || prevType === "number") {
+        return nextType === "string" || nextType === "number";
+    } else {
+        return (
+            nextType === "object" &&
+            prevElement.type === nextElement.type &&
+            prevElement.key === nextElement.key
+        );
+    }
+}
+```
+
+#### Immutablejs 太大了
+
+上文也提到 Immutablejs 编译后的包也有 50kb。对于 PC 端来说可能无所谓，网速足够快，但对于移动端来说压力就大了。有人写了个 [seamless-immutable](https://github.com/rtfeldman/seamless-immutable)，算是简易版的 Immutablejs，只有 2kb，只支持 Object 和 Array。
+
+但其实数据比较逻辑写起来也并不难，因此再去 review 代码的时候，我决定尝试自己写一个，也是这个决定让我发现了更多的奥秘。
+
+针对 React 的这个数据比较的深比较 deepCompare，要点有 2 个：
+
+-   尽量使传入的数据扁平化一点
+-   比较的时候做一些限制，避免溢出栈
+
+先上一下列表页的代码，如下图。这里当时是学习了 PC 家校群的做法，将 component 作为 props 传入。这里的<Scroll> 封装的是滚动检测的逻辑，而<List> 则是列表页的渲染，<Empty> 是列表为空的时候展示的内容，<Loading> 是列表底部加载的显示横条。
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15650834/f629ef0c-26ad-11e6-8aae-6826ed95134f.png&objectId=1190000005599249&token=9103fba897d5ce056eaad83839f9a1dc)
+
+针对 deepCompare 的第 1 个要点，扁平化数据，我们很明显就能定位出其中一个问题了。例如<Empty>，我们传入了 props.hw，这个 props 包括了两个列表的数据。但这样的结构就会是这样
+
+```javascript
+props.hw = {
+    listMine: [
+        {...}, {...}, ...
+    ],
+    listAll: [
+        {...}, {...}, ...
+    ],
+}
+```
+
+但如果我们提前在传入之前判断当前在哪个列表，然后传入对应列表的数量，则会像这样：  
+props.hw = 20;
+
+两者比较起来，显示是后者简单得多。
+
+针对 deepCompare 第 2 点，限制比较的条件。首先让我们想到的是比较的深度。一般而言，对于 Object 和 Array 数据，我们都需要递归去进行比较，出于性能的考虑，我们都会限制比较的深度。
+
+除此之外，我们回顾一下上面的代码，我们将几个 React component 作为 props 传进去了，这会在 shouldComponentUpdate 里面显示出来。这些 component 的结构大概如下：
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15651086/d9a3e6ce-26af-11e6-84b8-724b7c35a7e4.png&objectId=1190000005599249&token=de0c849a91cf68f48bb5b048a096d75f)
+
+```javascript
+$$typeof // 类型
+_owner // 父组件
+_self: // 仅开发模式出现
+_source: //  仅开发模式出现
+_store //  仅开发模式出现
+key // 组件的key属性值
+props // 从传入的props
+ref // 组件的ref属性值
+type 本组件ReactComponent
+```
+
+因此，针对 component 的比较，有一些是可以忽略的，例如 $$typeof, \_store, \_self, \_source, \_owner。type 这个比较复杂，可以比较，但仅限于我们定好的比较深度。如果不做这些忽略，这个深比较将会比较消耗性能。关于这个 deepCompare 的代码，我放在了 [pure-render-deepCompare-decorator](https://github.com/lcxfs1991/pure-render-deepCompare-decorator)。
+
+不过其实，将 component 当作 props 传入更为灵活，而且能够增加组件的复用性，但从上面看来，是比较消耗性能的。看了官方文档之后，我们尝试换种写法，主要就是采用<Scroll> 包裹<List> 的做法，然后用 this.props.children 在<Scroll> 里面渲染，并将<Empty>, <Loading> 抽出来。
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15651574/0a952a24-26b3-11e6-9b35-b6dc3f2407ee.png&objectId=1190000005599249&token=f153386699e0751f74e0d1f3ca38ed6a)
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15651568/06274ff8-26b3-11e6-9310-26f7d71cb67e.png&objectId=1190000005599249&token=0e0e6a883891082e897bc2b69fcfe6e3)
+
+本以为 React 可能会对 children 这个 props 有什么特殊处理，但它依然是将 children 当作 props，传和 shouldComponentUpdate，这就迫使父元素<Scroll> 要去判断是否要重新渲染，进而跳到子无素<List> 再去判断是否要进入步判断。
+
+那<Scroll> 究竟要不要去做这重判断呢？针对列表页这种情况，我们觉得可以暂时不做，由于<Scroll> 包裹的元素不多，<Scroll> 可以先重复渲染，然后再交由子元素<List> 自己再去判断。这样我们对 [pure-render-deepCompare-decorator](https://github.com/lcxfs1991/pure-render-deepCompare-decorator) 要进行一些修改，当轮到 props.children 判断的时候，我们要求父元素直接重新渲染，这样就能交给子元素去做下一步的处理。
+
+如果<Scroll> 包裹的只有<List> 还好，如果还有像<Empty>, <Loading> 甚至其它更多的子元素，那<Scroll> 重新渲染会触发其它子元素去运算，判断自己是否要做重新渲染，这就造成了浪费。react 的官方论坛上已经有人提出，React 的将父子元素的重复渲染的决策都放在 shouldComponentUpdate，可能导致了耦合 [Shouldcomponentupdate And Children](https://discuss.reactjs.org/t/shouldcomponentupdate-and-children/2055)。
+
+性能优化小 Tips  
+
+* * *
+
+这里归纳了一些其它性能优化的小 Tips
+
+### 请慎用 setState，因其容易导致重新渲染
+
+既然将数据主要交给了 Redux 来管理，那就尽量使用 Redux 管理你的数据和状态 state，除了少数情况外，别忘了 shouldComponentUpdate 也需要比较 state。
+
+### 请将方法的 bind 一律置于 constructor
+
+Component 的 render 里不动态 bind 方法，方法都在 constructor 里 bind 好，如果要动态传参，方法可使用闭包返回一个最终可执行函数。如：showDelBtn (item) { return (e) => {}; }。如果每次都在 render 里面的 jsx 去 bind 这个方法，每次都要绑定会消耗性能。
+
+### 请只传递 component 需要的 props
+
+传得太多，或者层次传得太深，都会加重 shouldComponentUpdate 里面的数据比较负担，因此，也请慎用 spread attributes（&lt;Component {...props} />）。
+
+### 请尽量使用 const element
+
+这个用法是工业聚在 React 讨论微信群里教会的，我们可以将不怎么变动，或者不需要传入状态的 component 写成 const element 的形式，这样能加快这个 element 的初始渲染速度。
+
+路由控制与拆包  
+
+* * *
+
+当项目变得更大规模与复杂的时候，我们需要设计成 SPA，这时路由管理就非常重要了，这使特定 url 参数能够对应一个页面。
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15652361/41e198b4-26b8-11e6-8e11-6a82e6878c81.png&objectId=1190000005599249&token=779fdcc529d17f4a023ad53f4b2dd143)
+
+PC 家校群整个设计是一个中型的 SPA，当 js bundle 太大的时候，需要拆分成几个小的 bundle，进行异步加载。这时可以用到 webpack 的异步加载打包功能，require。
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15652396/7cceff34-26b8-11e6-886f-755d7fe6d1cc.png&objectId=1190000005599249&token=ec2c95aba462e054e2dd903be95ac911)
+
+在重构手 Q 家校群布置页的时候，我们有不少的浮层，列表有布置页内容主浮层、同步到多群浮层、科目管理浮层以及指定群成员浮层。这些完全可以使用 react-router 进行管理。但是由于当时一早使用了 Immutablejs，js bundle 已经比较大，我们就不打算使用 react-router 了。但后面仍然发现包比重构前要大一些，因此为了保证首屏时间不慢于重构前，我们希望在不用 react-router 的情况下进行分包，其实也并不难，如下面 2 幅图：
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15652452/e5c08490-26b8-11e6-9210-83128fea8064.png&objectId=1190000005599249&token=d691bfbd7247bb7e1b4f07051e984209)
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15652444/d628272c-26b8-11e6-8524-4fa8321aa9ce.png&objectId=1190000005599249&token=ddbf28e79327800b57f6f335680a9a02)
+
+首先在切换浮层方法里面，使用 require.ensure，指定要加载哪个包。  
+在 setComponent 方法里，将 component 存在 state 里面。  
+在父元素的渲染方法里，当 state 有值的时候，就会自动渲染加载回来的 component。
+
+性能数据  
+
+* * *
+
+### 首屏可交互时间
+
+目前只有列表页发布外网了，我们比较了优化前后的首屏可交互时间，分别有 18% 和 5.3% 的提升。
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15652517/4c911874-26b9-11e6-8316-aa45bbe254c8.png&objectId=1190000005599249&token=eedb95a96fef6b696629fe9f55d9d3bb)
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15652518/4c986bba-26b9-11e6-8f03-c0eb0870c736.png&objectId=1190000005599249&token=dd78e5601da53ad03a99d532badf1715)
+
+### FPS 时间
+
+稍后补上
+
+React 性能优化军规  
+
+* * *
+
+我们在开发的过程中，将上面所论述的内容，总结成一个基本的军规，铭记于心，就可以保证 React 应用的性能不至于太差。
+
+### 渲染相关
+
+-   提升级项目性能，请使用 immutable (props、state、store)
+-   请 pure-render-decorator 与 immutablejs 搭配使用
+-   请慎用 setState，因其容易导致重新渲染
+-   谨慎将 component 当作 props 传入
+-   请将方法的 bind 一律置于 constructor
+-   请只传递 component 需要的 props，避免其它 props 变化导致重新渲染（慎用 spread attributes）
+-   请在你希望发生重新渲染的 dom 上设置可被 react 识别的同级唯一 key，否则 react 在某些情况可能不会重新渲染。
+-   请尽量使用 const element
+
+### tap 事件
+
+-   简单的 tap 事件，请使用 react-tap-event-plugin  
+    开发环境时，最好引入 webpack 的环境变量（仅在开发环境中初始化），在 container 中初始化。生产环境的时候，请将 plugin 跟 react 打包到一起（需要打包在一起才能正常使用，因为 plugin 对 react 有好多依赖），外链引入。
+
+目前参考了这个项目的打包方案：  
+<https://github.com/hartmamt/react-with-tap-events>  
+Facebook 官方 issue:<https://github.com/facebook/react/blob/bef45b0b1a98ea9b472ba664d955a039cf2f8068/src/renderers/dom/client/eventPlugins/TapEventPlugin.js>  
+React-tap-event-plugin github:  
+<https://github.com/zilverline/react-tap-event-plugin>
+
+-   复杂的 tap 事件，建议使用 tap component  
+    家校群列表页的每个作业的 tap 交互都比较复杂，出了普通的 tap 之外，还需要 long tap 和 swipe。因此我们只好自己封装了一个 tap component
+
+### Debug 相关
+
+-   移动端请慎用 redux-devtools，易造成卡顿
+-   Webpack 慎用 devtools 的 inline-source-map 模式  
+    使用此模式会内联一大段便于定位 bug 的字符串，查错时可以开启，不是查错时建议关闭，否则开发时加载的包会非常大。
+
+### 其它
+
+-   慎用太新的 es6 语法。  
+    Object.assign 等较新的类库避免在移动端上使用，会报错。
+
+Object.assign 目前使用 object-assign 包。
+
+或者使用 babel-plugin-transform-object-assign 插件。会转换成一个 extends 的函数：
+
+```javascript
+var _extends = ...;
+ 
+_extends(a, b);
+```
+
+如有错误，请斧正！
+
 
 <!-- {% endraw %} - for jekyll -->

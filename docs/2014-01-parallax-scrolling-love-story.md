@@ -69,5 +69,129 @@ window.addEventListener("scroll", function (e) {
 
 在 dom 结构上，把同一层的 dom 元素都放到一个 div 里面，html 结构如下。
 
+```c
+<div id="scene_back" class="scene">
+    <img id="pokemon1" src="./img/001.png">
+    <img id="pokemon4" src="./img/004.png">
+    <img id="pokemon7" src="./img/007.png">
+</div>
+<div id="scene_center" class="scene">
+    <img id="pokemon2" src="./img/002.png">
+    <img id="pokemon5" src="./img/005.png">
+    <img id="pokemon8" src="./img/008.png">
+</div>
+<div id="scene_front" class="scene">
+    <img id="pokemon3" src="./img/003.png">
+    <img id="pokemon6" src="./img/006.png">
+    <img id="pokemon9" src="./img/009.png">
+</div>
+```
+
+在页面滚动过程中，我们获取页面的 scrollTop 的值，根据不同参数值去设置各自 scene 的 top 值，这样滚动页面的时候，不同的速度就出来了
+
+```javascript
+var sceneBack = document.getElementById("scene_back"),
+    sceneCenter = document.getElementById("scene_center"),
+    sceneFront = document.getElementById("scene_front");
+var old_top1 = 0,
+    old_top2 = 200,
+    old_top3 = 700;
+addEvent(window, "scroll", onScroll);
+onScroll();
+function onScroll(e) {
+    var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+    sceneBack.style.top = old_top1 + scrollTop * 0.9 + "px";
+    sceneCenter.style.top = old_top2 + scrollTop * 0.7 + "px";
+    sceneFront.style.top = old_top3 + scrollTop * 0.3 + "px";
+}
+function addEvent(eventTarget, eventType, eventHandler) {
+    if (eventTarget.addEventListener) {
+        eventTarget.addEventListener(eventType, eventHandler, false);
+    } else {
+        if (eventTarget.attachEvent) {
+            eventType = "on" + eventType;
+            eventTarget.attachEvent(eventType, eventHandler);
+        } else {
+            eventTarget["on" + eventType] = eventHandler;
+        }
+    }
+}
+```
+
+由于女神在等待的关系，代码有点搓，也没有做兼容性，但是原理就是这样的。
+
+[demo3_scene](http://www.alloyteam.com/wp-content/uploads/2014/01/demo3_scene.html)
+
+这个 Demo 在非 IE6/7 下都能查看，只是，IE8 的效果并不太好。Firefox 效果最好。
+
+**这里还有个特殊情况：在 Chrome 下查看这个 Demo 请拖动滚动条，而不是滚动鼠标。**原因是 Chrome 浏览器对鼠标的滚动做了优化处理，滚动一个齿轮幅度，其他浏览器是触发十几次 scroll 事件，而 Chrome 只会触发一次。只有一帧的动画，大家想想就知道。这里可以考虑加入缓动动画，本 Demo 是基于原理说明和泡女神，具体可以留意下一篇博客优化篇
+
+两个 demo 完事后，很快地就交到女神手上，这次我在 demo 特意多加上几句（真的是几句？）表白，女神这次一定能发现的。而且，pokemon 都出来帮忙了，精心挑选的初代御三家来卖萌，女神一定被萌到在我广阔的胸怀，然后爱上我，我在爱情的滋润下，我很快就会升职加薪，当上总经理，出入 CEO，挑战白富美，走上人生巅峰。哈哈哈哈哈哈啊哈。
+
+“啊，欧巴好厉害哟～最后一次拜托你，能不能做个滚动的时候角色上下出现的效果。弄完我请你吃饭哟。”
+
+。。。。。。居然还是没有留意我的表白。。。但是，女神要请我吃饭了，想想都有点激动。不过请吃饭这事，应该反过来才对，我无数次幻想这样的场景：我在万众瞩目下，大喊 “女神我暗恋你好久了，我好喜欢你！我一定会追到你，然后我要带你去吃 KFC。”
+
+**【视差滚动一种效果实现】**  
+上下颠倒出现，这个跟原理三是一样的，唯独就是不是所有的元素都是往上升，而是一些元素上升，一些元素下沉。在计算 top 值的时候，不是 “加上”，变成 “减去” scrollTop 就会有相应的效果。亲自试了一下，效果就出来了，但是很明显有个问题，就是上升元素和下沉元素在同一水平线上的时候，这时却不是在页面正中间。这时候思考一下问题所在就好了。计算 top 的公式是下面
+
+```c
+newTop1 = oldTop1 + scrollTop * x1 ;   (x是个系数)
+newTop2 = oldTop2 - scrollTop * x2 ;   (x是个系数)
+```
+
+我们假设，oldTop 为 - 1000，oldTop2 为 1000，我们希望滚动到 500 的时候，两者在同一水平线上，这时 newTop1 和 newTop2 都相同为 500 才能再页面中心（注意不是 0，自个想想就明白）。这样得到 x1 为 2，x2 为 0。代码如下。
+
+```javascript
+var sona = document.getElementById("sona"),
+    ahri = document.getElementById("ahri");
+var old_top1 = -1000,
+    old_top2 = 1000;
+addEvent(window, "scroll", onScroll);
+onScroll();
+function onScroll(e) {
+    var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+    sona.style.top = old_top1 + scrollTop * 2 + "px";
+    ahri.style.top = old_top2 - scrollTop * 0 + "px";
+}
+function addEvent(eventTarget, eventType, eventHandler) {
+    if (eventTarget.addEventListener) {
+        eventTarget.addEventListener(eventType, eventHandler, false);
+    } else {
+        if (eventTarget.attachEvent) {
+            eventType = "on" + eventType;
+            eventTarget.attachEvent(eventType, eventHandler);
+        } else {
+            eventTarget["on" + eventType] = eventHandler;
+        }
+    }
+}
+```
+
+所以，如果在多种效果混合使用，希望滚动到某地方的时候，某两个 dom 元素在同一水平线上且在页面中间，代入参数，得到不同 x1，x2 即可。
+
+[demo4_reverse](http://www.alloyteam.com/wp-content/uploads/2014/01/demo4_reverse.html)
+
+这次精挑细选两个 LOL 美女来做素材，女神就可以看出我在游戏方面，和游戏方面，还有游戏方面的知识渊博。这次的任务非常简单，我很快的 Q 回女神。女神也表示了感激之情，并约定在那里吃饭。我们在 Q 上轻松的聊了起来。气氛也越来越好，看来时机成熟了。
+
+我 “聊到这么晚了，差不多要睡了”  
+女神 “嗯，都很晚了，今天晚上超冷”  
+我 “妹子，话说你需不需要一个又会暖被子，又会陪着你聊天的男朋。。。”  
+女神 “哈哈，不用了。我男朋友都趴在我身上，看着我跟你聊天很久了。
+
+。
+
+。。
+
+。。。
+
+。。。。。
+
+真是一个感动的爱（diao）情（si）故事
+
+[![yidama](http://www.alloyteam.com/wp-content/uploads/2014/01/yidama.jpg)](http://www.alloyteam.com/wp-content/uploads/2014/01/yidama.jpg)
+
 
 <!-- {% endraw %} - for jekyll -->

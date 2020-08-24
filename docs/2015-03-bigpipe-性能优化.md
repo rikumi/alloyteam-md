@@ -66,10 +66,76 @@ http.createServer(<span class="keyword">function</span>(request, response) {
     <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) {
         response.write(<span class="string">"<div id='"</span> + i + <span class="string">"'>"</span> + i + <span class="string">"</div>"</span>);
     }
-    response.write(&lt;span class=
+    response.write(<span class="string">"</div>"</span>);
+
+ 
+    <span class="keyword">var</span> down = <span class="number">6</span>;
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) {
+        http.get(<span class="string">"http&#x3A;//localhost:2000/?id="</span> + i, <span class="keyword">function</span>(res) {
+            res.on(<span class="string">'data'</span>, <span class="keyword">function</span>(chunk) {
+                response.write(chunk, <span class="string">'binary'</span>);
+            });
+
+ 
+            res.on(<span class="string">'end'</span>, <span class="keyword">function</span>() {
+                console.log(<span class="string">"down"</span>+down)
+                <span class="keyword">if</span>((--down )== <span class="number">0</span>) {
+                    response.end();
+                }
+            })
+        });
+    }
+    response.write(<span class="string">"</body></html>"</span>);
+
+ 
+}).listen(<span class="number">8080</span>);
+
+ 
+
+````
+
+模拟请求的代码：
+
+```html
+http.createServer(<span class="keyword">function</span>(request, response) {
+    <span class="comment">// Some delay upto upto 2 seconds</span>
+    <span class="keyword">var</span> delay = Math.round(Math.random() * <span class="number">2000</span>);
+ 
+    setTimeout(<span class="keyword">function</span>() {
+        <span class="keyword">var</span> params = url.parse(request.url, <span class="keyword">true</span>);
+        <span class="keyword">var</span> id = params.query.id;
+        response.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span> : <span class="string">"text/html"</span>});
+        <span class="keyword">var</span> content = <span class="string">"<span>Content of Module "</span> + id + <span class="string">"</span>"</span>;
+        response.write(<span class="string">"
+```html
+<script>"</span> +
+            <span class="string">"arrived('"</span> + id + <span class="string">"', '"</span> + content + <span class="string">"');"</span> +
+             <span class="string">"</script>
+````
+
+"</span>);
+        response.end();
+    }, delay);
+}).listen(<span class="number">2000</span>);
+
+ 
 
 ```
 
+一个框架
+----
+
+[https://github.com/bigpipe/bigpipe](https://github.com/bigpipe/bigpipe)
+
+> BigPipe is a radical new web framework for Node.JS. The general idea is to decompose web pages into small re-usable chunks of functionality called Pagelets and pipeline them through several execution stages inside web servers and browsers. This allows progressive rendering at the front-end and results in exceptional front-end performance.
+
+框架会有些重，小型开发场景下可以考虑自己实现
+
+存在的问题
+-----
+
+1.seo  
+设置 useagent，爬虫来的时候给完整页面（有淘宝同学说这里存在 seo 问题，是否有 seo 问题还待确认，因为本身页面是在一个请求内完成）
 ```
 
 

@@ -80,8 +80,110 @@ source_link: http://www.alloyteam.com/2012/06/nodejs-smart-merging-css-wizard-to
     ```css
     div{
         background-image: url(../images/tips_icons.png);
-     &nb
+        background-color: #fff;
+        background-position: 0 -40px;
+        background-repeat: no-repeat;
+        background-origin: border-box;
+        background-clip: content-box;
+    }
     ```
+
+    \\====>  
+
+    ```css
+    div{
+        background: #fff url(../images/sprite_1.png) -48px -48px no-repeat border-box content-box;
+    }
+    ```
+
+## 四、实现原理
+
+该脚本使用了使用 nodejs 实现，依赖 [CSSOM](https://github.com/NV/CSSOM)、[node-canvas](https://github.com/learnboost/node-canvas) 两个模块，排列图片的算法选用了 [bin-packing](https://github.com/jakesgordon/bin-packing) 算法，后续支持选择其他算法。具体实现代码就不展示了，请移步到 github（<https://github.com/iazrael/ispriter>）查看。这里看下主要的执行步骤，代码写的比较块，方法名都是随便想了个差不多意思的，反正能运行就行了，对不对？哈哈 ^\_^
+
+```javascript
+var main = function () {
+    var //...
+        configFile = process.argv[2]; //1.读取配置文件
+    config = readConfig(configFile); //2.读取所有css文件， readFiles方法已经把不合规定的文件过滤了
+    cssFileNameList = readFiles(config.cssRoot); //...
+    for (var i = 0, fileName; (fileName = cssFileNameList[i]); i++) {
+        cssContent = readFile(config.cssRoot + fileName); //3.用cssom.parse把cssText转换成js对象
+        styleSheet = parseCssToStyleSheet(cssContent); //4.把需要合并的图片url和cssRule收集起来
+        imageList = collectCSSRulesAndImages(styleSheet); //... //5.读取图片文件以及其大小
+        readImages(imageList); //6.使用bin-packing算法计算图片的位置
+        positionResult = positionImages(imageList); //... //7.输出合并后的图片 sprite，并修改cssRule的background属性
+        drawImageAndPositionBackground(
+            config.cssOutput,
+            spriteName,
+            canvasWidth,
+            canvasHeight,
+            imageList
+        ); //... //8.到最后了，输出修改后的css文件
+        writeFile(newFileName, styleSheet);
+    }
+};
+```
+
+省略了些无关紧要的 abc，主要步骤就是上面的 8 步了（天龙八部～～哈哈）。
+
+## 五、使用方法
+
+1.  把源代码拷下来（需要先安装 [CSSOM](https://github.com/NV/CSSOM) 和 [node-canvas](https://github.com/learnboost/node-canvas)）：  
+
+        git clone https://github.com/iazrael/ispriter.git
+2.  拷贝 src 下面的内容到项目目录，最好能改个名字如：spriter；
+3.  把 spriter 下的 config.example.json 拷贝出来，改成 config.json，并修改里面的配置；
+4.  在项目目录运行：  
+
+        node ./spriter/spriter.js config.json
+5.  嗯，可以执行后续的编译脚本了，就这么简单～
+
+可能这里改的比较多一点的就是 config.json 了，其实里面也没几个参数：
+
+    {
+        "cssRoot": "./../test/css/",//需要合并图片的css所在目录
+        "format": "png",//要合并的图片格式，可以这样写："png,jpg"
+        "algorithm": "growingpacker",//图片排列算法，目前只有这个一个...
+        "cssOutput": "./../test/output/css/",//css文件的输出目录
+        "imageOutput": "../images/",//图片的输出目录，相对于cssOutput
+        "outputPrefix": "sprite_",//合并后图片的名字前缀，其余字段用自增方式
+        "outputFormat": "png"//合并后的图片格式
+    }
+
+如何？基本不用怎么改吧，啦啦啦～
+
+## 六、不足与后续优化
+
+总的来说，基本上没什么大问题，只是 nodejs 的环境在 windows 下比较难搞，主要就是 node-canvas 的安装。cssom 是纯 js 实现的，因此可以放到项目目录；node-canvas 就得想想办法了。或许搞个 Web 在线版的法子不错。
+
+另外参数的配置可能还不够灵活，主要是自己用，没相应的需求难免有遗漏。还有参数名字也得斟酌下，免得歧义。
+
+哦，漏了几点：
+
+1.  图片大小是自增的，不支持设置；
+2.  不支持使用了 background-repeat：repeat-x or repeat-y 的图片分类合并；
+3.  这个年代还有下载源代码来执行这么二逼的事，要想法子打个包一步就位；
+
+这么一写，貌似还缺点还不少，呃，汗 - -||。不过在够用的基础上，后面有时间在优化啦～～
+
+欢迎踊跃提 bug～～
+
+\---------------- 2012-6-17 update ------------------------
+
+已经把所有依赖都打包到项目中，并已发到 npm（<http://search.npmjs.org/#/ispriter>）
+
+可以直接用下面的命令安装啦。
+
+    npm install ispriter
+
+使用方法：
+
+```javascript
+var spriter = require("ispriter");
+spriter.merge(configFileName);
+```
+
+BTW：isptriter 已经更新啦，请转向这里继续了解：[【更新】iSpriter – 智能合并 CSS 精灵图](http://www.alloyteam.com/2012/09/update-ispriter-smart-merging-css-sprite/ "【更新】iSpriter – 智能合并 CSS 精灵图")。
 
 
 <!-- {% endraw %} - for jekyll -->

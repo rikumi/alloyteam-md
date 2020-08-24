@@ -77,5 +77,90 @@ cp.on("exit", function () {
 
 创建子进程的 pro_a:
 
+```javascript
+var net = require("net");
+//使用UNIX domain socket
+var server = net.createServer(function (socket) {
+    socket.setEncoding("UTF8");
+    socket.on("data", function () {
+        //收到消息后，向请求方发送子进程相关信息
+        socket.write(
+            JSON.stringify({
+                pid: child_process.pid, //...
+            })
+        );
+    });
+});
+server.listen(socketPath + "resume_" + Date.now() + ".sock");
+```
+
+这样每个 pro_a 进程创建子进程之后，都会对应产生一个 sock 文件：
+
+![](http://images.cnblogs.com/cnblogs_com/Cson/290336/o_3.png)
+
+对于新的 pro_a 进程，第一步是获取所有 sock 文件，并进行连接：
+
+```javascript
+var getAllSocketFiles = function () {
+    var socketFiles;
+    try {
+        socketFiles = fs.readdirSync(socketPath);
+    } catch (ex) {
+        if (ex.code == "ENOENT") {
+            fs.mkdirSync(socketPath);
+        }
+        socketFiles = fs.readdirSync(socketPath);
+    }
+    return socketFiles;
+};
+```
+
+针对每个 sock 文件，创建 socket 进行连接，并发送消息请求：
+
+```javascript
+var socket = new net.Socket();
+socket.setEncoding("UTF8");
+socket.connect(this.socketName, function () {
+    socket.write(
+        JSON.stringify({
+            //请求对应的子进程信息
+        })
+    );
+});
+socket.on("data", function () {
+    data = JSON.parse(data); //获得对应子进程信息
+});
+```
+
+![](http://images.cnblogs.com/cnblogs_com/Cson/290336/o_5.png)
+
+这样 pro_a 进程就能从其他 pro\_进程中获取到信息。
+
+3. 能够重启 / 终止某个服务。
+
+由于我们设置了子程序在挂掉后会自动重启，因此我们需要增加一个命令让程序在需要时能正常关闭，例如：
+
+    pro_a -s 1140 //强制终止掉进程号为1140的子进程
+
+此时该 pro_a 进程需要连接所有其他 pro_a 进程并获取他们的子进程信息（就像上面 - l 那样），然后筛选出 pid 未 1140 的子进程，再次通过 socket 发送关闭指令，对应的 server 接收到关闭指令后把其子进程 kill 掉。
+
+![](http://images.cnblogs.com/cnblogs_com/Cson/290336/o_4.png)
+
+4. 为服务的运行记录日志。
+
+这个只需要 pro_a 监听子进程的事件，并实时写入 log 文件就 ok 了。并且我们可以通过命令让心的 pro_a 进程能够查看某个其他 pro_a 进程中子进程的 log，例如：
+
+    pro_a -L 1130 // 查看1130的子进程的log
+
+原理和 3 相似，获取所有 pro_a 进程信息，筛选出 pid 为 1130 的子进程，socket 发送获取 log 的指令，对应 server 把 log 信息返回。
+
+我把以上 pro_a 的功能以及更多其他功能封装成一个叫 Resume.js 的程序放倒 github 上，有兴趣的同学可以看看：
+
+[https://github.com/csonlai/Resume.js](https://github.com/csonlai/Resume.js "https&#x3A;//github.com/csonlai/Resume.js")
+
+其中包含了上面功能的实现源码。我们可以通过 Resume.js 进行简单的 node 进程管理。
+
+此文同步更新在 [http://www.cnblogs.com/Cson/p/4069868.html](http://www.cnblogs.com/Cson/p/4069868.html "http&#x3A;//www.cnblogs.com/Cson/p/4069868.html")
+
 
 <!-- {% endraw %} - for jekyll -->

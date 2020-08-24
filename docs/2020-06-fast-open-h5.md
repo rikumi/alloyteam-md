@@ -80,11 +80,113 @@ export default interface IRestart{
 
 ```javascript
 class Page {
-    next: PageFlow|null;
-    cache: {
-        start: (() => Promise<any>)[];
-        end: (
+    next: PageFlow | null;
+    cache: {
+        start: (() => Promise<any>)[],
+        end: (() => Promise<any>)[],
+    };
+    waitStart(callback: () => Promise<any>) {
+        this.cache.start.push(callback);
+    }
+    waitEnd(callback: () => Promise<any>) {
+        this.cache.end.push(callback);
+    }
+    setNext(flow: PageFlow) {
+        this.next = flow;
+        return flow;
+    } // ...
+}
 ```
+
+-   依赖注入  
+    所谓依赖注入是当指 A 对象依赖另一个 B 对象时，不直接在 A 对象内初始化 B，而是通过外部环境进行初始化，作为参数传入 A 对象中。这样做的好处是当 B 模块的初始化等条件发生变化时，不必在 A 对象中进行重复的修改。管理成百上千个这样模块相互依赖的代码中，统一的依赖注入管理器会让依赖关系管理变得更方便。
+
+```css
+// 模块加载器
+class ServiceLoader {
+    source: CONFIG;
+    loaded: boolean; // 是否已加载
+    initialized: boolean; // 是否已初始
+    module: any;
+    constructor(source: CONFIG) {
+        this.loaded = false;
+        this.initialized = false; // ...
+    }
+    async load(params?: any): Promise<any> {
+        // ..load module
+        return this.module;
+    } //...
+}
+```
+
+```javascript
+// 模块管理器
+class ServiceCollection {
+    stack: ServiceLoader[];
+    private services = new Map<CONFIG, ServiceLoader>();
+    constructor() {
+        this.stack = [];
+    }
+    createLoader(config: CONFIG): ServiceLoader {
+        const loader: ServiceLoader =  new ServiceLoader(config);
+        this.services.set(config, loader);
+        return loader;
+    }
+    // ...
+}
+```
+
+```javascript
+initA () {
+    const ALoader= this.serviceCollection.createLoader(CONFIG.A);
+    const discussMobile = ALoader.init(this.app);
+}
+ 
+```
+
+## 数据预拉服务
+
+容器是否会命中依赖两个条件，其一对应离线包代码是否下载好；其二对应版本的数据是否已经预拉缓存完毕。
+
+用户进入文档管理首页，首先会去拉取列表索引数据，然后通过列表数据 id 进行文档内容数据做预拉，储存在本地数据库，本地数据库的存储可以参考[前端离线化探索](http://www.alloyteam.com/2019/07/web-applications-offline/)。
+
+### webview service
+
+在整个数据预拉的过程，我们是通过一套独立的客户端后台 webview 服务执行具体任务，独立服务的好处是让各种容器化基础服务和文档管理列表本身进行解耦，同时将拉取、解析、储存数据这一对性能有消耗的过程放后台服务，减少了列表用户交互界面层的性能压力。  
+另一方面，作为多端公用的一个服务，构建流程上单独部署，更新代码的时候能够不依赖其他页面，变得更灵活。
+
+![enter image description here](http://www.alloyteam.com/wp-content/uploads/2020/06/1591521978_74_w1052_h588.png)
+
+### 数据快照
+
+对于纯 dom 结构的文档型品类，我们会在打开文档，解析数据后，把生成的 html 缓存在本地数据库一张快照表里。下一次切换容器时，在取本地数据去解析的同时，会判断对应 id 在快照表是否存在缓存，如果有，直接取出来，覆盖在 html 上，用户可以提前看到上一次渲染的数据，等本地数据真正解析完，再展示可交互界面。解析数据准备渲染也是需要一个上百毫秒的过程，这一策略可以让用户提前看到内容。
+
+### 预创建
+
+有了极致的打开速度，如何优化新建速度呢。正常的新建流程是这样的，用户点击新建按钮，前端请求创建 cgi, 等待后台创建成功返回新文档 url，前端再新开 webview，加载展示页面。我们可以看，由于需要等待创建接口返回的原因，到新建的过程比正常打开一个文档还要更久。
+
+怎么样才能让新建也做到秒开呢？思路和数据预拉取一样，在用户进入文档首页的同时，我们会提前预请求一批创建 id，然后缓存到本地，同时根据创建 id 生成一篇空白文档数据，储存在本地，标示状态为未使用。用户点击新建按钮，本质上是从本地取一个未使用的文档 url，直接用容器切换打开，然后再和后台进行同步。
+
+## 秒开效果
+
+容器化方案前：  
+![enter image description here](http://www.alloyteam.com/wp-content/uploads/2020/06/1591519588_72_w360_h746.gif)
+
+容器化方案后：  
+![enter image description here](http://www.alloyteam.com/wp-content/uploads/2020/06/1591524987_33_w352_h764.gif)
+
+## 监控与开关系统
+
+容器方案使用了数据预取场景，命中率的监控非常重要。由于切换页面的过程，如果命中容器，我们会接受来自客户端的通知，在这个时机，我们可以进行上报。
+
+另外一个非常重要的是容器能力的开关系统，在发布之初保持现网稳定性是非常重要的措施，但任何程序都不能保证没有 bug，我们通过内部七彩石配置系统控制这套容器方案的各种特性在不同品类下是否启用，同时这套配置也支持灰度和回滚方案，能够应急各种突发问题。
+
+灰度期容器间命中率  
+![enter image description here](http://www.alloyteam.com/wp-content/uploads/2020/06/1591518521_88_w1454_h864.png)
+
+## 待优化的问题
+
+容器化方案用各种预创建 webview 的方式换取了打开速度，app 内存占用上会比未使用容器化方案要大非常多，webview 的释放时机、预加载数据的策略优化，及从客户端到 web 端，如何更好的做内存管理是接下来需要进一步优化的点。
 
 
 <!-- {% endraw %} - for jekyll -->

@@ -75,21 +75,70 @@ var self = this;
 
 ```javascript
 var XHR = window.XMLHttpRequest;
- 
-window.XMLHttpRequest=function(){
-    var xhr = new XHR();
-    checkSuccess(xhr);
-    return xhr;
+window.XMLHttpRequest = function () {
+    var xhr = new XHR();
+    checkSuccess(xhr);
+    return xhr;
 };
- 
 window.XMLHttpRequest.realXHR = XHR;
- 
-var self=this;
- 
+var self = this;
 function checkSuccess(xhr) {
-    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
-        self.option.xhrs.push({url:xhr.responseURL, json:JSON
+    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+        self.option.xhrs.push({
+            url: xhr.responseURL,
+            json: JSON.stringify(JSON.parse(xhr.responseText), null, "\t"),
+        });
+    } else if (xhr.status >= 400) {
+        console.error(
+            xhr.responseURL + " " + xhr.status + " (" + xhr.statusText + ")"
+        );
+    } else {
+        window.setTimeout(function () {
+            checkSuccess(xhr);
+        }, 0);
+    }
+}
 ```
+
+如上面所示，重写了 XMLHttpRequest 对象。用户 new 的对象全部为重写后的，返回的是真正的。这样就可以拿到所有用户创建的 XMLHttpRequest 对象的实例进行监听。
+
+### Error 截获
+
+其中 error 包含两部分，第一部分是 js 报的错误，通过下面的方式截获：
+
+```css
+window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
+    console.error(
+        "Error: " +
+            errorMsg +
+            " Script: " +
+            url +
+            " Line: " +
+            lineNumber +
+            " Column: " +
+            column +
+            " StackTrace: " +
+            errorObj
+    );
+};
+```
+
+这里执行的时候 console 已经被重写了。所以自己的 console 面板也能看到错误。
+
+第二部分是资源加载失败报的错，通过遍历 HTML dom 节点拿到所有的 js/css/img，然后再次发送请求。js 和 css 通过 XMLHttpRequest 发请求，监听状态。，img 通过 new Image (), 监听 onerror。具体代码参见： <https://github.com/AlloyTeam/AlloyLever/blob/master/src/component/alloy_lever/index.js>
+
+### 其他
+
+Timeline 通过 timing.js 获得所有信息，timing.js 基于 window.performance 封装的类库。Cookie 和 localStorage 通过 js 遍历得到。
+
+### 相关
+
+Github： <https://github.com/AlloyTeam/AlloyLever>  
+Issues： <https://github.com/AlloyTeam/AlloyLever/issues>
+
+微信部门也有个的 [vConsole](https://github.com/WechatFE/vConsole) 工具用于移动端 Console.log
+
+欢迎大家试用反馈。
 
 
 <!-- {% endraw %} - for jekyll -->

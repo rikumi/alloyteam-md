@@ -67,20 +67,118 @@ Note:HTTP2.0 相关的帧其实包括 [10 种帧](https://tools.ietf.org/html/rf
 **1. 首先我们使用 nodejs 搭建基本的 server：**
 
 ```javascript
-var http2 = require('http2');
- 
-var url=require('url');
-var fs=require('fs');
-var mine=require('./mine').types;
-var path=require('path');
- 
-var server = http2.createServer({
-  key: fs.readFileSync('./zs/localhost.key'),
-  cert: fs.readFileSync('./zs/localhost.crt')
-}, function(request, response) {
-    var pathname = url.parse(request.url).pathname;
-    var realPath = path.join("my",
+var http2 = require("http2");
+var url = require("url");
+var fs = require("fs");
+var mine = require("./mine").types;
+var path = require("path");
+var server = http2.createServer(
+    {
+        key: fs.readFileSync("./zs/localhost.key"),
+        cert: fs.readFileSync("./zs/localhost.crt"),
+    },
+    function (request, response) {
+        var pathname = url.parse(request.url).pathname;
+        var realPath = path.join("my", pathname); //这里设置自己的文件名称;
+        var pushArray = [];
+        var ext = path.extname(realPath);
+        ext = ext ? ext.slice(1) : "unknown";
+        var contentType = mine[ext] || "text/plain";
+        if (fs.existsSync(realPath)) {
+            response.writeHead(200, {
+                "Content-Type": contentType,
+            });
+            response.write(fs.readFileSync(realPath, "binary"));
+        } else {
+            response.writeHead(404, {
+                "Content-Type": "text/plain",
+            });
+            response.write(
+                "This request URL " +
+                    pathname +
+                    " was not found on this server."
+            );
+            response.end();
+        }
+    }
+);
+server.listen(443, function () {
+    console.log("listen on 443");
+});
 ```
+
+这几行代码就是简单搭建一个 nodejs http2 服务，打开 chrome，我们可以看到所有请求都走了 http2，同时也可以验证多路复用的特性。
+
+[![h21](http://www.nihaoshijie.com.cn/wp-content/uploads/2016/11/h21.png)](http://www.nihaoshijie.com.cn/wp-content/uploads/2016/11/h21.png)
+
+**这里需要注意几点：**
+
+1.  创建 http2 的 nodejs 服务必须时基于 https 的，因为现在主流的浏览器都要支持 SSL/TLS 的 http2，证书和私钥可以自己通过 [OPENSSL](https://www.openssl.org/) 生成。
+2.  node http2 的相关 api 和正常的 node httpserver 相同，可以直接使用。
+
+2. 设置我们的 server push：
+
+```javascript
+var pushItem = response.push("/css/bootstrap.min.css", {
+    request: {
+        accept: "*/*",
+    },
+    response: {
+        "content-type": "text/css",
+    },
+});
+pushItem.end(fs.readFileSync("/css/bootstrap.min.css", "binary"));
+```
+
+我们设置了 bootstrap.min.css 来通过 server push 到我们的浏览器，我们可以在浏览器中查看：
+
+[![h22](http://www.nihaoshijie.com.cn/wp-content/uploads/2016/11/h22.png)](http://www.nihaoshijie.com.cn/wp-content/uploads/2016/11/h22.png)
+
+可以看到，启动 server push 的资源 timelime 非常快，大大加速了 css 的获取时间。
+
+**这里需要注意下面几点：**
+
+1.  我们调用 response.push (), 就是相当于 server 发起了 PUSH_PROMISE frame 来告知浏览器 bootstrap.min.css 将会由 server push 来获取。
+2.  response.push () 返回的对象时一个正常的 ServerResponse,end (),writeHeader () 等方法都可以正常调用。
+3.  这里一旦针对某个资源调用 response.push () 即发起 PUSH_PROMISE frame 后，要做好容错机制，因为浏览器在下次请求这个资源时会且只会等待这个 server push 回来的资源，这里要做好超时和容错即下面的代码：
+4.  ```javascript
+    try {
+        pushItem.end(fs.readFileSync("my/css/bootstrap.min.css", "binary"));
+    } catch (e) {
+        response.writeHead(404, {
+            "Content-Type": "text/plain",
+        });
+        response.end("request error");
+    }
+    pushItem.stream.on("error", function (err) {
+        response.end(err.message);
+    });
+    pushItem.stream.on("finish", function (err) {
+        console.log("finish");
+    });
+    ```
+
+    上面的代码你可能会发现许多和正常 nodejs 的 httpserver 不一样的东西，那就是 stream，其实整个 http2 都是以 stream 为单位，这里的 stream 其实可以理解成一个请求，更多的 api 可以参考：[node-http2](https://github.com/molnarg/node-http2/wiki/Public-API)。
+5.  最后给大家推荐一个老外写的专门服务 http2 的 node server 有兴趣的可以尝试一下。<https://gitlab.com/sebdeckers/http2server>
+
+   
+
+* * *
+
+5，Server Push 相关问题。  
+
+* * *
+
+1.  我们知道现在我们 web 的资源一般都是放在 CDN 上的，那么 CDN 的优势和 server push 的优势有何区别呢，到底是哪个比较快呢？这个问题笔者也一直在研究，本文的相关 demo 都只能算做一个演示，具体的线上实践还在进行中。
+2.  由于 HTTP2 的一些新特性例如多路复用，server push 等等都是基于同一个域名的，所以这可能会对我们之前对于 HTTP1 的一些优化措施例如 (资源拆分域名，合并等等) 不一定适用。
+3.  server push 不仅可以用作拉取静态资源，我们的 cgi 请求即 ajax 请求同样可以使用 server push 来发送数据。
+4.  最完美的结果是 CDN 域名支持 HTTP2,web server 域名也同时支持 HTTP2。
+
+参考资料：
+
+1.  HTTP2 官方标准：<https://tools.ietf.org/html/rfc7540>
+2.  维基百科：<https://en.wikipedia.org/wiki/HTTP/2_Server_Push>
+3.  <https://www.nihaoshijie.com.cn/index.php/archives/651>
 
 
 <!-- {% endraw %} - for jekyll -->

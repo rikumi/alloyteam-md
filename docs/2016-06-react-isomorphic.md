@@ -167,5 +167,206 @@ resolve: {
 
 服务端 webpack 上使用 /server/request.js 以 http.request 替代 ajax 请求
 
+```javascript
+resolve: {
+    alias: {
+        'request': path.join(pathConfig.src, '/server/request'),
+    }
+}
+```
+
+3. 使用 webpack.DefinePlugin 在构建时添加一个平台区分的值，这种方式的在 webpack UglifyJsPlugin 编译后，非当前平台 (不可达代码) 的代码将会被去掉，不会增加文件大小。如  
+在服务端的 webpack 加上下面配置
+
+```javascript
+new webpack.DefinePlugin({
+    "__ISOMORPHIC__": true
+}),
+```
+
+在 JS 逻辑上做判断
+
+```c
+if(__ISOMORPHIC__){
+    // do server thing
+} else {
+    // do browser thing
+}
+```
+
+4.window 是浏览器上特有的对象，所以也可以用来做平台区分
+
+```javascript
+var isNode = typeof window === "undefined";
+if (isNode) {
+    // do server thing
+} else {
+    // do browser thing
+}
+```
+
+### 6. 只直出首屏页面可视内容，其他在客户端上延迟处理
+
+这是为了减少服务端的负担，也是加快首屏展示时间，如在手 Q 家校群列表中存在 “我发布的” 和 “ 全部” 两个 tab，内容都为作业列表，此次实践在服务端上只处理首屏可视内容，即只输出 “ 我发布的” 的完整 HTML，另外一个 tab 的内容在客户端上通过 react 的 dom diff 机制来动态挂载，无页面刷新的感知。
+
+[![default](https://cloud.githubusercontent.com/assets/10385585/15846264/ea6735d4-2cad-11e6-85af-416c9e803bbb.png)](https://cloud.githubusercontent.com/assets/10385585/15846264/ea6735d4-2cad-11e6-85af-416c9e803bbb.png)
+
+### 7. componentWillReceiveProps 中，依赖数据变化的方法，需考虑在 componentDidMount 做兼容
+
+举个例子，identity 默认为 UNKOWN，从后台拉取到数据后，更新其值，从而触发 setButton 方法
+
+```javascript
+componentWillReceiveProps(nextProps) {
+    if (nextProps.role.get('identity') !== UNKOWN &&
+        nextProps.role.get('identity')  !== this.props.role.get('identity'))) {
+        this.setButton();
+    }
+}
+```
+
+同构时，由于服务端上已做了第一次数据拉取，所以上面代码在客户端上将由于 identity 已存在而导致永不执行 setButton 方法，解决方式可在 componentDidMount 做兼容处理
+
+```javascript
+componentDidMount() {
+    // .. 判断是否为同构 
+    if (identity !== UNKOWN) {
+        this.setButton(identity);
+    }
+}  
+```
+
+### 8. redux 在服务端上的使用方式 (redux)
+
+下图为其中一种形式，先进行数据请求，再将请求到的数据 dispatch 一个 action，通过在 reducer 将数据进行 redux 的 state 化。还有其他方式，如直接 dispatch 一个 action，在 action 里面去做数据请求，后续是一样的，不过这样就要求请求数据的模块是 isomorphism 即前后端通用的。  
+[![default](https://cloud.githubusercontent.com/assets/10385585/15856812/996ecf24-2cea-11e6-87e2-401cf4cccbc4.png)](https://cloud.githubusercontent.com/assets/10385585/15856812/996ecf24-2cea-11e6-87e2-401cf4cccbc4.png)
+
+### 9. 设计好 store state (redux)
+
+设计好 store state 是使用 redux 的关键，而在服务端上，合理的扁平化 state 能在其被序列化时，减少 CPU 消耗
+
+### 10. 两个 action 在同个 component 中数据存在依赖关系时，考虑 setState 的异步问题 (redux)
+
+客户端上，由于 react 中 setState 的异步机制，所以在同个 component 中触发多个 action，会出现一种情况是：第一个 action 对 state 的改变还没来得及更新 component 时，第二个 action 便开始执行，即第二个 action 将使用到未更新的值。  
+而在同构中，如果第一个 action（如下的 fetchData）是在服务端执行了，第二个 action 在客户端执行时将使用到的是第一个 action 对 state 改变后的值，即更新后的值。这时，同构需要做兼容处理。
+
+    fetchData() {
+        this.props.setCourse(lastCourseId, lastCourseName);
+    }
+    render() {
+        this.props.updateTab(TAB);
+    }
+
+### 11. immutable 在同构上的姿势 (immutable/redux)
+
+手 Q 家校群上使用了 immutable 来保证数据的不可变，提高数据对比速度，而在同构时需要注意两点  
+1. 服务端上，从 store 中拿到的 state 为 immutable 对象，需转成 string 再同 HTML 返回  
+2. 客户端上，从服务端注入到 HTML 上的 state 数据，需要将其转成 immutable 对象，再放到 configureStore 中，如
+
+```javascript
+var __serverData__ = Immutable.fromJS(window.__serverData__);
+var store = configureStore(__serverData__);
+```
+
+### 12. 使用 webpack 去做 ES6 语法兼容 (webpack)
+
+实际上，如果是一个单独的服务的话，可以使用 babel 提供的方式来让 node 环境兼容好 E6
+
+```javascript
+require("babel-register")({
+    extensions: [".jsx"],
+    presets: ["react"],
+});
+require("babel-polyfill");
+```
+
+但如果是以同一个直出服务器，多个项目的直出代码都放在这个服务上，那么，还是建议使用 webpack 的方式去兼容 ES6，减少 babel 对全局环境的影响。使用 webpack 的话，在项目完成后，可将 es6 代码编译成 es5 再放到真正的 server 上，这样也可以减少动态编译耗时。
+
+### 13. 不使用 webpack 的 css in js 的方式
+
+使用 webpack 时，默认是将 css 文件以 css in js 的方式打包起来，这种情况将增加服务端运行耗时，通过将 css 外链，或在 webpack 打包成独立的 css 文件后再 inline 进去，可以减少服务端的处理耗时及负荷。
+
+### 14. UglifyJsPlugin 在服务端编译时慎用
+
+上面提及使用 webpack 编译后的代码放到真正的 server 上去跑，在前端发布前一般会进行代码 uglify，而后端实际上没多大必要，在实际应用中发现，使用 UglifyJsPlugin 后运行服务端会报错，需慎用。
+
+### 15. 纠正 \_\_dirname 与 \_\_filename 的值 (webpack)
+
+当服务端代码需要使用到 \_\_dirname 时，需在 webpack.config.js 配置 target 为 node，并在 node 中声明\_\_filename 和\_\_dirname 为 true，否则拿不到准确值，如在服务端代码上添加 console.log (\_\_dirname); 和 console.log (\_\_filenam );   
+在服务端使用的 webpack 上指定 target 为 node，如下
+
+```javascript
+target: 'node', 
+node: {
+    __filename: true,
+    __dirname: true
+}
+```
+
+经 webpack 编译后输出如下代码，可看出 \_\_dirname 和 \_\_filename 将正确输出  
+[![node](https://cloud.githubusercontent.com/assets/10385585/15851481/89e43398-2ccf-11e6-98bf-c8da79c957b1.png)](https://cloud.githubusercontent.com/assets/10385585/15851481/89e43398-2ccf-11e6-98bf-c8da79c957b1.png)
+
+而不在 webpack 上配置时，\_\_dirname 则为 / ，\_\_filename 则为文件名，这是不正确的  
+[![target node](https://cloud.githubusercontent.com/assets/10385585/15851509/aa7d4fae-2ccf-11e6-8e10-f707ef6b84d0.png)](https://cloud.githubusercontent.com/assets/10385585/15851509/aa7d4fae-2ccf-11e6-8e10-f707ef6b84d0.png)
+
+### 16. 将 webpack 编译后的文件暴露出来 (webpack)
+
+使用 webpack 将一个模块编译后将形成一个立即执行函数，函数中返回对象。如果需要将编译后的代码也作为一个模块供其他地方使用时，那么需要重新将该模块暴露出去 ( 如当业务上的直出代码只是作为直出服务器的其中一个任务时，那么需要将编译后的代码作为一个模块 exports 出去，即在编译后代码前重新加上 **module.exports =**，从而直出服务将能够使用到这个编译后的模块代码 )。写了一个 webpack 插件来自动添加 module.exports，比较简单，有兴趣的欢迎使用 [webpack-add-module-expors](https://github.com/joeyguo/webpack-add-module-exports)，效果如下
+
+编译前  
+[![222222222](https://cloud.githubusercontent.com/assets/10385585/15857589/b968f026-2cee-11e6-9105-892a4d3f5fff.png)](https://cloud.githubusercontent.com/assets/10385585/15857589/b968f026-2cee-11e6-9105-892a4d3f5fff.png)
+
+编译后  
+[![exports](https://cloud.githubusercontent.com/assets/10385585/16036325/f328bac6-324d-11e6-8cea-70f96fe35112.png)](https://cloud.githubusercontent.com/assets/10385585/16036325/f328bac6-324d-11e6-8cea-70f96fe35112.png)
+
+使用 [webpack-add-module-expors](https://github.com/joeyguo/webpack-add-module-exports) 编译后将带上 module.exports  
+[![3331](https://cloud.githubusercontent.com/assets/10385585/15857814/e356beda-2cef-11e6-9b0a-0d4784599ede.png)](https://cloud.githubusercontent.com/assets/10385585/15857814/e356beda-2cef-11e6-9b0a-0d4784599ede.png)
+
+### 17. 去掉 index.scss 和浏览器专用模块 (webpack)
+
+当服务端上不想处理样式模块或一些浏览器才需要的模块 (如前端上报) 时，需要在服务端上将其忽略。尝试 webpack 自带的 webpack.IgnorePlugin 插件后出现一些奇奇怪怪的问题，重温  [如何开发一个 Webpack Loader (一)](https://github.com/joeyguo/blog/issues/4)  时想起 webpack 在执行时会将原文件经 webpack loaders 进行转换，如 jsx 转成 js 等。所以想法是将在服务端上需要忽略的模块，在 loader 前执行前就将其忽略。写了个 [ignored-loader](https://github.com/joeyguo/ignored-loader)，可以将需要忽略的模块在 loader 执行前直接返回空，所以后续就不再做其他处理，简单但也满足现有需求。
+
+优化成果  
+
+* * *
+
+服务端上的耗时增加了，但整体上的首屏渲染完成时间大大减少
+
+### 服务端上增加的耗时
+
+服务端渲染方案将数据的拉取和模板的渲染从客户端移到了服务端，由于服务端的环境以及数据拉取存在优势 (详见 [Node 直出理论与实践总结](https://github.com/joeyguo/blog/issues/8))，所以在相比下，这块耗时大大减少，但确实存在，这两块耗时是服务端渲染相比于客户端渲染在服务端上多出来。所以本次也做了耗时的数据统计，如下图
+
+[![default](https://cloud.githubusercontent.com/assets/10385585/15848674/f04152a6-2cc0-11e6-9e01-486d81e38858.png)](https://cloud.githubusercontent.com/assets/10385585/15848674/f04152a6-2cc0-11e6-9e01-486d81e38858.png)
+
+从统计的数据上看，服务端上数据拉取的时间约 61.75 ms，服务端 render 耗时为 16.32 ms，这两块时间的和为 78 ms，这耗时还是比较大。所以此次在**同构耗时在计算上包含了服务端数据拉取与模板渲染的时间**
+
+###  
+
+### 首屏渲染完成时间对比
+
+服务端渲染时由于不需要等待 JS 加载和 数据请求 (详见 [Node 直出理论与实践总结](https://github.com/joeyguo/blog/issues/8))，在首屏展示时间耗时上将大大减少，此次在手 Q 家校群列表页首屏渲染完成时间上，优化前平均耗时约 1643.914 ms，而同构优化后平均耗时为 696.62 ms，有了 **947ms 的优化**，提升约 **57.5%**  的性能，秒开搓搓有余！
+
+[![default](https://cloud.githubusercontent.com/assets/10385585/16036246/98525f26-324d-11e6-8d52-4b48e80a2b6c.png)](https://cloud.githubusercontent.com/assets/10385585/16036246/98525f26-324d-11e6-8d52-4b48e80a2b6c.png)
+
+[![default](https://cloud.githubusercontent.com/assets/10385585/16036236/8e5c8ae6-324d-11e6-94f4-bc60517e460a.png)](https://cloud.githubusercontent.com/assets/10385585/16036236/8e5c8ae6-324d-11e6-94f4-bc60517e460a.png)
+
+### 优化前与优化后的页面展示情况对比
+
+1. 优化前  
+[![predata](https://cloud.githubusercontent.com/assets/10385585/15852386/43ea10e8-2cd3-11e6-9864-863b2a5f55db.png)](https://cloud.githubusercontent.com/assets/10385585/15852386/43ea10e8-2cd3-11e6-9864-863b2a5f55db.png)
+
+2. 优化后（同构直出）  
+[![iso](https://cloud.githubusercontent.com/assets/10385585/15852400/56f713c0-2cd3-11e6-81fa-07521fa7f52b.png)](https://cloud.githubusercontent.com/assets/10385585/15852400/56f713c0-2cd3-11e6-81fa-07521fa7f52b.png)
+
+可明显看出同构直出后，白屏时间大大减少，可交互时间也得到了提前，产品体验将变得更好。
+
+总结  
+
+=====
+
+服务端渲染的方式能够很好的减少首屏展示时间，React 同构的方式让前后端模板、类库、以及数据模型上共用，大大减少的服务端渲染的工作量。  
+由于在服务端上渲染模板，render 时过多的调用栈增加了服务端负载，也增加了 CPU 的压力，所以可以只直出首屏可视区域，减少 Component 层级，减少调用栈，最后，做好容灾方案，如真的服务端挂了 (虽然情况比较少)，可以直接切换到普通的客户端渲染方案，保证用户体验。
+
+以上，便是近期在 React 同构上的实践总结，如有不妥，恳请斧正，谢谢。
+
 
 <!-- {% endraw %} - for jekyll -->

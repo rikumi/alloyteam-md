@@ -73,10 +73,66 @@ Generator 很好用，但我们最终还是需要一些模块将服务器请求�
 利用好这些库，能够帮你快捷地用熟悉简易的办法搭建一个 koa 应用。请看下面的代码及注释。
 
 ```javascript
-var koa = require('koa');
-var mount =require('koa-mount');
-var
+var koa = require("koa");
+var mount = require("koa-mount");
+var router = require("koa-router");
+var logger = require("koa-logger");
+var render = require("koa-swig");
+var app = koa();
+//指向静态文件夹
+app.context.render = render({
+    root: "/Users/lcxfs1991/web/koa/public/",
+    autoescape: true,
+    cache: false,
+    ext: "html",
+});
+//使用router路由
+app.use(router(app));
+//使用logger日志库
+app.use(logger());
+//首页校验函数
+var validate = function* (next) {
+    console.log("validate");
+    console.log(this.request);
+    yield next;
+};
+// 首页处理函数
+var index = function* () {
+    yield* this.render("omg"); // this.body = 'omg'
+};
+//路由处理，首页指定用index函数处理，但需要先经过validate函数校验
+var APIv1 = new router();
+APIv1.get("", validate, index);
+app.use(mount("/", APIv1.middleware()));
+// 监听3000端口
+app.listen(3000);
 ```
+
+**如何接入 socket.io**
+
+然后就来到最后一步，如何用 koa 接入 socket.io。
+
+上文的介绍只是用来帮你更好地理解 koa. 接入 socket.io 的时候实质上并不需要这么复杂的代码。如下：
+
+```javascript
+var koa = require("koa");
+var app = koa();
+var serve = require("koa-static");
+//main processing file
+var chat = require("./routes/chat");
+// 指向静态文件文件夹
+app.use(serve("./public"));
+// 必须放在在所有app.user()之后
+var server = require("http").Server(app.callback());
+chat.initialize(server);
+server.listen(3000);
+```
+
+由于 io 需要监听 http 返回的一个 server object。因此，koa 并不能像上面的用法一样，通过路由去分发请求。只好通过传入 app.callback 到 node.js 的 http 对像里面。至于 chat 模块里面的写法，请参考 [《](http://www.alloyteam.com/2015/04/qian-duan-qiang-hou-duan-fan-wan-node-js-socket-io-zhi-zuo-jian-yi-liao-tian-shi/)[前端抢后端饭碗 — Node.js + Socket.io 制作简易聊天室》](http://www.alloyteam.com/2015/04/qian-duan-qiang-hou-duan-fan-wan-node-js-socket-io-zhi-zuo-jian-yi-liao-tian-shi/)一文。里面的代码（包括前端后台）可以保持原样使用。
+
+以上是本菜的处理办法。原代码在这里：<https://github.com/lcxfs1991/koa-socket.io>
+
+另外，kosjs 团队融合 socket.io 弄了一个 [koa.io](https://github.com/koajs/koa.io) 的库，也相当好用。有兴趣可以点击直接前往其 github 页面。
 
 
 <!-- {% endraw %} - for jekyll -->

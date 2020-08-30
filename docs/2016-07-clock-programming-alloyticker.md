@@ -89,8 +89,117 @@ this.y += this.vy * dt;
 var dt = this.currentTime - this.startTime;
 var h_sqDt = dt * dt/2;
 this.x = this.startX + this.vx * dt + this.ax * h_sqDt;
-this.y = this.<
+this.y = this.startY + this.vy * dt + this.ay * h_sqDt;
 ```
+
+公式：  
+![](http://www.alloyteam.com/wp-content/uploads/2016/07/at_ltx.gif)
+
+缓动  
+
+* * *
+
+![](http://www.alloyteam.com/wp-content/uploads/2016/07/at_ease.png)
+
+```c
+this.dv = this.endValue - this.startVaule ;
+var result = this.startVaule + this.dv * this.ease(dt / this.time);
+```
+
+其中 result 为当前求出的结果。  
+endValue 为最终要运动到的结果  
+startVaule 为开始运动的状态  
+ease 为缓动函数  
+time 为总时间
+
+缓动可逆设计  
+
+* * *
+
+缓动天生就是支持可逆设计。只需计算好 dt 便可。
+
+```javascript
+var dt = currentTime - startTime;
+```
+
+当然还要处理一下边界情况，因为时间的流动性，dt 是可能大于 0 或者 dt 大于传入的总时间 this.time。  
+当 dt 小于 0，即 result 等于 this.startVaule  
+当 dt 大于总时间，即 result 等于 this.endVaule
+
+精灵图动画 + 积分运动  
+
+* * *
+
+![](http://www.alloyteam.com/wp-content/uploads/2016/07/at_m2.png)  
+![](http://www.alloyteam.com/wp-content/uploads/2016/07/al_ma.png)  
+如上面的超级玛丽，不仅需要播放精灵图动画，还需要向右的积分运动。所以需要同时顾及两种状态：
+
+```c
+var dt = this.currentTime - this.startTime;
+//计算关键帧索引的结果
+if (dt < 0) {
+    this.index = -1;
+} else {
+    this.index = Math.floor(dt / this.interval) % this.length;
+}
+//计算积分运动的结果
+this.x = this.startX + this.vx * dt;
+this.y = this.startY + this.vy * dt;
+```
+
+AlloyTicker  
+
+* * *
+
+是时候抽象出一个时间机器的 - AlloyTicker。
+
+```javascript
+var AlloyTicker = function () {
+    this.interval = null;
+    this.intervalTime = 16;
+    this.tickIntervalTime = 16;
+    this.currentTime = 0;
+    this.clockwise = true;
+    this.ticks = [];
+    this.isPause = false;
+    this.isStop = false;
+};
+AlloyTicker.prototype = {
+    //时间开始
+    start: function () {
+        this.interval = setInterval(
+            function () {
+                if (!this.isPause) {
+                    this.currentTime += this.clockwise
+                        ? this.intervalTime
+                        : -1 * this.intervalTime;
+                    if (this.currentTime < 0) this.currentTime = 0;
+                    this.tick();
+                }
+            }.bind(this),
+            this.tickIntervalTime
+        );
+    },
+    tick: function () {}, //时光倒流
+    back: function () {
+        this.clockwise = false;
+    },
+    forward: function () {},
+    goto: function (time) {},
+    pause: function () {},
+    play: function () {},
+    stop: function () {},
+    scale: function (value) {},
+};
+```
+
+因为：  
+1. 从逻辑层面上 currentTime 不属于动画或运动对象的属性，都属于 AlloyTicker 时间机器的属性。  
+2. 统一时间管理（倒流 (back)、暂停 (pause)、加速减速 (scale)、时间跳转 (goto)…）  
+3. 所有对象的动画和运动都跟 AlloyTicker 挂钩，AlloyTicker 时间状态的变更会影响到所有挂钩的对象
+
+Github: <https://github.com/AlloyTeam/AlloyTicker>  
+Demo: <http://alloyteam.github.io/AlloyTicker/>
 
 
 <!-- {% endraw %} - for jekyll -->

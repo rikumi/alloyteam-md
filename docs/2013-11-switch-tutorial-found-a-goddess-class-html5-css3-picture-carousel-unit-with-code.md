@@ -54,5 +54,95 @@ l slideshow.effects.js          这个是向 JXAnimation 中添加一些�
 
 以下 HTML 和 JS 代码
 
+````html
+    <body>
+ 
+        图片轮播器Demo
+ 
+        <div id="picplayer" style="position:relative;width:300px;height:300px;">
+ 
+            <img src="http://img.jb51.net/online/picPlayer/1.jpg">
+ 
+        </div>
+ 
+        <button id="prev" onclick="SlideShow.prev();">上一页</button>
+ 
+        <button id="next" onclick="SlideShow.next();">下一页</button>
+ 
+        
+```html
+<script>
+ 
+            var pics1 = [
+ 
+                'http://img.jb51.net/online/picPlayer/1.jpg',
+ 
+                'http://img.jb51.net/online/picPlayer/2.jpg',
+ 
+                'http://img.jb51.net/online/picPlayer/3.jpg'
+ 
+                ];
+ 
+            SlideShow.init('picplayer',{imgW:300,imgH:300,
+ 
+                num:6}); //横竖都是6个片片
+ 
+            SlideShow.setDonimo(900/6/6);  //900毫秒除以36个片片
+ 
+            //添加更多图片
+ 
+            for (var i = pics1.length - 1; i >= 1; i--) {
+ 
+                SlideShow.addImgByUrl(pics1[i]);
+ 
+            };
+ 
+        </script>
+````
+
+ 
+    </body>
+
+````
+
+代码还是挺清爽的。
+
+不过这样运行可是什么效果都没有。。。。。。
+
+不得已用Chrome 的调试神器分析一下。结果发现是一些样式问题。必须有以下的 CSS：
+
+```css
+    .slide_Img{
+        display: none;
+        visibility: collapse;
+    }
+    .card_piece{
+      position: absolute;
+      visibility: hidden;
+    }
+    .hidden{
+      visibility: hidden;
+    }
+    .visible{
+      visibility: visible;
+    }
+    #stage
+    {
+      position: relative;
+      top: 0px;
+      left: 0px;
+    }
+````
+
+感觉这些都是很基本的样式设置，直接在 JS 中写 Style 就行了。这里的封装可以再改进一下。有时间给作者提交一个 pull request。
+
+另外还有一个坑，就是一定要引用 animate.css 文件，因为 SlideShow 中引用了其中的动画，估计作者是想演示一下调用 CSS 动画的能力。但是如果找不到 CSS 中 keyframe 动画，不仅当前的动画播放不了，以后所有的动画都会有问题。这里的容错还需要加强一下。
+
+好东西不敢独享，把完整代码给大家发上来。
+
+请访问原文下载源代码
+
+<http://bbs.miaov.com/forum.php?mod=viewthread&tid=7374&fromuid=11876>
+
 
 <!-- {% endraw %} - for jekyll -->

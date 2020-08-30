@@ -52,5 +52,194 @@ kmdjs.define("main", ["util.bom", "app.Ball", "util.dom.test"], function () {
 
 ### uglifyjs 依赖分析和代码重构
 
+```javascript
+function fixDeps(fn, deps) {
+    var U2 = UglifyJS; //uglify2不支持匿名转ast
+    var code = fn.toString().replace("function", "function ___kmdjs_temp");
+    var ast = U2.parse(code);
+    ast.figure_out_scope();
+    var nodes = [];
+    ast.walk(
+        new U2.TreeWalker(function (node) {
+            if (node instanceof U2.AST_New) {
+                var ex = node.expression;
+                var name = ex.name;
+                isInWindow(name) ||
+                    isInArray(nodes, node) ||
+                    isInScopeChainVariables(ex.scope, name) ||
+                    nodes.push({ name: name, node: node });
+            }
+            if (node instanceof U2.AST_Dot) {
+                var ex = node.expression;
+                var name = ex.name;
+                var scope = ex.scope;
+                if (scope) {
+                    isInWindow(name) ||
+                        isInArray(nodes, node) ||
+                        isInScopeChainVariables(ex.scope, name) ||
+                        nodes.push({ name: name, node: node });
+                }
+            }
+            if (node instanceof U2.AST_SymbolRef) {
+                var name = node.name;
+                isInWindow(name) ||
+                    isInArray(nodes, node) ||
+                    isInScopeChainVariables(node.scope, name) ||
+                    nodes.push({ name: name, node: node });
+            }
+        })
+    );
+    var cloneNodes = [].concat(nodes); //过滤new nodes 中的symbo nodes
+    for (var i = 0, len = nodes.length; i < len; i++) {
+        var nodeA = nodes[i].node;
+        for (var j = 0, cLen = cloneNodes.length; j < cLen; j++) {
+            var nodeB = cloneNodes[j].node;
+            if (nodeB.expression === nodeA) {
+                nodes.splice(i, 1);
+                i--;
+                len--;
+            }
+        }
+    }
+    for (var i = nodes.length; --i >= 0; ) {
+        var item = nodes[i],
+            node = item.node,
+            name = item.name;
+        var fullName = getFullName(deps, name);
+        var replacement;
+        if (node instanceof U2.AST_New) {
+            replacement = new U2.AST_New({
+                expression: new U2.AST_SymbolRef({
+                    name: fullName,
+                }),
+                args: node.args,
+            });
+        } else if (node instanceof U2.AST_Dot) {
+            replacement = new U2.AST_Dot({
+                expression: new U2.AST_SymbolRef({
+                    name: fullName,
+                }),
+                property: node.property,
+            });
+        } else if (node instanceof U2.AST_SymbolRef) {
+            replacement = new U2.AST_SymbolRef({
+                name: fullName,
+            });
+        }
+        var start_pos = node.start.pos;
+        var end_pos = node.end.endpos;
+        code = splice_string(
+            code,
+            start_pos,
+            end_pos,
+            replacement.print_to_string({
+                beautify: true,
+            })
+        );
+    }
+    return code.replace("function ___kmdjs_temp", "function");
+}
+function getFullName(deps, name) {
+    var i = 0,
+        len = deps.length,
+        matchCount = 0,
+        result = [];
+    for (; i < len; i++) {
+        var fullName = deps[i];
+        if (fullName.split(".").pop() === name) {
+            matchCount++;
+            if (!isInArray(result, fullName)) result.push(fullName);
+        }
+    }
+    if (matchCount > 1) {
+        throw "the same name conflict: " + result.join(" and ");
+    } else if (matchCount === 1) {
+        return result[0];
+    } else {
+        throw " can not find module [" + name + "]";
+    }
+}
+function splice_string(str, begin, end, replacement) {
+    return str.substr(0, begin) + replacement + str.substr(end);
+}
+function isInScopeChainVariables(scope, name) {
+    var vars = scope.variables._values;
+    if (Object.prototype.hasOwnProperty.call(vars, "$" + name)) {
+        return true;
+    }
+    if (scope.parent_scope) {
+        return isInScopeChainVariables(scope.parent_scope, name);
+    }
+    return false;
+}
+function isInArray(arr, name) {
+    var i = 0,
+        len = arr.length;
+    for (; i < len; i++) {
+        if (arr[i] === name) {
+            return true;
+        }
+    }
+    return false;
+}
+function isInWindow(name) {
+    if (name === "this") return true;
+    return name in window;
+}
+```
+
+通过上面的 fixDeps，可以对代码就行变换。如：
+
+```javascript
+console.log(
+    fixDeps(
+        function (A) {
+            var eee = m;
+            var b = new A();
+            var b = new B();
+            var c = new C();
+            var d = G.a;
+        },
+        ["c.B", "AAA.G", "SFSF.C", "AAAA.m"]
+    )
+);
+```
+
+输出：
+
+```javascript
+function (A) {
+        var eee = AAAA.m;
+        var b = new A();
+        var b = new c.B();
+        var c = new SFSF.C();
+        var d = AAA.G.a;
+}
+```
+
+这样，kmdjs 在执行模块 function 的时候，只需要 fixDeps 加上 full namespace 就行：
+
+```javascript
+function buildBundler() {
+    var topNsStr = "";
+    each(kmdjs.factories, function (item) {
+        nsToCode(item[0]);
+    });
+    topNsStr += kmdjs.nsList.join("\n") + "\n\n";
+    each(kmdjs.factories, function (item) {
+        topNsStr += item[0] + " = (" + fixDeps(item[2], item[1]) + ")();\n\n";
+    });
+    if (kmdjs.buildEnd) kmdjs.buildEnd(topNsStr);
+    return topNsStr;
+}
+```
+
+build 出来的包，当然全都加上了 namespace。再也不用区分循环依赖和非循环依赖了～～～
+
+### Github
+
+上面的所有代码可以 Github 上找到：  
+<https://github.com/kmdjs/kmdjs>
+
 
 <!-- {% endraw %} - for jekyll -->

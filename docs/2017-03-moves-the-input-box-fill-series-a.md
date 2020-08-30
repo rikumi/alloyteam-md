@@ -50,8 +50,54 @@ $('#input').on('input', function(e) {
     if (!cpLock) {
         if (e.target.value.length - 17 >=0) {
             var txt = $(e.target).val().substring(0, 16);
-            $(e.target).val(txt
+            $(e.target).val(txt);
+            // 超过16字提示
+        }
+    }
+});
+ 
 ```
+
+## 二、textarea 置底展示问题
+
+ios 中的输入体验永远伴随着一个问题，就是当唤起键盘后，整个页面会被键盘压缩，也就是说页面的高度变小，并且所有的 fixed 全部变为了 absolute。  
+android 效果：  
+![](http://www.alloyteam.com/wp-content/uploads/2017/03/2D60002621E863465FA9D1D125E0A625.png)![](http://www.alloyteam.com/wp-content/uploads/2017/03/19B6FBC1CDAB2DFD5D8372835AD40D5B.jpg)![](http://www.alloyteam.com/wp-content/uploads/2017/03/0F235217BAA61D883AE0FF749D56639E.png)![](http://www.alloyteam.com/wp-content/uploads/2017/03/E7A2A47E4CBADEEC480C817F33420B89.jpg)  
+使用 fixed 定位     
+可见 android 中唤起键盘是覆盖在页面上，不会压缩页面  
+在 ios 上的效果：  
+![](http://www.alloyteam.com/wp-content/uploads/2017/03/C2C872ABEC19523C4F7FA12C8BF9AF6C.png)![](http://www.alloyteam.com/wp-content/uploads/2017/03/13433D7D79C882AD3C77E44923C0E2AC.png)![](http://www.alloyteam.com/wp-content/uploads/2017/03/7750008C947D43327F2C12BBC837B52E.png)![](http://www.alloyteam.com/wp-content/uploads/2017/03/1A9474E333E9DC2B5943AA23B78BE9E6.png)
+
+那么如果我们需要将**输入框固定在屏幕下方，而当键盘被唤起同时输入框固定在键盘上方**（如下图样式）该如何解决呢？  
+![](http://www.alloyteam.com/wp-content/uploads/2017/03/6E894A4776B4E45EFEFC0A33A6234A51.png) ![](http://www.alloyteam.com/wp-content/uploads/2017/03/C45EADCFE7E097D2D49E5315878F42DC.png)
+
+首先我们来看下 ios 的表现  
+![](http://www.alloyteam.com/wp-content/uploads/2017/03/F0C85FCCA1DD9D467AB1860DB1886434.png)  
+可以看出，键盘会将页面顶上去。那么如果希望可以将输入框和键盘完全贴合，我们可以使用 div 模拟一个假的输入框，使用定位将真正的输入框隐藏掉，当点击假的输入框的时候，将真正的输入框定位到键盘上方，并且手动获取输入框焦点。
+
+在实现过程中需要注意下面几个问题：  
+**1、真正的输入框的位置计算**：  
+首先记录无键盘时的 window.innerHeight，当键盘弹出后再获取当前的 window.innerHeight，两者的差值即为键盘的高度，那么定位真输入框自然就很容易了  
+**2、在 ios 下手动获取焦点不可以用 click 事件，需要使用 tap 事件才可以手动触发**  
+
+```ruby
+    $('#fake-input').on($.os.ios?'tap' : 'click', function() {
+        initHeight = window.innerHeight;
+        $('#input').focus();
+    });
+ 
+```
+
+**3、当键盘收起的时候我们需要将真输入框再次隐藏掉，除了使用失去焦点（blur）方法，还有什么方法可以判断键盘是否收起呢？**  
+这里可以使用 setInterval 监听，当当前 window.innerHeight 和整屏高度相等的时候判断为键盘收起。  
+**注意**：键盘弹起需要一点时间，所以计算当前屏幕高度也需要使用 setInterval  
+**4、因为 textarea 中的文字不能置底显示，当输入超过一行 textarea 需要自动调整高度**，因此将 scrollHeight 赋值给 textarea 的 height。当删除文字的时候需要 height 也有变化，因此每次 input 都先将 height 置 0，然后再赋值。  
+
+        $('#textarea').css('height', 0);
+        $('#textarea').css('height', $('#textarea')[0].scrollHeight);
+     
+
+未完待续...
 
 
 <!-- {% endraw %} - for jekyll -->

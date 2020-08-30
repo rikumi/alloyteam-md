@@ -41,7 +41,57 @@ var pools = [] ,
             if( !isRunning ){
                 isRunning = true ;
                 walk();
+            }
+        }
+    };
+})();
+//添加一个执行队列函数
+queuePool.add( function( callback /**后续执行函数**/ ){
+    setTimeout( function(){
+        alert(1);
+        callback();
+    } , 500 );  
+});
+queuePool.add( function( callback /**后续执行函数**/ ){
+    setTimeout( function(){
+        alert(2);
+        callback();
+    } , 1500 );  
+});
+queuePool.add( function( callback /**后续执行函数**/ ){
+    alert(3);
+});
+queuePool.run();
+queuePool.add( function( callback /**后续执行函数**/ ){
+    $.ajax({
+        url : url ,
+        data : {
+            date : formatTime( new Date() ),
+            referer : data.referer
+        } ,
+        dataType : “json” ,
+        success : function( response ){
+            var data = [] , i = 0 ,
+                result = response.result.data;
+            for( ; i < result.length ; ++i ){
+                data.push( Number( result[i].counter ) );
+            }
+            $(el).kendoSparkline({
+                            data: data 
+                        }); 
+            callback();             
+        } ,
+        fail : function(){ 
+            callback(); 
+        }
+    });     
+});
+queuePool.run();
 ```
+
+这里我做的事情就是将队列函数，交给调用方自己来决定，何时执行。  
+同时 run 是个幂等函数，方便随时调用，还可以保证只有一个队列在执行，且不被多次调用。  
+这样就满足了开场需求，在 ajax 中顺序回调：)
 
 
 <!-- {% endraw %} - for jekyll -->

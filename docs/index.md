@@ -591,4 +591,4 @@
 - 2020-07-15 [线程入门](./2020-07-14657.md) by TAT.vorshen
 - 2020-07-21 [Web Worker 文献综述](./2020-07-14680.md) by TAT. cntchen
 - 2020-08-24 [初探 Typescript 解析器](./2020-08-初探-typescript-解析器.md) by TAT.老教授
-- 2020-08-31 [Csp Nonce – 守护你的 inline Scirpt](./2020-08-csp-nonce.md) by TAT.joeyguo
+- 2020-08-31 [Csp Nonce – 守护你的 inline Script](./2020-08-csp-nonce.md) by TAT.joeyguo

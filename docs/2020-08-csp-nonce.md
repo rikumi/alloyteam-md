@@ -1,5 +1,5 @@
 ---
-title: Csp Nonce – 守护你的 inline Scirpt
+title: Csp Nonce – 守护你的 inline Script
 date: 2020-08-31
 author: TAT.joeyguo
 source_link: http://www.alloyteam.com/2020/08/csp-nonce/

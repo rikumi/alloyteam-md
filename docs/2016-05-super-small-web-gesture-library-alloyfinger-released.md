@@ -90,59 +90,5 @@ new AlloyFinger(element, {
 
 react 版使用方式:
 
-```html
-render() {
-    return (
-        <AlloyFinger
-            onTap={this.onTap.bind(this)}
-            onMultipointStart={this.onMultipointStart.bind(this)}
-            onLongTap={this.onLongTap.bind(this)}
-            onSwipe={this.onSwipe.bind(this)}
-            onPinch={this.onPinch.bind(this)}
-            onRotate={this.onRotate.bind(this)}
-            onPressMove={this.onPressMove.bind(this)}
-            onMultipointEnd={this.onMultipointEnd.bind(this)}
-            onDoubleTap={this.onDoubleTap.bind(this)}>
-            <div className="test">你要监听手势的Dom!</div>
-        </AlloyFinger>
-    );
-}
-```
-
-官网 DEMO  
-
-==========
-
-<http://alloyteam.github.io/AlloyFinger/>
-
-Q&A  
-
-======
-
-1. 必须跟 transformjs 一起用吗？  
-不必须。也可以在事件回调里根据 evt 携带的信息使用 js 去操作 CSS3。但是一起用，会让代码更简洁。  
-2.pinch、rotate 事件怎么在 chrome 浏览器调试的？  
-一般用真机调试，但是也可以使用 chrome 浏览器，传送门 <http://www.html5rocks.com/en/mobile/touch/#toc-touchdev>  
-3. 缩放的 origin 点设置，这里是想手在图片哪个区域操作就设置哪里为 origin 进行缩放？  
-自己去计算就是两个手指的连线的中点的坐标，
-
-比如中点 X：
-
-```javascript
-   pinch: function (evt) { 
-        console.log((evt.touch[0].pageX+evt.touch[1].pageX)/2);
-    },
-```
-
-然后根据这个坐标和图片的坐标计算图片缩放的 origin  
-4. 拖拽位置、缩放大小是否可以限制（始终在屏幕内显示，避免出现缩到很小看不到的情况）  
-这个不应该有 AlloyFinger 控制。而应该由你的逻辑去控制
-
-Github  
-
-=========
-
-<https://github.com/AlloyTeam/AlloyFinger>
-
 
 <!-- {% endraw %} - for jekyll -->

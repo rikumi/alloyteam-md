@@ -58,119 +58,23 @@ entry 与 其他 chunk 文件的 “等待 - 执行” 的逻辑，webpack 其�
 
 ```javascript
 // # entry.js
+ 
 // 声明依赖列表
-deferredModules.push(["./src/entryA.js", "commons"]);
+deferredModules.push(["./src/entryA.js","commons"]);
+ 
 // 缓存已完成的加载
 var installedChunks = {
-    entryA: 0,
+    "entryA": 0
 };
+ 
 function webpackJsonpCallback(data) {
-    // 加载后标记完成
-    installedChunks[chunkId] = 0;
+    // 加载后标记完成
+    installedChunks[chunkId] = 0;
 }
+ 
 // 检查是否都加载完成，如是，则开始执行业务逻辑
-function checkDeferredModules() {
-    // 判断 installedChunks 是否完整
-    // ...
-    if (fulfilled) {
-        // 所有都加载，开始执行
-        result = __webpack_require__(
-            (__webpack_require__.s = deferredModule[0])
-        );
-    }
-}
-// 提供给 chunk 的全局回调方法
-var jsonpArray = (window["webpackJsonp"] = window["webpackJsonp"] || []);
-jsonpArray.push = webpackJsonpCallback;
+function
 ```
-
-### 2.1.2 在生成的 chunk 文件中
-
-chunk 文件加载后，正常情况下将调用 entry 提供的全局回调方法，标记加载完成。而当 chunk 文件先于 entry 加载完成，则会先缓存记录，等 entry 文件加载后读取缓存并将其标记完成。
-
-```javascript
-// # chunk.js
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
-    ["commons"],
-    {
-        "./src/moduleA.js": function (
-            module,
-            __webpack_exports__,
-            __webpack_require__
-        ) {
-            // ...
-        },
-    },
-]);
-```
-
-### 2.1.3 小结
-
-基于以上分析，可以看出 entry 和 chunk 文件加载顺序不会影响执行时机，只有在都加载完成后，才会执行业务逻辑。如下图示
-
-![entrychunk](https://user-images.githubusercontent.com/10385585/62221634-8bbf5b80-b3e4-11e9-974d-e6f44a14d654.png)
-
-## 2.2 等待 external 文件加载完成
-
-项目引用第三方库，一般会配置 external 让库单独加载。通过 webpack 生成的代码可以看出，配置 external 的模块在业务代码执行前将被当作已存在环境中，不做任何判断。所以当 external 文件未加载完成或加载失败时，使用对应模块将会导致执行出错。
-
-```javascript
-"react":  (function(module, exports) {
-     eval("(function() { module.exports = window[\"React\"]; }());");
-})
-```
-
-### 2.2.1 添加等待 external 文件加载完成再执行逻辑
-
-为了避免使用时出错，在执行前需先保证 external 文件已经加载完成。处理方式如下
-
--   将 entry 逻辑进行封装，不立即执行
--   external 模块不存在时，则监听等待文件加载完成后再判断执行
--   external 模块都存在后再执行 entry 逻辑
-
-示意代码：
-
-```javascript
-(function () {
-    var entryInit = function () {
-        (function (modules) {
-            // webpackBootstrap
-            //  ...
-        })({});
-    };
-    if (window["React"]) {
-        entryInit();
-    } else {
-        var hasInit = false;
-        var callback = function () {
-            if (hasInit) return;
-            if (window["React"]) {
-                hasInit = true;
-                document.removeEventListener("load", callback, true);
-                entryInit();
-            }
-        };
-        document.addEventListener("load", callback, true);
-    }
-})();
-```
-
-### 2.2.2 “自动” 生成等待 external 文件加载完成再执行逻辑
-
-等待 external 加载完成逻辑是统一的，差异在于依赖的 external 或有不同。为了避免手动添加出错，我们可以通过以 webpack 插件的形式自动分析依赖，并生成相关代码。
-
--   获取依赖的 external Modules
--   分析 external 对应变量
--   生成并注入相关逻辑代码
-
-具体实现可见插件 [wait-external-webpack-plugin](https://github.com/joeyguo/wait-external-webpack-plugin)
-
-通过 [wait-external-webpack-plugin](https://github.com/joeyguo/wait-external-webpack-plugin) 插件，能够自动生成等待依赖的 external 文件加载完成再执行逻辑，对开发者透明，保证文件对正常执行。
-
-欢迎使用，欢迎任何意见或建议，谢谢。
-
-[查看更多文章 >>](https://github.com/joeyguo/blog)  
-<https://github.com/joeyguo/blog>
 
 
 <!-- {% endraw %} - for jekyll -->

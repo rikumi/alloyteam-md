@@ -171,9 +171,7 @@ SPDY 位于 HTTP 之下，TCP 和 SSL 之上，这样可以轻松兼容老版本
 -   <https://www.gitbook.com/book/ye11ow/http2-explained/details>
 -   <http://op.baidu.com/2015/04/https-s01a01/>
 
-好书推荐 [《](http://www.ituring.com.cn/book/1632)[HTTPS 权威指南：在服务器和 Web 应用上部署 SSL/TLS 和 PKI](http://www.ituring.com.cn/book/1734)[》](http://www.ituring.com.cn/book/1632)
-
-[![1734.826](http://www.alloyteam.com/wp-content/uploads/2016/07/1734.826.jpg)](http://www.ituring.com.cn/book/1734)
+好书推荐
 
 
 <!-- {% endraw %} - for jekyll -->

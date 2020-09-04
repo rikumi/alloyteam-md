@@ -84,51 +84,5 @@ EventEmitter 其他 API
 
 emitter.once 是一次性监听，触发一次后，监听将被移除，并返回 false
 
-```javascript
-var EventEmitter = require("events").EventEmitter;
-var emitter = new EventEmitter();
-emitter.once("sayHi", function (someone) {
-    console.log(someone);
-});
-emitter.emit("sayHi", "jerry");
-// 输出
-// sayHi jerry
-var res = emitter.emit("sayHi", "jerry");
-// 无输出，res为false
-```
-
-### emitter.removeListener(event, listener)
-
-移除监听事件的对应的 listener
-
-```javascript
-var EventEmitter = require("events").EventEmitter;
-var emitter = new EventEmitter();
-emitter.on("sayHi", function (someone) {
-    console.log(someone);
-});
-emitter.removeListener("sayHi", function () {
-    console.log("sayHi event");
-});
-emitter.emit("jerry");
-// 输出： jerry
-```
-
-上面代码仍然输出了 jerry，原因在于 removeListener (event, listener) 中的 listener 需要是注册到 event 事件中的函数。而不是 removeListener 执行完了之后的回调函数。 所以要如下进行删除 listener
-
-```javascript
-var EventEmitter = require("events").EventEmitter;
-var emitter = new EventEmitter();
-var sayHiCallBack = function (someone) {
-    console.log(someone);
-};
-emitter.on("sayHi", sayHiCallBack);
-emitter.removeListener("sayHi", sayHiCallBack);
-emitter.emit("jerry");
-// 无输出。即成功remove了sayHi事件
-```
-
-EventEmitter 为 node 的事件注册和分发提供了较好的形式。提高的代码的可读性及维护的便利性。
-
 
 <!-- {% endraw %} - for jekyll -->

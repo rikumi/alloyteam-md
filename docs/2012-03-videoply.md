@@ -80,10 +80,5 @@ html 如下：
 <span class="time-sep">/</span>;
 ```
 
-```html
-<!--mute / unmute toggle-->
-<a class="jp-mute"
-```
-
 
 <!-- {% endraw %} - for jekyll -->

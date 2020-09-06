@@ -24,54 +24,37 @@ source_link: http://www.alloyteam.com/2012/05/perfect-custom-scrollbar/
 这里关键在于什么时候清楚定时器。首先，鼠标弹起时候要清除；第二种情况是不满足条件时要清除。下面把鼠标按在滚动槽中的鼠标响应事件的代码贴出来，以供参考：
 
 ```javascript
-slider.onmousedown = function (e) {
-    e = e || event;
-    var id;
-    var mouseY = e.clientY;
-    function isUp() {
-        var rect = context.cube.getBoundingClientRect();
-        var y = rect.top;
-        if (y > mouseY) {
-            up();
-            id ||
-                (id = setInterval(function () {
-                    isUp(y);
-                }, 100));
-            return true;
-        } else {
-            id && clearInterval(id);
-            id = 0;
-            return false;
-        }
-    }
-    function isDown() {
-        var rect = context.cube.getBoundingClientRect();
-        var y = rect.top;
-        if (rect.bottom < mouseY) {
-            down();
-            id ||
-                (id = setInterval(function () {
-                    isDown(y);
-                }, 100));
-            return true;
-        } else {
-            id && clearInterval(id);
-            id = 0;
-            return false;
-        }
-    }
-    isUp() || isDown();
-    document.onmouseup = function () {
-        id && clearInterval(id);
-        id = 0;
-        document.onmouseup = null;
-    };
-};
+slider.onmousedown=function(e){
+  e=e||event;
+  var id;
+  var mouseY=e.clientY;
+  function isUp(){
+    var rect=context.cube.getBoundingClientRect();
+    var y=rect.top;
+    if(y>mouseY){
+       up();
+       id||(id=setInterval(function(){isUp(y);},100));
+       return true;
+    }
+    else{
+       id&&clearInterval(id);
+       id=0;
+       return false;
+    }
+  }
+  function isDown(){
+    var rect=context.cube.getBoundingClientRect();
+    var y=rect.top;
+    if(rect.bottom<mouseY){
+      down();
+      id||(id=setInterval(function(){isDown(y)},100));
+      return true;
+    }
+    else{
+      id&&clearInterval(id);
+      id=0;
+      return false;
 ```
-
-## 第二，关于如何做到使用该组件无需改动任何代码。
-
-这里关键在于对要使用滚动条元素的定位方式进行分析，然后应用于我们生成的包含滚动条元素的 dom 节点，最后使用替换节点的方式把我们生成的 dom 节点插入文档中，具体代码如下：
 
 
 <!-- {% endraw %} - for jekyll -->

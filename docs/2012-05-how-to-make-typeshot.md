@@ -71,7 +71,7 @@ Laro.register('TypeShot.$loop', function (La) {
 1.  资源 loading，初始化  
     [![](http://www.alloyteam.com/wp-content/uploads/2012/05/1-169x300.png "1")](http://www.alloyteam.com/wp-content/uploads/2012/05/1.png)
 2.  游戏主场景  
-    [](http://www.alloyteam.com/wp-content/uploads/2012/05/2.png)
+    [![](http://www.alloyteam.com/wp-content/uploads/2012/05/2-171x300.png "2")](http://www.alloyteam.com/wp-content/uploads/2012/05/2.png)
 
 
 <!-- {% endraw %} - for jekyll -->

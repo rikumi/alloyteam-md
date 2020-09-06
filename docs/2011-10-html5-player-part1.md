@@ -46,5 +46,7 @@ window["Audio"] && new Audio().canPlayType("audio/mpeg");
 
 说得差不多了，直接看代码和 [demo](http://alloyteam.com/wp-content/uploads/2011/10/audio-player-demo1.html) 吧：
 
+    function initAudio(
+
 
 <!-- {% endraw %} - for jekyll -->

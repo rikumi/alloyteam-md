@@ -94,5 +94,105 @@ template.html
 
 controller
 
+```html
+<span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>);
+app.controller(<span class="string">'testController'</span>,[<span class="string">"$scope"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>){
+    <span class="variable">$scope</span>.name = <span class="string">'John'</span>;
+}]);
+ 
+```
+
+再看一看用 angular 式组件，使用 directive
+
+```html
+<span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>);
+app.directive(<span class="string">'myComponent'</span>,<span class="keyword">function</span>(){
+    <span class="keyword">return</span> {
+        link:<span class="keyword">function</span>(scope,element,attrs){
+            <span class="keyword">var</span> name = attrs.name;
+            element.text(<span class="string">'Hello '</span> + name);
+        }
+    }
+});
+ 
+```
+
+html:
+
+```html
+<myComponent name="John"></myComponent>;
+```
+
+# 组件组合
+
+* * *
+
+react 的组件组合非常简单，使用 `React.createElement` 方法即可。  
+例如给上面定义的 `HelloMessage` 的外层添加一个 `div`，可以这样写：
+
+```html
+<span class="keyword">var</span> HelloMessageWithDiv = React.createClass({
+    displayName:<span class="string">'HelloMessageWithDiv'</span>,
+    render:<span class="keyword">function</span>(){
+        <span class="keyword">return</span> React.createElement(
+            <span class="string">'div'</span>,
+            <span class="keyword">null</span>,
+            React.createElement(HelloMessage, {name: <span class="string">"John"</span>})
+        );
+    }
+});
+ 
+```
+
+angular 也很简单，直接写 html 即可
+
+```html
+<div>
+    <myComponent name="John"></myComponent>
+</div>;
+```
+
+react 对 dom 的封装都在 React.DOM 命名空间下，而 coffeescipt 支持解构赋值语法，所以用 coffee 的写法也可以媲美 jsx 的语法，例如：
+
+```html
+{div,h1,h2,h3,h4,input,span} = React.DOM
+React.render(
+    div <span class="keyword">null</span>,<span class="string">'head.'</span>,
+        div <span class="keyword">null</span>,<span class="string">'nav'</span>,
+            ul <span class="keyword">null</span>,
+                li <span class="keyword">null</span>,<span class="string">'li1'</span>
+                li <span class="keyword">null</span>,<span class="string">'li2'</span>
+        div <span class="keyword">null</span>,<span class="string">'container'</span>,
+            h1 <span class="keyword">null</span>,<span class="string">'title'</span>
+            div <span class="keyword">null</span>,<span class="string">'content'</span>
+                h2 <span class="keyword">null</span>,<span class="string">'h2'</span>
+,document.getElementById <span class="string">'container'</span> )
+ 
+```
+
+# 为什么用 react
+
+* * *
+
+虽然目前 react 非常之火爆，但说实话，我也不知道在现在环境中用 react 有什么意义。  
+在使用 angularjs 开发几个项目之后，如果需要转向 react，只有以下几点可能会吸引我：
+
+1.  足够好的性能
+2.  跨平台开发的统一体验。这个还得等 react-android 出来后才知道。
+3.  兼容其他 js 库，在现有项目中就可以使用
+
+而对于 angularjs，我认为目前 angularjs 已经足够好用了，除了以下几个显著的问题：
+
+1.  性能问题，目前 angularjs 在移动端的性能确实不够，因为它实在太大了。这个问题是最致命的。
+2.  只能在 angular 的框架下开发，第三方库要兼容 angular 都需要做一些工作。
+
+对于 angularjs 其他所谓的缺点，其实大多可以解决，只是难易程度不同，例如 SEO / 构建等都可以解决。  
+上手难易程度来说，angularjs 确实比 react 难很多，但这和一个工具是否好用没有关系，例如正则。
+
+网上看到大家都在鼓吹 react 如何如何，又有很多人抛弃了 angular 投向 react 的怀抱。说实话有点吹的太过了。  
+react 只是让组件式开发和复用更加简单好用，外加逆天的性能，仅此而已。
+
+最后，到底应该用什么，看你的心情吧，我要赶去改 bug 了。。
+
 
 <!-- {% endraw %} - for jekyll -->

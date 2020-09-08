@@ -57,8 +57,72 @@ source_link: http://www.alloyteam.com/2012/10/js-dynamic-management-of-css/
 
 如果我们想在一个元素上应用以上动画，我们可以动态定义一个 css class：
 
-    .animateSlideRight {
-        -webkit-animation-name: 
+```css
+.animateSlideRight {
+    -webkit-animation-name: slide-right;
+    -webkit-animation-delay:0ms;
+    -webkit-animation-duration:1s;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-iteration-count:1;
+    -webkit-animation-direction:normal;
+    -webkit-perspective:1000px;
+    -webkit-perspective-origin:50% 50%;
+    -webkit-backface-visibility:visible;
+}
+```
+
+我们也可以用 insertCSS 方法将 css 插入到 style 节点中。这里要注意，以上函数每次只能加入一条 css 规则，如果 rule 中包含 2 条或 2 条以上规则，则以 insertRule 方法会出现异常。这也是为什么参数名叫 rule 而不是 cssText 的原因。
+
+对于本例，我们需要执行 2 次 insertCSS 函数，第一次插入 keyframe 的 CSS，第二次插入 class 的 CSS。
+
+然后我们可以用以下语句设置元素的 class，播放元素的动画效果：
+
+```javascript
+elem.className += " " + className;
+```
+
+# 删除 CSS
+
+如果动画是临时播放的，那么我们还需要在动画结束后将添加的 keyframe 的 css 和 class 的 css 删除，避免在页面中制造垃圾。
+
+删除 CSS 还是需要访问 document 的 styleSheets。由于之前我们一直将 CSS 添加到 styleSheet\[0] 中，所以在删除的时候我们只访问 styleSheets 中的第一个 CSSStyleSheet 实例就可以了。
+
+我们添加的 css 和原有的 css 都保存在 CSSStyleSheet 对象的 cssrules 列表中：
+
+[![](http://www.alloyteam.com/wp-content/uploads/2012/10/image001.png "image001")](http://www.alloyteam.com/wp-content/uploads/2012/10/image001.png)
+
+如果要删除 keyframe 的 css，可以通过 rule 的 name 属性判断：
+
+[![](http://www.alloyteam.com/wp-content/uploads/2012/10/image003.png "image003")](http://www.alloyteam.com/wp-content/uploads/2012/10/image003.png)
+
+如果要删除的是 class 的 css，则需要通过 rule 的 selectorText 来判断
+
+[![](http://www.alloyteam.com/wp-content/uploads/2012/10/image005.png "image005")](http://www.alloyteam.com/wp-content/uploads/2012/10/image005.png)
+
+我们通过以下 deleteCSS 函数实现这个功能：
+
+```javascript
+             /**
+             * Delete CSS keyframe rule
+             */
+            deleteCSS: function (ruleName) {
+                var cssrules = (document.all) ? "rules" : "cssRules",
+                    i;
+                for (i = 0; i < document.styleSheets[0][cssrules].length; i += 1) {
+                    var rule = document.styleSheets[0][cssrules][i];
+                    if (rule.name === ruleName || rule.selectorText === '.'+ruleName) {
+                        document.styleSheets[0].deleteRule(i);
+                        if (this.debug) {
+                            console.log("Deleted keyframe: " + ruleName);
+                        }
+                        break;
+                    }
+                }
+                return;
+            },
+```
+
+这个函数中并没有考虑其他情况，比如 #elementCSS 的情况。读者可以自行扩展该函数。
 
 
 <!-- {% endraw %} - for jekyll -->

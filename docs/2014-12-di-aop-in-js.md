@@ -58,5 +58,91 @@ argumentNames(function (arg1, arg2) {}); // ["arg1", "arg2"];
 
 要注入的模块 === 模块仓库 \[模块 ID];
 
+```javascript
+// DI的完整实现：
+(function (widnow) {
+    window.DI = {
+        serviceCache: {},
+        _argumentNames: function (fn) {
+            var ret,
+                methodCode = fn.toString();
+            methodCode.replace(/\((.*?)\)/, function (match, g1) {
+                var argStr = g1.replace(/\s/g, "");
+                ret = argStr.length ? argStr.split(",") : [];
+            });
+            return ret;
+        },
+        service: function (serviceID, serviceFactory) {
+            this.serviceCache[serviceID] = new serviceFactory();
+            return this;
+        },
+        controller: function (controllerID, controllerCb) {
+            var controllerCbArgs = this._argumentNames(controllerCb);
+            var dependencies = [],
+                i = 0; // 根据controllerCbArgs有序填充依赖
+            while (controllerCbArgs[i]) {
+                dependencies.push(this.serviceCache[controllerCbArgs[i]]);
+                i++;
+            }
+            controllerCb.apply({}, dependencies);
+            return this;
+        },
+    };
+})(this);
+// 使用方法：
+DI.service("AT", function () {
+    this.name = "Alloy Team";
+    this.concatUs = function () {
+        document.body.innerHTML = "Email: AlloyTeam@tencent.com";
+    };
+}).controller("c", function (AT) {
+    AT.concatUs();
+});
+```
+
+到此，我们已经简单实现了依赖注入。当然，这个实现是有很多问题的，比如 JS 混淆后不能正常工作，定义一个模块就立即 new 也是不恰当的。有兴趣的话可以尝试去完善这个 DI，这里就不继续下去了。
+
+**二： 如何在 JS 中实现 AOP**
+
+提到 DI，我就想到了 AOP。有 Java 基础的同学都知道 Ioc 和 AOP 是 Spring 的两大特性。在 JS 中，要实现 AOP 也很简单，但方式却显得唯一：重写原来的函数定义。如下是 AOP 一个实现：
+
+```javascript
+(function (window) {
+    window.AOP = {
+        before: function (ns, fnName, beforefn) {
+            var ori = ns[fnName];
+            ns[fnName] = function () {
+                beforefn();
+                ori();
+            };
+        },
+    };
+})(this);
+// 使用
+var ns = {
+    foo: function () {
+        console.log("foo...");
+    },
+};
+var bar = function () {
+    console.log("bar...");
+};
+// 现在使用AOP在ns.foo函数执行前，切入新逻辑bar()
+AOP.before(ns, "foo", bar);
+// 执行ns.foo
+ns.foo();
+/* 
+打印：
+	bar...
+	foo...
+*/
+```
+
+虽然上面 AOP 的实现比较丑陋，但目前要想在 JS 中实现 AOP，核心原理都是重写函数定义。期望有一天能像操作 XMLHttpRequest 对象那样，在每个函数对象上，也有一个类似 readyState 的属性，这时，再结合 Object.observe，相信那时 JS 中的 AOP 实现将会非常优雅，AOP 也会在 JS 中得到更好的使用。更多 AOP 的使用场景可以参考文章：[用 AOP 改善 javascript 代码](http://www.alloyteam.com/author/svenzeng/ "用 AOP 改善 javascript 代码")
+
+小结：  
+1. 在 JS 中实现 DI：利用函数的 toString 方法  
+2. 在 JS 中实现 AOP：重写原函数
+
 
 <!-- {% endraw %} - for jekyll -->

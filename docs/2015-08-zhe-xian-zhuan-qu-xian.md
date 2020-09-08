@@ -76,13 +76,83 @@ source_link: http://www.alloyteam.com/2015/08/zhe-xian-zhuan-qu-xian/
 Vector2，一般用来表示向量，但有的时候也用来当作点来进行一计算。
 
 ```javascript
-var Vector2 = function(x, y) { 
-        this.x = x; 
-        this.y = y; 
-} 
-Vector2.prototype = { 
-    "length": function () {
+var Vector2 = function (x, y) {
+    this.x = x;
+    this.y = y;
+};
+Vector2.prototype = {
+    length: function () {
+        return Math.sqrt(this.x * this.x + this.y * this.y);
+    },
+    normalize: function () {
+        var inv = 1 / this.length();
+        return new Vector2(this.x * inv, this.y * inv);
+    },
+    add: function (v) {
+        return new Vector2(this.x + v.x, this.y + v.y);
+    },
+    multiply: function (f) {
+        return new Vector2(this.x * f, this.y * f);
+    },
+    dot: function (v) {
+        return this.x * v.x + this.y * v.y;
+    },
+    angle: function (v) {
+        return (
+            (Math.acos(this.dot(v) / (this.length() * v.length())) * 180) /
+            Math.PI
+        );
+    },
+};
 ````
+
+其中  
+length 求向量长度
+
+normalize 转单位向量
+
+add 向量叠加
+
+multiply 向量翻倍
+
+dot 内积
+
+angle 方法用来求两个向量的夹角
+
+核心方法，根据 path 上的点，求出所有贝塞尔曲线控制点。
+
+```javascript
+​function getControlPoint(path) { 
+    var rt = 0.3; 
+    var i = 0, count = path.length - 2; 
+    var arr = []; 
+    for (; i < count; i++) { 
+        var a = path[i], b = path[i + 1], c = path[i + 2]; 
+        var v1 = new Vector2(a.x - b.x, a.y - b.y); 
+        var v2 = new Vector2(c.x - b.x, c.y - b.y); 
+        var v1Len = v1.length(), v2Len = v2.length(); 
+        var centerV = v1.normalize().add(v2.normalize()).normalize(); 
+        var ncp1 = new Vector2(centerV.y, centerV.x * -1); 
+        var ncp2 = new Vector2(centerV.y * -1, centerV.x); 
+        if (ncp1.angle(v1) < 90) { 
+            var p1 = ncp1.multiply(v1Len * rt).add(b); 
+            var p2 = ncp2.multiply(v2Len * rt).add(b); 
+            arr.push(p1, p2) 
+        } else { 
+            var p1 = ncp1.multiply(v2Len * rt).add(b); 
+            var p2 = ncp2.multiply(v1Len * rt).add(b); 
+            arr.push(p2, p1) 
+        } 
+    } 
+    return arr; 
+}
+```
+
+Demo  
+
+* * *
+
+[点我点我](http://kmdjs.github.io/sm/)
 
 
 <!-- {% endraw %} - for jekyll -->

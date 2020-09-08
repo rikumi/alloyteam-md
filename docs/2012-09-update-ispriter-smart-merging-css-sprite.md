@@ -67,8 +67,30 @@ source_link: http://www.alloyteam.com/2012/09/update-ispriter-smart-merging-css-
 之后的调用方式就跟以前一样了，可以新建 NodeJs 文件调用：
 
 ```javascript
-var spriter =
+var spriter = require("ispriter");
+var configFile = "../src/config.example.json";
+spriter.merge(configFile);
 ```
+
+或者集成到你的编译脚本，一句命令行调用搞定：
+
+    node -e "require('ispriter').merge('../src/config.example.json')"
+
+## 运行环境搭建
+
+由于 iSpriter 使用了 node-canvas，而 node-canvas 依赖了 [Cairo](http://cairographics.org/) 图形库，对初学者来说，安装 Cairo 和 node-canvas 是挺痛苦的。
+
+不过人生就是贵在折腾啦，经亲身体验，在三大平台都能正确的安装上并使用 canvas 了。另外，node-canvas 的 wiki 也给出了安装方法，[详见这里](https://github.com/LearnBoost/node-canvas/wiki)。
+
+其中：ubuntu /os x 的安装是简单的不能再简单的了，完全可以写个 shell 自动安装啊有木有；windows 的安装步骤有点多，但也是能装上并跑起来的（有些机器编译 canvas 还是出错，原因不明）。
+
+安装好 canvas ，其他问题都不在话下了，尽情的使用 iSpriter 提高你的工作效率吧～～
+
+—————- 2013-8-15 update ————————
+
+感谢 [node-pngjs](https://github.com/niegowski/node-pngjs) 的作者，现在 ispriter 把 node-canvas 替换成了跟平台无关的 node-pngjs，再也不用费劲心机的安装 node-canvas 啦！
+
+鼓掌，哗啦啦 O (∩\_∩) O 哈哈～
 
 
 <!-- {% endraw %} - for jekyll -->

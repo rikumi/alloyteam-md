@@ -88,56 +88,5 @@ var Nuclear = require("nuclear");
 那么为什么要暴露在 root/window?  
 因为，为了支持声明式事件绑定，即让事件调用自身组件定义的方法。如下面 render 方法中的模板：
 
-```html
-  <form onsubmit="add(event)" >
-```
-
-到了 dom 里面，进过 Nuclear 的处理会变成：
-
-```c
-<form onsubmit="Nuclear.instances[0].add(event)">
-```
-
-所以 add 不会去访问全局的 add，而是访问自身组件定义的 add 方法。关于这点后面教程再详细说明这么设计的好处。先看简单的例子。
-
-## 简单例子
-
-````html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hello,Nuclear!</title>
-</head>
-<body>
-    <div id="container"></div>
-    
-```html
-<script src="../dist/nuclear.js"></script>
-````
-
-    
-
-```html
-<script type="text/javascript">
-        var HelloMessage = Nuclear.create({
-            render: function () {
-                return '<div>Hello , {{name}} !</div>';
-            }
-        })
-        new HelloMessage({ name: "Nuclear" }, "#container");
-    </script>
-```
-
-</body>
-</html>
-```
-
-new HelloMessage 的第一个参数会赋给 this.option，render 的模板使用的数据源就是 this.option。所以，直接通过 {{name}} 就能得到 option 的 name 的值。  
-new HelloMessage 的第二个参数是组件的容器。
-
-## Q&A
-
-任何问题可以留言回复或者 [issues](https://github.com/AlloyTeam/Nuclear/issues/new) 发过来
-
 
 <!-- {% endraw %} - for jekyll -->

@@ -76,62 +76,7 @@ Omi.render(new Hello({ name: "Omi" }), "body");
 
 那么你就在其他组件中使用，并且通过 data-\*的方式可以给组件传参，如：
 
-```html
-  ...
-  render() {
-        return  `
-        <div>
-            <div>Test</div>
-            <Hello data-name="Omi" />
-        </div>
-        `;
-    }
-    ...
- 
-```
-
-注意，style 方法里面 return 包裹的`<style></style>` 不是必须的。主要是方便识别成 jsx 文件时候有 css 语法高亮。
-
-[\[点击这里 -> 在线试试\]](http://alloyteam.github.io/omi/website/redirect.html?type=hello_nest)
-
-你可以使用 [webpack](https://webpack.github.io/) + [babel](http://babeljs.io/)，在 webpack 配置的 module 设置 [babel-loader](https://github.com/babel/babel-loader)，立马就能使用 ES6 + 来编写你的 web 程序。
-
-当然 Omi 没有抛弃 ES5 的用户，你可以使用 ES5 的方式编写 Omi。
-
-## ES5 方式
-
-```html
-var Hello = Omi.create("Hello", {
-    style: function () {
-        return "<style>h1{ cursor:pointer }</style>";
-    },
-    handleClick: function (dom) {
-        alert(dom.innerHTML);
-    },
-    render: function () {
-        return ' <div><h1 onclick="handleClick(this, event)">Hello ,{{name}}!</h1></div>';
-    },
-});
-var Test = Omi.create("Test", {
-    render: function () {
-        return '<div>\
-                    <div>Test</div>\
-                    <Hello data-name="Omi" />\
-                </div>';
-    },
-});
-Omi.render(new Test(), "#test");
-```
-
-和 ES6 + 的方式不同的是，不再需要 makeHTML 来制作标签用于嵌套，因为 Omi.create 的第一个参数的名称就是标签名。
-
-[\[点击这里试试 ES5 写 Omi 程序\]](http://alloyteam.github.io/omi/website/redirect.html?type=hello_es5)
-
-## 加入 Omi 吧！
-
-Github: <https://github.com/AlloyTeam/omi>
-
-I need you.
+      ...
 
 
 <!-- {% endraw %} - for jekyll -->

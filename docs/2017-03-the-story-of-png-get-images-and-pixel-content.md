@@ -91,9 +91,394 @@ let crc = readBytes(4); // crc冗余校验码
 ```javascript
 // 将buffer数组转为字符串
 function bufferToString(buffer) {
-    let str = '';
-    for(let<
+    let str = "";
+    for (let i = 0, len = buffer.length; i < len; i++) {
+        str += String.fromCharCode(buffer[i]);
+    }
+    return str;
+}
+type = bufferToString(type);
 ```
+
+然后会发现 type 的值是四个大写英文字母，没错，这就是上面提到的数据块类型。上面还提到了我们只需要解析关键数据块，因此遇到 `type` 不等于 IHDR、PLTE、IDAT、IEND 中任意一个的数据块就直接舍弃好了。当我们拿到一个关键数据块，就直接解析其数据块内容就可以了，即上面代码中的 `chunkData` 字段。
+
+### IHDR
+
+类型为 IHDR 的数据块用来存放图片信息，其长度为固定的 13 个字节：
+
+| 描述   | 长度   |
+| :--- | :--- |
+| 图片宽度 | 4 字节 |
+| 图片高度 | 4 字节 |
+| 图像深度 | 1 字节 |
+| 颜色类型 | 1 字节 |
+| 压缩方法 | 1 字节 |
+| 过滤方式 | 1 字节 |
+| 扫描方式 | 1 字节 |
+
+其中宽高很好解释，直接转成 32 位整数，就是这张 png 图片等宽高（以像素为单位）。压缩方法目前只支持一种（deflate/inflate 压缩算法），其值为 0；过滤方式也只有一种（包含标准的 5 种过滤类型），其值为 0；扫描方式有两种，一种是逐行扫描，值为 0，还有一种是 Adam7 隔行扫描，其值为 1，此次只针对普通的逐行扫描方式进行解析，因此暂时不考虑 Adam7 隔行扫描。
+
+图片深度是指每个像素点中的每个通道（channel）占用的位数，只有 1、2、4、8 和 16 这 5 个值；颜色类型用来判断每个像素点中有多少个通道，只有 0、2、3、4 和 6 这 5 个值：
+
+| 颜色类型的值 | 占用通道数 | 描述                   |
+| :----- | :---- | :------------------- |
+| 0      | 1     | 灰度图像，只有 1 个灰色通道      |
+| 2      | 3     | rgb 真彩色图像，有 RGB3 色通道 |
+| 3      | 1     | 索引颜色图像，只有索引值一个通道     |
+| 4      | 2     | 灰度图像 + alpha 通道      |
+
+### PLTE
+
+类型为 PLTE 的数据块用来存放索引颜色，我们又称之为 “调色板”。
+
+由 IHDR 数据块解析出来的图像信息可知，图像的数据可能是以索引值的方式进行存储。当图片数据采用索引值的时候，调色板就起作用了。调色板的长度和图像深度有关，假设图像深度的值是 x，则其长度通常为 `2 的 x 次幂 * 3`。原因是图像深度保存的就是通道占用的位数，而在使用索引颜色的时候，通道里存放的就是索引值，2 点 x 次幂就表示这个通道可能存放的索引值有多少个，即调色板里的颜色数。而每个索引颜色是 RGB3 色通道存放的，因此此处还需要乘以 3。
+
+> 通常使用索引颜色的情况下，图像深度的值即为 8，因而调色板里存放的颜色就只有 256 种颜色，长度为 `256 * 3` 个字节。再加上 1 位布尔值表示透明像素，这就是我们常说的 png8 图片了。
+
+### IDAT
+
+类型为 IDAT 的数据块用来存放图像数据，跟其他关键数据块不同的是，其数量可以是**连续**的复数个；其他关键数据块在 1 个 png 文件里有且只有 1 个。
+
+这里的数据得按顺序把所有连续的 IDAT 数据块全部解析并将数据联合起来才能进行最终处理，这里先略过。
+
+```javascript
+let dataChunks = [];
+let length = 0; // 总数据长度
+ 
+// ... 
+ 
+while(/* 存在IDAT数据块 */) {
+    dataChunks.push(chunkData);
+    length += chunkData.length;
+}
+ 
+```
+
+### IEND
+
+当解析到类型为 IEND 的数据块时，就表明所有的 IDAT 数据块已经解析完毕，我们就可以停止解析了。
+
+IEND 整个数据块的值时固定的：`[0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4E, 0x44, 0xAE, 0x42, 0x60, 0x82]`，因为 IEND 数据块没有数据块内容，所以其数据块内容长度字段（数据块前 4 个字节）的值也是 0。
+
+## 解析
+
+### 解压缩
+
+当我们收集完 IDAT 的所有数据块内容时，我们要先对其进行解压缩：
+
+```javascript
+const zlib = require("zlib");
+let data = new Buffer(length);
+let index = 0;
+dataChunks.forEach((chunkData) => {
+    chunkData.forEach((item) => {
+        data[index++] = item;
+    });
+});
+// inflate解压缩
+data = zlib.inflateSync(new Buffer(data));
+```
+
+### 扫描
+
+上面说过，此次我们只考虑逐行扫描的方式：
+
+```javascript
+// 读取8位无符号整型数
+function readInt8(buffer, offset) {
+    offset = offset || 0;
+    return buffer[offset] << 0;
+}
+let width; // 解析IHDR数据块时得到的图像宽度
+let height; // 解析IHDR数据块时得到的图像高度
+let colors; // 解析IHDR数据块时得到的通道数
+let bitDepth; // 解析IHDR数据块时得到的图像深度
+let bytesPerPixel = Math.max(1, (colors * bitDepth) / 8); // 每像素字节数
+let bytesPerRow = bytesPerPixel * width; // 每行字节数
+let pixelsBuffer = new Buffer(bytesPerPixel * width * height); // 存储过滤后的像素数据
+let offset = 0; // 当前行的偏移位置
+// 逐行扫描解析
+for (let i = 0, len = data.length; i < len; i += bytesPerRow + 1) {
+    let scanline = Array.prototype.slice.call(data, i + 1, i + 1 + bytesPerRow); // 当前行
+    let args = [scanline, bytesPerPixel, bytesPerRow, offset]; // 第一个字节代表过滤类型
+    switch (readInt8(data, i)) {
+        case 0:
+            filterNone(args);
+            break;
+        case 1:
+            filterSub(args);
+            break;
+        case 2:
+            filterUp(args);
+            break;
+        case 3:
+            filterAverage(args);
+            break;
+        case 4:
+            filterPaeth(args);
+            break;
+        default:
+            throw new Error("未知过滤类型！");
+    }
+    offset += bytesPerRow;
+}
+```
+
+上面代码前半部分不难理解，就是通过之前解析得到的图像宽高，再加上图像深度和通道数计算得出每个像素占用的字节数和每一行数据占用的字节数。因此我们就可以拆分出每一行的数据和每一个像素的数据。
+
+在得到每一行数据后，就要进行这个 png 编码里最关键的 1 步 —— 过滤。
+
+### 过滤
+
+早先我们说过过滤方法只有 1 种，其中包含 5 种过滤类型，图像每一行数据里的第一个字节就表示当前行数什么过滤类型。
+
+png 为什么要对图像数据进行过滤呢？
+
+大多数情况下，图像的相邻像素点的色值时很相近的，而且很容易呈现线性变化（相邻数据的值是相似或有某种规律变化的），因此借由这个特性对图像的数据进行一定程度的压缩。针对这种情况我们常常使用一种叫**差分编码**的编码方式，即是记录当前数据和某个标准值的差距来存储当前数据。
+
+比如说有这么一个数组 `[99, 100, 100, 102, 103]`，我们可以将其转存为 `[99, 1, 0, 2, 1]`。转存的规则就是以数组第 1 位为标准值，标准值存储原始数据，后续均存储以前 1 位数据的差值。
+
+当我们使用了差分编码后，再进行 **deflate** 压缩的话，效果会更好（deflate 压缩是 LZ77 延伸出来的一种算法，压缩频繁重复出现的数据段的效果是相当不错的，有兴趣的同学可自行去了解）。
+
+好，回到正题来讲 png 的 5 种过滤类型，首先我们要定义几个变量以便于说明：
+
+    C B
+    A X
+     
+
+-   X：当前像素。
+-   A：当前像素点左边的像素。
+-   B：当前像素点上边的像素。
+-   C：当前像素点左上边的像素。
+
+### 过滤类型 0：None
+
+这个没啥好解释的，就是完全不做任何过滤。
+
+```javascript
+function filterNone(scanline, bytesPerPixel, bytesPerRow, offset) {
+    for (let i = 0; i < bytesPerRow; i++) {
+        pixelsBuffer[offset + i] = scanline[i];
+    }
+}
+```
+
+### 过滤类型 1：Sub
+
+记录 **X - A** 的值，即当前像素和左边像素的差值。左边起第一个像素是标准值，不做任何过滤。
+
+```javascript
+function filterSub(scanline, bytesPerPixel, bytesPerRow, offset) {
+    for (let i = 0; i < bytesPerRow; i++) {
+        if (i < bytesPerPixel) {
+            // 第一个像素，不作解析
+            pixelsBuffer[offset + i] = scanline[i];
+        } else {
+            // 其他像素
+            let a = pixelsBuffer[offset + i - bytesPerPixel];
+            let value = scanline[i] + a;
+            pixelsBuffer[offset + i] = value & 0xff;
+        }
+    }
+}
+```
+
+### 过滤类型 2：Up
+
+记录 **X - B** 的值，即当前像素和上边像素点差值。如果当前行是第 1 行，则当前行数标准值，不做任何过滤。
+
+```javascript
+function filterUp(scanline, bytesPerPixel, bytesPerRow, offset) {
+    if (offset < bytesPerRow) {
+        // 第一行，不作解析
+        for (let i = 0; i < bytesPerRow; i++) {
+            pixelsBuffer[offset + i] = scanline[i];
+        }
+    } else {
+        for (let i = 0; i < bytesPerRow; i++) {
+            let b = pixelsBuffer[offset + i - bytesPerRow];
+            let value = scanline[i] + b;
+            pixelsBuffer[offset + i] = value & 0xff;
+        }
+    }
+}
+```
+
+### 过滤类型 3：Average
+
+记录 **X - (A + B) / 2** 的值，即当前像素与左边像素和上边像素的平均值的差值。
+
+-   如果当前行数第一行：做特殊的 Sub 过滤，左边起第一个像素是标准值，不做任何过滤。其他像素记录该像素与左边像素的**二分之一**的值的差值。
+-   如果当前行数不是第一行：左边起第一个像素记录该像素与上边像素的**二分之一**的值的差值，其他像素做正常的 Average 过滤。
+
+```javascript
+function filterAverage(scanline, bytesPerPixel, bytesPerRow, offset) {
+    if (offset < bytesPerRow) {
+        // 第一行，只做Sub
+        for (let i = 0; i < bytesPerRow; i++) {
+            if (i < bytesPerPixel) {
+                // 第一个像素，不作解析
+                pixelsBuffer[offset + i] = scanline[i];
+            } else {
+                // 其他像素
+                let a = pixelsBuffer[offset + i - bytesPerPixel];
+                let value = scanline[i] + (a >> 1); // 需要除以2
+                pixelsBuffer[offset + i] = value & 0xff;
+            }
+        }
+    } else {
+        for (let i = 0; i < bytesPerRow; i++) {
+            if (i < bytesPerPixel) {
+                // 第一个像素，只做Up
+                let b = pixelsBuffer[offset + i - bytesPerRow];
+                let value = scanline[i] + (b >> 1); // 需要除以2
+                pixelsBuffer[offset + i] = value & 0xff;
+            } else {
+                // 其他像素
+                let a = pixelsBuffer[offset + i - bytesPerPixel];
+                let b = pixelsBuffer[offset + i - bytesPerRow];
+                let value = scanline[i] + ((a + b) >> 1);
+                pixelsBuffer[offset + i] = value & 0xff;
+            }
+        }
+    }
+}
+```
+
+### 过滤类型 4：Paeth
+
+记录 **X - Pr** 的值，这种过滤方式比较复杂，Pr 的计算方式（伪代码）如下：
+
+```c
+p = a + b - c
+pa = abs(p - a)
+pb = abs(p - b)
+pc = abs(p - c)
+if pa <= pb and pa <= pc then Pr = a
+else if pb <= pc then Pr = b
+else Pr = c
+return Pr
+ 
+```
+
+-   如果当前行数第一行：做 Sub 过滤。
+-   如果当前行数不是第一行：左边起第一个像素记录该像素与上边像素的差值，其他像素做正常的 Peath 过滤。
+
+```javascript
+function filterPaeth(scanline, bytesPerPixel, bytesPerRow, offset) {
+    if (offset < bytesPerRow) {
+        // 第一行，只做Sub
+        for (let i = 0; i < bytesPerRow; i++) {
+            if (i < bytesPerPixel) {
+                // 第一个像素，不作解析
+                pixelsBuffer[offset + i] = scanline[i];
+            } else {
+                // 其他像素
+                let a = pixelsBuffer[offset + i - bytesPerPixel];
+                let value = scanline[i] + a;
+                pixelsBuffer[offset + i] = value & 0xff;
+            }
+        }
+    } else {
+        for (let i = 0; i < bytesPerRow; i++) {
+            if (i < bytesPerPixel) {
+                // 第一个像素，只做Up
+                let b = pixelsBuffer[offset + i - bytesPerRow];
+                let value = scanline[i] + b;
+                pixelsBuffer[offset + i] = value & 0xff;
+            } else {
+                // 其他像素
+                let a = pixelsBuffer[offset + i - bytesPerPixel];
+                let b = pixelsBuffer[offset + i - bytesPerRow];
+                let c = pixelsBuffer[offset + i - bytesPerRow - bytesPerPixel];
+                let p = a + b - c;
+                let pa = Math.abs(p - a);
+                let pb = Math.abs(p - b);
+                let pc = Math.abs(p - c);
+                let pr;
+                if (pa <= pb && pa <= pc) pr = a;
+                else if (pb <= pc) pr = b;
+                else pr = c;
+                let value = scanline[i] + pr;
+                pixelsBuffer[offset + i] = value & 0xff;
+            }
+        }
+    }
+}
+```
+
+## 获取像素
+
+到这里，解析的工作就做完了，上面代码里的 `pixelsBuffer` 数组里存的就是像素的数据了，不过我们要如何获取具体某个像素的数据呢？方式可参考下面代码：
+
+```javascript
+let palette; // PLTE数据块内容，即调色板内容
+let colorType; // 解析IHDR数据块时得到的颜色类型
+let transparentPanel; // 透明像素面板，解析tRNS数据块获得
+function getPixel(x, y) {
+    if (x < 0 || x >= width || y < 0 || y >= height) {
+        throw new Error("x或y的值超出了图像边界！");
+    }
+    let bytesPerPixel = Math.max(1, (colors * bitDepth) / 8); // 每像素字节数
+    let index = bytesPerPixel * (y * width + x);
+    switch (colorType) {
+        case 0: // 灰度图像
+            return [
+                pixelsBuffer[index],
+                pixelsBuffer[index],
+                pixelsBuffer[index],
+                255,
+            ];
+        case 2: // rgb真彩色图像
+            return [
+                pixelsBuffer[index],
+                pixelsBuffer[index + 1],
+                pixelsBuffer[index + 2],
+                255,
+            ];
+        case 3: // 索引颜色图像
+            let paletteIndex = pixelsBuffer[index];
+            let transparent = transparentPanel[paletteIndex];
+            if (transparent === undefined) transparent = 255;
+            return [
+                palette[paletteIndex * 3 + 0],
+                palette[paletteIndex * 3 + 1],
+                palette[paletteIndex * 3 + 2],
+                transparent,
+            ];
+        case 4: // 灰度图像 + alpha通道
+            return [
+                pixelsBuffer[index],
+                pixelsBuffer[index],
+                pixelsBuffer[index],
+                pixelsBuffer[index + 1],
+            ];
+        case 6: // rgb真彩色图像 + alpha通道
+            return [
+                pixelsBuffer[index],
+                pixelsBuffer[index + 1],
+                pixelsBuffer[index + 2],
+                pixelsBuffer[index + 3],
+            ];
+    }
+}
+```
+
+> 此处用到了非关键数据块 **tRNS** 的数据，不过这里不做讲解，有兴趣的同学可去官网了解：<https://www.w3.org/TR/PNG/#11tRNS>（此数据块的结构相当简单）
+
+## 尾声
+
+png 的解析流程可以由这一张图简单概括：
+
+![png 解析流程](http://www.alloyteam.com/wp-content/uploads/2017/03/顺序.png)
+
+此文只对 png 图片的格式做了简单的介绍，我们也知道如何对一张 png 图片做简单的解析。上面出现的代码只是 js 代码片段，如果对完整代码有兴趣的同学可以[戳这里](https://github.com/JuneAndGreen/doimg/blob/master/src/png.js)，虽然代码仓库还在建设过程中，不过关于简单的 png 图片解析部分已经完成。
+
+参考资料：
+
+-   <https://www.w3.org/TR/PNG/>
+-   <http://www.libpng.org/pub/png/>
+-   <https://en.wikipedia.org/wiki/Portable_Network_Graphics>
 
 
 <!-- {% endraw %} - for jekyll -->

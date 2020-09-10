@@ -107,7 +107,104 @@ faac 编码：<https://github.com/fflydev/faac-ios-build>
 
 ffmpeg 编码：<https://github.com/kewlbear/FFmpeg-iOS-build-script>
 
-关于如果想给视频增加一些特殊效果，例如增加滤镜等，一般在编码前给使用
+关于如果想给视频增加一些特殊效果，例如增加滤镜等，一般在编码前给使用滤镜库，但是这样也会造成一些耗时，导致上传视频数据有一定延时。
+
+简单流程：
+
+![](http://tenny.qiniudn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-23%2012.07.49.png)
+
+**6 前面提到的 ffmpeg 是什么？**
+
+和之前的 x264 一样，ffmpeg 其实也是一套编码库，类似的还有 Xvid，Xvid 是基于 MPEG4 协议的编解码器，x264 是基于 H.264 协议的编码器，ffmpeg 集合了各种音频，视频编解码协议，通过设置参数可以完成基于 MPEG4,H.264 等协议的编解码，demo 这里使用的是 x264 编码库。
+
+**7 什么是 RTMP？**
+
+Real Time Messaging Protocol（简称 RTMP）是 Macromedia 开发的一套视频直播协议，现在属于 Adobe。和 HLS 一样都可以应用于视频直播，区别是 RTMP 基于 flash 无法在 ios 的浏览器里播放，但是实时性比 HLS 要好。所以一般使用这种协议来上传视频流，也就是视频流推送到服务器。
+
+这里列举一下 hls 和 rtmp 对比：
+
+![](http://tenny.qiniudn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-25%2010.43.02.png)
+
+**8 推流**
+
+简所谓推流，就是将我们已经编码好的音视频数据发往视频流服务器中，一般常用的是使用 rtmp 推流，可以使用第三方库**[librtmp-iOS](https://github.com/ifactorylab/librtmp-iOS)**进行推流，librtmp 封装了一些核心的 api 供使用者调用，如果觉得麻烦，可以使用现成的 ios 视频推流 sdk，也是基于 rtmp 的，<https://github.com/runner365/LiveVideoCoreSDK>
+
+**9 推流服务器搭建**
+
+简简单的推流服务器搭建，由于我们上传的视频流都是基于 rtmp 协议的，所以服务器也必须要支持 rtmp 才行，大概需要以下几个步骤：
+
+**1 安装一台 nginx 服务器。**
+
+**2 安装 nginx 的 rtmp 扩展，目前使用比较多的是 <https://github.com/arut/nginx-rtmp-module>**
+
+**3 配置 nginx 的 conf 文件：**
+
+```c
+rtmp {  
+  
+    server {  
+  
+        listen 1935;  #监听的端口
+  
+        chunk_size 4000;  
+        
+         
+        application hls {  #rtmp推流请求路径
+            live on;  
+            hls on;  
+            hls_path /usr/local/var/www/hls;  
+            hls_fragment 5s;  
+        }  
+    }  
+}  
+```
+
+**4 重启 nginx，将 rtmp 的推流地址写为 rtmp://ip:1935/hls/mystream，其中 hls_path 表示生成的.m3u8 和 ts 文件所存放的地址，hls_fragment 表示切片时长，mysteam 表示一个实例，即将来要生成的文件名可以先自己随便设置一个。更多配置可以参考：<https://github.com/arut/nginx-rtmp-module/wiki/>**
+
+根据以上步骤基本上已经实现了一个支持 rtmp 的视频服务器了。
+
+**10 在 html5 页面进行播放直播视频？**
+
+简单来说，直接使用 video 标签即可播放 hls 协议的直播视频：
+
+```html
+<video autoplay webkit-playsinline>
+           
+    <source
+        src="http://10.66.69.77:8080/hls/mystream.m3u8"
+        type="application/vnd.apple.mpegurl"
+    />
+           <p class="warning">Your browser does not support HTML5 video.</p>  
+</video>;
+```
+
+需要注意的是，给 video 标签增加 webkit-playsinline 属性，这个属性是为了让 video 视频在 ios 的 uiwebview 里面可以不全屏播放，默认 ios 会全屏播放视频，需要给 uiwebview 设置 allowsInlineMediaPlayback＝YES。业界比较成熟的 [videojs](http://videojs.com/)，可以根据不同平台选择不同的策略，例如 ios 使用 video 标签，pc 使用 flash 等。
+
+**11 坑点总结**
+
+简根据以上步骤，笔者写了一个 demo，从实现 ios 视频录制，采集，上传，nginx 服务器下发直播流，h5 页面播放直播视频者一整套流程，总结出以下几点比较坑的地方：
+
+1 在使用 AVCaptureSession 进行采集视频时，需要实现 AVCaptureVideoDataOutputSampleBufferDelegate 协议，同时在 - (void) captureOutput:(AVCaptureOutput \*)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection \*) connection 捕获到视频流，要注意的是 didOutputSampleBuffer 这个方法不是 didDropSampleBuffer 方法，后者只会触发一次，当时开始写的是 didDropSampleBuffer 方法，差了半天才发现方法调用错了。
+
+2 在使用 rtmp 推流时，rmtp 地址要以 rtmp:// 开头，ip 地址要写实际 ip 地址，不要写成 localhost，同时要加上端口号，因为手机端上传时是无法识别 localhost 的。
+
+这里后续会补充上一些坑点，有的需要贴代码，这里先列这么多。
+
+**12 业界支持**
+
+目前，[腾讯云](https://www.qcloud.com/solution/video.html)，百度云，阿里云都已经有了基于视频直播的解决方案，从视频录制到视频播放，推流，都有一系列的 sdk 可以使用，缺点就是需要收费，如果可以的话，自己实现一套也并不是难事哈。
+
+demo 地址：[https://github.com/lvming6816077/LMVideoTest/](https://github.com/lvming6816077/LMVideoTest)
+
+参考资料：<http://www.nihaoshijie.com.cn/index.php/archives/615>
+
+**结尾打个广告：**
+
+移动端日志工具：<https://github.com/lvming6816077/MLogger>
+
+ReactNative 下拉刷新组件：<https://github.com/lvming6816077/react-native-pullRefreshScrollView>
+
+欢迎使用！
 
 
 <!-- {% endraw %} - for jekyll -->

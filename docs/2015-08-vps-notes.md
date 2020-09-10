@@ -152,4 +152,208 @@ VPS 环境搭建与恢复
 -   安装好所需要的工具（如 Nginx/Mysql/PHP/Git 等)
 
 
+    $ apt-get install nginx mysql-server mysql-client php5-fpm
+
+-   配置好所需要的用户和权限
+
+添加用户：
+
+    // 添加新用户 laixiaolai
+    $ useradd laixiaolai
+    // 给新用户设置密码
+    $ passwd ***********
+
+添加用户组：
+
+    $ groupadd handsomeboys
+    // 将 laixiaolai 加入这个用户组
+    $ usermod -G handsomeboys laixiaolai
+
+设置一些目录的归属：
+
+    // 授予 laixiaolai 一个池塘
+    $ chown -R laixiaolai:handsomeboys /data/girlpool
+
+有趣吧，在 linux VPS 下，自己掌控用户和权限的感觉，好像我这一匹野马拥有了一个草原呐～
+
+-   恢复数据库备份
+
+不同数据库自有不同的恢复指令，简单举 mysql 做个栗子：
+
+    // 将 dump_girls_db.sql 这个数据库备份，导入到本机 localhost 的 girls_db 数据库中
+    // -h 表示主机名
+    // -u 表示用户名，注意这里是 mysql 的用户名而不是 VPS 服务器的用户名
+    // -p 表示输入密码
+    $ mysql -hlocalhost -uroot -p girls_db < dump_girls_db.sql
+
+-   启动所需要的服务
+
+启动各种服务
+
+    // 启动各种程序
+    $ service nginx start
+    $ service php5-fpm start
+    $ service mysql
+    // 重启和关闭类似
+    // service nginx stop
+
+作死点：注意新旧机子的系统差异，以及新旧软件的配置差异，比如 ubuntu 系统上装的是 php5-fpm 而在 cent 系统中可能就是 php-fpm，不同系统或者不同版本软件安装后，默认用户、权限可能也不一致。 所以，出了问题应该这么排查：
+
+-   需要的依赖都装完了么
+-   需要的软件都启动正常么，如 $ service nginx status 查看 Nginx 是否运行正常
+-   启动程序的用户和用户组对么，如 $ chown -R userA:group1 /data/ 将 /data/ 的拥有权赋予 group1 用户组中的用户 userA
+-   程序对特定的目录或文件有足够的权限么，如 $ chmod 777 autobackup.sh 给这个 shell 执行权限
+-   知道怎么看各种错误日志么，如 $ tail /var/log/nginx/nginx_error.log 查看 nginx 的错误日志
+
+到了这里，一家老少都搬回了国内安顿好了，这时候就可以开启下一步了：改善他们的生活。
+
+博客服务器简单优化  
+
+============
+
+把玩博客只是把玩 VPS 的一个小部分，这里就简单介绍下基于 WordPress 程序的博客优化过程：
+
+-   删除冗余插件，这个没得说了，清理冗余的不靠谱的插件
+-   批量压缩图片等静态资源文件，配合 gulp/grunt 插件使用即可，或使用 wordpress 插件
+-   静态资源 CDN 化，迁移到腾讯云 CDN 上，减轻 HTTP 请求压缩，加快访问速度
+-   开启数据库级别的缓存
+-   开启 PHP 程序级别的缓存
+-   使用 wp-super-cache 插件开启静态页面生成
+
+经过简单处理后，博客访问速度大大提升了，当然，还可以继续优化下去。
+
+常访问我们  [博客](http://www.alloyteam.com/)  的朋友，这时候应该能感觉到访问速度有提升吧？欢迎关注我们团队的博文分享。
+
+VPS 数据要备份备份备份！  
+
+=================
+
+不怕一万就怕万一，有数据备份习惯的人总是不会吃亏，这和要有备胎是一样的道理。
+
+需要备份的数据和之前说过要迁移的数据是差不多的，而备份和迁移的区别在于：
+
+-   备份需要定期进行
+-   备份可能需要保留多版本
+-   备份存在多个物理机上最好（异地容灾）
+-   备份有时候需要实时备份（增量传输）
+-   及时删除冗余备份
+-   备份应该切片，方便快速恢复
+
+那么，可选的方式是怎样的呢？
+
+-   完整物理机全盘备份，这个需要服务器提供商支持（Linode 支持，而国内云都暂不支持）
+-   使用 ftp 定时备份，需要时可以手动进行（手动肯定不如自动）
+-   使用 rsync 增量安全备份，可以设置多个物理机分时备份（异地容灾）
+-   使用 Dropbox（Dropbox 官方 API 提供，但被墙）
+-   使用 cron + git 的方式定时备份（自定义 cron 定时任务，加上 git 打标签进行版本管理）
+
+最优方式是 rsync/cron+git 啦，rsync 不再赘述，介绍下 cron+git 方式吧。
+
+cron 自动执行定时任务  
+
+================
+
+举个栗子，我想要备份一个文件 /data/sites/laiblog/content/data/ghost.db：
+
+要使用 Git 将数据进行自动备份，先编写 /data/sites/laiblog/autobackup.sh 脚本
+
+```javascript
+#!/bin/sh
+# PATH=/opt/someApp/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# 获取当前时间
+DATE_ALL=`date +%Y-%m-%d_%H.%M.%S`
+# 切换到 git 项目目录
+cd /data/sites/laiblog/
+# 备份这个 ghost.db 文件
+# 注意要指定绝对路径，因为测试时你使用相对路径自然是能执行成功
+# 但 cron 执行这个 shell 时，所在的目录和你测试时可能不一致，导致找不到路径
+# 添加文件修改
+git add /data/sites/laiblog/content/data/ghost.db
+git commit -m "自动备份"
+// 推送要远程仓库备份
+git push
+# 用时间戳打 tag 并推送到仓库，方便找到这个版本
+# v$DATE_ALL 表示以时间为 tag
+git tag -a v$DATE_ALL -m 'auto backup'
+git push origin v$DATE_ALL:v$DATE_ALL
+```
+
+注意要设置这个文件为可执行模式：
+
+    $ chmod 755 /data/sites/laiblog/autobackup.sh
+
+再使用 crontab 设置定时任务
+
+    // 编辑 crontab 任务
+    $ crontab -e
+
+接着在打开的文件中添加：
+
+    # 格式是：m    h    dom   mon   dow   command
+    # 即     分钟 小时  日期  月份   周几   命令
+    # dom  是 day of month
+    # mon  是 month
+    # dow  是 day of week
+    # 如以下：每天凌晨 4 点 59 分执行 autobackup.sh 的脚本
+    # 2> 表示将错误输出到 crontab-autobackup.log 中，调试时有用
+    59 4 * * * /data/sites/laiblog/autobackup.sh 2> /data/sites/laiblog/crontab-autobackup.log
+
+注意这个 autoback.sh 脚本使用 git push 时并没有输入帐号密码，是因为设置了全局使用 ssh 连接 git 仓库的方式。
+
+免输入帐号密码使用 git pull/push  
+
+==========================
+
+使用你的邮箱生成密钥 / 公钥：
+
+```ruby
+$ ssh-keygen -t rsa -b 4096 -C "your_email@gmail.com"
+```
+
+生成后打开 ssh-agent:
+
+    $ eval "$(ssh-agent -s)"
+
+将公钥添加到 ssh-agent 中：
+
+    ssh-add ~/.ssh/id_rsa
+
+复制生成的公钥：
+
+    $ pbcopy < ~/.ssh/id_rsa.pub
+
+将公钥添加到 git 仓库的（如 github 的添加地址为：[https://github.com/settings/ssh）](https://github.com/settings/ssh%EF%BC%89)
+
+修改远程仓库的 url 为 ssh 方式，如：
+
+```ruby
+$ git remote set-url origin git@github.com:yourUserName/yourProjectRepo.git 
+```
+
+这么一来，就不用每次 git pull/push 都要输入帐号密码了。
+
+VPS 折腾总结  
+
+===========
+
+-   不作死就不会死，Linux 中用户和权限相关的知识非常重要，这往往决定了程序是否能够正常运行以及服务器是否安全。
+-   边折腾边学习，掌握问题背后的原因。
+-   学习到很好有趣的命令，比如：
+
+
+    // 查看硬盘（剩余）空间
+    $ df -h 
+     
+    // 查看文件夹占用空间
+    // -d 表示计算 1 层目录，利用这个我们可以从根目录开始执行这个指令，层层下去查看到底是哪里占用了太多空间以瘦身
+    $ du -h -d 1
+     
+    // 查看特定文件并计算数量
+    // find ./ 表示在当前目录开始查找
+    // -name "*.png" 表示查找以 .png 为后缀的文件
+    // | 是 *nix 中流式传输的思想，意为将前面程序的输出结果，当作后续程序的输入源
+    // wc -l 表示计算数量，并将其列出
+    $ find ./ -name "*.png" | wc -l
+
+
 <!-- {% endraw %} - for jekyll -->

@@ -84,5 +84,103 @@ delete obj.name;
 
 node --strong_mode example.js
 
+    delete obj.name;
+               ^^^^
+    SyntaxError: Please don't use 'delete' in strong mode, use maps or sets instead
+     
+
+可以这样解决
+
+```javascript
+"use strong";
+const obj = new Map([["name", "alloyteam"]]);
+obj.delete("name");
+```
+
+### [](http://www.alloyteam.com/2015/06/strong-mode-jie-shao/#deprecate-empty-sub-statements)Deprecate empty sub-statements
+
+像 `if (expression);` 这样的空子语句的写法会报错了。
+
+```javascript
+"use strong";
+if (1 === 1);
+```
+
+node --strong_mode example.js
+
+```javascript
+if (1 === 1);
+            ^
+SyntaxError: Please don't use empty sub-statements in strong mode, make them explicit with '{}' instead
+ 
+```
+
+### [](http://www.alloyteam.com/2015/06/strong-mode-jie-shao/#deprecate-for-in)Deprecate for-in
+
+废弃了 `for-in` 遍历，可以使用 `for-of` 替代。
+
+for-in 对对象属性进行遍历，for-of 对可迭代的对象进行遍历。
+
+for-in 存在[诸多问题](http://www.infoq.com/cn/articles/es6-in-depth-iterators-and-the-for-of-loop)，如果非要遍历对象，可以使用 Object.keys (obj) 拿到对象的属性列表，然后进行数组遍历。
+
+```javascript
+"use strong";
+const obj = {
+    name: "alloyteam",
+};
+for (let k in obj) {
+    console.log(k, obj[k]);
+}
+```
+
+node --strong_mode example.js
+
+```javascript
+for (let k in obj) {
+           ^^
+SyntaxError: Please don't use 'for'-'in' loops in strong mode, use 'for'-'of' instead
+ 
+```
+
+可以这样解决
+
+```javascript
+"use strong";
+const obj = new Map([["name", "alloyteam"]]);
+for (let item of obj) {
+    console.log(item[0], item[1]);
+}
+```
+
+### [](http://www.alloyteam.com/2015/06/strong-mode-jie-shao/#deprecate-arguments)Deprecate 'arguments'
+
+函数体内不能再使用 arguments 变量，可以使用...args 替代。  
+
+```javascript
+"use strong";
+function test() {
+    console.log(arguments);
+}
+```
+
+node --strong_mode example.js  
+
+```javascript
+    console.log(arguments);
+                ^^^^^^^^^
+SyntaxError: Please don't use 'arguments' in strong mode, use '...args' instead
+ 
+```
+
+可以这样解决  
+node --strong_mode --harmony-rest-parameters example.js  
+
+```javascript
+"use strong";
+function test(...args) {
+    console.log(args);
+}
+```
+
 
 <!-- {% endraw %} - for jekyll -->

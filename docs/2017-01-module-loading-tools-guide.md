@@ -121,7 +121,370 @@ define(["/json/a.json", "/html/a.html"], function (data, html) {
 
     模块定义 --> 检查依赖 --> 依赖都已就位 --> 注入依赖，执行回调 --> 完成定义
                      |
-                     |
+                     |--> 依赖未完全就位 --> 未加载模块放入加载列表 --> 加载模块 --> 依赖模块均已完成定义 --> 注入依赖，执行回调 --> 完成定义
+
+值得一提的是，模块的依赖也会有自己的依赖，所以当依赖一旦复杂起来，上面的流程就是循环执行的。
+
+> 注意：当前模块的定义是在加载完毕之后才会进行的，因为模块未加载完毕是无法执行其中的 js 代码的。
+
+### 如何获取依赖模块的绝对路径？
+
+这里我们用到了一个小技巧，就是直接使用浏览器的 a 标签来实现。具体代码实现如下：
+
+```javascript
+var a = document.createElement("a");
+a.style.display = "none";
+document.body.appendChild(a);
+// 获取绝对路径
+var getAbsoluteURI = function (url) {
+    a.href = url;
+    return a.href;
+};
+```
+
+这样，我们不再需要小心翼翼地去拼 url，全部交给浏览器去做，保证又快又好。
+
+> 注意，在低版本 ie 里要使用 a.getAttribute (‘href’, 4) 的方式获取 href。
+
+### 如何加载依赖的模块？
+
+这里的模块分两种，一种是 js 模块，一种是文本内容（比如 html 文件或 json 文件）。
+
+对于 js 模块，我们直接使用 script 标签来实现，这一点和我们用过的 jsonp 跨域的方式很像。即是动态创建一个 script 标签，将 script 的 src 设置为我们要加载的模块，然后监听 script 的 onload 事件或 onerror 事件，在模块加载完后删除 script 标签，然后做其他的一些模块相关操作。代码大概如下：
+
+```javascript
+var script = document.createElement("script");
+script.type = "text/javascript";
+script.charset = "utf-8";
+script.onload = script.onerror = function (e) {
+    // 监听脚本加载运行
+    var script = e.target || e.srcElement; // 清理脚本节点
+    if (script && script.parentNode) {
+        // 清除事件
+        script.onload = script.onerror = null; // 清除script标签
+        script.parentNode.removeChild(script);
+    }
+};
+script.src = url;
+(document.getElementsByTagName("head")[0] || document.body).appendChild(script);
+```
+
+> 注意：同样是低版本 ie，不支持 script 的 onload 事件，这时候我们要监听 script 的 onreadystatechange 事件，通过判断 script 的 readystate 状态来断定是否加载完成。
+
+对于文本内容的加载，这就更简单了。我们直接通过 ajax 请求就可以获取，对于 json 文件就再做一层解析就可以了。
+
+### 如何处理循环依赖？
+
+所谓循环依赖，就是出现如下那样你依赖我、我依赖你的情况：
+
+```javascript
+// a.js
+define(["./b.js"], function (b) {
+    return {};
+});
+// b.js
+define(["./a.js"], function (a) {
+    return {};
+});
+```
+
+不过这里的依赖有两种，分为弱依赖和强依赖。弱依赖是可以解决的，因为两个模块之间不是直接依赖，比如下面代码：
+
+```javascript
+// a.js
+define(["./b.js"], function (b) {
+    return {
+        a1: function () {
+            console.log(b.b2);
+        },
+        a2: function () {
+            return "I am a";
+        },
+    };
+});
+// b.js
+define(["./a.js"], function (a) {
+    return {
+        b1: function () {
+            console.log(a.a2);
+        },
+        b2: function () {
+            return "I am b";
+        },
+    };
+});
+```
+
+模块间的依赖不是一个闭环，调用模块的任意一个方法都会有一个终结，这就是弱依赖，在代码里我们通过强行注入一个空对象给其中一个模块，并执行其中其回调来解决这种 y。比如上面代码中，我们可以强行执行 a 模块，并且赋值注入的 b 变量为一个空对象，因为在执行回调的时候 b 变量没有被直接使用，而是在 a 模块的某个方法里被使用。这时候我们可以不管 b 模块是否已定义。等到 a 模块被强行定义好之后，再去按照正常的方式去定义 b 模块。最重要的一步，b 模块定义完成之后我们要把 b 模块里返回的对象拷贝到先前注入到 a 模块的空对象中，从完成了弱依赖的解决。
+
+为什么可以这么做呢？因为 js 这里是传引用调用的。我们在定义 a 模块的时候，先把引用传进去，反正 a 模块没有直接使用到这个依赖，所以它也不关心我们传进去的对象有没有东西。等到我们的 b 模块完成后，再在这个引用指向的对象里填充数据。
+
+也只有这种特殊的依赖情况我们可以解决，其他的循环依赖均被称为强依赖，会直接形成死锁，无法被打破。
+
+开工  
+
+* * *
+
+### STEP1
+
+首先，先把我们需要用到的用来维护模块的变量定义起来：
+
+```javascript
+var MODULES = []; // 存放涉及到的所有模块的信息，包含每个模块的url、依赖和回调
+var STATUS = {}; // 模块的状态
+var RESULTS = {}; // 模块的回调返回的结果
+var STACK = []; // 当前待加载的模块栈
+var LOADING = 1; // 加载中
+var WAITING = 2; // 等待中
+var DEFINED = 3; // 已定义
+```
+
+### STEP2
+
+接着，把我们需要暴露出去的接口进行实现：
+
+```javascript
+/**
+ * 暴露出去的define接口
+ */
+window.define = function (deps, callback) {
+    var args = [].slice.call(arguments, 0);
+    STACK.push(args); // 对于页面中仍未被检测过的脚本进行处理
+    var list = document.getElementsByTagName("script");
+    for (var i = list.length - 1; i >= 0; i--) {
+        var script = list[i];
+        if (!script.nowhasload) {
+            script.nowhasload = true;
+            if (!script.src && script.innerHTML.search(/\s*define\s*\(/) >= 0) {
+                // 内嵌模块定义语句脚本
+                args = STACK.pop();
+                while (args) {
+                    runLoading.apply(window, args);
+                    args = STACK.pop();
+                }
+            } else {
+                // 外嵌模块定义语句脚本
+                addScriptListener(list[i]);
+            }
+        }
+    }
+};
+```
+
+这里对当前页面中的 script 标签做了检查，因为使用 define 方法的地方可能是内嵌脚本，也可能是外部脚本。针对内嵌脚本做特殊处理的原因主要是内嵌脚本是不能作为一个模块被依赖的，它只能是整个依赖链的入口。而外嵌脚本是可以在弱依赖这个环里的。
+
+上面的代码里用到了两个未实现的方法：runLoading 和 addScriptListener。其中 runLoading 用来检查模块的依赖并对依赖进行加载。addScriptListener 则对已经加载完的脚本添加监听器，目的是为了在脚本加载完后对脚本进行标记，同时继续检查缓存中待加载的模块和等待中的模块。
+
+addScriptListener 方法实现如下：
+
+```javascript
+/*
+ * 侦测脚本载入情况
+ */
+var addScriptListener = (function () {
+    // 脚本载入完成回调
+    var onScriptLoad = function (script) {
+        var url = formatURL(script.src);
+        if (!url) return; // 检查栈中缓存
+        var arr = STACK.pop();
+        if (arr) {
+            arr.unshift(url);
+            runLoading.apply(window, arr);
+        } // 当前模块不处于等待中的话，则标记为已定义
+        if (STATUS[url] !== WAITING) STATUS[url] = DEFINED; // 清理脚本节点
+        if (script && script.parentNode) {
+            // 清除事件
+            script.onload = script.onerror = null; // 清除script标签
+            script.parentNode.removeChild(script);
+        } // 加载完后检查等待中的模块
+        runWaiting();
+    };
+    return function (script) {
+        // 加载成功 或 失败
+        script.onload = script.onerror = function (e) {
+            onScriptLoad(e.target || e.srcElement || this);
+        };
+    };
+})();
+```
+
+上面的代码中的 runWaiting 方法就是用来检查等待中模块。
+
+### STEP3
+
+实现 runLoading 方法：
+
+```javascript
+/**
+ * 处理模块进入等待队列
+ */
+var runLoading = function (url, deps, callback) {
+    // 如果自身是内嵌脚本的话，则使用时间戳作为url
+    if (typeof url !== "string") {
+        callback = deps;
+        deps = url;
+        url = "./" + seed++ + ".js";
+    }
+    url = formatURL(url);
+    if (STATUS[url] === DEFINED) return; // 已定义 // 加载依赖模块
+    for (var i = 0, l = deps.length; i < l; i++) {
+        deps[i] = formatURL(deps[i] || "", url); // 格式化依赖列表中的url
+        loadResource(deps[i]); // 加载资源
+    }
+    STATUS[url] = WAITING; // 存在依赖，当前模块标记为等待中 // 放进模块队列中
+    MODULES.push({
+        url: url,
+        deps: deps,
+        callback: callback,
+    }); // 检查等待中的模块
+    runWaiting();
+};
+```
+
+runLoading 里的逻辑很简单，就是对依赖进行加载，然后将将自身置为等待中的模块。而 runWaiting 的代码如下：
+
+```javascript
+/*
+ * 对等待中的模块进行定义
+ */
+var runWaiting = (function () {
+    // 检查所有文件是否都载入
+    var isFinishLoaded = function () {
+        for (var url in STATUS) {
+            if (STATUS[url] === LOADING) return false;
+        }
+        return true;
+    }; // 检查依赖列表是否都载入完成
+    var isListLoaded = function (deps) {
+        for (var i = deps.length - 1; i >= 0; i--) {
+            if (STATUS[deps[i]] !== DEFINED) return false;
+        }
+        return true;
+    };
+    return function () {
+        if (!MODULES.length) return;
+        for (var i = MODULES.length - 1; i >= 0; ) {
+            var item = MODULES[i];
+            if (STATUS[item.url] !== DEFINED) {
+                if (!isListLoaded(item.deps)) {
+                    // 存在未定义的文件，且依赖列表中也存在未定义的文件，则跳过
+                    i--;
+                    continue;
+                } else {
+                    // 依赖列表中的文件都已定义，则进行定义自己
+                    runDefining(item);
+                }
+            } // 删除已经定义的文件，然后重新遍历
+            MODULES.splice(i, 1);
+            i = MODULES.length - 1;
+        }
+        if (MODULES.length > 0 && isFinishLoaded()) {
+            // 存在循环引用，可以尝试强行定义，不过只能解决弱依赖引用，无法解决强依赖引用
+            var item = MODULES.pop();
+            runDefining(item);
+            runWaiting();
+        }
+    };
+})();
+```
+
+这里遍历一遍等待中的模块，针对依赖都已经就位（加载完并且定义完）的情况下，就开始执行自身的定义。对于循环依赖的问题，就用上面提到的方法，强行打破。其中 runDefining 就是执行定义的方法，其代码如下：
+
+```javascript
+/**
+ * 执行模块定义
+ */
+var runDefining = function (item) {
+    var args = []; // 遍历依赖列表
+    for (var i = 0, len = item.deps.length; i < len; i++) {
+        var it = item.deps[i];
+        RESULTS[it] = RESULTS[it] || {};
+        args.push(RESULTS[it]);
+    }
+    if (item.callback) {
+        // 注入依赖并执行
+        var result = item.callback.apply(window, args) || {}; // 合并依赖注入结果
+        var ret = RESULTS[item.url] || {};
+        if (typeof result === "object") {
+            for (var key in result) ret[key] = result[key];
+        } else {
+            ret = result;
+        } // 将定义好的文件放入缓存
+        RESULTS[item.url] = ret;
+    }
+    STATUS[item.url] = DEFINED;
+};
+```
+
+执行定义的过程就是把依赖定义完的结果注入到模块的回调中，然后执行模块的回调，把返回的结果缓存起来，以供依赖当前模块的模块使用。
+
+整个流程很简单，当加载完一个模块并发现这个模块存在依赖的情况下，就先让当前模块处于等待状态，优先加载依赖。等所有依赖都定义完了，再去执行这个模块的定义。对于依赖的处理也同样。
+
+### STEP4
+
+到这里，只剩下最后一部分了 —— 就是加载相关的逻辑：
+
+```javascript
+/*
+ * 解析文件类型，并进行加载
+ */
+var loadResource = (function () {
+    // 载入依赖文本
+    var loadText = function (url, callback) {
+        if (!url) return; // 未加载过
+        if (STATUS[url] != null) return; // 加载文本
+        STATUS[url] = LOADING; // 标记为加载中
+        var xhr = new window.XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var text = xhr.responseText || "";
+                STATUS[url] = DEFINED; // 标记为已定义
+                RESULTS[url] = text; // 储存结果
+                if (callback) callback(text); // 针对json的处理 // 加载完后检查等待中的模块
+                runWaiting();
+            }
+        };
+        xhr.open("GET", url, true);
+        xhr.send(null);
+    }; // 载入依赖JSON
+    var loadJSON = function (url) {
+        loadText(url, function (text) {
+            // 解析JSON
+            RESULTS[url] = JSON.parse(text);
+        });
+    }; // 载入依赖脚本
+    var loadScript = function (url) {
+        if (STATUS[url]) return; // 已加载则返回
+        STATUS[url] = LOADING; // 标记当前模块为加载中 // 使用script标签添加到文档中，加载运行完再删除
+        var script = document.createElement("script");
+        script.nowhasload = true;
+        script.type = "text/javascript";
+        script.charset = "utf-8";
+        addScriptListener(script); // 监听脚本加载运行
+        script.src = url;
+        (document.getElementsByTagName("head")[0] || document.body).appendChild(
+            script
+        );
+    };
+    return function (url) {
+        var arr = url.split(".");
+        var type = arr.pop();
+        if (type === "js") loadScript(url);
+        else if (type === "json") loadJSON(url);
+        else loadText(url);
+    };
+})();
+```
+
+这段代码没什么好说的，就跟上面提到的一样，针对 js 使用 script 标签，针对其他文本则走 ajax 请求。
+
+收工  
+
+* * *
+
+其实把上面贴出来的代码拼起来，就是一个完整、可用的简易版模块加载工具了。就如同开始所说的，这是拿来学习用的轮子，如果想拿来直接用其实也没什么问题，不过有些兼容性的问题或者功能的扩充就得自己完善（比如低版本 ie，比如支持配置根路径等）。
+
+想看完整的代码的话，请戳[这里](https://github.com/JuneAndGreen/treasure-box/blob/master/modules_require/modules_require.js)。
 
 
 <!-- {% endraw %} - for jekyll -->

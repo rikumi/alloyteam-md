@@ -59,7 +59,105 @@ Adam7 隔行扫描算法的原理并不难，本质上是将一张 png 图片拆
 
 按照规则，在第一次扫描时我们会扫描到 4 个像素点，我们把这 4 个像素点单独抽离出来合在一起，就是我们要拆的第一张小图：
 
-    (1
+    (1)  6   4   6   2   6   4   6  (1)  6
+     7   7   7   7   7   7   7   7   7   7
+     5   6   5   6   5   6   5   6   5   6
+     7   7   7   7   7   7   7   7   7   7                   1 1
+     3   6   4   6   3   6   4   6   3   6        ==>        1 1
+     7   7   7   7   7   7   7   7   7   7
+     5   6   5   6   5   6   5   6   5   6
+     7   7   7   7   7   7   7   7   7   7
+    (1)  6   4   6   2   6   4   6  (1)  6
+     7   7   7   7   7   7   7   7   7   7
+     
+
+也就是说，我们的第一张小图就是 2\*2 大小的 png 图片。后面的小图大小以此类推，这样我们就能得知拆图的依据了。
+
+### 拆图
+
+上面有提到，拆图本质上就是把存放图片数据的 Buffer 数组进行切分，在 nodejs 里的 Buffer 对象有个很好用的方法 ——slice，它的用法和数组的同名方法一样。
+
+直接用上面的例子，我们的第一张小图是 2\*2 点 png 图片，在假设我们一个像素点所占的字节数是 3 个，那么我们要切出来的第一个 Buffer 子数组的长度就是 `2*(2*3+1)`。也许就有人好奇了，为什么是乘以 `2*3+1` 而不是直接乘以 `2*3` 呢？之前我们提到过，拆成小图后要对小图进行普通的逐行扫描解析，这样解析的话每一行的第一个字节实际存放的不是图像数据，而是过滤类型，因此每一行所占用的字节需要在 `2*3` 的基础上加 1。
+
+### 像素归位
+
+其他的小图拆分的方法是一样，在最后一次扫描完毕后，我们就会拿到 7 张小图。然后我们按照上面的规则对这些小图的像素进行归位，也就是填回去的意思。下面简单演示下归位的流程：
+
+                      (1) ( ) ( ) ( ) ( ) ( ) ( ) ( ) (1) ( )
+                      ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( )
+                      ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( )
+     1 1              ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( )
+     1 1     ==>      ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( )
+                      ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( )
+                      ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( )
+                      ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( )
+                      (1) ( ) ( ) ( ) ( ) ( ) ( ) ( ) (1) ( )
+                      ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( )
+     
+
+待到 7 张小图的像素全部都归位后，最后我们就能拿到一张完整的 png 图片了。
+
+### 代码
+
+整个流程的代码如下：
+
+```javascript
+let width; // 完整图像宽度，解析IHDR数据块可得
+let height; // 完整图像高度，解析IHDR数据块可得
+let colors; // 通道数，解析IHDR数据块可得
+let bitDepth; // 图像深度，解析IHDR数据块可得
+let data; // 完整图像数据
+let bytesPerPixel = Math.max(1, (colors * bitDepth) / 8); // 每像素字节数
+let pixelsBuffer = Buffer.alloc(bytesPerPixel * width * height, 0xff); // 用来存放最后解析出来的图像数据
+// 7次扫描的规则
+let startX = [0, 0, 4, 0, 2, 0, 1];
+let incX = [8, 8, 8, 4, 4, 2, 2];
+let startY = [0, 4, 0, 2, 0, 1, 0];
+let incY = [8, 8, 4, 4, 2, 2, 1];
+let offset = 0; // 记录小图开始位置
+// 7次扫描
+for (let i = 0; i < 7; i++) {
+    // 子图像信息
+    let subWidth = Math.ceil((width - startY[i]) / incY[i], 10); // 小图宽度
+    let subHeight = Math.ceil((height - startX[i]) / incX[i], 10); // 小图高度
+    let subBytesPerRow = bytesPerPixel * subWidth; // 小图每行字节数
+    let offsetEnd = offset + (subBytesPerRow + 1) * subHeight; // 小图结束位置
+    let subData = data.slice(offset, offsetEnd); // 小图像素数据 // 对小图进行普通的逐行扫描
+    let subPixelsBuffer = this.interlaceNone(
+        subData,
+        subWidth,
+        subHeight,
+        bytesPerPixel,
+        subBytesPerRow
+    );
+    let subOffset = 0; // 像素归位
+    for (let x = startX[i]; x < height; x += incX[i]) {
+        for (let y = startY[i]; y < width; y += incY[i]) {
+            // 逐个像素拷贝回原本所在的位置
+            for (let z = 0; z < bytesPerPixel; z++) {
+                pixelsBuffer[(x * width + y) * bytesPerPixel + z] =
+                    subPixelsBuffer[subOffset++] & 0xff;
+            }
+        }
+    }
+    offset = offsetEnd; // 置为下一张小图的开始位置
+}
+return pixelsBuffer;
+```
+
+## 尾声
+
+整个 Adam7 隔行扫描的流程大概就是这样：
+
+![流程](http://www.alloyteam.com/wp-content/uploads/2017/03/Adam7_process.png)
+
+前面提到基于此种扫描方式的 png 图片往往会更大些，这是因为图片存储了一些额外数据导致的。这里的额外数据就是指**过滤类型**。原本的 png 大图拆成小图后，扫描行的数目就会蹭蹭蹭往上涨，每个扫描行的第一个字节都是用来存储过滤类型的，所以行数增加的越多，额外数据就会越多。至于在用 png 图片等时候要选用哪种扫描方式等图片，就要视具体场景而定了。如果对完整代码有兴趣的同学可以[戳这里](https://github.com/JuneAndGreen/doimg/blob/master/src/png.js)。
+
+参考资料：
+
+-   <https://www.w3.org/TR/PNG/>
+-   <http://www.libpng.org/pub/png/>
+-   <https://en.wikipedia.org/wiki/Portable_Network_Graphics>
 
 
 <!-- {% endraw %} - for jekyll -->

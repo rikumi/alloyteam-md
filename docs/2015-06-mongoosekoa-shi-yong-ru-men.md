@@ -63,19 +63,86 @@ mongoose.connect(url); //mongoose.connect('mongodb://localhost:port/databaseName
 3.  声明一个 Schema 模型
 
 ```javascript
-    var Schema = mongoose.Schema,
-        ObjectId = Schema.Types.ObjectId;
- 
-    // 用户模型
-    var userSchema = new Schema({
-        uid: String, // 用户 id
-        nick: String, // 用户昵称
-        pwd: String, // 用户密码
-        project: [{
-            type: ObjectId,
-            ref: 'Project'
-        
+var Schema = mongoose.Schema,
+    ObjectId = Schema.Types.ObjectId; // 用户模型
+var userSchema = new Schema({
+    uid: String, // 用户 id
+    nick: String, // 用户昵称
+    pwd: String, // 用户密码
+    project: [
+        {
+            type: ObjectId,
+            ref: "Project",
+        },
+    ], // 这个用户对应的作品
+});
 ```
+
+4.  将声明的 Schema 转化为 Model
+
+```javascript
+// 建立Model
+var User = mongoose.model("User", userSchema);
+```
+
+5.  将 Model 实例化为 Instance
+
+```javascript
+var user = {
+    uid: "545183867",
+    nick: "哈哈哈",
+};
+var newUser = new User(user);
+console.log(newUser.nick);
+```
+
+6.  Instance 进行数据库 CRUD 操作
+
+
+        newUser.save(); // 执行完成后，数据库就有该数据了
+
+7.  使用 Modal 进行表查询操作
+
+```javascript
+User.find(function (err, users) {
+    //查询到的所有User
+});
+```
+
+## 三、结合 KOA 框架
+
+在 KOA 中，回调已经基本被抛弃了，所以我们还是来看下 KOA 中 mongoose 活得怎么样吧。
+
+CRUD 操作如今需要加入 yield 来确保我们主调调能耐心等待 newUser.save ()/User.find () 的完成，那我们就去掉回调加上 yield 吧:
+
+```javascript
+    var user = {
+            uid: '545183867',
+            nick: '哈哈哈'
+        },
+        newUser = new User(user),
+        userInfo;
+ 
+    yield newUser.save();
+    userInfo = yield User.find({
+        uid: '545183867'
+    });
+```
+
+既然没了错误处理，那么我们以回调实现的错误上报怎么办呢？别忘了，我们还有 try catch, 好了，套上他们就可以完成错误捕获了：
+
+```javascript
+    try {
+        this.data = yield User.find({
+            uid: '545183867'
+        });
+        
+    } catch (e) {
+        console.log(e);
+    }
+```
+
+以上是 Mongoose 与 KOA 框架结合的一个简单入门，因为时间关系就只介绍到这里了，希望能对 mongoose 新手有所帮助。
 
 
 <!-- {% endraw %} - for jekyll -->

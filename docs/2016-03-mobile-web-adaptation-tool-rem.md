@@ -129,5 +129,176 @@ html {
 
 这样，当我们写具体数值的时候就可以写成：
 
+```css
+height: px2rem(90px);
+width: px2rem(90px);;
+```
+
+看到这里，你可能会发现一些不理解的地方，就是上面那个 rem:37.5px 是怎么来的，正常情况下不是默认的 16px 么，这个其实就是页面的基准值，和 html 的 font-size 有关。
+
+**rem 基准值计算**
+
+关于 rem 的基准值，也就是上面那个 37.5px 其实是根据我们所拿到的视觉稿来决定的，主要有以下几点原因：
+
+**1**  由于我们所写出的页面是要在不同的屏幕大小设备上运行的
+
+**2**  所以我们在写样式的时候必须要先以一个确定的屏幕来作为参考，这个就由我们拿到的视觉稿来定
+
+**3**  假如我们拿到的视觉稿是以 iphone6 的屏幕为基准设计的
+
+**4** iPhone6 的屏幕大小是 375px，
+
+    rem = window.innerWidth  / 10
+
+这样计算出来的 rem 基准值就是 37.5（iphone6 的视觉稿），这里为什么要除以 10 呢，其实这个值是随便定义的，因为不想让 html 的 font-size 太大，当然也可以选择不除，只要在后面动态 js 计算时保证一样的值就可以，在这里列举一下其他手机的
+
+iphone3gs: 320px / 10 = 32px
+
+iphone4/5: 320px  / 10 = 32px
+
+iphone6: 375px  / 10 =37.5px
+
+**动态设置 html 的 font-size**
+
+现在关键问题来了，我们该如何通过不同的屏幕去动态设置 html 的 font-size 呢，这里一般分为两种办法
+
+**1**  利用 css 的 media query 来设置即
+
+```css
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+      html{font-size: 37.5px;}
+}
+```
+
+**2**  利用 javascript 来动态设置 根据我们之前算出的基准值，我们可以利用 js 动态算出当前屏幕所适配的 font-size 即：
+
+    document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+
+然后我们看一下之前那个 demo 展示的效果
+
+```css
+.con {
+      width: px2rem(200px);
+      height: px2rem(200px);
+      background-color: red;
+}
+<div class="con">
+        
+</div>
+document.addEventListener('DOMContentLoaded', function(e) {
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+}, false);
+```
+
+iPhone6 下，正常显示 200px
+
+![](http://7jpp2v.com1.z0.glb.clouddn.com/div3.png)
+
+在 iphone4 下，显示 169px
+
+![](http://7jpp2v.com1.z0.glb.clouddn.com/div4.png)
+
+由此可见我们可以通过设置不同的 html 基础值来达到在不同页面适配的目的，当然在使用 js 来设置时，需要绑定页面的 resize 事件来达到变化时更新 html 的 font-size。
+
+rem 适配进阶  
+
+* * *
+
+我们知道，一般我们获取到的视觉稿大部分是 iphone6 的，所以我们看到的尺寸一般是双倍大小的，在使用 rem 之前，我们一般会自觉的将标注 / 2，其实这也并无道理，但是当我们配合 rem 使用时，完全可以按照视觉稿上的尺寸来设置。
+
+**1**  设计给的稿子双倍的原因是 iphone6 这种屏幕属于高清屏，也即是设备像素比 (device pixel ratio) dpr 比较大，所以显示的像素较为清晰。
+
+**2**  一般手机的 dpr 是 1，iphone4，iphone5 这种高清屏是 2，iphone6s plus 这种高清屏是 3，可以通过 js 的 window.devicePixelRatio 获取到当前设备的 dpr，所以 iphone6 给的视觉稿大小是（\*2）750×1334 了。
+
+**3**  拿到了 dpr 之后，我们就可以在 viewport meta 头里，取消让浏览器自动缩放页面，而自己去设置 viewport 的 content 例如（这里之所以要设置 viewport 是因为我们要实现 border1px 的效果，加入我给 border 设置了 1px，在 scale 的影响下，高清屏中就会显示成 0.5px 的效果）
+
+```html
+meta.setAttribute(
+    "content",
+    "initial-scale=" +
+        1 / dpr +
+        ", maximum-scale=" +
+        1 / dpr +
+        ", minimum-scale=" +
+        1 / dpr +
+        ", user-scalable=no"
+);
+```
+
+ 4 设置完之后配合 rem，修改
+
+```javascript
+@function px2rem($px){
+    $rem : 75px;
+    @return ($px/$rem) + rem;
+}
+```
+
+  双倍 75，这样就可以完全按照视觉稿上的尺寸来了。不用在 / 2 了，这样做的好处是：
+
+**1**  解决了图片高清问题。
+
+**2**  解决了 border 1px 问题（我们设置的 1px，在 iphone 上，由于 viewport 的 scale 是 0.5，所以就自然缩放成 0.5px）
+
+在 iphone6 下的例子：
+
+我们使用动态设置 viewport，在 iphone6 下，scale 会被设置成 1/2 即 0.5，其他手机是 1/1 即 1.
+
+```html
+meta.setAttribute(
+    "content",
+    "initial-scale=" +
+        1 / dpr +
+        ", maximum-scale=" +
+        1 / dpr +
+        ", minimum-scale=" +
+        1 / dpr +
+        ", user-scalable=no"
+);
+```
+
+  我们的 css 代码，注意这里设置了 1px 的边框
+
+```css
+.con {
+            margin-top: 200px;
+            width: 5.3rem;
+            height: 5.3rem;
+            border-top:1px solid #000;
+ }
+```
+
+  在 iphone6 下的显示：
+
+![](http://7jpp2v.com1.z0.glb.clouddn.com/1459062170_41_w430_h247.png)
+
+在 android 下的显示：
+
+![](http://7jpp2v.com1.z0.glb.clouddn.com/1459062178_38_w432_h376.png)
+
+   
+
+* * *
+
+rem 进行屏幕适配总结  
+
+* * *
+
+下面这个网址是针对 rem 来写的一个简单的 demo 页面，大家可以在不同的手机上看一下效果
+
+![](http://7jpp2v.com1.z0.glb.clouddn.com/democode.png)
+
+但是 rem 也并不是万能的，下面也有一些场景是不适于使用 rem 的
+
+**1**  当用作图片或者一些不能缩放的展示时，必须要使用固定的 px 值，因为缩放可能会导致图片压缩变形等。
+
+在列举几个使用 rem 的线上网站：
+
+网易新闻：<http://3g.163.com/touch/news/subchannel/all?version=v_standard>
+
+聚划算：<https://jhs.m.taobao.com/m/index.htm#!all>
+
+参考资料：<http://www.nihaoshijie.com.cn/index.php/archives/593>
+
 
 <!-- {% endraw %} - for jekyll -->

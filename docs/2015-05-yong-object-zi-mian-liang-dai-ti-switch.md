@@ -53,84 +53,11 @@ console.log(drink); // 'Coke'
 
 ```javascript
 function getDrink(type) {
-    var drinks = {
-        coke: "Coke",
-        pepsi: "Pepsi",
-        lemonade: "Lemonade",
-        default: "Default item",
-    };
-    return "The drink I chose was " + (drinks[type] || drinks["default"]);
-}
-var drink = getDrink("coke");
-// The drink I chose was Coke
-console.log(drink);
+    var drinks = {
+        'coke': 'Coke',
+        'pepsi': 'Pepsi',
+        'lemonade':
 ```
-
-当然，我们可能会写一些代码片段，只需要这样子
-
-```javascript
-var type = "coke";
-var drinks = {
-    coke: function () {
-        return "Coke";
-    },
-    pepsi: function () {
-        return "Pepsi";
-    },
-    lemonade: function () {
-        return "Lemonade";
-    },
-};
-drinks[type]();
-```
-
-有时候，我们可能会在一个 function 里面写 switch 并且返回一个值，我们当然也能用 Object 实现。
-
-```javascript
-function getDrink(type) {
-    var drinks = {
-        coke: function () {
-            return "Coke";
-        },
-        pepsi: function () {
-            return "Pepsi";
-        },
-        lemonade: function () {
-            return "Lemonade";
-        },
-    };
-    return drinks[type]();
-}
-var drink = getDrink("coke");
-console.log(drink); // 'Coke'
-```
-
-好像并没有实现 default，当然也是很简单滴
-
-```javascript
-function getDrink(type) {
-    var drinks = {
-        coke: function () {
-            return "Coke";
-        },
-        pepsi: function () {
-            return "Pepsi";
-        },
-        lemonade: function () {
-            return "Lemonade";
-        },
-        default: function () {
-            return "Default item";
-        },
-    };
-    return (drinks[type] || drinks["default"])();
-}
-// called with "dr pepper"
-var drink = getDrink("dr pepper");
-console.log(drink); // 'Default item'
-```
-
-就是这样啦，其实可能我们已经在无意中用到了这种方法，我想说的是，当你看到某段代码不顺眼的时候，就应该想办法改造它啦。
 
 
 <!-- {% endraw %} - for jekyll -->

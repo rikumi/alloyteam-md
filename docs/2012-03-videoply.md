@@ -80,18 +80,7 @@ html 如下：
 <span class="time-sep">/</span>;
 ```
 
-```html
-<!--mute / unmute toggle-->
-<a class="jp-mute" title="mute" tabindex="2" href="javascript:;">mute</a>
-<a class="jp-unmute" title="unmute" tabindex="2" href="javascript:;">unmute</a>
- 
-<!--volume bar-->
-```
-
-```c
-<!--full screen toggle-->
-<a class=
-```
+    <!--mute / 
 
 
 <!-- {% endraw %} - for jekyll -->

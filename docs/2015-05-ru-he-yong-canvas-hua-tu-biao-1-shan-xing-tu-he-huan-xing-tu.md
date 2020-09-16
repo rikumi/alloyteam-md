@@ -55,63 +55,7 @@ source_link: http://www.alloyteam.com/2015/05/ru-he-yong-canvas-hua-tu-biao-1-sh
     // 给曲线设定颜色
     ctx.strokeStyle = this.data.sorted[key].color;
     // 画出曲线
-    ctx.arc(this.cx, this.cy, this.r, startRadius, endRadius, 0);
-    //设定曲线粗细度
-    ctx.lineWidth = this.lineWidth;
-    //给曲线着色
-    ctx.stroke();
-    ctx.closePath();
-
-**2. 将图形绘制好后，需要填上标签。**
-
-填上标签需要一些数据的处理，以及计算数据摆放的位置
-
-```javascript
-//方形颜色
-ctx.fillStyle = this.data.sorted[key].color;
-//绘制填充方形
-ctx.fillRect(x, y, 30, 30);
-//绘制数据标签
-this.drawText(x, y, key);
-fchart.prototype.drawText = function (x, y, key) {
-    var ctx = this.ctx; // 字体大小和形状
-    ctx.font =
-        '30px -apple-system-font, "Helvetica Neue", Helvetica, STHeiTi, sans-serif'; // 字体颜色
-    ctx.fillStyle = "#000000"; // 绘制字体在特定位置上面
-    ctx.fillText(key + " " + this.data.percentage[key] + "%", x + 40, y + 25);
-};
-```
-
-3. 最后，我们需要考虑动画的问题。
-
-我们希望图形旋转 360 度后，出现标签，因此我们需要以下的逻辑：
-
-```javascript
-var startDeg = -90;
-var incre = 10;
-var dr = setInterval(function () {
-    //清除画布
-    ctx.clearRect(0, 0, 600, 600); //起始绘制角度
-    self.draw(startDeg); // 每16ms增加10度
-    startDeg += incre; // 当图形转到270度（转完一圈）的时候，停止动画，绘制标签
-    if (startDeg >= 270) {
-        clearInterval(dr);
-        self.drawLabel();
-    }
-}, 16);
-```
-
-看着上面你可能还不懂。在 canvas 画布上绘制动画，相当于在一定时间内不断更新画布上的内容。此处，则是在不断更新绘制的角度，每 16ms 内绘制出一幅新的图表，并将旧的图表用 clearRect 清除掉。当转完一圈后，才绘制标签。
-
-对详细代码有兴趣的朋友，可以到 <https://github.com/mPresst/fchart> 查看。后面，将会陆续更新柱状图和折线图的画法。
-
-备注：MDN canvas 文章里面有几篇是小弟翻译的文章，请多多支持哈。
-
-canvas 高级动画 <https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Canvas_tutorial/Advanced_animations>
-
-canvas 像素操作 <https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Canvas_tutorial/Pixel_manipulation_with_canvas>
-
-canvas 的优化 <https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Canvas_tutorial/Optimizing_canvas>
+    ctx.arc(this.cx, this.cy, this.r, startRadius, endRadius, 0
 
 
 <!-- {% endraw %} - for jekyll -->

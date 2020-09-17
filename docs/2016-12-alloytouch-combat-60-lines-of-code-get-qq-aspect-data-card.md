@@ -66,8 +66,7 @@ alloyTouch = new AlloyTouch({
     },
     lockDirection: false,
     change: function (v) {
-        if (v <= this.min + 5 && !loading) {
-            loading = true;
+        if (v <=
 ```
 
 

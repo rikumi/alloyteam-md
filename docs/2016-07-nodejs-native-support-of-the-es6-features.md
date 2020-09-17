@@ -111,6 +111,33 @@ console.log(duration);
 let i = 0;
 let start = +new Date(),
     duration;
+while (i++ < 1000000) {
+    const a = 1;
+    const b = "1";
+    const c = true;
+    const d = {};
+    const e = [];
+}
+duration = +new Date() - start;
+console.log(duration);
+```
+
+输出结果为 29ms。
+
+可见，使用 let，const 声明变量的速度比 var 快了约 55% 左右。
+
+## 2.class
+
+测试代码如下：
+
+**ES5：**
+
+```javascript
+var i = 0;
+var start = +new Date(),
+    duration;
+ 
+function
 ```
 
 

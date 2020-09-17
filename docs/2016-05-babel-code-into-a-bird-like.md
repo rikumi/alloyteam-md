@@ -133,9 +133,5 @@ var setName = props.setName;
 
 转换后：
 
-```javascript
-var _ref = [1, 2,
-```
-
 
 <!-- {% endraw %} - for jekyll -->

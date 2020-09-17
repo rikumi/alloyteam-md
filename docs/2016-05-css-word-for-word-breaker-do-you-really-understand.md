@@ -118,6 +118,63 @@ word-wrap: normal | break-word;
 >
 > 既然规范这么定了，埋了坑，肯定会想办法让你绕过的，想起了 white-space。  
 > white-space 我们更多的时候只用到 nowrap 的属性，来配合实现... 的特效，实际它还有更多的姿势未解锁。
+>
+>     white-space: normal | nowrap | pre | pre-wrap | pre-line 
+>     我们重点关注pre开头的几个属性。pre是preserve(保留)的缩写。没错，它就跟保留空格有关系。
+>
+> **pre**: 保留所有的空格和回车，且不允许折行。   
+> **pre-wrap**: 保留所有的空格和回车，但是允许折行。   
+> **pre-line**: 会合并空格，且允许折行
+>
+> 意思简单明了，好像也不用解释什么。
+>
+> 所以我们的解决方案来了：   
+> 后台按照用户的输入的原始空格返回，不用做转义，前端加上
+>
+> ```css
+> word-break: keep-all;
+> word-wrap: break-word;
+> white-space: pre-wrap;
+> ```
+>
+> 蹭蹭蹭修改完，貌似没什么问题。![laugh](http://www.alloyteam.com/wp-content/plugins/ckeditor-for-wordpress/ckeditor/plugins/smiley/images/teeth_smile.png "laugh")
+>
+> 不过，这些个属性都是作用于 Text 上的，而我们的页面里有很多都是富文本，如果将 pre-wrap 作用于富文本上的父节点上也会有同样的功效吗？   
+> 带着疑问，测试了几个富文本，果然出现了大段空白....   
+> ![image_1ajjnhgql42vmnn1tar165l1kir9.png-24.7kB](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/05/104717DCN.png)
+>
+> **富文本里的 html 标签之间有空格。**
+>
+> 有兴趣的同学可以在
+>
+> > [http://www.taoba.com](http://www.taoba.com/)   
+> > [http://www.qq.com](http://www.qq.com/)
+>
+> 的 body 上加上 white-space:pre-wrap 看看效果。
+>
+> 那富文本的问题要怎么解决呢，黑科技登场了！！
+>
+> 无法反抗，那就享受吧。   
+> 既然浏览器会压缩多个空格，那只要保证文本里每次只有一个空格相邻不就可以了。   
+> □ -> □   
+> □□ -> □    
+> □□□ -> □ □   
+> □□□□ -> □ □    
+> 自动规避了浏览器的合并空格策略。
+>
+> 这个思路来自于富文本编辑器，写过富文本编辑器的同学可能会不屑一顾，这个方案我们都用烂了.. 感谢你们！！   
+> _(写个富文本编辑器是学习前端的最佳方式，欢迎闲的蛋疼的同学快去踩坑)_
+>
+> 通知后台同学按照这个规则来改，问题搞定。
+>
+> 总结  
+>
+> * * *
+>
+> 1.  word-wrap： 决定句尾放不下单词时，单词是否换行
+> 2.  word-break: 决定单词内该怎么换行
+> 3.  平文本可以配合 white-space: pre-wrap 来解决多空格压缩显示问题
+> 4.  富文本采用的解决方案是对空格进行**间隔** html 转义，这种方法更灵活，可以适应不同的场景，也适用于平文本。
 
 
 <!-- {% endraw %} - for jekyll -->

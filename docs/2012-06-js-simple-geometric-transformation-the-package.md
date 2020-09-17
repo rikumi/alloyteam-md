@@ -89,8 +89,33 @@ scale2D:function(scale,point){//缩放比，参考点
     var changeMtx= new matrix({
         matrix:[
            [sx,0,0],
-           
+           [0,sy,0],
+           [(1-sx)*x,(1-sy)*y,1]
+        ]
+    });
+    return this.multiply(changeMtx);                
+ 
+},
 ```
+
+**2d 对称变换：**  
+2d 对称变换使用的变换矩阵如下：
+
+[![](http://www.alloyteam.com/wp-content/uploads/2012/06/5.jpg "5")](http://www.alloyteam.com/wp-content/uploads/2012/06/5.jpg)
+
+不同的对称变换，通过 abde 的值的改变来实现：
+
+相对于 x 轴的变换：b=d=0 a=1 e=-1
+
+相对于 y 轴的变换：b=d=0 a=-1 e=1
+
+相对于原点的变换：b=d=0 a=-1 e=-1
+
+相对于 y=x 的变换：b=d=1 a=e=0
+
+现对于 y=-x 的变换：b=d=-1 a=e=0
+
+因此乘以不同的变换矩阵，就可以得到不同的变换效果：
 
 
 <!-- {% endraw %} - for jekyll -->

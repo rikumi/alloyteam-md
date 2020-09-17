@@ -84,5 +84,36 @@ ctx.stroke();
 
 其他的一些参数如下
 
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
+     
+    // 为高清屏缩放
+    canvas.style.width = ~~ (WIDTH / 2) + "px";
+    canvas.style.height = ~~ (HEIGHT / 2) + "px";
+     
+    // 画笔和填充颜色的配置
+    ctx.fillStyle = "#b1b1b1";
+    ctx.strokeStyle = "rgb(118,113,108)";
+     
+    // 为了让效果更好 设置上角的一点点高光
+    ctx.shadowColor = "#ccc";
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 2;
+    ctx.shadowBlur = 1;
+     
+    // 画笔宽度为1
+    ctx.lineWidth = 1;
+
+画出来在手机上的效果如下  
+[![1426128335_58_w671_h581](http://alloyteam.github.io/AlloyImage/demos/source/1426128335_58_w671_h581.png)](http://alloyteam.github.io/AlloyImage/demos/source/1426128335_58_w671_h581.png)
+
+左为原生，右为 web 实现
+
+更细节的对比
+
+[![1426128809_32_w592_h882](http://alloyteam.github.io/AlloyImage/demos/source/1426128809_32_w592_h882.png)](http://alloyteam.github.io/AlloyImage/demos/source/1426128809_32_w592_h882.png)
+
+上为原生，�
+
 
 <!-- {% endraw %} - for jekyll -->

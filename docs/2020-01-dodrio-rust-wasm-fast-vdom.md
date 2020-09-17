@@ -61,13 +61,7 @@ Dodrio “Hello, World!” 例子：
         {
             span(bump)
                 .children([text("Hello, "), text(&self.who), text("!")])
-                .finish()
-        }
-    }
-
-在事件处理程序里可以访问到根 `dodrio::Render` 组件、处理虚拟 DOM 实例的句柄（handle）（可用于调度重新渲染）以及 DOM 事件本身。
-
-Dodrio counter 例子：
+             
 
 
 <!-- {% endraw %} - for jekyll -->

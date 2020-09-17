@@ -56,9 +56,20 @@ for (var i of generateNaturalNumber()) {
 
 ```javascript
 function* generateNaturalNumber() {
-    console.log('function start');
-    var i =
+    console.log("function start");
+    var i = 0; // 为了便于观察log，将循环减小到5
+    while (i <= 5) {
+        console.log("yield start");
+        yield i;
+        console.log("yield end");
+        i++;
+    }
+    console.log("function end");
+}
+var result = generateNaturalNumber();
 ```
+
+运行以上代�
 
 
 <!-- {% endraw %} - for jekyll -->

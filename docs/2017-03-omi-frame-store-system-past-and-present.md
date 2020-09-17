@@ -72,5 +72,25 @@ Omi Store 使用足够简便，对架构入侵性极极极小 (3 个极代表比
 
 Omi.Store 是基类，我们可以继承 Omi.Store 来定义自己的 Store，比如下面的 TodoStore。
 
+```javascript
+import Omi from 'omi'
+ 
+class TodoStore extends Omi.Store {
+    constructor(data , isReady) {
+        super(isReady)
+ 
+        this.data = Object.assign({
+            items:[],
+            length:0
+        },data)
+ 
+        this.data.length = this.data.items.length
+    }
+ 
+    add(value){
+        this.data.items.push(value)
+        this
+```
+
 
 <!-- {% endraw %} - for jekyll -->

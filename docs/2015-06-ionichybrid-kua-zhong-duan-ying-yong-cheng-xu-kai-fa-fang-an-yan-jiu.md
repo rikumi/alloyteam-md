@@ -63,7 +63,26 @@ classpath  D:/androidandroid-sdk-windowstoolslib
 
 ```html
 <span class="comment"># NativeScript</span>
-┌─────────┬────────
+┌─────────┬─────────────────────────────
+───────────────────────────────────┐
+│ Usage   │ Synopsis                                                       │
+│ General │ $ tns <Command> [Command Parameters] [--command <Options>]     │
+│ Alias   │ $ nativescript <Command> [Command Parameters] [--command       │
+│         │ <Options>]                                                     │
+└─────────┴─────────────────────────────
+───────────────────────────────────┘
+ 
+```
+
+### 2. 开始开发
+
+-   创建项目
+
+```html
+$ ionic start projectName tabs
+$ cd projectName
+├── bower.json     <span class="comment">// bower dependencies</span>
+├── config.xml        <span class
 ```
 
 

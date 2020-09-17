@@ -66,7 +66,15 @@ require([
 
 **## 页面结构模块化**
 
-基于上面的面向过程的问题，行业内也有不少解决方案，而我们团队也总结出一套成熟的解决方案：[Abstractjs](http://www.dorsywang.com/Abstract.js/#doc)，页面结构模块化。我们可以把我们的页面想象为
+基于上面的面向过程的问题，行业内也有不少解决方案，而我们团队也总结出一套成熟的解决方案：[Abstractjs](http://www.dorsywang.com/Abstract.js/#doc)，页面结构模块化。我们可以把我们的页面想象为一个乐高机器人，需要不同零件组装，如下图，假设页面划分为 tabContainer，listContainer 和 imgsContainer 三个模块。最终把这些模块 add 到最终的 pageModel 里面，最终使用 rock 方法让页面启动起来。
+
+[![process_code](http://www.alloyteam.com/wp-content/uploads/2015/11/process_code.png)](http://www.alloyteam.com/wp-content/uploads/2015/11/process_code.png)  
+（原过程线示例图）
+
+[![mode_code](http://www.alloyteam.com/wp-content/uploads/2015/11/mode_code.png)](http://www.alloyteam.com/wp-content/uploads/2015/11/mode_code.png)  
+（页面结构化示例图）
+
+下面是伪代码的实现
 
 
 <!-- {% endraw %} - for jekyll -->

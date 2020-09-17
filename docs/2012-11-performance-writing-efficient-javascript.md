@@ -97,14 +97,9 @@ var myGlobalNamespace = {};
 
 ```javascript
 function foo() {
-    var bar = new LargeObject();
-    bar.someCall();
-}
+    var bar = new LargeObject();
+    bar.someCall
 ```
-
-当 foo 返回时，bar 指向的对象将会被垃圾收集器自动回收，因为它已没有任何存在的引用了。
-
-对比一下：
 
 
 <!-- {% endraw %} - for jekyll -->

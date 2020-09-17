@@ -47,5 +47,33 @@ var Timer = React.createClass({
 });
 ````
 
+    React.render(<Timer />, document.getElementById('timerExample'));
+
+现在问题来了：
+
+````html
+
+```html
+<script type="text/jsx"  src="js/react_test.js"></script>
+````
+
+```html
+<script>
+  console.log(Timer) //这里居然是undefined
+</script>
+```
+
+````
+
+上面打印的信息的是 undefined。所以迫切地希望能够有个这样的事件，这样就能拿到 Timer，也就能够调用它的相关方法：
+
+```javascript
+React.jsReady(function () {
+    console.log(Timer); //希望这里可以拿到Timer
+});
+````
+
+主要是为了让封装的多个组件能够更加直接的调用，希望 jsx 以外的 js 文件能够拿到 jsx 内部定义的对象，或者 React.render 的返回值（React.render 的返回值就是该对象的实例）。如:
+
 
 <!-- {% endraw %} - for jekyll -->

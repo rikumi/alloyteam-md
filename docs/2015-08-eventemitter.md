@@ -73,16 +73,8 @@ Tom.on("sayHi", function (someone) {
 });
 Tom.emit("sayHiTo", "jerry");
 // 输出
-// Tom sayHiTo jerry
+// Tom sayHiTo jerry</
 ```
-
-EventEmitter 其他 API  
-
-* * *
-
-### emitter.once(event, listener)
-
-emitter.once 是一次性监听，触发一次后，监听将被移除，并返回 false
 
 
 <!-- {% endraw %} - for jekyll -->

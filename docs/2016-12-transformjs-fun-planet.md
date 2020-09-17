@@ -56,17 +56,27 @@ function randomPoints() {
 
 ```javascript
 function createImgs() {
-    var i = 0,
-        len = positions.length;
-    for (; i < len; i++) {
-        var img = document.createElement("img");
-        img.style.position = "absolute";
-        img.style.left = "0px";
-        img.style.top = "0px";
-        img.src = "../asset/star.png";
-        document.body.appendChild(img);
-        
+    var i = 0,
+        len = positions.length;
+    for (; i < len; i++) {
+        var img = document.createElement("img");
+        img.style.position = "absolute";
+        img.style.left = "0px";
+        img.style.top = "0px";
+        img.src = "../asset/star.png";
+        document.body.appendChild(img);
+        Transform(img, true);
+        transformImg(img, i);
+        img_list.push(img);
+    }
+}
 ```
+
+所有的点都对应创建一个绝对定位的图片，并且通过 Transform (img,true) 给 img 注入 transformation 能力。注意第二个参数 true 代表关闭透视投影，因为投影下面会自己去实现。
+
+投影变换  
+
+* * *
 
 
 <!-- {% endraw %} - for jekyll -->

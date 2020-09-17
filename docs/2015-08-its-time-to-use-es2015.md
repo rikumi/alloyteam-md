@@ -63,5 +63,35 @@ var template = "My name is " + name;
 
 模板字符串还直接支持多行文本，如：
 
+```javascript
+const tmpl = `text line 1,
+    text line 2,
+    textline 3`;
+```
+
+在拼接 html 的时候特别有用。
+
+### 箭头函数
+
+箭头函数语法：
+
+```javascript
+const fn = () => {
+    console.log("hello world");
+};
+```
+
+转换成
+
+```javascript
+var fn = function () {
+    console.log("hello world");
+};
+```
+
+箭头函数通常比匿名函数还要简洁，几乎可以取代所有使用 function 的地方，不过用起来别太嗨了，下面有这个坑还是值得注意。
+
+箭头函数最大的特点在于 this 关键字在声明或者定义箭头函数的时候就已经被绑定好了，而且不会改变，这个特性用来解决 setTimeout 等一些异步函数 this 会改变的问题很爽，但下面这个却是个大问题：
+
 
 <!-- {% endraw %} - for jekyll -->

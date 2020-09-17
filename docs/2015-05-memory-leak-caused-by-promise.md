@@ -49,6 +49,18 @@ V8 Promise 内存泄漏
 
     { rss: 18649088, heapTotal: 12359168, heapUsed: 5261784 }
     { rss: 47480832, heapTotal: 54668544, heapUsed: 23838080 }
+    { rss: 78712832, heapTotal: 69115648, heapUsed: 38977672 }
+    { rss: 96018432, heapTotal: 84594688, heapUsed: 56701128 }
+    { rss: 112631808, heapTotal: 101105664, heapUsed: 72469704 }
+    { rss: 129875968, heapTotal: 118648576, heapUsed: 88569232 }
+    { rss: 147075072, heapTotal: 135159552, heapUsed: 104614336 }
+    { rss: 164286464, heapTotal: 151670528, heapUsed: 120667096 }
+    { rss: 181628928, heapTotal: 169213440, heapUsed: 136718144 }
+    { rss: 193110016, heapTotal: 180564736, heapUsed: 157979448 }
+
+关键代码就是这一行
+
+    // 如果resolve的参数是一个Promise，外层Promise将接管这个Promise的状态，构成嵌套Promise
 
 
 <!-- {% endraw %} - for jekyll -->

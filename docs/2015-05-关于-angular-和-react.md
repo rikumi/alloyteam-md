@@ -94,5 +94,21 @@ template.html
 
 controller
 
+```html
+<span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>);
+app.controller(<span class="string">'testController'</span>,[<span class="string">"$scope"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>){
+    <span class="variable">$scope</span>.name = <span class="string">'John'</span>;
+}]);
+ 
+```
+
+再看一看用 angular 式组件，使用 directive
+
+```html
+<span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>);
+app.directive(<span class="string">'myComponent'</span>,<span class="keyword">function</span>(){
+    <span class="keyword"
+```
+
 
 <!-- {% endraw %} - for jekyll -->

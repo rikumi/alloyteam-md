@@ -115,5 +115,28 @@ lookAt 功能如其名，用来确认 3D 世界中的摄像机方向（操作视
 
 大家知道 webgl 中最初的坐标系是这样的
 
+[![9](http://www.alloyteam.com/wp-content/uploads/2016/11/9-300x268.png)](http://www.alloyteam.com/wp-content/uploads/2016/11/9.png)
+
+那么如果我们知道最终的坐标系，就可以逆推出矩阵 VM 了。这个不难计算，结果如下
+
+[![10](http://www.alloyteam.com/wp-content/uploads/2016/11/10-300x152.png)](http://www.alloyteam.com/wp-content/uploads/2016/11/10.png)
+
+来，回看一下 lookAt 第一个和第二个参数，**眼睛的位置**和**眼睛看向目标的位置**，有了这两个坐标，最终坐标系的 Z 是不是确定了！，最后一个参数是正上方向，是不是 Y 也确定了！
+
+机智的同学看到有了 Z 和 Y，立马想到可以用叉积算出 X，不知道什么是叉积的可以搜索一下（学习 webgl 一定要对矩阵熟悉，这些知识是基础）
+
+这样我们就很轻松愉快的得出了 VM，但是！似乎有点不对劲
+
+本身 VM 是没有问题的，关键在于这么使用它，比如说我直接 lookAt (0,0,0, 1,0,0, 0,1,0) 使用，可以知道此时我们的视线是 X 轴的正方向，但若是我鼠标随便晃一个位置，你能快速的知道这三个参数该如何传么？
+
+所以现在的目标就是通过鼠标的偏移，来计算出 lookAt 的三个参数，先上代码～
+
+```javascript
+var camera = {
+    rx: 0,
+    ry: 0,
+    mx: 
+```
+
 
 <!-- {% endraw %} - for jekyll -->

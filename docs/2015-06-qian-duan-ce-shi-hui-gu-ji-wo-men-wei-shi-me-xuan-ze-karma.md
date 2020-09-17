@@ -87,7 +87,13 @@ Karma 是一个测试任务管理工具，可以很容易和 Jasmine、Mocha 等
     INFO [karma]: Karma v0.12.35 server started at http://localhost:9876/
     INFO [launcher]: Starting browser Chrome
     INFO [launcher]: Starting browser PhantomJS
-    INFO [Chrome
+    INFO [Chrome 41.0.2272 (Mac OS X 10.10.2)]: Connected on socket YFLQOvttbrfH9Mmxvqeu with id 10368837
+    WARN [web-server]: 404: /favicon.ico
+    INFO [PhantomJS 1.9.8 (Mac OS X 0.0.0)]: Connected on socket E1mb7b7zs7Ugi4u-vqev with id 68559341
+     
+    Start:
+      data
+        ✔ should able to get a vm data
 
 
 <!-- {% endraw %} - for jekyll -->

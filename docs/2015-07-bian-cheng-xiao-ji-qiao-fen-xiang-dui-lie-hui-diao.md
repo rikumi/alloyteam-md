@@ -41,6 +41,18 @@ var pools = [] ,
             if( !isRunning ){
                 isRunning = true ;
                 walk();
+            }
+        }
+    };
+})();
+//添加一个执行队列函数
+queuePool.add( function( callback /**后续执行函数**/ ){
+    setTimeout( function(){
+        alert(1);
+        callback();
+    } , 500 );  
+});
+queuePool.add(
 ```
 
 

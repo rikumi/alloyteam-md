@@ -94,5 +94,13 @@ export default () => {
 };
 ```
 
+index,pay 也按照同样的办法分离出去。   
+在 index.js 中修改一下代码:
+
+    import Backbone from 'backbone'
+    import home from './home/index'
+    import about from './about/index'
+    import pay from '
+
 
 <!-- {% endraw %} - for jekyll -->

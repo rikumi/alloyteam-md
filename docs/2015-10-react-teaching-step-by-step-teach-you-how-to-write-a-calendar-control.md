@@ -84,5 +84,30 @@ line4  script  标签的 type  属性为 text/babel 。这是因为 Reac
 
 将代码分解后，代码结构如下：
 
+```html
+<script type="text/babel">	
+		var CalendarHeader = React.createClass({
+			render:function(){
+				return(
+					<div className="headerborder">
+						<p>20月</p>
+						<p>2015年</p>
+						<p className="triangle-left"> </p>
+						<p className="triangle-right"> </p>
+					</div>
+				)
+			}
+		});	
+		var CalendarBody = React.createClass({
+			render:function(){
+				return(
+					<div>
+						<div className="weekday">
+							<ul>		
+								<li>SUN</li>
+								<li>MON</li>
+								<li>TUE</li
+```
+
 
 <!-- {% endraw %} - for jekyll -->

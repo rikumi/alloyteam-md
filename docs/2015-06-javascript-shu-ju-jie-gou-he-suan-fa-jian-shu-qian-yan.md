@@ -115,5 +115,15 @@ print(dog1.name); // 二牛
 print(dog2.name); // 二狗
 ```
 
+        验证实例对象与原型对象之间的关系：
+
+```python
+print(dog1.cunstructor === Dog); // true
+print(dog2.cunstructor === Dog); // true
+ 
+print(dog1 instanceof Dog); // true
+print(dog2 instanceof <
+```
+
 
 <!-- {% endraw %} - for jekyll -->

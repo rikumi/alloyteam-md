@@ -111,7 +111,17 @@ module.exports = function* (req, res) {
 // requestSync.js
 var request = require('request');
  
-exports.requestSync = function(option) 
+exports.requestSync = function(option) {
+    return function(callback) {
+        request(option, function (error, response, body) {
+                callback(error, response);
+        });
+    };
+} ;
+ 
+// 拉数据逻辑
+var response = yield requestSync.requestSync({
+    uri: CGI_PATH[
 ```
 
 

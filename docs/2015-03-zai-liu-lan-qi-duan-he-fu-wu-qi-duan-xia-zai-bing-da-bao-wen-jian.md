@@ -44,5 +44,31 @@ var myBlob = new Blob(array, options);
 console.log(myBlob);
 ```
 
+    创建了一个 Blob 实例后，它具有两个属性和一个方法
+     
+    - 两个属性： 
+     
+        - size - 大小，单位为字节 
+     
+        - type - MIME 类型，若构造时不指定则默认为空
+
+```javascript
+// DOMString 类型数据
+var array = ['<div id="myId"><a href="http://alloyteam.com">Alloyteam</a></div>']
+// 生成 Blob 对象并指定 MIME 类型
+var myBlob = new Blob(array, {type: 'text/html'});
+ 
+// 输出看看有啥
+console.log(myBlob);
+ 
+// 大小，单位为字节
+var size = myBlob.size;
+// MIME 类型，创建时不设置则为空
+var type = myBlob.type;
+ 
+console.log('size: ', size);
+console.log('type: '
+```
+
 
 <!-- {% endraw %} - for jekyll -->

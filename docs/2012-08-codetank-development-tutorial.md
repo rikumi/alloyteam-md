@@ -87,5 +87,32 @@ run:function(){
 
 但是某些情况下，我们可能希望主体只产生独立的旋转，炮管和雷达不跟随主体产生旋转。因此 robot 提供三种方法让玩家使坦克作出理想的旋转运动：
 
+```javascript
+run:function(){
+	this.setAdjustGunForRobotTurn(true);//炮管独立于坦克的旋转
+	this.setAdjustRadarForGunTurn(true);//雷达独立于炮管的旋转
+	this.setAdjustRadarForRobotTurn(true);//雷达独立于坦克的旋转
+}
+```
+
+**[查看 demo](http://codetank.alloyteam.com/index.html?cmd=battle&param=instructor.turnTogether,instructor.indepentTurn)**
+
+**六、动作完成的回调**
+
+当一个动作完成之后，玩家可以指示 Robot 进行怎样的回调操作。
+
+例如，我们可以使用下面的方法，利用回调函数改变坦克的运动轨迹：
+
+```c
+var dir=1;	
+run:function(){
+this.loop(function(){
+            this.ahead(40*dir);
+            this.turnLeft(90*dir,function(){
+                dir*=-1;
+            });
+        })	
+```
+
 
 <!-- {% endraw %} - for jekyll -->

@@ -96,16 +96,7 @@ hack 的手法核心就是：在原来的使用 scroll 事件的视差滚动，�
 
 [![debug_1](http://www.alloyteam.com/wp-content/uploads/2014/02/debug_1.png)](http://www.alloyteam.com/wp-content/uploads/2014/02/debug_1.png)
 
-2. 之后 debug 到 scroll 事件，发现，当刚进入 scroll 事件处理时候，浏览器就按照默认行为，页面内容上滚，这时 dom 的 scrollTop 已发生改变，如图。或者说，浏览器默认行为页面内容上滚，再触发 scroll 事件
-
-[![debug_2](http://www.alloyteam.com/wp-content/uploads/2014/02/debug_2.png)](http://www.alloyteam.com/wp-content/uploads/2014/02/debug_2.png)
-
-3. 最后执行到在 scroll 事件内我们要进行视察滚动的逻辑，使到 dom 的 scrollTop 又发生了一次改变。
-
-[![debug_3](http://www.alloyteam.com/wp-content/uploads/2014/02/debug_3.png)](http://www.alloyteam.com/wp-content/uploads/2014/02/debug_3.png)  
-上面这三步，基本可以把问题看穿了，一次鼠标滚动，浏览器渲染了两次：  
-第一次，就是默认浏览器行为，页面上滚。渲染位置一般偏上  
-第二次，视察滚动逻辑，dom 的 top 改变。渲染位置一般偏下
+2. 之后 debug 到 scroll 事件，发现，当刚进入 scroll 事件处理时候，浏览器就按照默认行为，页面内容上滚，这时 dom 的 scrollTop 已发生改变，如图。或者说，浏览器默认行为页面内容上滚，再触发 scrol
 
 
 <!-- {% endraw %} - for jekyll -->

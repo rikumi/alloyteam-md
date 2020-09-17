@@ -107,5 +107,24 @@ childs 是一个数组，存着该点的**可行直连点**，并不是直连点
 
 parent 就是该点的父级点，最后用来确定路径的
 
+```javascript
+navigate.onclick = function() {
+    outPoint = getPointOutside(obstacles); // 找到障碍物之外的点
+    if(beforeCheck()) { // 判断起点和终点是否在障碍物内
+        done(start, {});
+        showPath();
+    }
+};
+function done(start, notPoints) {
+    findChild(start, obstacles, notPoints); // 寻找子节点，④
+    compare(start.childs); // 对子节点进行一次过滤①
+ 
+    obstacles[start.index] && (obstacles[start.index].isEnd = true); // 当前的点不再加入子节点寻找②
+ 
+    for(var i in start.childs) {
+        if(!avoid[i]) {
+            done(start.childs[i],
+```
+
 
 <!-- {% endraw %} - for jekyll -->

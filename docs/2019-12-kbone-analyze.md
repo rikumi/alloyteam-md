@@ -145,7 +145,21 @@ kbone 样式有一个坑，就是它会将标签选择器转换成类选择器�
 
 在初始化路由阶段，曾经遇到过 Redux 更新 dom 后偶现节点销毁，最终定位到是 kbone 对 Location 等 BOM 实例化过晚，最终在 june 帮忙及时调整了顺序，更新了一个版本，现最新本所有 BOM 对象会在业务执行前准备好。
 
-    //初始化do
+```javascript
+//初始化dom
+this.window.$$miniprogram.init()
+...
+//初始化业务
+init(this.window, this.document)
+```
+
+### 隐式全局变量兼容
+
+在模拟 XMLHttpRequest 模块的过程中遇到一个问题，什么时候初始化这个对象，我们可以选择在网络请求库初始化前引入它，挂载在仿造的 window 对象下。但仍然会出现一个问题，第三放库直接使用的是 XMLHttpRequest 对象，而非通过 window 访问。
+
+```javascript
+var request = new XMLHttpRequest();
+```
 
 
 <!-- {% endraw %} - for jekyll -->

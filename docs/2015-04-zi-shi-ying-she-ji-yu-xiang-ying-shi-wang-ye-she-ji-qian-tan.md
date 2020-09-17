@@ -92,7 +92,16 @@ source_link: http://www.alloyteam.com/2015/04/zi-shi-ying-she-ji-yu-xiang-ying-s
 ```html
 <link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css">
  
+<link rel="stylesheet" media="all and (orientation:landscape)" href="landscape.css">
 ```
+
+### **Skill 2  在网页头部加上 viewport 标签**
+
+```c
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+浏览器推出了 “viewport meta” 标签，许多移动浏览器现在都支持这个标签，W3C  协议定义 [viewport meta](http://www.w3.org/TR/css-device-adapt/)  目前还属于草案，很多人都會在 html head  处加上 viewport  这个 meta data，一个典型的移动端 viewport 如下所示：
 
 
 <!-- {% endraw %} - for jekyll -->

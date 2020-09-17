@@ -68,7 +68,37 @@ OK，先看代码，然后我再来解释。
         background: url(img/right.jpg);
         background-size: cover;
         width: 100%;
-        height: 10
+        height: 100px;
+    }
+```
+
+OK，看下效果
+
+[![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035703Jiv.png)](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035703Jiv.png)
+
+小明：尼玛，这不是坑爹么，这么简单谁不会？
+
+小朋友，别急，我们两个主角还没上了。
+
+#### **画个斜线**
+
+为了实现斜线拼接，你总得有个斜线吧？把 img-right 的背景换成一个带有 “斜线” 的图，这个就不用 “ 真” 图片啦，CSS 渐变就能完成，如下：
+
+```css
+    .img-right{
+        background: -webkit-linear-gradient(left top, blue 50%, white 50%);
+    }
+```
+
+![QQ 截图 20160204112221](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2016/02/035703IQS.png)
+
+好，把背景换成真实的美女，渐变图作为 mask
+
+```css
+.img-right{
+    background: url(img/right.jpg);
+    background-size: cover;
+    -webkit-mask-image: -webkit-linear-gradient(left top, blue 50%, white<
 ```
 
 

@@ -50,5 +50,23 @@ child.a();
 
 所以就变成了这样：
 
+```javascript
+var Person = Class.extend({
+  statics:{
+   //静态构造函数会直接被Class.js执行
+   ctor:function(){
+      //这里的this相当于Person
+   },
+   Version:"1.0.0",
+   GetVersion:function(){
+     return Person.Version;
+   }
+  },
+  ctor: function(isDancing){
+    this.dancing = isDancing;
+  },
+  dance: function(){
+```
+
 
 <!-- {% endraw %} - for jekyll -->

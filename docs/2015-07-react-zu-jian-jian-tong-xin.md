@@ -32,5 +32,15 @@ StudentScoreTable 有三个子组件：GenderFilter, NameFilter, ScoreTable。�
 
 下面是我的第一版本实现
 
+```javascript
+// 测试数据
+var _score = [
+    {name: '张三', gender: '男', chinese: 85, math: 98, _id:0},
+    {name: '张三', gender: '女', chinese: 95, math: 90, _id:1},
+    {name: '李四', gender: '男', chinese: 65, math: 48, _id:2},
+    {name: '大妹', gender: '女', chinese: 95, math: 100, _id:3},
+    {name: '王五', gender: '男', chinese: 
+```
+
 
 <!-- {% endraw %} - for jekyll -->

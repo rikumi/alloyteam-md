@@ -40,5 +40,31 @@ var chart = d3
 
 ## step3：画柱状图
 
+```javascript
+// 计算每根柱状物体的宽度
+var barWidth = width / data.length;
+// 用g作每根柱状物体的容器，意义可类比div
+// 前一篇文章已经介绍过selectAll的意义，即生成占位符，等待填充svg图形
+var bar = chart.selectAll('g')
+  .data(data)
+  .enter()
+  .append('g')
+  // 接收一个数据填充一个g元素
+  // 同时为g设置位置
+  .attr('transform', function(d, i) {
+    return 'translate(' + i * barWidth + ', 0)';
+  });
+ 
+bar.append('rect')
+  // 添加一个矩形
+  .attr('y', function(d) {
+    return height - d;
+  })
+  .attr('height', function(d) {
+    return d;
+  })
+  .attr('width', barWidth - 
+```
+
 
 <!-- {% endraw %} - for jekyll -->

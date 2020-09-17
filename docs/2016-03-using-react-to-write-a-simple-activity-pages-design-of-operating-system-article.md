@@ -152,5 +152,14 @@ const schema = new mongoose.Schema({
 
 我对 React 最重要的理解是单向的自顶向下的组件嵌套和数据流动，带来了数据的一致性保障。对于一些不是非常复杂的单页应用，其实一个页面就是一个组件，不需要用太多的 flux/redux 等方案也足矣.
 
+```javascript
+state = { name: "simple", age: 18 };
+addAge = () => {
+    this.setState({
+        age: this.state.age++,
+    });
+};
+```
+
 
 <!-- {% endraw %} - for jekyll -->

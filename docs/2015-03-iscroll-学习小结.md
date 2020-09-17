@@ -43,7 +43,23 @@ touchstart 需要做的事情有：
 
 ```html
 <span class="keyword">function</span> _start(e) {
-    <span class="keyword">var</span> point       = e.touches ? e.touches[<span class="number">
+    <span class="keyword">var</span> point       = e.touches ? e.touches[<span class="number">0</span>] : e;
+    
+    <span class="comment">//[1]</span>
+    <span class="comment">//初始化相关数据，一般是开始滑动的位置基点，时间基点</span>
+    <span class="comment">//还有相关的变量</span>
+    <span class="keyword">this</span>.moved      = <span class="keyword">false</span>;
+    <span class="keyword">this</span>.distY      = <span class="number">0</span>;
+    <span class="keyword">this</span>.directionY = <span class="number">0</span>;
+    <span class="keyword">this</span>.startTime  = utils.getTime();
+    <span class="keyword">this</span>.startY     = <span class="keyword">this</span>.y;
+    <span class="keyword">this</span>.pointY     = point.pageY;
+ 
+    <span class="comment">//[2]</span>
+    <span class="comment">//如果正在滑动中，需要对此做处理，一般策略有：</span>
+    <span class="comment">//1. 在当前滑动状态的基础上，叠加新的滑动状态</span>
+    <span class="comment">//2. 立刻停止当前的滑动，开始新的滑动</span>
+    <span class
 ```
 
 

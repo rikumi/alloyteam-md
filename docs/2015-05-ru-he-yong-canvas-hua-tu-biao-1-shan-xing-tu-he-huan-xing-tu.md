@@ -55,7 +55,30 @@ source_link: http://www.alloyteam.com/2015/05/ru-he-yong-canvas-hua-tu-biao-1-sh
     // 给曲线设定颜色
     ctx.strokeStyle = this.data.sorted[key].color;
     // 画出曲线
-    ctx.arc(this.cx, this.cy, this.r, startRadius, endRadius, 0
+    ctx.arc(this.cx, this.cy, this.r, startRadius, endRadius, 0);
+    //设定曲线粗细度
+    ctx.lineWidth = this.lineWidth;
+    //给曲线着色
+    ctx.stroke();
+    ctx.closePath();
+
+**2. 将图形绘制好后，需要填上标签。**
+
+填上标签需要一些数据的处理，以及计算数据摆放的位置
+
+```javascript
+//方形颜色
+ctx.fillStyle = this.data.sorted[key].color;
+//绘制填充方形
+ctx.fillRect(x, y, 30, 30);
+//绘制数据标签
+this.drawText(x, y, key);
+ 
+fchart.prototype.drawText = function(x, y, key) {
+    var ctx = this.ctx;
+    // 字体大小和形状
+    ctx.font
+```
 
 
 <!-- {% endraw %} - for jekyll -->

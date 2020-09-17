@@ -78,8 +78,23 @@ HTML imports 提供了依赖管理, 确保自定义元素及其所有的依赖�
         <paper-tabs valueattr=<span class="string">"name"</span> selected=<span class="string">"all"</span> <span class="keyword">self</span>-end> 
             <paper-tab name=<span class="string">"all"</span>>所有</paper-tab> 
                 <paper-tab name=<span class="string">"favorites"</span>>收藏</paper-tab> 
-                </paper-tabs
+                </paper-tabs> 
+            </core-toolbar> 
+        <!-- 主要的页面内容将会放在这里 -->  
+        </core-header-panel>  
+    <core-header-panel>
+ 
 ````
+
+元素是一个简单的容器，例如包含一个 header 和一些内容。默认情况下，header 保持在屏幕的顶部，但也可以设置为随内容滚动。core-toolbar 元素作为容器，可以存放 选项卡 (tab) 的，菜单按钮以及其他控件。  
+给迪例子较为简单，目前由于以下兼容性 Polymer 用的还不是很多，但是通过 Polymer 组件化的思想，也可以给我们一些组件未来化的方向。
+
+### 三、Polymer 的 vm 特性
+
+#### 3.1、数据的双向绑定
+
+Polymer 支持双向的数据绑定。数据绑定通过扩展 HTML 和 DOM API 来支持应用的 UI (DOM) 及其底层数据 (数据模型) 之前的有效分离。更新数据模型会反映在 DOM 上，而 DOM 上的用户输入会立即赋值到数据模型上。  
+对于 Polymer elements 来说，数据模型始终就是 element 本身。比如想想这个简单的 element：
 
 
 <!-- {% endraw %} - for jekyll -->

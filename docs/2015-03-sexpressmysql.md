@@ -85,13 +85,32 @@ module.exports = {
 
 2. 编写 CRUD SQL 语句
 
-```javascript
+```c
 // dao/userSqlMapping.js
 // CRUD SQL语句
 var user = {
 	insert:'INSERT INTO user(id, name, age) VALUES(0,?,?)',
-	</
+	update:'update user set name=?, age=? where id=?',
+	delete: 'delete from user where id=?',
+	queryById: 'select * from user where id=?',
+	queryAll: 'select * from user'
+};
+ 
+module.exports = user;
 ```
+
+3. 增加路由及实现数据库的 CRUD
+
+以 C（新增）的具体实现举例，在 /routes/users.js 中增加一个路由
+
+```javascript
+// 增加用户
+router.get("/addUser", function (req, res, next) {
+    userDao.add(req, res, next);
+});
+```
+
+在 userDao 中实现 add 方法
 
 
 <!-- {% endraw %} - for jekyll -->

@@ -80,7 +80,17 @@ var b = Dance.Request("b.do");
 var c = Dance.Request("c.do");
 var d = Dance.Request("d.do");
 var e = Dance.Request("e.do");
-a.chain(b).chain(c).chain;
+a.chain(b).chain(c).chain(d).chain(e).start();
+```
+
+现在来一步步了解下它的用法。整个执行过程由一个 Request 对象和一些 Request 的集合链 Queue 组成。其中我们只需要关注的是 request. queue 会在调用过程中隐式生成和变换，在 request 的 done 或者 error 或者 beforeSend 事件里可以用 this.queue 访问到.
+
+**三 Request 对象**
+
+首先要发起一个请求，我们需要创建一个 Request 对象.
+
+```javascript
+var a = Dance.Request({
 ```
 
 

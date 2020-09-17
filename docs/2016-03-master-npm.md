@@ -110,7 +110,64 @@ next tag 已经发布了 react@15 的第一个 rc 版了，尝鲜的朋友可以
 如果之前安装的 react 版本是 0.14.3，同时还安装了 [redux@3.2.0](mailto:redux@3.2.0)，执行 npm outdated 会输出
 
     Package  Current  Wanted  Latest  Location
-    react     0.14.3  0.14.7  
+    react     0.14.3  0.14.7  0.14.7  example
+    redux      3.2.0   3.3.1   3.3.1  example
+
+这种情况则说明 react 和 redux 该更新了，更新具体某个包使用 npm update package_name 即可，npm update 则会更新所有可更新的包。
+
+npm publish  
+
+==============
+
+npm 作为一个大仓库，每天都有大量的新包发布上来，发布自己的包非常容易，而且几乎零门槛，对应的发布的命令是 npm publish，但前提是你需要一个 npm 账号。
+
+假设已经有账号了，在发布之前需要使用 npm login 进行登录，正式发布之前请先阅读以下关于版本号的介绍。
+
+npm 包的版本号一般都是 x.y.z 的形式。
+
+其中 x 表示主版本号，通常有重大改变或者达到里程碑才改变；
+
+y 表示次要版本号，或二级版本号，在保证主体功能基本不变的情况下，如果适当增加了新功能可以更新此版本号；
+
+z 表示尾版本号或者补丁号，一些小范围的修修补补就可以更新补丁号。
+
+第一版本通常是 0.0.1 或者 1.0.0，当修改了代码，需要更新版本号重新发布到 npm，不知道的小伙伴（年轻的我）肯定会手动修改 package.json 的 version 字段，而高级的玩法是直接使用 npm version &lt;update_type> 命令自动搞定。
+
+详细用法可通过 npm help version 查看，这里只介绍最常用的三种。
+
+```c
+npm version patch => z+1
+npm version minor => y+1 && z=0
+npm version major => x+1 && y=0 && z=0
+```
+
+三个选项分别对应三部分的版本号，每次运行命令会导致相应的版本号递增一，同时子版本号清零。
+
+如果 npm 包同时又是一个 git 仓库，在运行了 npm version &lt;update_type> 和 npm publish 之后，npm 会自动给 git 仓库打上一个跟当前版本号一样的 tag，对于挂在 github 上的 npm 包很有用。
+
+npm2 & npm3  
+
+==============
+
+上面介绍了 npm 包安装 / 卸载、更新和发布，几乎能满足日常使用了，另外再搬点干货过来。
+
+npm3 虽然慢，但解决了 windows 上 npm 包目录太深的问题，相信使用过 npm1 或者 npm2 的都知道，node_modules 太多太深了，甚至一不小心就超过 windows 资源管理器能处理的最长路径长度了，听起来有点拗口，说白了这时候复制粘贴删除就会报错了。
+
+已经使用过 npm3 的肯定会发现，npm3 将依赖模块扁平化存放了，node_modules 文件夹里面子文件夹增多了，出现了很多没有通过 npm install 安装过的模块。
+
+npm3 在安装包的时候，由于每个包和包的依赖都会去计算是否需要再安装，搜索起来确实变慢了，好在至少现在的 npm3 速度还是可以接受的。
+
+按照官方文档介绍，npm3 处理模块依赖的方式跟 npm2 很不一样。
+
+> 以下是从[官网](https://docs.npmjs.com/how-npm-works/npm3-nondet)搬的砖
+
+### npm 的依赖
+
+假如我们写了个模块 App，需要安装两个包 A@1 和 C@1，其中 A@1 依赖另一个包 B@1，C@1 依赖 B@2，用 npm2 和 npm3 安装之后的依赖图分别是这样的
+
+[![npm3dependencies](https://camo.githubusercontent.com/6f9fc98fb2985a8c0d3883d2ad59f7a5acfe9d1c/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d3364657073342e706e67)](https://camo.githubusercontent.com/6f9fc98fb2985a8c0d3883d2ad59f7a5acfe9d1c/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d3364657073342e706e67)
+
+npm3 按照安装顺序存放依赖模块，先安装 A@1，�
 
 
 <!-- {% endraw %} - for jekyll -->

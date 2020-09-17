@@ -43,7 +43,26 @@ function BCtrl() {
 }
 ```
 
- html:
+ html: 
+
+```html
+                <!-- vm为自己为当前控制器作的一个简略记号，也可以写作 BCtrl as b,
+                     后面变量便可以在b中引出 如b.test -->
+                <div ng-controller="BCtrl as vm">
+                    {{vm.test}}
+                </div>
+```
+
+作用范围：
+
+ 1) $scope  中的变量或数据对象我们可以全部拿到，并且上级控制器中的变量也可以在下级控制器中被获取到：
+
+ controller:
+
+```javascript
+                function ParentCtrl($scope) {
+                    $scope.test = "测试";
+```
 
 
 <!-- {% endraw %} - for jekyll -->

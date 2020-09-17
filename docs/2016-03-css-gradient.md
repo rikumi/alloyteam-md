@@ -92,9 +92,5 @@ Gradient 有几个子特性，下面一一列出。
 
 如下图，从 gradient box 的中心（对角线交点）开始以 CSS 中指定的角度向两侧延伸，终点是 gradient box 的一个相近顶点到 gradient line 垂线的垂足，起点也是类似的求法，两点间的距离就是 gradient line 的长度（浓浓的初中几何味～）。
 
-[![CSS Gradient 3](http://www.alloyteam.com/wp-content/uploads/2016/02/32.png)](http://www.alloyteam.com/wp-content/uploads/2016/02/32.png)
-
-所以，gradient line 的长度计算公式是：
-
 
 <!-- {% endraw %} - for jekyll -->

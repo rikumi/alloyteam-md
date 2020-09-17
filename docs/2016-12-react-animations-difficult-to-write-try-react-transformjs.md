@@ -80,5 +80,21 @@ render() {
 
 * * *
 
+```javascript
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+ 
+import Transform from '../../transform.react.js';
+ 
+class Root extends Component {
+ 
+  constructor(props, context) {
+    super(props, context);
+ 
+    this.state = {
+      el1: {rotateZ: 0},
+      el2: {rotateY: 0}
+```
+
 
 <!-- {% endraw %} - for jekyll -->

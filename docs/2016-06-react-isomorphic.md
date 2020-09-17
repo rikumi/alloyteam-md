@@ -134,5 +134,34 @@ Class Wrapper extends Component {
 
 可以将 Math.random () 封装至 Component 的 props 中，在服务端上生成随机数并传入到这个 component 中，从而保证随机数在客户端和服务端一致。如
 
+```javascript
+Class Wrapper extends Component {
+  render() {
+    return (<h1>{this.props.randomNum}</h1>);
+  }
+};
+```
+
+服务端上传入 randomNum
+
+```javascript
+let randomNum = Math.random();
+var html = ReacDOMServer.renderToString(<Wrapper randomNum={randomNum} />);
+```
+
+### 5. 平台区分
+
+当前后端共用一套代码的时候，像前端特有的 Window 对象，Ajax 请求 在后端是无法使用上的，后端需要去掉这些前端特有的对象逻辑或使用对应的后端方案，如后端可以使用 http.request 替代 Ajax 请求，所以需要进行平台区分，主要有以下几种方式
+
+1. 代码使用前后端通用的模块，如 isomorphic-fetch  
+2. 前后端通过 webpack 配置 resolve.alias 对应不同的文件，如  
+客户端使用 /browser/request.js 来做 ajax 请求
+
+```javascript
+resolve: {
+    alias: {
+        'request': path.join(pathConfig.src
+```
+
 
 <!-- {% endraw %} - for jekyll -->

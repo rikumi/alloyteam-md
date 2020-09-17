@@ -69,7 +69,25 @@ Laro.register('TypeShot.$loop', function (La) {
 于是，我们暂且先把这个游戏流程分为 3 块。
 
 1.  资源 loading，初始化  
-    [](http://www.alloyteam.com/wp-content/uploads/2012/05/1.png)
+    [![](http://www.alloyteam.com/wp-content/uploads/2012/05/1-169x300.png "1")](http://www.alloyteam.com/wp-content/uploads/2012/05/1.png)
+2.  游戏主场景  
+    [![](http://www.alloyteam.com/wp-content/uploads/2012/05/2-171x300.png "2")](http://www.alloyteam.com/wp-content/uploads/2012/05/2.png)
+3.  游戏结束 Game Over  
+    [![](http://www.alloyteam.com/wp-content/uploads/2012/05/3-169x300.png "3")](http://www.alloyteam.com/wp-content/uploads/2012/05/3.png)
+
+关于状态机的使用方式，我这里有一个简单的 [Demo](http://hongru.github.com/proj/laro/test/laro.fsm.html) ，对于每个状态都抛出了 enter，leave，update，transition 等事件，状态宿主有 onStateChange 状态改变的监听。
+
+```javascript
+Laro.register('TypeShot.$fsm', function (La) {
+ 
+    ...
+    var statesList = [
+    states.loading, $sClass.Loading, states.inGame, $sClass.InGame, states.gameOver, $sClass.GameOver];
+    ...
+ 
+    this.init = function () {
+        this.$ = new 
+```
 
 
 <!-- {% endraw %} - for jekyll -->

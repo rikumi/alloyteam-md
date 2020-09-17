@@ -92,5 +92,44 @@ vue 介绍就不用了，太多资源了。这里讲述一下 vue 实践过程�
 
 ### 2.1 组织结构
 
+     + src
+         +-- common
+               +-- vue
+                    +-- coms
+                    +-- directives
+                    +-- filters
+                    +-- vue.js
+                    +-- vue.ext.js
+         +-- pages
+               +-- index
+                     +-- index.js
+                     +-- vue.ext.js
+                     +-- xxx.mixin.js
+     
+
+### 2.2 Vue 扩展
+
+vue 的扩展非常方便，与 vue 相关的资源都放置在 src/common/vue/ 下面，比如 coms（组件），directive，filter
+
+src/common/vue/vue.ext.js 是对 vue 进行全局公共的扩展，对于所有页面共有的扩展放在这个文件下面，内容如下：  
+![](http://7tszky.com1.z0.glb.clouddn.com/FuA2rjp5OSyt-X2Je8Gl5sxQldqM)
+
+可以看到，扩展 vue 库本身有 4 个扩展点：
+
+-   扩展 Vue 库的全局方法 / 属性，方式：Vue.xxx = …
+-   扩展 Vue 实例的方法 / 属性，方式：Vue.prototype = …
+-   扩展 directive，方式：Vue.directive ('directiveName’, options);
+-   扩展 filter，方式：Vue.filter ('filterName’, function (){});
+
+对于页面单独需要的扩展，集中在 src/pages/pageName/vue.ext.js 里面，形式与全局的 vue.ext.js 一样
+
+在实例化 Vue 的过程中也有许多可以扩展与优化的地方，在实践过程中只是应用了 mixin 功能，其他的可以慢慢深入
+
+mixin 的作用是在实例化 Vue 的时候混入一些功能，它可以混入许多特性，格式与实例化 Vue 时用到的 option 格式一样，比如 index 页面的 mixin.js 的内容如下：
+
+![](http://7tszky.com1.z0.glb.clouddn.com/FgjhliZsMCdcS4m8qgaG_s-R46tz)
+
+这个 mixin 混入了两个方法，多个 Vue 实例共享的 options 可以放置到 mixin 中，从而避免了代码重，比如在实例化 Vue 的时候这样使用 mixin：
+
 
 <!-- {% endraw %} - for jekyll -->

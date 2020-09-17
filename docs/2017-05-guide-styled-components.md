@@ -51,7 +51,23 @@ styled.h1 函数返回一个 React Component，styled components 会为这个 Re
 
 ```javascript
 class Title extends React.Component {
-    render()
+    render() {
+        const className = `title${this.props.primary ? " title-primary" : ""}`;
+        return <div className={className}>{this.props.children}</div>;
+    }
+}
+```
+
+    <Title primary>Hello world</Title>
+     
+
+styled components 使用 props 来控制样式，将控制样式代码放在样式组件中，使 React 组件更加简洁：
+
+```css
+const Title = styled.h1`
+    font-size: 1.5em;
+    text-align: center;
+    color: ${props
 ```
 
 

@@ -57,7 +57,24 @@ loadImage.listen( ''ready', function(){
  
 loadImage.listen( ''ready', function(){
  
+   Gamer.init();
+ 
+})
+ 
+loadImage.listen( ''ready', function(){
+ 
+   Sount.init();
+ 
+})
 ```
+
+loadImage 完成之后，它根本不关心将来会发生什么，因为它的工作已经完成了。接下来它只要发布一个信号.
+
+loadImage.trigger( ''ready' );
+
+那么监听了 loadImage 的 'ready' 事件的对象都会收到通知。就像上个面试的例子。面试官根本不关心面试者们收到面试结果后会去哪吃饭。他只负责把面试者的简历搜集到一起。当面试结果出来时照着简历上的电话挨个通知.
+
+说了这么多概念，来一个具体的实现。实现过程其实很简单。面试者把简历扔到一个盒子里， 然后面试官在合适的时机拿着盒子里的简历挨个打电话通知结果.
 
 
 <!-- {% endraw %} - for jekyll -->

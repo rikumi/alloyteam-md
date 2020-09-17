@@ -128,23 +128,7 @@ React 简单示例
 
 <!-- 注意：script 需要注明 type 为 text/jsx 以指定这是一个 JSX 语法格式 -->
 
-```html
-<script type="text/jsx" src="demo.js"></script>
-```
-
-</body>
- 
-```
-
-### 渲染一个虚拟 DOM 为真实 DOM
-
-使用 render () 方法生成真实 DOM 并插入到网页中。
-
-```javascript
-// 使用 React.createClass 创建一个组件
-var DemoComponent = React.createClass({
-    // 使用 render 方法自动渲染 DOM
-    render: function
+<script type="text/jsx" 
 ```
 
 

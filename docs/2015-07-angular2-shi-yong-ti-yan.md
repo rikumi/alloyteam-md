@@ -49,6 +49,29 @@ import {TodoStore} from 'services/todo/TodoStore';
                   <div class="input-group-addon">Todo</div>
                   <input type="text" class="form-control" 
                    placeholder="输入TodoItem" autofocus #newtodo 
+                   (keyup)="add($event,newtodo)">
+                 </div>
+                </div>
+                <ul class="list-group">
+                 <li class="list-group-item" *for="#todo of todoStore.todoList">
+                  <input type="checkbox" [checked]="todo.done" 
+                   (click)="toggleTodoState(todo)"/> 
+                  <span [class.done]="todo.done">{{todo.text}}</span>
+                 </li>
+                </ul>
+               </div>`,
+    directives: [For, If]
+})
+ 
+class AppComponent {
+    todoStore : TodoStore;
+ 
+    constructor(todoStore: TodoStore) {
+	this.todoStore = todoStore;
+    }
+ 
+    add($event,newtodo){
+	if(
 ```
 
 

@@ -118,15 +118,7 @@ CSS3 规范中的要求使用双冒号 (::) 表示伪元素，以此来区分伪
 
 对于[伪元素是使用单冒号还是双冒号的问题](https://www.w3.org/community/webed/wiki/Advanced_CSS_selectors#CSS3_pseudo-element_double_colon_syntax)，w3c 标准中的描述如下：
 
-_Please note that the new CSS3 way of writing pseudo-elements is to use a double colon, eg a::after { ... }, to set them apart from pseudo-classes. You may see this sometimes in CSS. CSS3 however also still allows for single colon pseudo-elements, for the sake of backwards compatibility, and we would advise that you stick with this syntax for the time being._
-
-大概的意思就是：虽然 CSS3 标准要求伪元素使用双冒号的写法，但也依然支持单冒号的写法。为了向后兼容，我们建议你在目前还是使用单冒号的写法。
-
-实际上，伪元素使用单冒号还是双冒号很难说得清谁对谁错，你可以按照个人的喜好来选择某一种写法。
-
-**4. 伪类与伪元素的具体用法**
-
-这一章以含义解析和例子的方式列出大部分的伪类和伪元素的具体用法。下面是根据用途分类的伪类总结图和根据冒号分类的伪元素总结图：
+_Please note that the new CSS3 way of writing pseudo-elements is to use a double colon, eg a::after { ... }, to set them apart from pseudo-classes. You may see this sometimes in CSS. CSS3 however also still allows for single colon pseudo-eleme_
 
 
 <!-- {% endraw %} - for jekyll -->

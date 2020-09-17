@@ -46,5 +46,15 @@ window["Audio"] && new Audio().canPlayType("audio/mpeg");
 
 说得差不多了，直接看代码和 [demo](http://alloyteam.com/wp-content/uploads/2011/10/audio-player-demo1.html) 吧：
 
+```javascript
+function initAudio(){
+	var _audio;
+	if(audioEl){ return; } //如果存在,说明已经初始化
+	if(window['Audio'] && (_audio=new Audio()).canPlayType('audio/mpeg')){
+		_audio.addEventListener('canplay',onCanPlay,false);
+		_audio.addEventListener('play',onPlay,false);
+		_audio.addEventListener('pause',onPause,false)
+```
+
 
 <!-- {% endraw %} - for jekyll -->

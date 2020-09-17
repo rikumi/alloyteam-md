@@ -117,5 +117,22 @@ ES6 的多行字符串是一个非常实用的功能。在 ES5 中，我们不�
 
 解构可能是一个比较难以掌握的概念。先从一个简单的赋值讲起，其中 house  和 mouse 是 key，同时 house  和 mouse 也是一个变量，在 ES5 中是这样：
 
+    var data = $('body').data(), // data has properties house and mouse
+       house = data.house,
+       mouse = data.mouse;
+
+以及在 node.js 中用 ES5 是这样：
+
+    var jsonMiddleware = require('body-parser').jsonMiddleware ;
+    var body = req.body, // body has username and password
+       username = body.username,
+       password = body.password;  
+
+在 ES6，我们可以使用这些语句代替上面的 ES5 代码：
+
+    var { house, mouse} = $('body').data(); // we'll get house and mouse variables
+    var {jsonMiddleware} = require('body-parser');
+    var {username, password} = req.body;
+
 
 <!-- {% endraw %} - for jekyll -->

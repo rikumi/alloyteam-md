@@ -63,16 +63,27 @@ renderTop();
 
 ```javascript
 var topInfo = new RenderModel({
-     cgiName: "/cgi-bin/top_info",
-     param: {
-          bid: 10038
-     },
-     renderTmpl: topTmpl,
-     renderContainer: $("#top"),
-     processData: function(data){
-          for(var i = 0; i < data.posts.length; i ++){
-               var item = data.posts[i];
+    cgiName: "/cgi-bin/top_info",
+    param: {
+        bid: 10038,
+    },
+    renderTmpl: topTmpl,
+    renderContainer: $("#top"),
+    processData: function (data) {
+        for (var i = 0; i < data.posts.length; i++) {
+            var item = data.posts[i];
+            item.flag = getFlag(item.flag);
+        }
+    },
+});
+topInfo.rock();
 ```
+
+哈，感觉没什么高大上的，也没什么吧。。。这还不是 Abstract 强大之处
+
+现在需求来了，产品要求加快 top 渲染的速度，怎么办？有什么办法？
+
+一个办法就是做本地缓存，一进来使用上次请求过的据渲染，安份的写法应该是这样的吧
 
 
 <!-- {% endraw %} - for jekyll -->

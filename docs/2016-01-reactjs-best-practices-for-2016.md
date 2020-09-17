@@ -141,7 +141,13 @@ Redux 的用户可以使用 [redux-simple-router](https://github.com/rackt/redux
 
 只有一小部分 webpack 的用户知道，应用代码是可以分割成多个 js 包的。
 
-&lt;
+```javascript
+require.ensure([], () => {  
+  const Profile = require('./Profile.js')
+  this.setState({
+    currentComponent: Profile
+  })
+```
 
 
 <!-- {% endraw %} - for jekyll -->

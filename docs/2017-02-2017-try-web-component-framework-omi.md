@@ -39,35 +39,42 @@ Open and modern framework for building user interfaces.
 
 ## Hello World
 
-```html
+```javascript
 class Hello extends Omi.Component {
-    constructor(data) {
-        super(data);
-    }
-    style () {
-        return  `
+    constructor(data) {
+        super(data);
+    }
+    style() {
+        return `
             <style>
                 h1{
                     cursor:pointer;
                 }
             </style>
          `;
-    }
-    handleClick(target, evt){
-        alert(target.innerHTML);
-    }
-    render() {
-        return  `
+    }
+    handleClick(target, evt) {
+        alert(target.innerHTML);
+    }
+    render() {
+        return `
         <div>
             <h1 onclick="handleClick(this, event)">Hello ,{{name}}!</h1>
         </div>
         `;
- 
-    }
+    }
 }
- 
-Omi.render(new Hello(
+Omi.render(new Hello({ name: "Omi" }), "body");
 ```
+
+[\[点击这里 -> 在线试试\]](http://alloyteam.github.io/omi/website/redirect.html?type=hello)
+
+你可以使用 Omi.makeHTML 来生成组件标签用于嵌套。
+
+        Omi.makeHTML('Hello', Hello);
+     
+
+那么你就在其他组件中使用，并且通过 data-\*的方式可以给组件传参，如：
 
 
 <!-- {% endraw %} - for jekyll -->

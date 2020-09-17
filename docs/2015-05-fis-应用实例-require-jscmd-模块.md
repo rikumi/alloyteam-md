@@ -84,11 +84,7 @@ demo 已经放在 github，下载请[猛戳](https://github.com/chyingp/blog/tre
 module.exports = <span class="keyword">function</span>(nick) {
     
     Util.debug(nick);
-};
- 
 ```
-
-再看看 `uti.js`，不赘述。
 
 
 <!-- {% endraw %} - for jekyll -->

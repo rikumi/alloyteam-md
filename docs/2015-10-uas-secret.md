@@ -77,5 +77,23 @@ Mozilla/5.0 (Linux; U; Android 4.1.1; zh-cn; MI 2S Build/JRO03L) AppleWebKit/534
 
 * * *
 
+```javascript
+/**
+ * [一个非常简版的ua分析器]
+ */
+(function(){
+    /**
+     * [plate_reg description]
+     * @type {RegExp}
+     * 
+     * 安卓和IOS的版本判断，
+     * 安卓的版本分割用的点","IOS都用的"_“
+     * 可以很好的区分平台
+     */
+    function parseUa( ua ){
+        var ua_array = ua.split('Mobile') ,
+            result =
+```
+
 
 <!-- {% endraw %} - for jekyll -->

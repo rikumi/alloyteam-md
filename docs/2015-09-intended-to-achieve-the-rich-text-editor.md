@@ -74,5 +74,27 @@ source_link: http://www.alloyteam.com/2015/09/intended-to-achieve-the-rich-text-
 
 正则化的实现也很简单，从 ROOT 结点进行中序遍历的算法，即先访问根结点，再从左向右依次访问子结点，然后一直到叶子结点，找出叶子结点的样式结点次续，并删除经过的样式结点，然后把它们插入到每个叶子结点的上面
 
+```javascript
+            var scan = function(node, inhrintStyles){
+                // 已经是叶子节点了
+                if(node.nodeType === node.TEXT_NODE){
+ 
+                   if(inhrintStyles.length){
+                       leafNodes.push({
+                            inhrintStyles: inhrintStyles.concat([]),
+                            node: node
+                       });
+                   }
+ 
+                // 非叶子节点
+                }else{
+                    // 如果是style节点
+                    // 标记这是要删除的style节点，
+                    if(styleTagNames.indexOf(node.tagName.toLowerCase()) > -1){
+                        // inhrintStyles存在此style 不重复增加
+                        var exists = 0;
+ 
+```
+
 
 <!-- {% endraw %} - for jekyll -->

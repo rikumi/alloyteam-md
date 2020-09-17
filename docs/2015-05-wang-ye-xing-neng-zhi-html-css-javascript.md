@@ -99,7 +99,19 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 
 [![5](http://www.alloyteam.com/wp-content/uploads/2015/04/51.png)](http://www.alloyteam.com/wp-content/uploads/2015/04/51.png)
 
-1 图上可以看到，由于内嵌了 javascript，页面上减少了一个请求，导致 html 文档变大�
+1 图上可以看到，由于内嵌了 javascript，页面上减少了一个请求，导致 html 文档变大，消耗时间增多，但是 domComplete 时间提升的并不多。
+
+* * *
+
+**使用 async 的 javascript**
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+      <link rel="stylesheet"
+```
 
 
 <!-- {% endraw %} - for jekyll -->

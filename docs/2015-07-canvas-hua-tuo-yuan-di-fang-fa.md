@@ -49,8 +49,28 @@ function EllipseOne(context, x, y, a, b) {
     for(var i = 0; i < 2 * Math.PI; i += step) {
         context.lineTo(x + a * Math.cos(i), y + b * Math.sin(i));
     }
-    context.closePath(
+    context.closePath();
+    context.fill();
+}
 ```
+
+和圆基本一样，不过圆只有一个半径，而椭圆分为长轴和短轴了。
+
+看下效果～
+
+![](http://www.alloyteam.com/wp-content/uploads/2015/07/51.png)
+
+好了，画椭圆成功，文章结束～
+
+怎么可能！！
+
+就这样结束也太没品了，刚刚是方法一，下面来看其他的
+
+方法二，均匀压缩法
+
+这是我最喜欢的方法，易理解，相比较方法一，性能也快了很多，先贴代码～
+
+    function EllipseTwo(context
 
 
 <!-- {% endraw %} - for jekyll -->

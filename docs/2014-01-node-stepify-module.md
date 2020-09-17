@@ -53,5 +53,24 @@ var workflow = Stepify()
 
 默认情况下，work 的执行是按照 task 定义的顺序来串行执行的，所以还可以这样简化：
 
+```javascript
+var workflow = Stepify()
+    .step('t1s1', fn)
+    .step('t1s2', fn)
+    .step('s', fn)
+    .pend()
+    .step('t2s1', fn)
+    .step('t2s2', fn)
+    .step('s', fn)
+    .error(fn)
+    .pend()
+    .step('t3s1', fn)
+    .step('t3s2', fn)
+    .pend()
+    .error(fn)
+    .result(fn)
+    .
+```
+
 
 <!-- {% endraw %} - for jekyll -->

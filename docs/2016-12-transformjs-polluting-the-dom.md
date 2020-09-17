@@ -88,5 +88,9 @@ element.style.transform = element.style.msTransform = element.style.OTransform =
 
 看到了没有，你不仅可以传 DOM 元素进去，也可以传对象字面量。你可以把 obj.transform 打印出来，上面是选择了 90 度，所以它生成出来的 matrix 是：
 
+    perspective(500px) matrix3d(0,1,0,0,-1,0,0,0,0,0,1,0,0,0,0,1)
+
+你同样也可以关闭透视投影，如：
+
 
 <!-- {% endraw %} - for jekyll -->

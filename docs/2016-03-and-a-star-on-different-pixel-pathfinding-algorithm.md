@@ -140,6 +140,10 @@ function isLineCross(a1, a2, b1, b2) {
     if(globalIndex++ > 1000) {
         throw 'to much times';
     }
+    var delta = determinant(a2.x - a1.x, b1.x - b2.x, a2.y - a1.y, b1.y - b2.y);
+    if(delta <= (1e-6) && delta >= -(1e-6)) {
+        return false;
+    }
 ```
 
 

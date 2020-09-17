@@ -45,8 +45,17 @@ source_link: http://www.alloyteam.com/2012/10/js-dynamic-management-of-css/
                     }
                 }
                 else {
-                    var style = 
+                    var style = document.createElement("style");
+                    style.innerHTML = rule;
+                    document.head.appendChild(style);
+                }
+                return;
+            }
 ```
+
+参数 rule 就是要添加 css 文本。
+
+如果我们想在一个元素上应用以上动画，我们可以动态定义一个 css class：
 
 
 <!-- {% endraw %} - for jekyll -->

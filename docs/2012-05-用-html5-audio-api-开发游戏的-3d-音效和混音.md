@@ -122,5 +122,69 @@ source_link: http://www.alloyteam.com/2012/05/%e7%94%a8html5-audio-api%e5%bc%80%
 
 [![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/144758HEl.jpg)](http://www.html5rocks.com/en/tutorials/webaudio/games/)
 
+如果你觉得声音太响了，我感到抱歉。我们将在后面的章节讨论测量和动态压缩。
+
+现在，如果你游戏里所有的机枪都像这样响起，那将相当无聊。当然，它们会基于目标的距离和相对位置而有所差异（稍后讨论），但即使这样做可能还不够。幸运的是，网络音频 API 提供了对上面的示例进行轻松调整的方式，主要有两种：
+
+1.    发射子弹时间上微妙的变化
+
+2.    改变每个音效的播放速率（同时改变音高），以更好地模拟现实世界中的随机性。
+
+        这两种方法的效果如下：
+
+[![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/144759Nem.jpg)](http://www.html5rocks.com/en/tutorials/webaudio/games/)
+
+[完整源代码](http://www.html5rocks.com/en/tutorials/webaudio/games/samples/machine-gun/gun.js)
+
+对于这些技术在现实生活中的实际例子，可以看看[台球桌的演示](http://chromium.googlecode.com/svn/trunk/samples/audio/o3d-webgl-samples/pool.html) ，它采用了随机抽样和变化的播放速率来表现更有趣的球的碰撞声。
+
+## 3D 定位音效
+
+游戏往往设定在一个 2D 或者 3D 的世界里。在这样的情况下，立体定位的音频可以大大增加沉浸感的体验。幸运的是，网络音频 API 带来了内置硬件加速的位置音频特性，可以直接的使用。 顺便说一下，你应该确保有立体声扬声器（最好是耳机）来运行下面的例子。 在下面的示例中，你可以通过在画布上滚动鼠标滚轮来更改声源的角度。
+
+![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/1448006J1.jpg)
+
+[完整源代码](http://www.html5rocks.com/en/tutorials/webaudio/games/samples/position/position.js)
+
+上面的例子中，有一个监听者在画布正中（人的图标），同时鼠标控制声源（喇叭图标）的位置，这是使用 [AudioPannerNode](https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#AudioPannerNode-section) 实现这种效果的简单例子。它的基本思想是通过设置音频信号源的位置响应鼠标的移动，如下所示：
+
+**\[html]** [view plain](http://blog.csdn.net/hfahe/article/details/7443276# "view plain")[copy](http://blog.csdn.net/hfahe/article/details/7443276# "copy")
+
+1.  PositionSample.prototype.changePosition = function(position) {
+2.    // Position coordinates are in normalized canvas coordinates
+3.    // with -0.5 &lt; x, y &lt; 0.5
+4.    if (position) {
+5.      if (!this.isPlaying) {
+6.        this.play();
+7.      }
+8.      var mul = 2;
+9.      var x = position.x / this.size.width;
+10.     var y = -position.y / this.size.height;
+11.     this.panner.setPosition(x \* mul, y \* mul, -0.5);
+12.   } else {
+13.     this.stop();
+14.   }
+15. };
+
+关于网络音频空间化处理需要了解的事情：
+
+-   监听者默认在原点（0，0，0）。
+-   网络音频位置 API 没有单位，所以我引入了一个乘数使得演示的声效更好。
+-   网络音频采用 Y - 型直角坐标系（和大多数计算机图形系统相反）。 这就是为什么我在上面的代码片段进行了 y 轴的变换。
+
+### 高级：音锥
+
+定位模型非常强大，而且相当先进，主要基于 [OpenAL](http://connect.creativelabs.com/openal/Documentation/OpenAL%201.1%20Specification.pdf)。详细信息请查看上述规范的第 3 和第 4 节。
+
+![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/144801YUx.jpg)
+
+在有单一的 [AudioListener](https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#AudioListener-section) 连接到网络音频 API 的情况下，它可以通过位置和方向配置空间。每个源可以通过一个 AudioPannerNode（音频声像节点）来使得音频输入空间化。声像节点有位置和方向，以及距离和方向性模型。
+
+距离模型指定的增益取决于和源的接近程度，而方向模型可以通过指定内外锥来配置，以决定监听者在内部锥里，在内外锥之间，或在外部锥之外时增益的大小（通常为负值）。
+
+**\[html]** [view plain](http://blog.csdn.net/hfahe/article/details/7443276# "view plain")[copy](http://blog.csdn.net/hfahe/article/details/7443276# "copy")
+
+1.  var panner = context.createPanne
+
 
 <!-- {% endraw %} - for jekyll -->

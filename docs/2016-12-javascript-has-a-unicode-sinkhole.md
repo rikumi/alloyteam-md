@@ -113,5 +113,17 @@ js 虽没有直接的反转字符串的 API，但是数组有啊，转数组反�
 
 1.  ES6 的 Array.from 支持代理对的解析
 
+```javascript
+function reverse(string) {
+    return Array.from(string).reverse().join("");
+}
+```
+
+1.  使用 [Esrever](https://github.com/mathiasbynens/esrever)（reverse 反转之后就是 esrever...)
+
+### 坑 3—— 码点与字符互转
+
+String.fromCharCode 可以将一个码点转换为字符，比如
+
 
 <!-- {% endraw %} - for jekyll -->

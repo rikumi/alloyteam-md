@@ -70,8 +70,7 @@ main.js 中，在创建 woker 线程后，立即调用了 postMessage 方法传�
 ```javascript
 // Create a 32MB "file" and fill it.
 var uInt8Array = new Uint8Array(1024*1024*32); // 32MB
-for (var i = 0; i < uInt8Array .length; ++i) {
-    uInt8Ar
+for (
 ```
 
 

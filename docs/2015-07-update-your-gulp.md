@@ -91,7 +91,42 @@ gulp.task("compile", function () {
 
 如果你是 gulp 深度使用者，你一定不止一次吐槽过 gulp 的任务流程难以控制，就像一条复杂的电路一样，电路上很多电阻都是串联加并联的方式连接在一起，gulp 一个复杂的任务同样也是由很多个子任务以串联（同步）加并联（异步）的方式连接在一起的。
 
-老版本的 gulp 对多个异步任务很难控制，必须借助于第三方模块，如 `run-seq`
+老版本的 gulp 对多个异步任务很难控制，必须借助于第三方模块，如 `run-sequence`、`event-stream` 等，效果也并不理想。
+
+现在 gulp 带来了两个新的 api：`gulp.series` 和 `gulp.parallel`，这两个革命性的 api 将帮助开发者解决恼人的任务流程控制问题。
+
+下面就来见识新 api 的神奇之处吧。
+
+### [](http://www.alloyteam.com/2015/07/update-your-gulp/#example)example
+
+以开发中最常见的 dist 任务为例，使用 gulp 首先得分解任务，dist 大致分解成子任务如下
+
+1.  删除开发目录 dev，`clean-dev`
+2.  删除发布目录 dist，`clean-dist`
+3.  合图并修改 css 中图片引用，`sprite`
+4.  预编译 css（如 sass）到 dev，`compile-css`
+5.  预编译 js 到 dev，`compile-js`
+6.  从 src 拷贝 html 到 dev，`copy-html`
+7.  对 dev 下面的 js/css 进行 md5，再拷贝到 dist，`reversion`
+8.  替换 dev 下 html 中 js/css 进行过 md5 之后的文件路径，并拷贝到 dist，`replcae`
+
+这只是一个普通的 dist 任务，我将 dist 拆得比较细并省略了压缩合并等常规任务，大致由以上 8 个步骤组成。
+
+拆的粒度完全由自己控制，达到方便复用又便于理解的目的就行。
+
+使用老版本的 gulp，首先需要对每一个任务进行注册，这里只是为了说明问题，我省略了任务的具体代码。
+
+```javascript
+gulp.task('clean-dev', function() {// TODO});
+gulp.task('clean-dist', function() {// TODO});
+gulp.task('sprite', function() {// TODO});
+gulp.task('compile-css', function() {// TODO});
+gulp.task('compile-js', function() {// TODO});
+gulp.task('copy-html', function() {// TODO});
+gulp.task('reversion', function() {// TODO});
+gulp.task('replcae', function() {// TODO});
+ 
+```
 
 
 <!-- {% endraw %} - for jekyll -->

@@ -71,16 +71,30 @@ var maxY = 13;
 initNeighbor 方法是获得邻格用的，注意最后有一个随机，将它的邻格打乱，这样我们在 getNeighbor 中获取邻格就很方便了
 
 ```javascript
-Grid.prototype.getNeighbor = function() {
-    var x, y, neighbor;
-    this.choosed = true; // 标记当前格
-    for(var i = 0; i < this.neighbor.length; i++) {
-        x = this.neighbor[i].x;
-        y = this.neighbor[i].y;
-        neighbor = maze.grids[y][x];
-        if(!neighbor.choosed) { // 邻格是否标记过
-            neighbor.parent
+Grid.prototype.getNeighbor = function () {
+    var x, y, neighbor;
+    this.choosed = true; // 标记当前格
+    for (var i = 0; i < this.neighbor.length; i++) {
+        x = this.neighbor[i].x;
+        y = this.neighbor[i].y;
+        neighbor = maze.grids[y][x];
+        if (!neighbor.choosed) {
+            // 邻格是否标记过
+            neighbor.parent = this; // 选中的邻格父级为当前格
+            return neighbor;
+        }
+    }
+    if (this.parent === firstGrid) {
+        return 0; // 结束
+    } else {
+        return 1; // 这里是邻格都被标记过，返回父级
+    }
+};
 ```
+
+这里比较核心，注释给的也比较全，结合前面的原理图应该很好懂
+
+再看下 maze 里面的 findPath 方法，在这里面调用的 getNeighbor 方法
 
 
 <!-- {% endraw %} - for jekyll -->

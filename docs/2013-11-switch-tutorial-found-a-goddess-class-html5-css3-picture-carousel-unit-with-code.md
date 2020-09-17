@@ -48,7 +48,24 @@ SlideShow.init("slide_contrainer", { imgW: 640, imgH: 400, num: cardnum });
 首先要引用若干 JS 文件  
 l jx.all.js   这个据说是 Web QQ 的框架库，有机会研究一下  
 l jxanimate.js  看名字就知道这个动画框架是基于 JX 的。  
-l jxanimate.effects.js
+l jxanimate.effects.js  这个是效果库，里面是用 js 定义的一些动画效果，支持扩展。  
+l slideshow.js     图片轮播器的主文件。  
+l slideshow.effects.js          这个是向 JXAnimation 中添加一些动画效果。
+
+以下 HTML 和 JS 代码
+
+```html
+    <body>
+ 
+        图片轮播器Demo
+ 
+        <div id="picplayer" style="position:relative;width:300px;height:300px;">
+ 
+            <img src="http://img.jb51.net/online/picPlayer/1.jpg">
+ 
+        </div>
+ 
+```
 
 
 <!-- {% endraw %} - for jekyll -->

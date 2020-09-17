@@ -37,7 +37,14 @@ function newBlob(data, datatype){
         window.BlobBuilder = window.BlobBuilder ||
                 window.WebKitBlobBuilder ||
                 window.MozBlobBuilder ||
-         &n
+                window.MSBlobBuilder;
+ 
+        if (e.name == 'TypeError' && window.BlobBuilder) {
+            var bb = new BlobBuilder();
+            bb.append(data.buffer);
+            out = bb.getBlob(datatype);
+            //还可以抢救一下..使用blobbuilder来生成文件..
+        } else {
 ```
 
 

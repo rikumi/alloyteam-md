@@ -55,5 +55,16 @@ var MyController = function ($scope) {
 
 上面这段代码定义了 angularjs 的 controller 里面用到了 scope，这样还看不出问题，在看下面：
 
+```javascript
+var MyController = function ($scope, $http) {
+    $scope.test = 1;
+    $http.get("");
+};
+```
+
+上面这段代码在原来的基础上增加了 http, 那么问题就来了，angular 在调用 controller 的时候怎么知道我需要 scope 还是 http 还是两个都需要呢，这就牵着到了 angular 里的依赖注入，那么我们来模拟一下。
+
+假设没有 angular 的情况下，我们：
+
 
 <!-- {% endraw %} - for jekyll -->

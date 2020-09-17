@@ -60,11 +60,7 @@ Mammal.prototype.成长 = function(){
 Mammal.prototope.衰老 = function(){
   自由基的过氧化反应()
 }
-Life.prototype.死亡 = function(){
- //再留给子类去实现
-}
-//再实现一个Dog类
-var = Dog = function()
+Life.prototype.死亡 = 
 ```
 
 

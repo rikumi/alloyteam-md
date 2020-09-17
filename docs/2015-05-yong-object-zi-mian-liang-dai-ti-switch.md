@@ -53,11 +53,20 @@ console.log(drink); // 'Coke'
 
 ```javascript
 function getDrink(type) {
-    var drinks = {
-        'coke': 'Coke',
-        'pepsi': 'Pepsi',
-        'lemonade':
+    var drinks = {
+        coke: "Coke",
+        pepsi: "Pepsi",
+        lemonade: "Lemonade",
+        default: "Default item",
+    };
+    return "The drink I chose was " + (drinks[type] || drinks["default"]);
+}
+var drink = getDrink("coke");
+// The drink I chose was Coke
+console.log(drink);
 ```
+
+当然，我们可能会写一些代码片段，只需要这样子
 
 
 <!-- {% endraw %} - for jekyll -->

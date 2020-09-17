@@ -110,5 +110,16 @@ var Carousel = React.createClass({
 
         透明度切换效果：
 
+```css
+.carousel1-enter {
+    opacity: 0;
+}
+.carousel1-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+.carousel1-leave
+```
+
 
 <!-- {% endraw %} - for jekyll -->

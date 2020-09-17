@@ -169,12 +169,5 @@ A 的内容已经指明了这是个苹果手机，IMG 的 alt 属性就没必要
 <table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &lt;img src=“images/save_button.png” alt=“save”/&gt; 
  &lt;input type=“image” src=“images/save_button.png” alt=“save”/&gt;</code></pre></td></tr></tbody></table>
 
-6. 在一个图片列表里面选中某个图片，区别选中去否我们通常的做法是用边框的颜色来标识。如下图，选中的图片边框为蓝色
-
-**图 8. 图片被选中的正常效果图**  
-![Image](http://www.ibm.com/developerworks/cn/web/1003_sunqy_access/imageselected.gif)
-
-**清单 6. 图片被选中时对应的 CSS**
-
 
 <!-- {% endraw %} - for jekyll -->

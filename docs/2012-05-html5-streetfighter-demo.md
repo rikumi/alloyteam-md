@@ -73,7 +73,22 @@ addSkill: function(  skill ){
  
 })
  
+var hero1 = Hero.getInstance(  "半人马酋长"  );
+ 
+hero1.addSkill(  "六级跳大"  );
+ 
+var hero2 = Hero.getInstance(  "山岭巨人"  )
+ 
+hero2.addSkill(  "六级跳大"  )
+ 
+var hero3 = Hero.getInstance(  "黑暗游侠"  );
+ 
+hero3.addSkill(  "六级跳大">"  );
 ```
+
+## Timer.js
+
+用 js 做动画，无非就是用 setInterval 或者 setTimeout 让图片的
 
 
 <!-- {% endraw %} - for jekyll -->

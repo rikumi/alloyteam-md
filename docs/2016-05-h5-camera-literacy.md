@@ -139,5 +139,18 @@ Real Time Messaging Protocol（简称 RTMP）是 Macromedia 开发的一套视�
 
 **3 配置 nginx 的 conf 文件：**
 
+```c
+rtmp {  
+  
+    server {  
+  
+        listen 1935;  #监听的端口
+  
+        chunk_size 4000;  
+        
+         
+        application hls
+```
+
 
 <!-- {% endraw %} - for jekyll -->

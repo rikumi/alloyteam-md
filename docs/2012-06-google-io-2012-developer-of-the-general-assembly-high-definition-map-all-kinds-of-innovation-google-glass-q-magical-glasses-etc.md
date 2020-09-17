@@ -188,5 +188,97 @@ Google 甚至还会用语音回答你的问题，这声音听上去非常自然
 
 ![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111625AxZ.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111625AxZ.jpg)
 
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111628fek.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111628fek.jpg)
+
+我们如何做到这点？Google 将利用你的搜索历史记录、日历以及其他更多数据来预测出你想要的到底是什么  
+Google Now 将学习你的个人习惯，优化各种搜索结果。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111631pCP.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111631pCP.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111633bPN.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111633bPN.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111634846.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111634846.jpg)
+
+当你有一个新的日历预约，Google 将利用各种信息：交通数据、地图、公交换乘…… 来帮助你准时到达预约地点，如果你搜索了一个航班信息，Google 将会持续通知你这个航班的动态更新，你还可以跟踪一个球队的表现情况。![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1116366F3.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1116366F3.jpg)
+
+Google Now 发现我们一般是在饭点左右去健身馆，健身馆大概在 30 分钟的路程外。但我现在有个航班要去搭，不过这个航班延误了，于是 google 告诉我，我仍然可以去健身
+
+你可以在搜索球队信息的结果里直接购买球票
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1116378V4.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1116378V4.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111639oN9.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111639oN9.jpg)
+
+总的来说，Google Now 就是一个根据你的历史行为，挖掘出你的真实需求的搜索体验服务，并且完美地将 Google 的各种服务整合了起来。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111640oG1.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111640oG1.jpg)
+
+JB4.1 介绍完毕
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111641HGV.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111641HGV.jpg)
+
+7 月份发布 OTA 更新，7 月份时，Nexus S，Xoom，Galaxy S 将享受到此次更新，SDK 今天就可以访问。  
+今天我们还将发布 PDK ，平台开发工具
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111643RzP.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111643RzP.jpg)
+
+你可以利用这个工具将 Android 部署到你的各种硬件上
+
+Android JB4.1 到此结束，硬件环节开始
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111645fcT.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111645fcT.jpg)
+
+上个月，我们发布了 Google Play,Music,Movies,Books，Google Play 的传统强势是应用，现在已经有 60 万款应用了，并且已经有超过 200 亿次应用安装，没有台下开发者的支持，我们不可能做到这步。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111646pjx.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111646pjx.jpg)
+
+Android 应用在 190 个国家都可以下载
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111648KW6.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111648KW6.jpg)
+
+应用内付费发布一年后，超过 50% 的收入都来自于此了
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111705C8d.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111705C8d.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111709jol.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111709jol.jpg)
+
+开发工具环节，开始谈论各种开发者工具，数据分析、培训、APK 数据包扩展等。让我们没有忘记这是一个开发者活动。
+
+今天我们将介绍一些新东西，应用加密！
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111710UsY.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111710UsY.jpg)
+
+从 JB 开始，付费应用将拥有唯一的密钥，这和 iOS 的做法一致，支持应用 Delta 更新，再也不用每次更新都重新下载安装包了
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111710qGl.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111710qGl.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111711Jn9.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111711Jn9.jpg)
+
+支持 Gingerbread 以上系统。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111712DeW.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111712DeW.jpg)
+
+Google Cloud Messaging，免费为开发者提供
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111713F3s.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111713F3s.jpg)
+
+Play 不仅仅是应用，还是一个娱乐商店，我们有电影，千万首歌曲，还是全球最大的书市。
+
+今天，我们为 Play 带来了更多内容
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111714bfF.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111714bfF.jpg)
+
+电视节目，剧集，这些都将引入 Play，杂志也将进入 Play，流行杂志你可以拥有 14 天的免费试读。这是和 iTunes 的全面战争啊
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117145dd.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117145dd.jpg)
+
+Play 介绍完毕，接下来是 Nexus 硬件系列。Hugo 回到了台上
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111715OJ6.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111715OJ6.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111715h4H.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111715h4H.jpg)
+
+引入了这么多内容，那么用什么合适的设备来消费呢？华硕没有悬念地成为了下一代合作方
+
 
 <!-- {% endraw %} - for jekyll -->

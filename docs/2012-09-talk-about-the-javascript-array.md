@@ -51,5 +51,29 @@ for (var i in ary) {
 
 Array 也是从 Function 构造而来.
 
+```javascript
+Array.__proto__ === Function.prototype; //true
+```
+
+跟普通的对象最大的不同就是，array 对象有个被引擎自动维护的 length 属性，length 属性可读写但不能被枚举。当调用 push, shift 等方法时. length 的值会被引擎更改。而对 length 进行写操作时，ary 对象的属性表也可能被更改.
+
+```javascript
+var ary = [1, 2, 3];
+alert(ary.length);
+ary.push(4);
+alert(ary.length);
+ary.length = 2;
+for (var i in ary) {
+    alert(ary[i]);
+}
+```
+
+说到 Array, 就得顺便说说 arguments.  
+arguments 是 AO (activation object, 活动对象) 的一个属性，看看它的 \[\[class]] 是什么.
+
+```javascript
+(function(a,b,c){
+```
+
 
 <!-- {% endraw %} - for jekyll -->

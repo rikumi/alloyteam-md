@@ -60,8 +60,26 @@ classpath  D:/androidandroid-sdk-windowstoolslib
 
 ```html
 <span class="comment"># NativeScript</span>
-┌─────────┬──────────────────�
+┌─────────┬─────────────────────────────
+───────────────────────────────────┐
+│ Usage   │ Synopsis                                                       │
+│ General │ $ tns <Command> [Command Parameters] [--command <Options>]     │
+│ Alias   │ $ nativescript <Command> [Command Parameters] [--command       │
+│         │ <Options>]                                                     │
+└─────────┴─────────────────────────────
+───────────────────────────────────┘
+ 
 ```
+
+### 2. 开始项目
+
+-   创建项目
+
+
+    $ tns create demo
+    $ cd demo
+    $ tns platform add andrdoi/ios
+    ├── app
 
 
 <!-- {% endraw %} - for jekyll -->

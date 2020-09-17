@@ -79,7 +79,28 @@ var server = http2.createServer({
   cert: fs.readFileSync('./zs/localhost.crt')
 }, function(request, response) {
     var pathname = url.parse(request.url).pathname;
-    var realPath = path.join("my",
+    var realPath = path.join("my", pathname);    //这里设置自己的文件名称;
+ 
+    var pushArray = [];
+    var ext = path.extname(realPath);
+    ext = ext ? ext.slice(1) : 'unknown';
+    var contentType = mine[ext] || "text/plain";
+ 
+    if (fs.existsSync(realPath)) {
+ 
+        response.writeHead(200, {
+            'Content-Type': contentType
+        });
+ 
+        response.write(fs.readFileSync(realPath,'binary'));
+ 
+    } else {
+      response.writeHead(404, {
+          'Content-Type': 'text/plain'
+      });
+ 
+      response.write("This request URL " + pathname + " was not found on this server.");
+      response.end
 ```
 
 

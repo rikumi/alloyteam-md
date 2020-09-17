@@ -84,5 +84,12 @@ delete obj.name;
 
 node --strong_mode example.js
 
+    delete obj.name;
+               ^^^^
+    SyntaxError: Please don't use 'delete' in strong mode, use maps or sets instead
+     
+
+可以这样解决
+
 
 <!-- {% endraw %} - for jekyll -->

@@ -52,8 +52,17 @@ svg 的 g 元素类似于 div，在这里作为一组元素的容器，后面加
 既然 d3 是数据驱动的，那必须要有数据啊，没有数据肿么能搞呢。好吧，首先模拟一份数据，就模拟本月的 pv 数据吧，即 12 月每天的 pv 数据，日期采用 yy-mm-dd 的格式，pv 随机一个 100 以内的整数。
 
 ```javascript
-var data = Array.apply(0, Array(31)).map(function(item,
+var data = Array.apply(0, Array(31)).map(function (item, i) {
+    // 产生31条数据
+    i++;
+    return {
+        date: "2013-12-" + (i < 10 ? "0" + i : i),
+        pv: parseInt(Math.random() * 100),
+    };
+});
 ```
+
+然后定义坐标轴的一些参数
 
 
 <!-- {% endraw %} - for jekyll -->

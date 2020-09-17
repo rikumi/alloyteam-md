@@ -252,5 +252,45 @@ source_link: http://www.alloyteam.com/2012/07/used-a-variety-of-web-development-
 
 #### Adobe Flex3 ↓
 
+[![Adobe Flex3](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131649XFz.jpg)](http://www.actionscriptcheatsheet.com/pdf/Flex3ControlsCheatsheet_p1.pdf "Adobe Flex3")
+
+#### Adobe Air Cheat Sheet ↓
+
+[![Adobe Air Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/1316504rt.jpg)](http://www.actionscriptcheatsheet.com/pdf/AIRcheatsheet.pdf "Adobe Air Cheat Sheet")
+
+#### Adobe Acrobat 9 Shortcuts ↓
+
+[![Adobe Acrobat 9 Shortcuts](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131651JDf.jpg)](http://www.jetsetcom.net/images/downloads/acrobat_9_keyboard_shortcuts_poster_mac.pdf "Adobe Acrobat 9 Shortcuts")
+
+#### Adobe Acrobat 8 Quick Reference ↓
+
+[![Adobe Acrobat 8 Quick Reference](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131652OSb.jpg)](http://www.customguide.com/pdf/acrobat-quick-reference-8.pdf "Adobe Acrobat 8 Quick Reference")
+
+#### Adobe Flash CS5 & Flash Catalyst for dummies ↓
+
+[![Adobe Flash CS5 & Flash Catalyst for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131652Gvu.jpg)](http://www.dummies.com/how-to/content/flash-professional-cs5-flash-catalyst-cs5-for-dumm.html "Adobe Flash CS5 & Flash Catalyst for dummies")
+
+#### Adobe Flash CS4 Shortcuts ↓
+
+[![Adobe Flash CS4 Shortcuts](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131653JRZ.jpg)](http://subdivision.co.uk/adobe-flash-cs4-shortcuts-cheatsheet/ "Adobe Flash CS4 Shortcuts")
+
+#### Adobe Dreamweaver CS5 – all in one for dummies ↓
+
+[![Adobe Dreamweaver CS5 – all in one for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131653y2F.jpg)](http://www.dummies.com/how-to/content/dreamweaver-cs5-allinone-for-dummies-cheat-sheet.html "Adobe Dreamweaver CS5 – all in one for dummies")
+
+#### Dreamweaver CS4 shortcuts ↓
+
+[![Dreamweaver CS4 shortcuts](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131653urL.jpg)](http://www.nobledesktop.com/shortcuts-dreamweavercs4-pc.html "Dreamweaver CS4 shortcuts")
+
+#### DreamWeaver CS3 Reference Card ↓
+
+[![DreamWeaver CS3 Reference Card](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131653Ehb.jpg)](http://www.uwsp.edu/it/ApplicationSupport/appSuppDocsImages/referenceGuides/dreamweaver-quick-reference-cs3.pdf "DreamWeaver CS3 Reference Card")
+
+#### Adobe Fireworks CS3 Quick Reference ↓
+
+[![Adobe Fireworks CS3 Quick Reference](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131654exb.jpg)](http://www.customguide.com/pdf/fireworksmac-quick-reference-cs3.pdf "Adobe Fireworks CS3 Quick Reference")
+
+#### Adobe After Effects CS4 Cheat Sheet ↓
+
 
 <!-- {% endraw %} - for jekyll -->

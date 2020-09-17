@@ -94,5 +94,13 @@ document.addEventListener(
 
 其实访问剪贴板的数据这并不新鲜，早在多年前 IE 就支持了，我们可以通过下面的方式访问：
 
+    window.clipboardData.clearData();  
+    window.clipboardData.setData('Text', 'abcd');
+    // window.clipboardData.setData('Text');
+
+但这种接口注定沦为历史的尘埃。为什么？不安全！如果用户打开一个网页，在他不知不觉中 JavaScript 就访问了系统剪贴板的数据，然后上传到服务器或者做各种猥琐的操作，那用户会泄露多少的隐私。所以在新的浏览器如 chrome 是不支持这种接口的，一般情况下 js 代码是访问不到系统的剪贴板，我们在网上看到的点击复制网址之类的功能，基本都是用 Flash 来实现。
+
+那如果用户点击了浏览器右键菜单的复制粘贴或按下相应快捷键，此时访问剪贴板就合理了，而浏览器确实是这么做的。前面提到的方法 1 监听键盘事件是不行的，此时必须使用方法 2，我们可以通过下面代码获取到剪贴板里的图片或者文本：
+
 
 <!-- {% endraw %} - for jekyll -->

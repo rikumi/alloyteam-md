@@ -90,10 +90,7 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
             // 实时获取位置变化
             alert('经度：' + data.coords.longitude + ' 纬度：' + data.coords.latitude);
         }
-        var watchId = navigator.geolocation.watchPosition(scrollMap);
-        function buttonClickHandler() {
-          // 主动关闭位置更新
-          navigator
+        var 
 
 
 <!-- {% endraw %} - for jekyll -->

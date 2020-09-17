@@ -73,5 +73,14 @@ OK，我们现在知道如何利用 React 实现直出，以及如何前后端�
 
 -   如何渲染文字节点，每个虚拟 DOM 节点是需要对应实际的节点，但无法通过 html 文件生成相邻的 Text Node，例如下面例子应当如何渲染：
 
+```html
+React.createClass({
+    render: <span class="keyword">function</span> () {
+        <span class="keyword">return</span> (
+            <p>
+                Hello {name}!           
+      
+```
+
 
 <!-- {% endraw %} - for jekyll -->

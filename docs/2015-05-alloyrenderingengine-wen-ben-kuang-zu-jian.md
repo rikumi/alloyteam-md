@@ -52,5 +52,11 @@ Github: <https://github.com/AlloyTeam/AlloyGameEngine>
 
 * * *
 
+```javascript
+; (function () {
+    //先把要使用类的赋给临时变量，以后就不用打点了:)
+    var Stage = ARE.Stage, Container = ARE.Container,
+```
+
 
 <!-- {% endraw %} - for jekyll -->

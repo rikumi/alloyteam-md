@@ -88,5 +88,43 @@ sublime text 的 color scheme 是通过 `scopes` 来定义 `color` 的，我们�
 
 少说多做，幸福一生。
 
+```html
+<dict>
+        <key>name</key>
+        <string>Markdown</string>
+        <key>scope</key>
+        <string>text.html.markdown</string>
+        <key>settings</key>
+        
+    <dict>
+                <key>background</key>
+                
+        <string>
+            <span class="comment">#ffffff</string>
+        </span>
+                <key>foreground</key>
+                
+        <string>
+            <span class="comment">#666666</string>
+        </span>
+            
+    </dict>
+</dict>;
+```
+
+马上把上面的代码加入 `color scheme`，有效果，嗯，现在比较大的问题是 `lineHighlight`（鼠标所在行高亮）比较突兀。
+
+是个问题，并且 `lineHighlight` 没有 `scope` ，蛋疼了。
+
+解决方式是调整全局 `lineHighlight` 的值，使其用**透明度**达到效果。
+
+Perfect!
+
+参考：
+
+<http://stackoverflow.com/questions/10636410/modifying-sublime-text-2-for-js>
+
+附上我的 `color scheme` `Obsidian.tmTheme` ：
+
 
 <!-- {% endraw %} - for jekyll -->

@@ -80,8 +80,15 @@ source_link: http://www.alloyteam.com/2012/06/nodejs-smart-merging-css-wizard-to
     ```css
     div{
         background-image: url(../images/tips_icons.png);
-     &nb
+        background-color: #fff;
+        background-position: 0 -40px;
+        background-repeat: no-repeat;
+        background-origin: border-box;
+        background-clip: content-box;
+    }
     ```
+
+    \\====>
 
 
 <!-- {% endraw %} - for jekyll -->

@@ -106,5 +106,40 @@ buttonElem.outerHTML = `<button class=${styles.normal}>Submit</button>`;
 <button class="button--normal-abc53">Submit</button>;
 ```
 
+注意到 `button--normal-abc53` 是 CSS Modules 按照 `localIdentName` 自动生成的 class 名。其中的 `abc53` 是按照给定算法生成的序列码。经过这样混淆处理后，class 名基本就是唯一的，大大降低了项目中样式覆盖的几率。同时在生产环境下修改规则，生成更短的 class 名，可以提高 CSS 的压缩率。
+
+上例中 console 打印的结果是：
+
+    Object {
+      normal: 'button--normal-abc53',
+      disabled: 'button--disabled-def886',
+    }
+     
+
+CSS Modules 对 CSS 中的 class 名都做了处理，使用对象来保存原 class 和混淆后 class 的对应关系。
+
+通过这些简单的处理，CSS Modules 实现了以下几点：  
+\* 所有样式都是局部作用域 的，解决了全局污染问题  
+\* class 名生成规则配置灵活，可以此来压缩 class 名  
+\* 只需引用组件的 JS 就能搞定组件所有的 JS 和 CSS  
+\* 依然是 CSS，几乎 0 学习成本
+
+## CSS Modules 在 React 中的实践
+
+那么我们在 React 中怎么使用？
+
+### 手动引用解决
+
+在 `className` 处直接使用 css 中 `class` 名即可。
+
+```javascript
+import React from 'react';
+import styles from './table.css';
+ 
+export default class Table extends React.Component {
+    render () {
+        return <div className={styles.
+```
+
 
 <!-- {% endraw %} - for jekyll -->

@@ -36,5 +36,42 @@ source_link: http://www.alloyteam.com/2015/05/xi-shuo-flexbox-dan-xing-he-zi-bu-
 </ul>;
 ```
 
+```css
+ul li {
+ 
+    width: 32.9%;
+ 
+    float: left;
+ 
+    border-right: 1px solid #fa9900;
+ 
+    padding: 5px 0;
+ 
+}
+```
+
+但当只有 2 个排名后，少了一个 li 节点后，就会展示如下：
+
+ [![图片 2](http://www.alloyteam.com/wp-content/uploads/2015/05/图片2.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/图片2.png) 
+
+删除两个 li 节点后如下：
+
+[![图片 3](http://www.alloyteam.com/wp-content/uploads/2015/05/图片3.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/图片3.png)
+
+但是用户以及设计师肯定不希望看到这样的界面。他们肯定希望界面是这样的：
+
+减少一个 li 节点后：
+
+[![图片 4](http://www.alloyteam.com/wp-content/uploads/2015/05/图片4.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/图片4.png)
+
+删除两个 li 节点后如下：
+
+[![图片 5](http://www.alloyteam.com/wp-content/uploads/2015/05/图片5.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/图片5.png)
+
+那么这里用 display:flex 布局是最好不过的了，新的 flexbox 布局模式被用来重新定义 CSS 中的布局方式：
+
+    ul {
+     
+
 
 <!-- {% endraw %} - for jekyll -->

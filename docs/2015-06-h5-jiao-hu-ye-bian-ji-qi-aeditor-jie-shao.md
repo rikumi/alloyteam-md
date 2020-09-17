@@ -273,5 +273,51 @@ AEditor 支持我们手动增加自定义的 css 属性（比较常用的例如 
 
 **手柄：**
 
+当精灵被添加到页面上，可以使用手柄进行旋转 / 拉伸操作：
+
+[![39](http://www.alloyteam.com/wp-content/uploads/2015/06/39.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/39.png)
+
+**精灵编辑菜单：**
+
+![40](http://www.alloyteam.com/wp-content/uploads/2015/06/40.png)
+
+右击精灵出现编辑菜单：
+
+**复制 \*\***/ 粘贴 \***\*：**复制该精灵，同时复制其时间轴（可跨页面复制粘贴）。
+
+**置顶 \*\***/ 置底：\*\* 设置精灵的显示层级。
+
+**删除：**删除该精灵以及对应的时间轴。
+
+**设置点击行为：**设置该精灵点击的行为，点击打开设置窗口：
+
+[![41](http://www.alloyteam.com/wp-content/uploads/2015/06/41.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/41.png)
+
+**触发自定义事件：**设置精灵点击触发的事件名，之后我们可以设置监听该事件播放的动画，或在进行二次开发的时候监听该事件，进行自定义的操作（如数据上报等）。
+
+**跳到下一页：**设置精灵点击跳到下一页的行为。
+
+**添加到时间轴：**把精灵添加到时间轴，方便后续的动画编辑，如果不添加到时间轴，那精灵只是一个静态的元素。点击添加后精灵新增对应的时间轴：
+
+[![42](http://www.alloyteam.com/wp-content/uploads/2015/06/42.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/42.png)
+
+**添加事件动画：**
+
+为精灵设置事件监听并播放对应动画，一个精灵可以监听多个事件并播放不同动画。点击打开事件监听设置窗口：
+
+[![43](http://www.alloyteam.com/wp-content/uploads/2015/06/43.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/43.png)
+
+**事件名：**要监听的事件名称。
+
+**只触发一次：**是否只触发一次对应的动画。
+
+点击确定之后，会生成对应的事件时间轴，然后我们就可以在时间轴上对该事件的动画进行编辑。
+
+[![44](http://www.alloyteam.com/wp-content/uploads/2015/06/44.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/44.png)
+
+**设置为全局精灵：**当精灵设置为全局精灵之后，不会随翻页而消失，会一直 fix 在同一个位置，当然，全局精灵也可以设置不同的动画与事件动画。
+
+示例：
+
 
 <!-- {% endraw %} - for jekyll -->

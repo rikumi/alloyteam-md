@@ -72,5 +72,10 @@ vertexShader
 
 fragmentShader
 
+```c
+    void main() {
+        vec3 L<
+```
+
 
 <!-- {% endraw %} - for jekyll -->

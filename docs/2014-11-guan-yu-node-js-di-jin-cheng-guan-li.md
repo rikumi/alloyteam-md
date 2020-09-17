@@ -77,5 +77,28 @@ cp.on("exit", function () {
 
 创建子进程的 pro_a:
 
+```javascript
+var net = require("net");
+//使用UNIX domain socket
+var server = net.createServer(function (socket) {
+    socket.setEncoding("UTF8");
+    socket.on("data", function () {
+        //收到消息后，向请求方发送子进程相关信息
+        socket.write(
+            JSON.stringify({
+                pid: child_process.pid, //...
+            })
+        );
+    });
+});
+server.listen(socketPath + "resume_" + Date.now() + ".sock");
+```
+
+这样每个 pro_a 进程创建子进程之后，都会对应产生一个 sock 文件：
+
+![](http://images.cnblogs.com/cnblogs_com/Cson/290336/o_3.png)
+
+对于新的 pro_a 进程，第一步是获取所有 sock 文件，并进行连接：
+
 
 <!-- {% endraw %} - for jekyll -->

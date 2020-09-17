@@ -95,7 +95,15 @@ console.log(crypto.getHashes());
 
 1、 MD5  
 MD5 即 Message-Digest Algorithm 5（信息 - 摘要算法 5），用于确保信息传输完整一致。是计算机广泛使用的杂凑算法之一，主流编程语言普遍已有 MD5 实现。将数据（如汉字）运算为另一固定长度值，是杂凑算法的基础原理，MD5 的前身有 MD2、MD3 和 MD4。  
-MD5 是输入不定长度信息，输出固定长度 128-bits 的算法。经过程序流程，生成四个 32 位数据，最后联合起来成为一个 128-bits 散列。基本方式为，求余、取余、调整长度、与链接变�
+MD5 是输入不定长度信息，输出固定长度 128-bits 的算法。经过程序流程，生成四个 32 位数据，最后联合起来成为一个 128-bits 散列。基本方式为，求余、取余、调整长度、与链接变量进行循环运算。得出结果。  
+NodeJS 中使用 MD5：
+
+```javascript
+var hash = crypto.createHash('md5');
+hash.update('test');
+console.log(hash.digest('hex'));    // 098f6bcd4621d373cade4e832627b4f6
+var hash = crypto.
+```
 
 
 <!-- {% endraw %} - for jekyll -->

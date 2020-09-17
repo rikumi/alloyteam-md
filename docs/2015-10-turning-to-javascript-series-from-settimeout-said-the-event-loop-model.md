@@ -64,9 +64,7 @@ class MyTask extends TimerTask {
     }
  
     @Override
-    public void run() {
-        // TODO Auto-generated method stub
-        long end = System.currentTimeMillis();
+    public void run(
 ```
 
 

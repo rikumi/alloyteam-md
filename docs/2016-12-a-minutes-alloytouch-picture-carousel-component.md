@@ -91,12 +91,5 @@ new AlloyTouch({
 如上图所示，相对于传统的 swipe 然后再去触发滚动，上面的跟手然后再去校正的体验是更加良好的。那么怎么实现呢？  
 首先，AlloyTouch 是支持 step 配置。
 
-```javascript
-new AlloyTouch({
-    step: 100，
-    ...
-    .
-```
-
 
 <!-- {% endraw %} - for jekyll -->

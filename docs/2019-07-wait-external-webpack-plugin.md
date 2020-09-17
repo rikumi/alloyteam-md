@@ -70,6 +70,20 @@ var installedChunks = {
 function webpackJsonpCallback(data) {
     // 加载后标记完成
     installedChunks[chunkId] = 0;
+}
+ 
+// 检查是否都加载完成，如是，则开始执行业务逻辑
+function checkDeferredModules() {
+    // 判断 installedChunks 是否完整
+    // ...
+    if(fulfilled) {
+        // 所有都加载，开始执行
+        result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+    }
+}
+ 
+// 提供给 chunk 的全局回调方法
+var jsonpArray = window["webpackJsonp"] <
 ```
 
 

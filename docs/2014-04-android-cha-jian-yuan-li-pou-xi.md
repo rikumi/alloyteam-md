@@ -46,7 +46,26 @@ source_link: http://www.alloyteam.com/2014/04/android-cha-jian-yuan-li-pou-xi/
 ```javascript
   public class PluginImp extends AbsPlugin {
         public String getName() {
-           return
+           return "PluginImp";
+        }
+ 
+        public String getVersion() {
+            return "1.0";
+        }
+ 
+        public void show() {
+           android.util.Log.("PluginImp", "ha ha I'm pluginimp");
+        }
+  }
+```
+
+编译这个工程并生成 apk 或者导出实现类生成 dex , 这时就做好了我们的插件实体，最后在我们的主工程里把插件接口的 jar（即插件 SDK）放在 lib 目录下在 apk 编译时打包进来，同时用下面的代码在需要的时候加载进来调用:
+
+```javascript
+try {    
+    ClassLoader classLoader= context.getClassLoader() ; 
+    DexClassLoader localDexClass Loader = new DexClassLoader("/sdcard/plugin.apk", dexoutputpath, null ,classLoader) ;  
+ </
 ```
 
 

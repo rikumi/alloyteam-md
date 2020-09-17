@@ -71,12 +71,8 @@ WAAPI 核心在于提供了
 player 即成为该动画返回的一个 “动画播放器” 对象，同时动画开始播放。我们需要了解动画当前的状态，可以通过该对象的只读属性 playState 来获得：
 
 ```javascript
-console.log(player.playState); //"running","paused","finished"...
+console.log(player.
 ```
-
-播放器共有五种状态，除了代码中注释的三种基本状态，还包括 "idle" 表示恢复到初始状态，"pending" 表示播放或者暂停即将发生时。
-
-播放器可以通过四种方法可以改变动画当前的状态。
 
 
 <!-- {% endraw %} - for jekyll -->

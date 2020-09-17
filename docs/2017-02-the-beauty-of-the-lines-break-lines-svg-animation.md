@@ -88,7 +88,39 @@ source_link: http://www.alloyteam.com/2017/02/the-beauty-of-the-lines-break-line
     animation: move 3s linear forwards;
 }
  
-@keyframes move <
+@keyframes move {
+      0%{
+          stroke-dasharray: 0, 511px;
+      }
+      100%{
+          stroke-dasharray: 511px, 511px;
+      }
+}
+ 
+```
+
+效果：
+
+[![](https://oc5n93kni.qnssl.com/blog/dong2.gif)](https://oc5n93kni.qnssl.com/blog/dong2.gif)
+
+511 这个值是整个路径的长度，可以用 js 的 document.getElementById ('path').getTotalLength () 得到
+
+stroke-dasharray: 0, 511; 表示实线和空隙的长度分别为 0 和 511，所以一开始整个路径都是空隙，所以是空的。  
+然后过渡到 stroke-dasharray: 511, 511; 因为整个线条的长度就是 511，而实线的长度也慢慢变成 511，所以整个线条就出现了。
+
+同样利用 stroke-dashoffset 也可以实现这个效果，原理就是最初线条分为 511 实线，和 511 空隙，但是由于设置了 offset 使线条偏移不可见了，当不断修改 offset 后，线条慢慢出现。
+
+```css
+#path {
+    animation: move 3s linear forwards;
+    stroke-dasharray: 511px,511px;
+}
+ 
+@keyframes move {
+  0%{
+      stroke-dashoffset: 511px;
+  }
+  </
 ```
 
 

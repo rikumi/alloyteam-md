@@ -48,7 +48,27 @@ Model.task("getData", ["$scope", "dbService", function ($scope, dbService) {}]);
 var code = 'let a = 1; // ....';
  
 var acorn = require("acorn");
-var traverse =
+var traverse = require("ast-traverse");
+var alter = require("alter");
+ 
+var ast = acorn.parse(code);
+var ctx = [];
+ 
+traverse(ast, {
+    pre: function(node, parent, prop, idx){
+        if(node.type === "MemberExpression") {
+ 
+            var object = node.object;
+ 
+            var objectName = object.name;
+ 
+            var property = node.property;
+            var propertyName = property.name;
+ 
+            // 这里要进行替换
+            if (objectName === "Model" && (propertyName === "service" || propertyName === "task")) {
+                // 第一个就为serviceName 第二个是function
+                
 ```
 
 

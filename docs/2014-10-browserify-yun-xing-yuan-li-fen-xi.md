@@ -66,7 +66,49 @@ test.js:
 
 ```javascript
 var mo = require("./mo.js");
+mo.write();
 ```
+
+代码可以完全以 node 的形式编写。
+
+**原理分析：**
+
+总体过程其实可以分为以下几个步骤：
+
+**阶段 1：预编译阶段**
+
+1. 从入口模块开始，分析代码中 require 函数的调用
+
+2. 生成 AST
+
+3. 根据 AST 找到每个模块 require 的模块名
+
+4. 得到每个模块的依赖关系，生成一个依赖字典
+
+5. 包装每个模块（传入依赖字典以及自己实现的 export 和 require 函数），生成用于执行的 js
+
+**阶段 2：执行阶段**
+
+从入口模块开始执行，递归执行所 require 的模块，得到依赖对象。
+
+具体步骤分析：
+
+1. 从入口模块开始，分析代码中 require 函数的调用
+
+由于浏览器端并没有原生的 require 函数，所以所有 require 函数都是需要我们自己实现的。因此第一步我们需要知道一个模块的代码中，哪些地方用了 require 函数，依赖了什么模块。
+
+browerify 实现的原理是为代码文件生成 AST，然后根据 AST 找到 require 函数依赖的模块。
+
+2. 生成 AST
+
+文件代码：
+
+```javascript
+var t = require("b");
+t.write();
+```
+
+生成的 js 描述的 AST 为：
 
 
 <!-- {% endraw %} - for jekyll -->

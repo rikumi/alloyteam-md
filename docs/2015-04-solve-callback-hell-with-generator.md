@@ -65,13 +65,54 @@ Promise
 进阶一级的使用 Promise 或者链式 Promise，但是还是需要不少的回调，虽然没有了嵌套
 
 ```javascript
-asyncFun1().then(function(a) {
-    // do something with a in function 1
-    asyncFun2();
-}).then(function(b) {
-    // do something with b in function 2
-    asyncFun3(
+asyncFun1()
+    .then(function (a) {
+        // do something with a in function 1
+        asyncFun2();
+    })
+    .then(function (b) {
+        // do something with b in function 2
+        asyncFun3();
+    })
+    .then(function (c) {
+        // do somethin with c in function 3
+    });
 ```
+
+Anync  
+
+* * *
+
+使用 async 等辅助库，代价是需要引入额外的库，而且代码上也不够直观
+
+```javascript
+async.series(
+    [
+        function (callback) {
+            // do some stuff ...
+            callback(null, "one");
+        },
+        function (callback) {
+            // do some more stuff ...
+            callback(null, "two");
+        },
+    ],
+    // optional callback
+    function (err, results) {
+        // results is now equal to ['one', 'two']
+    }
+);
+```
+
+Generator  
+
+* * *
+
+现在，ES6 来了，ES6 带来了新一代解决回调地狱的神器 ——Generator，如果你不知道 Generator 是什么，可以看我之前写的 [ES6 Generator 介绍](http://www.alloyteam.com/2015/03/es6-generator-introduction)。
+
+Generator 本意上应该是一种方便按照某种规则生成元素的迭代器，不过鉴于其特殊的语法和运行原理，可以通过某种神奇的方式写出同步化的异步代码，从而避免回调，使代码更易阅读。
+
+[前文](http://www.alloyteam.com/2015/03/es6-generator-introduction)介绍过生成器的运行原理和 yield、yield\*、next 等的用法，那么怎么用生成器写�
 
 
 <!-- {% endraw %} - for jekyll -->

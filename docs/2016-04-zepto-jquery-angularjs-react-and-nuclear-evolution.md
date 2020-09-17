@@ -66,7 +66,15 @@ setTimeout(function () {
 ```javascript
 var SuperNamespce = {};
 ajax({
+    url: "xxx",
+    success: function () {
+        SuperNamespce.showMsg1 = function () {};
+        SuperNamespce.showMsg2 = function () {};
+    },
+});
 ```
+
+在定时器没执行完成或者 AJAX 没有 success 之前，用户的所有交互都会报：
 
 
 <!-- {% endraw %} - for jekyll -->

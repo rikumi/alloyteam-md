@@ -59,7 +59,20 @@ $( ''button' ).click( function(){
 
 如果可以借助一个变量。来判断是否已经创建过 div 呢？
 
-    var 
+```javascript
+var mask;
+var createMask = function () {
+    if (mask) return mask;
+    else {
+        (mask = document), body.appendChild(document.createElement(div));
+        return mask;
+    }
+};
+```
+
+看起来不错，到这里的确完成了一个产生单列对象的函数。我们再仔细看这段代码有什么不妥.
+
+首先这个函数是存在一定副作用的，函数体内改变了外界变量 mask 的引用，在多人协作的项目中，createMask 是个不安全的函数。另一方面，mask 这个全局变量�
 
 
 <!-- {% endraw %} - for jekyll -->

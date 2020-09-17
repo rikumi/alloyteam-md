@@ -43,7 +43,34 @@ source_link: http://www.alloyteam.com/2015/04/beforeafter%e4%bc%aa%e5%85%83%e7%b
         &:before {  <span class="comment">//实现三角形</span>
             height: <span class="number">0</span>;
             width: <span class="number">0</span>;
-            border-left
+            border-left: <span class="number">8</span>px solid white;
+            border-top: <span class="number">5</span>px solid transparent;
+            border-bottom: <span class="number">5</span>px solid transparent;
+            margin-left: <span class="number">9</span>px;
+            margin-bottom: <span class="number">7</span>px;
+            z-index: <span class="number">5</span>;
+        }
+    }
+}
+ 
+```
+
+上述图标的效果如下图：
+
+![](http://7tszky.com1.z0.glb.clouddn.com/Fv_HjtNCbR13N7bdbkeZY5RaSOTb)
+
+### 扩大可点区域
+
+在 mobile，特别是小屏手机，可点区域一般需要大一点，这样对用户友好一点。  
+当主元素实在没办法扩大自身的时候，可以利用:before, :after 来实现可点区域的扩大，还记得伪元素的特性之一，伪元素属于主元素，点伪元素就是点击主元素。
+
+```html
+<span class="comment">//利用这个样式可以把可点区域扩大为40px宽，高度原理一样</span>
+&:before {
+    content: <span class="string">""</span>;
+    display: block;
+    position: absolute;
+    width: <span cl
 ```
 
 

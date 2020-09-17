@@ -65,8 +65,32 @@ class YieldClass
     public IEnumerable<int> Example()//迭代器
     {
 	yield return 1;
-	yield return 
+	yield return 2;
+	yield return 3;
+    }
+}
+class Program
+{
+    static void Main()
+    {
+	YieldClass yc=new YieldClass ();
+	foreach(var a in yc.Example())
+		Console.WriteLine(a);
+    }
+}
 ```
+
+上述代码会产生如下输入
+
+    1
+    2
+    3
+
+2.2 C# 迭代器原理
+
+在.Net 中，yield 并不是.Net runtime 的特性，而是一个语法糖，代码编译时，这一语法糖会被 C# 编译器编译成简单的 IL 代码。
+
+继续研究上述示例，通过 Reflector 反编译工具可以看到，编译器为我们生成了一个带有如下声明的内部类
 
 
 <!-- {% endraw %} - for jekyll -->

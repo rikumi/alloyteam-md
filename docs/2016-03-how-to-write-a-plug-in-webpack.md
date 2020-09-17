@@ -52,6 +52,15 @@ Compiler {
      'should-emit': [ [Function] ] },
   outputPath: '',
   outputFileSystem: null,
+  inputFileSystem: null,
+  recordsInputPath: null,
+  recordsOutputPath: null,
+  records: {},
+  fileTimestamps: {},
+  contextTimestamps: {},
+  resolvers:
+   { normal: Tapable { _plugins: {}, fileSystem: null },
+     loader: Tapable { _plugins:
 ```
 
 

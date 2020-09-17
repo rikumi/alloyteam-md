@@ -72,8 +72,21 @@ await 关键字可以跟在任意变量或者表达式之前，从字面很好�
 
 ```javascript
 async function asyncFunc() {
-    await somePromise;
+    await somePromise;
+}
 ```
+
+如果用 generator 来解决 callback hell，必须配合使用 yield 关键字和 next 方法，而理解清楚 yield 的作用和返回值以及 next 的参数作用就够消化两天了，await 关键字不像 yield 关键字和 next 方法这么难以理解，它的意思就是等待，作用也是等待，而且一个关键字就够了。
+
+> Tips：[前文](http://www.alloyteam.com/2015/03/es6-generator-introduction/)介绍 yield 的时候还提到了 yield\*，其实 ES2016 草案里面也提到了 await\*，不过它不是标准的一部分，草案并不要求必须实现，而且草案并不建议使用，不过后文还是会提到 await\*的用法。
+
+### 做正确的事
+
+用 generator 来解决异步函数回调问题始终觉得有些别扭，现在就让它做回本职工作吧，回调问题就交由 async/await 来解决 —— 做正确的事。
+
+先来回顾一下 generator 配合 co 来解决异步回调问题的方法，首先 yy 一个场景，见注释
+
+    co
 
 
 <!-- {% endraw %} - for jekyll -->

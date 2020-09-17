@@ -88,6 +88,11 @@ Vector2.prototype = {
         var inv = 1 / this.length(); 
         return new Vector2(this.x * inv, this.y * inv); 
     }, 
+    "add": function (v) { 
+        return new Vector2(this.x + v.x, this.y + v.y); 
+    }, 
+    "multiply": function (f) { 
+        return new Vector2(this.x * f, this.y * f); 
 ````
 
 

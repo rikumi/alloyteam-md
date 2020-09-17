@@ -77,5 +77,11 @@ version2 Demo Page  [点击进入](http://128.199.194.125:8082/)
 
 /chat/index.js 文件，并输入以下代码。这个文件主要是 Node.js 主要的服务器搭建，模块处始化的地方。如果有 Node.js 基础的同学相信会比较熟悉。没有的同学也不要紧，可以先用着。
 
+```ruby
+/**
+ * index.js
+ * @author LeeHey 
+```
+
 
 <!-- {% endraw %} - for jekyll -->

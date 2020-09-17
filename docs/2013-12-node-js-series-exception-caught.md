@@ -67,5 +67,12 @@ d.run(function () {
 
 结合 [should](https://github.com/visionmedia/should.js) 断言库测试下上面说的：
 
+```javascript
+// domain was not exists by default
+should.not.exist(process.domain);
+ 
+var d = domain.create(
+```
+
 
 <!-- {% endraw %} - for jekyll -->

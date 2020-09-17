@@ -76,8 +76,18 @@ z-index: 10;
  
 -webkit-transform-origin: 25% 100%;
  
--webkit-transform:
+-webkit-transform: translate(0px) rotate(30deg);
+ 
+-webkit-transition: -webkit-transform 500ms ease-out 0ms;
+ 
+transition: -webkit-transform 500ms ease-out 0ms;
+ 
+}
 ```
+
+Transition 的几个值分别对应：属性改变时执行的效果；动画的持续时间；动画类型；延迟动画的时间。
+
+合并：
 
 
 <!-- {% endraw %} - for jekyll -->

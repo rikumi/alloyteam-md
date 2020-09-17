@@ -69,5 +69,16 @@ window.addEventListener("scroll", function (e) {
 
 在 dom 结构上，把同一层的 dom 元素都放到一个 div 里面，html 结构如下。
 
+```html
+<div id="scene_back" class="scene">
+    <img id="pokemon1" src="./img/001.png">
+    <img id="pokemon4" src="./img/004.png">
+    <img id="pokemon7" src="./img/007.png">
+</div>
+<div id="scene_center" class="scene">
+    <img id="pokemon2" src="./img/002.png">
+    <img id="pokemon5" src="./img
+```
+
 
 <!-- {% endraw %} - for jekyll -->

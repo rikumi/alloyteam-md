@@ -81,8 +81,22 @@ function films(state = initialState, action) {
     );
  
   case 'SHOW_ALL_FILM':
-    
+    return Object.assign({}, state, {
+        visibilityFilter: action.filter
+      });
+ 
+  default:
+    return state;
+  }
 ```
+
+上面代码展示了 Reducer 根据传入的 action.type 来匹配 case 进行不同的 state 更新。
+
+显然，当项目中存在越来越多的 action.type 时，上面的 films 函数（Reducer）将变得越来越大，越来越多的 case 将导致代码不够清晰。所以在代码组织上，通常会将 Reducer 拆分成一个个小的 reducer，每个 reducer 分别处理 state 中的一部分数据，最终将处理后的数据合并成为整个 state。
+
+在上面的代码中，我们可以把 'ADD_FILM' 和 'DELETE_FILM' 归为操作 state.films 的类，而 'SHOW_ALL_FILM' 为过滤显示类，所以可以把大的 film Reducer 拆分成 filmReducer 和 filterReducer，如
+
+1 filmReducer
 
 
 <!-- {% endraw %} - for jekyll -->

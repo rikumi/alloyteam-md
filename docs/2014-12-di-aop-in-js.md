@@ -50,7 +50,21 @@ argumentNames(function (arg1, arg2) {}); // ["arg1", "arg2"];
 
 对于第一步，JS 原生没有提供对应方法。但我们可以参照 defined (), require () 的做法。你定义模块时，必须使用我给的方式去定义。类比 Angular 是
 
-    angularModule.service('serviceID', function (dependencyModuleA [, dependencyModuleB...
+    angularModule.service('serviceID', function (dependencyModuleA [, dependencyModuleB...]) {
+    	// do something
+    });
+
+呵呵，既然你使用了我的方法去定义模块，那么我就可以对你传入的函数为所欲为了...。可能你已经想到了，我们要对其传入的函数所做的第一件事就是获取其参数列表，然后再把这个模块保存下来。有了这个参数列表，就知道要注入多少个依赖。再接着，把对应的依赖传作为实参传过去。那么，如何拿到对应的依赖？在我们给的定义方法中，已经让传入了一个 ID，这个 ID 就是获取对应模块的关键。
+
+要注入的模块 === 模块仓库 \[模块 ID];
+
+```javascript
+// DI的完整实现：
+(function (widnow) {
+    window.DI = {
+        serviceCache:{},
+        _argumentNames: function (fn) {
+```
 
 
 <!-- {% endraw %} - for jekyll -->

@@ -96,5 +96,10 @@ user.save（）是要链接数据库，是个异步操作。
 
 介绍了异步的单元测试，还有一些列方便的辅助方法，方法非常简单明了，我贴个代码出来，大家看看就知道什么意思了。
 
+```javascript
+describe('Connection', function(){
+  var db = new Conne
+```
+
 
 <!-- {% endraw %} - for jekyll -->

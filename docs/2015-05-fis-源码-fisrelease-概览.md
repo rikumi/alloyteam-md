@@ -44,8 +44,7 @@ exports.register = <span class="keyword">function</span>(commander){
     commander
         .option(<span class="string">'-d, --dest <names>'</span>, <span class="string">'release output destination'</span>, String, <span class="string">'preview'</span>)
         .option(<span class="string">'-m, --md5 [level]'</span>, <span class="string">'md5 release option'</span>, Number)
-        .option(<span class="string">'-D, --domains'</span>, <span class="string">'add domain name'</span>, Boolean, <span class="keyword">false</span>)
-        .option(<span class="string">'-l, --lint'</span>, <span class="string">'with lint'</span>, Boolean
+        .option(<span class="string">'-D, --domains'</span>, <span class="string">'add domain name'</span>, Boolean, <span
 ```
 
 

@@ -45,26 +45,48 @@ HTML 5 新增了 progress 标签，那么再去使用 AlloyRenderingEngine 去�
 * * *
 
 ```javascript
-; (function () {
-    //注意：当要渲染文字(Text)和图形(Graphics)时，请使用Cavnas渲染
-    //Progress组件内部使用了Graphics
-    //第二个参数true代表关闭webgl,使用Canvas2d渲染
-    //如果要使用webgl渲染，请使用Lable渲染文字，Shape渲染矢量图。
-    var stage = new ARE.Stage("#ourCanvas", true);
-    var progress = new ARE.Progress({
-        width: 200,
-        height: 20,
-        borderColor: "#3d3d3d",
-        fillColor: "#black"
-    })
-    progress.x = 50;
-    progress.y = 50;
-    stage.add(progress);
- 
-    var current = 0, pause = true;
-    stage.onTick(function () {
-        if (
+(function () {
+    //注意：当要渲染文字(Text)和图形(Graphics)时，请使用Cavnas渲染
+    //Progress组件内部使用了Graphics
+    //第二个参数true代表关闭webgl,使用Canvas2d渲染
+    //如果要使用webgl渲染，请使用Lable渲染文字，Shape渲染矢量图。
+    var stage = new ARE.Stage("#ourCanvas", true);
+    var progress = new ARE.Progress({
+        width: 200,
+        height: 20,
+        borderColor: "#3d3d3d",
+        fillColor: "#black",
+    });
+    progress.x = 50;
+    progress.y = 50;
+    stage.add(progress);
+    var current = 0,
+        pause = true;
+    stage.onTick(function () {
+        if (!pause) {
+            current += 0.005;
+            progress.value = current;
+        }
+    }); //进度条的over时，鼠标的形状
+    progress.cursor = "pointer";
+    progress.onClick(function (evt) {
+        //注意这里可以使用evt.stageX来得到相对于舞台(Canvas)的偏移
+        current = progress.value = (evt.stageX - progress.x) / progress.width;
+    });
+    var btn = document.querySelector("#progressBegin"); //点击按钮，开始进度条开始运行
+    btn.addEventListener(
+        "click",
+        function () {
+            pause = false;
+        },
+        false
+    );
+})();
 ```
+
+组件原理 (看注释)  
+
+* * *
 
 
 <!-- {% endraw %} - for jekyll -->

@@ -100,5 +100,10 @@ ws = new WebSocket("ws://127.0.0.1:8888");
 
 服务器端要针对这个 key 验证，就是讲 key 加上一个特定的字符串后做一次 sha1 运算，将其结果转换为 base64 送回去
 
+```javascript
+var crypto = require('crypto');
+var WS = 
+```
+
 
 <!-- {% endraw %} - for jekyll -->

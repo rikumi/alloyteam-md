@@ -69,7 +69,12 @@ function liquify(imgData, cx, cy, mx, my, r) {
             var u = transFormula(cx, cy, mx, my, tx, ty, r);
             moveDot(imgData, imgDataBuff, posi, u);
             function transFormula(cx, cy, mx, my, tx, ty, r) {
-                var relativity = sqr(r) - distanceSqr(tx, ty, cx</
+                var relativity = sqr(r) - distanceSqr(tx, ty, cx, cy);
+                var distanceMovedSqr = distanceSqr(mx, my, cx, cy);
+                
+                var rate = sqr(relativity / (relativity + distanceMovedSqr));
+                
+                var ux = (tx - rate*(mx-cx)),
 ```
 
 

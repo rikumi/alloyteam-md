@@ -66,5 +66,21 @@ source_link: http://www.alloyteam.com/2012/09/update-ispriter-smart-merging-css-
 
 之后的调用方式就跟以前一样了，可以新建 NodeJs 文件调用：
 
+```javascript
+var spriter = require("ispriter");
+var configFile = "../src/config.example.json";
+spriter.merge(configFile);
+```
+
+或者集成到你的编译脚本，一句命令行调用搞定：
+
+    node -e "require('ispriter').merge('../src/config.example.json')"
+
+## 运行环境搭建
+
+由于 iSpriter 使用了 node-canvas，而 node-canvas 依赖了 [Cairo](http://cairographics.org/) 图形库，对初学者来说，安装 Cairo 和 node-canvas 是挺痛苦的。
+
+不过人生就是贵在折腾啦，经亲身体验，在三大平台都能正确的安装上并使用 canvas 了。另外，nod
+
 
 <!-- {% endraw %} - for jekyll -->

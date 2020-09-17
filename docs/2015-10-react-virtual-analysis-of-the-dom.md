@@ -62,8 +62,36 @@ function Raw() {
     var data = _buildData(), 
         html = ""; 
     ... 
-    for(var i=0; i<data.length;
+    for(var i=0; i<data.length; i++) { 
+        var render = template; 
+        render = render.replace("{{className}}", ""); 
+        render = render.replace("{{label}}", data[i].label); 
+        html += render; 
+        if(!(i % 50)) {
+            container.innerHTML = html;
+        }
+    } 
+    ... 
+}
 ```
+
+         这样来看，React 的性能就远胜于原生 DOM 操作了。
+
+        而且，DOM 完全不属于 Javascript (也不在 Javascript 引擎中存在).。Javascript 其实是一个非常独立的引擎，DOM 其实是浏览器引出的一组让 Javascript 操作 HTML 文档的 API 而已。在即时编译的时代，调用 DOM 的开销是很大的。而 Virtual DOM 的执行完全都在 Javascript 引擎中，完全不会有这个开销。
+
+        React.js 相对于直接操作原生 DOM 有很大的性能优势， 很大程度上都要归功于 virtual DOM 的 batching 和 diff。batching 把所有的 DOM 操作搜集起来，一次性提交给真实的 DOM。diff 算法时间复杂度也从[标准的的 Diff 算法](http://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf)的 O (n^3) 降到了 O (n)。这里留到下一次博客单独讲。
+
+三、虚拟 DOM VS MVVM？  
+
+====================
+
+         相比起 React，其他 MVVM 系框架比如 Angular, Knockout 以及 Vue、Avalon 采用的都是数据绑定：通过 Directive/Binding 对象，观察数据变化并保留对实际 DOM 元素的引用，当有数据变化时进行对应的操作。MVVM 的变化检查是数据层面的，而 React 的检查是 DOM 结构层面的。MVVM 的性能也根据变动检测的实现原理有所不同：Angular 的脏检查使得任何变动都有固定的 O (watcher count) 的代价；Knockout/Vue/Avalon 都采用了依赖收集，在 js 和 DOM 层面都是 O (change)：
+
+-   脏检查：scope digest + 必要 DOM 更新
+-   依赖收集：重新收集依赖 + 必要 DOM 更新
+
+        可以看到，Angular 最不效率的地方在于任何小变动都有的和 watcher 数量相关的性能代价。但是！当所有数据都变了的时候，Angular 其实并不吃亏。依赖收集在初始化和数据变化的时候都需要重新收集依赖，这个代价在小量更新的时候几乎可以忽略，但在数据量庞大的时候也会产生一定的消耗。  
+        MVVM 渲染列表的时候，由于每一行都有自己的数据作用域，所以通常都是每一行有一个对应的 ViewModel 实例，或者是一个稍微轻量一些的利用原型继承的 "scope" 对象，但也有一定的代价。所以，MVVM 列表渲染的初始化几乎一定比 React 慢，因为创建 ViewModel /scope 实例比起 Virtual DOM 来说要昂贵很多。这里所有 MVVM 实现的一个共同问题就是在列表渲�
 
 
 <!-- {% endraw %} - for jekyll -->

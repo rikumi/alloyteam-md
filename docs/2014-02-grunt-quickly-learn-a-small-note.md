@@ -87,5 +87,28 @@ cd 到当前目录，执行
 
 在项目在创建 Gruntfile.js 把下面代码复制进去
 
+```javascript
+module.exports = function (grunt) {
+    // 项目配置
+    grunt.initConfig({
+        pkg: grunt.file.readJSON("package.json"),
+        uglify: {
+            options: {
+                banner:
+                    '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+            },
+            build: {
+                src: "src/<%= pkg.name %>.js",
+                dest: "build/<%= pkg.name %>.min.js",
+            },
+        },
+    }); // 加载提供 "uglify" 任务的插件
+    grunt.loadNpmTasks("grunt-contrib-uglify"); // 默认任务
+    grunt.registerTask("default", ["uglify"]);
+};
+```
+
+解释下上面代
+
 
 <!-- {% endraw %} - for jekyll -->

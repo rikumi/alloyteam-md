@@ -45,7 +45,22 @@ var List = function (option) {
         '<div class="list-group" style="  text-align: center;width:<%=typeof width === "number"?width+"px":width%>;" >'
         + '            <% for ( var i = 0, len = data.length; i < len; i++) { %>'
         + '<%     var item = data[i]; %>'
-        + '<a class="list-group-item <%=item.active ? "active" : ""%> <%=item.
+        + '<a class="list-group-item <%=item.active ? "active" : ""%> <%=item.disabled ? "disabled" : ""%>" href="<%=item.href%>" target="<%=item.target?item.target:""%>"><%=item.text%><\/a>'
+        + '<% } %>'
+        + '<\/div>';
+    this.render();
+    //list.render建议使用debounce来控制执行频率提高性能,或者和react一样在下次执行requestAnimFrame的时候更新
+    observe(this, "option", this._debounce(this.render, 200));
+}
+List.prototype = {
+    render: function () {
+        if (this.node) this.parent.removeChild(this.node);
+        this.parent.innerHTML += this._tpl(this.tpl, this.option);
+        this.node = this.parent.lastChild;
+    },
+	clear:function(){
+		this.data.size(0);
+	},
 ```
 
 

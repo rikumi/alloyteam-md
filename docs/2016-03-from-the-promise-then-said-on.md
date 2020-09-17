@@ -52,7 +52,24 @@ var init = function () {
 
 **Promise 流程再优化**
 
-promse 出来之后，大家都�
+promse 出来之后，大家都有很多的想法，在 Promise 之上再封装一层，使用异步流程更清晰可读。下面是 Abstract-fence 2.0 (开发中) 的一种解决方案 (规范)
+
+Abstract-fence 中，function 会被分解为多个 task
+
+```javascript
+Model.task("getData", function (scope, next, { $, util }) {
+    $.ajax({
+        success: function (data) {
+            next();
+        },
+    });
+});
+Model.task("render", ["getData"], function (scope) {
+    var data = scope.data; // 使用data进行渲染
+});
+Model.task("init", [render].then(render));
+Model.runWorkflow(init);
+```
 
 
 <!-- {% endraw %} - for jekyll -->

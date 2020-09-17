@@ -85,5 +85,21 @@ array[1] = "new value"; //给数组元素赋予新的值
 
 **_4、 数组元素的删除_**
 
+    array.pop(); //移除最后一个元素并返回该元素值
+     
+    array.shift(); //移除最前一个元素并返回该元素值，数组中元素自动前移
+     
+    array.splice(deletePos,deleteCount); //删除从指定位置deletePos开始的指定数量deleteCount的元素，数组形式返回所移除的元素
+     
+    array.slice(start, [end]); //以数组的形式返回数组的一部分，注意不包括 end 对应的元素，如果省略 end 将复制 start 之后的所有元素
+     
+
+**_5、 数组的合并_**
+
+    array.concat([item1[, item2[, . . . [,itemN]]]]); //将多个数组（也可以是字符串，或者是数组和字符串的混合）连接为一个数组，返回连接好的新的数组
+     
+
+**_6、 数组的拷贝_**
+
 
 <!-- {% endraw %} - for jekyll -->

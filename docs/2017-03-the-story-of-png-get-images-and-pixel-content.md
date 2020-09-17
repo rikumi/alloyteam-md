@@ -91,8 +91,16 @@ let crc = readBytes(4); // crc冗余校验码
 ```javascript
 // 将buffer数组转为字符串
 function bufferToString(buffer) {
-    let 
+    let str = "";
+    for (let i = 0, len = buffer.length; i < len; i++) {
+        str += String.fromCharCode(buffer[i]);
+    }
+    return str;
+}
+type = bufferToString(type);
 ```
+
+然后会发现 type 的值是四个大写英文字母，没错，这就是上面提到的数据块类型。上面还提到了我们只需要解析关键数据块，因此遇到 `type` 不等于 IHDR、PLTE、IDAT、IEND 中任意一个的数据块就直接舍弃好了。当我们拿到�
 
 
 <!-- {% endraw %} - for jekyll -->

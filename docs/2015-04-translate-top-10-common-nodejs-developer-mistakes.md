@@ -57,6 +57,17 @@ function sortUsersByAge(users) {
 
 ```javascript
 module.exports.verifyPassword = function(user, password, done) {
+	if(typeof password !== ‘string’) {
+		done(new Error(‘password should be a string’))
+		return
+	}
+ 
+	computeHash(password, user.passwordHashOpts, function(err, hash) {
+		if(err) {
+			done(err)
+			return
+		}
+		
 ```
 
 

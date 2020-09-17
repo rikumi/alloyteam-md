@@ -71,8 +71,11 @@ Modfile.js 是一个 Plain Node Module, 通过 `Runner` 对象来描述任务的
 
 如是异步配置，则可通过回调模式传递 Runner 对象：
 
-```c
-<span class="nx">module</span><span class="p">.</span><span class="n
+```html
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">done</span><span class="p">){</span>
+    <span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">// 回调Runner对象</span>
+        <span clas
 ```
 
 

@@ -51,5 +51,25 @@ source_link: http://www.alloyteam.com/2015/04/quan-ping-gun-dong-xiao-guo-h5full
 
 这样页面上的每个 div 都相当于一个页面 只不过重叠了而已，接下来就要利用 javascript 和 css 让这些页面可以滚动 (利用 touch 时间改变 div 的 transform 来实现滚动)
 
+```javascript
+function touchStart(event) {
+            if (dragStart !== null) return;
+            
+            if (event.touches) {
+                event = event.touches[0];
+            }
+             //抓取时的所在位置
+            dragStart = event.clientY;
+ 
+         }
+          
+         function touchMove (event) {
+            
+            if (dragStart === null) return;
+ 
+            if (event.touches) {
+                event = event.touches[0];
+```
+
 
 <!-- {% endraw %} - for jekyll -->

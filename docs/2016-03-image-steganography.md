@@ -66,7 +66,21 @@ img.src = "xiaolan.png";
 
 [![QQ 截图 20160325174947](http://www.alloyteam.com/wp-content/uploads/2016/03/QQ截图20160325174947-300x55.png)](http://www.alloyteam.com/wp-content/uploads/2016/03/QQ截图20160325174947.png)
 
-这个一维数组存储了所有的像素信�
+这个一维数组存储了所有的像素信息，一共有 256 \* 256 \* 4 = 262144 个值。其中 4 个值一组，为什么呢？在浏览器中解析图片，除了 RGB 值外，每组第 4 个值为透明度值，即像素信息实际为大家熟知的 rgba 值。 
+
+这里的解密规则是对 R 通道进行处理，R 的分量最低位为 1 则该像素设为红色，R 的分量最低位为 0 则该像素设为黑色，直接看代码实现，完成后我们再绘制到 canvas，即可看到结果。
+
+```javascript
+var processData = function(originalData){
+    var data = originalData.data;
+    for(var i = 0; i < data.length; i++){
+        if(i % 4 == 0){
+            // 红色分量
+            if(data[i] % 2 == 0){
+                data[i] = 0;
+            } else {
+                data[
+```
 
 
 <!-- {% endraw %} - for jekyll -->

@@ -88,7 +88,14 @@ backbonejs
 <body>
     <div class=’list-wrapper’ id=’todo_panel’>
         <h2>Todo</h2>
-        <span id=’remaining’></s
+        <span id=’remaining’></span> remaining [archive]
+        <ul id=’todo_list’ >
+        </ul>
+        <form onsubmit=”return false” >
+            <input placeHolder=’foo foo’  type=’text’> <button class=’add_btn’ >Add</button>
+        </form>
+    </div>
+    <script type
 ```
 
 

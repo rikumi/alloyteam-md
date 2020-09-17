@@ -63,5 +63,26 @@ complexObj.c[0].d = 100;
 
 ### 普通对象
 
+```javascript
+var User = function (name, age) {
+    this.name = name;
+    this.age = age; //watch User's instance //只监听name，不监听age
+    observe(this, ["name"], function (name, value, oldValue) {
+        console.log(name + "__" + value + "__" + oldValue);
+    });
+};
+var user = new User("lisi", 25);
+user.name = "wangwu"; //name__wangwu__lisi
+user.age = 100; //什么都不发生
+```
+
+原理  
+
+* * *
+
+### 监听对象
+
+利用 Object.defineProperty, 以及内建 "\_\_属性名 "来保存真正的" 属性名 " 的值。
+
 
 <!-- {% endraw %} - for jekyll -->

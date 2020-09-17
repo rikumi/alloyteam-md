@@ -46,7 +46,29 @@ webgl.vertexAttrib3f(aColor, 0, 0, 0);
 webgl.bindBuffer(webgl.ELEMENT_ARRAY_BUFFER, webgl.createBuffer());
 webgl.bufferData(webgl.ELEMENT_ARRAY_BUFFER, new Uint16Array(aIndex), webgl.STATIC_DRAW);
  
-webgl.drawElements(webgl.TRIANGLES, 6, webgl.UNSIGNED_SHORT, 0)
+webgl.drawElements(webgl.TRIANGLES, 6, webgl.UNSIGNED_SHORT, 0);
+ 
+```
+
+完整代码地址：<https://vorshen.github.io/simple-3d-text-universe/rect.html>  
+结果：  
+![](https://vorshen.github.io/simple-3d-text-universe/doc/assets/1.png)
+
+圆：  
+canvas2D
+
+```c
+ctx1.arc(100, 100, 50, 0, Math.PI * 2, false);
+ctx1.fill();
+ 
+```
+
+webgl
+
+```javascript
+var angle;
+var x, y;
+var aPo = [0, 0, 0
 ```
 
 

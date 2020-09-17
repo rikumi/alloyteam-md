@@ -80,7 +80,37 @@ html 如下：
 <span class="time-sep">/</span>;
 ```
 
-    <!--mute / 
+```html
+<!--mute / unmute toggle-->
+<a class="jp-mute" title="mute" tabindex="2" href="javascript:;">mute</a>
+<a class="jp-unmute" title="unmute" tabindex="2" href="javascript:;">unmute</a>
+ 
+<!--volume bar-->
+```
+
+```html
+<!--full screen toggle-->
+<a class="jp-full-screen" title="full screen" tabindex="3" href="javascript:;">full screen</a>
+<a class="jp-restore-screen" title="restore screen" tabindex="3" href="javascript:;">restore screen</a>
+```
+
+主要包含：  
+播放，停止按钮  
+进度条  
+时间提醒  
+静音切换  
+卷栏  
+全屏切换
+
+## Step 5: 添加视频
+
+jPlayer 插件目前支持以下视频格式:  
+mp3  
+mp4 (AAC/H.264)  
+ogg (Vorbis/Theora)  
+webm (Vorbis/VP8)  
+wav  
+使用代码如下：
 
 
 <!-- {% endraw %} - for jekyll -->

@@ -144,7 +144,26 @@ server.listen(9000);
     [![w1](https://cloud.githubusercontent.com/assets/3348398/12219645/57e0e98a-b787-11e5-8cd1-59f2190669d8.png)](https://cloud.githubusercontent.com/assets/3348398/12219645/57e0e98a-b787-11e5-8cd1-59f2190669d8.png)
 2.  如果不介意将 react 打包到一起，请在 alias 中直接指向 react 的文件。可以提高 webpack 搜索的速度。准备部署上线时记得将换成 react.min，能减少文件大小 (减少约 600kb)  
     [![w2](https://cloud.githubusercontent.com/assets/3348398/12219647/64904914-b787-11e5-9736-8199c7f6a064.png)](https://cloud.githubusercontent.com/assets/3348398/12219647/64904914-b787-11e5-9736-8199c7f6a064.png)
-3.  使用 module.noParse 针对单独的 react.min.js 这类没有依赖的模块，速度�
+3.  使用 module.noParse 针对单独的 react.min.js 这类没有依赖的模块，速度会更快。
+
+###  
+
+### 优化点四。将模块暴露到全局
+
+如果想将 report 数据上报组件放到全局，有两种办法：
+
+#### 方法一：
+
+在 loader 里使 expose 将 report 暴露到全局，然后就可以直接使用 report 进行上报
+
+    {
+        test: path.join(config.path.src, '/js/common/report'),
+        loader: 'expose?report'
+    },
+
+#### 方法二：
+
+如果想用 R 直接代表 report，除了要用 expose loader 之外，还需要用 ProvidePlugin 帮助，指向 report，这样在代码中直接用 R.tdw， R.monitor 这样就可以
 
 
 <!-- {% endraw %} - for jekyll -->

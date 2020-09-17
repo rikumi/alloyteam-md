@@ -111,5 +111,23 @@ source_link: http://www.alloyteam.com/2016/03/react-native-for-android-windows/
 
   如上图，填写 192.168.1.100:8081 即可，回退到主界面，再次摇晃手机调出 app debug  菜单选项 -> 选择 Reload JS，此时可以看到 ReactNative 的应用首页：
 
+      [![图片 12](http://www.alloyteam.com/wp-content/uploads/2016/03/图片12-244x300.png)](http://www.alloyteam.com/wp-content/uploads/2016/03/图片12.png) 
+
+**2.Android5.0 以上版本命令方式：**
+
+  打开 Android SDK 目录 xxx\\Android\\sdk\\platform-tools。在当前文件路径呼出命令行，输入：
+
+    adb reverse tcp:8081 tcp:8081
+
+  点击 Reload JS  即可成功拉取 ReactNative bundle。
+
+  注意：adb 命令可以添加到 windows 全局变量中，这样无需在 xxx\\Android\\sdk\\platform-tools 目录下执行 adb 命令，可以在 AndroidStudio 的 Terminal 命令行工具下使用
+
+**3. 模拟器调试方式**
+
+  安卓模拟器在 win 平台上性能表现不是很好，我们可以安装[英特尔 ® 硬件加速执行管理器](https://software.intel.com/zh-cn/android/articles/intel-hardware-accelerated-execution-manager)来进行一些性能上的提升（需要 Intel 的 CPU），安装完毕后在 AndroidStudiao 的菜单点击打开虚拟设备管理器，选择创建一个 Android 虚拟设备（需求不同的 Android 版本需要下载对应的 SDK Tool）并启动。
+
+  当 Android 虚拟设备启动成功后，运行 HelloAndroid 应用 app，选择已启动的虚拟设备即可在虚拟设备上打开我们的 HelloAndroid。
+
 
 <!-- {% endraw %} - for jekyll -->

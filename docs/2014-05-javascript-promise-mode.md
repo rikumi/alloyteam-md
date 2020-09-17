@@ -56,8 +56,32 @@ var runA = function() {
         .then(resD, execS3)
         .then(resE, execS4)
         ...
-        .
+        .then(execS1);
+};
+ 
+runA();
 ```
+
+在这里，当每一个被询问者做出不符合预期的应答时都用了不同的处理机制。事实上，Promise 规范没有要求这样做，你甚至可以不做任何的处理（即不传入 then 的第二个参数）或者统一处理。
+
+好了，下面我们来认识下 [Promise/A + 规范](http://promises-aplus.github.io/promises-spec/)：
+
+-   一个 promise 可能有三种状态：等待（pending）、已完成（fulfilled）、已拒绝（rejected）
+-   一个 promise 的状态只可能从 “等待” 转到 “完成” 态或者 “拒绝” 态，不能逆向转换，同时 “完成” 态和 “拒绝” 态不能相互转换
+-   promise 必须实现 `then` 方法（可以说，then 就是 promise 的核心），而且 then 必须返回一个 promise，同一个 promise 的 then 可以调用多次，并且回调的执行顺序跟它们被定义时的顺序一致
+-   then 方法接受两个参数，第一个参数是成功时的回调，在 promise 由 “等待” 态转换到 “完成” 态时调用，另一个是失败时的回调，在 promise 由 “等待” 态转换到 “拒绝” 态时调用。同时，then 可以接受另一个 promise 传入，也接受一个 “类 then” 的对象或方法，即 thenable 对象。
+
+可以看到，Promise 规范的内容并不算多，大家可以试着自己实现以下 Promise。
+
+以下是笔者自己在参考许多类 Promise 库之后简单实现的一个 Promise，代码请移步 [promiseA](https://github.com/chemdemo/promiseA/blob/master/lib/Promise.js)。
+
+简单分析下思路：
+
+构造函数 Promise 接受一个函数 `resolver`，可以理解为传入一个异步任务，resolver 接受两个参数，一个是成功时的回调，一个是失败时的回调，这两参数和通过 then 传入的参数是对等的。
+
+其次是 then 的实现，由于 Promise 要求 then 必须返回一个 promise，所以在 then 调用的时候会新生成一个 promise，挂在当前 promise 的`_next` 上，同一个 promise 多次调用都只会返回之前生成的`_next`。
+
+由于 then 方法接受的两个参数都是可选的，而且类型也没限制，可以是函数，也可以是一个具体的值，还可以是另一个 promise。下面是 then 的具体实现：
 
 
 <!-- {% endraw %} - for jekyll -->

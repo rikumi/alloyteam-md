@@ -118,9 +118,9 @@ HTML 模块指代 HTML 模版文件，通过 `requirejs-tmpl` 插件将 HTML 分
 [requirejs-tmpl](https://raw.github.com/modulejs/requirejs-tmpl/master/tmpl.js) 插件至 js 目录，或通过执行 `m download:tmpl`  
 命令自动安装插件：
 
-```html
+```c
 <span class="c"><!-- tpl/headerTpl.html --></span>
-<span class="nt"><header></span><span class="err"><</span>%= title %><span class="nt"></header></s
+<sp
 ```
 
 

@@ -38,7 +38,7 @@ J.http.ajax("vcard.json", {
 这是一个展示名片的程序，由于用到 ajax，不支持 file 协议，你需要一个服务器（能用 http 协议访问你的网页即可）。  
 首先，新建一个 html 文件，在里面加入以下代码：  
 
-```html
+````html
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +48,32 @@ J.http.ajax("vcard.json", {
     .card{ width:240px; height:160px; border:1px solid #999; background:#fff; overflow:hidden; }
     .avatar{ width:50px; height:50px; margin:18px; float:left; overflow:hidden; }
     .avatar img{ max-width:50px; max-height:50px; }
-    
+    .card p{ font:14px/25px "Microsoft Yahei", Arial, Simsun; margin:12px 18px; color:#000; }
+    .detail{ color:#ccc; word-break:break-all; }
+  </style>
+</head>
+<body>
+  <div id="wrap">Loading...</div>
+  
+```html
+<script type="text/javascript" src="http://pub.idqqimg.com/lib/jx/1.0.1/jx-uiless.js" charset="UTF-8"></script>
+````
+
+  
+
+```html
+<script type="text/javascript" src="vcard.js"></script>
+```
+
+  <script id="vcardTmpl" type="text/template">
+  <div class="card">
+    <div class="avatar"><img src="<%=avatar%>" /></div>
+    <p>昵称：&lt;%=nick%></p>
+    <p>性别：&lt;%=sex=='M'?' 男 ':sex=='F'?' 女 ':' 其他 '%></p>
+    <p class="detail">简介：&lt;%=detail ||
+
+```
+
 ```
 
 

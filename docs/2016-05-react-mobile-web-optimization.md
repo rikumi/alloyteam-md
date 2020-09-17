@@ -133,5 +133,28 @@ Immutable 这个的意思就是不可变，Immutablejs 就是一个生成数据�
 
 至于 pure-render，若是 es5 写法，可以用使 mixin；若是 es6/es7 写法，需要使用 decorator，在 js 的 babel loader 里面，新增 plugins: \[‘transform-decorators-legacy’]。其 es6 的写法是
 
+```javascript
+@pureRender
+export default class List extends Component { ... }
+```
+
+### Immutablejs 带来的一些问题
+
+#### 不重新渲染
+
+你可能会想到 Immutable 能减少无谓的重新渲染，但可能没想过会导致页面不能正确地重新渲染。目前列表页在老师进入的时候是有 2 个 tab 的，tab 的切换会让列表也切换。目前手 Q 的列表页学习 PC 的列表页，两个列表共用一套 dom 结构（因为除了作业布置者名字之外，两个列表一模一样）。上了 Immutablejs 之后，当碰巧 “我发布的 “ 列表和” 全部 “ 列表开头的几个作业都是同一个人布置的时候，列表切换就不重新渲染了。
+
+引入 immutable 和 pureRender 后，render 里的 JSX 注意一定不要有同样的 key（如两个列表，有重复的数据，此时以数据 id 来作为 key 就不太合适，应该要用数据 id + 列表类型作为 key），会造成不渲染新数据情况。列表页目前的处理办法是将 key 值换成 id + listType。
+
+![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15650651/aefcb0ac-26ac-11e6-920a-c429200a8137.png&objectId=1190000005599249&token=2f54f0590a1e6ebff00629f7abdf79a9)(列表页两个列表的切换)
+
+这样写除了保证在父元素那一层知晓数据 (key 值）不同需要重新渲染之外，也保证了 React 底层渲染知道这是两组不同的数据。在 React 源文件里有一个 ReactChildReconciler.js 主要是写 children 的渲染逻辑。其中的 updateChildren 里面有具体如何比较前后 children，然后再决定是否要重新渲染。在比较的时候它调用了 shouldUpdateReactComponent 方法。我们看到它有对 key 值做比较。在两个列表中有不同的 key，在数据相似的情况下，能保证两者切换的时候能重新渲染。
+
+```javascript
+function shouldUpdateReactComponent(prevElement, nextElement) {
+  var prevEmpty = prevElement === null || prevElement === false;
+  var nextEmpty = nextElement === null || 
+```
+
 
 <!-- {% endraw %} - for jekyll -->

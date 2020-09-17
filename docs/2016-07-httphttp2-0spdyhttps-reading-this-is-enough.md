@@ -130,7 +130,50 @@ SPDY 位于 HTTP 之下，TCP 和 SSL 之上，这样可以轻松兼容老版本
 
 * * *
 
--   **新的二进制格式**（Binary Format），HTTP1.x
+-   **新的二进制格式**（Binary Format），HTTP1.x 的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认 0 和 1 的组合。基于这种考虑 HTTP2.0 的协议解析决定采用二进制格式，实现方便且健壮。
+-   **多路复用**（MultiPlexing），即连接共享，即每一个 request 都是是用作连接共享机制的。一个 request 对应一个 id，这样一个连接上可以有多个 request，每个连接的 request 可以随机的混杂在一起，接收方可以根据 request 的 id 将 request 再归属到各自不同的服务端请求里面。**多路复用原理图**：
+
+  ![](http://tenny.qiniudn.com/duolufuyong.png)
+
+-   **header 压缩，**如上文中所言，对前面提到过 HTTP1.x 的 header 带有大量信息，而且每次都要重复发送，HTTP2.0 使用 encoder 来减少需要传输的 header 大小，通讯双方各自 cache 一份 header fields 表，既避免了重复 header 的传输，又减小了需要传输的大小。
+-   **服务端推送**（server push），同 SPDY 一样，HTTP2.0 也具有 server push 功能。目前，有大多数网站已经启用 HTTP2.0，例如 [YouTuBe](https://www.youtube.com/)，[淘宝网](http://www.taobao.com)等网站，利用 chrome 控制台可以查看是否启用 H2：
+
+![](http://tenny.qiniudn.com/h2.png)
+
+更多关于 HTTP2 的问题可以参考：[HTTP2 奇妙日常](http://www.alloyteam.com/2015/03/http2-0-di-qi-miao-ri-chang/)，以及 HTTP2.0 的[官方网站](https://http2.akamai.com/)。
+
+**关于 HTTP2 和 HTTP1.x 的区别大致可以看下图：**
+
+![](http://tenny.qiniudn.com/diff332.png)
+
+**12. HTTP2.0 的升级改造**  
+
+* * *
+
+**对比 HTTPS 的升级改造，HTTP2.0 或许会稍微简单一些，你可能需要关注以下问题：**
+
+1.  前文说了 HTTP2.0 其实可以支持非 HTTPS 的，但是现在主流的浏览器像 chrome，firefox 表示还是只支持基于 TLS 部署的 HTTP2.0 协议，所以要想升级成 HTTP2.0 还是先升级 HTTPS 为好。
+2.  当你的网站已经升级 HTTPS 之后，那么升级 HTTP2.0 就简单很多，如果你使用 NGINX，只要在配置文件中启动相应的协议就可以了，可以参考 [NGINX 白皮书](https://www.nginx.com/wp-content/uploads/2015/09/NGINX_HTTP2_White_Paper_v4.pdf)，[NGINX 配置 HTTP2.0 官方指南](https://www.nginx.com/blog/nginx-1-9-5/)。
+3.  使用了 HTTP2.0 那么，原本的 HTTP1.x 怎么办，这个问题其实不用担心，HTTP2.0 完全兼容 HTTP1.x 的语义，对于不支持 HTTP2.0 的浏览器，NGINX 会自动向下兼容的。
+
+后记  
+
+* * *
+
+1.  以上就是关于 HTTP,HTTP2.0,SPDY,HTTPS 的一些基本理论，有些内容没有深入讲解，大家可以跟进参考连接具体查看。
+2.  关于 HTTP1.x 的一些优化方式，例如文件合并压缩，资源 cdn，js，css 优化等等同样使用与 HTTP2.0 和 HTTPS，所以 web 前端的优化，还是要继续进行。
+3.  其实 WEB 发展如此迅速的今天，有些技术是真的要与时俱进的，就像苹果宣布 ios 10 必须使用 HTTPS 开始，关于 web 协议革新就已经开始了，为了更好的性能，更优越的方式，现在就开始升级改造吧
+
+参考资料：
+
+-   <http://www.nihaoshijie.com.cn/index.php/archives/630>
+-   <https://www.nginx.com/blog/7-tips-for-faster-http2-performance/>
+-   <https://www.gitbook.com/book/ye11ow/http2-explained/details>
+-   <http://op.baidu.com/2015/04/https-s01a01/>
+
+好书推荐 [《](http://www.ituring.com.cn/book/1632)[HTTPS 权威指南：在服务器和 Web 应用上部署 SSL/TLS 和 PKI](http://www.ituring.com.cn/book/1734)[》](http://www.ituring.com.cn/book/1632)
+
+[![1734.826](http://www.alloyteam.com/wp-content/uploads/2016/07/1734.826.jpg)](http://www.ituring.com.cn/book/1734)
 
 
 <!-- {% endraw %} - for jekyll -->

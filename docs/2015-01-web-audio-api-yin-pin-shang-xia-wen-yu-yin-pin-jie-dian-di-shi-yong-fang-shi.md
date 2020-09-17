@@ -97,5 +97,17 @@ W3C 给出最简单的音频上下文，音源节点直接连接到了播放设�
 
 **主要用于播放最终处理完的音频信号**
 
+    // 实时音频流播放设备节点
+    MediaStreamAudioDestinationNode
+    AudioDestinationNode
+
+来个最简单的 demo 吧
+
+```javascript
+// 前缀兼容
+['','webkit','moz','ms'].forEach(function (pre) {
+    var 
+```
+
 
 <!-- {% endraw %} - for jekyll -->

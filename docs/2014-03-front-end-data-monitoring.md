@@ -48,8 +48,7 @@ function _performance(){
    if( perf  && timing ) {
       var arr = [];
       var navigationStart = timing[points[0]];
-      for(var i=0,l=points.length;i<l;i++){
-         arr[i] = 
+      for(var i
 ```
 
 

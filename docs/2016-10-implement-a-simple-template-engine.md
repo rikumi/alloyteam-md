@@ -68,7 +68,27 @@ var html = parse("<div>${content}</div>", {
 
 ### 变量定义
 
-    {var 
+```javascript
+{
+    var var1 = 1;
+}
+```
+
+### 插值
+
+    // 直接插值
+    ${var1}
+     
+    // 使用过滤器插值的方式
+    ${var1|filter1|filter2:var2, var3}
+
+开工  
+
+* * *
+
+### STEP 1
+
+按照前面定下的需求，我们先实现一个对外的接口，代码如下：
 
 
 <!-- {% endraw %} - for jekyll -->

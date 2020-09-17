@@ -81,5 +81,21 @@ HTML 中的资源定位
 
 js 中的资源定位
 
+```javascript
+var img = _uri("img/inline/star-full.png");
+```
+
+  编译后
+
+```javascript
+var img = "http://pub.idqqimg.com/.../img/inline/star-full.png";
+```
+
+css 中的资源定位
+
+```ruby
+@import url('seed.css'
+```
+
 
 <!-- {% endraw %} - for jekyll -->

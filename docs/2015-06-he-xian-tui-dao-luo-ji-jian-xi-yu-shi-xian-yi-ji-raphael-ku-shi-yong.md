@@ -71,8 +71,24 @@ source_link: http://www.alloyteam.com/2015/06/he-xian-tui-dao-luo-ji-jian-xi-yu-
 刻度：      <span class="number">2</span>品      <span class="number">2</span>品       <span class="number">1</span>品       <span class="number">2</span>品      <span class="number">2</span>品       <span class="number">2</span>品       <span class="number">1</span>品       <span class="number">2</span>品       <span class="number">2</span>品
 和弦：C  +----> D  +----> E  +----> F  +----> G  +----> A  +----> B  +----> C  +----> D  +----> ……
 音符：<span class="keyword">Do</span> +----> Re +----> Me +----> Fa +----> So +----> La +----> Ti +----> <span class="keyword">Do</span> +----> Re +----> ……
-整数：<span class="number">1</span>  +----> <span class="number">2</span>  +----> <span class="number">3</s<
+整数：<span class="number">1</span>  +----> <span class="number">2</span>  +----> <span class="number">3</span>  +----> <span class="number">4</span>  +----> <span class="number">5</span>  +----> <span class="number">6</span>  +----> <span class="number">7</span>  +----> <span class="number">1</span>  +----> <span class="number">2</span>  +----> ……
+ 
 ```
+
+因而，`一个和弦可以有多种方式弹奏`。  
+比如 C 和弦，除了最基础的开放式（不需要用食指横按品丝）指法，我们还可以用 A 和弦的指法实现：
+
+    C = B + 1品
+    = A + 2品+1品
+    = A + 3品
+     
+
+所以，我们用食指横按住第 3 品（或者用变调夹夹第 3 品），然后再加上 A 和弦的开放式指法，就形成了一个 C 和弦。
+
+同理也可以用 E 和弦实现：
+
+    C = B + 1品
+    = A + 2品+1品
 
 
 <!-- {% endraw %} - for jekyll -->

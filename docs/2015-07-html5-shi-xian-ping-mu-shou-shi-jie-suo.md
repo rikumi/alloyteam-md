@@ -43,7 +43,9 @@ canvas 里的圆圈画好之后可以进行事件绑定
 function bindEvent() {
         can.addEventListener("touchstart", function (e) {
              var po = getPosition(e);
-             console
+             console.log(po);
+             for (var i = 0 ; i < arr.length ; i++) {
+                if (Math.abs(po.x - arr[i].x) < r && Math.abs(po.y - arr[i].y) < r) { // 用来判断起始点是否在圈圈内部
 ```
 
 

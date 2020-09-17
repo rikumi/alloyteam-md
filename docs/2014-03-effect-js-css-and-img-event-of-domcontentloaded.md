@@ -30,7 +30,11 @@ source_link: http://www.alloyteam.com/2014/03/effect-js-css-and-img-event-of-dom
 接下来看看 [MDN 上有关 DOMContentLoaded 事件的文档](https://developer.mozilla.org/en-US/docs/Web/Reference/Events/DOMContentLoaded)：
 
 > The DOMContentLoaded event is fired when the document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading  
-> Note: Stylesheet loads block script execution, so if you have a `<script>` after a `<link rel="stylesheet" ...>`, the page will not finish parsing - and DOMContentLoaded will not fire - until the stylesheet is loaded.
+> Note: Stylesheet loads block script execution, so if you have a \`
+>
+> ```html
+> <script>` after a `<link rel="stylesheet" ...>`, the page will not finish parsing - and DOMContentLoaded will not fire - until the stylesheet is loaded.
+> ```
 
 这么看来，至少可以得出这么一个理论：DOMContentLoaded 事件本身不会等待 CSS 文件、图片、iframe 加载完成。  
 它的触发时机是：加载完页面，解析完所有标签（不包括执行 CSS 和 JS），并如规范中所说的设置 `interactive` 和执行每个静态的 script 标签中的 JS，然后触发。  
@@ -75,8 +79,48 @@ index.html:
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript">
-        console
+        console.timeStamp('Inline script before link in head');
+        window.addEventListener('DOMContentLoaded', function(){
+            console.timeStamp('DOMContentLoaded event');
+        });
+    </script>
 ```
+
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+
+    
+
+```html
+<script type="text/javascript">
+        console.timeStamp('Inline script after link in head');
+    </script>
+```
+
+</head>
+<body>
+    <p>Content</p>
+    <img src="./img/chrome-girl.jpg">
+    
+```html
+<script type="text/javascript" src="./js/main.js"></script>
+```
+
+</body>
+</html>
+```
+
+main.js:
+
+    console.timeStamp('External script after link in body');
+
+[![dcf399e8-a252-11e3-92c1-c3dbad820909](http://www.alloyteam.com/wp-content/uploads/2014/03/dcf399e8-a252-11e3-92c1-c3dbad820909.png)](http://www.alloyteam.com/wp-content/uploads/2014/03/dcf399e8-a252-11e3-92c1-c3dbad820909.png)
+
+图二
+
+如果页面中静态的写有 script 标签，DOMContentLoaded 事件需要等待 JS 执行完才触发。  
+而 script 标签中的 JS 需要等待位于其前面的 CSS 的加载完成。
+
+`console.timeStamp()` 可以向 Timeline 中添加一条记录，并对应上�
 
 
 <!-- {% endraw %} - for jekyll -->

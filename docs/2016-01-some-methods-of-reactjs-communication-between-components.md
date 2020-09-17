@@ -49,7 +49,14 @@ var List = React.createClass({
 		return (
 			<ul>
 				{
-					
+					(function(){
+						var self = this;
+						return this.props.list.map(function(item){
+							return (
+								<li onClick={self.onClickItem.bind(self, item)}>I am {item}, click me!</li>		
+							)
+						});
+					}.bind(
 ```
 
 

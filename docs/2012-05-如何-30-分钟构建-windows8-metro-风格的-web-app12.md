@@ -71,5 +71,55 @@ Let’s add a bit of CSS to that by opening the “default.css” file stored in
 
 In these 2 articles, we will concentrate our efforts only on the “**fullscreen-landscape**“ state. So jump into this section and insert the following piece of CSS:
 
+```css
+#main
+{
+    width: 100%;
+    height: 100%;
+}
+ 
+#banner
+{
+    width: 100%;
+    height: 100%;
+}
+ 
+#backbutton
+{
+}
+ 
+#maintitle
+{
+}
+ 
+#content
+{
+    width: 100%;
+    height: 100%;
+}
+```
+
+This simply indicates that we’d like to take all the available space for our 3 main containers.
+
+Run your application by pressing the F5 key or by clicking on the following button:
+
+[![clip_image003](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/1406487qd.png "clip_image003")](http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-10-46-metablogapi/7674.clip_5F00_image003_5F00_39DE6AF6.png)
+
+Logically, you should now see this screen:
+
+[![clip_image005](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/140648S09.jpg "clip_image005")](http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-10-46-metablogapi/8267.clip_5F00_image005_5F00_4BBD8F74.jpg)
+
+And you should also see an obvious design problem: the back button and the title are not aligned. Let’s resolve this by using Blend 5!
+
+## Step 3: first contact with Blend
+
+Launch Blend and navigate to the folder where your SimpleChannel9Reader project is. Blend will then show that:
+
+[![clip_image007](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/05/140649Ta9.jpg "clip_image007")](http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-10-46-metablogapi/0160.clip_5F00_image007_5F00_73EFC886.jpg)
+
+The goal here is to create 2 grids. The first one will be for the main container. It will be defined by 1 column that will take all the available width & by 2 lines. The 2nd one will be defined by 1 line & 2 columns for the back button and the title.
+
+Let’s start by the select the “main” element by using the “**Live DOM**” window:
+
 
 <!-- {% endraw %} - for jekyll -->

@@ -109,7 +109,14 @@ HOW，该怎么做
     border-right: 1px solid #fff;
     border-top: 1px solid #fff;
 }
-.item:nth-child
+.item:nth-child(1) {
+    padding-top: 66.6%;
+    width: 66.6%;
+}
+.item:nth-child(2), .item:nth-child(3), .item:nth-child(6) {
+    border-right: 0 none;
+}
+.item:nth-child(1), .item:nth
 ```
 
 

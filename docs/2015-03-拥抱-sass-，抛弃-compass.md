@@ -80,5 +80,16 @@ a{
 
 page.scss
 
+```html
+@import <span class="string">"reset.css"</span>;
+@import <span class="string">"mod-a"</span>;
+p{
+  background: <span class="comment">#0982c1;</span>
+} 
+ 
+```
+
+\_mod-a.scss
+
 
 <!-- {% endraw %} - for jekyll -->

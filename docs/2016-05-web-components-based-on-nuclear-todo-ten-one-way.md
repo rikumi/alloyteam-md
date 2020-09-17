@@ -56,9 +56,7 @@ new TodoApp({ items: [] }, "#container");
 
 ```javascript
 var TodoApp = Nuclear.create({
-    onRefresh: function () {   
-        this.form.addEventListener("submit", function (evt) {
-         &n
+    onRefresh: function ()
 ```
 
 

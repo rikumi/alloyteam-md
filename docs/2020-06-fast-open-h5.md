@@ -66,16 +66,12 @@ app.init();
 -   职责链模式  
     职责链模式是指每个对象都有接受请求的可能，这些对象连接成一条链，请求沿着这条链的传递，直到有对象处理，这样做的好处是减少接受者和发送者直接的耦合。比如在一个页面加载生命周期中，我们可以让内部模块到外部模块都实现相应的生命周期职责，应用启动和销毁的过程，请求沿着指定链条从外到内传递，也可以按需指定跳跃某个模块，这样大大降低了模块之间的耦合，从而更好的管理代码。
 
-```c
+```css
 export default interface IRestart{
     emitter: EventEmitter;
     startDestroy(): void;
     destroy(): void;
-    restart(): void;
-    restartEnd(): void;
-    // ...
-}
- 
+    restart():
 ```
 
 

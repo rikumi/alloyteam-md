@@ -61,11 +61,36 @@ say("Functional Programming");
 
 ```javascript
 // 可变数据
- 
 var arr = ["Functional", "Programming"];
 arr[0] = "Other"; // <= 修改了arr[0]的值
-console.log(a
+console.log(arr); // => ["Other", "Programming"] // 变量arr值已经被修改
 ```
+
+```javascript
+// 不可变数据
+var arr = ["Functional", "Programming"];
+// 得到新的变量，不修改了原来的值
+var newArr = arr.map((item) => {
+    if (item === "Functional") {
+        return "Other";
+    } else {
+        return item;
+    }
+});
+console.log(arr); // => ["Functional", "Programming"] 变量arr值不变
+console.log(newArr); // => ["Other", "Programming"]  产生新的变量newArr
+```
+
+之所以使用这种不变值，除了更好的函数式编程外，还能够维持线程安全可靠，落地在业务中，实际上也能让代码更加清晰。  
+设想，如果你定义了一个变量 A，A 在其他地方被其他人修改了，这样是不方便定位 A 的当前值的。关于定义多个变量引发的内存等问题，可以通过重用结构或部分引用的方式来减轻，可参考 immutable.js
+
+使用 map, reduce 等数据处理函数  
+
+* * *
+
+强大的 JavaScript 有着越来越多的高能处理数据函数，其中包含了 map、 reduce、 filter 等。
+
+map 能够对原数组中的值进行逐个处理并产生新的数组，一个简单例子
 
 
 <!-- {% endraw %} - for jekyll -->

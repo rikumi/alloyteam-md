@@ -73,5 +73,11 @@ Webkit 支持一个名为 - webkit-line-clamp 的属性，参见[链接](http://
 
 ### **Retina 屏幕高清图片：**
 
+```css
+selector {
+  background-image: url(no-image-set.png);
+  background: image-set(url(foo-lowres.png) 1x,url(foo-highres.png) 2x) center;
+```
+
 
 <!-- {% endraw %} - for jekyll -->

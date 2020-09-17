@@ -81,5 +81,19 @@ class Hello extends Omi.Component {
  
 ```
 
+```html
+ <Hello :data-array-test="[1,2,3]" />
+ 
+```
+
+当然也支持传递多个值：
+
+```html
+ <Hello :data-array-test="[1,2,3]" :data-is-girl="false" :data-age="18"/>
+ 
+```
+
+当然你也可以使用:data 合并到一起：
+
 
 <!-- {% endraw %} - for jekyll -->

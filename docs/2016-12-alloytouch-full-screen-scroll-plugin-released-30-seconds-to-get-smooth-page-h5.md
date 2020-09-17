@@ -66,15 +66,29 @@ source_link: http://www.alloyteam.com/2016/12/alloytouch-full-screen-scroll-plug
 当然你需要在 js 里面初始化一下：
 
 ```javascript
-new AlloyTouch.FullPage("#fullpage",{
-        animationEnd:function () {
-        
-        },
-        leavePage: function (index) {
-            console.log("leave"+index)
-        },
-    
+new AlloyTouch.FullPage("#fullpage", {
+    animationEnd: function () {},
+    leavePage: function (index) {
+        console.log("leave" + index);
+    },
+    beginToPage: function (index) {
+        console.log("to" + index);
+        pb.to(index / (this.length - 1));
+    },
+});
 ```
+
+-   animationEnd 是滚动结束之后的回调函数
+-   leavePage 是代表离开某个页面的回调函数
+-   beginToPage 代表打算去某个页面的回调函数
+
+上面的 pb 是用来设置 nav 或者 progress 的进度，这个可以先不用管。如果有需要的话，用户可以自己封装任意的进度条组件。
+
+原理分析  
+
+* * *
+
+这里主要抽取了 AlloyTouch.FullPage 的核心代码进行分析：
 
 
 <!-- {% endraw %} - for jekyll -->

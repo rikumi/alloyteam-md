@@ -63,17 +63,29 @@ mongoose.connect(url); //mongoose.connect('mongodb://localhost:port/databaseName
 3.  声明一个 Schema 模型
 
 ```javascript
-    var Schema = mongoose.Schema,
-        ObjectId = Schema.Types.ObjectId;
- 
-    // 用户模型
-    var userSchema = new Schema({
-        uid: String, // 用户 id
-        nick: String, // 用户昵称
-        pwd: String, // 用户密码
-        project: [{
-            type: ObjectId,
+var Schema = mongoose.Schema,
+    ObjectId = Schema.Types.ObjectId; // 用户模型
+var userSchema = new Schema({
+    uid: String, // 用户 id
+    nick: String, // 用户昵称
+    pwd: String, // 用户密码
+    project: [
+        {
+            type: ObjectId,
+            ref: "Project",
+        },
+    ], // 这个用户对应的作品
+});
 ```
+
+4.  将声明的 Schema 转化为 Model
+
+```javascript
+// 建立Model
+var User = mongoose.model("User", userSchema);
+```
+
+5.  将 Model 实例化为 Instance
 
 
 <!-- {% endraw %} - for jekyll -->

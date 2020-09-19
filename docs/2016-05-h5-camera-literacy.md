@@ -149,8 +149,62 @@ rtmp {  
         chunk_size 4000;  
         
          
-        application hls
+        application hls {  #rtmp推流请求路径
+            live on;  
+            hls on;  
+            hls_path /usr/local/var/www/hls;  
+            hls_fragment 5s;  
+        }  
+    }  
+}  
 ```
+
+**4 重启 nginx，将 rtmp 的推流地址写为 rtmp://ip:1935/hls/mystream，其中 hls_path 表示生成的.m3u8 和 ts 文件所存放的地址，hls_fragment 表示切片时长，mysteam 表示一个实例，即将来要生成的文件名可以先自己随便设置一个。更多配置可以参考：<https://github.com/arut/nginx-rtmp-module/wiki/>**
+
+根据以上步骤基本上已经实现了一个支持 rtmp 的视频服务器了。
+
+**10 在 html5 页面进行播放直播视频？**
+
+简单来说，直接使用 video 标签即可播放 hls 协议的直播视频：
+
+```html
+<video autoplay webkit-playsinline>
+           
+    <source
+        src="http://10.66.69.77:8080/hls/mystream.m3u8"
+        type="application/vnd.apple.mpegurl"
+    />
+           <p class="warning">Your browser does not support HTML5 video.</p>  
+</video>;
+```
+
+需要注意的是，给 video 标签增加 webkit-playsinline 属性，这个属性是为了让 video 视频在 ios 的 uiwebview 里面可以不全屏播放，默认 ios 会全屏播放视频，需要给 uiwebview 设置 allowsInlineMediaPlayback＝YES。业界比较成熟的 [videojs](http://videojs.com/)，可以根据不同平台选择不同的策略，例如 ios 使用 video 标签，pc 使用 flash 等。
+
+**11 坑点总结**
+
+简根据以上步骤，笔者写了一个 demo，从实现 ios 视频录制，采集，上传，nginx 服务器下发直播流，h5 页面播放直播视频者一整套流程，总结出以下几点比较坑的地方：
+
+1 在使用 AVCaptureSession 进行采集视频时，需要实现 AVCaptureVideoDataOutputSampleBufferDelegate 协议，同时在 - (void) captureOutput:(AVCaptureOutput \*)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection \*) connection 捕获到视频流，要注意的是 didOutputSampleBuffer 这个方法不是 didDropSampleBuffer 方法，后者只会触发一次，当时开始写的是 didDropSampleBuffer 方法，差了半天才发现方法调用错了。
+
+2 在使用 rtmp 推流时，rmtp 地址要以 rtmp:// 开头，ip 地址要写实际 ip 地址，不要写成 localhost，同时要加上端口号，因为手机端上传时是无法识别 localhost 的。
+
+这里后续会补充上一些坑点，有的需要贴代码，这里先列这么多。
+
+**12 业界支持**
+
+目前，[腾讯云](https://www.qcloud.com/solution/video.html)，百度云，阿里云都已经有了基于视频直播的解决方案，从视频录制到视频播放，推流，都有一系列的 sdk 可以使用，缺点就是需要收费，如果可以的话，自己实现一套也并不是难事哈。
+
+demo 地址：[https://github.com/lvming6816077/LMVideoTest/](https://github.com/lvming6816077/LMVideoTest)
+
+参考资料：<http://www.nihaoshijie.com.cn/index.php/archives/615>
+
+**结尾打个广告：**
+
+移动端日志工具：<https://github.com/lvming6816077/MLogger>
+
+ReactNative 下拉刷新组件：<https://github.com/lvming6816077/react-native-pullRefreshScrollView>
+
+欢迎使用！
 
 
 <!-- {% endraw %} - for jekyll -->

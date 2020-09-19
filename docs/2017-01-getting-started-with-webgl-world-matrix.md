@@ -129,9 +129,96 @@ PMatrix －－－>   透视矩阵
 
 首先至少有两个物体，**它们的 z 坐标不同，这个 z 坐标会决定它们在屏幕上显示的位置（或者说覆盖）的情景**，让我们试试看
 
-```javascript
-var aPo =
+```go
+var aPo = [
+    -0.2, -0.2, -0.5,
+    0.2, -0.2, -0.5,
+    0.2, 0.2, -0.5,
+    -0.2, 0.2, -0.5
+];
+ 
+var aIndex = [0, 1, 2, 0, 2, 3];
+ 
+webgl.bindBuffer(webgl.ARRAY_BUFFER, webgl.createBuffer());
+webgl.bufferData(webgl.ARRAY_BUFFER, new Float32Array(aPo), webgl.STATIC_DRAW);
+webgl.vertexAttribPointer(aPosition, 3, webgl.FLOAT, false, 0, 0);
+ 
+webgl.vertexAttrib3f(aColor, 1, 0, 0);
+ 
+webgl.bindBuffer(webgl.ELEMENT_ARRAY_BUFFER, webgl.createBuffer());
+webgl.bufferData(webgl.ELEMENT_ARRAY_BUFFER, new Uint16Array(aIndex), webgl.STATIC_DRAW);
+ 
+// 先画一个z轴是-0.5的矩形，颜色是红色
+webgl.drawElements(webgl.TRIANGLES, 6, webgl.UNSIGNED_SHORT, 0);
+ 
+aPo = [
+    0, -0.4, -0.8,
+    0.4, -0.4, -0.8,
+    0.4, 0, -0.8,
+    0, 0, -0.8
+];
+ 
+webgl.bindBuffer(webgl.ARRAY_BUFFER, webgl.createBuffer());
+webgl.bufferData(webgl.ARRAY_BUFFER, new Float32Array(aPo), webgl.STATIC_DRAW);
+webgl.vertexAttribPointer(aPosition, 3, webgl.FLOAT, false, 0, 0);
+ 
+webgl.vertexAttrib3f(aColor, 0, 1, 0);
+ 
+// 再画一个z轴是-0.8的矩形，颜色是绿色
+webgl.drawElements(webgl.TRIANGLES, 6, webgl.UNSIGNED_SHORT, 0);
 ```
+
+注意开启深度测试，否则就没戏啦  
+（不开启深度测试，计算机会无视顶点的 z 坐标信息，只关注 drawElements (drawArrays) 方法的调用顺序，最后画的一定是最上一层）
+
+代码中 A 矩形 (红色) 的 z 值为 - 0.5, B 矩形 (绿色) 的 z 值为 - 0.8，最终画布上谁会覆盖谁呢？  
+如果我问的是 x＝0.5 和 x＝0.8 之间，谁在左，谁在右，我相信每个人都确定知道，因为这太熟了，屏幕就是 2D 的，画布坐标 x 轴就是右大左小就是这样的嘛
+
+那我们更深层的考虑下为什么 x 和 y 的位置没人怀疑，因为 “左手坐标系” 和 “ 右手坐标系” 中 x，y 轴是一样的，如图所示
+
+[![14](http://www.alloyteam.com/wp-content/uploads/2016/12/14-300x226.png)](http://www.alloyteam.com/wp-content/uploads/2016/12/14.png)
+
+而左手坐标系和右手坐标系中的 z 轴正方向不同，一个是屏幕向内，一个是屏幕向外，所以可以认为  
+如果左手坐标系下，B 矩形 (z=-0.8) 小于 A 矩形 (z=-0.5)，那么理应覆盖了 A 矩形，右手坐标系的话恰恰相反
+
+事实胜于雄辩，我们所以运行一下代码
+
+查看结果：<https://vorshen.github.io/3Dmaze/3.html>
+
+可以看到 B 矩形是覆盖了 A 矩形的，也就意味着 webgl 是左手坐标系
+
+excuse me？？？所有文章说 webgl 都是右手坐标系啊，为什么这里居然是左手坐标系？
+
+答案就是 webgl 中所说的右手坐标系，其实是一种规范，是希望开发者一起遵循的规范，但是 webgl 本身，是不在乎物体是左手坐标系还是右手坐标系的
+
+可事实在眼前，webgl 左手坐标系的证据大家也看到了，这是为什么？刚刚说的有点笼统，不应该是 “webgl 是左手坐标系”，而应该说**“webgl 的裁剪空间是按照左手坐标系来的”**
+
+裁剪空间词如其名，就是用来把超过坐标空间的东西切割掉 (-1 ~ 1)，其中裁剪空间的 z 坐标就是按照左手坐标系来的
+
+代码中我们有操作这个裁剪空间吗？有！回到断点的位置！
+
+就是 PMatrix 它除了达成透视效果的另一个能力！  
+其实无论是 PMatrix (透视投影矩阵) 还是 OMatrix (正视投影矩阵)，它们都会操作裁剪空间，其中有一步就是将左手坐标系给转换为右手坐标系
+
+怎么转化的，来，我们用这个单位矩阵试一下
+
+1  0  0  0  
+0  1  0  0  
+0  0  -1  0  
+0  0  0  1
+
+只需要我们将 z 轴反转，就可以得到将裁剪空间由左手坐标系转变为右手坐标系了。用之前的矩形 A 和矩形 B 再试一次看看
+
+地址：<https://vorshen.github.io/3Dmaze/4.html>
+
+果然如此！
+
+这样我们就了解到了 webgl 世界中几个最为关键的 Matrix 了
+
+**4/ 结语**  
+至于具体的 PMatrix 和 OMatrix 是怎么来的，Matrix 能否进行一些优化，我们下次再说～
+
+有疑问和建议的欢迎留言一起讨论～
 
 
 <!-- {% endraw %} - for jekyll -->

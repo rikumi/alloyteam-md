@@ -158,8 +158,105 @@ init(this.window, this.document)
 在模拟 XMLHttpRequest 模块的过程中遇到一个问题，什么时候初始化这个对象，我们可以选择在网络请求库初始化前引入它，挂载在仿造的 window 对象下。但仍然会出现一个问题，第三放库直接使用的是 XMLHttpRequest 对象，而非通过 window 访问。
 
 ```javascript
-var request = new XMLHttpRequest();
+var request = new XMLHttpRequest(); // 报错
+var request = new window.XMLHttpRequest(); // 正确
 ```
+
+在正常的 web 环境，window 是默认的顶层作用域，而小程序中隐式的使用 window 对象则会报错。
+
+为了解决这一问题，可以通过配置文件的 globalVars 字段，将 XMLHttpRequest 直接进行定义。
+
+```javascript
+globalVars: [["XMLHttpRequest", 'require("libs/xmlhttprequest.js")']];
+```
+
+构建的过程中会在所有依赖前转成如下代码 ：
+
+```javascript
+var XMLHttpRequest = require("libs/xmlhttprequest.js");
+```
+
+这样做解决了隐式访问 window 作用域问题。但又面临另一个问题，那就是 xmlhttprequest 模块本身内部由依赖仿造 window 对象，比如 cookie 访问，而此时因为 require 的模块独立的作用域无法访问到其他模块的仿造 window 对象。于是最终通过导入一个 function 传入 window 作用域，然后初始化 xmlhttprequest。
+
+```javascript
+globalVars: [
+    [
+        "XMLHttpRequest",
+        'require("libs/xmlhttprequest.js").init(window, document)',
+    ],
+];
+```
+
+### 多端构建
+
+小程序和 web 端需要的资源及部分逻辑是有差异，通过 webpck 配置进行差异化处理，具体可以参考文档编写 kbone webpack 配置。
+
+大概是这样的区分跨端配置：
+
+![](http://www.alloyteam.com/wp-content/uploads/2019/12/0-12.png)
+
+分离打包入口文件:
+
+![](http://www.alloyteam.com/wp-content/uploads/2019/12/0-13.png)
+
+小程序打包入口依赖的 dom 节点，需要主动创建。详细示例参照官方 demo.
+
+```javascript
+export default function createApp() {
+    initialize(function () {
+        let Root = require("./root/index").default;
+        const container = document.createElement("div");
+        container.id = "pages";
+        document.body.appendChild(container);
+        render(<Root />, container);
+    });
+}
+```
+
+由于小程序本身是没有真正 userAgent，kbone 内部是是根据当前环境进行仿造。
+
+```javascript
+//miniprogram-render/src/bom/navigator#45
+this.$_userAgent = `${this.appCodeName}/${appVersion} (${platformContext}) AppleWebKit/${appleWebKitVersion} (KHTML, like Gecko) Mobile MicroMessenger/${this.$_wxVersion} Language/${this.language}`;
+```
+
+在业务中有需要区分小程序平台的场景，我们可以通过 webpack DefinePlugin 插件进行注入，然后通过定义变量进行判断。
+
+```javascript
+if (!process.env.isWxMiniProgram) {
+    render(<Root />, document.getElementById("pages"));
+}
+```
+
+### 小程序分包
+
+在腾讯文档的小程序中，有一个独立的小程序仓库。 而文档管理列表是另外一个独立的 H5 项目，嵌入到小程序 webview 动态加载。通过 kbone 转原生打包后，这部分代码需要继承到小程序仓库中。
+
+首先我们可以通过脚本，在 webpack 构建过程，将 kbone 编译后的包 copy 到独立小程序仓库的目录下，合并小程序相关配置，从而实现功能合并。同时通过 FileWebpackPlugin 过滤掉无用的 web 平台资源。
+
+这样遇到一个问题是主包大小仍然超过限制，最后通过小程序分包可以解决这个问题，将原小程序非首屏页面全部放分包之中，配置 preloadRule 字段再预加载分包。
+
+```javascript
+"subpackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/cat"      ]
+    }
+  ]
+  "preloadRule": {
+    "pages/index": {
+      "network": "all",
+      "packages": ["important"]
+    }  
+}
+```
+
+## 结
+
+通过对目前各种小程序同构方案的对比与实践，kbone 是一种非常值得推荐的新思路，新方法，兼具性能与灵活。唯一不足的地方就是目前仍有不少底层工作需要适配，更多的问题在继续探索中，相信随着不断迭代及采坑后的反馈，kbone 会变得越来稳定和成熟。
+
+（最后感谢作者 junexie 及 dntzhang 大神的鼎力支持～～也欢迎大家一起参与共建 [kbone](https://github.com/wechat-miniprogram/kbone "kbone")）
 
 
 <!-- {% endraw %} - for jekyll -->

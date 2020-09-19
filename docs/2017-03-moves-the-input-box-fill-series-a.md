@@ -80,7 +80,24 @@ android 效果：
 首先记录无键盘时的 window.innerHeight，当键盘弹出后再获取当前的 window.innerHeight，两者的差值即为键盘的高度，那么定位真输入框自然就很容易了  
 **2、在 ios 下手动获取焦点不可以用 click 事件，需要使用 tap 事件才可以手动触发**  
 
-        $('#fake-input')
+```ruby
+    $('#fake-input').on($.os.ios?'tap' : 'click', function() {
+        initHeight = window.innerHeight;
+        $('#input').focus();
+    });
+ 
+```
+
+**3、当键盘收起的时候我们需要将真输入框再次隐藏掉，除了使用失去焦点（blur）方法，还有什么方法可以判断键盘是否收起呢？**  
+这里可以使用 setInterval 监听，当当前 window.innerHeight 和整屏高度相等的时候判断为键盘收起。  
+**注意**：键盘弹起需要一点时间，所以计算当前屏幕高度也需要使用 setInterval  
+**4、因为 textarea 中的文字不能置底显示，当输入超过一行 textarea 需要自动调整高度**，因此将 scrollHeight 赋值给 textarea 的 height。当删除文字的时候需要 height 也有变化，因此每次 input 都先将 height 置 0，然后再赋值。  
+
+        $('#textarea').css('height', 0);
+        $('#textarea').css('height', $('#textarea')[0].scrollHeight);
+     
+
+未完待续...
 
 
 <!-- {% endraw %} - for jekyll -->

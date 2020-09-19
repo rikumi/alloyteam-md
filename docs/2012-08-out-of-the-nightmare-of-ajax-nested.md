@@ -91,7 +91,211 @@ a.chain(b).chain(c).chain(d).chain(e).start();
 
 ```javascript
 var a = Dance.Request({
+"url": "a.do",
+"type": "get",
+"cache": false,
+"param": {
+"qq": 52052****
+}
+})
+ 
+a.start();
 ```
+
+其中 type, cache, param 都是可选的.
+
+type 表示请求方式，提供了 get, post, jsonp, iframe 四种。默认为 get.. 其中 jsonp 和 iframe 分别用来代替跨域的 get 和 post.
+
+cache 决定是否使用缓存数据。默认为 false.
+
+param 表示传递给请求的参数，可以是一个 plain object 对象。也可以是一个函数。比如
+
+```javascript
+var a = Dance.Request({
+    url: "a.do",
+    param: function (before) {
+        if (currPage < 7) {
+            return {
+                page: currPage + 1,
+            };
+        } else {
+            return {
+                page: 0,
+            };
+        }
+    },
+});
+```
+
+这个函数在请求之前会被运算，它的返回值才作为真正的参数传递过去。从上例可以看出，在处理分页等参数需要变化的请求里特别方便.
+
+有一些情况，request1, request2 同在一个集合链中。而 request1 的作用就是给 request2 提供某个数据。比如从 request1 可以取得用户的 QQ 号。再用这个 QQ 号从 request2 中取得用户的昵称。这时 request2 的 param 函数里的参数里 before 就是 request1. 所以可以这样来写.
+
+```javascript
+var request1 = Dance.Request("getQQ.do");
+var request2 = Dance.Request({
+    url: "getNickName.do",
+    param: function (before) {
+        //before就是request1
+        return {
+            qq: before.data.qq,
+        };
+    },
+});
+request1.chain(request2).start();
+```
+
+**四 beforeSend、done 和 error**
+
+对于每个 request 对象，提供三个监听事件。用这三个事件足够完成大部分业务逻辑.
+
+1、beforeSend 可以在请求开始前做一些校验或者设置参数或者其他操作。如果任何一个 beforeSend 函数里返回 false, 会截断整条链的执行.
+
+```javascript
+request1.beforeSend(function () {
+    this.setParam({});
+});
+```
+
+done 请求成功返回. data 为服务器返回的数据. json 或者 string 格式。如果任何一个 doen 函数里返回 false, 会截断整条链的执行.
+
+```javascript
+request1.done( function( data ){
+if ( data.qq !== "52052****'' ){
+return fasle;
+}
+})
+```
+
+error 因为超时等原因引起的请求错误. error 回调函数里接收 2 个参数，第一个是错误类型，第二个是错误信息.  
+如果一条请求链中途有个某个请求错误，默认不会再进行后面的请求。如果要强制继续请求。可以在 error 方法里调用 this.queue.contine ();
+
+```javascript
+request1.error( function( type, message ){
+If ( type === ''timeout' ){
+alert ( "请求超时" );
+}
+this.queue.contine();
+})
+```
+
+**五 Request 的其它 api**
+
+```javascript
+request.useCache() 此请求使用缓存数据.
+ 
+request.stopCache() 此请求不使用缓存数据.
+ 
+request.setParam 设置请求参数.
+ 
+request.again() 接收一个num型参数, 表示重新调用此request几次, 直到请求成功返回. 常用在error事件里. 比如
+request.error( function( type, message ){
+If ( type === 'timeout' ){
+this.again( 2 );
+}
+} )
+```
+
+**六 Queue**
+
+当 2 个以上的请求被串起来的时候，已经隐式的生成了一条集合链。可以用变量来引用它.  
+var queue = request1.chain( request2, request3 ).chain( request4 );
+
+Queue 对象提供了这几个 api.
+
+queue.chain () 串起一个或者一些 request 对象。注意上面的 request2 和 request3 是放在一个括号里的。这样表示 reqeust2 和 reqeust3 是并行的请求。他们的执行顺序并没有要求。但 request4 必须等 request2 和 request3 都返回了才会执行。因为不能确定 request2 和 request3 哪个先返回，所以 request4 里的 before 是 request2 和 request3 中的随机一个.
+
+queue.stop () 暂停链的执行.
+
+queue.contine () 继续链的执行.
+
+queue.error (function ( type, obj, message){}) 监听一条链中的所有 error 事件. type 表示 error 类型. obj 表示当前触发 error 事件的 request 对象. message 表示错误信息.
+
+queue.cut () 从当前的请求开始，扔弃链中后续的请求。比如有这样一个需求。我们需要在某一个请求返回之后，可能需要丢弃开始约定的请求链，走另外一个分支。那么我们可以这样来重新组织链.
+
+```javascript
+request2.done(function( error ){
+if (...){
+this.queue.cut().chain( reqeust8 ).chan( request9 );
+}
+})
+```
+
+queue.lenth 返回链中请求的数量.
+
+queue\[0]、queue\[1]、queue\[2] 可以用下标来获取链中的每组请求对象，注意因为可能含有并发请求，所以统一返回数组形式.
+
+queue.useCache () 整条链中的 request 对象都使用缓存数据
+
+queue.stopCache () 整条链中的 request 对象都不使用缓存数据
+
+queue.now () 此条链中正在请求的 request 对象.
+
+**七 示例**
+
+```javascript
+var a = Dance.Reqeuest( {
+url: "a.do"
+})
+ 
+var b = Dance.Reqeuest( {
+url: "b.do",
+type: 'jsonp',
+cache: true,
+param: function(){
+return {
+name: this.before.data.name
+}
+}
+})
+ 
+var c = Dance.Reqeuest( {
+url: "c.do",
+type: "iframe"
+ 
+})
+ 
+a.beforeSend( function(){
+this.queue.stop();
+this.queue.contine();
+} )
+ 
+a.done( function(){
+this.useCache();
+this.stopCache();
+this.queue.cut().chain( b ).chain( c ).start();
+} )
+ 
+a.error( function( type, message ){
+alert ( type === ''timeout'' );
+a.again( 2 );
+} )
+ 
+var queue = a.chain( b ).chain( c );
+ 
+queue.error(function( type, obj, message ){
+alert ( type === '"timeout" )
+alert ( obj === a )
+} )
+ 
+queue.useCache();
+ 
+queue.stopCache();
+```
+
+**八 结尾**
+
+5 个嵌套回调并不能阻止你完成一个程序的编写。所以，这个库其实对大多数来说都是没有意义。不管怎样，佛渡有缘人，药医不死病.  也希望它能对一些人恰好带来一点方便.
+
+因为还没有经过详细的测试，它也许还需要一段时间才能稳定。有任何问题都可以 email 我.520521086 at qq.com
+
+下载地址:  <https://github.com/AlloyTeam/DanceRequest>
+
+详细的 api 文档近期补上.
+
+## /\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*8 月 9 号\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
+
+用 coffeeScript 重写了一次。跟原始的版本放一起提供下载.
 
 
 <!-- {% endraw %} - for jekyll -->

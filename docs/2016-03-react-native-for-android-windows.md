@@ -129,5 +129,216 @@ source_link: http://www.alloyteam.com/2016/03/react-native-for-android-windows/
 
   当 Android 虚拟设备启动成功后，运行 HelloAndroid 应用 app，选择已启动的虚拟设备即可在虚拟设备上打开我们的 HelloAndroid。
 
+     [![图片 14](http://www.alloyteam.com/wp-content/uploads/2016/03/图片14-300x230.png)](http://www.alloyteam.com/wp-content/uploads/2016/03/图片14.png)
+
+**编写一个示例 RNA 轮播**
+
+  index.android.js  入口函数：
+
+```javascript
+import Demo from "./android_src/Demo";
+class HelloAndroid extends Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                        <Demo></Demo>
+                      
+            </View>
+        );
+    }
+}
+```
+
+  首页 Demo.js：
+
+```javascript
+/**
+ * 首页
+ */
+import React, { Component, ScrollView } from "react-native";
+import Slider from "./Slider";
+class Demo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            banner: [
+                {
+                    banner_url:
+                        "http://ossweb-img.qq.com/images/lol/web201310/skin/big80006.jpg",
+                },
+                { banner_url: "http://i12.tietuku.com/707b3565e98e1398s.jpg" },
+                {
+                    banner_url:
+                        "http://imga1.pic21.com/bizhi/140226/07916/s04.jpg",
+                },
+            ],
+        };
+    }
+    render() {
+        return (
+            <ScrollView style={{ flex: 1, marginBottom: 50 }}>
+                                
+                <Slider data={this.state.banner} />
+                            
+            </ScrollView>
+        );
+    }
+}
+module.exports = Demo;
+```
+
+  轮播组件函数 Slider.js：
+
+```javascript
+/**
+ * 轮播组件
+ */
+import React, {
+    Image,
+    Text,
+    View,
+    ViewPagerAndroid,
+    StyleSheet,
+    Dimensions,
+    TouchableOpacity,
+} from "react-native";
+var Slider = React.createClass({
+    getInitialState() {
+        return {
+            currentPage: 0,
+            viewWidth: 0,
+            renderStatus: false,
+        };
+    },
+    render() {
+        // 获取待渲染的图片数据
+        var imgsRenderData = this.getImgsRenderData(this.props.data); // 将图片列表数据逐个映射到JSX中
+        var imgs = imgsRenderData.map((banner, i) => {
+            console.log(banner.banner_url);
+            return (
+                <View style={{ flexDirection: "column" }} key={i}>
+                                        
+                    <TouchableOpacity delayPressIn={0} style={{ flex: 1 }}>
+                                                
+                        <Image
+                            key={i}
+                            source={{ uri: banner.banner_url }}
+                            style={{ flex: 1 }}
+                        />
+                                            
+                    </TouchableOpacity>
+                                    
+                </View>
+            );
+        }); // var dots = this.renderDots();
+        return (
+            <View>
+                                
+                <ViewPagerAndroid
+                    style={{ flex: 1, height: 160 }}
+                    initialPage={1}
+                    ref={(viewPager) => {
+                        this.viewPager = viewPager;
+                    }}
+                    onPageScroll={this.onPageScroll}
+                    onPageSelected={this.onPageSelected}
+                >
+                                        {imgs}
+                                    
+                </ViewPagerAndroid>
+                            
+            </View>
+        );
+    },
+    getImgsRenderData(data) {
+        // 判断当前的轮播序号，重新对图片顺序进行组装
+        var imgsRender = [];
+        var imgsLent = data.length;
+        var indexNum = this.state.currentPage; // 这里的代码有点乱，还有优化空间
+        if (imgsLent > 1 && indexNum === 0) {
+            imgsRender.push(data[imgsLent - 1]);
+        } else {
+            imgsRender.push(data[indexNum - 1]);
+        }
+        imgsRender.push(data[indexNum]);
+        if (imgsLent > 1 && indexNum === imgsLent - 1) {
+            imgsRender.push(data[imgsLent - 1]);
+        } else {
+            imgsRender.push(data[indexNum + 1]);
+        }
+        return imgsRender;
+    },
+    onPageSelected(event) {
+        // 当前分页被选中
+        var lastPage = this.state.currentPage;
+        var selectPage = event.nativeEvent.position;
+        var currentPage = lastPage + selectPage - 1;
+        var imgsLent = this.props.data.length;
+        if (currentPage === -1) {
+            currentPage = imgsLent - 1;
+        } else if (currentPage === imgsLent) {
+            currentPage = 0;
+        }
+        this.setState({
+            currentPage: currentPage,
+        });
+        this.viewPager.setPageWithoutAnimation(1);
+    },
+});
+var styles = StyleSheet.create({
+    tab: {
+        alignItems: "stretch",
+    },
+    tabs: {
+        flexDirection: "row",
+        alignItems: "stretch",
+        justifyContent: "center",
+    },
+});
+module.exports = Slider;
+```
+
+  运行结果：
+
+    [![QQ 图片 20160305154904](http://www.alloyteam.com/wp-content/uploads/2016/03/QQ图片20160305154904-300x136.png)](http://www.alloyteam.com/wp-content/uploads/2016/03/QQ图片20160305154904.png)
+
+演示动画 (因篇幅关系，轮播序号圆点的代码不包含在以上代码中)：
+
+    ![](http://huangxingbang.github.io/openSense/asset/img/rnademo.gif)
+
+**搭建过程遇到的问题**
+
+**1. 比较常见的 MSBuild 错误**
+
+ 这个错误出现的频率比较高，一般是安装与 window 环境相关的 node 包时可能会出现，比如 node-gyp 会报这个错，报错形式为：MSBUILD：error MSB3248 ...
+
+   [![QQ 图片 20160302002242](http://www.alloyteam.com/wp-content/uploads/2016/03/QQ图片20160302002242-300x105.png)](http://www.alloyteam.com/wp-content/uploads/2016/03/QQ图片20160302002242.png)
+
+ 解决方式：
+
+ [VisualStudio2013Express](https://www.microsoft.com/en-gb/download/details.aspx?id=44914)  微软的 IDE (如本地环境有或更高版本则无须)
+
+ [Win7 SDKs 7.1](https://www.microsoft.com/en-us/download/details.aspx?id=4422) windows 开发工具包 (如本地环境有则无须)
+
+ Win7：安装 VisualStadio2013 + Win7 SDKs 7.1
+
+如 Win7 SDKs 7.1 安装失败，可以卸装电脑上的
+
+ Visual c++ 2010 x86 redistributable 及 Visual c++ 2010 x64 redistributable 再重    试
+
+ Win8:  安装 VisualStadio2013
+
+**2.folly::toJson 兼容错误**
+
+ 在目前版本的 RNA 上遇到了这个错误，
+
+    [![QQ 图片 20160305143713](http://www.alloyteam.com/wp-content/uploads/2016/03/QQ图片20160305143713-193x300.png)](http://www.alloyteam.com/wp-content/uploads/2016/03/QQ图片20160305143713.png)
+
+ 经过了一番调试及查找答案，发现是 alignItems: 'center' 这个样式引起的，具体参见 [issue](https://github.com/brentvatne/react-native-scrollable-tab-view/issues/115)，把 alignItems 修改为 alignItems: 'stretch' 即可
+
+[![1846.743](http://www.alloyteam.com/wp-content/uploads/2016/03/1846.743.jpg)](http://www.ituring.com.cn/book/1846)
+
+好书推荐 [《](http://www.ituring.com.cn/book/1846)[React Native 开发指南》](http://www.ituring.com.cn/book/1846)
+
 
 <!-- {% endraw %} - for jekyll -->

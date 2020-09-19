@@ -292,5 +292,185 @@ source_link: http://www.alloyteam.com/2012/07/used-a-variety-of-web-development-
 
 #### Adobe After Effects CS4 Cheat Sheet ↓
 
+[![Adobe After Effects CS4 Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/1316543DH.jpg)](http://ae.tutsplus.com/articles/news/adobe-after-effects-cs4-keyboard-shortcuts/ "Adobe After Effects CS4 Cheat Sheet")
+
+#### Adobe Illustrator CS4 Shortcuts ↓
+
+[![Adobe Illustrator CS4 Shortcuts](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/1316549wH.jpg)](http://www.nobledesktop.com/shortcuts-illustratorcs4-mac.html "Adobe Illustrator CS4 Shortcuts")
+
+#### Adobe Photoshop CS5 – all in one for dummies ↓
+
+[![Adobe Photoshop CS5 – all in one for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131655mDN.jpg)](http://www.dummies.com/how-to/content/photoshop-cs5-allinone-for-dummies-cheat-sheet.html "Adobe Photoshop CS5 – all in one for dummies")
+
+#### Adobe Photoshop Shortcuts ↓
+
+[![Adobe Photoshop Shortcuts](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131656W0M.jpg)](http://www.smashingmagazine.com/2010/02/10/photoshop-keyboard-shortcuts-cheat-sheet-pdf/ "Adobe Photoshop Shortcuts")
+
+#### Photoshop Elements8 For Dummies ↓
+
+[![Photoshop Elements8 For Dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131656gdd.jpg)](http://www.dummies.com/how-to/content/photoshop-elements-8-for-dummies-cheat-sheet.html "Photoshop Elements8 For Dummies")
+
+#### Adobe Lightroom 2.0 Shortcuts ↓
+
+[![Adobe Lightroom 2.0 Shortcuts](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131657RNj.jpg)](http://www.lightroomqueen.com/lightroom/lightroom_shortcuts_mac_20.pdf "Adobe Lightroom 2.0 Shortcuts")
+
+#### Adobe Indesign CS5 for dummies ↓
+
+[![Adobe Indesign CS5 for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131657AyR.jpg)](http://www.dummies.com/how-to/content/indesign-cs5-for-dummies-cheat-sheet.html "Adobe Indesign CS5 for dummies")
+
+#### Adobe InDesign CS4 Tools and shortcuts ↓
+
+[![Adobe InDesign CS4 Tools and shortcuts](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131657Zkg.jpg)](http://www.jetsetcom.net/images/downloads/indesign_cs4_tools_panel.pdf "Adobe InDesign CS4 Tools and shortcuts")
+
+#### GIMP Quick reference ↓
+
+[![GIMP Quick reference](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131658Wg8.jpg)](http://docs.gimp.org/quickreference/gimp-keys-en.pdf "GIMP Quick reference")
+
+#### Apple Final Cut Pro 5 ↓
+
+[![Apple Final Cut Pro 5](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131658ucI.jpg)](http://www.nobledesktop.com/shortcuts-finalcutpro5-mac.html "Apple Final Cut Pro 5")
+
+#### QuarkXpress 8 ↓
+
+[![](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/13170055U.jpg)](http://www.nobledesktop.com/shortcuts-quark8-mac.html "QuarkXpress 8")
+
+#### 3DS max 9 ↓
+
+[![3DS max 9](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131700rnE.jpg)](http://www.mobilefish.com/tutorials/3dsmax/3dsmax_quickguide_shortcuts_9.html "3DS max 9")
+
+#### Blender for dummies ↓
+
+[![Blender for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131701gXV.jpg)](http://www.dummies.com/how-to/content/blender-for-dummies-cheat-sheet.html "Blender for dummies")
+
+#### AutoCAD 2011 for dummies ↓
+
+[![AutoCAD 2011 for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/1317018nP.jpg)](http://www.dummies.com/how-to/content/autocad-2011-for-dummies-cheat-sheet.html "AutoCAD 2011 for dummies")
+
+#### Google Sketchup 7 for dummies ↓
+
+[![Google Sketchup 7 for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131703PW2.jpg)](http://www.dummies.com/how-to/content/google-sketchup-7-for-dummies-cheat-sheet.html "Google Sketchup 7 for dummies")
+
+#### OpenOffice.org for dummies ↓
+
+[![OpenOffice.org for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/1317036Yr.jpg)](http://www.dummies.com/how-to/content/openofficeorg-for-dummies-cheat-sheet.html "OpenOffice.org for dummies")
+
+#### Office 2010 – all in one for dummies ↓
+
+[![Office 2010 – all in one for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131704Nzo.jpg)](http://www.dummies.com/how-to/content/office-2010-allinone-for-dummies-cheat-sheet.html "Office 2010 – all in one for dummies")
+
+### Browsers & OS
+
+#### Mozilla Firefox Cheat Sheet ↓
+
+[![Mozilla Firefox Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131707hy3.jpg)](http://lesliefranke.com/files/reference/firefoxcheatsheet.pdf "Mozilla Firefox Cheat Sheet")
+
+#### Google Chrome Keyboard Shortcuts ↓
+
+[![Google Chrome Keyboard Shortcuts](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131708Bl3.jpg)](http://www.quicklycode.com/cheatsheets/google-chrome-keyboard-shortcuts "Google Chrome Keyboard Shortcuts")
+
+#### Internet Explorer 8 – quick reference card ↓
+
+[![Internet Explorer 8 – quick reference card](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131708Lnt.jpg)](http://www.customguide.com/pdf/internet-explorer-quick-reference-8.pdf "Internet Explorer 8 – quick reference card")
+
+#### Windows 7 Cheat Sheet ↓
+
+[![Windows 7 Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131709zWL.jpg)](http://www.hungry-hackers.com/2009/05/windows-7-cheat-sheet.html "Windows 7 Cheat Sheet")
+
+#### Windows Alt Codes ↓
+
+[![Windows Alt Codes](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131709sw1.jpg)](http://reeddesign.co.uk/pdf/WindowsAltCodes.pdf "Windows Alt Codes")
+
+#### Ultimate Switcher Guide: PC to MAC ↓
+
+[![Ultimate Switcher Guide: PC to MAC](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/1317092YA.jpg)](http://www.myfirstmac.com/index.php/mac/articles/ultimate-switcher-guide-windows-pc-to-mac-keyboard-shortcuts "Ultimate Switcher Guide: PC to MAC")
+
+#### Mac OS X Keyboard Cheat Sheet ↓
+
+[![Mac OS X Keyboard Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131710mJ1.jpg)](http://devcheatsheet.com/static/pdf/mac-osx-keyboard_amduus.pdf "Mac OS X Keyboard Cheat Sheet")
+
+#### Mac OS X Leopard – 200 productivity boosters ↓
+
+[![Mac OS X Leopard – 200 productivity boosters](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131710Tgc.jpg)](http://www.usingmac.com/2007/11/21/mac-os-x-leopard-200-productivity-booster-hotkeys "Mac OS X Leopard – 200 productivity boosters")
+
+#### Macs All-in-one for dummies ↓
+
+[![Macs All-in-one for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131710MPK.jpg)](http://www.dummies.com/WileyCDA/how-to/content/macs-allinone-for-dummies-cheat-sheet.html "Macs All-in-one for dummies")
+
+#### Linux for dummies ↓
+
+[![Linux for dummies](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131710n7b.jpg)](http://www.dummies.com/how-to/content/linux-for-dummies-cheat-sheet.html "Linux for dummies")
+
+#### Ubuntu reference ↓
+
+[![Ubuntu reference](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131710EXN.jpg)](http://fosswire.com/post/2008/04/ubuntu-cheat-sheet/ "Ubuntu reference")
+
+### Others/Miscellaneous
+
+#### Ruby on Rails Cheat Sheet ↓
+
+[![Ruby on Rails Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131711dNy.jpg)](http://www.addedbytes.com/cheat-sheets/ruby-on-rails-cheat-sheet/ "Ruby on Rails Cheat Sheet")
+
+#### Python Cheat Sheet ↓
+
+[![Python Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131711IDz.jpg)](http://www.addedbytes.com/cheat-sheets/python-cheat-sheet/ "Python Cheat Sheet")
+
+#### ASP/VBScript Cheat Sheet ↓
+
+[![ASP/VBScript Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/13171126b.jpg)](http://www.addedbytes.com/cheat-sheets/asp-vbscript-cheat-sheet/ "ASP/VBScript Cheat Sheet")
+
+#### ASP.net ↓
+
+[![ASP.net](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131711pxm.jpg)](http://john-sheehan.com/blog/wp-content/uploads/aspnet-life-cycles-events.pdf "ASP.net")
+
+#### Regular Expression Cheat Sheet (.NET) ↓
+
+[![Regular Expression Cheat Sheet (.NET)](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131712G0D.jpg)](http://regexlib.com/CheatSheet.aspx "Regular Expression Cheat Sheet (.NET)")
+
+#### Core C# and .NET Quick Reference ↓
+
+[![Core C# and .NET Quick Reference](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131712Rbn.jpg)](http://www.digilife.be/quickreferences/QRC/Core%20CSharp%20and%20.NET%20Quick%20Reference.pdf "Core C# and .NET Quick Reference")
+
+#### 960 Grid System Cheat Sheet ↓
+
+[![960 Grid System Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/1317123uN.jpg)](http://www.pillsofbits.com/sites/default/files/Ninesixty-cheat-sheet-www-pillsofbits-com-v1.jpg "960 Grid System Cheat Sheet")
+
+#### Firebug Cheat Sheet ↓
+
+[![Firebug Cheat Sheet](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131712wSG.jpg)](http://duvet-dayz.com/assets/FBCheatSheet/FBCheatsheet12b.pdf "Firebug Cheat Sheet")
+
+#### Tcp Ports List ↓
+
+[![Tcp Ports List](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131712cUF.jpg)](http://www.gasmi.net/docs/tcp.html "Tcp Ports List")
+
+#### VOIP Basics ↓
+
+[![VOIP Basics](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131713l2k.jpg)](http://packetlife.net/media/library/34/VOIP_Basics.pdf "VOIP Basics")
+
+#### VI (Linux Terminal) Cheat sheet ↓
+
+[![VI (Linux Terminal) Cheat sheat](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131713ZPt.jpg)](http://www.gosquared.com/liquidicity/archives/1333 "VI (Linux Terminal) Cheat sheat")
+
+#### Mathematica Keyboard Shortcuts ↓
+
+[![Mathematica Keyboard Shortcuts](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131713YP4.jpg)](http://library.wolfram.com/infocenter/TechNotes/5950/mathematicashortcuts.pdf "Mathematica Keyboard Shortcuts")
+
+#### Country Codes – quick reference ↓
+
+[![Country Codes – quick reference](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131714ASv.jpg)](http://www.explainth.at/downloads/ccquick.pdf "Country Codes – quick reference")
+
+#### User Centred Design ↓
+
+[![User Centred Design](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131714A2w.jpg)](http://paznow.s3.amazonaws.com/User-Centred-Design.pdf "User Centred Design")
+
+#### The Social Landscape (social media) ↓
+
+[![The Social Landscape (social media)](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/07/131714Ucj.jpg)](http://drewmclellan.typepad.com/Downloads/CMO-SOCIAL%20LANDSCAPE-R5.pdf "The Social Landscape (social media)")
+
+### 写在最后
+
+希望你能够从上面列出的 100 多个速查手册和参考指南中找到有用的资料。
+
+如果你有更好的资源或者其它反馈，请留言，同时记得推荐和分享本文 🙂
+
 
 <!-- {% endraw %} - for jekyll -->

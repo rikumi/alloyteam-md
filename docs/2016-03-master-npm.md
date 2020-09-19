@@ -167,7 +167,37 @@ npm3 在安装包的时候，由于每个包和包的依赖都会去计算是否
 
 [![npm3dependencies](https://camo.githubusercontent.com/6f9fc98fb2985a8c0d3883d2ad59f7a5acfe9d1c/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d3364657073342e706e67)](https://camo.githubusercontent.com/6f9fc98fb2985a8c0d3883d2ad59f7a5acfe9d1c/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d3364657073342e706e67)
 
-npm3 按照安装顺序存放依赖模块，先安装 A@1，�
+npm3 按照安装顺序存放依赖模块，先安装 A@1，发现依赖模块 B@1 没有安装过也没有其他版本的 B 模块冲突，所以 B@1 存放在第一级目录，B@2 为了避免和 B@1 的冲突，还是继续放在 C@1 之下。
+
+npm2 没什么好说的，来什么安装什么，根本不用理会公共依赖关系，依赖模块一层一层往下存放就是了，下面重点讲解 npm3 在这方面的改进。
+
+现在 App 又需要安装一个包 D@1，D@1 依赖 B@2，使用 npm3 安装之后，包结构将变成下面这样
+
+[![npm3dependencies-1](https://camo.githubusercontent.com/e61e0ace80a5b44003b0c6ff9d65f5d88772edb6/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d3364657073362e706e67)](https://camo.githubusercontent.com/e61e0ace80a5b44003b0c6ff9d65f5d88772edb6/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d3364657073362e706e67)
+
+虽然 C@1 和 D@1 都依赖 B@2，但是由于 A@1 先安装，A@1 依赖的 B@1 已经安装到第一级目录了，后续需要安装的所有包 B，只要版本不是 1，都需要避免和 B@1 的冲突，所以只能像 npm2 一样，安装在相应包下面。
+
+接着又安装了一个 E@1，依赖 B@1，因为 B@1 已经安装过，且不会有版本冲突，这时候就不用重复安装 B@1 了，包结构会变成这样
+
+[![npm3dependencies-2](https://camo.githubusercontent.com/f1b0a85f8ff98f7899a3e0995541a7c868e5ce49/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d3364657073382e706e67)](https://camo.githubusercontent.com/f1b0a85f8ff98f7899a3e0995541a7c868e5ce49/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d3364657073382e706e67)
+
+随着 App 升级了，需要把 A@1 升级到 A@2，而 A@2 依赖 B@2，把 E@1 升级到 E@2，E@2 也依赖 B@2，那么 B@1 将不会再被谁依赖，npm 将卸载 B@1，新的包结构将变成这样
+
+[![npm3dependencies-3](https://camo.githubusercontent.com/ec5b15a3da040184f8defcf2f21b034e8e58ab31/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d336465707331322e706e67)](https://camo.githubusercontent.com/ec5b15a3da040184f8defcf2f21b034e8e58ab31/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d336465707331322e706e67)
+
+可以看到出现了冗余，结果跟预期的不一样，既然所有对 B 的依赖都是 B@2，那么只安装一次就够了。
+
+### npm dedupe
+
+npm 在安装包的时候没有这么 “智能”，不过 npm dedupe 命令做的事就是重新计算依赖关系，然后将包结构整理得更合理。
+
+执行一遍 npm dedupe 将得到
+
+[![npm3dependencies-4](https://camo.githubusercontent.com/766485ddf78c4dd9e2cffae6d6e2917ee8f9a1b5/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d336465707331332e706e67)](https://camo.githubusercontent.com/766485ddf78c4dd9e2cffae6d6e2917ee8f9a1b5/68747470733a2f2f646f63732e6e706d6a732e636f6d2f696d616765732f6e706d336465707331332e706e67)
+
+这才是最优且符合预期的结构，看来在每次安装 / 卸载了包之后最好重新执行 npm dedupe，以保证包结构是最优的。
+
+npm3 通过将依赖模块扁平化安装，避免了冗余又解决了 windows 上一大头疼问题。
 
 
 <!-- {% endraw %} - for jekyll -->

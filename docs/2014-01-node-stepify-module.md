@@ -55,22 +55,62 @@ var workflow = Stepify()
 
 ```javascript
 var workflow = Stepify()
-    .step('t1s1', fn)
-    .step('t1s2', fn)
-    .step('s', fn)
-    .pend()
-    .step('t2s1', fn)
-    .step('t2s2', fn)
-    .step('s', fn)
-    .error(fn)
-    .pend()
-    .step('t3s1', fn)
-    .step('t3s2', fn)
-    .pend()
-    .error(fn)
-    .result(fn)
-    .
+    .step("t1s1", fn)
+    .step("t1s2", fn)
+    .step("s", fn)
+    .pend()
+    .step("t2s1", fn)
+    .step("t2s2", fn)
+    .step("s", fn)
+    .error(fn)
+    .pend()
+    .step("t3s1", fn)
+    .step("t3s2", fn)
+    .pend()
+    .error(fn)
+    .result(fn)
+    .run();
 ```
+
+细心的童靴可能已经发现，t1 和 t2 后面的都有一个 step——`step('s', fn)`，这里其实还可以把它抽出来：
+
+```javascript
+var workflow = Stepify()
+    .step("t1s1", fn)
+    .step("t1s2", fn)
+    .step("s")
+    .pend()
+    .step("t2s1", fn)
+    .step("t2s2", fn)
+    .step("s")
+    .error(fn)
+    .pend()
+    .step("t3s1", fn)
+    .step("t3s2", fn)
+    .pend()
+    .s(fn)
+    .error(fn)
+    .result(fn)
+    .run();
+```
+
+是不是很神奇？s 并不是 stepify 内置的方法而是动态扩展出来的！
+
+那接下来又有个问题，t1 和 t2 都有执行两个 `step('s')`，那额外的参数怎么传递呢？奥妙之处在于 step 函数，它后面还可以跟其他参数，表示在我们定义所有 task 之前就已经知道的变量（我叫它⎡静态参数⎦），还有任务执行过程中，如果上一个 step 的输出怎么传递给下一个 step 呢？答案是 [next](https://github.com/chemdemo/node-stepify#next) 或者 [done](https://github.com/chemdemo/node-stepify#done)，具体可以参考 api，`s(fn)`只是定义一个函数体，通过静态参数和动态参数结合，可以实现不同的操作。
+
+这还没完，我们都听过一句话，叫做 “条条大路通罗马（All roads lead to Rome）”，解决问题的方式往往有多种。上面这个例子，假如外部条件变了，task1 和 task2 它们的执行互不影响，task3 的执行需要依赖 task1 和 task2 的结果，即 task1 和 task2 可以并行，这样子怎么实现呢？
+
+很简单，奥妙在 run 方法：
+
+    run(['t1', 't2'], 't3');
+
+把 t1 和 t2 放到数组中，它们便是并行执行！同理，可以变出很多种组合来。
+
+至于很多人问的和 async 的区别和优势，这不是一两句话解释的清楚的，设计理念不同，二者并不冲突，async 在并发控制上面很优秀，而 stepify 则重在流程控制，里面也有简单的 [parallel](https://github.com/chemdemo/node-stepify#parallel) 支持。
+
+可以看到，一个复杂的工作流，通过 stepify 定制，每一步都是那么清晰可读！
+
+欢迎选用，如果遇到 bug 请提交到[这里](https://github.com/chemdemo/node-stepify/issues)，也欢迎 pull request。
 
 
 <!-- {% endraw %} - for jekyll -->

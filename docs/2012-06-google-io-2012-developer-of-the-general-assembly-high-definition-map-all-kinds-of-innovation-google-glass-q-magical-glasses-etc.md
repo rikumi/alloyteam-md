@@ -280,5 +280,332 @@ Play 介绍完毕，接下来是 Nexus 硬件系列。Hugo 回到了台上
 
 引入了这么多内容，那么用什么合适的设备来消费呢？华硕没有悬念地成为了下一代合作方
 
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111716lec.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111716lec.jpg)
+
+我们与 ASUS 合作，推出了 Nexus 7
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/11171650l.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/11171650l.jpg)
+
+专为 Google Play 设计，运行 Android 4.1，它非常轻薄
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111717o5J.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111717o5J.jpg)
+
+1280\*800 的高清分辨率，集成 Nvidia 的 Tegra 3 四核处理器，12 核心的 GPU，重量仅有 340 克，你可以将其放在钱包里，非常合适。
+
+其他方面还有前置摄像头，重力感应，加速感应，9 小时的电池续航，Kindle 被完爆。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117177fN.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117177fN.jpg)
+
+随平板设备带来了大量的内容。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111718PFN.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111718PFN.jpg)
+
+Nexus 7 专为 Play 而生，你可以在上面消费各种内容
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111718p0D.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111718p0D.jpg)
+
+拥有一个专为平板优化过的阅读器，和 Kindle 一样，专为阅读设计，用来读书相当合适
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111720J0H.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111720J0H.jpg)
+
+杂志也拥有互动效果
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111720jad.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111720jad.jpg)
+
+继续演示平板的视频播放功能
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111721nz7.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111721nz7.jpg)
+
+开始介绍 Play Store 的各种推荐算法和功能
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111721n4h.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111721n4h.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111722oqB.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111722oqB.jpg)
+
+比如加入了一个 “这首歌是啥” 的插件，当你在外面听到一首歌，点一下这个插件就可以去 Play Store 购买了  
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111722WZF.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111722WZF.jpg)
+
+这是全球第一款将 Chrome 作为默认浏览器的设备，Youtube 也经过了完全的重新设计
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117230GN.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117230GN.jpg)
+
+3D 地图出现，自家设备当然要优先支持
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117272oD.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117272oD.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111728wJ0.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111728wJ0.jpg)
+
+支持离线，可以将地图保存在本地
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111730hB4.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111730hB4.jpg)
+
+先进的硬件可以让室内也可以实现导航
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111730TR4.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111730TR4.jpg)
+
+下面让我们来看看长期被冷落的 Currents
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111731zWQ.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111731zWQ.jpg)
+
+Currents 提供的各种内容将支持实时翻译  
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111731KEQ.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111731KEQ.jpg)
+
+突然转向演示游戏性能，正在演示 Horn 这款 3D 游戏，还有 Dead Trigger 游戏，看上去是第一人称射击类的
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117318v0.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117318v0.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111732jUX.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111732jUX.jpg)
+
+谁说移动设备就只能玩休闲游戏？
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111732mDX.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111732mDX.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111732oj9.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111732oj9.jpg)
+
+看了这么多演示，大家都在想我怎么搞到一台了吧？  
+今天就可以购买，199 刀！发货时间七月中旬，同时还附送 25 刀给你在 Play Store 里消费，再次完爆 Kindle 啊。
+
+现在的 Android 已经不仅仅是电话和平板了，更多设备正在使用 Android，例如 Nexus Q
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117325lO.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117325lO.jpg)
+
+这是我们第一款进军消费电子产品市场的作品
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111733Acc.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111733Acc.jpg)
+
+我们尝试制造一个让人无法想象，强大而神秘的设备
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117356ag.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117356ag.jpg)
+
+一个球……
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/11173647c.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/11173647c.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111738Hkt.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111738Hkt.jpg)
+
+线路板
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111740rej.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111740rej.jpg)
+
+Nexus Q 是一个基于 Android 的微型电脑，
+
+你可以用 Q 来与你的 Android 手机、平板进行交互  
+Q 的 LED 灯会用不同颜色来与你交互。这看上去怎么像宠物小精灵啊
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111742LU0.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111742LU0.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111743UvI.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111743UvI.jpg)
+
+就是这个球，Q 将是你家庭生活的中心，
+
+它接入电视和音响，永远在线，你可以用手机和平板去控制它，我们想制造一些不同的东西，而不是一个黑盒子
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111745zxa.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111745zxa.jpg)
+
+支持双路 Wi-Fi 和以太网接口，与 Galaxy Nexus 同样的芯片，功耗仅 25W，我们鼓励大家来改造它
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117467YG.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1117467YG.jpg)
+
+这就是一款与 Apple TV 全面竞争的产品嘛
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111747CcT.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111747CcT.jpg)
+
+我们希望听音体验更加完美，我们加入了各种可视化组件，你可以在电视上看到这些炫酷的效果，同时它还是一个会社交的媒体设备。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111749SJ5.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111749SJ5.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111751Jvg.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111751Jvg.jpg)
+
+台上一堆 Geek 开始用 Android 设备分享歌曲（总觉的很悲凉的老男孩的感觉）
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111753qkS.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111753qkS.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111819gD5.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111819gD5.jpg)
+
+大家可以坐在一起用自己手上的设备创建一个播放列表出来
+
+你还能把你的电影通过 Cloud 带到朋友家里去看
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111823eGp.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111823eGp.jpg)
+
+如果你留心苹果这半年来的表现，可以看出今天 Google 发布的产品都是对苹果的针锋相对，没有新的创意，但在细节上都做得很到位，可以和苹果直接竞争。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111825aPz.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111825aPz.jpg)
+
+Nexus Q 299 美元定价，Apple TV 才 99 刀……
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1118286AK.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1118286AK.jpg)
+
+硬件发布到此结束
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111830Fwq.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111830Fwq.jpg)
+
+Google + 环节
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1118323Mq.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1118323Mq.jpg)
+
+去年一年，2.5 亿人到访 Google+，1.5 亿人每月处于活跃状态，50% 每日登录，而且逗留 12 分钟以上，不久前这一数据只有 9 分钟。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1118348uk.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1118348uk.jpg)
+
+公布面向平板的 Google+
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111835TNj.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111835TNj.jpg)
+
+hangouts 特性，悬挂头像 一目了然。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111838PoD.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111838PoD.jpg)
+
+为 iPad 用户特别开发的画廊功能
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111840ogD.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111840ogD.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/11184152R.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/11184152R.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111843UGD.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111843UGD.jpg)
+
+也支持 Android 手机
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1118485xu.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1118485xu.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111849XEO.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111849XEO.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111851R5k.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111851R5k.jpg)  
+深度整合了 Google 日历，让你在社交网络中看到自己要做的事情
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111853VN1.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111853VN1.jpg)  
+Cinemagraphs，幻灯形式更便捷查看好友的图像
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111858BaM.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111858BaM.jpg)
+
+支持主题更换
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111903kFp.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111903kFp.jpg)
+
+戴上帽子 迎接 Party Mode
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111906kWk.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111906kWk.jpg)
+
+派对模式进行中，参与好友的内容都会被收集起来
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111908PwN.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111908PwN.jpg)
+
+Google Events 将再次施展搜索引擎的智能魔力，将相关事物的社交网络内容整合到一起
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111910xpq.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111910xpq.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111914K8d.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111914K8d.jpg)
+
+图例，与一位好友婚礼有关的不同角度，不同细节可以全景展示
+
+欢迎 Sergey，毫无疑问地他戴着眼镜，这已经成了高管的标志了。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111915J1A.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111915J1A.jpg)
+
+Sergey 问道，谁想戴这个眼镜？眼镜里到底有什么？现在就给大家看
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111917LPi.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111917LPi.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111918qwu.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111918qwu.jpg)
+
+这是在不久前拍摄到的场景，Live Glass 实现了视觉上的虚拟现实，现场一片呼声
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111920ZmT.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111920ZmT.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111921cKQ.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111921cKQ.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111924VMz.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111924VMz.jpg)
+
+谢尔盖・布林通过 Google Glass 和飞机上的跳伞者进行了通话，跳伞者在降落过程中使用 Google Glass 拍摄了多张极具震撼力的照片，最后定点降落于大会会场楼顶。  
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111926xYZ.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111926xYZ.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1119286bE.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1119286bE.jpg)
+
+降落伞打开
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111929m3m.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111929m3m.jpg)
+
+成功着陆
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111931z46.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111931z46.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1119340P0.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1119340P0.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111935k5G.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111935k5G.jpg)
+
+参与拍摄的人员亮相
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111936MTY.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111936MTY.jpg)
+
+神奇眼镜设计人员亮相
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111940QEf.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111940QEf.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1119509vY.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1119509vY.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1119582bM.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1119582bM.jpg)
+
+Google Glass 开发者介绍称，该计划启动于两年半之前，设备由摄像机、处理器、传感器等组成。目前最新的 Google Glass 原型机甚至比很多太阳镜还要轻，显示器离眼睛很近，但并不会遮挡正常视线。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111959rOS.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/111959rOS.jpg)
+
+效果可以达到这样
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112001Yo7.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112001Yo7.jpg)
+
+也并不是很影响外形
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112002s9q.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112002s9q.jpg)
+
+实现虚拟网球场
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112003woU.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112003woU.jpg)
+
+可以捕捉一个场景，也可以让真实世界变得更奇幻
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112004dG2.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112004dG2.jpg)
+
+第一人称包饺子
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112005a4J.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112005a4J.jpg)
+
+看牙医
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112006Lty.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112006Lty.jpg)
+
+雨中行走，注意伞会把你拉回现实
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1120067OL.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/1120067OL.jpg)
+
+用眼镜要远比智能手机来的直观，它能快速访问信息，Google 邀请开发者决定将什么内容展示给神奇眼镜用户。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112007xZ9.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112007xZ9.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112007cxk.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112007cxk.jpg)
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112008sXx.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112008sXx.jpg)
+
+妈妈看孩子的视角可以前所未有地不一样
+
+Sergey 表示很满意自己目前的眼镜，可以捕捉和共享很多令人兴奋的东西。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112008KIZ.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112008KIZ.jpg)
+
+不是吧…… 面向美国的开发者限量发售
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112009sYh.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112009sYh.jpg)
+
+预购价格 $1500，明年才能拿到货
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112010zJ8.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112010zJ8.jpg)
+
+到最后离场的时候，之前说 “没有硬件产品送” 的玩笑算是开到头了，6000 个与会者每人赠送 Galaxy Nexus 以及 Nexus 7 平板一台，当然还有 Nexus Q，也是参与者先用到的。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112010jrH.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112010jrH.jpg)
+
+发布会进入回放环节，本次发布会时间长达 2 小时多，感谢各位的熬夜观看。
+
+![http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112011U5C.jpg](http://www.alloyteam.com/wp-content/uploads/auto_save_image/2012/06/112011U5C.jpg)
+
 
 <!-- {% endraw %} - for jekyll -->

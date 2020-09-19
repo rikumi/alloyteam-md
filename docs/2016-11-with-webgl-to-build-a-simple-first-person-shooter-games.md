@@ -133,10 +133,236 @@ lookAt 功能如其名，用来确认 3D 世界中的摄像机方向（操作视
 
 ```javascript
 var camera = {
-    rx: 0,
-    ry: 0,
-    mx: 
+    rx: 0,
+    ry: 0,
+    mx: 0,
+    my: 0,
+    mz: 0,
+    toMatrix: function () {
+        var rx = this.rx;
+        var ry = this.ry;
+        var mx = this.mx;
+        var my = this.my;
+        var mz = this.mz;
+        var F = normalize3D([
+            Math.sin(rx) * Math.cos(ry),
+            Math.sin(ry),
+            -Math.cos(rx) * Math.cos(ry),
+        ]);
+        var x = F[0];
+        var z = F[2];
+        var angle = getAngle([0, -1], [x, z]);
+        var R = [Math.cos(angle), 0, Math.sin(angle)];
+        var U = cross3D(R, F);
+        F[0] = -F[0];
+        F[1] = -F[1];
+        F[2] = -F[2];
+        var s = [];
+        s.push(R[0], U[0], F[0], 0);
+        s.push(R[1], U[1], F[1], 0);
+        s.push(R[2], U[2], F[2], 0);
+        s.push(0, 0, 0, 1);
+        return s;
+    },
+};
 ```
+
+这里封装了一个简单的 camera 对象，里面有 rx 对应鼠标在 X 方向上的移动，ry 对应鼠标在 Y 方向上的移动，这个我们可以通过监听鼠标在 canvas 上的事件轻松得出。
+
+```javascript
+var mouse = {
+    x: oC.width / 2,
+    y: oC.height / 2,
+};
+oC.addEventListener(
+    "mousedown",
+    function (e) {
+        if (!level.isStart) {
+            level.isStart = true;
+            level.start();
+        }
+        oC.requestPointerLock();
+    },
+    false
+);
+oC.addEventListener(
+    "mousemove",
+    function (event) {
+        if (document.pointerLockElement) {
+            camera.rx += event.movementX / 200;
+            camera.ry += -event.movementY / 200;
+        }
+        if (camera.ry >= Math.PI / 2) {
+            camera.ry = Math.PI / 2;
+        } else if (camera.ry <= -Math.PI / 2) {
+            camera.ry = -Math.PI / 2;
+        }
+    },
+    false
+);
+```
+
+lockMouse+momentX/Y 对于游戏开发来说是真的好用啊！！否则自己来写超级蛋疼还可能会有点问题，安利一大家一波，用法也很简单。
+
+鼠标在 X 方向上的移动，在 3D 空间中，其实就是围绕 Y 轴的旋转；鼠标在 Y 方向上的移动，其实就是围绕 X 轴的旋转，这个应该可以脑补出来吧
+
+那么问题来了，围绕 Z 轴的旋转呢？？这里我没有考虑围绕 Z 轴的旋转啊，因为游戏没用到嘛，第一人称射击的游戏很少会有围绕 Z 轴旋转的场景吧，那个一般是治疗颈椎病用的。虽然不考虑，但是原理都是一样的，可以推出来，有兴趣的小伙伴可以自己研究下。
+
+我们将 rx 和 ry 拆看来看，首先就只看 rx 对初始视线 (0, 0, -1) 的影响，经过三角函数的变换之后应该是 **( Math.sin(rx), 0, -Math.cos(rx) )**，这里就不画图解释了，三角函数基本知识
+
+然后再考虑 **( Math.sin(rx), 0, -Math.cos(rx) )**经过了 ry 的变换会如何，其实就是将 **( Math.sin(rx), 0, -Math.cos(rx) )**与 ry 的变化映射到 y-z 坐标系上面，再用三角函数知识得出 **( Math.sin(rx)\*Math.cos(ry), Math.sin(ry), -Math.cos(rx) \* Math.cos(ry) )**
+
+一时理解不了的同学可以闭上眼睛好好脑部一下变换的画面……
+
+经过这两步最终我们得到了经过变换之后的视线方向 F（少了 Z 轴方向的旋转，其实就是再多一步），也就是 lookAt 函数中的前两个函数得出来的值，然后再计算一个值就 ok 了，代码中我们求的是 X 轴的正方向
+
+代码在刚刚封装的 camera 中是这几行
+
+```javascript
+var x = F[0];
+var z = F[2];
+var angle = getAngle([0, -1], [x, z]);
+```
+
+angle 得出了最终的视角方向（-Z）和最初视线方向在 x-z 坐标系中的偏转角，因为是 x-z 坐标系，所以最初的 X 正方向和最终的 X 正方向偏移角也是 angle
+
+```javascript
+function getAngle(A, B) {
+    if (B[0] === 0 && A[0] === 0) {
+        return 0;
+    }
+    var diffX = B[0] - A[0];
+    var diffY = B[1] - A[1];
+    var a = A[0] * B[0] + A[1] * B[1];
+    var b = Math.sqrt(A[0] * A[0] + A[1] * A[1]);
+    var c = Math.sqrt(B[0] * B[0] + B[1] * B[1]);
+    return (B[0] / Math.abs(B[0])) * Math.acos(a / b / c);
+}
+```
+
+通过简单的三角函数得到了最终 X 轴的正方向 R（注意：没考虑围绕 Z 轴的旋转，否则要繁琐一些）
+
+再用叉积得到了最终 Z 轴的正方向 U，然后不要忘记，之前 F 是视线方向，也就是 Z 轴正方向的相反方向，所以取反操作不要忘了
+
+R、U、-F 都得到了，也就得到了最终的 VM 视图矩阵！
+
+其实吧，在没有平移的情况下，视图矩阵和模型变换矩阵也就是旋转方向不一致，所以以上的知识也可以用在推导模型变换矩阵里面。就算带上了平移也不麻烦，牢记**模型变换矩阵需要先平移、再旋转，而视图变换矩阵是先旋转、再平移**
+
+游戏中摄像机相关的知识就先讲到这里了，如果有不明白的同学可以留言讨论。
+
+当然这不是唯一的方法，simpleFire 这里没有考虑平移，不考虑平移的情况下，其实就是最终就是要生成一个 3 维旋转矩阵，只不过使用的是一种逆推的方法。此外还有一些欧拉角、依次 2 维旋转等等方式，都可以得到结果。不过这些都比较依赖矩阵和三角函数数学知识，是不是现在无比的怀恋当年的数学老师……
+
+**3、命中检测**
+
+我们玩转了摄像头，然后就是开枪了，开枪本身很简单，但是得考虑到枪有没有打中人呀，这可是关于到用户得分甚至是敌我的死活。
+
+我们要做的工作是判断子弹有没有击中目标，听起来像是碰撞检测有没有！来，回忆一下在 2D 中的碰撞检测，我们的检测都是按照 AABB 的方式检测的，也就是**基于对象的包围框**（对象 top、left、width、height）形成，然后坐标（x, y）与其计算来判断碰撞情况。这种方法有一个缺陷，就是**非矩形的检测可能有误差**，比如圆、三角形等等，毕竟包围框是矩形的嘛。dntzhang 所开发出的 AlloyPage 游戏引擎中有画家算法完美的解决了这个缺陷，将检测粒度由对象变成了像素，感兴趣的同学可以去研究一下～这里暂且不提，我们说的是 3D 检测
+
+仔细想想 3D 世界中的物体也有包围框啊，更确切的说是**包围盒**，这样说来应该也可以用 2D 中 AABB 方式来检测啊。
+
+确实可以，只要我们将触发鼠标事件得到的（x, y）坐标经过各种变换矩阵转换为 3D 世界中的坐标，然后和模型进行包围盒检测，也可以得到碰撞的结果。对开发者来说挺麻烦的，对 CPU 来说就更麻烦了，这里的计算量实在是太大了，如果世界中只有一两个物体还好，如果有一大票物体，那检测的计算量实在是太大了，很不可取。有没有更好的方法？
+
+有，刚刚那种方式，是将 2D 中（x, y）经过矩阵转换到 3D 世界，还有一种方式，将 3D 世界中的东西转换到 2D 平面中来，这便是帧缓冲技术。帧缓冲可是一个好东西，**3D 世界中的阴影也得靠它来实现。**
+
+这里用一句话来直观的介绍帧缓冲给不了解的同学：将需要绘制在屏幕上的图像，**更加灵活处理的后**绘制在内存中
+
+如图对比一下 simpleFire 中的帧缓冲图像是什么样的
+
+[![11](http://www.alloyteam.com/wp-content/uploads/2016/11/11-300x190.png)](http://www.alloyteam.com/wp-content/uploads/2016/11/11.png)正常游戏画面
+
+[![12](http://www.alloyteam.com/wp-content/uploads/2016/11/12-300x179.png)](http://www.alloyteam.com/wp-content/uploads/2016/11/12.png)帧缓冲下的画面
+
+发现整个世界中只有靶子有颜色对不对！这样我们读取帧缓冲图像中某个点的 rgba 值，就知道对应的点是不是在靶子上了！实现了坐标碰撞检测！
+
+之前说的更加灵活的处理，就是指渲染时对各个模型颜色的处理
+
+检测代码如下：
+
+```javascript
+oC.onclick = function(e) {
+    if(gun.firing) {
+        return ;
+    }
+    gun.fire();
+ 
+    var x = width / 2;
+    var y = height / 2;
+    
+    webgl.uniform1i(uIsFrame, true);
+    webgl.bindFramebuffer(webgl.FRAMEBUFFER, framebuffer);
+    webgl.clear(webgl.COLOR_BUFFER_BIT | webgl.DEPTH_BUFFER_BIT);
+ 
+    targets.drawFrame();
+ 
+    var readout = new Uint8Array(1*1*4);
+ 
+    // webgl.bindFramebuffer(webgl.FRAMEBUFFER, framebuffer);
+    webgl.readPixels(x, y, 1, 1, webgl.RGBA, webgl.UNSIGNED_BYTE, readout);
+    webgl.bindFramebuffer(webgl.FRAMEBUFFER, null);
+ 
+    targets.check(readout);
+ 
+    webgl.uniform1i(uIsFrame, false);
+};
+ 
+/* targets下的check方法 */
+check: function(arr) {
+    var r = '' + Math.floor(arr[0] / 255 * 100);
+    var g = '' + Math.floor(arr[1] / 255 * 100);
+    var b = '' + Math.floor(arr[2] / 255 * 100);
+    var i;
+    var id;
+ 
+    for(i = 0; i < this.ids.length; i++) {
+        if(Math.abs(this.ids[i][0] - r) <= 1 && Math.abs(this.ids[i][1] - g) <= 1 && Math.abs(this.ids[i][2] - b) <= 1) {
+            console.log('命中!');
+            id = this.ids[i][0] + this.ids[i][1] + this.ids[i][2];
+            this[id].leave();
+            score.add(1);
+            level.check();
+            break ;
+        }
+    }
+}
+```
+
+而且这个方法很快，计算量都在 GPU 里面，这种数学计算的效率 GPU 是比 CPU 快的，GPU 还是并行的！那传统的 AABB 法还有存在的意义么？
+
+其实是有的，因为**精确**，可以在包围盒中计算得到具体的碰撞点位置，这是帧缓冲法所达不到的
+
+举个例子，第一人称射击游戏中的爆头行为，可以在帧缓冲中将人物模型中身体和头用不同颜色区分出来，这样可以检测出碰撞的是头还是身体。这种情景下帧缓冲方法还 hold 住
+
+那如果是想得到打靶中具体的位置，留下子弹的痕迹呢？这里帧缓冲方法就死也做不到了。
+
+最佳实践就是在**需要高精度复杂场景下的**碰撞检测可以将两种方法结合使用：**用帧缓冲去掉多余的物体，减少传统 AABB 法的计算量，最终得到具体位置。**
+
+simpleFire 这里就没这么折腾了…… 只要射到靶上打哪都是得分～～～
+
+**4、碎碎念**
+
+关于 simpleFire 想讲的东西也就讲完了，本身也没有什么技术难点，文章的最后一节也聊一聊关于 webgl
+
+之前已经说了与 canvas 之间的区别，是从计算机层面的区别，这里说一下对于开发者的区别：
+
+canvas2D 是一块画布，在画布上作画，画中的东西一定是虚拟的
+
+webgl 是一个世界，你要在世界中创造，但也要满足世界的规则
+
+这比喻有点夸大，都牵扯到了世界的规则。但事实就是如此，webgl 比 canvas2D 复杂，而很大一块复杂的地方就是世界的规则 ——  光与阴影
+
+这两块知识 3D 迷宫和 simpleFire 都没有用上，因为这应该是**静态** 3D 中最难啃的骨头了吧。说难吧，知道原理之后也不难，但就是恶心麻烦，加上光和阴影得多很多很多的代码。后面会详细讲解光和阴影相关知识的，也是用小游戏的方式。写一篇纯原理的文章感觉没啥意思，知识点一搜能搜到很多了
+
+不看动画，纯看静态渲染方面的东西，2D 和 3D 也就差不多，需要位置信息、颜色信息，平移旋转等等，3D 也就是加上了光和阴影这样的世界规则，比 2D 还多了一些数学知识的要求
+
+所以 webgl 并不难～欢迎更多的人来到 webgl 的坑中来吧，但是推荐入坑的同学不要开始就过于依赖 three、oak3D、PhiloGL 等图形库，还是从原生入手比较好
+
+文章对 simpleFire 代码讲解的不是很多，源码也贴出来了，100% 原生 webgl 的写法，看起来应该也不是很难
+
+结语：
+
+下次带来的不一定是 3D 小游戏，3D 小游戏写起来还是挺累的，素材什么的比 2D 麻烦很多
+
+这篇文章也就到此结束啦，写的好累 T_T。。有问题和建议的小伙伴欢迎留言一起探讨～
 
 
 <!-- {% endraw %} - for jekyll -->

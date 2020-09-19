@@ -129,7 +129,166 @@ mixin 的作用是在实例化 Vue 的时候混入一些功能，它可以混入
 
 ![](http://7tszky.com1.z0.glb.clouddn.com/FgjhliZsMCdcS4m8qgaG_s-R46tz)
 
-这个 mixin 混入了两个方法，多个 Vue 实例共享的 options 可以放置到 mixin 中，从而避免了代码重，比如在实例化 Vue 的时候这样使用 mixin：
+这个 mixin 混入了两个方法，多个 Vue 实例共享的 options 可以放置到 mixin 中，从而避免了代码重，比如在实例化 Vue 的时候这样使用 mixin：  
+![](http://7tszky.com1.z0.glb.clouddn.com/FjbdQAd69MgckMGxyhtIJQDF3UIH)
+
+可以看到 mixin 是个数组，因此可以同时使用多个 mixin
+
+实际上这里的 mixin 主要不是为了避免代码重复（实践的时候只是这样用），mixin 是一种模式，一个 mixin 内聚了实现一项功能的方法 / 属性集合，在定义 / 生成实例的时候，通过混入 mixin 就可以让该实例拥有某项功能，归根结底是组合 vs 继承问题的产物
+
+### 2.3 vue 组件插入问题
+
+#### 2.3.1 首屏
+
+对于首屏的 vue 组件，直接把模板放在主页面中即可，初始化的时候只需要把 el 参数传入，Vue 就会用 el 的 html 作为模板来初始化 Vue 实例:
+
+![](http://7tszky.com1.z0.glb.clouddn.com/FhnYXU-4Z7dDeo5QY2Dp9YD1SrKQ)
+
+这里需要注意的是在模板中不能使用 {{}}，否则在还没初始化之前，页面会显示奇怪的东西，比如：
+
+```html
+<p>hello, {{name}}</p>      <!--初始化前，页面会直接展示hello, {{name}}-->
+<img src=<span class="string">"{{imgSrc}}"</span> />    <!--初始化前，会报错，can not find http:<span class="comment">//xxx.com/{{imgSrc}}--></span>
+ 
+<!--正确的写法：-->
+<p v-text=<span class="string">"'hello, '+name"</span>>hello</p>
+<img v-attr=<span class="string">"src: imgSrc"</span> />
+ 
+```
+
+> {{}} 只是一个语法糖，不建议使用
+
+#### 2.3.2 非首屏
+
+对于非首屏的组件，使用 vue 的方式和原始方式差不多，先生成节点，然后 append，譬如：
+
+![](http://7tszky.com1.z0.glb.clouddn.com/Fg9RtoHKgA3m9V1a1Rcy8vKtv1wa)
+
+el 参数可以接收 query string，也可以直接是一个 dom 节点，如果是 dom 节点则直接编译 dom 的内容。如果 dom 节点不在文档树中，则利用 vueObj.$appendTo 方法将 vue 实例的根节点插入到文档树中
+
+上面这种方式是在页面中没有组件的【坑】的情况下使用的，如果页面为组件留了【坑】，比如：
+
+```html
+<section <span class="keyword">class</span>=<span class="string">"hotRecord"</span> id=<span class="string">"js-hotRecord"</span>></section>
+ 
+```
+
+那么，我们可以这样初始化 vue 实例：
+
+![](http://7tszky.com1.z0.glb.clouddn.com/FucpdRp10isif1qKH7l_ZfHo2tUH)
+
+利用 template 参数传入模板，并指定 el，那么 vue 实例在初始化之后就会自动把内容插入到 el 中
+
+> 通过 vue 实现组件的主要核心也就这些，更方便的组件写法也只是对这些进行封装
+
+### 2.4 自定义 directive
+
+在 vue 中自定义 directive 是非常简单明了的，要自定义一个 directive，可以注册 3 个钩子函数：
+
+-   bind：仅调用一次，当指令第一次绑定元素的时候。
+-   update：第一次调用是在 bind 之后，用的是初始值；以后每当绑定的值发生变化就会被调用，新值与旧值作为参数。
+-   unbind：仅调用一次，当指令解绑元素的时候。
+
+下面简单介绍一个自定义 directive——lazyload：
+
+```html
+<span class="keyword">function</span> addSrc(){}
+<span class="keyword">function</span> load(){}
+ 
+module.exports = {
+    bind: <span class="keyword">function</span>() {
+        <span class="keyword">if</span> (!hasBind) { <span class="comment">//全局事件只绑定一次</span>
+            hasBind = <span class="keyword">true</span>;
+            (document.querySelector(<span class="string">'.z-scroller'</span>) || window).addEventListener(<span class="string">'scroll'</span>, T.debounce(load, <span class="number">100</span>), <span class="keyword">false</span>);
+        }
+        <span class="comment">//这里也可以使用data属性来获取</span>
+        <span class="keyword">var</span> defaultSrc = <span class="keyword">this</span>.el.getAttribute(<span class="string">'data-defaultsrc'</span>);
+        <span class="keyword">if</span> (defaultSrc) addSrc(<span class="keyword">this</span>.el, defaultSrc);    <span class="comment">//先使用默认图片</span>
+    },
+    update: <span class="keyword">function</span>(src) {
+        <span class="comment">//directive初始化时，会调用一次bind和update，bind没有传入src，只有update才会传入src</span>
+        <span class="comment">//因此只能在update这里拿到需要lazyload的src</span>
+        <span class="comment">//lazyload不允许修改src，这里限制只会执行一次update，防止src被修改造成的影响</span>
+        <span class="comment">//注：接受src改变可以实现，只是需要一些复杂的处理，这里为了简单起见不让src改变</span>
+        <span class="keyword">if</span> (<span class="keyword">this</span>.init) <span class="keyword">return</span>;  
+        <span class="keyword">this</span>.init = <span class="keyword">true</span>;
+ 
+        <span class="comment">//如果图片已经加载了，就不需要注册了，这里也可以使用data属性来区分</span>
+        <span class="keyword">var</span> isLoad = parseInt(<span class="keyword">this</span>.el.getAttribute(<span class="string">'data-isload'</span>));
+        <span class="keyword">if</span> (isLoad) <span class="keyword">return</span>;
+ 
+        <span class="comment">//注册需要lazyload的图片</span>
+        <span class="keyword">list</span>[index++] = <span class="keyword">this</span>;
+        <span class="keyword">list</span>[index++] = src;
+    }
+    <span class="comment">//这里有一个最大的问题：由于有local的存在，会创建两个一模一样的lazyload directive</span>
+    <span class="comment">//按理说应该定义一个unbind，但是在unbind中找到并除掉local创建出来的lazyload directive会比较麻烦</span>
+    <span class="comment">//因此在load函数里面做了一个处理：如果发现需要lazyload的节点不在文档树中，则剔除掉这个lazyload</span>
+    <span class="comment">//通过这个直接省掉了unbind函数</span>
+};
+ 
+```
+
+自定义 filter 也很简单，只是定义一个处理函数而已，这里就不多介绍了
+
+### 2.5 实践过程中的痛点与小技巧
+
+#### 2.5.1 没有事件代理
+
+用习惯了事件代理，突然没有了会有点不习惯，但是回头想想，事件代理真的很重要吗？还是说我们只是习惯了事件代理而已？
+
+通过 vue 注册相同的事件并不费事。另一个问题，只要事件不多，大约不超过 50，100，也不至于耗掉很大的内存，因此有时候还真不需要事件代理。如果真的需要，也只是实现一个 contain 方法而已
+
+#### 2.5.2 没有 if-else 的奇怪
+
+最初看到下面的代码真的会觉得很奇怪
+
+```html
+<h3 v-<span class="keyword">if</span>=<span class="string">"hasTitle"</span>>xxx</h3>
+<p v-<span class="keyword">if</span>=<span class="string">"!hasTitle"</span>>xxx</p>
+ 
+```
+
+#### 2.5.3 单值
+
+虽然 vue 有语法解析器，可以在 directive 的值中使用表达式，但是当出现一个复杂的表达式时，会污染模板，让代码可读性变得很差，又或者，表达式完成不了这个任务的时候。
+
+因此，在 mvvm 实践的过程中，深深地发现，利用单值（最多只用一个？: 表达式）来写模板会让代码变得很清晰，更加可读，增加代码的可维护性，而且这也更符合 mvvm 的核心思想：f (state) = view
+
+有些库连语法解析器都没有，比如 q，但也能很好的工作。
+
+那么，复杂的操作放在哪里呢？
+
+-   对于不会变的值来说，也就是常量，要在初始化之前完成处理
+-   对于会变的值来说，把复杂的操作放在 filter 里面，在 filter 里面不仅可以进行复杂处理，甚至可以同时应用到其他字段，这不完全等同于 computed attribute
+
+#### 2.5.4 替代 $(document).on
+
+用 jquery/zepto 的时候，习惯了用 $(document).on 来充当一个全局的事件代理，在使用 vue 的时候，需要抛弃 zepto，因此需要解决这个问题
+
+因为 vue 实例本身就有 event 功能，因此这里解决的办法是创建一个全局的空 vue 对象，把它作为全局的事件代理：
+
+```html
+<span class="comment">//common/vue/vue.ext.js 回头看前面对该文件的介绍可以看到这句</span>
+Vue.noopVue = <span class="keyword">new</span> Vue({});
+ 
+<span class="comment">//a.js</span>
+Vue.noopVue.<span class="variable">$on</span>(<span class="string">'someEvent'</span>, <span class="keyword">function</span>() {});
+ 
+<span class="comment">//b.js</span>
+Vue.noopVue.<span class="variable">$emit</span>(<span class="string">'someEvent'</span>, [opts]);
+ 
+```
+
+## 3 总结
+
+虽然，最后在付出产出比权衡中放弃了对现有项目的 vue 改造，但是这并不妨碍我们研究 mvvm 类框架
+
+mvvm 模式还是值得我们去深入学习的，而在实践中，我们也能学习到许多
+
+用一种不一样的思想和思维去开发的体验也会令我们在看待问题，处理问题的道路上有所收获
+
+最后，期待 q 的发展，我已经整装待发了哟
 
 
 <!-- {% endraw %} - for jekyll -->

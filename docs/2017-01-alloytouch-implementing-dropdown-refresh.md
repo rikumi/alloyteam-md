@@ -99,5 +99,78 @@ loading 效果使用 SVG 去实现，利用 12 个 rect 的 indefinite animate �
 
 * * *
 
+```javascript
+var scroller = document.querySelector("#scroller"),
+    arrow = document.querySelector("#arrow"),
+    pull_refresh = document.querySelector("#pull_refresh"),
+    list = document.querySelector("#list"),
+    index = 0;
+//给pull_refresh注入transform属性并且关闭透视投影
+Transform(pull_refresh, true);
+//给scroller注入transform属性并且关闭透视投影
+Transform(scroller, true);
+new AlloyTouch({
+    touch: "#wrapper",
+    target: scroller,
+    property: "translateY",
+    initialVaule: 0,
+    min: window.innerHeight - 45 - 48 - 2000,
+    max: 0,
+    change: function (value) {
+        //pull_refresh的translateY由scroller的value决定，所以向下拉scroller的时候，可以拉动pull_refresh
+        pull_refresh.translateY = value;
+    },
+    touchMove: function (evt, value) {
+        if (value > 70) {
+            //当下拉到达70px的时候下箭头变成上箭头并且修改wording
+            //为了代码简洁，直接使用classList
+            //http://caniuse.com/#search=classList
+            //下箭头变成上箭头并且修改wording
+            arrow.classList.add("arrow_up");
+        } else {
+            //当下拉未到达70px上箭头变成下箭头并且修改wording
+            arrow.classList.remove("arrow_up");
+        }
+    },
+    touchEnd: function (evt, value) {
+        if (value > 70) {
+            //运动到60px的地方，用来显示loading
+            this.to(60); //模拟请求~~~
+            mockRequest(this); //return false很重要，用来防止执行alloytouch内部超出边界的回弹和惯性运动
+            return false;
+        }
+    },
+});
+//模拟请求~~~
+function mockRequest(at) {
+    //显示loading~~
+    pull_refresh.classList.add("refreshing"); //模拟cgi请求
+    setTimeout(function () {
+        var i = 0,
+            len = 3;
+        for (; i < len; i++) {
+            var li = document.createElement("li");
+            li.innerHTML = "new row " + index++;
+            list.insertBefore(li, list.firstChild);
+        } //重置下拉箭头和wording
+        arrow.classList.remove("arrow_up"); //移除loading
+        pull_refresh.classList.remove("refreshing"); //回到初始值
+        at.to(at.initialVaule); //由于加了三个li，每个li高度为40，所以min要变得更小
+        at.min -= 40 * 3;
+    }, 500);
+}
+```
+
+不废话，都在注释里。
+
+开始 AlloyTouch  
+
+* * *
+
+Github：<https://github.com/AlloyTeam/AlloyTouch>
+
+任何意见和建议欢迎 [new issue](https://github.com/AlloyTeam/AlloyTouch/issues)，AlloyTouch 团队会第一时间反馈。  
+
+
 
 <!-- {% endraw %} - for jekyll -->

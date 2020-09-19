@@ -319,5 +319,113 @@ AEditor 支持我们手动增加自定义的 css 属性（比较常用的例如 
 
 示例：
 
+[![45](http://www.alloyteam.com/wp-content/uploads/2015/06/45.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/45.png)[![46](http://www.alloyteam.com/wp-content/uploads/2015/06/46.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/46.png)
+
+全局精灵在两页间共存。
+
+**页面设置菜单：**
+
+右击页面区域，可设置页面背景以及翻页行为。
+
+[![47](http://www.alloyteam.com/wp-content/uploads/2015/06/47.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/47.png)
+
+**设置背景：**设置页面背景颜色或背景图，点击打开背景设置窗口：
+
+[![48](http://www.alloyteam.com/wp-content/uploads/2015/06/48.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/48.png)[![49](http://www.alloyteam.com/wp-content/uploads/2015/06/49.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/49.png)
+
+**翻页行为设置：**设置翻页时触发的事件名，点击打开翻页行为设置窗口，可设置自定义的翻页事件通知。
+
+[![50](http://www.alloyteam.com/wp-content/uploads/2015/06/50.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/50.png)
+
+### **其他模块：**
+
+**帐号登录 / 注销：**
+
+AEditor 需要使用 AlloyAccount 帐号系统进行登录：
+
+[![51](http://www.alloyteam.com/wp-content/uploads/2015/06/51.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/51.png)
+
+**图片管理：**
+
+对于每个用户，可以上传的最大图片容量是 2M，每个用户总可用空间是 10M。用户所有上传的图片可以在图片管理中查看并管理。
+
+[![52](http://www.alloyteam.com/wp-content/uploads/2015/06/52.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/52.png)
+
+[![53](http://www.alloyteam.com/wp-content/uploads/2015/06/53.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/53.png)
+
+### **二次开发**
+
+在 AEditor 上编辑并导出页面之后，可能还需要根据需求进行二次开发，这里介绍一下 AEditor 为方便二次开发提供的一些特性：
+
+**Loading 动画接口支持：**
+
+如果需要订制等待资源加载的 loading 界面，可以通过调用
+
+MainPage.setResourceLoadedCallback 接口，获取当前资源加载百分比并显示自定义 loading 动画。
+
+**示例：**
+
+打开 index.html 插入如下代码：
+
+Html：
+
+[![54](http://www.alloyteam.com/wp-content/uploads/2015/06/54.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/54.png)
+
+Css：
+
+[![55](http://www.alloyteam.com/wp-content/uploads/2015/06/55.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/55.png)
+
+Js：
+
+[![56](http://www.alloyteam.com/wp-content/uploads/2015/06/56.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/56.png)
+
+这样就可以在页面显示一个简单的自定义 loading 提示：
+
+[![57](http://www.alloyteam.com/wp-content/uploads/2015/06/57.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/57.png)
+
+**事件监听：**
+
+在 AEditor 中我们可以触发各种自定义事件，同样这些自定义事件也可以在代码中监听，因此我们可以利用事件机制增加各种行为，例如上报：
+
+[![58](http://www.alloyteam.com/wp-content/uploads/2015/06/58.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/58.png)
+
+以下是 AEditor 提供的一些默认事件：
+
+pageEnter (index): 开始进入某个页面的事件，例如 pageEnter1 为进入索引为 1 的页面的事件。
+
+pageEnterFinish (index): 已经进入某个页面的事件。
+
+pageLeave (index): 开始离开某个页面的事件。
+
+pageLeaveFinish (index): 已经离开某个页面的事件。
+
+pageAnimationFinish (index)：某一页动画播放完毕的事件。
+
+allSpriteAdded: 所有精灵已经被添加到页面的事件。
+
+**引入自定义 html：**
+
+AEditor 提供为容器元素引入自定义 html 内容的能力，例如我们在编辑器中新增了一图层元素，类名为 classA：
+
+[![59](http://www.alloyteam.com/wp-content/uploads/2015/06/59.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/59.png)
+
+在生成的 index.html 中，可以通过模版方式为元素填入自定义 html 内容。
+
+示例：
+
+命名 id 为 t_content + className 的模版，里面定义需要填充到 className 为 classA 的元素的 html 内容：
+
+Html:
+
+[![60](http://www.alloyteam.com/wp-content/uploads/2015/06/60.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/60.png)
+
+Css：
+
+[![61](http://www.alloyteam.com/wp-content/uploads/2015/06/61.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/61.png)
+
+最终播放的动画中，图层容器就拥有其自定义内容了：
+
+[![62](http://www.alloyteam.com/wp-content/uploads/2015/06/62.png)](http://www.alloyteam.com/wp-content/uploads/2015/06/62.png)
+
 
 <!-- {% endraw %} - for jekyll -->

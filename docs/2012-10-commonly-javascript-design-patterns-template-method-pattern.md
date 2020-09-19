@@ -60,8 +60,72 @@ Mammal.prototype.成长 = function(){
 Mammal.prototope.衰老 = function(){
   自由基的过氧化反应()
 }
-Life.prototype.死亡 = 
+Life.prototype.死亡 = function(){
+ //再留给子类去实现
+}
+//再实现一个Dog类
+var = Dog = function(){
+}
+//Dog继承自哺乳动物.
+Dog.prototype = Mammal.prototype;
+var dog = new Dog();
+dog.init();
 ```
+
+至此，一只小狗的生命会依次经历 DNA 复制，出生，成长，衰老，死亡这几个过程。这些步骤早在它出生前就决定了。所幸的是，上帝没有安排好它生命的所有细节。它还是能通过对成长函数的重写，来成为一只与众不同的小狗。
+
+举个稍微现实点的例子，游戏大厅中的所有游戏都有登录，游戏中，游戏结束这几个过程，而登录和游戏结束之后弹出提示这些函数都是应该公用的。  
+那么首先需要的是一个父类。
+
+```javascript
+var gameCenter = function () {};
+gameCenter.ptototype.init = function () {
+    this.login();
+    this.gameStart();
+    this.end();
+};
+gameCenter.prototype.login = function () {
+    //do something
+};
+gameCenter.prototype.gameStart = function () {
+    //空函数, 留给子类去重写
+};
+gameCenter.prototype.end = function () {
+    alert("欢迎下次再来玩");
+};
+```
+
+接下来创建一个斗地主的新游戏，只需要继承 gameCenter 然后重写它的 gameStart 函数.
+
+```javascript
+var 斗地主 = function () {};
+斗地主.prototype = gameCenter.prototype; //继承
+斗地主.prototype.gameStart = (function () {
+    //do something
+})(new 斗地主()).init();
+```
+
+这样一局新的游戏就开始了.
+
+## \[目录]
+
+-   [单例模式](http://www.alloyteam.com/2012/10/common-javascript-design-patterns/ "单例模式")
+-   [简单工厂模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-simple-factory-pattern/ "简单工厂模式")
+-   [观察者模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-pattern-observer-mode/ "观察者模式")
+-   [适配器模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-adapter-mode/ "适配器模式")
+-   [代理模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-proxy-mode/ "代理模式")
+-   [桥接模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-mode-bridge-mode/ "桥接模式")
+-   [外观模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-appearance-mode/ "外观模式")
+-   [访问者模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-the-visitor-pattern/ "访问者模式")
+-   [策略模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-strategy-mode/ "策略模式")
+-   [模版方法模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-template-method-pattern/ "模版方法模式")
+-   [中介者模式](http://www.alloyteam.com/2012/10/javascript-design-pattern-intermediary-model/ "中介者模式")
+-   [迭代器模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-iterator-mode/ "迭代器模式")
+-   [组合模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-combined-mode/ "组合模式")
+-   [备忘录模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-memorandum-mode/ "备忘录模式")
+-   [职责链模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-duty-chain/ "职责链模式")
+-   [享元模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/ "享元模式")
+-   [状态模式](http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-state-mode/ "状态模式")
 
 
 <!-- {% endraw %} - for jekyll -->

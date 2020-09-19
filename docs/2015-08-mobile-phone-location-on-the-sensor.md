@@ -90,7 +90,128 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
             // 实时获取位置变化
             alert('经度：' + data.coords.longitude + ' 纬度：' + data.coords.latitude);
         }
-        var 
+        var watchId = navigator.geolocation.watchPosition(scrollMap);
+        function buttonClickHandler() {
+          // 主动关闭位置更新
+          navigator.geolocation.clearWatch(watchId);
+        }
+
+这就是浏览器提供的地理位置 API，使用它们我们的 web 页面就可以提供 LBS 服务及其他地理位置服务，变得更为强大。要注意的是获取地理位置可能会耗费一定时间，此时前台给用户一个等待反馈会提升用户体验，而实际应用场景中如何提升获取地理位置的精确度和效率，我们在后面的章节细讲。
+
+####     2.3 兼容性
+
+地理位置 API 被以下桌面浏览器支持：
+
+\* IE 9+  
+\* Firefox 3.5+  
+\* Chrome 5+  
+\* safari 5+  
+\* Opera 16+
+
+以及以下移动设备浏览器支持：
+
+\* iOS Safari 3.2+  
+\* Android Browser 2.1+  
+\* Chrome for Android
+
+\* Firefox for Android 38+
+
+\* Opera mobile 12+
+
+[![图片 3](http://www.alloyteam.com/wp-content/uploads/2015/08/图片3-300x132.png)](http://www.alloyteam.com/wp-content/uploads/2015/08/图片3.png)  
+\[图 N.2.3  地理位置 API 支持情况]
+
+3 案例：地理位置获取信息
+
+首先我们创建一个 dom 节点
+
+    <div id="geoloc"></div>
+
+判断浏览器支持 `Geolocation API` 后，通过参数的 corrds 属性就可以取到经纬度坐标了，如下
+
+````javascript
+   
+```html
+<script>
+    function getElem(id) {
+        return typeof id === 'string' ? document.getElementById(id) : id;
+    }
+    
+    function show_it(lat, lon) {
+        var str = '您当前的位置，纬度：' + lat + '，经度：' + lon;
+        getElem('geoloc').innerHTML = str;
+    }
+     
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {  
+            show_it(position.coords.latitude, position.coords.longitude);  
+        }, function(err) {
+            getElem('geo_loc').innerHTML = err.code + "\n" + err.message;
+        });
+    } else {
+        getElem('geo_loc').innerHTML = "您当前使用的浏览器不支持Geolocation服务";
+    }
+    </script>
+````
+
+````
+
+下一步我们要引入一个谷歌地图来定位，这里需要引入谷歌地图的 API，如下
+
+    
+```html
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+````
+
+接着对获取经纬度的函数做一个改造
+
+````go
+ 
+```html
+<script>
+    function success(position) {
+        var mapcanvas = document.createElement('div');
+        mapcanvas.id = 'mapcanvas';
+        mapcanvas.style.height = '400px';
+        mapcanvas.style.width = '560px';
+    
+        getElem("map_canvas").appendChild(mapcanvas);
+    
+        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); 
+        var myOptions = {
+            zoom: 15,
+            center: latlng,
+            mapTypeControl: false,
+            navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+        var marker = new google.maps.Marker({
+          position: latlng, 
+          map: map, 
+          title:"你在这里！"
+        });
+    }
+     
+    if (navigator.geolocation) {
+       navigator.geolocation.getCurrentPosition(success); 
+    }
+    </script>
+````
+
+```
+
+如下图所示，我们已经获取到当前位置的地图坐标呈现
+
+  
+[![图片4](http://www.alloyteam.com/wp-content/uploads/2015/08/图片4-300x167.png)](http://www.alloyteam.com/wp-content/uploads/2015/08/图片4.png)  
+\[图 N.3 笔者当前坐标位置\]
+
+进一步地，根据地理位置坐标，通过公共 API 获取用户的  天气信息 –  周边新闻 –  热点资讯  等…  
+如 QQ 会员的用户关怀，与天气结合，如果是阴雨天气，红毛小 Q 以拟人姿态提醒用户多带把伞；晴好高温天气可以提醒用户擦防晒液防紫外线等…
+
+感谢大家阅读，同事感谢小伙伴 junda 对文章提出的专业建议！O(∩\_∩)O
+```
 
 
 <!-- {% endraw %} - for jekyll -->

@@ -105,9 +105,70 @@ W3C 给出最简单的音频上下文，音源节点直接连接到了播放设�
 
 ```javascript
 // 前缀兼容
-['','webkit','moz','ms'].forEach(function (pre) {
-    var 
+["", "webkit", "moz", "ms"].forEach(function (pre) {
+    var prefix = pre + "AudioContext";
+    if (!window.AudioContext && window[prefix]) {
+        window.AudioContext = window[prefix];
+    }
+});
 ```
+
+使用 `createBufferSource` 节点创建音源节点主要有两种方式引入音频文件：`XMLHttpRequest` 与`<input type="file"/>`，这里就尝试 XMLHttpRequest 方式
+
+```javascript
+// 请求音频文件
+function fetchAudioSource(url, successCallback) {
+    if (url && typeof url === "string") {
+        var request = new XMLHttpRequest();
+        request.open("GET", url, true); // 以二进制缓冲的方式存储音频文件数据
+        request.responseType = "arraybuffer";
+        request.onload = function () {
+            successCallback(request.response);
+        };
+        request.send();
+    }
+}
+```
+
+然后我们需要定义一个方法对这个缓冲区的文件数据解码成音频 RAW 数据
+
+```javascript
+function decodeAudio(audioCtx, audioData, callback) {
+    if (audioData) {
+        audioCtx.decodeAudioData(
+            audioData, // on success
+            function (buffer) {
+                callback && callback(buffer);
+            }, // on fail
+            function (e) {
+                console.log("Fail to decode the file!");
+            }
+        );
+    }
+}
+```
+
+有了这些准备后，我们就开始搞个最简单的播放器吧
+
+```javascript
+if (AudioContext) {
+    fetchAudioSource("./somemusic.mp3", function (re) {
+        // 创建音频上下文对象
+        var audioCtx = new AudioContext(); // 创建音源节点
+        var sourceNode = audioCtx.createBufferSource(); // 加一个增益节点，用于控制音量
+        var gainNode = audioCtx.createGain(); // 设置音量大小，默认值为1 - 无增益或衰减
+        gainNode.gain.value = 0.8; // 解码
+        decodeAudio(audioCtx, re, function (sourceBuffer) {
+            sourceNode.buffer = sourceBuffer;
+        }); // 连接各节点 // source node -> gain node -> destination node
+        sourceNode.connect(gainNode);
+        gainNode.connect(audioCtx.destination); // 播放
+        (sourceNode.start || sourceNode.noteOn)(0);
+    });
+}
+```
+
+未完待续…
 
 
 <!-- {% endraw %} - for jekyll -->

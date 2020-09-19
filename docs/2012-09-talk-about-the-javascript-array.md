@@ -73,6 +73,91 @@ arguments 是 AO (activation object, 活动对象) 的一个属性，看看它�
 
 ```javascript
 (function(a,b,c){
+	alert ( Object.prototype.toString.call( arguments ) );  //[object  Arguments]
+})(0，1，2)
+```
+
+打印出来是 Arguments, 但 arguments 本身却是由 Object 构造.
+
+```javascript
+alert(Arguments); //undefined.
+alert(arguments.constructor); //Object
+arguments.__proto__ === Object.prototype; //true
+```
+
+由此可见，arguments 对象也是一个普通的 Object 对象，它无法使用 push, shift 等 Array 原型链上的方法.
+
+在上例中，arguments 的结构类似于
+
+```javascript
+{
+	0: 0,
+	1:1,
+	2:2,
+	length: 3,  //dontEnum
+	callee: function(){}  //dontEnum
+ 
+	__proto__: Object.prototype  //dontEnum
+}
+```
+
+我们经常需要把 arguments 当成数组来使用.
+
+```javascript
+(function(a,b,c){
+	Array.prototype.push.call( arguments, 3 );
+	alert ( arguments.length )  //4, 成功添加了一个元素.
+})(0，1，2)
+```
+
+为什么 arguments 可以被当成 array 的对象，进行 push 操作。为了搞清这个，只有翻看引擎源码最靠谱.
+
+看看 v8 的实现.
+
+```javascript
+function ArrayPush() {
+    var n = TO_UINT32(this.length); //上例中, this是arguments
+    var m = %_ArgumentsLength();
+    for (var i = 0; i < m; i++) {
+        this[i + n] = %_Arguments(i); //属性拷贝
+    }
+    this.length = n + m; //修正length
+    return this.length;
+}
+```
+
+可以清楚的看到，实际上 push 也就是一个属性拷贝的过程，顺便修正了 length 属性。至于 this 是谁，并没有做任何校验。因为 TO_UINT32 操作的存在，甚至不需要 this 这个对象拥有 length 属性，如果没有，引擎会把 length 设置为 0.
+
+不难看出，只要满足这 2 个条件，任何对象都可以冒充 array 调用 push 方法。  
+1 此对象本身要可存取属性.  
+2 length 属性可读写.
+
+第 1 点很好理解，前面说过了 push 就是一个属性拷贝的过程，看看下面的例子.
+
+```javascript
+var a = 1;
+Array.prototype.push.call(a, "first");
+alert(a.length); //undefined
+```
+
+第二点从 v8 的代码里也能清楚看到，因为 this.length = n + m; 这一句的关系， 要求该对象的 length 属性是可写的。回忆下 function.length. 这个 length 就是一个只读的属性，表示 function 形参的个数。所以如果使用下面的代码，还是会有问题.
+
+```javascript
+var a = function () {};
+Array.prototype.push.call(a, "first");
+alert(a[0]); //first， 属性拷贝的过程OK.
+alert(a.length); // 0, a的length不可写
+```
+
+另外，IE 低版本中此对象必须有一个显式并且有效的 length 属性，猜测是这些引擎中没有 TO_UINT32 这个操作，待大哥们验证.
+
+来看看一个顺利的例子
+
+```javascript
+var obj = {}
+Array.prototype.push.call( obj, ''first" );
+alert ( obj.length ); //1
+alert( obj[0] ) //  'first"
 ```
 
 

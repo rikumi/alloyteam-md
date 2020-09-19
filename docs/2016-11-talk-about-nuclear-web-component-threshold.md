@@ -127,5 +127,389 @@ new HelloNuclear({ name: "Nuclear" }, "body");
 
 * * *
 
+```javascript
+var EventDemo = Nuclear.create({
+    clickHandler: function (evt, target, other1, other2) {
+        //MouseEvent {isTrusted: true, screenX: 51, screenY: 87, clientX: 51, clientY: 21…}
+        console.log(evt); //<div onclick="Nuclear.instances[0].clickHandler(event,this,'otherParameter1','otherParameter2')">Click Me!</div>
+        console.log(target); //otherParameter1
+        console.log(other1); //otherParameter2
+        console.log(other2);
+        alert("Hello Nuclear!");
+    },
+    render: function () {
+        return "<div onclick=\"clickHandler(event,this,'otherParameter1','otherParameter2')\">Click Me!</div>";
+    },
+});
+new EventDemo({ seen: true }, "body");
+```
+
+条件判断  
+
+* * *
+
+```javascript
+var ConditionDemo = Nuclear.create({
+    render: function () {
+        return "{{#seen}}\
+                    <div>\
+                        you can see me\
+                    </div>\
+                {{/seen}}\
+                {{^seen}}\
+                    <div>\
+                        yan can not see me\
+                    </div>\
+                {{/seen}}";
+    },
+});
+var cd = new ConditionDemo({ seen: true }, "body");
+setTimeout(function () {
+    cd.option.seen = false;
+}, 2000);
+```
+
+2 秒后改变 seen，dom 会自动变更。
+
+循环  
+
+* * *
+
+```javascript
+var LoopDemo = Nuclear.create({
+    render: function () {
+        return "<ul>{{#list}}<li>姓名:{{name}} 年龄:{{age}}</li>{{/list}}</ul>";
+    },
+});
+var ld = new LoopDemo(
+    {
+        list: [
+            { name: "dntzhang", age: 18 },
+            { name: "vorshen", age: 17 },
+        ],
+    },
+    "body"
+);
+setTimeout(function () {
+    //增加
+    ld.option.list.push({ name: "lisi", age: 38 });
+}, 1000);
+setTimeout(function () {
+    //修改
+    ld.option.list[0].age = 19;
+}, 2000);
+setTimeout(function () {
+    //移除
+    ld.option.list.splice(0, 1);
+}, 3000);
+```
+
+Array 的变更也能监听到，能够自动触发 Dom 的变更。
+
+局部 CSS  
+
+* * *
+
+````html
+<body>
+ 
+    <div>I'm other div!! my color is not red!!</div>
+ 
+    
+```html
+<script src="../dist/nuclear.js"></script>
+````
+
+ 
+
+    
+
+```html
+<script type="text/javascript">
+        var ScopedCSSDemo = Nuclear.create({
+            clickHandler: function () {
+                alert("my color is red!");
+            },
+            render: function () {
+                return '<div onclick="clickHandler()">my color is red!</div>'
+            },
+            style: function () {
+                return 'div { cursor:pointer; color:red }';
+            }
+        })
+        //第三个参数true代表 增量（increment）到body里，而非替换（replace）body里的
+        new ScopedCSSDemo ({ seen: true }, "body" ,true);
+ 
+    </script>
+```
+
+ 
+
+</body>
+```
+
+组件外的 div 不会被组件内的 CSS 污染。
+
+讨厌反斜杠？  
+
+* * *
+
+讨厌反斜杠可以使用 ES20XX template literals、或者 split to js、css 和 html 文件然后通过构建组装使用。也可以用 template 标签或者 textare 存放模板。
+
+````html
+<template id="myTemplate">
+    <style>
+        h3 {
+            color: red;
+        }
+ 
+        button {
+            color: green;
+        }
+    </style>
+ 
+    <div>
+        <div>
+            <h3>TODO</h3>
+            <ul>{{#items}}<li>{{.}}</li>{{/items}}</ul>
+            <form onsubmit="add(event)">
+                <input nc-id="textBox" value="{{inputValue}}" type="text">
+                <button>Add #{{items.length}}</button>
+            </form>
+        </div>
+    </div>
+</template>
+ 
+
+```html
+<script>
+    var TodoApp = Nuclear.create({
+        install: function () {
+            this.todoTpl = document.querySelector("#myTemplate").innerHTML;
+        },
+        add: function (evt) {
+            evt.preventDefault();
+            this.inputValue = "";
+            this.option.items.push(this.textBox.value);
+        },
+        render: function () {
+            return this.todoTpl;
+        }
+    });
+ 
+    new TodoApp({ inputValue: "", items: [] }, "body");
+ 
+</script>
+````
+
+````
+
+组件嵌套  
+
+-------
+
+```html
+
+```html
+<script>
+    var TodoList = Nuclear.create({
+        render: function () {
+            return '<ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>';
+        }
+    });
+ 
+</script>
+````
+
+ 
+
+```html
+<script>
+    var TodoTitle = Nuclear.create({
+        render: function () {
+            return '<h3>{{title}}</h3>';
+        }
+    });
+</script>
+```
+
+ 
+
+```html
+<script>
+ 
+    var TodoApp = Nuclear.create({
+        install: function () {
+            //pass options to children
+            this.childrenOptions = [{ title: "Todo" }, { items: [] }];
+            this.length = 0;
+        },
+        add: function (evt) {
+            evt.preventDefault();
+ 
+            //this.nulcearChildren[1].option.items.push(this.textBox.value);
+            //or
+            this.list.option.items.push(this.textBox.value);
+ 
+            this.length = this.list.option.items.length;
+            this.textBox.value = "";
+        },
+        render: function () {
+            //or  any_namespace.xx.xxx.TodoList 对应的 nc-constructor="any_namespace.xx.xxx.TodoList"
+            return '<div>\
+                        <child nc-constructor="TodoTitle"></child>\
+                        <child nc-constructor="TodoList"  nc-name="list"></child>\
+                        <form onsubmit="add(event)" >\
+                          <input nc-id="textBox" value="{{inputValue}}" type="text"  />\
+                          <button>Add #'+ this.length + '</button>\
+                         </form>\
+                   </div>';
+        }
+    });
+ 
+    new TodoApp({ inputValue: "" }, "body");
+</script>
+```
+
+````
+
+通过在父对象的 install 里设置 this.childrenOptions 来把 option 传给子节点。
+
+服务器端渲染  
+
+---------
+
+```html
+function todo(Nuclear, server) {
+    var Todo = Nuclear.create(
+        {
+            add: function (evt) {
+                evt.preventDefault();
+                this.option.items.push(this.textBox.value);
+            },
+            render: function () {
+                return `<div>
+                      <h3>TODO</h3>
+                      <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>
+                      <form onsubmit="add(event)" >
+                          <input nc-id="textBox" type="text"  value="" />
+                          <button>Add #{{items.length}}</button>
+                      </form>
+                    </div>`;
+            },
+            style: function () {
+                return `h3 { color:red; }
+                   button{ color:green;}`;
+            },
+        },
+        {
+            server: server,
+        }
+    );
+    return Todo;
+}
+if (typeof module === "object" && typeof module.exports === "object") {
+    module.exports = todo;
+} else {
+    this.todo = todo;
+}
+````
+
+通过第二个参数 server 来决定是服务器端渲染还是客户端渲染。server 使用的代码也很简单：
+
+```javascript
+var koa = require("koa");
+var serve = require("koa-static");
+var router = require("koa-route");
+var app = koa();
+var jsdom = require("jsdom");
+var Nuclear = require("alloynuclear")(jsdom.jsdom().defaultView);
+var Todo = require("./component/todo")(Nuclear, true);
+app.use(serve(__dirname + "/component"));
+app.use(
+    router.get("/todos", function* () {
+        var str = require("fs").readFileSync(
+            __dirname + "/view/index.html",
+            "utf8"
+        );
+        var todo = new Todo({ items: ["Nuclear2", "koa", "ejs"] });
+        this.body = Nuclear.Tpl.render(str, {
+            todo: todo.HTML,
+        });
+        Nuclear.destroy(todo);
+    })
+);
+app.listen(3000);
+```
+
+浏览器端使用的代码：
+
+````html
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+ {{{todo}}}
+ 
+ 
+```html
+<script src="./nuclear.js"></script>
+````
+
+```html
+<script src="./todo.js"></script>
+```
+
+```html
+<script>
+    var Todo= todo(Nuclear);
+    new Todo('body');
+ </script>
+```
+
+</body>
+</html>
+```
+
+这样，组件的代码不需要任何变更就可以在 server 和 client 同时使用。
+
+Nuclear 如何做到同构的？  
+
+* * *
+
+内置三条管线如下所示：
+
+![](http://www.alloyteam.com/wp-content/uploads/2016/11/图片11.png)
+
+比如一般前后端分离的开发方式，仅仅会走中间那条管线。而同构的管线如下所示：
+
+![](http://www.alloyteam.com/wp-content/uploads/2016/11/图片23.png)
+
+这里前后后端会共用 option，所以不仅仅需要直出 HTML,option 也会一并支持给前端用来二次渲染初始一些东西。
+
+Nuclear 优势  
+
+* * *
+
+1. 节约流量  
+2. 提升用户体验  
+3. 加载更加灵活  
+4.Dom 查找几乎绝迹  
+5. 搭积木一样写页面  
+6. 提升代码复用性  
+7. 可插拔的模板引擎  
+8.Lazy CSS 首屏更轻松  
+9.Nuclear 文件大小 6KB (gzip)  
+10. 零行代码修改无缝切到同构直出  
+...  
+...
+
+Nuclear Github  
+
+* * *
+
+<https://github.com/AlloyTeam/Nuclear>
+
 
 <!-- {% endraw %} - for jekyll -->

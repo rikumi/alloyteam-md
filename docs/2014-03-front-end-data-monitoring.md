@@ -48,8 +48,75 @@ function _performance(){
    if( perf  && timing ) {
       var arr = [];
       var navigationStart = timing[points[0]];
-      for(var i
+      for(var i=0,l=points.length;i<l;i++){
+         arr[i] = timing[points[i]] - navigationStart;
+      }
+   var url = REPORT_URL + arr.join("-");
+   var img = new Image;
+   img.onload = img.onerror = function(){
+      img=null;
+   }
+   img.src = url;
+}
 ```
+
+通过后台接口收集和统计，我们可以对页面执行性能有很详细的了解。
+
+三、统计每个页面的 JS 和 CSS 加载时间
+
+在 JS 或者 CSS 加载之前打上时间戳，加载之后打上时间戳，并且将数据上报到后台。加载时间反映了页面白屏，可操作的等待时间。
+
+````html
+
+```html
+<script>var cssLoadStart = +new Date</script>
+````
+
+<link rel="stylesheet" href="xxx.css" type="text/css" media="all">
+<link rel="stylesheet" href="xxx1.css" type="text/css" media="all">
+<link rel="stylesheet" href="xxx2.css" type="text/css" media="all">
+<sript>
+   var cssLoadTime = (+new Date) - cssLoadStart;
+   var jsLoadStart = +new Date;
+</script>
+
+```html
+<script type="text/javascript" src="xx1.js"></script>
+```
+
+```html
+<script type="text/javascript" src="xx2.js"></script>
+```
+
+```html
+<script type="text/javascript" src="xx3.js"></script>
+```
+
+```html
+<script>
+   var jsLoadTime = (+new Date) - jsLoadStart;
+   var REPORT_URL = 'xxx/cgi?data='
+   var img = new Image;
+   img.onload = img.onerror = function(){
+      img = null;
+   };
+   img.src = REPORT_URL + cssLoadTime + '-' + jsLoadTime;
+</script>
+```
+
+````
+
+```html
+<a href="https://github.com/perltzhu/js-data-report" target="_blank">
+     
+</a>;
+````
+
+## 参考资料：
+
+-   [html5 performance en](https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html)
+-   [html5 performance cn](http://www.alloyteam.com/2012/11/performance-api-monitoring-page-performance/)
+-   [javascript onerror api](http://www.w3school.com.cn/js/js_onerror.asp)
 
 
 <!-- {% endraw %} - for jekyll -->

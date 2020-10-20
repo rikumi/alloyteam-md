@@ -54,24 +54,22 @@ l slideshow.effects.js          这个是向 JXAnimation 中添加一些�
 
 以下 HTML 和 JS 代码
 
-````html
-    <body>
+```html
+    &lt;body>
  
         图片轮播器Demo
  
-        <div id="picplayer" style="position:relative;width:300px;height:300px;">
+        &lt;div id="picplayer" style="position:relative;width:300px;height:300px;">
  
-            <img src="http://img.jb51.net/online/picPlayer/1.jpg">
+            &lt;img src="http://img.jb51.net/online/picPlayer/1.jpg">
  
-        </div>
+        &lt;/div>
  
-        <button id="prev" onclick="SlideShow.prev();">上一页</button>
+        &lt;button id="prev" onclick="SlideShow.prev();">上一页&lt;/button>
  
-        <button id="next" onclick="SlideShow.next();">下一页</button>
+        &lt;button id="next" onclick="SlideShow.next();">下一页&lt;/button>
  
-        
-```html
-<script>
+        &lt;script>
  
             var pics1 = [
  
@@ -97,19 +95,16 @@ l slideshow.effects.js          这个是向 JXAnimation 中添加一些�
  
             };
  
-        </script>
-````
-
+        &lt;/script>
  
-    </body>
-
-````
+    &lt;/body>
+```
 
 代码还是挺清爽的。
 
 不过这样运行可是什么效果都没有。。。。。。
 
-不得已用Chrome 的调试神器分析一下。结果发现是一些样式问题。必须有以下的 CSS：
+不得已用 Chrome 的调试神器分析一下。结果发现是一些样式问题。必须有以下的 CSS：
 
 ```css
     .slide_Img{
@@ -132,7 +127,7 @@ l slideshow.effects.js          这个是向 JXAnimation 中添加一些�
       top: 0px;
       left: 0px;
     }
-````
+```
 
 感觉这些都是很基本的样式设置，直接在 JS 中写 Style 就行了。这里的封装可以再改进一下。有时间给作者提交一个 pull request。
 

@@ -16,55 +16,55 @@ source_link: http://www.alloyteam.com/2015/05/fis%e6%ba%90%e7%a0%81-fisrelease%e
 老规矩，献上精简版的 `release.js`，从函数名就大致知道干嘛的。`release(options)`是我们重点关注的对象。
 
 ```html
-<span class="string">'use strict'</span>;
+&lt;span class="string">'use strict'&lt;/span>;
  
-exports.register = <span class="keyword">function</span>(commander){
+exports.register = &lt;span class="keyword">function&lt;/span>(commander){
     
-    <span class="comment">//  fis relase --watch 时，就会执行这个方法</span>
-    <span class="keyword">function</span> watch(opt){
-        <span class="comment">// ...</span>
+    &lt;span class="comment">//  fis relase --watch 时，就会执行这个方法&lt;/span>
+    &lt;span class="keyword">function&lt;/span> watch(opt){
+        &lt;span class="comment">// ...&lt;/span>
     }
     
-    <span class="comment">// 打点计时用，控制台里看到的一堆小点点就是这个方法输出的</span>
-    <span class="keyword">function</span> time(fn){
-        <span class="comment">// ...</span>
+    &lt;span class="comment">// 打点计时用，控制台里看到的一堆小点点就是这个方法输出的&lt;/span>
+    &lt;span class="keyword">function&lt;/span> time(fn){
+        &lt;span class="comment">// ...&lt;/span>
     }
     
-    <span class="comment">// fis release --live 时，会进入这个方法，对浏览器进行实时刷新</span>
-    <span class="keyword">function</span> reload(){
-        <span class="comment">//...</span>
+    &lt;span class="comment">// fis release --live 时，会进入这个方法，对浏览器进行实时刷新&lt;/span>
+    &lt;span class="keyword">function&lt;/span> reload(){
+        &lt;span class="comment">//...&lt;/span>
     }
     
-    <span class="comment">// 高能预警！非常重要的方法，fis release 就靠这个方法走江湖了</span>
-    <span class="keyword">function</span> release(opt){
-        <span class="comment">// ...</span>
+    &lt;span class="comment">// 高能预警！非常重要的方法，fis release 就靠这个方法走江湖了&lt;/span>
+    &lt;span class="keyword">function&lt;/span> release(opt){
+        &lt;span class="comment">// ...&lt;/span>
     }
     
-    <span class="comment">// 可以看到有很多配置参数，每个参数的作用可参考对应的描述，或者看官方文档</span>
+    &lt;span class="comment">// 可以看到有很多配置参数，每个参数的作用可参考对应的描述，或者看官方文档&lt;/span>
     commander
-        .option(<span class="string">'-d, --dest <names>'</span>, <span class="string">'release output destination'</span>, String, <span class="string">'preview'</span>)
-        .option(<span class="string">'-m, --md5 [level]'</span>, <span class="string">'md5 release option'</span>, Number)
-        .option(<span class="string">'-D, --domains'</span>, <span class="string">'add domain name'</span>, Boolean, <span class="keyword">false</span>)
-        .option(<span class="string">'-l, --lint'</span>, <span class="string">'with lint'</span>, Boolean, <span class="keyword">false</span>)
-        .option(<span class="string">'-t, --test'</span>, <span class="string">'with unit testing'</span>, Boolean, <span class="keyword">false</span>)
-        .option(<span class="string">'-o, --optimize'</span>, <span class="string">'with optimizing'</span>, Boolean, <span class="keyword">false</span>)
-        .option(<span class="string">'-p, --pack'</span>, <span class="string">'with package'</span>, Boolean, <span class="keyword">true</span>)
-        .option(<span class="string">'-w, --watch'</span>, <span class="string">'monitor the changes of project'</span>)
-        .option(<span class="string">'-L, --live'</span>, <span class="string">'automatically reload your browser'</span>)
-        .option(<span class="string">'-c, --clean'</span>, <span class="string">'clean compile cache'</span>, Boolean, <span class="keyword">false</span>)
-        .option(<span class="string">'-r, --root <path>'</span>, <span class="string">'set project root'</span>)
-        .option(<span class="string">'-f, --file <filename>'</span>, <span class="string">'set fis-conf file'</span>)
-        .option(<span class="string">'-u, --unique'</span>, <span class="string">'use unique compile caching'</span>, Boolean, <span class="keyword">false</span>)
-        .option(<span class="string">'--verbose'</span>, <span class="string">'enable verbose output'</span>, Boolean, <span class="keyword">false</span>)
-        .action(<span class="keyword">function</span>(){
+        .option(&lt;span class="string">'-d, --dest &lt;names>'&lt;/span>, &lt;span class="string">'release output destination'&lt;/span>, String, &lt;span class="string">'preview'&lt;/span>)
+        .option(&lt;span class="string">'-m, --md5 [level]'&lt;/span>, &lt;span class="string">'md5 release option'&lt;/span>, Number)
+        .option(&lt;span class="string">'-D, --domains'&lt;/span>, &lt;span class="string">'add domain name'&lt;/span>, Boolean, &lt;span class="keyword">false&lt;/span>)
+        .option(&lt;span class="string">'-l, --lint'&lt;/span>, &lt;span class="string">'with lint'&lt;/span>, Boolean, &lt;span class="keyword">false&lt;/span>)
+        .option(&lt;span class="string">'-t, --test'&lt;/span>, &lt;span class="string">'with unit testing'&lt;/span>, Boolean, &lt;span class="keyword">false&lt;/span>)
+        .option(&lt;span class="string">'-o, --optimize'&lt;/span>, &lt;span class="string">'with optimizing'&lt;/span>, Boolean, &lt;span class="keyword">false&lt;/span>)
+        .option(&lt;span class="string">'-p, --pack'&lt;/span>, &lt;span class="string">'with package'&lt;/span>, Boolean, &lt;span class="keyword">true&lt;/span>)
+        .option(&lt;span class="string">'-w, --watch'&lt;/span>, &lt;span class="string">'monitor the changes of project'&lt;/span>)
+        .option(&lt;span class="string">'-L, --live'&lt;/span>, &lt;span class="string">'automatically reload your browser'&lt;/span>)
+        .option(&lt;span class="string">'-c, --clean'&lt;/span>, &lt;span class="string">'clean compile cache'&lt;/span>, Boolean, &lt;span class="keyword">false&lt;/span>)
+        .option(&lt;span class="string">'-r, --root &lt;path>'&lt;/span>, &lt;span class="string">'set project root'&lt;/span>)
+        .option(&lt;span class="string">'-f, --file &lt;filename>'&lt;/span>, &lt;span class="string">'set fis-conf file'&lt;/span>)
+        .option(&lt;span class="string">'-u, --unique'&lt;/span>, &lt;span class="string">'use unique compile caching'&lt;/span>, Boolean, &lt;span class="keyword">false&lt;/span>)
+        .option(&lt;span class="string">'--verbose'&lt;/span>, &lt;span class="string">'enable verbose output'&lt;/span>, Boolean, &lt;span class="keyword">false&lt;/span>)
+        .action(&lt;span class="keyword">function&lt;/span>(){
             
-            <span class="comment">// 省略一大堆代码</span>
+            &lt;span class="comment">// 省略一大堆代码&lt;/span>
             
-            <span class="comment">// fis release 的两个核心分支，根据是否有加入 --watch 进行区分</span>
-            <span class="keyword">if</span>(options.watch){
-                watch(options); <span class="comment">// 有 --watch 参数</span>
-            } <span class="keyword">else</span> {
-                release(options);   <span class="comment">// 这里这里！重点关注！没有 --watch 参数</span>
+            &lt;span class="comment">// fis release 的两个核心分支，根据是否有加入 --watch 进行区分&lt;/span>
+            &lt;span class="keyword">if&lt;/span>(options.watch){
+                watch(options); &lt;span class="comment">// 有 --watch 参数&lt;/span>
+            } &lt;span class="keyword">else&lt;/span> {
+                release(options);   &lt;span class="comment">// 这里这里！重点关注！没有 --watch 参数&lt;/span>
             }
         });
 };
@@ -78,15 +78,15 @@ exports.register = <span class="keyword">function</span>(commander){
 
 ```html
 findFisConf();
-<span class="comment">// 找到当前项目的fis-conf.js</span>;
+&lt;span class="comment">// 找到当前项目的fis-conf.js&lt;/span>;
 setProjectRoot();
-<span class="comment">
+&lt;span class="comment">
     // 设置项目根路径，需要编译的源文件就在这个根路径下
-</span>;
+&lt;/span>;
 mergeFisConf();
-<span class="comment">// 导入项目自定义配置</span>;
+&lt;span class="comment">// 导入项目自定义配置&lt;/span>;
 readSourcesAndReleaseToDest(options);
-<span class="comment">// 将项目编译到默认的目录下</span>;
+&lt;span class="comment">// 将项目编译到默认的目录下&lt;/span>;
 ```
 
 下面简单对上面几个步骤进行一一讲解。
@@ -107,23 +107,23 @@ readSourcesAndReleaseToDest(options);
 由本小节前面的介绍得知，`--file`、`--root` 两个配置参数之间是存在联系的，有可能同时存在。下面用伪代码来说明下
 
 ```html
-<span class="keyword">if</span>(options.root){
+&lt;span class="keyword">if&lt;/span>(options.root){
     
-    <span class="keyword">if</span>(options.file){
-        <span class="comment">// 项目根路径，为 options.root 指定的路径</span>
-        <span class="comment">// fis-conf.js路径，为 options.file 指定的路径</span>
-    }<span class="keyword">else</span>{
-        <span class="comment">// 项目根路径，为 options.root 指定的路径</span>
-        <span class="comment">// fis-conf.js路径，为 options.root/fis-conf.js </span>
+    &lt;span class="keyword">if&lt;/span>(options.file){
+        &lt;span class="comment">// 项目根路径，为 options.root 指定的路径&lt;/span>
+        &lt;span class="comment">// fis-conf.js路径，为 options.file 指定的路径&lt;/span>
+    }&lt;span class="keyword">else&lt;/span>{
+        &lt;span class="comment">// 项目根路径，为 options.root 指定的路径&lt;/span>
+        &lt;span class="comment">// fis-conf.js路径，为 options.root/fis-conf.js &lt;/span>
     }
-}<span class="keyword">else</span>{
+}&lt;span class="keyword">else&lt;/span>{
     
-    <span class="keyword">if</span>(options.file){
-        <span class="comment">// fis-conf.js路径，为 options.file 指定的路径</span>
-        <span class="comment">// 项目根路径，为 fis-conf.js 所在的目录        </span>
-    }<span class="keyword">else</span>{
-        <span class="comment">// fis-conf.js路径，为 逐层向上遍历后，找到的 fis-conf.js 路径</span>
-        <span class="comment">// 项目根路径，为 fis-conf.js 所在的目录</span>
+    &lt;span class="keyword">if&lt;/span>(options.file){
+        &lt;span class="comment">// fis-conf.js路径，为 options.file 指定的路径&lt;/span>
+        &lt;span class="comment">// 项目根路径，为 fis-conf.js 所在的目录        &lt;/span>
+    }&lt;span class="keyword">else&lt;/span>{
+        &lt;span class="comment">// fis-conf.js路径，为 逐层向上遍历后，找到的 fis-conf.js 路径&lt;/span>
+        &lt;span class="comment">// 项目根路径，为 fis-conf.js 所在的目录&lt;/span>
     }
 }
  
@@ -137,17 +137,17 @@ readSourcesAndReleaseToDest(options);
 2.  合并项目自定义配置
 
 ```html
-<span class="comment">// 如果找到了 fis-conf.js</span>
-<span class="keyword">if</span>(conf){
-    <span class="keyword">var</span> cache = fis.cache(conf, <span class="string">'conf'</span>); 
-    <span class="keyword">if</span>(!cache.revert()){
-        options.clean = <span class="keyword">true</span>;
+&lt;span class="comment">// 如果找到了 fis-conf.js&lt;/span>
+&lt;span class="keyword">if&lt;/span>(conf){
+    &lt;span class="keyword">var&lt;/span> cache = fis.cache(conf, &lt;span class="string">'conf'&lt;/span>); 
+    &lt;span class="keyword">if&lt;/span>(!cache.revert()){
+        options.clean = &lt;span class="keyword">true&lt;/span>;
         cache.save();
     }
-    <span class="keyword">require</span>(conf);  <span class="comment">// 加载 fis-conf.js，其实就是合并配置</span>
-} <span class="keyword">else</span> {
-    <span class="comment">// 还是没有找到 fis-conf.js</span>
-    fis.log.warning(<span class="string">'missing config file ['</span> + filename + <span class="string">']'</span>);
+    &lt;span class="keyword">require&lt;/span>(conf);  &lt;span class="comment">// 加载 fis-conf.js，其实就是合并配置&lt;/span>
+} &lt;span class="keyword">else&lt;/span> {
+    &lt;span class="comment">// 还是没有找到 fis-conf.js&lt;/span>
+    fis.log.warning(&lt;span class="string">'missing config file ['&lt;/span> + filename + &lt;span class="string">']'&lt;/span>);
 }
  
 ```
@@ -171,36 +171,36 @@ readSourcesAndReleaseToDest(options);
 伪代码流程如下：`fis-command-release/release.js`
 
 ```html
-<span class="keyword">var</span> collection = {};    <span class="comment">// 跟total一样，key=>value 为 “编译的源文件路径”＝》"对应的file对象"</span>
-    <span class="keyword">var</span> total = {};
-    <span class="keyword">var</span> deploy = <span class="keyword">require</span>(<span class="string">'./lib/deploy.js'</span>);    <span class="comment">// 文件部署模块，完成从 src -> dest 的最后一棒</span>
+&lt;span class="keyword">var&lt;/span> collection = {};    &lt;span class="comment">// 跟total一样，key=>value 为 “编译的源文件路径”＝》"对应的file对象"&lt;/span>
+    &lt;span class="keyword">var&lt;/span> total = {};
+    &lt;span class="keyword">var&lt;/span> deploy = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">'./lib/deploy.js'&lt;/span>);    &lt;span class="comment">// 文件部署模块，完成从 src -> dest 的最后一棒&lt;/span>
     
-<span class="keyword">function</span> release(opt){
+&lt;span class="keyword">function&lt;/span> release(opt){
     
-    opt.beforeEach = <span class="keyword">function</span>(file){
-        <span class="comment">// 用compile模块编译源文件前调用，往 total 上挂 key=>value</span>
+    opt.beforeEach = &lt;span class="keyword">function&lt;/span>(file){
+        &lt;span class="comment">// 用compile模块编译源文件前调用，往 total 上挂 key=>value&lt;/span>
         total[file.subpath] = file;
     };
-    opt.afterEach = <span class="keyword">function</span>(file){
-        <span class="comment">// 用compile模块编译源文件后调用，往 collection 上挂 key=>value</span>
+    opt.afterEach = &lt;span class="keyword">function&lt;/span>(file){
+        &lt;span class="comment">// 用compile模块编译源文件后调用，往 collection 上挂 key=>value&lt;/span>
         collection[file.subpath] = file;
     };
     
-    opt.beforeCompile = <span class="keyword">function</span>(file){
-        <span class="comment">// 在compile内部，对源文件进行编译前调用（好绕。。。）</span>
+    opt.beforeCompile = &lt;span class="keyword">function&lt;/span>(file){
+        &lt;span class="comment">// 在compile内部，对源文件进行编译前调用（好绕。。。）&lt;/span>
         collection[file.subpath] = file;        
     };
     
-    <span class="keyword">try</span> {
-        <span class="comment">//release</span>
-        <span class="comment">// 在fis-kernel里，fis.release = require('./lib/release.js');</span>
-        <span class="comment">// 在fis.release里完成除了最终部署之外的文件编译操作，比如文件标准化等</span>
-        fis.release(opt, <span class="keyword">function</span>(ret){
+    &lt;span class="keyword">try&lt;/span> {
+        &lt;span class="comment">//release&lt;/span>
+        &lt;span class="comment">// 在fis-kernel里，fis.release = require('./lib/release.js');&lt;/span>
+        &lt;span class="comment">// 在fis.release里完成除了最终部署之外的文件编译操作，比如文件标准化等&lt;/span>
+        fis.release(opt, &lt;span class="keyword">function&lt;/span>(ret){
             
-            deploy(opt, collection, total); <span class="comment">// 项目部署（本例子里特指将编译后的文件写到某个特定的路径下）</span>
+            deploy(opt, collection, total); &lt;span class="comment">// 项目部署（本例子里特指将编译后的文件写到某个特定的路径下）&lt;/span>
         });
-    } <span class="keyword">catch</span>(e) {
-        <span class="comment">// 异常处理，暂时忽略</span>
+    } &lt;span class="keyword">catch&lt;/span>(e) {
+        &lt;span class="comment">// 异常处理，暂时忽略&lt;/span>
     }
 }
  

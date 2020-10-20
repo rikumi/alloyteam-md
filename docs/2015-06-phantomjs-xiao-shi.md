@@ -28,11 +28,11 @@ source_link: http://www.alloyteam.com/2015/06/phantomjs-xiao-shi/
 由于 phantomjs 相当于一个没有 UI 的浏览器，可以抓取 url 下的所有内容，并渲染。因此，网络截图，对于 phantomjs 来说，就不费劲了。
 
 ```html
-<span class="keyword">var</span> page = <span class="keyword">require</span>(<span class="string">'webpage'</span>).create();
-<span class="keyword">var</span> url = <span class="string">'http://ke.qq.com'</span>;
-page.open(url, <span class="keyword">function</span> (status) {
-  page.render(<span class="string">'index.png'</span>);
-  phantom.<span class="keyword">exit</span>();
+&lt;span class="keyword">var&lt;/span> page = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">'webpage'&lt;/span>).create();
+&lt;span class="keyword">var&lt;/span> url = &lt;span class="string">'http://ke.qq.com'&lt;/span>;
+page.open(url, &lt;span class="keyword">function&lt;/span> (status) {
+  page.render(&lt;span class="string">'index.png'&lt;/span>);
+  phantom.&lt;span class="keyword">exit&lt;/span>();
 });
  
 ```
@@ -47,49 +47,49 @@ page.open(url, <span class="keyword">function</span> (status) {
 
 ```html
  
-<span class="keyword">var</span> page = <span class="keyword">require</span>(<span class="string">'webpage'</span>).create(),
-    testindex = <span class="number">0</span>,
-    loadInProgress = <span class="keyword">false</span>;
+&lt;span class="keyword">var&lt;/span> page = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">'webpage'&lt;/span>).create(),
+    testindex = &lt;span class="number">0&lt;/span>,
+    loadInProgress = &lt;span class="keyword">false&lt;/span>;
     
-page.onLoadStarted = <span class="keyword">function</span>() {
-    loadInProgress = <span class="keyword">true</span>;
-    console.log(<span class="string">"load started"</span>);
+page.onLoadStarted = &lt;span class="keyword">function&lt;/span>() {
+    loadInProgress = &lt;span class="keyword">true&lt;/span>;
+    console.log(&lt;span class="string">"load started"&lt;/span>);
 };
  
-page.onLoadFinished = <span class="keyword">function</span>() {
-    loadInProgress = <span class="keyword">false</span>;
-    console.log(<span class="string">"load finished"</span>);
+page.onLoadFinished = &lt;span class="keyword">function&lt;/span>() {
+    loadInProgress = &lt;span class="keyword">false&lt;/span>;
+    console.log(&lt;span class="string">"load finished"&lt;/span>);
 };
  
-<span class="keyword">var</span> steps = [
-    <span class="keyword">function</span>() {
-      <span class="comment">//Load Login Page</span>
-      page.open(<span class="string">"https://account.xiaomi.com/pass/serviceLogin"</span>);
+&lt;span class="keyword">var&lt;/span> steps = [
+    &lt;span class="keyword">function&lt;/span>() {
+      &lt;span class="comment">//Load Login Page&lt;/span>
+      page.open(&lt;span class="string">"https://account.xiaomi.com/pass/serviceLogin"&lt;/span>);
     },
-    <span class="keyword">function</span>() {
-        page.evaluate(<span class="keyword">function</span>(obj) {
-            <span class="keyword">var</span> form = document.getElementById(<span class="string">"miniLogin"</span>);
-            form.elements[<span class="string">"miniLogin_username"</span>].value = <span class="string">'用户名'</span>;
-            form.elements[<span class="string">"miniLogin_pwd"</span>].value = <span class="string">'密码'</span>;
-            form.elements[<span class="string">'message_LOGIN_IMMEDIATELY'</span>].click();
-            <span class="keyword">return</span> document.title;
+    &lt;span class="keyword">function&lt;/span>() {
+        page.evaluate(&lt;span class="keyword">function&lt;/span>(obj) {
+            &lt;span class="keyword">var&lt;/span> form = document.getElementById(&lt;span class="string">"miniLogin"&lt;/span>);
+            form.elements[&lt;span class="string">"miniLogin_username"&lt;/span>].value = &lt;span class="string">'用户名'&lt;/span>;
+            form.elements[&lt;span class="string">"miniLogin_pwd"&lt;/span>].value = &lt;span class="string">'密码'&lt;/span>;
+            form.elements[&lt;span class="string">'message_LOGIN_IMMEDIATELY'&lt;/span>].click();
+            &lt;span class="keyword">return&lt;/span> document.title;
         });
-        loadInProgress = <span class="keyword">true</span>;
+        loadInProgress = &lt;span class="keyword">true&lt;/span>;
     },
-    <span class="keyword">function</span>() {
-        page.render(<span class="string">'login-succ.png'</span>);
+    &lt;span class="keyword">function&lt;/span>() {
+        page.render(&lt;span class="string">'login-succ.png'&lt;/span>);
     }
 ];
  
-<span class="keyword">var</span> interval = setInterval(<span class="keyword">function</span>() {
-    <span class="keyword">if</span> (!loadInProgress && typeof steps[testindex] == <span class="string">"function"</span>) {
+&lt;span class="keyword">var&lt;/span> interval = setInterval(&lt;span class="keyword">function&lt;/span>() {
+    &lt;span class="keyword">if&lt;/span> (!loadInProgress && typeof steps[testindex] == &lt;span class="string">"function"&lt;/span>) {
         steps[testindex]();
         testindex++;
     }
-    <span class="keyword">if</span> (typeof steps[testindex] != <span class="string">"function"</span>) {
-        phantom.<span class="keyword">exit</span>();
+    &lt;span class="keyword">if&lt;/span> (typeof steps[testindex] != &lt;span class="string">"function"&lt;/span>) {
+        phantom.&lt;span class="keyword">exit&lt;/span>();
     }
-}, <span class="number">10</span>);
+}, &lt;span class="number">10&lt;/span>);
  
 ```
 

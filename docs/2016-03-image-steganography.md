@@ -42,7 +42,7 @@ source_link: http://www.alloyteam.com/2016/03/image-steganography/
 首先在页面加入一个 canvas 标签，并获取到其上下文。
 
 ```html
-<canvas id="canvas" width="256" height="256"></canvas>;
+&lt;canvas id="canvas" width="256" height="256">&lt;/canvas>;
 ```
 
 ```javascript
@@ -73,7 +73,7 @@ img.src = "xiaolan.png";
 ```javascript
 var processData = function (originalData) {
     var data = originalData.data;
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i &lt; data.length; i++) {
         if (i % 4 == 0) {
             // 红色分量
             if (data[i] % 2 == 0) {
@@ -135,7 +135,7 @@ var mergeData = function (newData, color) {
             offset = 1;
             break;
     }
-    for (var i = 0; i < oData.length; i++) {
+    for (var i = 0; i &lt; oData.length; i++) {
         if (i % 4 == bit) {
             // 只处理目标通道
             if (newData[i + offset] === 0 && oData[i] % 2 === 1) {

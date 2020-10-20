@@ -256,7 +256,7 @@ export 很简单，我们只要创建一个对象作为该模块的 export 就�
         return n[o].exports;
     }
     var i = typeof require == "function" && require;
-    for (var o = 0; o < r.length; o++) s(r[o]);
+    for (var o = 0; o &lt; r.length; o++) s(r[o]);
     return s;
 });
 ```

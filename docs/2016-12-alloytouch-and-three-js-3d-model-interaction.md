@@ -21,20 +21,11 @@ source_link: http://www.alloyteam.com/2016/12/alloytouch-and-three-js-3d-model-i
 
 * * *
 
-````javascript
-
-```html
-<script src="asset/three.js"></script>
-````
-
-```html
-<script src="../../alloy_touch.js"></script>
-```
-
+```javascript
+&lt;script src="asset/three.js">&lt;/script>
+&lt;script src="../../alloy_touch.js">&lt;/script>
  
-
-```html
-<script>
+&lt;script>
     var camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
     camera.position.z = 500;
  
@@ -70,10 +61,8 @@ source_link: http://www.alloyteam.com/2016/12/alloytouch-and-three-js-3d-model-i
         factor: 0.08,               //运动期间的摩擦力
         moveFactor: 0.2     //拖拽期间的摩擦力
     })
-</script>
+&lt;/script>
 ```
-
-````
 
 factor 需要自己不断去调试出最佳的值，让松手之后的惯性运动的速率和时间达到最佳的效果。  
 moveFactor 需要自己不断去调试出最佳的值，就是让横向拖拽的距离映射到旋转的角度上达到最跟手的效果。
@@ -86,26 +75,18 @@ moveFactor 需要自己不断去调试出最佳的值，就是让横向拖拽的
 
 无惯性演示  
 
---------
+* * *
 
 ![](http://images2015.cnblogs.com/blog/105416/201612/105416-20161207094038741-1173398716.png)
 
 无惯性代码  
 
---------
+* * *
 
 ```html
-
-```html
-<script src="asset/three.js"></script>
-````
-
-```html
-<script src="../../alloy_touch.js"></script>
-```
-
-```html
-<script>
+&lt;script src="asset/three.js">&lt;/script>
+&lt;script src="../../alloy_touch.js">&lt;/script>
+&lt;script>
     ...
     ...
     ...
@@ -120,19 +101,16 @@ moveFactor 需要自己不断去调试出最佳的值，就是让横向拖拽的
         moveFactor: 0.2 ,       //拖拽期间的摩擦力
         inertia: false      //禁止惯性运动
     })
-</script>
-```
-
+&lt;/script>
 ```
 
 开始 AlloyTouch 吧  
 
-------------------
+* * *
 
-Github 地址：[https://github.com/AlloyTeam/AlloyTouch](https://github.com/AlloyTeam/AlloyTouch)  
-欢迎 issues:[https://github.com/AlloyTeam/AlloyTouch/issues](https://github.com/AlloyTeam/AlloyTouch/issues)  
+Github 地址：<https://github.com/AlloyTeam/AlloyTouch>  
+欢迎 issues:<https://github.com/AlloyTeam/AlloyTouch/issues>  
 
-```
 
 
 <!-- {% endraw %} - for jekyll -->

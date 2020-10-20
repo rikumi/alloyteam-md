@@ -35,9 +35,9 @@ Omi.makeHTML("Hello", Hello);
 class App extends Omi.Component {
     render() {
         return `
-        <div>
-            <Hello :data-user="{ name : 'Dntzhang', favorite : 'Omi' }" />
-        </div>
+        &lt;div>
+            &lt;Hello :data-user="{ name : 'Dntzhang', favorite : 'Omi' }" />
+        &lt;/div>
         `;
     }
 }
@@ -52,9 +52,9 @@ Omi.render(new App(), "#container");
 class Hello extends Omi.Component {
     render() {
         return `
-      <div>
-        <h1>{{user.name}} love {{user.favorite}}.</h1>
-      </div>
+      &lt;div>
+        &lt;h1>{{user.name}} love {{user.favorite}}.&lt;/h1>
+      &lt;/div>
         `;
     }
 }
@@ -67,35 +67,35 @@ class Hello extends Omi.Component {
 上面的例子展示了传递 JSON，其他类型也支持。比如：
 
 ```html
- <Hello :data-age="18" />
+ &lt;Hello :data-age="18" />
  
 ```
 
 ```c
- <Hello :data-xxx="1+1*2/3" />
+ &lt;Hello :data-xxx="1+1*2/3" />
  
 ```
 
 ```html
- <Hello :data-is-girl="false" />
+ &lt;Hello :data-is-girl="false" />
  
 ```
 
 ```html
- <Hello :data-array-test="[1,2,3]" />
+ &lt;Hello :data-array-test="[1,2,3]" />
  
 ```
 
 当然也支持传递多个值：
 
 ```html
- <Hello :data-array-test="[1,2,3]" :data-is-girl="false" :data-age="18"/>
+ &lt;Hello :data-array-test="[1,2,3]" :data-is-girl="false" :data-age="18"/>
  
 ```
 
 当然你也可以使用:data 合并到一起：
 
-     <Hello :data="{
+     &lt;Hello :data="{
                       arrayTest : [1,2,3], 
                       isGirl : false, 
                       age : 19
@@ -114,11 +114,11 @@ class Hello extends Omi.Component {
     }
     render() {
         return `
-      <ul>
+      &lt;ul>
       {{#arrayTest}}
-        <li onclick="handleClick">{{name}}</li>
+        &lt;li onclick="handleClick">{{name}}&lt;/li>
       {{/arrayTest}}
-      </ul>
+      &lt;/ul>
         `;
     }
 }
@@ -126,9 +126,9 @@ Omi.makeHTML("Hello", Hello);
 class App extends Omi.Component {
     render() {
         return `
-        <div>
-            <Hello :data-array-test="[{name:'dntzhang'},{name:'omi'},{name:'AlloyTeam'}]" />
-        </div>
+        &lt;div>
+            &lt;Hello :data-array-test="[{name:'dntzhang'},{name:'omi'},{name:'AlloyTeam'}]" />
+        &lt;/div>
         `;
     }
 }
@@ -141,9 +141,9 @@ Omi.render(new App(), "#container");
 class Hello extends Omi.Component {
     render() {
         return `
-      <ul>
-       ${this.data.arrayTest.map((item) => `<li>${item.name}</li>`).join("")}
-      </ul>
+      &lt;ul>
+       ${this.data.arrayTest.map((item) => `&lt;li>${item.name}&lt;/li>`).join("")}
+      &lt;/ul>
         `;
     }
 }

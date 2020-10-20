@@ -214,7 +214,7 @@ Object.keys(routes).forEach((key) => {
 });
 function pathFinder() {
     // 循环遍历所有路由索引，如果找到了对应的路由就加载新路由
-    for (var i = 0, l = routesIndex.length; i < l; i++) {
+    for (var i = 0, l = routesIndex.length; i &lt; l; i++) {
         if (routesIndex[i].regex.test(path)) {
             var route = {};
             var entry = routesIndex[i].entry;
@@ -248,7 +248,7 @@ function pathFinder() {
 
 ```javascript
 function pathFinder(path) {
-    for (var i = 0, l = routesIndex.length; i < l; i++) {
+    for (var i = 0, l = routesIndex.length; i &lt; l; i++) {
         if (routesIndex[i].regex.test(path)) {
             var route = {};
             var entry = routesIndex[i].entry;

@@ -159,7 +159,7 @@ findChild 函数的作用是找寻一个点（第一个参数）的可行直连�
 ```javascript
 function findChild(p, obstacles, notPoint) {
     p.childs = Object.create(null);
-    for (var i = 0; i < obstacles.length - 1; i++) {
+    for (var i = 0; i &lt; obstacles.length - 1; i++) {
         tmp = obstacles[i];
         tmpIndex = tmp.index;
         var door = true;
@@ -167,7 +167,7 @@ function findChild(p, obstacles, notPoint) {
             // 兄弟节点和父级节点直接跳过
             continue;
         }
-        for (var j = 0; j < obstacles.length - 1; j++) {
+        for (var j = 0; j &lt; obstacles.length - 1; j++) {
             if (tmp.isObstacle) {
                 if (
                     tmp.index === obstacles[j].index ||
@@ -242,7 +242,7 @@ function findChild(p, obstacles, notPoint) {
 function showPath() {
     // 展示路径
     var disArr = [];
-    for (var i = 0; i < globalPath.length; i++) {
+    for (var i = 0; i &lt; globalPath.length; i++) {
         var arr = [];
         var tmp = globalPath[i];
         arr.push(end); // 先添加终点
@@ -266,7 +266,7 @@ function showPath() {
 }
 function computeDistance(arr) {
     var sum = 0;
-    for (var i = 1; i < arr.length; i++) {
+    for (var i = 1; i &lt; arr.length; i++) {
         sum += Math.sqrt(
             (arr[i].x - arr[i - 1].x) * (arr[i].x - arr[i - 1].x) +
                 (arr[i].y - arr[i - 1].y) * (arr[i].y - arr[i - 1].y)

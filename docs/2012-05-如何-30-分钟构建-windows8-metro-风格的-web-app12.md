@@ -42,27 +42,27 @@ Name it “**SimpleChannel9Reader** ” as we’re going to download the RSS st
 Open the “default.html” file which describes the first page that will be displayed when you’ll launch the application. Instead of the following HTML part:
 
 ```html
-<p>Content goes here</p>;
+&lt;p>Content goes here&lt;/p>;
 ```
 
 Insert this one:
 
 ```html
-<div id="main">
+&lt;div id="main">
         
-    <header id="banner">
+    &lt;header id="banner">
                 
-        <button id="backbutton" class="win-backbutton">
+        &lt;button id="backbutton" class="win-backbutton">
                     
-        </button>
+        &lt;/button>
                 
-        <h1 id="maintitle" class="win-title">
+        &lt;h1 id="maintitle" class="win-title">
                         Welcome to Channel 9!
-        </h1>
+        &lt;/h1>
             
-    </header>
-        <section id="content">    </section>
-</div>;
+    &lt;/header>
+        &lt;section id="content">    &lt;/section>
+&lt;/div>;
 ```
 
 We now have a global div container with the “main” id embedding 2 sub-containers named “banner” and “content”. The header will be obviously displayed at the top of the page and the content section will be displayed just below.
@@ -221,7 +221,7 @@ In our case, we’re going to use the ListView control which creates a grid layo
 Open “**_default.html_**” and inside the section tag, type this piece of HTML:
 
 ```html
-<div id="articlelist" data-win-control="WinJS.UI.ListView"></div>;
+&lt;div id="articlelist" data-win-control="WinJS.UI.ListView">&lt;/div>;
 ```
 
 Currently, it’s only a simple classical div. However, it’s annotated with the **data-win-control** attribute which indicates that we’d like to use the **WinJS** library to transform this simple div into a JavaScript **ListView** control.
@@ -260,7 +260,7 @@ This function starts by running an asynchronous **XmlHttpRequest** to the spec
 
 ```javascript
 var items = rss.responseXML.selectNodes("//item");
-for (var n = 0; n < items.length; n++) {
+for (var n = 0; n &lt; items.length; n++) {
     var article = {};
     article.title = items[n].selectSingleNode("title").text;
     var thumbs = items[n].selectNodes("media:thumbnail");
@@ -281,11 +281,11 @@ We now need to run this function during the starting phase of our application. T
 We have to specify to the control its data source. Jump back into the HTML code and modify the div associated to the ListView to change its options:
 
 ```html
-<div
+&lt;div
     id="articlelist"
     data-win-control="WinJS.UI.ListView"
     data-win-options="{ itemDataSource: C9Data.ItemList.dataSource }"
-></div>;
+>&lt;/div>;
 ```
 
 At last, we need some basic CSS to help the control to know how to draw each of its items. Jump to the “_default.css_” file and add these 2 rules:
@@ -319,26 +319,26 @@ We now need to change the way each element is drawn. This is exactly the purpose
 Navigate to the “_default.html_” page and add this piece of HTML just above the “_main_” part:
 
 ```html
-<div
+&lt;div
     id="C9ItemTemplate"
     data-win-control="WinJS.Binding.Template"
     style="display: none;"
 >
         
-    <div class="listItemTemplate">
+    &lt;div class="listItemTemplate">
                 
-        <div class="listItemImage">
+        &lt;div class="listItemImage">
                         
-            <img data-win-bind="src: thumbnail" />
+            &lt;img data-win-bind="src: thumbnail" />
                     
-        </div>
+        &lt;/div>
                 
-        <div class="listItemTitle" data-win-bind="innerText: title">
+        &lt;div class="listItemTitle" data-win-bind="innerText: title">
                     
-        </div>
+        &lt;/div>
             
-    </div>
-</div>;
+    &lt;/div>
+&lt;/div>;
 ```
 
 It’s an HTML template marked with the “**WinJS.Binding.Template**” value. This will help WinJS to know what to do with this special piece of HTML after the **processAll()** execution. You’ll find also the usage of “**_data-win-bind_**” to define binding expressions. It will help the binding engine to know which JavaScript properties from the data source to map to the appropriate HTML nodes. Except that, you can use some classic HTML.
@@ -346,11 +346,11 @@ It’s an HTML template marked with the “**WinJS.Binding.Template**” value. 
 We now need to configure the WinJS control to not use the default template anymore but to use the new one above instead. It’s done by simply changing the options:
 
 ```html
-<div
+&lt;div
     id="articlelist"
     data-win-control="WinJS.UI.ListView"
     data-win-options="{ itemDataSource: C9Data.ItemList.dataSource, itemTemplate: C9ItemTemplate }"
-></div>;
+>&lt;/div>;
 ```
 
 If you now run the application, you should have this screen:

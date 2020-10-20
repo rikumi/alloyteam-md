@@ -108,7 +108,7 @@ elem.className += " " + className;
             deleteCSS: function (ruleName) {
                 var cssrules = (document.all) ? "rules" : "cssRules",
                     i;
-                for (i = 0; i < document.styleSheets[0][cssrules].length; i += 1) {
+                for (i = 0; i &lt; document.styleSheets[0][cssrules].length; i += 1) {
                     var rule = document.styleSheets[0][cssrules][i];
                     if (rule.name === ruleName || rule.selectorText === '.'+ruleName) {
                         document.styleSheets[0].deleteRule(i);

@@ -13,7 +13,7 @@ source_link: http://www.alloyteam.com/2015/10/accessing-property-in-strong-mode/
 
 ========
 
-然而事情并没有想象中顺利，将所有文件第一行的 'use strict' 换成 'use strong' 之后，一运行，立马出现一个报错 TypeError: In strong mode, accessing missing property 'NODE_ENV' of #<Object> is deprecated。
+然而事情并没有想象中顺利，将所有文件第一行的 'use strict' 换成 'use strong' 之后，一运行，立马出现一个报错 TypeError: In strong mode, accessing missing property 'NODE_ENV' of #&lt;Object> is deprecated。
 
 查看代码发现是这行
 

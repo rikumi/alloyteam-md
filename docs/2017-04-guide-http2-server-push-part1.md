@@ -49,7 +49,7 @@ source_link: http://www.alloyteam.com/2017/04/guide-http2-server-push-part1/
 
 Server Push 解决了减少关键内容网络回路的耗时问题，但这并不是唯一作用。Server Push 更像是 HTTP/1 特定优化反模式的替代方案，例如将 CSS 和 JavaScript 内联在 HTML，以及使用 [data URI](https://en.wikipedia.org/wiki/Data_URI_scheme) 方案将二进制数据嵌入到 CSS 和 HTML 中。
 
-这些技术在 HTTP/1 优化工作流中非常受用，是因为这样减少了我们所说的页面 “感知渲染时间”，也就是说在页面整体加载时间可能不会减少的同时，对用户而言网页的加载速度却显得更快。这确实是说得通的，如果你将 CSS 内嵌到 HTML 的<style> 标签中，浏览器就可以无需等待外部资源的获取，而立即应用 HTML 中的样式。这种概念同样适用于内联脚本，以及使用 data URL 方式内联二进制数据。
+这些技术在 HTTP/1 优化工作流中非常受用，是因为这样减少了我们所说的页面 “感知渲染时间”，也就是说在页面整体加载时间可能不会减少的同时，对用户而言网页的加载速度却显得更快。这确实是说得通的，如果你将 CSS 内嵌到 HTML 的&lt;style> 标签中，浏览器就可以无需等待外部资源的获取，而立即应用 HTML 中的样式。这种概念同样适用于内联脚本，以及使用 data URL 方式内联二进制数据。
 
 ![](http://www.alloyteam.com/wp-content/uploads/2017/04/inlined-content-unopt.png)
 
@@ -72,7 +72,7 @@ Server Push 解决了减少关键内容网络回路的耗时问题，但这并�
 使用 Server Push，_通常_会以下面的方式使用 Link 这个 HTTP 首部。
 
 ```css
-Link: </css/styles.css>; rel=preload; as=style
+Link: &lt;/css/styles.css>; rel=preload; as=style
 ```
 
 注意我说的是通常，上面看到的实际是[预加载资源示意](https://w3c.github.io/preload)（resource hint）的实践。这是个区别于 Server Push 的独立优化方案，但大多数（并非全部）HTTP/2 的实现都将 preload 放进来 Link 首部。如果服务器或客户端选择不接受推送的资源，客户端仍可以根据指示提早获取资源。
@@ -88,9 +88,9 @@ Link: </css/styles.css>; rel=preload; as=style
 
 下面是一个 Apache 配置（通过 httpd.conf 或.htaccess）的例子，作用是在请求 HTML 时推送样式资源。
 
-    <FilesMatch "\.html$">
-        Header set Link "</css/styles.css>; rel=preload; as=style"
-    <FilesMatch>
+    &lt;FilesMatch "\.html$">
+        Header set Link "&lt;/css/styles.css>; rel=preload; as=style"
+    &lt;FilesMatch>
 
 这里我们使用了 FilesMatch 指令来匹配后缀为 “.html” 的文件请求。当一个请求匹配这个条件时，我们就往响应头里加入 Link 首部，并告知服务器推送位置在 /css/styles.css 的资源。
 
@@ -103,7 +103,7 @@ _边注_：Apache 的 HTTP/2 模块也可以使用 H2PushResource 指令启用�
 另一个设置 Link 首部的方法是使用服务器端语言。这在你无法修改或覆盖服务器配置时十分有效。下面是 PHP header 方法设置 Link 首部的例子：
 
 ```css
-header("Link: </css/styles.css>; rel=preload; as=style");
+header("Link: &lt;/css/styles.css>; rel=preload; as=style");
 ```
 
 如果你的应用程序部署在一个共享的托管环境中，并且修改服务器的配置不太现实，那么这个方法可能是最适合你的。你可以使用任何服务端语言设置这个首部。在真实使用前记得确保测试无误，以避免潜在的运行时错误。
@@ -113,21 +113,21 @@ header("Link: </css/styles.css>; rel=preload; as=style");
 目前看到的都是演示推送一个资源的例子，如果想一次推送更多资源呢？这么做也是很有道理的，对吧？毕竟页面不止是样式表组成的。下面来看推送多资源的例子：
 
 ```css
-Link: </css/styles.css>; rel=preload; as=style, </js/scripts.js>; rel=preload; as=script, </img/logo.png>; rel=preload; as=image
+Link: &lt;/css/styles.css>; rel=preload; as=style, &lt;/js/scripts.js>; rel=preload; as=script, &lt;/img/logo.png>; rel=preload; as=image
 ```
 
 当你想推送多个资源，只要用逗号把每个指令隔开就行了。因为资源示意是通过 Link 首部加入的，这种语法让我们可以把不同资源的推送指令合在一起。这还有个包括 preconnect 的混合推送指令示例：
 
 ```css
-Link: </css/styles.css>; rel=preload; as=style, <https://fonts.gstatic.com>; rel=preconnect
+Link: &lt;/css/styles.css>; rel=preload; as=style, &lt;https://fonts.gstatic.com>; rel=preconnect
 ```
 
 多个 Link 首部也是同样合法的。下面是 Apache 给 HTML 配置多个 Link 首部的例子：
 
-    <FilesMatch "\.html$">
-        Header add Link "</css/styles.css>; rel=preload; as=style"
-        Header add Link "</js/scripts.js>; rel=preload; as=script"
-    <FilesMatch>
+    &lt;FilesMatch "\.html$">
+        Header add Link "&lt;/css/styles.css>; rel=preload; as=style"
+        Header add Link "&lt;/js/scripts.js>; rel=preload; as=script"
+    &lt;FilesMatch>
 
 这种语法相比一长串逗号分隔的字符串更为方便，且达到的作用是相同的。唯一的缺点就是没那么紧凑，而且会多一点字节量的网络传输，但提供的便利是值得的。
 

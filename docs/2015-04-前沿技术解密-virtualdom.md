@@ -24,18 +24,18 @@ VTree 模型非常简单，基本结构如下：
 
 ```html
 {
-    <span class="comment">// tag的名字</span>
-    tagName: <span class="string">'p'</span>,
-    <span class="comment">// 节点包含属性</span>
+    &lt;span class="comment">// tag的名字&lt;/span>
+    tagName: &lt;span class="string">'p'&lt;/span>,
+    &lt;span class="comment">// 节点包含属性&lt;/span>
     properties: {
         style: {
-            color: <span class="string">'#fff'</span>
+            color: &lt;span class="string">'#fff'&lt;/span>
         }
     },
-    <span class="comment">// 子节点</span>
+    &lt;span class="comment">// 子节点&lt;/span>
     children: [],
-    <span class="comment">// 该节点的唯一表示，后面会讲有啥用</span>
-    key: <span class="number">1</span>
+    &lt;span class="comment">// 该节点的唯一表示，后面会讲有啥用&lt;/span>
+    key: &lt;span class="number">1&lt;/span>
 }
  
 ```
@@ -43,12 +43,12 @@ VTree 模型非常简单，基本结构如下：
 所以我们很容易写一个方法来创建这种树状结构，例如 React 是这么创建的：
 
 ```html
-<span class="comment">// 创建一个div</span>
-react.createElement(<span class="string">'div'</span>, <span class="keyword">null</span>, [
-    <span class="comment">// 子节点img</span>
-    react.createElement(<span class="string">'img'</span>, { src: <span class="string">"avatar.png"</span>, <span class="keyword">class</span>: <span class="string">"profile"</span> }),
-    <span class="comment">// 子节点h3</span>
-    react.createElement(<span class="string">'h3'</span>, <span class="keyword">null</span>, [[user.firstName, user.lastName].join(<span class="string">' '</span>)])
+&lt;span class="comment">// 创建一个div&lt;/span>
+react.createElement(&lt;span class="string">'div'&lt;/span>, &lt;span class="keyword">null&lt;/span>, [
+    &lt;span class="comment">// 子节点img&lt;/span>
+    react.createElement(&lt;span class="string">'img'&lt;/span>, { src: &lt;span class="string">"avatar.png"&lt;/span>, &lt;span class="keyword">class&lt;/span>: &lt;span class="string">"profile"&lt;/span> }),
+    &lt;span class="comment">// 子节点h3&lt;/span>
+    react.createElement(&lt;span class="string">'h3'&lt;/span>, &lt;span class="keyword">null&lt;/span>, [[user.firstName, user.lastName].join(&lt;span class="string">' '&lt;/span>)])
 ]);
  
 ```
@@ -58,34 +58,34 @@ react.createElement(<span class="string">'div'</span>, <span class="keyword">nul
 这方法也不太难，我们实现一个简单的：
 
 ```html
-<span class="keyword">function</span> create(vds, <span class="keyword">parent</span>) {
-  <span class="comment">// 首先看看是不是数组，如果不是数组统一成数组</span>
-  !<span class="keyword">Array</span>.isArray(vds) && (vds = [vds]);
-  <span class="comment">//  如果没有父元素则创建个fragment来当父元素</span>
-  <span class="keyword">parent</span> = <span class="keyword">parent</span> || document.createDocumentFragment();
-  <span class="keyword">var</span> node;
-  <span class="comment">// 遍历所有VNode</span>
-  vds.<span class="keyword">forEach</span>(<span class="keyword">function</span> (vd) {
-    <span class="comment">// 如果VNode是文字节点</span>
-    <span class="keyword">if</span> (isText(vd)) {
-      <span class="comment">// 创建文字节点</span>
+&lt;span class="keyword">function&lt;/span> create(vds, &lt;span class="keyword">parent&lt;/span>) {
+  &lt;span class="comment">// 首先看看是不是数组，如果不是数组统一成数组&lt;/span>
+  !&lt;span class="keyword">Array&lt;/span>.isArray(vds) && (vds = [vds]);
+  &lt;span class="comment">//  如果没有父元素则创建个fragment来当父元素&lt;/span>
+  &lt;span class="keyword">parent&lt;/span> = &lt;span class="keyword">parent&lt;/span> || document.createDocumentFragment();
+  &lt;span class="keyword">var&lt;/span> node;
+  &lt;span class="comment">// 遍历所有VNode&lt;/span>
+  vds.&lt;span class="keyword">forEach&lt;/span>(&lt;span class="keyword">function&lt;/span> (vd) {
+    &lt;span class="comment">// 如果VNode是文字节点&lt;/span>
+    &lt;span class="keyword">if&lt;/span> (isText(vd)) {
+      &lt;span class="comment">// 创建文字节点&lt;/span>
       node = document.createTextNode(vd.text);
-    <span class="comment">// 否则是元素</span>
-    } <span class="keyword">else</span> {
-      <span class="comment">// 创建元素</span>
+    &lt;span class="comment">// 否则是元素&lt;/span>
+    } &lt;span class="keyword">else&lt;/span> {
+      &lt;span class="comment">// 创建元素&lt;/span>
       node = document.createElement(vd.tag);
     }
-    <span class="comment">// 将元素塞入父容器</span>
-    <span class="keyword">parent</span>.appendChild(node);
-    <span class="comment">// 看看有没有子VNode，有孩子则处理孩子VNode</span>
+    &lt;span class="comment">// 将元素塞入父容器&lt;/span>
+    &lt;span class="keyword">parent&lt;/span>.appendChild(node);
+    &lt;span class="comment">// 看看有没有子VNode，有孩子则处理孩子VNode&lt;/span>
     vd.children && vd.children.length &&
       create(vd.children, node);
  
-    <span class="comment">// 看看有没有属性，有则处理属性</span>
+    &lt;span class="comment">// 看看有没有属性，有则处理属性&lt;/span>
     vd.properties &&
       setProps({ style: {} }, vd.properties, node);
   });
-  <span class="keyword">return</span> <span class="keyword">parent</span>;
+  &lt;span class="keyword">return&lt;/span> &lt;span class="keyword">parent&lt;/span>;
 }
  
 ```

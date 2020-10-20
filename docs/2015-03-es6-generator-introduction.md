@@ -10,7 +10,7 @@ source_link: http://www.alloyteam.com/2015/03/es6-generator-introduction/
 ```c
 function* generateNaturalNumber() {
     var i = 0;
-    while(i <= 100) {
+    while(i &lt;= 100) {
         yield i;
         i++;
     }
@@ -58,7 +58,7 @@ for (var i of generateNaturalNumber()) {
 function* generateNaturalNumber() {
     console.log("function start");
     var i = 0; // 为了便于观察log，将循环减小到5
-    while (i <= 5) {
+    while (i &lt;= 5) {
         console.log("yield start");
         yield i;
         console.log("yield end");
@@ -114,7 +114,7 @@ yield 作为一个关键字，也有返回值，其返回值就是下一次调�
 ```javascript
 function* generateNaturalNumber() {
     var i = 0;
-    while (i <= 100) {
+    while (i &lt;= 100) {
         var j = yield i;
         j && (i = j);
         i++;

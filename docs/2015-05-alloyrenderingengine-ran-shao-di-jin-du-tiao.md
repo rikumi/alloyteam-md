@@ -114,7 +114,7 @@ HTML 5 新增了 progress 标签，那么再去使用 AlloyRenderingEngine 去�
             this.add(this.bar);
             this.bar
                 .fillStyle(option.fillColor || "green")
-                .fillRect(2, 2, barWidth < 0 ? 0 : barWidth, option.height - 4); //引导的火焰，使用粒子系统去模拟
+                .fillRect(2, 2, barWidth &lt; 0 ? 0 : barWidth, option.height - 4); //引导的火焰，使用粒子系统去模拟
             this.pilot = new ARE.ParticleSystem({
                 emitX: 0,
                 emitY: 0,
@@ -148,7 +148,7 @@ HTML 5 新增了 progress 标签，那么再去使用 AlloyRenderingEngine 去�
                     .fillRect(
                         2,
                         2,
-                        barWidth < 0 ? 0 : barWidth,
+                        barWidth &lt; 0 ? 0 : barWidth,
                         this.height - 4
                     );
             });

@@ -75,10 +75,10 @@ keyframes : 定义一系列关键帧的样式区别，用来作为移动到下�
 ```
 
 ```html
-<div class="wrapper">
-             <div class="loading_css3"></div>
+&lt;div class="wrapper">
+             &lt;div class="loading_css3">&lt;/div>
         
-</div>;
+&lt;/div>;
 ```
 
 O(∩\_∩) O 哈哈～～就这样我们的 loading 菊花就顺利完成了，如果想在 Firefox 上使用，只需把 - webkit - 前缀改成 - moz - 即可，最终效果如下：

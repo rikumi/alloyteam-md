@@ -9,19 +9,11 @@ source_link: http://www.alloyteam.com/2015/03/jian-dan-wan-zhuan-manifest-json/
 
 回想最早年资源版本控制，是不是类似如下
 
-````html
-
 ```html
-<script src="a.js?t=20140404"></script>
-````
-
-```html
-<script src="a.js?v=1.1.0"></script>
-```
-
+&lt;script src="a.js?t=20140404">&lt;/script>
+&lt;script src="a.js?v=1.1.0">&lt;/script>
  
-
-````
+```
 
 这是一个最常见的古老的版本控制方式，简单直观易用，缺点就是我们常常会因为缓存因为覆盖造成发布外网时出现资源同步问题。对于没啥访问量的小型站点折腾折腾也就过了，如果项目很大访问很大，一但出现问题波及很广你自然少不了被领导被上级抓去捡肥皂的命运。
 
@@ -30,19 +22,13 @@ source_link: http://www.alloyteam.com/2015/03/jian-dan-wan-zhuan-manifest-json/
 最基本的 rev 玩法
 
 ```html
-<!-- build:js js/all.js -->
-
-```html
-<script src="js/all.js"></script>
-````
-
-<!-- endbuild -->
-
+&lt;!-- build:js js/all.js -->
+&lt;script src="js/all.js">&lt;/script>
+&lt;!-- endbuild -->
  
+```
 
-````
-
-通过定义 build 再在 gulpfile.js 做 rev() 配置，比如
+通过定义 build 再在 gulpfile.js 做 rev () 配置，比如
 
 ```javascript
 return gulp
@@ -59,7 +45,7 @@ return gulp
     .pipe(useref())
     .pipe(revReplace()) // Substitute in new filenames
     .pipe(gulp.dest("dist"));
-````
+```
 
 这样就可以动态将 build 内的 css，js 等文件合并压缩并 md5 命名，但是这种做法的缺点也很明显，写法繁琐，而且不支持特殊规则比如 css 内部的 background:url ()，如果想要支持这种替换还得自己做插件做规则匹配。
 
@@ -96,58 +82,33 @@ return gulp
 
 调用方
 
-````html
-
 ```html
-<script src="/js/console.js"></script>
-````
-
-```html
-<script src="/js/plugin.js?___md5"></script>
-```
-
-```html
-<script src="/js/section.js?___md5"></script>
-```
-
-```html
-<script src="/js/index.js?___md5"></script>
-```
-
+&lt;script src="/js/console.js">&lt;/script>
+&lt;script src="/js/plugin.js?___md5">&lt;/script>
+&lt;script src="/js/section.js?___md5">&lt;/script>
+&lt;script src="/js/index.js?___md5">&lt;/script>
  
-
 ```
 
 开发目录
 
-```
-
-dev/js
-    \- console.js
-    \- index.js
-    \- plugin.js
-    \- section.js
-
- 
-
-```
+    dev/js
+        - console.js
+        - index.js
+        - plugin.js
+        - section.js
+     
 
 发布目录
 
-```
-
-dist/js
-    \- console.js
-    \- index-a5fae3cd.js
-    \- plugin-0ddc6bc0.js
-    \- section-0c058d64.js
-
- 
-
-```
+    dist/js
+        - console.js
+        - index-a5fae3cd.js
+        - plugin-0ddc6bc0.js
+        - section-0c058d64.js
+     
 
 可以看到根据自能匹配规则，js 目录下有三个文件被自动 md5，而调试文件因为没有 md5 标识保留了源文件拷贝。
-```
 
 
 <!-- {% endraw %} - for jekyll -->

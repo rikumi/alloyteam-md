@@ -181,7 +181,7 @@ React 中可以顺畅地使用 ES2015 的 Class 语法。
 ```javascript
 class HelloMessage extends React.Component {
     render() {
-        return <div>Hello {this.props.name}</div>;
+        return &lt;div>Hello {this.props.name}&lt;/div>;
     }
 }
 ```
@@ -234,7 +234,7 @@ class HelloMessage extends React.Component {
 ```javascript
 it("simulates click events", () => {
     const onButtonClick = sinon.spy();
-    const wrapper = shallow(<Foo onButtonClick={onButtonClick} />);
+    const wrapper = shallow(&lt;Foo onButtonClick={onButtonClick} />);
     wrapper.find("button").simulate("click");
     expect(onButtonClick.calledOnce).to.be.true;
 });

@@ -36,7 +36,7 @@ Old WebView UA:
 **WebView UA in KitKat to Lollipop**
 
 ```html
-Mozilla/5.0 (Linux; Android 4.4; Nexus 5 Build/_BuildID_) AppleWebKit/537.36 (KHTML,like Gecko) Version/4.0 <strong>Chrome/30.0.0.0 Mobile</strong> Safari/537.36
+Mozilla/5.0 (Linux; Android 4.4; Nexus 5 Build/_BuildID_) AppleWebKit/537.36 (KHTML,like Gecko) Version/4.0 &lt;strong>Chrome/30.0.0.0 Mobile&lt;/strong> Safari/537.36
 ```
 
 <https://developer.chrome.com/multidevice/user-agent>

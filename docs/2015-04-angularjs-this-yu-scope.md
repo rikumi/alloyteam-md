@@ -26,10 +26,10 @@ function ACtrl($scope) {
  html:
 
 ```html
-<div ng-controller="ACtrl">
+&lt;div ng-controller="ACtrl">
                         {{ test }}
                     
-</div>;
+&lt;/div>;
 ```
 
  2) this  则采用了 controller as (需要版本为 ng 1.2+) 写法：
@@ -46,11 +46,11 @@ function BCtrl() {
  html: 
 
 ```html
-                <!-- vm为自己为当前控制器作的一个简略记号，也可以写作 BCtrl as b,
+                &lt;!-- vm为自己为当前控制器作的一个简略记号，也可以写作 BCtrl as b,
                      后面变量便可以在b中引出 如b.test -->
-                <div ng-controller="BCtrl as vm">
+                &lt;div ng-controller="BCtrl as vm">
                     {{vm.test}}
-                </div>
+                &lt;/div>
 ```
 
 作用范围：
@@ -73,17 +73,17 @@ function ChildCtrl($scope) {
  html:
 
 ```html
-<div ng-controller="ParentCtrl">
-                        <p>Parent-test : {{ test }}</p>
-                        <p>Parent-cover : {{ cover }}</p>
+&lt;div ng-controller="ParentCtrl">
+                        &lt;p>Parent-test : {{ test }}&lt;/p>
+                        &lt;p>Parent-cover : {{ cover }}&lt;/p>
                         
-    <div ng-controller="ChildCtrl">
-                                <p>Child-test : {{ test }}</p>
-                                <p>Child-cover : {{ cover }}</p>
+    &lt;div ng-controller="ChildCtrl">
+                                &lt;p>Child-test : {{ test }}&lt;/p>
+                                &lt;p>Child-cover : {{ cover }}&lt;/p>
                             
-    </div>
+    &lt;/div>
                     
-</div>;
+&lt;/div>;
 ```
 
  我在父控制器 ParentCtrl 中声明的 test 变量并未在子控制器 ChildCtrl 中做声明，而在 ChildCtrl 作用范围内的 Child-test 中，test 却输出了” 测试”；基于此我再做了一次覆盖测试，检测结果显示，当父子控制器同时存在相同的变量时， 父子控制器各自范围内的值不会被覆盖；
@@ -107,18 +107,18 @@ function ChildCtrl($scope) {
  html:
 
 ```html
-                <div ng-controller="ParentCtrl as parent">
-                    <p>Parent-test : {{parent.test}}</p>
-                    <p>Parent-cover : {{parent.cover}}</p>
-                    <div ng-controller="ChildCtrl as child">
-                        <p>Child-test : {{child.test}}</p>
-                        <p>Child-cover : {{child.cover}}</p>
-                    </div>
-                    <div ng-controller="ChildCtrl as parent">
-                        <p>Child-test : {{parent.test}}</p>
-                        <p>Child-cover : {{parent.cover}}</p>
-                    </div>
-                </div>
+                &lt;div ng-controller="ParentCtrl as parent">
+                    &lt;p>Parent-test : {{parent.test}}&lt;/p>
+                    &lt;p>Parent-cover : {{parent.cover}}&lt;/p>
+                    &lt;div ng-controller="ChildCtrl as child">
+                        &lt;p>Child-test : {{child.test}}&lt;/p>
+                        &lt;p>Child-cover : {{child.cover}}&lt;/p>
+                    &lt;/div>
+                    &lt;div ng-controller="ChildCtrl as parent">
+                        &lt;p>Child-test : {{parent.test}}&lt;/p>
+                        &lt;p>Child-cover : {{parent.cover}}&lt;/p>
+                    &lt;/div>
+                &lt;/div>
 ```
 
  在使用 this 的时候，各层级变量的命名空间是平行的状态，模板 html 中只可以拿到当前控制器下声明的变量。

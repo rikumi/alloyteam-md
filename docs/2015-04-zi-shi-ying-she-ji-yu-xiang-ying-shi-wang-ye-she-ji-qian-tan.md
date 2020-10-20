@@ -56,7 +56,7 @@ source_link: http://www.alloyteam.com/2015/04/zi-shi-ying-she-ji-yu-xiang-ying-s
 也可以把要套用的描述独立成外部档案：
 
 ```html
-<link rel="stylesheet" media="screen and (max-width: 400px)" href="mini.css" />;
+&lt;link rel="stylesheet" media="screen and (max-width: 400px)" href="mini.css" />;
 ```
 
 **Min Width：**若浏览区域的宽度大于 800 像素，则下方的 CSS 描述就会立即被套用：
@@ -84,27 +84,27 @@ source_link: http://www.alloyteam.com/2015/04/zi-shi-ying-she-ji-yu-xiang-ying-s
 **针对 iPhone4 提供专用的 css 设定档：**
 
 ```c
-<link rel= "stylesheet"  media= "only screen and (-webkit-min-device-pixel-ratio: 2)"  type= "text/css"  href= "iphone4.css"  />
+&lt;link rel= "stylesheet"  media= "only screen and (-webkit-min-device-pixel-ratio: 2)"  type= "text/css"  href= "iphone4.css"  />
 ```
 
 针对 iPad 的 Portrait Mode (直立) 与 Landscape Mode (横躺) 两种浏览模式给予不同的 css 设定档：
 
 ```html
-<link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css">
+&lt;link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css">
  
-<link rel="stylesheet" media="all and (orientation:landscape)" href="landscape.css">
+&lt;link rel="stylesheet" media="all and (orientation:landscape)" href="landscape.css">
 ```
 
 ### **Skill 2  在网页头部加上 viewport 标签**
 
 ```c
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
 浏览器推出了 “viewport meta” 标签，许多移动浏览器现在都支持这个标签，W3C  协议定义 [viewport meta](http://www.w3.org/TR/css-device-adapt/)  目前还属于草案，很多人都會在 html head  处加上 viewport  这个 meta data，一个典型的移动端 viewport 如下所示：
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
 该属性可以控制视窗口宽度的大小。它可以被设置为实际的具体像素 width= 600 或为特殊设备设置宽度值。
@@ -145,7 +145,7 @@ user-scalable，这个属性可以让使用者能否放大、缩小页面，如�
 如果在手机端我们希望网页呈现固定，不希望使用者随意缩放，直接设定如下
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
 如果希望在不同 **device** 使用不同缩放大小，就必须使用 javascript，检测 UA (User agent)，动态设定 viewport，如下：
@@ -185,7 +185,7 @@ pt 是 point，是印刷行业常用单位，等于 1/72 英寸。
 
 em 才是真正的 “相对单位”（百分比嘛，当然是相对），而 px 和 pt 都是绝对单位（都有固定值）。所以，一般移动终端布局用 em 比较合适。
 
-rem 是 css3 的出现，同时引进新的[单位](http://www.w3.org/TR/css3-values/#rem-unit), 而[rem](http://www.w3.org/TR/css3-values/#rem-unit)是相对于根元素<html>，这样就意味着，我们只需要在根元素确定一个参考值，在根元素中设置多大的字体，这完全可以根据您自己的需要。
+rem 是 css3 的出现，同时引进新的[单位](http://www.w3.org/TR/css3-values/#rem-unit), 而[rem](http://www.w3.org/TR/css3-values/#rem-unit)是相对于根元素&lt;html>，这样就意味着，我们只需要在根元素确定一个参考值，在根元素中设置多大的字体，这完全可以根据您自己的需要。
 
 ### **Skill 5  流动布局（fluid grid）**
 

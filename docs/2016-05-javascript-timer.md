@@ -52,7 +52,7 @@ setTimeout 注册的函数 fn 会交给浏览器的定时器模块来管理，�
     setTimeout(() => {
         console.timeEnd(label);
     }, 10);
-    for (let i = 0; i < 100000000; i++) {}
+    for (let i = 0; i &lt; 100000000; i++) {}
 })();
 ```
 
@@ -72,7 +72,7 @@ setInterval 的实现机制跟 setTimeout 类似，只不过 setInterval 是重�
         i += 1;
         i === 5 && clearInterval(timer);
         console.log(`第${i}次开始`, Date.now() - start);
-        for (let i = 0; i < 100000000; i++) {}
+        for (let i = 0; i &lt; 100000000; i++) {}
         console.log(`第${i}次结束`, Date.now() - start);
     }, 100);
 })();

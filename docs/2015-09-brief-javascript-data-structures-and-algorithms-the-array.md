@@ -170,8 +170,8 @@ objectName 参数是 object 对象的名称。
 function array_max() {
     var i,
         max = this[0];
-    for (i = 1; i < this.length; i++) {
-        if (max < this[i]) max = this[i];
+    for (i = 1; i &lt; this.length; i++) {
+        if (max &lt; this[i]) max = this[i];
     }
     return max;
 }
@@ -200,9 +200,9 @@ print(x.constructor === Array); // true
 使用没有指针的语言，个人觉得无法将数据结构和算法的精髓讲的出来，而且 js 底层已将数组相关算法封装好，所以这里不使用原生的 js 或者 java 等，而是使用 c 语言来实现。为了照顾没有学过指针的同学，我会尽可能的简单实现，并写好注释，画好图解，大家可以体会一下。
 
 ```c
-# include <stdio.h>
-# include <malloc.h>  //包含了malloc函数
-# include <stdlib.h>  //包含了exit函数
+# include &lt;stdio.h>
+# include &lt;malloc.h>  //包含了malloc函数
+# include &lt;stdlib.h>  //包含了exit函数
  
 //定义了一个数据类型，该数据类型的名字叫做struct Arr, 该数据类型含有三个成员，分别是pBase, len, cnt
 struct Arr
@@ -287,7 +287,7 @@ void show_arr(struct Arr * pArr) {
     if(is_empty(pArr)) {
         printf("数组为空!\n");
     } else {
-        for(int i=0; i<pArr->cnt; ++i) {
+        for(int i=0; i&lt;pArr->cnt; ++i) {
             printf("%d  ", pArr->pBase[i]);
         }
         printf("\n");
@@ -308,8 +308,8 @@ bool push(struct Arr * pArr, int val) {
 void sort(struct Arr * pArr) {
     int i, j, t;
     // 简单的冒泡排序法实现，后面的章节会单独讲排序算法 
-    for(i=0; i<pArr->cnt; ++i) {
-        for(j=i+1; j<pArr->cnt; ++j) {
+    for(i=0; i&lt;pArr->cnt; ++i) {
+        for(j=i+1; j&lt;pArr->cnt; ++j) {
             if(pArr->pBase[i] > pArr->pBase[j]) {
                 t = pArr->pBase[i];
                 pArr->pBase[i] = pArr->pBase[j];
@@ -323,8 +323,8 @@ void reverse(struct Arr * pArr) {
     int i = 0;
     int j = pArr->cnt-1;
     int t;
-    // 当i<j时，置换i和j位置的元素 
-    while(i < j) {
+    // 当i&lt;j时，置换i和j位置的元素 
+    while(i &lt; j) {
         t = pArr->pBase[i];
         pArr->pBase[i] = pArr->pBase[j];
         pArr->pBase[j] = t;
@@ -341,7 +341,7 @@ bool insert(struct Arr * pArr, int pos, int val) {
         return false;
     }
     // 如果插入的位置不在数组有效范围内就算了 
-    if(pos<1 || pos>pArr->cnt+1) {
+    if(pos&lt;1 || pos>pArr->cnt+1) {
         return false;
     }
     // 从插入位置开始后移各元素，将插入位置空出 
@@ -362,13 +362,13 @@ bool del(struct Arr * pArr, int pos, int * pVal) {
         return false;
     }
     // 不在有效范围内就算了 
-    if (pos<1 || pos>pArr->cnt) {
+    if (pos&lt;1 || pos>pArr->cnt) {
         return false;
     }
     // 存储被删除元素 
     *pVal = pArr->pBase[pos-1];
     // 从删除位置开始，前移各元素，将删除位置堵死 
-    for (i=pos; i<pArr->cnt; ++i) {
+    for (i=pos; i&lt;pArr->cnt; ++i) {
         pArr->pBase[i-1] = pArr->pBase[i];
     }
     // 数组有效长度自减 

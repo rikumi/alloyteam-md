@@ -108,31 +108,18 @@ React 简单示例
 
 每个示例的入口文件 index.html 结构大体相同：
 
-````html
-<!-- React 真实 DOM 将会插入到这里 -->
-<div id="demo"></div>
+```html
+&lt;!-- React 真实 DOM 将会插入到这里 -->
+&lt;div id="demo">&lt;/div>
  
-<!-- 引入 React -->
-
-```html
-<script src="../../bower_components/react/react.js"></script>
-````
-
-<!-- 引入 JSX 语法格式转换器 -->
-
-```html
-<script src="../../bower_components/react/JSXTransformer.js"></script>
-```
-
+&lt;!-- 引入 React -->
+&lt;script src="../../bower_components/react/react.js">&lt;/script>
+&lt;!-- 引入 JSX 语法格式转换器 -->
+&lt;script src="../../bower_components/react/JSXTransformer.js">&lt;/script>
  
-
-<!-- 注意：script 需要注明 type 为 text/jsx 以指定这是一个 JSX 语法格式 -->
-
-```html
-<script type="text/jsx" src="demo.js"></script>
-```
-
-</body>
+&lt;!-- 注意：script 需要注明 type 为 text/jsx 以指定这是一个 JSX 语法格式 -->
+&lt;script type="text/jsx" src="demo.js">&lt;/script>
+&lt;/body>
  
 ```
 
@@ -146,34 +133,34 @@ var DemoComponent = React.createClass({
     // 使用 render 方法自动渲染 DOM
     render: function () {
         return (
-            <div className="component-hello">
-                                <h1 className="hello-title">Hello React</h1>
-                                <p className="hello-desc">React 初探</p>
+            &lt;div className="component-hello">
+                                &lt;h1 className="hello-title">Hello React&lt;/h1>
+                                &lt;p className="hello-desc">React 初探&lt;/p>
                                 
-                <div className="hello-movies">
-                                        <p2>我喜欢的电影</p2>
+                &lt;div className="hello-movies">
+                                        &lt;p2>我喜欢的电影&lt;/p2>
                                         
-                    <ul>
+                    &lt;ul>
                                                 
-                        <li className="movie-item">
+                        &lt;li className="movie-item">
                                                         
-                            <span className="movie-name">速度与激情7</span>
+                            &lt;span className="movie-name">速度与激情7&lt;/span>
                                                         -
                                                         
-                            <span className="movie-date">2015</span>
+                            &lt;span className="movie-date">2015&lt;/span>
                                                     
-                        </li>
+                        &lt;/li>
                                             
-                    </ul>
+                    &lt;/ul>
                                     
-                </div>
+                &lt;/div>
                             
-            </div>
+            &lt;/div>
         );
     },
 });
 // 将组件插入到网页中指定的位置
-React.render(<DemoComponent />, document.getElementById("demo"));
+React.render(&lt;DemoComponent />, document.getElementById("demo"));
 ```
 
 [在线演示 demo/render](http://laispace.github.io/react-explore/demo/render/)
@@ -210,32 +197,32 @@ var DemoComponent = React.createClass({
         var title = this.state.title;
         var movies = this.state.movies.map(function (movie) {
             return (
-                <li className="movie-item" key={movie.id}>
+                &lt;li className="movie-item" key={movie.id}>
                                         
-                    <span className="movie-name">{movie.name}</span>
+                    &lt;span className="movie-name">{movie.name}&lt;/span>
                                         -                     
-                    <span className="movie-date">{movie.date}</span>
+                    &lt;span className="movie-date">{movie.date}&lt;/span>
                                     
-                </li>
+                &lt;/li>
             );
         });
         return (
-            <div className="component-hello">
-                                <h1 className="hello-title">Hello React</h1>
-                                <p className="hello-desc">React 初探</p> 
+            &lt;div className="component-hello">
+                                &lt;h1 className="hello-title">Hello React&lt;/h1>
+                                &lt;p className="hello-desc">React 初探&lt;/p> 
                                 
-                <div className="hello-movies">
-                                        <p2>{title}</p2>
-                                        <ul>{movies}</ul>
+                &lt;div className="hello-movies">
+                                        &lt;p2>{title}&lt;/p2>
+                                        &lt;ul>{movies}&lt;/ul>
                                     
-                </div>
+                &lt;/div>
                             
-            </div>
+            &lt;/div>
         );
     },
 });
 // 将组件插入到网页中指定的位置
-React.render(<DemoComponent />, document.getElementById("demo"));
+React.render(&lt;DemoComponent />, document.getElementById("demo"));
 ```
 
 [在线演示 demo/get-initial-state](http://laispace.github.io/react-explore/demo/get-initial-state/)
@@ -288,32 +275,32 @@ React.render(<DemoComponent />, document.getElementById("demo"));
         var title  = this.state.title;
         var movies = this.state.movies.map(function (movie) {
             return (
-                <li className="movie-item" key={movie.id}>
-                    <span className="movie-name">{movie.name}</span>
+                &lt;li className="movie-item" key={movie.id}>
+                    &lt;span className="movie-name">{movie.name}&lt;/span>
                     -
-                    <span className="movie-date">{movie.date}</span>
-                    <a href="#" onClick={self.onRemove.bind(null, movie)}>删除</a>
-                </li>
+                    &lt;span className="movie-date">{movie.date}&lt;/span>
+                    &lt;a href="#" onClick={self.onRemove.bind(null, movie)}>删除&lt;/a>
+                &lt;/li>
             )
         }.bind(this));// 注意这里 bind(this) 修正了上下文
  
         return (
-            <div className="component-hello">
-                <h1 className="hello-title">Hello React</h1>
-                <p  className="hello-desc">React 初探</p>
+            &lt;div className="component-hello">
+                &lt;h1 className="hello-title">Hello React&lt;/h1>
+                &lt;p  className="hello-desc">React 初探&lt;/p>
  
-                <div className="hello-movies">
-                    <p2>{title}</p2>
-                    <form onSubmit={this.onAdd}>
+                &lt;div className="hello-movies">
+                    &lt;p2>{title}&lt;/p2>
+                    &lt;form onSubmit={this.onAdd}>
                         {/* 注意这里指定 ref 属性，然后我们就可以使用 this.refs.xxx 访问到 */}
-                        <input type="text" ref="name" placehlder="输入你喜欢的电影"/>
-                        <input type="text" ref="date" placeholder="上映时间"/>
-                        <input type="submit" value="提交"/>
-                    </form>
-                    <ul>{movies}</ul>
-                    {this.state.loading ? <div>大家好我是菊花, 我现在在转</div> : null}
-                </div>
-            </div>
+                        &lt;input type="text" ref="name" placehlder="输入你喜欢的电影"/>
+                        &lt;input type="text" ref="date" placeholder="上映时间"/>
+                        &lt;input type="submit" value="提交"/>
+                    &lt;/form>
+                    &lt;ul>{movies}&lt;/ul>
+                    {this.state.loading ? &lt;div>大家好我是菊花, 我现在在转&lt;/div> : null}
+                &lt;/div>
+            &lt;/div>
         )
     }
  
@@ -327,7 +314,7 @@ onRemove: function (movie) {
         var movies = this.state.movies;
         var len = movies.length;
         var index = -1;
-        for(var i = 0; i < len; i++) {
+        for(var i = 0; i &lt; len; i++) {
             var _movie = movies[i];
             if (_movie.id === id) {
                 index = i;
@@ -399,7 +386,7 @@ var LiWrapper = React.createClass({
         // 使用 this.props 获得传入组件的数据
         var movie = this.props.movie;
         return (
-            <li>{/* ... */}</li>
+            &lt;li>{/* ... */}&lt;/li>
         )
     }
 });
@@ -416,17 +403,17 @@ var DemoComponent = React.createClass({
         // this.state 用于存储数据
         var movies = this.state.movies.map(function (movie) {
             return (
-               <LiWrapper movie={movie}/>
+               &lt;LiWrapper movie={movie}/>
             )
         }.bind(this));// 注意这里 bind(this) 修正了上下文
  
         return (
-            <div className="component-hello">
+            &lt;div className="component-hello">
                 {/* ... */}
-                <div className="hello-movies">
-                    <ul>{movies}</ul>
-                </div>
-            </div>
+                &lt;div className="hello-movies">
+                    &lt;ul>{movies}&lt;/ul>
+                &lt;/div>
+            &lt;/div>
         )
     }
 });
@@ -434,7 +421,7 @@ var DemoComponent = React.createClass({
 // 将组件插入到网页中指定的位置
 // 在使用组件时传入 movies 数据
 var movies = [// ...];
-React.render(<DemoComponent movies={movies}/>, document.getElementById('demo'));
+React.render(&lt;DemoComponent movies={movies}/>, document.getElementById('demo'));
  
 ```
 
@@ -479,17 +466,17 @@ var wording = "保罗";
 var MainComponent = React.createClass({
     render: function () {
         return (
-            <div className="component-hello">
+            &lt;div className="component-hello">
                                 
-                <HelloMessageComponent name={wording} />
+                &lt;HelloMessageComponent name={wording} />
                                 
-                <MovieListComponent movies={movies} />
+                &lt;MovieListComponent movies={movies} />
                             
-            </div>
+            &lt;/div>
         );
     },
 });
-React.render(<MainComponent />, document.getElementById("demo"));
+React.render(&lt;MainComponent />, document.getElementById("demo"));
 ```
 
 -   js/components/movie-list.js 组件为 JSX 语法编写
@@ -514,10 +501,10 @@ var MovieListComponent = React.createClass({
         var movies = this.props.movies;
         movies = movies.map(
             function (movie) {
-                return <MovieComponent movie={movie} />;
+                return &lt;MovieComponent movie={movie} />;
             }.bind(this)
         ); // 注意这里 bind(this) 修正了上下文
-        return <ul>{movies}</ul>;
+        return &lt;ul>{movies}&lt;/ul>;
     },
 });
 module.exports = MovieListComponent;
@@ -534,9 +521,9 @@ class HelloComponent extends React.Component {
     }
     render() {
         return (
-            <div>
+            &lt;div>
                 {this.state.wording} {this.props.name}
-            </div>
+            &lt;/div>
         );
     }
 }
@@ -583,17 +570,12 @@ gulp.task("default", ["webpack", "watch"]);
 
 -   index.html 示例页面，引入 webpack 打包后的 js/bundle.js
 
-````html
-<!-- React 真实 DOM 将会插入到这里 -->
-<div id="demo"></div>
-
 ```html
-<script src="./js/bundle.js"></script>
-````
-
+&lt;!-- React 真实 DOM 将会插入到这里 -->
+&lt;div id="demo">&lt;/div>
+&lt;script src="./js/bundle.js">&lt;/script>
  
-
-````
+```
 
 在 js/main.js 中引入两个不同的组件，然后在 webpack.config.js 中指定编译 JSX 和 ES6 的 loader 工具，使用 gulp 监听 js/ 中文件变化，自动编译出的 js/bundle.js 将被 index.html 引用。
 
@@ -603,17 +585,17 @@ gulp.task("default", ["webpack", "watch"]);
 
 零碎总结  
 
--------
+* * *
 
 文章到这里应该就算结束了，接下来是一些在学习过程中记下来的几个小点，也分享给大家。
 
-### 简单理解 JSX 语法  
+### 简单理解 JSX 语法
 
 JSX 把 JS 和 HTML 糅合起来了，这么理解是不是感觉比较简单：
 
-> 遇到 {} 包裹的是 JS，遇到 <> 包裹的是 HTML
+> 遇到 {} 包裹的是 JS，遇到 &lt;> 包裹的是 HTML
 
-### render() 中 返回的的 JSX 模板需要一个根元素包裹起来  
+### render () 中 返回的的 JSX 模板需要一个根元素包裹起来
 
 比如：
 
@@ -622,13 +604,13 @@ JSX 把 JS 和 HTML 糅合起来了，这么理解是不是感觉比较简单：
 var MyComponent = React.createClass({
     render: function () {
         return (
-            <h1>速度与激情7</h1>
-            <p>致敬保罗</p>
+            &lt;h1>速度与激情7&lt;/h1>
+            &lt;p>致敬保罗&lt;/p>
         )
     }
 });
  
-````
+```
 
 应该写成：
 
@@ -637,11 +619,11 @@ var MyComponent = React.createClass({
 var MyComponent = React.createClass({
     render: function () {
         return (
-            <div>
-                                <h1>速度与激情7</h1>
-                                <p>致敬保罗</p>
+            &lt;div>
+                                &lt;h1>速度与激情7&lt;/h1>
+                                &lt;p>致敬保罗&lt;/p>
                             
-            </div>
+            &lt;/div>
         );
     },
 });
@@ -668,7 +650,7 @@ var MyComponent = React.createClass({
 
 ### 组件之间如何通信
 
-    <Parent><Child /></Parent>
+    &lt;Parent>&lt;Child />&lt;/Parent>
      
 
 父组件可以获取到子组件：this.props.children
@@ -688,11 +670,11 @@ render () 在 React 创建时会调用一次，在数据更新时调用 setState
 var MyComponent = React.createClass({
     render: function () {
         return (
-            <div class="movie">
-                                <h1>速度与激情7</h1>
-                                <p>致敬保罗</p>
+            &lt;div class="movie">
+                                &lt;h1>速度与激情7&lt;/h1>
+                                &lt;p>致敬保罗&lt;/p>
                             
-            </div>
+            &lt;/div>
         );
     },
 });
@@ -705,11 +687,11 @@ var MyComponent = React.createClass({
 var MyComponent = React.createClass({
     render: function () {
         return (
-            <div className="movie">
-                                <h1>速度与激情7</h1>
-                                <p>致敬保罗</p>
+            &lt;div className="movie">
+                                &lt;h1>速度与激情7&lt;/h1>
+                                &lt;p>致敬保罗&lt;/p>
                             
-            </div>
+            &lt;/div>
         );
     },
 });
@@ -722,15 +704,15 @@ var MyComponent = React.createClass({
 var myComponent = React.createClass({
     render: function () {
         return (
-            <div class="movie">
-                                <h1>速度与激情7</h1>
-                                <p>致敬保罗</p>
+            &lt;div class="movie">
+                                &lt;h1>速度与激情7&lt;/h1>
+                                &lt;p>致敬保罗&lt;/p>
                             
-            </div>
+            &lt;/div>
         );
     },
 });
-React.render(<myComponent />, document.getElementById("demo"));
+React.render(&lt;myComponent />, document.getElementById("demo"));
 ```
 
 应该写成：
@@ -740,15 +722,15 @@ React.render(<myComponent />, document.getElementById("demo"));
 var MyComponent = React.createClass({
     render: function () {
         return (
-            <div className="movie">
-                                <h1>速度与激情7</h1>
-                                <p>致敬保罗</p>
+            &lt;div className="movie">
+                                &lt;h1>速度与激情7&lt;/h1>
+                                &lt;p>致敬保罗&lt;/p>
                             
-            </div>
+            &lt;/div>
         );
     },
 });
-React.render(<MyComponent />, document.getElementById("demo"));
+React.render(&lt;MyComponent />, document.getElementById("demo"));
 ```
 
 ### 怎么隐藏或显示菊花
@@ -768,7 +750,7 @@ var MyComponent = React.createClass({
         return (
             { 
                 this.state.loading ?
-                <div>大家好我是菊花，我在转</div>
+                &lt;div>大家好我是菊花，我在转&lt;/div>
                 :
                 null
             } 
@@ -783,7 +765,7 @@ var MyComponent = React.createClass({
 React 会为我们过滤 XSS，要让一段 HTML 片段直接显示出来，需要这样：
 
 ```css
-<div dangerouslySetInnerHTML={{ __html: "First &middot; Second" }} />;
+&lt;div dangerouslySetInnerHTML={{ __html: "First &middot; Second" }} />;
 ```
 
 ### 让 React 支持移动触摸实践
@@ -800,7 +782,7 @@ React 会为我们过滤 XSS，要让一段 HTML 片段直接显示出来，需�
 -   option 具有 selected，如果要支持多选，可以传入数组：
 
 
-    <select multiple={true} value={['B', 'C']}>
+    &lt;select multiple={true} value={['B', 'C']}>
      
 
 表单项具有 onChange 事件
@@ -809,7 +791,7 @@ React 会为我们过滤 XSS，要让一段 HTML 片段直接显示出来，需�
 
 ```html
 render: function() {
-    return <input type="text" value="Hello!" />;
+    return &lt;input type="text" value="Hello!" />;
   }
  
 ```
@@ -825,7 +807,7 @@ getInitialState: function() {
   },
   render: function() {
     var value = this.state.value;
-    return <input type="text" value={value} onChange={this.handleChange} />;
+    return &lt;input type="text" value={value} onChange={this.handleChange} />;
   }
  
 ```
@@ -843,7 +825,7 @@ handleChange: function(event) {
 
 ```html
  render: function() {
-    return <input type="text" />;
+    return &lt;input type="text" />;
   }
  
 ```
@@ -852,7 +834,7 @@ handleChange: function(event) {
 
 ```html
 render: function() {
-    return <input type="text" defaultValue="Hello!" />;
+    return &lt;input type="text" defaultValue="Hello!" />;
   }
  
 ```
@@ -901,19 +883,19 @@ forceUpdate () 强制使用数据更新组件，而不用调用 this.setState ()
 可以把 refs 理解为我们在 HTML 中的 id，用于定位到指定的组件。
 
 ```c
-<form onSubmit={this.onAdd}>
+&lt;form onSubmit={this.onAdd}>
     {/* 注意这里指定 ref 属性，然后我们就可以使用 this.refs.xxx 访问到 */}
-    <input type="text" ref="name" placehlder="输入你喜欢的电影"/>
-    <input type="text" ref="date" placeholder="上映时间"/>
-    <input type="submit" value="提交"/>
-</form>
+    &lt;input type="text" ref="name" placehlder="输入你喜欢的电影"/>
+    &lt;input type="text" ref="date" placeholder="上映时间"/>
+    &lt;input type="submit" value="提交"/>
+&lt;/form>
  
 ```
 
 ref 属性可以是一个回调函数而不是名字，这个回调会在组件 mounted 后被调用。回调函数使用被引用的组件作为参数。
 
 ```javascript
-<input
+&lt;input
     ref={function (component) {
         React.findDOMNode(component).focus();
     }}

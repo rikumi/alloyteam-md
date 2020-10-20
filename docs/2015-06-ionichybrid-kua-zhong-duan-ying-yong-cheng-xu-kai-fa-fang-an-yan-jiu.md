@@ -16,7 +16,7 @@ ionic 是最近一个很流行的 Hybird 移动开发解决方案，个人兴趣
 -   安装 cordova 和 ionic
 
 ```html
-<span class="variable">$npm</span> install -g cordova ionic
+&lt;span class="variable">$npm&lt;/span> install -g cordova ionic
  
 ```
 
@@ -62,13 +62,13 @@ classpath  D:/androidandroid-sdk-windowstoolslib
 然后 命令行运行一下 tns，如果看到以下提示信息，就可以开始第一个开发了。
 
 ```html
-<span class="comment"># NativeScript</span>
+&lt;span class="comment"># NativeScript&lt;/span>
 ┌─────────┬─────────────────────────────
 ───────────────────────────────────┐
 │ Usage   │ Synopsis                                                       │
-│ General │ $ tns <Command> [Command Parameters] [--command <Options>]     │
-│ Alias   │ $ nativescript <Command> [Command Parameters] [--command       │
-│         │ <Options>]                                                     │
+│ General │ $ tns &lt;Command> [Command Parameters] [--command &lt;Options>]     │
+│ Alias   │ $ nativescript &lt;Command> [Command Parameters] [--command       │
+│         │ &lt;Options>]                                                     │
 └─────────┴─────────────────────────────
 ───────────────────────────────────┘
  
@@ -81,17 +81,17 @@ classpath  D:/androidandroid-sdk-windowstoolslib
 ```html
 $ ionic start projectName tabs
 $ cd projectName
-├── bower.json     <span class="comment">// bower dependencies</span>
-├── config.xml        <span class="comment">// cordova configuration，例如标题和入口页面</span>
-├── gulpfile.js        <span class="comment">// gulp tasks</span>
-├── hooks              <span class="comment">// custom cordova hooks to execute on specific commands</span>
-├── resources         <span class="comment">// custom static files such as icon</span>
-├── ionic.project    <span class="comment">// ionic configuration</span>
-├── package.json   <span class="comment">// node dependencies</span>
-├── platforms      <span class="comment">// iOS/Android specific builds will reside here</span>
-├── plugins         <span class="comment">// where your cordova/ionic plugins will be installed</span>
-├── scss               <span class="comment">// scss code, which will output to www/css/</span>
-└── www            <span class="comment">// application - what we need pay attention。JS code and libs, CSS, images, etc.</span>
+├── bower.json     &lt;span class="comment">// bower dependencies&lt;/span>
+├── config.xml        &lt;span class="comment">// cordova configuration，例如标题和入口页面&lt;/span>
+├── gulpfile.js        &lt;span class="comment">// gulp tasks&lt;/span>
+├── hooks              &lt;span class="comment">// custom cordova hooks to execute on specific commands&lt;/span>
+├── resources         &lt;span class="comment">// custom static files such as icon&lt;/span>
+├── ionic.project    &lt;span class="comment">// ionic configuration&lt;/span>
+├── package.json   &lt;span class="comment">// node dependencies&lt;/span>
+├── platforms      &lt;span class="comment">// iOS/Android specific builds will reside here&lt;/span>
+├── plugins         &lt;span class="comment">// where your cordova/ionic plugins will be installed&lt;/span>
+├── scss               &lt;span class="comment">// scss code, which will output to www/css/&lt;/span>
+└── www            &lt;span class="comment">// application - what we need pay attention。JS code and libs, CSS, images, etc.&lt;/span>
  
 ```
 
@@ -115,14 +115,14 @@ package com.ionicframework.demo862117;
  
 import android.os.Bundle;
 import org.apache.cordova.*;
-<span class="keyword">public</span> <span class="keyword">class</span> MainActivity <span class="keyword">extends</span> CordovaActivity
+&lt;span class="keyword">public&lt;/span> &lt;span class="keyword">class&lt;/span> MainActivity &lt;span class="keyword">extends&lt;/span> CordovaActivity
 {
     @Override
-    <span class="keyword">public</span> void onCreate(Bundle savedInstanceState)
+    &lt;span class="keyword">public&lt;/span> void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         super.init();
-        <span class="comment">// Set by <content src="index.html" /> in config.xml</span>
+        &lt;span class="comment">// Set by &lt;content src="index.html" /> in config.xml&lt;/span>
         loadUrl(launchUrl);
     }
 }

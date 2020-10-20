@@ -83,14 +83,14 @@ Loading 动画实现
 * * *
 
 ```html
-<svg width='40px' height='40px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-default">
-    <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(0 50 50) translate(0 -30)'>
-        <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite' />
-    </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(30 50 50) translate(0 -30)'>
-        <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.08333333333333333s' repeatCount='indefinite' />
+&lt;svg width='40px' height='40px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-default">
+    &lt;rect x="0" y="0" width="100" height="100" fill="none" class="bk">&lt;/rect>&lt;rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(0 50 50) translate(0 -30)'>
+        &lt;animate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite' />
+    &lt;/rect>&lt;rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(30 50 50) translate(0 -30)'>
+        &lt;animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.08333333333333333s' repeatCount='indefinite' />
        ...
        ...
-</svg>
+&lt;/svg>
 ```
 
 loading 效果使用 SVG 去实现，利用 12 个 rect 的 indefinite animate 去实现。begin 代表开始时间有个递增达到 loading 的效果。
@@ -148,7 +148,7 @@ function mockRequest(at) {
     setTimeout(function () {
         var i = 0,
             len = 3;
-        for (; i < len; i++) {
+        for (; i &lt; len; i++) {
             var li = document.createElement("li");
             li.innerHTML = "new row " + index++;
             list.insertBefore(li, list.firstChild);

@@ -71,18 +71,18 @@ source_link: http://www.alloyteam.com/2012/03/css3-checkbox/
 下面是 html 代码
 
 ```html
-<div class="content">
-<span class="tips">请狠狠的点击我吧 --&gt;</span>
-<input id="imCheckbox" type="checkbox" class="checkbox">
-<label for="imCheckbox"><span></span></label>
-<select class="cate-1"><option>我是分类1~啦啦啦啦</option></select>
-<select class="cate-2"><option>我是分类2~hohoho~~</option></select>
-</div>
+&lt;div class="content">
+&lt;span class="tips">请狠狠的点击我吧 --&gt;&lt;/span>
+&lt;input id="imCheckbox" type="checkbox" class="checkbox">
+&lt;label for="imCheckbox">&lt;span>&lt;/span>&lt;/label>
+&lt;select class="cate-1">&lt;option>我是分类1~啦啦啦啦&lt;/option>&lt;/select>
+&lt;select class="cate-2">&lt;option>我是分类2~hohoho~~&lt;/option>&lt;/select>
+&lt;/div>
 ```
 
 其实也就是多了一个 label 标签，用 label 模拟 checkbox, 然后把 checkbox 偷偷的藏起来. 当点击 label 的时候，会触发 checkbox 的选中态的变更。当 checkbox 被选中的时候，:checked 伪类就会起作用. + 选择符是用来选择跟着 checkbox 屁股的兄弟的，也就是 label. 而～选择符则是选择跟在他屁股后面的所有兄弟，如 select 等.
 
-如果你还不相信，可以点击这里[&lt;&lt;这里>>](http://www.alloyteam.com/wp-content/uploads/2012/03/css3-checkbox-demo.html)看活生生血淋淋的例子.
+如果你还不相信，可以点击这里[&lt;&lt;这里 >>](http://www.alloyteam.com/wp-content/uploads/2012/03/css3-checkbox-demo.html)看活生生血淋淋的例子.
 
 这里为了装逼，我模拟了 ios 上面的 checkbox, 带滑块的，如果你只是要模拟原生的 checkbox , 连 label 里面的 span 标签都可以省掉.
 

@@ -496,7 +496,7 @@ Data is  32113123123,524214691
 
 众所周知，在 ES6 以前 JavaScript 并不支持本地的模块。人们想出了 AMD，RequireJS，CommonJS 以及其它解决方法。现在 ES6 中可以用模块 import  和 export  操作了。 
 
-在 ES5 中，你可以在 <script> 中直接写可以运行的代码（简称 IIFE），或者一些库像 AMD。然而在 ES6 中，你可以用 export 导入你的类。下面举个例子，在 ES5 中，module.js 有 port 变量和 getAccounts  方法:
+在 ES5 中，你可以在 &lt;script> 中直接写可以运行的代码（简称 IIFE），或者一些库像 AMD。然而在 ES6 中，你可以用 export 导入你的类。下面举个例子，在 ES5 中，module.js 有 port 变量和 getAccounts  方法:
 
 ```javascript
 module.exports = {

@@ -82,13 +82,13 @@ export default interface IRestart{
 class Page {
     next: PageFlow | null;
     cache: {
-        start: (() => Promise<any>)[],
-        end: (() => Promise<any>)[],
+        start: (() => Promise&lt;any>)[],
+        end: (() => Promise&lt;any>)[],
     };
-    waitStart(callback: () => Promise<any>) {
+    waitStart(callback: () => Promise&lt;any>) {
         this.cache.start.push(callback);
     }
-    waitEnd(callback: () => Promise<any>) {
+    waitEnd(callback: () => Promise&lt;any>) {
         this.cache.end.push(callback);
     }
     setNext(flow: PageFlow) {
@@ -112,7 +112,7 @@ class ServiceLoader {
         this.loaded = false;
         this.initialized = false; // ...
     }
-    async load(params?: any): Promise<any> {
+    async load(params?: any): Promise&lt;any> {
         // ..load module
         return this.module;
     } //...
@@ -123,7 +123,7 @@ class ServiceLoader {
 // 模块管理器
 class ServiceCollection {
     stack: ServiceLoader[];
-    private services = new Map<CONFIG, ServiceLoader>();
+    private services = new Map&lt;CONFIG, ServiceLoader>();
     constructor() {
         this.stack = [];
     }

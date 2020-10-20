@@ -16,7 +16,7 @@ source_link: http://www.alloyteam.com/2017/01/getting-started-with-webgl-world-m
 刚刚有说到 PMatrix／VMatrix／MMatrix 这三个词，他们中的 Matrix 就是矩阵的意思，矩阵是干什么的？**用来改变顶点位置信息的**，先牢记这句话，然后我们先从 canvas2D 入手相信一下我们有一个 100\*100 的 canvas 画布，然后画一个矩形
 
 ```html
-<canvas width="100" height="100"></canvas>;
+&lt;canvas width="100" height="100">&lt;/canvas>;
 ctx.rect(40, 40, 20, 20);
 ctx.fill();
 ```

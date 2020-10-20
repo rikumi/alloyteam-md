@@ -22,10 +22,10 @@ source_link: http://www.alloyteam.com/2015/04/cssstickyfooter-%e5%bd%93%e5%86%85
 html 代码如下：
 
 ```html
-<body>
+&lt;body>
     ...
-    <div <span class="keyword">class</span>=<span class="string">"footer"</span>></div>
-</body>
+    &lt;div &lt;span class="keyword">class&lt;/span>=&lt;span class="string">"footer"&lt;/span>>&lt;/div>
+&lt;/body>
  
 ```
 
@@ -33,20 +33,20 @@ css 代码如下：
 
 ```html
 html{
-    height: <span class="number">100</span>%;
+    height: &lt;span class="number">100&lt;/span>%;
 }
 body{
-    min-height: <span class="number">100</span>%; <span class="comment">/* 设置最小高度100% */</span>
-    position: relative; <span class="comment">/* 设置最小高度100% */</span>
-    box-sizing: border-box; <span class="comment">/* 设置盒模型为border-box，那样这个100%包括了下面的padding-bottom高度 */</span>
-    padding-bottom: <span class="number">120</span>px; <span class="comment">/* 高度为footer的高度 */</span>
+    min-height: &lt;span class="number">100&lt;/span>%; &lt;span class="comment">/* 设置最小高度100% */&lt;/span>
+    position: relative; &lt;span class="comment">/* 设置最小高度100% */&lt;/span>
+    box-sizing: border-box; &lt;span class="comment">/* 设置盒模型为border-box，那样这个100%包括了下面的padding-bottom高度 */&lt;/span>
+    padding-bottom: &lt;span class="number">120&lt;/span>px; &lt;span class="comment">/* 高度为footer的高度 */&lt;/span>
 }
 .footer{
-    position: absolute; <span class="comment">/* 将footer绝对定位在底部 */</span>
-    left: <span class="number">0</span>;
-    bottom: <span class="number">0</span>;
-    width: <span class="number">100</span>%;
-    height: <span class="number">120</span>px;
+    position: absolute; &lt;span class="comment">/* 将footer绝对定位在底部 */&lt;/span>
+    left: &lt;span class="number">0&lt;/span>;
+    bottom: &lt;span class="number">0&lt;/span>;
+    width: &lt;span class="number">100&lt;/span>%;
+    height: &lt;span class="number">120&lt;/span>px;
 }
  
 ```
@@ -60,11 +60,11 @@ flex 实现其实比上面的要求更严格，上面的几乎对结构没要求
 html 代码如下：
 
 ```html
-<body>
-    <div <span class="keyword">class</span>=<span class="string">"header"</span>></div>
-    <div <span class="keyword">class</span>=<span class="string">"container"</span>></div>
-    <div <span class="keyword">class</span>=<span class="string">"footer"</span>></div>
-</body>
+&lt;body>
+    &lt;div &lt;span class="keyword">class&lt;/span>=&lt;span class="string">"header"&lt;/span>>&lt;/div>
+    &lt;div &lt;span class="keyword">class&lt;/span>=&lt;span class="string">"container"&lt;/span>>&lt;/div>
+    &lt;div &lt;span class="keyword">class&lt;/span>=&lt;span class="string">"footer"&lt;/span>>&lt;/div>
+&lt;/body>
  
 ```
 
@@ -72,15 +72,15 @@ css 代码如下：
 
 ```html
 html{
-    height: <span class="number">100</span>%;
+    height: &lt;span class="number">100&lt;/span>%;
 }
 body{
-    min-height: <span class="number">100</span>%;
-    display: flex; <span class="comment">/* 设置flex */</span>
-    flex-direction: column; <span class="comment">/* 方向为垂直方向 */</span>
+    min-height: &lt;span class="number">100&lt;/span>%;
+    display: flex; &lt;span class="comment">/* 设置flex */&lt;/span>
+    flex-direction: column; &lt;span class="comment">/* 方向为垂直方向 */&lt;/span>
 }
 .container{
-    flex: <span class="number">1</span>; <span class="comment">/* 内容占满所有剩余空间 */</span>
+    flex: &lt;span class="number">1&lt;/span>; &lt;span class="comment">/* 内容占满所有剩余空间 */&lt;/span>
 }
 ```
 

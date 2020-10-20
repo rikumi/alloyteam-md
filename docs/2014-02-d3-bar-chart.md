@@ -18,7 +18,7 @@ source_link: http://www.alloyteam.com/2014/02/d3-bar-chart/
 var data = Array.apply(0, Array(100)).map(function() {
   return Math.random() * 100;
 });
-<!--more-->
+&lt;!--more-->
 ```
 
 ## step2：创建 SVG 容器

@@ -24,23 +24,16 @@ JX 框架具有以下特点：
 
 新建一个 html 文件，在里面加入以下代码：  
 
-````html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Hello world</title>
-</head>
-<body>
-  <input type="button" id="myButton" value="Click me" />
-  
 ```html
-<script type="text/javascript" src="http://pub.idqqimg.com/lib/jx/1.0.1/jx-uiless.js" charset="UTF-8"></script>
-````
-
-  
-
-```html
-<script type="text/javascript">
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;title>Hello world&lt;/title>
+&lt;/head>
+&lt;body>
+  &lt;input type="button" id="myButton" value="Click me" />
+  &lt;script type="text/javascript" src="http://pub.idqqimg.com/lib/jx/1.0.1/jx-uiless.js" charset="UTF-8">&lt;/script>
+  &lt;script type="text/javascript">
   Jx().$package("helloWorld",function(J){
     function handler(e){
       alert('Hello world!');
@@ -48,11 +41,9 @@ JX 框架具有以下特点：
     var el=J.dom.id('myButton');
     J.event.on(el,'click',handler);
   });
-  </script>
-```
-
-</body>
-</html>
+  &lt;/script>
+&lt;/body>
+&lt;/html>
 ```
 
 然后保存，我们的 “hello world” 就完成了。[直接看 demo](http://www.alloyteam.com/wp-content/uploads/2012/08/helloworld.html)
@@ -60,31 +51,24 @@ JX 框架具有以下特点：
 # 逐行解释
 
 ```html
-<input type="button" id="myButton" value="Click me" />;
+&lt;input type="button" id="myButton" value="Click me" />;
 ```
 
 我们加入了一个 id 为 “myButton” 的按钮（通过 id，我们可以很高效地取得一个元素的引用）。  
 
-````html
-
 ```html
-<script
+&lt;script
     type="text/javascript"
     src="http://pub.idqqimg.com/lib/jx/1.0.1/jx-uiless.js"
     charset="UTF-8"
-></script>
-````
+>&lt;/script>;
+```
 
-;
-
-````
-
-  
 我们从腾讯的 CDN 引入了 JX 框架的代码，通过 charset 声明引入代码的编码是 UTF-8。我们也可以从自己的路径引入 JX，根据需要定制引入的模块，后文会阐述。  
 
 ```javascript
 Jx().$package("helloWorld",function(J){...});
-````
+```
 
 这一行我们做了两个事情，通过全局方法 “Jx ()” 获得了一个 Jx 对象，然后调用了 Jx 对象的 $package 方法。  
 $package 方法的调用参数为：_$package(name, func)_  

@@ -28,11 +28,11 @@ source_link: http://www.alloyteam.com/2015/04/quan-ping-gun-dong-xiao-guo-h5full
   在移动页面上如果想使用滚动，如过没有任何动画效果，那么肯定大家首先想到的就是用滚动条来滚动，但这样的滚动比较单调，实现动画效果比较困难，于是就想出了利用 css3 和 div 的绝对定位来实现。
 
 ```html
-<body>
-      <div class="item item1">               </div>
-      <div class="item item2">               </div>
-      <div class="item item3">               </div>
-</body>;
+&lt;body>
+      &lt;div class="item item1">               &lt;/div>
+      &lt;div class="item item2">               &lt;/div>
+      &lt;div class="item item3">               &lt;/div>
+&lt;/body>;
 ```
 
 然后给每个 div 设置绝对定位样式

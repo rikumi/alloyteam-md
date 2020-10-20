@@ -87,21 +87,21 @@ WCAG 2.0 文档旨在满足需要稳定的，可参考的技术标准的人群�
 
 **清单 1. HTML 页面中加入 DTD 声明及默认语言属性**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;!DOCTYPE html&gt; 
- &lt;html lang="zh-CN"&gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;!DOCTYPE html&gt; 
+ &amp;lt;html lang="zh-CN"&gt;</code></pre></td></tr></tbody></table>
 
 **清单 2. XML 页面中加入 DTD 声明及默认语言属性**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt; 
- &lt;html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"&gt;</code></pre></td></tr></tbody></table>
+ &amp;lt;html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"&gt;</code></pre></td></tr></tbody></table>
 
 此外，页面的 title 属性值也是必须的，如清单 3 所示。
 
 **清单 3. 设置 title 属性**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;head&gt; 
- &lt;title&gt;&lt;bean:message key="createFolder.title" /&gt;&lt;/title&gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;head&gt; 
+ &amp;lt;title&gt;&amp;lt;bean:message key="createFolder.title" /&gt;&amp;lt;/title&gt;</code></pre></td></tr></tbody></table>
 
 ### 关于 Image
 
@@ -114,7 +114,7 @@ WCAG 2.0 文档旨在满足需要稳定的，可参考的技术标准的人群�
 
 **清单 1. Image 的 HTML**
 
-<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &lt;img src="cat.gif" alt="Image about cat" /&gt;</code></pre></td></tr></tbody></table>
+<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &amp;lt;img src="cat.gif" alt="Image about cat" /&gt;</code></pre></td></tr></tbody></table>
 
 2. 对于某些用于装饰性的图片，则需设置 alt 为空，使得读屏软件可以忽略此元素。如图 5 的用于装饰页头的图片，实际并没有传递有价值的信息。
 
@@ -125,7 +125,7 @@ WCAG 2.0 文档旨在满足需要稳定的，可参考的技术标准的人群�
 
 **清单 2. 装饰性 Image 的 HTML**
 
-<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&lt;img src="ring.gif" alt="" /&gt;;
+<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&amp;lt;img src="ring.gif" alt="" /&gt;;
 </code></pre></td></tr></tbody></table>
 
 必须设置一个空 alt 属性的目的是为了能通过 Webking 的检查，并且使得读屏软件能够忽略此元素。
@@ -139,9 +139,9 @@ WCAG 2.0 文档旨在满足需要稳定的，可参考的技术标准的人群�
 
 **清单 3. 无需重复设置 alt 的 Image**
 
-<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &lt;a href=”http://apple.com/iphone/”&gt; 
-	 &lt;img src=”iphone.jpg” alt=””&gt;Apple iPhone 
- &lt;/a&gt;</code></pre></td></tr></tbody></table>
+<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &amp;lt;a href=”http://apple.com/iphone/”&gt; 
+	 &amp;lt;img src=”iphone.jpg” alt=””&gt;Apple iPhone 
+ &amp;lt;/a&gt;</code></pre></td></tr></tbody></table>
 
 A 的内容已经指明了这是个苹果手机，IMG 的 alt 属性就没必要再设置一次了。否则读屏软件会连续读两次重复的内容，引起混乱。
 
@@ -154,7 +154,7 @@ A 的内容已经指明了这是个苹果手机，IMG 的 alt 属性就没必要
 
 **清单 4. 图片写在 CSS 里面**
 
-<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css"> &lt;div class=” save_button” /&gt; 
+<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css"> &amp;lt;div class=” save_button” /&gt; 
  .save_button{ 
 	 background: url("images/save_button.png"); 
 	 width: 33px; 
@@ -166,8 +166,8 @@ A 的内容已经指明了这是个苹果手机，IMG 的 alt 属性就没必要
 
 **清单 5. 将 CSS 里面的图片拿出来**
 
-<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &lt;img src=“images/save_button.png” alt=“save”/&gt; 
- &lt;input type=“image” src=“images/save_button.png” alt=“save”/&gt;</code></pre></td></tr></tbody></table>
+<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &amp;lt;img src=“images/save_button.png” alt=“save”/&gt; 
+ &amp;lt;input type=“image” src=“images/save_button.png” alt=“save”/&gt;</code></pre></td></tr></tbody></table>
 
 6. 在一个图片列表里面选中某个图片，区别选中去否我们通常的做法是用边框的颜色来标识。如下图，选中的图片边框为蓝色
 
@@ -217,39 +217,39 @@ Table 分为两类：一类是做布局的 table，一类是数据 table。对�
 
 **清单 9. 数据图表**
 
-<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;tr&gt; 
-	 &lt;th id="class"&gt; Class &lt;/th&gt; 
-	 &lt;th id="teacher"&gt; Teacher &lt;/th&gt; 
-	 &lt;th id="boys"&gt; #of Boys &lt;/th&gt; 
-	 &lt;th id="girls"&gt; #of Girls &lt;/th&gt; 
- &lt;/tr&gt; 
- &lt;tr&gt; 
-	 &lt;th id="1stgrade" rowspan="2"&gt; 1st Grade &lt;/th&gt; 
-	 &lt;th id="MrHenry" headers="1stgrade teacher"&gt; Mr . Henry &lt;/th&gt; 
-	 &lt;td headers="1stgrade MrHenry boys"&gt; 5 &lt;/td&gt; 
-	 &lt;td headers="1stgrade MrHenry girls"&gt; 4 &lt;/td&gt; 
- &lt;/tr&gt; 
- &lt;tr&gt; 
-	 &lt;th id="MrsSmith" headers="1stgrade teacher"&gt; Mrs . Smith &lt;/th&gt; 
-	 &lt;td headers="1stgrade MrsSmith boys"&gt; 7 &lt;/td&gt; 
-	 &lt;td headers="1stgrade MrsSmith girls"&gt; 9 &lt;/td&gt; 
- &lt;/tr&gt; 
- &lt;tr&gt; 
-	 &lt;th id="2ndgrade" rowspan="3"&gt; 2nd Grade &lt;/th&gt; 
-	 &lt;th id="MrJones" headers="2ndgrade teacher"&gt; Mr . Jones &lt;/th&gt; 
-	 &lt;td headers="2ndgrade MrJones boys"&gt; 3 &lt;/td&gt; 
-	 &lt;td headers="2ndgrade MrJones girls"&gt; 9 &lt;/td&gt; 
- &lt;/tr&gt; 
- &lt;tr&gt; 
-	 &lt;th id="MrsSmith" headers="2ndgrade teacher"&gt; Mrs . Smith &lt;/th&gt; 
-	 &lt;td headers="2ndgrade MrsSmith boys"&gt; 4 &lt;/td&gt; 
-	 &lt;td headers="2ndgrade MrsSmith girls"&gt; 3 &lt;/td&gt; 
- &lt;/tr&gt; 
- &lt;tr&gt; 
-	 &lt;th id="MrsKelly" headers="2ndgrade teacher"&gt; Mrs . Kelly &lt;/th&gt; 
-	 &lt;td headers="2ndgrade MrsKelly boys"&gt; 6 &lt;/td&gt; 
-	 &lt;td headers="2ndgrade MrsKelly girls"&gt; 9 &lt;/td&gt; 
- &lt;/tr&gt;</code></pre></td></tr></tbody></table>
+<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;tr&gt; 
+	 &amp;lt;th id="class"&gt; Class &amp;lt;/th&gt; 
+	 &amp;lt;th id="teacher"&gt; Teacher &amp;lt;/th&gt; 
+	 &amp;lt;th id="boys"&gt; #of Boys &amp;lt;/th&gt; 
+	 &amp;lt;th id="girls"&gt; #of Girls &amp;lt;/th&gt; 
+ &amp;lt;/tr&gt; 
+ &amp;lt;tr&gt; 
+	 &amp;lt;th id="1stgrade" rowspan="2"&gt; 1st Grade &amp;lt;/th&gt; 
+	 &amp;lt;th id="MrHenry" headers="1stgrade teacher"&gt; Mr . Henry &amp;lt;/th&gt; 
+	 &amp;lt;td headers="1stgrade MrHenry boys"&gt; 5 &amp;lt;/td&gt; 
+	 &amp;lt;td headers="1stgrade MrHenry girls"&gt; 4 &amp;lt;/td&gt; 
+ &amp;lt;/tr&gt; 
+ &amp;lt;tr&gt; 
+	 &amp;lt;th id="MrsSmith" headers="1stgrade teacher"&gt; Mrs . Smith &amp;lt;/th&gt; 
+	 &amp;lt;td headers="1stgrade MrsSmith boys"&gt; 7 &amp;lt;/td&gt; 
+	 &amp;lt;td headers="1stgrade MrsSmith girls"&gt; 9 &amp;lt;/td&gt; 
+ &amp;lt;/tr&gt; 
+ &amp;lt;tr&gt; 
+	 &amp;lt;th id="2ndgrade" rowspan="3"&gt; 2nd Grade &amp;lt;/th&gt; 
+	 &amp;lt;th id="MrJones" headers="2ndgrade teacher"&gt; Mr . Jones &amp;lt;/th&gt; 
+	 &amp;lt;td headers="2ndgrade MrJones boys"&gt; 3 &amp;lt;/td&gt; 
+	 &amp;lt;td headers="2ndgrade MrJones girls"&gt; 9 &amp;lt;/td&gt; 
+ &amp;lt;/tr&gt; 
+ &amp;lt;tr&gt; 
+	 &amp;lt;th id="MrsSmith" headers="2ndgrade teacher"&gt; Mrs . Smith &amp;lt;/th&gt; 
+	 &amp;lt;td headers="2ndgrade MrsSmith boys"&gt; 4 &amp;lt;/td&gt; 
+	 &amp;lt;td headers="2ndgrade MrsSmith girls"&gt; 3 &amp;lt;/td&gt; 
+ &amp;lt;/tr&gt; 
+ &amp;lt;tr&gt; 
+	 &amp;lt;th id="MrsKelly" headers="2ndgrade teacher"&gt; Mrs . Kelly &amp;lt;/th&gt; 
+	 &amp;lt;td headers="2ndgrade MrsKelly boys"&gt; 6 &amp;lt;/td&gt; 
+	 &amp;lt;td headers="2ndgrade MrsKelly girls"&gt; 9 &amp;lt;/td&gt; 
+ &amp;lt;/tr&gt;</code></pre></td></tr></tbody></table>
 
 ### 关于 Form
 
@@ -257,10 +257,10 @@ Form 元素需要关联一个 label 元素，所有的 button 都已经有了一
 
 **清单 10. Form 元素示例**
 
-<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;label for="name1"&gt;Name:&lt;/label&gt; 
- &lt;input name="name" id="name1" size="30" /&gt; 
+<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;label for="name1"&gt;Name:&amp;lt;/label&gt; 
+ &amp;lt;input name="name" id="name1" size="30" /&gt; 
 或 
- &lt;input name=”name” id=”name1” size=”30” title=”name”&gt;</code></pre></td></tr></tbody></table>
+ &amp;lt;input name=”name” id=”name1” size=”30” title=”name”&gt;</code></pre></td></tr></tbody></table>
 
 当一个表单元素如果前后都需要描述的时候， label 就显得力不从心了。ARIA 规范的出现解决了这一问题。aria-labelledby 属性可以设置多个值，说明这个表单元素是被那些值所描述的，aria-describedby 属性则更详细的扩展了这个描述。如图 11 所示：
 
@@ -271,16 +271,16 @@ Form 元素需要关联一个 label 元素，所有的 button 都已经有了一
 
 **清单 11. 需要多个 Label 描述的输入框**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &lt;div&gt; 
-	 &lt;span id="labelRefresh"&gt; 
-		&nbsp;&nbsp;&lt;label for=“refreshTime"&gt;Refresh after&lt;/label&gt; 
-	 &lt;/span&gt; 
-	 &lt;input id=“refreshTime" type="text" aria-describedby=“refreshDescriptor" 
+<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &amp;lt;div&gt; 
+	 &amp;lt;span id="labelRefresh"&gt; 
+		&nbsp;&nbsp;&amp;lt;label for=“refreshTime"&gt;Refresh after&amp;lt;/label&gt; 
+	 &amp;lt;/span&gt; 
+	 &amp;lt;input id=“refreshTime" type="text" aria-describedby=“refreshDescriptor" 
 	 aria-labelledby=" labelRefresh refreshTime refreshUnit" value="10"/&gt; 
-	 &lt;span id=“refreshUnit"&gt; minutes&lt;/span&gt; 
- &lt;/div&gt; 
- &lt;div id=“refreshDescriptor"&gt;Allows you to specify the number of minutes of 
- refresh time.&lt;/div&gt;</code></pre></td></tr></tbody></table>
+	 &amp;lt;span id=“refreshUnit"&gt; minutes&amp;lt;/span&gt; 
+ &amp;lt;/div&gt; 
+ &amp;lt;div id=“refreshDescriptor"&gt;Allows you to specify the number of minutes of 
+ refresh time.&amp;lt;/div&gt;</code></pre></td></tr></tbody></table>
 
 ### 关于 Tabindex 与获取焦点的顺序
 
@@ -299,42 +299,42 @@ Tabindex 属性的使用可以使得原本无法取得焦点的元素获取焦�
 
 **清单 12. 页面获取 focus 的顺序**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css"> &lt;div&gt; 
-&nbsp;&nbsp; &lt;span style=”float:left;”&gt; 
+<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css"> &amp;lt;div&gt; 
+&nbsp;&nbsp; &amp;lt;span style=”float:left;”&gt; 
 			 welcome page 
-&nbsp;&nbsp; &lt;/span&gt; 
-&nbsp;&nbsp; &lt;span style=”float:right;margin-left:6em;”&gt; 
+&nbsp;&nbsp; &amp;lt;/span&gt; 
+&nbsp;&nbsp; &amp;lt;span style=”float:right;margin-left:6em;”&gt; 
 			 search all 
-&nbsp;&nbsp; &lt;/span&gt; 
-&nbsp;&nbsp; &lt;span style=”float:right;”&gt; 
+&nbsp;&nbsp; &amp;lt;/span&gt; 
+&nbsp;&nbsp; &amp;lt;span style=”float:right;”&gt; 
 		&nbsp;&nbsp; go to edit 
-&nbsp;&nbsp; &lt;/span&gt; 
- &lt;/div&gt;</code></pre></td></tr></tbody></table>
+&nbsp;&nbsp; &amp;lt;/span&gt; 
+ &amp;lt;/div&gt;</code></pre></td></tr></tbody></table>
 
 原来是通过 float:right 达到了布局上的效果，实际文档顺序确实是 search all 在前面的。所以为了不引起混淆，最后能保持代码的顺序与实际呈现出来的页面上的顺序一致。可以修改上面的代码为清单 13 所示：
 
 **清单 13. 页面获取 focus 的顺序 -- 调整后**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css"> &lt;div&gt; 
-&nbsp;&nbsp; &lt;span style=”float:left;”&gt; 
+<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css"> &amp;lt;div&gt; 
+&nbsp;&nbsp; &amp;lt;span style=”float:left;”&gt; 
 			 welcome page 
-	 &lt;/span&gt; 
-	 &lt;span style=”float:right;width:15em;”&gt; 
-		&lt;span style=”float:left;”&gt; 
+	 &amp;lt;/span&gt; 
+	 &amp;lt;span style=”float:right;width:15em;”&gt; 
+		&amp;lt;span style=”float:left;”&gt; 
 				&nbsp;&nbsp; go to edit 
-	&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt; 
-		&lt;span style=”float:right;”&gt; 
+	&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;/span&gt; 
+		&amp;lt;span style=”float:right;”&gt; 
 				&nbsp;&nbsp;search all 
-	&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt; 
-	 &lt;/span&gt; 
- &lt;/div&gt;</code></pre></td></tr></tbody></table>
+	&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;/span&gt; 
+	 &amp;lt;/span&gt; 
+ &amp;lt;/div&gt;</code></pre></td></tr></tbody></table>
 
 ### 关于隐藏的内容
 
 隐藏的内容分为两种，一种是为了布局的需要，在条件满足的情况下才会显示出来；另一种是只给读屏软件读的内容：有时候我们为了使读屏软件更准确的读取信息，会提供一些额外的描述来达到此效果，但为了不给正常用户带来困扰，这些内容对正常用户来说是隐藏起来的。隐藏内容我们通常用 display：none 或者 visibility:hidden 来表示，但读屏软件同样也会忽略这类内容。那如何隐藏内容又能使读屏软件读出来呢？另外一种隐藏内容的方式是使用绝对定位使得内容不出现在当前屏幕上，如：{position:absolute;top:-30000px;} 所以在选择使用哪种方式隐藏内容时就需要慎重考虑，display:none visibility:hidden 对任何人都是隐藏的，如果想只给读屏软件读到就需要使用上面的绝对定位方式。例如在图 13 所示的菜单的选中项上加上如下的 css：  
 **清单 14. 只给读屏软件读的内容**
 
-<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css"> &lt;span&gt;&nbsp;&nbsp;is selected&lt;/span&gt; 
+<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css"> &amp;lt;span&gt;&nbsp;&nbsp;is selected&amp;lt;/span&gt; 
  .access{
  position:absolute;
  top:-30000px;
@@ -356,12 +356,12 @@ Tabindex 属性的使用可以使得原本无法取得焦点的元素获取焦�
 
 **清单 15. 正常模式与高对比模式显示不同的 Dom 节点**
 
-<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css">&lt;td waiRole="presentation"&gt;
-&lt;div dojoAttachPoint="arrowWrapper" style="visibility: hidden"&gt;
-&lt;img src="${_blankGif}" alt=""&gt;
-&lt;span&gt;+&lt;/span&gt;
-&lt;/div&gt; 
-&lt;/td&gt;&nbsp;&nbsp;
+<table width="10%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-css">&amp;lt;td waiRole="presentation"&gt;
+&amp;lt;div dojoAttachPoint="arrowWrapper" style="visibility: hidden"&gt;
+&amp;lt;img src="${_blankGif}" alt=""&gt;
+&amp;lt;span&gt;+&amp;lt;/span&gt;
+&amp;lt;/div&gt; 
+&amp;lt;/td&gt;&nbsp;&nbsp;
 &nbsp;
 tundra .dijitMenuExpand { 
 width: 7px; 
@@ -380,20 +380,20 @@ background-position: -14px 0px;
 
 **清单 4. HTML 代码片段**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;div&gt;&lt;a href="#ibm-content"&gt;Skip to main content&lt;/a&gt;&lt;/div&gt; 
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;div&gt;&amp;lt;a href="#ibm-content"&gt;Skip to main content&amp;lt;/a&gt;&amp;lt;/div&gt; 
  ... 
- &lt;!-- CONTENT_BEGIN --&gt; 
- &lt;div id="ibm-content"&gt; 
+ &amp;lt;!-- CONTENT_BEGIN --&gt; 
+ &amp;lt;div id="ibm-content"&gt; 
 &nbsp;
- &lt;!-- TITLE_BEGIN --&gt; 
- &lt;div id="ibm-content-head"&gt; 
-	 &lt;ul id="ibm-navigation-trail"&gt; 
-		 &lt;li&gt;&lt;a href="/able/index.html"&gt;
-		 Human Ability and Accessibility Center&lt;/a&gt;&lt;/li&gt; 
-		 &lt;li&gt;&lt;a href="/able/guidelines/index.html"&gt;Developer guidelines&lt;/a&gt;&lt;/li&gt; 
-	 &lt;/ul&gt; 
-	 &lt;h1&gt;Web checklist&lt;/h1&gt;&lt;br /&gt; 	
- &lt;/div&gt; 
+ &amp;lt;!-- TITLE_BEGIN --&gt; 
+ &amp;lt;div id="ibm-content-head"&gt; 
+	 &amp;lt;ul id="ibm-navigation-trail"&gt; 
+		 &amp;lt;li&gt;&amp;lt;a href="/able/index.html"&gt;
+		 Human Ability and Accessibility Center&amp;lt;/a&gt;&amp;lt;/li&gt; 
+		 &amp;lt;li&gt;&amp;lt;a href="/able/guidelines/index.html"&gt;Developer guidelines&amp;lt;/a&gt;&amp;lt;/li&gt; 
+	 &amp;lt;/ul&gt; 
+	 &amp;lt;h1&gt;Web checklist&amp;lt;/h1&gt;&amp;lt;br /&gt; 	
+ &amp;lt;/div&gt; 
  .....</code></pre></td></tr></tbody></table>
 
 **清单 5. CSS 代码片段**
@@ -410,21 +410,21 @@ background-position: -14px 0px;
 
 **清单 6. 为文本框的标签控件设置 for 属性**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;label for="name1"&gt;Name&lt;/label&gt;&lt;input name="name" id="name1" size="30" /&gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;label for="name1"&gt;Name&amp;lt;/label&gt;&amp;lt;input name="name" id="name1" size="30" /&gt;</code></pre></td></tr></tbody></table>
 
 **清单 7. 为下拉列表的标签控件设置 for 属性**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &lt;label for="shiptype"&gt;Select your shipping method&lt;/label&gt;&lt;select id="shiptype" 
- name="ship_method" size="1"&gt;&lt;option selected value=""&gt;
- Ground – 7 business days&lt;/option&gt;&lt;option value="air"&gt;
- Air – 3 business days&lt;/option&gt;&lt;option value="nextday"&gt;
- Next day air – 1 business day&lt;/option&gt;&lt;/select&gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &amp;lt;label for="shiptype"&gt;Select your shipping method&amp;lt;/label&gt;&amp;lt;select id="shiptype" 
+ name="ship_method" size="1"&gt;&amp;lt;option selected value=""&gt;
+ Ground – 7 business days&amp;lt;/option&gt;&amp;lt;option value="air"&gt;
+ Air – 3 business days&amp;lt;/option&gt;&amp;lt;option value="nextday"&gt;
+ Next day air – 1 business day&amp;lt;/option&gt;&amp;lt;/select&gt;</code></pre></td></tr></tbody></table>
 
 然而并不是所有的表单控件都适合采用上述方式添加标签以保证其可读性，单选按钮通常是一组按钮具有同一个 id 属性值，所以我们无法通过上述方法为每一个按钮添加标签，我们可以利用 title 属性来保证其可读性。例如：
 
 **清单 8. 为复选框设置 title 属性**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;input type="radio" id="ERP ID" title="Select All" value="defaultSectionValueAll" checked/&gt; 
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;input type="radio" id="ERP ID" title="Select All" value="defaultSectionValueAll" checked/&gt; 
 |-------10--------20--------30--------40--------50--------60--------70--------80--------9|
 |-------- XML error:&nbsp;&nbsp;The previous line is longer than the max of 90 characters ---------|</code></pre></td></tr></tbody></table>
 
@@ -435,21 +435,21 @@ background-position: -14px 0px;
 为了使得屏幕阅读器可以将必须输入的字段限制信息传达给用户，开发人员可以使用 WAI-ARIA 提供的属性，示例如下：  
 **清单 9. 设置属性限制字段必须输入**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;label for="phone"&gt;* Phone number:&lt;/label&gt; 
- &lt;input type="text" id="phone" name="phone" aria-required="true" &gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;label for="phone"&gt;* Phone number:&amp;lt;/label&gt; 
+ &amp;lt;input type="text" id="phone" name="phone" aria-required="true" &gt;</code></pre></td></tr></tbody></table>
 
 但是目前 IE8 还不支持这种属性，由于屏幕阅读器可以读出用于录入信息的表单控件的 title 属性，所以我们可以将限制信息写在 title 中。如清单 10 所示：  
 **清单 10. 利用 title 属性标识字段为必输项**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;label for="phone"&gt;* Phone number:&lt;/label&gt; 
- &lt;input type="text" id="phone" name="phone" title="required" &gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;label for="phone"&gt;* Phone number:&amp;lt;/label&gt; 
+ &amp;lt;input type="text" id="phone" name="phone" title="required" &gt;</code></pre></td></tr></tbody></table>
 
 可 “读” 的图片
 
 随着 Web 页面的友好性不断提高，图片的使用也越来越广泛。然而对于无法亲眼看到页面的用户需要借助屏幕阅读器才能够知晓当前阅读的内容是一张图片以及该图片的作用，对于页面中所有有意义的图片，尤其是一些动态的图片，比如链接或是按钮，开发人员必须要给出其 alt 属性值。如清单 11 所示：  
 **清单 11. 为图片设置 alt 属性**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &lt;img src="sam.jpg" alt="Sam Palmisano" width="150" height="175" /&gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &amp;lt;img src="sam.jpg" alt="Sam Palmisano" width="150" height="175" /&gt;</code></pre></td></tr></tbody></table>
 
 提示：请尽量避免使用图片作为背景，如果需要，请在 CSS 文件中指定。
 
@@ -457,35 +457,35 @@ background-position: -14px 0px;
 
 在 Web 页面中通常有两种用途的表格，一种用于页面布局，另外一种用于显示数据。
 
-数据表格需要用 <th> 指定行或列的标题行，同时还需要显式地指定 summary 属性值，使得屏幕阅读器可以读出表的主要用途。如清单 12 所示：  
+数据表格需要用 &lt;th> 指定行或列的标题行，同时还需要显式地指定 summary 属性值，使得屏幕阅读器可以读出表的主要用途。如清单 12 所示：  
 **清单 12. 数据表格**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;table border="1" summary=”A example simple data table”&lt;caption&gt;
- Boys and Girls in Elementary School Classes&lt;/caption&gt; 
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt; 
-&nbsp;&nbsp; &lt;th scope="col"&gt;Class&lt;/th&gt; 
-&nbsp;&nbsp; &lt;th scope="col"&gt;# of Boys&lt;/th&gt; 
-&nbsp;&nbsp; &lt;th scope="col"&gt;# of Girls&lt;/th&gt; 
-&nbsp;&nbsp;&lt;/tr&gt; 
-&nbsp;&nbsp; &lt;tr&gt; 
-&nbsp;&nbsp; &lt;th scope="row"&gt;1st Grade&lt;/th&gt; 
-&nbsp;&nbsp; &lt;td&gt;11&lt;/td&gt; 
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;10&lt;/td&gt; 
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;.. 
- &lt;/table&gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;table border="1" summary=”A example simple data table”&amp;lt;caption&gt;
+ Boys and Girls in Elementary School Classes&amp;lt;/caption&gt; 
+&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;tr&gt; 
+&nbsp;&nbsp; &amp;lt;th scope="col"&gt;Class&amp;lt;/th&gt; 
+&nbsp;&nbsp; &amp;lt;th scope="col"&gt;# of Boys&amp;lt;/th&gt; 
+&nbsp;&nbsp; &amp;lt;th scope="col"&gt;# of Girls&amp;lt;/th&gt; 
+&nbsp;&nbsp;&amp;lt;/tr&gt; 
+&nbsp;&nbsp; &amp;lt;tr&gt; 
+&nbsp;&nbsp; &amp;lt;th scope="row"&gt;1st Grade&amp;lt;/th&gt; 
+&nbsp;&nbsp; &amp;lt;td&gt;11&amp;lt;/td&gt; 
+&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;td&gt;10&amp;lt;/td&gt; 
+&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;/tr&gt;.. 
+ &amp;lt;/table&gt;</code></pre></td></tr></tbody></table>
 
 布局表格的用途是为了页面布局美观而使用的，所以在其定义中不应该包含行或列标题行，同时设定 summary 的属性值为空。布局表格对于屏幕阅读器应该是透明的。通常情况下，如果表格有至少两行两列四个单元格，同时其大小在 200 到 16000 平方像素之间，在 JAWS 中会默认为是数据表。所以如果一个表格是为布局而设置的，请避免为其指定 summary 属性值。有些屏幕阅读器偶尔会混淆数据表格与布局表格，为了避免混淆我们可以指定 WAI-ARIA 的 role 属性值为 presentation。如清单 13 所示：
 
 **清单 13. 设置表格的 role 属性**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&lt;table role="presentation"&gt;...&lt;/table&gt;;
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&amp;lt;table role="presentation"&gt;...&amp;lt;/table&gt;;
 </code></pre></td></tr></tbody></table>
 
 然而并非所有的浏览器都支持 WAI-ARIA 属性，这种情形下，我们可以设定表格的 datatable 属性值为 0, 这样 JAWS 也会将其视为布局表格。
 
 **清单 14. 设置表格的 datatable 属性**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &lt;table datatable="0"&gt;...&lt;/table&gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-c"> &amp;lt;table datatable="0"&gt;...&amp;lt;/table&gt;</code></pre></td></tr></tbody></table>
 
 Id 属性值唯一
 
@@ -495,11 +495,11 @@ Id 属性值唯一
 
 页面中隐式的添加一些必要的指导信息可以使得无法看到 Web 页面的用户在屏幕阅读器的帮助下清楚的了解页面的功能以及如何快速使用这些功能。如清单 15 所示：
 
-**清单 15. 利用 <h2> 标签设置提示信息**
+**清单 15. 利用 &lt;h2> 标签设置提示信息**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&lt;h2 style="position: absolute;left: -3000px;width: 500px;"&gt;
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&amp;lt;h2 style="position: absolute;left: -3000px;width: 500px;"&gt;
     Start of left navigation
-&lt;/h2&gt;;
+&amp;lt;/h2&gt;;
 </code></pre></td></tr></tbody></table>
 
 在 Web 页面中，为了保证表单中录入的数据真实有效，需要对表单中的一些输入字段加以验证，为保证验证生成的反馈信息可以被无障碍的访问即屏幕阅读器可以在表单验证后的第一时间将反馈信息传达给用户，需要对页面代码做一些修饰。表单验证可以分为客户端验证与服务器端验证。以下将分别讨论这两种场景。
@@ -512,19 +512,19 @@ Id 属性值唯一
 
 **清单 16. HTML 中加入 Dojo 输入域**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;label for="income1"&gt; U.S. Dollars &lt;/label&gt; 
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;label for="income1"&gt; U.S. Dollars &amp;lt;/label&gt; 
 &nbsp;
- &lt;input type="text" name="income1" id="income1" value="54775.53" 
+ &amp;lt;input type="text" name="income1" id="income1" value="54775.53" 
  dojoType="dijit.form.CurrencyTextBox" 
  required="true" constraints="{fractional:true}" currency="USD" 
  invalidMessage="Invalid amount. Cents are required."&gt;</code></pre></td></tr></tbody></table>
 
 **清单 17. 借助 JavaScript 实现验证**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&lt;script type="text/javascript"&gt;
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&amp;lt;script type="text/javascript"&gt;
     {" "}
     dojo.require("dijit.form.CurrencyTextBox");{" "}
-&lt;/script&gt;;
+&amp;lt;/script&gt;;
 </code></pre></td></tr></tbody></table>
 
 在上述实例中，当输入无效的数据时，JAWS 就会阅读 invalidMessage 属性值的内容。
@@ -547,7 +547,7 @@ Id 属性值唯一
 
 **清单 19. HTML 代码片段**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&lt;p id="errorMessage" role="alert"&gt;&lt;/p&gt;;
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&amp;lt;p id="errorMessage" role="alert"&gt;&amp;lt;/p&gt;;
 </code></pre></td></tr></tbody></table>
 
 **清单 20. 在 JavaScript 中设置错误信息**
@@ -569,10 +569,10 @@ Id 属性值唯一
 
 页面重新加载后，JAWS 会首先阅读页面的标题，所以我们可以在页面标题中加入提示信息提醒用户当前页面校验存在错误信息。在下面的示例中，错误信息是在服务器端校验后动态生成的。
 
-**清单 21. 在 <p> 中显示错误信息**
+**清单 21. 在 &lt;p> 中显示错误信息**
 
 <table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">……
- &lt;p id="errorMessage"&gt;&lt;/p&gt; ……</code></pre></td></tr></tbody></table>
+ &amp;lt;p id="errorMessage"&gt;&amp;lt;/p&gt; ……</code></pre></td></tr></tbody></table>
 
 **清单 22. 借助 JavaScript 修改页面标题**
 
@@ -585,11 +585,11 @@ Id 属性值唯一
 
 当页面重新载入时，JAWS 会首先阅读第一个获得焦点的页面元素。但是有些页面元素是无法获取焦点的，比如 &lt;**div**> 和 &lt;**p**>。如果错误信息是在 div 中显示，我们可以通过设置 tabindex 的值为 -1 使得 div 可以在 JavaScript 中设置其获取焦点。如清单 23、24 所示：
 
-**清单 23. 在 <div> 中显示错误信息**
+**清单 23. 在 &lt;div> 中显示错误信息**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&lt;div id="errorMessage" tabindex="-1"&gt;
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html">&amp;lt;div id="errorMessage" tabindex="-1"&gt;
     ……
-&lt;/div&gt;;
+&amp;lt;/div&gt;;
 </code></pre></td></tr></tbody></table>
 
 **清单 24. 在 JavaScript 中设置焦点**
@@ -602,12 +602,12 @@ Id 属性值唯一
 
 多个验证消息的处理
 
-如果有几个输入字段同时验证出错，我们可以以链接的形式显示错误信息，屏幕阅读器通过阅读链接帮助视力有障碍的用户快速定位到出错字段进行更正。每个需要校验的输入字段都需要有与其关联的 <label>。如清单 25、26 所示：
+如果有几个输入字段同时验证出错，我们可以以链接的形式显示错误信息，屏幕阅读器通过阅读链接帮助视力有障碍的用户快速定位到出错字段进行更正。每个需要校验的输入字段都需要有与其关联的 &lt;label>。如清单 25、26 所示：
 
 **清单 25. HTML 页面中的输入域示例**
 
-<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &lt;label for="phone"&gt;* Phone number:&lt;/label&gt; 
- &lt;input type="text" id="phone" name="phone" aria-required="true" &gt;</code></pre></td></tr></tbody></table>
+<table summary="This table contains a code listing." width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><pre><code class="language-html"> &amp;lt;label for="phone"&gt;* Phone number:&amp;lt;/label&gt; 
+ &amp;lt;input type="text" id="phone" name="phone" aria-required="true" &gt;</code></pre></td></tr></tbody></table>
 
 **清单 26. 在 JavaScript 中设置错误信息的链接目标**
 

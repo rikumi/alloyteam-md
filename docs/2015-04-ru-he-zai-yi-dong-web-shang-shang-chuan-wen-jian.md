@@ -18,7 +18,7 @@ function dataURLtoBlob(data) {
     tmp[1] = tmp[1].replace(/\s/g, "");
     var binary = atob(tmp[1]);
     var array = [];
-    for (var i = 0; i < binary.length; i++) {
+    for (var i = 0; i &lt; binary.length; i++) {
         array.push(binary.charCodeAt(i));
     }
     return new Blob([new Uint8Array(array)], { type: "image/jpeg" });
@@ -62,12 +62,12 @@ fd.append("img", file);
 愉快的上传.... 然后... 然后... 没有然后了... 抓包看下.
 
 ```html
-<span style="color:rgb(0, 0, 0)">------</span><span style="color:rgb(43, 145, 175)">WebKitFormBoundarysToAVAYMLPFfJF96</span><span style="color:rgb(0, 0, 0)">
- </span><span style="color:rgb(43, 145, 175)">Content</span><span style="color:rgb(0, 0, 0)">-</span><span style="color:rgb(43, 145, 175)">Disposition</span><span style="color:rgb(0, 0, 0)">:</span><span style="color:rgb(0, 0, 0)"> form</span><span style="color:rgb(0, 0, 0)">-</span><span style="color:rgb(0, 0, 0)">data</span><span style="color:rgb(0, 0, 0)">;</span><span style="color:rgb(0, 0, 0)"> name</span><span style="color:rgb(0, 0, 0)">=</span><span style="color:rgb(128, 0, 0)">"img"</span><span style="color:rgb(0, 0, 0)">;</span><span style="color:rgb(0, 0, 0)"> filename</span><span style="color:rgb(0, 0, 0)">=</span><span style="color:rgb(128, 0, 0)">"blob"</span><span style="color:rgb(0, 0, 0)">
- </span><span style="color:rgb(43, 145, 175)">Content</span><span style="color:rgb(0, 0, 0)">-</span><span style="color:rgb(43, 145, 175)">Type</span><span style="color:rgb(0, 0, 0)">:</span><span style="color:rgb(0, 0, 0)"> application</span><span style="color:rgb(0, 0, 0)">/</span><span style="color:rgb(0, 0, 0)">octet</span><span style="color:rgb(0, 0, 0)">-</span><span style="color:rgb(0, 0, 0)">stream
+&lt;span style="color:rgb(0, 0, 0)">------&lt;/span>&lt;span style="color:rgb(43, 145, 175)">WebKitFormBoundarysToAVAYMLPFfJF96&lt;/span>&lt;span style="color:rgb(0, 0, 0)">
+ &lt;/span>&lt;span style="color:rgb(43, 145, 175)">Content&lt;/span>&lt;span style="color:rgb(0, 0, 0)">-&lt;/span>&lt;span style="color:rgb(43, 145, 175)">Disposition&lt;/span>&lt;span style="color:rgb(0, 0, 0)">:&lt;/span>&lt;span style="color:rgb(0, 0, 0)"> form&lt;/span>&lt;span style="color:rgb(0, 0, 0)">-&lt;/span>&lt;span style="color:rgb(0, 0, 0)">data&lt;/span>&lt;span style="color:rgb(0, 0, 0)">;&lt;/span>&lt;span style="color:rgb(0, 0, 0)"> name&lt;/span>&lt;span style="color:rgb(0, 0, 0)">=&lt;/span>&lt;span style="color:rgb(128, 0, 0)">"img"&lt;/span>&lt;span style="color:rgb(0, 0, 0)">;&lt;/span>&lt;span style="color:rgb(0, 0, 0)"> filename&lt;/span>&lt;span style="color:rgb(0, 0, 0)">=&lt;/span>&lt;span style="color:rgb(128, 0, 0)">"blob"&lt;/span>&lt;span style="color:rgb(0, 0, 0)">
+ &lt;/span>&lt;span style="color:rgb(43, 145, 175)">Content&lt;/span>&lt;span style="color:rgb(0, 0, 0)">-&lt;/span>&lt;span style="color:rgb(43, 145, 175)">Type&lt;/span>&lt;span style="color:rgb(0, 0, 0)">:&lt;/span>&lt;span style="color:rgb(0, 0, 0)"> application&lt;/span>&lt;span style="color:rgb(0, 0, 0)">/&lt;/span>&lt;span style="color:rgb(0, 0, 0)">octet&lt;/span>&lt;span style="color:rgb(0, 0, 0)">-&lt;/span>&lt;span style="color:rgb(0, 0, 0)">stream
  
  
- </span><span style="color:rgb(0, 0, 0)">------</span><span style="color:rgb(43, 145, 175)">WebKitFormBoundarysToAVAYMLPFfJF96</span><span style="color:rgb(0, 0, 0)">--</span>
+ &lt;/span>&lt;span style="color:rgb(0, 0, 0)">------&lt;/span>&lt;span style="color:rgb(43, 145, 175)">WebKitFormBoundarysToAVAYMLPFfJF96&lt;/span>&lt;span style="color:rgb(0, 0, 0)">--&lt;/span>
 ```
 
 文件的内容呢...
@@ -164,7 +164,7 @@ var needsFormDataShim = (function () {
             !~navigator.userAgent.indexOf("Chrome");
         return (
             bCheck &&
-            navigator.userAgent.match(/AppleWebKit\/(\d+)/).pop() <= 534
+            navigator.userAgent.match(/AppleWebKit\/(\d+)/).pop() &lt;= 534
         );
     })(),
     blobConstruct = !!(function () {
@@ -246,7 +246,7 @@ function dataURLtoBlob(data) {
     tmp[1] = tmp[1].replace(/\s/g, "");
     var binary = atob(tmp[1]);
     var array = [];
-    for (var i = 0; i < binary.length; i++) {
+    for (var i = 0; i &lt; binary.length; i++) {
         array.push(binary.charCodeAt(i));
     }
     return new newBlob(new Uint8Array(array), "image/jpeg");

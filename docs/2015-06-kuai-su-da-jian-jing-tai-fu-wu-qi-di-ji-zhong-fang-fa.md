@@ -53,10 +53,10 @@ Tomcat 是 Java 应用服务器，当然也可以用来作静态服务器。但 
 Tomcat 中虚拟目录配置是位于 Tomcat/conf/server.xml。在在 host 标签中增加如下格式的配置：
 
 ```html
-<Context path="虚拟目录名" docBase="文件所在根目录" crossContext="true" />;
+&lt;Context path="虚拟目录名" docBase="文件所在根目录" crossContext="true" />;
 ```
 
-如：<Context path="/test" docBase="G:/Test" crossContext="true" />
+如：&lt;Context path="/test" docBase="G:/Test" crossContext="true" />
 
 完成上面配置后，双击 Tomcat/bin/startup.bat 即可以启动 Tomcate 服务器，在浏览器中就可以正常访问到刚我们配好的目录了。
 

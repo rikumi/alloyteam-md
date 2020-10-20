@@ -13,14 +13,14 @@ source_link: http://www.alloyteam.com/2011/10/html5-player-part1/
 要做一个最简单的播放器，我们首先需要一些可操作的元素，譬如：一个播放按钮、一个播放进度条、一个音量进度条
 
 ```html
-<div id="container">
-    <div id="title"></div>
-    <div id="time"></div>
-    <input id="range" type="range" min="0" max="1" step="any" value="0" />
-    <a id="play" class="button" href="###"></a>
+&lt;div id="container">
+    &lt;div id="title">&lt;/div>
+    &lt;div id="time">&lt;/div>
+    &lt;input id="range" type="range" min="0" max="1" step="any" value="0" />
+    &lt;a id="play" class="button" href="###">&lt;/a>
     音量:
-    <input id="volume" type="range" min="0" max="1" step="any" value="0.5" />
-</div>;
+    &lt;input id="volume" type="range" min="0" max="1" step="any" value="0.5" />
+&lt;/div>;
 ```
 
 其中的 input\[type=range] 是 html5 新增的表单控件，后续可以在自定义 UI 的时候替换掉，不在本文探讨之列。
@@ -106,7 +106,7 @@ function onEnded() {
 function onError() {
     rangeEl.disabled = true;
     titleEl.innerHTML =
-        '<span style="color:red">加载错误:' + titleEl.innerHTML + "</span>";
+        '&lt;span style="color:red">加载错误:' + titleEl.innerHTML + "&lt;/span>";
     playEl.innerHTML = "已停止";
 }
 function onTimeUpdate() {
@@ -146,7 +146,7 @@ function onPlayButtonClick() {
     if (audioEl.error) {
         //加载错误
         return;
-    } else if (audioEl.readyState < 2) {
+    } else if (audioEl.readyState &lt; 2) {
         //还没可以播放
         audioEl.autoplay ^= true; //切换是否autoplay
     } else if (audioEl.paused) {

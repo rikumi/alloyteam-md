@@ -121,11 +121,11 @@ Adobe Edge Inspect 是 Adobe Creative Cloud 包的一部分，但也可免费�
 
 **_跨多个连接设备的 URL 的导航_**
 
-在扩展中，可以看到列出的设备旁边的 &lt;> 符号，如截图所示。点击它将启动 Weinre 的实例，从而可以让你检查和调试网页。
+在扩展中，可以看到列出的设备旁边的&lt;> 符号，如截图所示。点击它将启动 Weinre 的实例，从而可以让你检查和调试网页。
 
 ![](http://www.html5rocks.com/static/images/screenshots/crossdevice/image01.png)
 
-_**出现在连接设备旁的 &lt;> 符号是用来启动 Weinre 调试器的**_
+_**出现在连接设备旁的&lt;> 符号是用来启动 Weinre 调试器的**_
 
 Weinre 是一个 DOM 查看器和控制台，但缺乏 Chrome DevTools 的一些功能，如 JavaScript 调试，分析和网络瀑布图。虽然这是最基础的开发工具，但对于检查 DOM 和 JavaScript 的状态它是非常有用的。
 

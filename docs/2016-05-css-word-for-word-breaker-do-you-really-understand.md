@@ -110,11 +110,11 @@ word-wrap: normal | break-word;
 >
 > 1.  规范如此，就是这么**任性** <https://www.w3.org/TR/REC-html40/struct/text.html#h-9.1>
 > 2.  如果不自动压缩空格，那我们写 html 的时候就只能写成 1 行了，否则先这样的代码就会出现大段的空白。
-> 3.      <div>
->         <div>
+> 3.      &lt;div>
+>         &lt;div>
 >         bananas
->         </div>
->         </div>
+>         &lt;/div>
+>         &lt;/div>
 >
 > 既然规范这么定了，埋了坑，肯定会想办法让你绕过的，想起了 white-space。  
 > white-space 我们更多的时候只用到 nowrap 的属性，来配合实现... 的特效，实际它还有更多的姿势未解锁。

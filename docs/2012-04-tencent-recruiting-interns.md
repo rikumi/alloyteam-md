@@ -23,7 +23,7 @@ PS:
 
 这里有优秀的团队，丰富的资源，等待着你的参与，与我们共画一片童话般的世界。
 
-请发简历到 Kinvix<at>QQ.com
+请发简历到 Kinvix&lt;at>QQ.com
 
 
 <!-- {% endraw %} - for jekyll -->

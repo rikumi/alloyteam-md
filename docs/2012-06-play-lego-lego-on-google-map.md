@@ -59,7 +59,7 @@ Google 又放出了很帅又充满了 Google 式小清新风格的 HTML5 在线�
 
 **[www.buildwithchrome.com/build/5Ji](http://www.buildwithchrome.com/build/5Ji)**
 
-最后要说说这个玩意儿的源代码，里面的 `<noscript>` 注释里有一段内容是这样的：  
+最后要说说这个玩意儿的源代码，里面的 `&lt;noscript>` 注释里有一段内容是这样的：  
 
 ```ruby
                                                     ___

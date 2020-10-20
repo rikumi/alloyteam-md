@@ -37,12 +37,12 @@ source_link: http://www.alloyteam.com/2016/10/implement-a-simple-template-engine
 
 ```javascript
 // 前端
-var html = window.parse("<div>${content}</div>", {
+var html = window.parse("&lt;div>${content}&lt;/div>", {
     content: "june",
 });
 // 后端
 const parse = require("tpl");
-var html = parse("<div>${content}</div>", {
+var html = parse("&lt;div>${content}&lt;/div>", {
     content: "june",
 });
 ```
@@ -222,7 +222,7 @@ let len = content.length; 
 let preCode = ''; // 表达式前的代码 
 let endCode = ''; // 最后一段代码 
 let stmJs = ''; // 表达式 
-while(beg < len) { 
+while(beg &lt; len) { 
   /* 开始符 */ 
   stmbeg = content.indexOf('{', beg); 
   while(content.charAt(stmbeg - 1) === '\\\\') { 
@@ -352,7 +352,7 @@ const regmap = [ 
   // if语句结束 
   {reg: /^\\/\\s*if/i, val: '}'}, 
   // list语句开始 
-  {reg: /^list\\s+([\\S]+)\\s+as\\s+([\\S]+)/i, val: (all, arr, item) => {return `for(var __INDEX__=0;__INDEX__<${arr}.length;__INDEX__++) {var ${item}=${arr}[__INDEX__];var ${item}_index=__INDEX__;`;}}, 
+  {reg: /^list\\s+([\\S]+)\\s+as\\s+([\\S]+)/i, val: (all, arr, item) => {return `for(var __INDEX__=0;__INDEX__&lt;${arr}.length;__INDEX__++) {var ${item}=${arr}[__INDEX__];var ${item}_index=__INDEX__;`;}}, 
   // list语句结束 
   {reg: /^\\/\\s*list/i, val: '}'}, 
   // var 语句 
@@ -374,25 +374,25 @@ const regmap = [ 
       escape: (str) => { 
         // 防注入转码映射表 
         var escapeMap = { 
-          '<': '&lt;', 
+          '&lt;': '&lt;', 
           '>': '&gt;', 
           '&': '&amp;', 
           ' ': '&nbsp;', 
           '"': '&quot;', 
           "'": '&#39;', 
-          '\\n': '<br/>', 
+          '\\n': '&lt;br/>', 
           '\\r': '' 
         }; 
      
-        return str.replace(/\\<|\\>|\\&|\\r|\\n|\\s|\\'|\\"/g, (one) => { 
+        return str.replace(/\\&lt;|\\>|\\&|\\r|\\n|\\s|\\'|\\"/g, (one) => { 
           return escapeMap[one]; 
         }); 
       } 
     };
 
-用法很简单，当我们有一个变量 a，内容为<div style="color: red;">red</div> 时，因为我们经常将模板引擎生成的内容直接用 innerHTML 塞进节点之中，而假如我们像 ${a} 这种方式直接使用这个变量的时候，在页面中就只会显示一个红色的 red。
+用法很简单，当我们有一个变量 a，内容为&lt;div style="color: red;">red&lt;/div> 时，因为我们经常将模板引擎生成的内容直接用 innerHTML 塞进节点之中，而假如我们像 ${a} 这种方式直接使用这个变量的时候，在页面中就只会显示一个红色的 red。
 
-为了防止此类注入的情况发生，我在上面实现了一个叫 escape 的过滤器，将使用方式改为 ${a|escape} 就可以进行特殊符号的转义，在页面上直接显示变量 a 的内容<div style="color: red;">red</div>。
+为了防止此类注入的情况发生，我在上面实现了一个叫 escape 的过滤器，将使用方式改为 ${a|escape} 就可以进行特殊符号的转义，在页面上直接显示变量 a 的内容&lt;div style="color: red;">red&lt;/div>。
 
 尾声  
 

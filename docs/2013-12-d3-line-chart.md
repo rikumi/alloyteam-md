@@ -15,18 +15,12 @@ D3 全称 Data-Driven-Documents，这里说的不是暗黑 III，d3 是一款可
 
 到 [github d3](https://github.com/mbostock/d3) 下载最新版 d3，然后在 html 代码增加标签
 
-````html
-
 ```html
-<script src="path/to/d3.js"></script>
-````
+&lt;script src="path/to/d3.js">&lt;/script>
+&lt;!--more-->
+```
 
-<!--more-->
-
-````
-
-step2：创建 SVG 容器
----------------
+## step2：创建 SVG 容器
 
 ```javascript
 var margin = { top: 20, right: 20, bottom: 30, left: 50 },
@@ -41,7 +35,7 @@ var svg = container
     .append("g")
     .attr("class", "content")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-````
+```
 
 margin、width、height 定义了 svg 节点的位置和尺寸，后面会用到。d3.select 类似 jquery 的选择器，并且 d3 的语法也支持串联调用，append ('svg') 将 svg 追加到 body 的尾部，同时为 svg 节点设置了宽度和高度值，attr 也有 get 和 set 两种用法。
 
@@ -56,7 +50,7 @@ var data = Array.apply(0, Array(31)).map(function (item, i) {
     // 产生31条数据
     i++;
     return {
-        date: "2013-12-" + (i < 10 ? "0" + i : i),
+        date: "2013-12-" + (i &lt; 10 ? "0" + i : i),
         pv: parseInt(Math.random() * 100),
     };
 });

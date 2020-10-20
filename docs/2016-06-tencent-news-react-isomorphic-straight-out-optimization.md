@@ -172,11 +172,11 @@ match(
     (error, redirectLocation, renderProps) => {
         if (renderProps) {
             reactHtml = renderToString(
-                <Provider store={store}>
+                &lt;Provider store={store}>
                                 
-                    <RouterContext {...renderProps} />
+                    &lt;RouterContext {...renderProps} />
                             
-                </Provider>
+                &lt;/Provider>
             );
         } else {
             res.body = "404";
@@ -193,22 +193,22 @@ const { pathname, search, hash } = window.location;
 const location = `${pathname}${search}${hash}`;
 match({ routes: routeConfig, location: location }, () => {
     render(
-        <Provider store={store}>
+        &lt;Provider store={store}>
             {" "}
             //  Redux相关             
-            <div>
+            &lt;div>
                                 
-                <Router routes={routeConfig} history={history} /> // Router 相关
+                &lt;Router routes={routeConfig} history={history} /> // Router 相关
                             
-            </div>
+            &lt;/div>
                     
-        </Provider>,
+        &lt;/Provider>,
         document.getElementById("pages")
     );
 });
 ```
 
-在吐内容 (html) 的同时，请记得将 store 也吐一份到<script> 标签里，因为客户端的 js 中也需要用到。
+在吐内容 (html) 的同时，请记得将 store 也吐一份到&lt;script> 标签里，因为客户端的 js 中也需要用到。
 
 在首次吐出内容之后，你会发现还不能马上进行交互，需要客户端再次执行一行 Root.js 里面的代码，才能够将可交互的事件绑定。
 

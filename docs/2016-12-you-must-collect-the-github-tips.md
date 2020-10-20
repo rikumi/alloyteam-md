@@ -72,14 +72,14 @@ Github 官方可能嗅觉到了该痛点，出了个 master 当作网站是选�
 如下面所示，user 和 repo 改成你想要展示的便可以
 
 ```html
-<iframe
+&lt;iframe
     src="//ghbtns.com/github-btn.html?user=alloyteam&repo=alloytouch&type=watch&count=true"
     allowtransparency="true"
     frameborder="0"
     scrolling="0"
     width="110"
     height="20"
-></iframe>;
+>&lt;/iframe>;
 ```
 
 插入之后你便可以看到这样的展示：

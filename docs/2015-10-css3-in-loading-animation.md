@@ -34,10 +34,10 @@ source_link: http://www.alloyteam.com/2015/10/css3-in-loading-animation/
  animation-iteration-count 的 infinite 表示无限次循环；animation-direction 的 normal 表示动画播放完后从头开始播放，reverse 和 normal 相反，是从后向前播放，还有 alternate 会逆向播放。
 
 ```html
-    <a href="http://www.alloyteam.com/wp-content/uploads/2015/10/1.png"><img alt="1" class="alignnone size-medium wp-image-8625" src="http://www.alloyteam.com/wp-content/uploads/2015/10/1-300x86.png" style="height:115px; width:400px" />
-</a>    <a href="http://www.alloyteam.com/wp-content/uploads/2015/10/12.png"><img alt="12" class="alignnone size-medium wp-image-8623" src="http://www.alloyteam.com/wp-content/uploads/2015/10/12-300x267.png" style="height:356px; width:400px" />
-    <span style="font-size:16px"><span style="color:#000000">然后我们在@keyframes中规定动画效果，由于是直线进行，所以只有开始和结束两个状态就OK了。</span></span>
-</a>    <a href="http://www.alloyteam.com/wp-content/uploads/2015/10/111.png"><img alt="11" class="alignnone size-medium wp-image-8631" src="http://www.alloyteam.com/wp-content/uploads/2015/10/111-300x162.png" style="height:162px; width:300px" /></a>
+    &lt;a href="http://www.alloyteam.com/wp-content/uploads/2015/10/1.png">&lt;img alt="1" class="alignnone size-medium wp-image-8625" src="http://www.alloyteam.com/wp-content/uploads/2015/10/1-300x86.png" style="height:115px; width:400px" />
+&lt;/a>    &lt;a href="http://www.alloyteam.com/wp-content/uploads/2015/10/12.png">&lt;img alt="12" class="alignnone size-medium wp-image-8623" src="http://www.alloyteam.com/wp-content/uploads/2015/10/12-300x267.png" style="height:356px; width:400px" />
+    &lt;span style="font-size:16px">&lt;span style="color:#000000">然后我们在@keyframes中规定动画效果，由于是直线进行，所以只有开始和结束两个状态就OK了。&lt;/span>&lt;/span>
+&lt;/a>    &lt;a href="http://www.alloyteam.com/wp-content/uploads/2015/10/111.png">&lt;img alt="11" class="alignnone size-medium wp-image-8631" src="http://www.alloyteam.com/wp-content/uploads/2015/10/111-300x162.png" style="height:162px; width:300px" />&lt;/a>
 ```
 
  效果如下

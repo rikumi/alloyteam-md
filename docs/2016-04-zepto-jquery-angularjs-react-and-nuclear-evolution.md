@@ -19,37 +19,29 @@ source_link: http://www.alloyteam.com/2016/04/zepto-jquery-angularjs-react-and-n
 
 互联网的春风刚刮来的时候，人们当时利用三剑客制作网页。
 
-````html
-<div onclick="showMsg()"></div>
- 
-
 ```html
-<script>
+&lt;div onclick="showMsg()">&lt;/div>
+ 
+&lt;script>
     function showMsg(){
         alert("恭喜你实现第一个人机交互程序");
     }
-</script>
-````
-
-````
+&lt;/script>
+```
 
 这里会发现 showMsg 必须是全局的，onclick 触发才能访问，这样就会导致每绑一个事件就要污染一个全局变量。这点问题难不倒前端工程师，加个超级 namespace，所有的事件挂在它下面:
 
 ```html
-<div onclick="SuperNamespce.showMsg1()"></div>
-<div onclick="SuperNamespce.showMsg2()"></div>
-
-```html
-<script>
+&lt;div onclick="SuperNamespce.showMsg1()">&lt;/div>
+&lt;div onclick="SuperNamespce.showMsg2()">&lt;/div>
+&lt;script>
     var SuperNamespce={};
     SuperNamespce.showMsg1=function(){
     }
     SuperNamespce.showMsg2=function(){
     }
-</script>
-````
-
-````
+&lt;/script>
+```
 
 但是也有问题，比如这样的场景：
 
@@ -59,7 +51,7 @@ setTimeout(function () {
     SuperNamespce.showMsg1 = function () {};
     SuperNamespce.showMsg2 = function () {};
 }, 4000);
-````
+```
 
 或者更真实一点：
 
@@ -94,13 +86,11 @@ util 库时代
 
 开发者们按照上面总结的最佳实践，重构了上面的代码：
 
-````html
-<div id="myID1"></div>
-<div id="myID2"></div>
- 
-
 ```html
-<script>
+&lt;div id="myID1">&lt;/div>
+&lt;div id="myID2">&lt;/div>
+ 
+&lt;script>
     var myID1 = document.getElementById("myID1");
     var myID2 = document.getElementById("myID2")
     myID1.onclick = function () {
@@ -109,14 +99,12 @@ util 库时代
     myID2.onclick = function () {
         alert(2);
     }
-</script>
-````
-
-````
+&lt;/script>
+```
 
 这给开发者们带来了另外一个麻烦的问题，以前声明式直接在 div 上绑定事件不需要查找 dom，所以不需要标记 id，现在每个需要绑定事件的 dom 都需要标记 id 用于 js 查找。而且，这种写法依旧没有改变声明式事件绑定的一个问题：
 
-*   js 未执行完的情况下发生人机交互【虽然不会报脚本错误】，但是严重影响用户体验
+-   js 未执行完的情况下发生人机交互【虽然不会报脚本错误】，但是严重影响用户体验
 
 比如你 div 是个按钮形态，看上去用户就想点，一直点一直点。但是 js 还没执行完，事件还没绑定上去。用户将收不到任何反馈。  
 但是开发者并不关系这‘ 毫秒’、甚至‘ 秒’ 级别的用户体验，也有的开发者利用 UI 逻辑去规避，比如先来个 loading？比如绑定完事件再显示该 dom。  
@@ -127,7 +115,7 @@ util 库时代
 function query(selector) {
     //此处省略一万行代码
 }
-````
+```
 
 绑定事件好累，封个类库（[edwards 的 events.js](http://dean.edwards.name/weblog/2005/10/add-event/)）：
 
@@ -189,17 +177,15 @@ AngularJS
 
 * * *
 
-````javascript
-<div ng-app="myApp" ng-controller="personCtrl">
-<button ng-click="toggle()">隐藏/显示</button>
-<p ng-show="myVar">
+```javascript
+&lt;div ng-app="myApp" ng-controller="personCtrl">
+&lt;button ng-click="toggle()">隐藏/显示&lt;/button>
+&lt;p ng-show="myVar">
 AngularJS
-</p>
-</div>
+&lt;/p>
+&lt;/div>
  
-
-```html
-<script>
+&lt;script>
 var app = angular.module('myApp', []);
 app.controller('personCtrl', function($scope) {
     $scope.myVar = true;
@@ -207,16 +193,14 @@ app.controller('personCtrl', function($scope) {
         $scope.myVar = !$scope.myVar;
     };
 });
-</script>
-````
-
-````
+&lt;/script>
+```
 
 因为 AngularJS 通过 ng-click 绑定事件，所以没有解决。
 
 React  
 
---------
+* * *
 
 ```javascript
 var Photo = React.createClass({
@@ -233,17 +217,17 @@ var Photo = React.createClass({
     render: function () {
         var buttonClass = this.state.liked ? "active" : "";
         return (
-            <div className="photo">
+            &lt;div className="photo">
                         
-                <button onClick={this.toggleLiked} className={buttonClass}>
+                &lt;button onClick={this.toggleLiked} className={buttonClass}>
                     点我
-                </button>
+                &lt;/button>
                       
-            </div>
+            &lt;/div>
         );
     },
 });
-````
+```
 
 因为 React 的布局和逻辑放在一起，解决了跨越了十多年之久的前端问题：
 
@@ -269,14 +253,14 @@ var TodoApp = Nuclear.create({
         this.option.items.push(this.textBox.value);
     },
     render: function () {
-        return '<div>\
-                    <h3>TODO</h3>\
-                    <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>\
-                    <form onsubmit="add(event)" >\
-                        <input nc-id="textBox" type="text"  />\
-                        <button>Add #{{items.length}}</button>\
-                    </form>\
-                </div>';
+        return '&lt;div>\
+                    &lt;h3>TODO&lt;/h3>\
+                    &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>\
+                    &lt;form onsubmit="add(event)" >\
+                        &lt;input nc-id="textBox" type="text"  />\
+                        &lt;button>Add #{{items.length}}&lt;/button>\
+                    &lt;/form>\
+                &lt;/div>';
     },
 });
 new TodoApp({ items: [] }, "#todoListContainer");
@@ -285,16 +269,16 @@ new TodoApp({ items: [] }, "#todoListContainer");
 会在 html 里生成如下的结构：
 
 ```html
-<div data-nuclearid="0">
-    <div>
-        <h3>TODO</h3>
-        <ul></ul>
-        <form onsubmit="Nuclear.instances[0].add(event)">
-            <input nc-id="textBox" type="text">
-            <button>Add #0</button>
-        </form>
-    </div>
-</div>
+&lt;div data-nuclearid="0">
+    &lt;div>
+        &lt;h3>TODO&lt;/h3>
+        &lt;ul>&lt;/ul>
+        &lt;form onsubmit="Nuclear.instances[0].add(event)">
+            &lt;input nc-id="textBox" type="text">
+            &lt;button>Add #0&lt;/button>
+        &lt;/form>
+    &lt;/div>
+&lt;/div>
 ```
 
 更为具体的对应可以看这张图片：  

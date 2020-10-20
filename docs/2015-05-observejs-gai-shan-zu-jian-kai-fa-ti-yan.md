@@ -42,12 +42,12 @@ var List = function (option) {
     this.data = option.data;
     this.parent = document.querySelector(this.option.renderTo);
     this.tpl =
-        '<div class="list-group" style="  text-align: center;width:<%=typeof width === "number"?width+"px":width%>;" >' +
-        "            <% for ( var i = 0, len = data.length; i < len; i++) { %>" +
-        "<%     var item = data[i]; %>" +
-        '<a class="list-group-item <%=item.active ? "active" : ""%> <%=item.disabled ? "disabled" : ""%>" href="<%=item.href%>" target="<%=item.target?item.target:""%>"><%=item.text%></a>' +
-        "<% } %>" +
-        "</div>";
+        '&lt;div class="list-group" style="  text-align: center;width:&lt;%=typeof width === "number"?width+"px":width%>;" >' +
+        "            &lt;% for ( var i = 0, len = data.length; i &lt; len; i++) { %>" +
+        "&lt;%     var item = data[i]; %>" +
+        '&lt;a class="list-group-item &lt;%=item.active ? "active" : ""%> &lt;%=item.disabled ? "disabled" : ""%>" href="&lt;%=item.href%>" target="&lt;%=item.target?item.target:""%>">&lt;%=item.text%>&lt;/a>' +
+        "&lt;% } %>" +
+        "&lt;/div>";
     this.render(); //list.render建议使用debounce来控制执行频率提高性能,或者和react一样在下次执行requestAnimFrame的时候更新
     observe(this, "option", this._debounce(this.render, 200));
 };
@@ -79,10 +79,10 @@ List.prototype = {
                 str
                     .replace(/\\/g, "\\\\")
                     .replace(/'/g, "\\'")
-                    .replace(/<%=([\s\S]+?)%>/g, function (match, code) {
+                    .replace(/&lt;%=([\s\S]+?)%>/g, function (match, code) {
                         return "'," + code.replace(/\\'/, "'") + ",'";
                     })
-                    .replace(/<%([\s\S]+?)%>/g, function (match, code) {
+                    .replace(/&lt;%([\s\S]+?)%>/g, function (match, code) {
                         return (
                             "');" +
                             code.replace(/\\'/, "'").replace(/[\r\n\t]/g, " ") +

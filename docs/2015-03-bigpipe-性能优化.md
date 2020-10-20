@@ -51,92 +51,72 @@ Bigpipe 的思路
 一个 node 实现的 demo，实现基本的分块的思想  
 模拟服务器部分
 
-````html
-http.createServer(<span class="keyword">function</span>(request, response) {
-    <span class="comment">// Write the document</span>
-    response.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span> : <span class="string">"text/html"</span>});
-    response.write(<span class="string">'<!DOCTYPE html>'</span>);
-    response.write(<span class="string">'<head>
 ```html
-<script type="text/javascript">function arrived(id,text) { var b=document.getElementById(id); b.innerHTML = text; }</script>
-````
-
-'</span>);
-    response.write(<span class="string">"</head><body><div>Progressive Loading"</span>);
-    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) {
-        response.write(<span class="string">"<div id='"</span> + i + <span class="string">"'>"</span> + i + <span class="string">"</div>"</span>);
+http.createServer(&lt;span class="keyword">function&lt;/span>(request, response) {
+    &lt;span class="comment">// Write the document&lt;/span>
+    response.writeHead(&lt;span class="number">200&lt;/span>, {&lt;span class="string">"Content-Type"&lt;/span> : &lt;span class="string">"text/html"&lt;/span>});
+    response.write(&lt;span class="string">'&lt;!DOCTYPE html>'&lt;/span>);
+    response.write(&lt;span class="string">'&lt;head>&lt;script type="text/javascript">function arrived(id,text) { var b=document.getElementById(id); b.innerHTML = text; }&lt;/script>'&lt;/span>);
+    response.write(&lt;span class="string">"&lt;/head>&lt;body>&lt;div>Progressive Loading"&lt;/span>);
+    &lt;span class="keyword">for&lt;/span>(&lt;span class="keyword">var&lt;/span> i = &lt;span class="number">0&lt;/span>; i &lt; &lt;span class="number">6&lt;/span>; i++) {
+        response.write(&lt;span class="string">"&lt;div id='"&lt;/span> + i + &lt;span class="string">"'>"&lt;/span> + i + &lt;span class="string">"&lt;/div>"&lt;/span>);
     }
-    response.write(<span class="string">"</div>"</span>);
-
+    response.write(&lt;span class="string">"&lt;/div>"&lt;/span>);
  
-    <span class="keyword">var</span> down = <span class="number">6</span>;
-    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) {
-        http.get(<span class="string">"http&#x3A;//localhost:2000/?id="</span> + i, <span class="keyword">function</span>(res) {
-            res.on(<span class="string">'data'</span>, <span class="keyword">function</span>(chunk) {
-                response.write(chunk, <span class="string">'binary'</span>);
+    &lt;span class="keyword">var&lt;/span> down = &lt;span class="number">6&lt;/span>;
+    &lt;span class="keyword">for&lt;/span> (i = &lt;span class="number">0&lt;/span>; i &lt; &lt;span class="number">6&lt;/span>; i++) {
+        http.get(&lt;span class="string">"http://localhost:2000/?id="&lt;/span> + i, &lt;span class="keyword">function&lt;/span>(res) {
+            res.on(&lt;span class="string">'data'&lt;/span>, &lt;span class="keyword">function&lt;/span>(chunk) {
+                response.write(chunk, &lt;span class="string">'binary'&lt;/span>);
             });
-
  
-            res.on(<span class="string">'end'</span>, <span class="keyword">function</span>() {
-                console.log(<span class="string">"down"</span>+down)
-                <span class="keyword">if</span>((--down )== <span class="number">0</span>) {
+            res.on(&lt;span class="string">'end'&lt;/span>, &lt;span class="keyword">function&lt;/span>() {
+                console.log(&lt;span class="string">"down"&lt;/span>+down)
+                &lt;span class="keyword">if&lt;/span>((--down )== &lt;span class="number">0&lt;/span>) {
                     response.end();
                 }
             })
         });
     }
-    response.write(<span class="string">"</body></html>"</span>);
-
+    response.write(&lt;span class="string">"&lt;/body>&lt;/html>"&lt;/span>);
  
-}).listen(<span class="number">8080</span>);
-
+}).listen(&lt;span class="number">8080&lt;/span>);
  
-
-````
+```
 
 模拟请求的代码：
 
 ```html
-http.createServer(<span class="keyword">function</span>(request, response) {
-    <span class="comment">// Some delay upto upto 2 seconds</span>
-    <span class="keyword">var</span> delay = Math.round(Math.random() * <span class="number">2000</span>);
+http.createServer(&lt;span class="keyword">function&lt;/span>(request, response) {
+    &lt;span class="comment">// Some delay upto upto 2 seconds&lt;/span>
+    &lt;span class="keyword">var&lt;/span> delay = Math.round(Math.random() * &lt;span class="number">2000&lt;/span>);
  
-    setTimeout(<span class="keyword">function</span>() {
-        <span class="keyword">var</span> params = url.parse(request.url, <span class="keyword">true</span>);
-        <span class="keyword">var</span> id = params.query.id;
-        response.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span> : <span class="string">"text/html"</span>});
-        <span class="keyword">var</span> content = <span class="string">"<span>Content of Module "</span> + id + <span class="string">"</span>"</span>;
-        response.write(<span class="string">"
-```html
-<script>"</span> +
-            <span class="string">"arrived('"</span> + id + <span class="string">"', '"</span> + content + <span class="string">"');"</span> +
-             <span class="string">"</script>
-````
-
-"</span>);
+    setTimeout(&lt;span class="keyword">function&lt;/span>() {
+        &lt;span class="keyword">var&lt;/span> params = url.parse(request.url, &lt;span class="keyword">true&lt;/span>);
+        &lt;span class="keyword">var&lt;/span> id = params.query.id;
+        response.writeHead(&lt;span class="number">200&lt;/span>, {&lt;span class="string">"Content-Type"&lt;/span> : &lt;span class="string">"text/html"&lt;/span>});
+        &lt;span class="keyword">var&lt;/span> content = &lt;span class="string">"&lt;span>Content of Module "&lt;/span> + id + &lt;span class="string">"&lt;/span>"&lt;/span>;
+        response.write(&lt;span class="string">"&lt;script>"&lt;/span> +
+            &lt;span class="string">"arrived('"&lt;/span> + id + &lt;span class="string">"', '"&lt;/span> + content + &lt;span class="string">"');"&lt;/span> +
+             &lt;span class="string">"&lt;/script>"&lt;/span>);
         response.end();
     }, delay);
-}).listen(<span class="number">2000</span>);
-
+}).listen(&lt;span class="number">2000&lt;/span>);
  
-
 ```
 
-一个框架
-----
+## 一个框架
 
-[https://github.com/bigpipe/bigpipe](https://github.com/bigpipe/bigpipe)
+<https://github.com/bigpipe/bigpipe>
 
 > BigPipe is a radical new web framework for Node.JS. The general idea is to decompose web pages into small re-usable chunks of functionality called Pagelets and pipeline them through several execution stages inside web servers and browsers. This allows progressive rendering at the front-end and results in exceptional front-end performance.
 
 框架会有些重，小型开发场景下可以考虑自己实现
 
-存在的问题
------
+## 存在的问题
 
 1.seo  
 设置 useagent，爬虫来的时候给完整页面（有淘宝同学说这里存在 seo 问题，是否有 seo 问题还待确认，因为本身页面是在一个请求内完成）
-```
 
 
 <!-- {% endraw %} - for jekyll -->

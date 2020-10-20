@@ -116,7 +116,7 @@ let startY = [0, 4, 0, 2, 0, 1, 0];
 let incY = [8, 8, 4, 4, 2, 2, 1];
 let offset = 0; // 记录小图开始位置
 // 7次扫描
-for (let i = 0; i < 7; i++) {
+for (let i = 0; i &lt; 7; i++) {
     // 子图像信息
     let subWidth = Math.ceil((width - startY[i]) / incY[i], 10); // 小图宽度
     let subHeight = Math.ceil((height - startX[i]) / incX[i], 10); // 小图高度
@@ -131,10 +131,10 @@ for (let i = 0; i < 7; i++) {
         subBytesPerRow
     );
     let subOffset = 0; // 像素归位
-    for (let x = startX[i]; x < height; x += incX[i]) {
-        for (let y = startY[i]; y < width; y += incY[i]) {
+    for (let x = startX[i]; x &lt; height; x += incX[i]) {
+        for (let y = startY[i]; y &lt; width; y += incY[i]) {
             // 逐个像素拷贝回原本所在的位置
-            for (let z = 0; z < bytesPerPixel; z++) {
+            for (let z = 0; z &lt; bytesPerPixel; z++) {
                 pixelsBuffer[(x * width + y) * bytesPerPixel + z] =
                     subPixelsBuffer[subOffset++] & 0xff;
             }

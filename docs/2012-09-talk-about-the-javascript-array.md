@@ -28,10 +28,10 @@ a["0"] = 0;
 ```javascript
 var obj = { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9 };
 var ary = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i &lt; 10; i++) {
     Obj[i];
 }
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i &lt; 10; i++) {
     ary[i];
 }
 ```
@@ -118,7 +118,7 @@ arguments.__proto__ === Object.prototype; //true
 function ArrayPush() {
     var n = TO_UINT32(this.length); //上例中, this是arguments
     var m = %_ArgumentsLength();
-    for (var i = 0; i < m; i++) {
+    for (var i = 0; i &lt; m; i++) {
         this[i + n] = %_Arguments(i); //属性拷贝
     }
     this.length = n + m; //修正length

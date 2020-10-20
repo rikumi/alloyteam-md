@@ -18,12 +18,12 @@ source_link: http://www.alloyteam.com/2015/03/%e6%8b%a5%e6%8a%b1sass%ef%bc%8c%e6
 因为 css 无嵌套机制，所以造成层级方面的阅读及折叠方面极为不便，如下代码，使用 scss 就能更好的管理代码层级关系
 
 ```html
-<span class="comment">// css</span>
-.<span class="keyword">parent</span>{}
-.<span class="keyword">parent</span> .child{}
+&lt;span class="comment">// css&lt;/span>
+.&lt;span class="keyword">parent&lt;/span>{}
+.&lt;span class="keyword">parent&lt;/span> .child{}
  
-<span class="comment">// scss</span>
-.<span class="keyword">parent</span>{
+&lt;span class="comment">// scss&lt;/span>
+.&lt;span class="keyword">parent&lt;/span>{
     .child{}
 }
  
@@ -34,18 +34,18 @@ source_link: http://www.alloyteam.com/2015/03/%e6%8b%a5%e6%8a%b1sass%ef%bc%8c%e6
 举个最简单的例子，每个站点都有个主色，如果没有变量的话，我们只能每次使用都拷贝颜色，当然也有神人是可以把颜色的六位数记住，但多数肯定是记不住。下面以文本色及链接色为例：
 
 ```html
-<span class="comment">// css</span>
+&lt;span class="comment">// css&lt;/span>
 body{
-    color:<span class="comment">#333;</span>
+    color:&lt;span class="comment">#333;&lt;/span>
 }
 a{
-    color: <span class="comment">#188eee;</span>
+    color: &lt;span class="comment">#188eee;&lt;/span>
 }
 .dark a{
-    color: <span class="comment">#333;</span>
+    color: &lt;span class="comment">#333;&lt;/span>
 }
 .dark a:hover{
-    color: <span class="comment">#188eee;</span>
+    color: &lt;span class="comment">#188eee;&lt;/span>
 }
  
 ```
@@ -53,21 +53,21 @@ a{
 有了变量呢，那就简单了，直接定义一个变量，然后需要的时候调用变量即可:
 
 ```html
-<span class="comment">// scss</span>
-<span class="variable">$textColor</span>: <span class="comment">#333 !default;</span>
-<span class="variable">$lickColor</span>: <span class="comment">#188eee !default;</span>
+&lt;span class="comment">// scss&lt;/span>
+&lt;span class="variable">$textColor&lt;/span>: &lt;span class="comment">#333 !default;&lt;/span>
+&lt;span class="variable">$lickColor&lt;/span>: &lt;span class="comment">#188eee !default;&lt;/span>
  
 body{
-    color:<span class="variable">$textColor</span>;
+    color:&lt;span class="variable">$textColor&lt;/span>;
 }
 a{
-    color: <span class="variable">$lick</span>-color;
+    color: &lt;span class="variable">$lick&lt;/span>-color;
 }
 .dark a{
-    color: <span class="variable">$textColor</span>;
+    color: &lt;span class="variable">$textColor&lt;/span>;
 }
 .dark a:hover{
-    color: <span class="variable">$lickColor</span>;
+    color: &lt;span class="variable">$lickColor&lt;/span>;
 }
  
 ```
@@ -81,10 +81,10 @@ a{
 page.scss
 
 ```html
-@import <span class="string">"reset.css"</span>;
-@import <span class="string">"mod-a"</span>;
+@import &lt;span class="string">"reset.css"&lt;/span>;
+@import &lt;span class="string">"mod-a"&lt;/span>;
 p{
-  background: <span class="comment">#0982c1;</span>
+  background: &lt;span class="comment">#0982c1;&lt;/span>
 } 
  
 ```
@@ -92,10 +92,10 @@ p{
 \_mod-a.scss
 
 ```html
-<span class="comment">//_mod-a.scss</span>
-<span class="comment">//-------------------------------</span>
+&lt;span class="comment">//_mod-a.scss&lt;/span>
+&lt;span class="comment">//-------------------------------&lt;/span>
 .hello {
-  color: <span class="comment">#eee;</span>
+  color: &lt;span class="comment">#eee;&lt;/span>
 }
  
 ```
@@ -103,12 +103,12 @@ p{
 最终编译出来的 page.css 文件：
 
 ```html
-@import <span class="string">"reset.css"</span>;
+@import &lt;span class="string">"reset.css"&lt;/span>;
 .hello {
-  color: <span class="comment">#eee;</span>
+  color: &lt;span class="comment">#eee;&lt;/span>
 }
 p{
-  background: <span class="comment">#0982c1;</span>
+  background: &lt;span class="comment">#0982c1;&lt;/span>
 }
  
 ```
@@ -120,29 +120,29 @@ p{
 css 对于相同或相似的代码，除了一遍遍的拷贝复制或组合申明之外，不可以定义一些规则或函数，去简单重复使用，如下：
 
 ```html
-<span class="comment">// 组合申明</span>
+&lt;span class="comment">// 组合申明&lt;/span>
 .center-block,
 .container{
     margin-left: auto;
     margin-right: auto;
 }
 .container{
-    margin-bottom: <span class="number">20</span>px;
-    width: <span class="number">1200</span>px;
+    margin-bottom: &lt;span class="number">20&lt;/span>px;
+    width: &lt;span class="number">1200&lt;/span>px;
 }
  
-<span class="comment">// 拷贝使用</span>
+&lt;span class="comment">// 拷贝使用&lt;/span>
 .fixed-top{
     position: fixed;
-    left: <span class="number">0</span>;
-    right: <span class="number">0</span>;
-    top: <span class="number">0</span>;
+    left: &lt;span class="number">0&lt;/span>;
+    right: &lt;span class="number">0&lt;/span>;
+    top: &lt;span class="number">0&lt;/span>;
 }
 .fixed-bottom{
     position: fixed;
-    left: <span class="number">0</span>;
-    right: <span class="number">0</span>;
-    bottom: <span class="number">0</span>;
+    left: &lt;span class="number">0&lt;/span>;
+    right: &lt;span class="number">0&lt;/span>;
+    bottom: &lt;span class="number">0&lt;/span>;
 }
  
 ```
@@ -150,7 +150,7 @@ css 对于相同或相似的代码，除了一遍遍的拷贝复制或组合申�
 而使用 scss 之后则如下：
 
 ```html
-<span class="comment">// %，解析后组合申明样式</span>
+&lt;span class="comment">// %，解析后组合申明样式&lt;/span>
 %center-block{
     margin-left: auto;
     margin-right: auto;
@@ -161,27 +161,27 @@ css 对于相同或相似的代码，除了一遍遍的拷贝复制或组合申�
 }
 .container{
     @extend %center-block;      
-    margin-bottom: <span class="number">20</span>px;
-    width: <span class="number">1200</span>px;
+    margin-bottom: &lt;span class="number">20&lt;/span>px;
+    width: &lt;span class="number">1200&lt;/span>px;
 }
  
-<span class="comment">// @mixin, 解析后拷贝样式 </span>
-@mixin fixed(<span class="variable">$pos</span>: <span class="number">0</span>) {
+&lt;span class="comment">// @mixin, 解析后拷贝样式 &lt;/span>
+@mixin fixed(&lt;span class="variable">$pos&lt;/span>: &lt;span class="number">0&lt;/span>) {
     position: fixed;
-    left: <span class="number">0</span>;
-    right: <span class="number">0</span>;
-    @<span class="keyword">if</span> <span class="variable">$pos</span> == bottom {
-        bottom: <span class="number">0</span>;
+    left: &lt;span class="number">0&lt;/span>;
+    right: &lt;span class="number">0&lt;/span>;
+    @&lt;span class="keyword">if&lt;/span> &lt;span class="variable">$pos&lt;/span> == bottom {
+        bottom: &lt;span class="number">0&lt;/span>;
     }
-    @<span class="keyword">else</span> {
-        top: <span class="variable">$pos</span>;
+    @&lt;span class="keyword">else&lt;/span> {
+        top: &lt;span class="variable">$pos&lt;/span>;
     }
 }
 .fixed-top{
-    @<span class="keyword">include</span> fixed;
+    @&lt;span class="keyword">include&lt;/span> fixed;
 }
 .fixed-bottom{
-    @<span class="keyword">include</span> fixed(bottom);
+    @&lt;span class="keyword">include&lt;/span> fixed(bottom);
 }
  
 ```

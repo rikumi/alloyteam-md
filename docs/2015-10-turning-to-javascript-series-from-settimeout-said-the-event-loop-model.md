@@ -27,7 +27,7 @@ setTimeout(function () {
     var end = new Date();
     console.log("Time elapsed:", end - start, "ms");
 }, 500);
-while (new Date() - start < 1000) {}
+while (new Date() - start &lt; 1000) {}
 ```
 
 在我最初对 setTimeout () 的认识中，延时设置为 500ms，所以输出应该为 Time elapsed: 500 ms。因为在直观的理解中，Javascript 执行引擎，在执行上述代码过程中，应当是一个由上往下的顺序执行过程，setTimeout 函数是先于 while 语句执行的。可是实际上，上述代码运行多次后，输出至少是延迟了 1000ms。
@@ -50,7 +50,7 @@ public class TimerTest {
         long start = System.currentTimeMillis();
         Timer timer = new Timer();
         timer.schedule(new MyTask(start), 500);
-        while (System.currentTimeMillis() - start < 1000) {};
+        while (System.currentTimeMillis() - start &lt; 1000) {};
     }
  
 }
@@ -99,7 +99,7 @@ setTimeout(function () {
     var end = new Date();
     console.log("Time elapsed:", end - start, "ms");
 }, 500);
-while (new Date() - start < 1000) {}
+while (new Date() - start &lt; 1000) {}
 ```
 
 通过阅读代码不难看出，setTimeout () 方法执行在 while () 循环之前，它声明了 “ 希望” 在 500ms 之后执行一次匿名函数，这一声明，也即对匿名函数的注册，在 setTimeout () 方法执行后立即生效。代码最后一行的 while 循环会持续运行 1000ms，通过 setTimeout () 方法注册的匿名函数输出的延迟时间总是大于 1000ms，说明对这一匿名函数的实际调用被 while () 循环阻塞了，实际的调用在 while () 循环阻塞结束后才真正执行。
@@ -160,7 +160,7 @@ setTimeout(function () {
     var end = new Date();
     console.log("Time elapsed:", end - start, "ms");
 }, 500);
-while (new Date() - start < 1000) {}
+while (new Date() - start &lt; 1000) {}
 ```
 
 前面事件循环模型图中提到的 WebAPIs 部分，提到了 DOM 事件，AJAX 调用和 setTimeout 方法，图中简单的把它们总结为 WebAPIs，而且他们同样都把回调函数添加到任务队列等待引擎执行。这是一个简化的描述，实际上浏览器内核对 DOM 事件、AJAX 调用和 setTimeout 方法都有相应的模块来处理，webkit 内核在 Javasctipt 执行引擎之外，有一个重要的模块是 webcore 模块，html 的解析，css 样式的计算等都由 webcore 实现。对于图中 WebAPIs 提到的三种 API，webcore 分别提供了 DOM Binding、network、timer 模块来处理底层实现，这里还是继续以 setTimeout 为例，看下 timer 模块的实现。
@@ -188,7 +188,7 @@ setTimeout(function () {
     console.log("fn3");
 }, 10);
 console.log("start while");
-while (new Date() - start < 1000) {}
+while (new Date() - start &lt; 1000) {}
 console.log("end while");
 ```
 

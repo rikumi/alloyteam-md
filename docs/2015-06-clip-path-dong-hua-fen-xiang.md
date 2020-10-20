@@ -7,7 +7,7 @@ source_link: http://www.alloyteam.com/2015/06/clip-path-dong-hua-fen-xiang/
 
 <!-- {% raw %} - for jekyll -->
 
-CSS 样式的 clip-path 来源于 SVG<clipPath> 元素，它们的本质都是剪切
+CSS 样式的 clip-path 来源于 SVG&lt;clipPath> 元素，它们的本质都是剪切
 
 每个人都知道剪切，那么 clip-path 实现的剪切有什么特别之处呢？
 

@@ -38,48 +38,34 @@ J.http.ajax("vcard.json", {
 这是一个展示名片的程序，由于用到 ajax，不支持 file 协议，你需要一个服务器（能用 http 协议访问你的网页即可）。  
 首先，新建一个 html 文件，在里面加入以下代码：  
 
-````html
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>VCard</title>
-  <style type="text/css">
+```html
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;meta charset="UTF-8" />
+  &lt;title>VCard&lt;/title>
+  &lt;style type="text/css">
     .card{ width:240px; height:160px; border:1px solid #999; background:#fff; overflow:hidden; }
     .avatar{ width:50px; height:50px; margin:18px; float:left; overflow:hidden; }
     .avatar img{ max-width:50px; max-height:50px; }
     .card p{ font:14px/25px "Microsoft Yahei", Arial, Simsun; margin:12px 18px; color:#000; }
     .detail{ color:#ccc; word-break:break-all; }
-  </style>
-</head>
-<body>
-  <div id="wrap">Loading...</div>
-  
-```html
-<script type="text/javascript" src="http://pub.idqqimg.com/lib/jx/1.0.1/jx-uiless.js" charset="UTF-8"></script>
-````
-
-  
-
-```html
-<script type="text/javascript" src="vcard.js"></script>
-```
-
-  
-
-```html
-<script id="vcardTmpl" type="text/template">
-  <div class="card">
-    <div class="avatar"><img src="<%=avatar%>" /></div>
-    <p>昵称：<%=nick%></p>
-    <p>性别：<%=sex=='M'?'男':sex=='F'?'女':'其他'%></p>
-    <p class="detail">简介：<%=detail || '这个家伙很懒，什么也没有留下'%></p>
-  </div>
-  </script>
-```
-
-</body>
-</html>
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;div id="wrap">Loading...&lt;/div>
+  &lt;script type="text/javascript" src="http://pub.idqqimg.com/lib/jx/1.0.1/jx-uiless.js" charset="UTF-8">&lt;/script>
+  &lt;script type="text/javascript" src="vcard.js">&lt;/script>
+  &lt;script id="vcardTmpl" type="text/template">
+  &lt;div class="card">
+    &lt;div class="avatar">&lt;img src="&lt;%=avatar%>" />&lt;/div>
+    &lt;p>昵称：&lt;%=nick%>&lt;/p>
+    &lt;p>性别：&lt;%=sex=='M'?'男':sex=='F'?'女':'其他'%>&lt;/p>
+    &lt;p class="detail">简介：&lt;%=detail || '这个家伙很懒，什么也没有留下'%>&lt;/p>
+  &lt;/div>
+  &lt;/script>
+&lt;/body>
+&lt;/html>
 ```
 
 然后，新建一个 vcard.js 文件，在里面加入以下代码：  
@@ -124,27 +110,22 @@ Jx().$package("vCard", function (J) {
 # 代码解释
 
 ```html
-<div id="wrap">Loading...</div>;
+&lt;div id="wrap">Loading...&lt;/div>;
 ```
 
 我们加入了一个容器  
 
-````html
-
 ```html
-<script id="vcardTmpl" type="text/template">
-<div class="card">
-<div class="avatar"><img src="<%=avatar%>" /></div>
-<p>昵称：<%=nick%></p>
-<p>性别：<%=sex=='M'?'男':sex=='F'?'女':'其他'%></p>
-<p class="detail">简介：<%=detail || '这个家伙很懒，什么也没有留下'%></p>
-</div>
-</script>
-````
+&lt;script id="vcardTmpl" type="text/template">
+&lt;div class="card">
+&lt;div class="avatar">&lt;img src="&lt;%=avatar%>" />&lt;/div>
+&lt;p>昵称：&lt;%=nick%>&lt;/p>
+&lt;p>性别：&lt;%=sex=='M'?'男':sex=='F'?'女':'其他'%>&lt;/p>
+&lt;p class="detail">简介：&lt;%=detail || '这个家伙很懒，什么也没有留下'%>&lt;/p>
+&lt;/div>
+&lt;/script>
+```
 
-````
-
-  
 这是我们的模版，type 为 “text/template” 的 script 标签不会被浏览器显示或者执行，我们可以通过 id 引用它，并取得它的 innerHTML。在模版里，我们用标识 js 代码，用标识变量，外的是 html 代码，我们甚至可以在模版里写表达式写 for 语句等。  
 
 ```javascript
@@ -157,7 +138,7 @@ J.http.ajax("vcard.json", {
     onTimeout: callback,
     type: "json",
 });
-````
+```
 
 通过 ajax 请求了 [vcard.json?id=12345](http://www.alloyteam.com/wp-content/uploads/2012/08/vcard.txt?id=12345)，默认使用 GET 方法，指定 callback 为回调方法。  
 
@@ -172,8 +153,8 @@ wrapEl.innerHTML = J.string.template("vcardTmpl", data.responseJSON);
 
 设置 innerHTML 需要注意对变量进行转义，避免 xss 和排版错乱，JX 的 string 包提供了几个常用的转义方法，可以直接作为参数传给模版引擎使用，例如：
 
-    J.string.template('Hello <%=html(nick)%>',{
-      nick:'LiLei<(▰˘◡˘▰)>',
+    J.string.template('Hello &lt;%=html(nick)%>',{
+      nick:'LiLei&lt;(▰˘◡˘▰)>',
       html:J.string.encodeHtmlSimple
     });
 

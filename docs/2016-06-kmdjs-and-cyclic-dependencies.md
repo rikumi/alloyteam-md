@@ -132,8 +132,8 @@ kmdjs.define("main", ["util.bom", "app.Ball", "util.dom.test"], function (
     var vp = bom.getViewport();
     setInterval(function () {
         ball.tick();
-        (ball.x + ball.r * 2 > vp[2] || ball.x < 0) && (ball.vx *= -1);
-        (ball.y + ball.r * 2 > vp[3] || ball.y < 0) && (ball.vy *= -1);
+        (ball.x + ball.r * 2 > vp[2] || ball.x &lt; 0) && (ball.vx *= -1);
+        (ball.y + ball.r * 2 > vp[3] || ball.y &lt; 0) && (ball.vy *= -1);
     }, 15);
 });
 ```
@@ -147,8 +147,8 @@ kmdjs.define("main", ["util.bom", "app.Ball"], function () {
     var vp = util.bom.getViewport();
     setInterval(function () {
         ball.tick();
-        (ball.x + ball.r * 2 > vp[2] || ball.x < 0) && (ball.vx *= -1);
-        (ball.y + ball.r * 2 > vp[3] || ball.y < 0) && (ball.vy *= -1);
+        (ball.x + ball.r * 2 > vp[2] || ball.x &lt; 0) && (ball.vx *= -1);
+        (ball.y + ball.r * 2 > vp[3] || ball.y &lt; 0) && (ball.vy *= -1);
     }, 15);
 });
 ```
@@ -252,7 +252,7 @@ util.bom = (function (dom) {
             b = document.body,
             w = window,
             div = document.createElement("div");
-        div.innerHTML = "  <div></div>";
+        div.innerHTML = "  &lt;div>&lt;/div>";
         var lt = !(div.firstChild.nodeType === 3)
             ? {
                   left: b.scrollLeft || d.scrollLeft,
@@ -277,8 +277,8 @@ main = (function (bom, Ball, test) {
     var vp = bom.getViewport();
     setInterval(function () {
         ball.tick();
-        (ball.x + ball.r * 2 > vp[2] || ball.x < 0) && (ball.vx *= -1);
-        (ball.y + ball.r * 2 > vp[3] || ball.y < 0) && (ball.vy *= -1);
+        (ball.x + ball.r * 2 > vp[2] || ball.x &lt; 0) && (ball.vx *= -1);
+        (ball.y + ball.r * 2 > vp[3] || ball.y &lt; 0) && (ball.vy *= -1);
     }, 15);
 })(util.bom, app.Ball, util.dom.test);
 ```

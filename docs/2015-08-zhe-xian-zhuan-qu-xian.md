@@ -33,34 +33,26 @@ source_link: http://www.alloyteam.com/2015/08/zhe-xian-zhuan-qu-xian/
 
 已知若干个点，绘制出该点连接的曲线。
 
-````html
-​<canvas width="480" height="480"></canvas> 
-
 ```html
-<script> 
+​&lt;canvas width="480" height="480">&lt;/canvas> 
+&lt;script> 
     function drawPath(path){ 
         //实现 
     } 
  
     drawPath([{ x: 50, y: 50 }, { x: 200, y: 100 }, { x: 250, y: 50 }, { x: 350, y: 150 }, { x: 370, y: 100 }, { x: 570, y: 200 }]) 
-</script>
-````
-
+&lt;/script>
 ```
 
 这里实验平台使用浏览器环境，即 Canvas 相关 API 以及 javascript 语言。
 
 这里 canvas 的上下文对象拥有了 bezierCurveTo 方法，故免去了自己实现 bezierCurveTo 的一些事情。
 
-```
-
-​context.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);
-
-````
+    ​context.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);
 
 实现图解  
 
--------
+* * *
 
 实现目标
 
@@ -71,7 +63,7 @@ source_link: http://www.alloyteam.com/2015/08/zhe-xian-zhuan-qu-xian/
 
 代码  
 
------
+* * *
 
 Vector2，一般用来表示向量，但有的时候也用来当作点来进行一计算。
 
@@ -104,7 +96,7 @@ Vector2.prototype = {
         );
     },
 };
-````
+```
 
 其中  
 length 求向量长度
@@ -126,7 +118,7 @@ angle 方法用来求两个向量的夹角
     var rt = 0.3; 
     var i = 0, count = path.length - 2; 
     var arr = []; 
-    for (; i < count; i++) { 
+    for (; i &lt; count; i++) { 
         var a = path[i], b = path[i + 1], c = path[i + 2]; 
         var v1 = new Vector2(a.x - b.x, a.y - b.y); 
         var v2 = new Vector2(c.x - b.x, c.y - b.y); 
@@ -134,7 +126,7 @@ angle 方法用来求两个向量的夹角
         var centerV = v1.normalize().add(v2.normalize()).normalize(); 
         var ncp1 = new Vector2(centerV.y, centerV.x * -1); 
         var ncp2 = new Vector2(centerV.y * -1, centerV.x); 
-        if (ncp1.angle(v1) < 90) { 
+        if (ncp1.angle(v1) &lt; 90) { 
             var p1 = ncp1.multiply(v1Len * rt).add(b); 
             var p2 = ncp2.multiply(v2Len * rt).add(b); 
             arr.push(p1, p2) 

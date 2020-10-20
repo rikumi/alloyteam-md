@@ -19,18 +19,18 @@ source_link: http://www.alloyteam.com/2016/12/a-minutes-alloytouch-picture-carou
 * * *
 
 ```css
-<div id="carousel-container">
-    <div class="carousel">
-        <div class="carousel-scroller" id="carousel-scroller">
-            <img style="width: 88%;" src="asset/ci1.jpg">
-            <img style="width: 88%;" src="asset/ci2.jpg">
-            <img style="width: 88%;" src="asset/ci3.jpg">
-            <img style="width: 88%;" src="asset/ci4.jpg">
-            <img style="width: 88%;" src="asset/ci5.jpg">
-        </div>
+&lt;div id="carousel-container">
+    &lt;div class="carousel">
+        &lt;div class="carousel-scroller" id="carousel-scroller">
+            &lt;img style="width: 88%;" src="asset/ci1.jpg">
+            &lt;img style="width: 88%;" src="asset/ci2.jpg">
+            &lt;img style="width: 88%;" src="asset/ci3.jpg">
+            &lt;img style="width: 88%;" src="asset/ci4.jpg">
+            &lt;img style="width: 88%;" src="asset/ci5.jpg">
+        &lt;/div>
  
-    </div>
-</div>
+    &lt;/div>
+&lt;/div>
 ```
 
 一共五张图，每张图占有屏幕比例的百分之 88，所以用户的屏幕里可以看到一张多一点的图片，给用户可以横向滑动查看的感觉。
@@ -39,30 +39,20 @@ source_link: http://www.alloyteam.com/2016/12/a-minutes-alloytouch-picture-carou
 
 * * *
 
-````html
-
 ```html
-<script src="../transformjs/transform.js"></script>
-````
-
-```html
-<script src="../alloy_touch.js"></script>
-```
-
-```html
-<script>
+&lt;script src="../transformjs/transform.js">&lt;/script>
+&lt;script src="../alloy_touch.js">&lt;/script>
+&lt;script>
     var scroller = document.querySelector("#carousel-scroller");
     Transform(scroller); 
-</script>
+&lt;/script>
 ```
 
-````
-
-通过 Transform(scroller); 注入 CSS3 transform 属性。
+通过 Transform (scroller); 注入 CSS3 transform 属性。
 
 第 20 秒  
 
----------
+* * *
 
 ```c
 new AlloyTouch({
@@ -73,7 +63,7 @@ new AlloyTouch({
     min:0.88 * window.innerWidth * -5 + window.innerWidth, 
     max: 0
 })
-````
+```
 
 这里最大的难点（其实也没有什么难的），就是就是 min 的值。因为初始值是 0，所有向左边滑动一定是负值。可以得到 max 一定是 0。  
 那么 min 的值就是： 屏幕的宽度－图片的张数\*图片的宽度
@@ -141,11 +131,11 @@ new AlloyTouch({
     touchEnd: function (evt, v, index) {
         var step_v = index * this.step * -1;
         var dx = v - step_v;
-        if (v < this.min) {
+        if (v &lt; this.min) {
             this.to(this.min);
         } else if (v > this.max) {
             this.to(this.max);
-        } else if (Math.abs(dx) < 30) {
+        } else if (Math.abs(dx) &lt; 30) {
             this.to(step_v);
         } else if (dx > 0) {
             this.to(step_v + this.step);
@@ -157,7 +147,7 @@ new AlloyTouch({
     animationEnd: function (evt, v) {
         var i = 0,
             len = items.length;
-        for (; i < len; i++) {
+        for (; i &lt; len; i++) {
             if (i === this.currentPage) {
                 items[i].classList.add("active");
             } else {

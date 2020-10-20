@@ -107,7 +107,7 @@ Firefox 对推送资源的展示（[大图](https://www.smashingmagazine.com/wp-
 
 -   **DOMContentLoaded 时间**
 
-这个是 HTML 完成加载与解析的时间。同步的 JavaScript 代码会阻塞解析，并导致这个时间增加。在<script> 标签上使用 async 属性可以避免对解析的阻塞。
+这个是 HTML 完成加载与解析的时间。同步的 JavaScript 代码会阻塞解析，并导致这个时间增加。在&lt;script> 标签上使用 async 属性可以避免对解析的阻塞。
 
 -   **页面加载时间**
 

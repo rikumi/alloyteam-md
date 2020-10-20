@@ -28,10 +28,10 @@ DNS prefetch
 
 * * *
 
-DNS prefetching 通过指定具体的 URL 来告知客户端未来会用到相关的资源，这样浏览器可以尽早的解析 DNS。比如我们需要一个在 example.com 的图片或者视频文件。在<head> 就可以这么写：
+DNS prefetching 通过指定具体的 URL 来告知客户端未来会用到相关的资源，这样浏览器可以尽早的解析 DNS。比如我们需要一个在 example.com 的图片或者视频文件。在&lt;head> 就可以这么写：
 
 ```html
-<link rel="dns-prefetch" href="//example.com">
+&lt;link rel="dns-prefetch" href="//example.com">
 ```
 
 当请求这个域名下的文件时就不需要等待 DNS 查询了。项目中有用到第三方的代码时这么做尤其有益（译者注：其他的使用场景，比如当静态资源和 HTML 不在一个域上，而在 CDN 上；又比如在重定向前可以加上 DNS prefetch）。
@@ -51,7 +51,7 @@ Preconnect
 和 DNS prefetch 类似，preconnect 不光会解析 DNS，还会建立 TCP 握手连接和 TLS 协议（如果需要）。用法如下：
 
 ```c
-<link rel="preconnect" href="http://css-tricks.com">
+&lt;link rel="preconnect" href="http://css-tricks.com">
 ```
 
 Ilya Grigorik 写了一篇[文章](https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/)详细说明了这种技术：
@@ -63,8 +63,8 @@ Ilya Grigorik 写了一篇[文章](https://www.igvita.com/2015/08/17/eliminating
 举个栗子： ![](https://1-ps.googleusercontent.com/sk/bYSmB63yuhjL_l7bPRuu4R3ENi/www.igvita.com/posts/15/xfont-preconnect.png.pagespeed.ic.tC0wdnTl8DuD8UE7Xn1Y.png) 上半张图显示了浏览器先拉 html、再拉 CSS 并建立好 CSSOM 后，发现需要两个外链的字体（在 fonts.gstatic.com 上）, 然后浏览器开始发起两个请求，具体来说，需要对这个域进行 DNS 解析、TCP 和 TLS 握手（一个建立后可以复用给另一个连接）。
 
 ```html
-<link href='https://fonts.gstatic.com' rel='preconnect' crossorigin>
-<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700|Open+Sans' rel='stylesheet'>
+&lt;link href='https://fonts.gstatic.com' rel='preconnect' crossorigin>
+&lt;link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700|Open+Sans' rel='stylesheet'>
 ```
 
 下半张图增加了上面的代码来从 fonts.gstatic.com **preconnect** 资源。可以看到，浏览器在请求 CSS 的同时并行的建立字体资源需要的连接，等到真正开始需要字体时立刻就开始返回数据。
@@ -80,7 +80,7 @@ Prefetch
 当能确定网页在未来一定会使用到某个资源时，开发者可以让浏览器提前请求并且缓存好以供后续使用。**prefetch** 支持预拉取图片、脚本或者任何可以被浏览器缓存的资源。
 
 ```c
-<link rel="prefetch" href="image.png">
+&lt;link rel="prefetch" href="image.png">
 ```
 
 不同于 DNS prefetch，上面的写法可是会去请求、下载资源并且缓存起来。当然也是有一些发生条件的。比如，客户端可能会在弱网络下不去请求较大的字体文件，Firefox 则只会在浏览器空闲的时候 prefetch 资源（译者注：[这里](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ)是 MDN 上对浏览器空闲的定义和一些 FAQ，建议阅读）。
@@ -98,7 +98,7 @@ Subresource
 subresource 可以用来指定资源是最高优先级的。比如，在 Chrome 和 Opera 中我们可以加上下面的代码：
 
 ```html
-<link rel="subresource" href="styles.css">
+&lt;link rel="subresource" href="styles.css">
 ```
 
 [Chromium 的文档](https://www.chromium.org/spdy/link-headers-and-server-hint/link-rel-subresource)这么解释：
@@ -114,7 +114,7 @@ Prerender
 prerender 是一个重量级的选项，它可以让浏览器提前加载指定页面的所有资源。
 
 ```c
-<link rel="prerender"  href="/thenextpage.html" />
+&lt;link rel="prerender"  href="/thenextpage.html" />
 ```
 
 Steve Souders 的[文章](http://www.stevesouders.com/blog/2013/11/07/prebrowsing/)详细解释了这个技术：
@@ -140,7 +140,7 @@ Steve Souders 的[文章](http://www.stevesouders.com/blog/2013/11/07/prebrowsin
 以上是已有的技术，我们再谈谈未来。 preload [草案](https://w3c.github.io/preload/)建议允许始终预加载某些资源，不像 prefetch 有可能被浏览器忽略，浏览器必须请求 preload 标记的资源。
 
 ```html
-<link rel="preload" href="image.png">
+&lt;link rel="preload" href="image.png">
 ```
 
 然而，这项草案还没有任何浏览器支持，不过值得关注。

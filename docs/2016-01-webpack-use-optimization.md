@@ -140,7 +140,7 @@ server.listen(9000);
 
 ### 优化点三.import react 导致文件变大，编译速度变慢，乍办？
 
-1.  如果你想将 react 分离，不打包到一起，可以使用 externals。然后用<script> 单独将 react 引入  
+1.  如果你想将 react 分离，不打包到一起，可以使用 externals。然后用&lt;script> 单独将 react 引入  
     [![w1](https://cloud.githubusercontent.com/assets/3348398/12219645/57e0e98a-b787-11e5-8cd1-59f2190669d8.png)](https://cloud.githubusercontent.com/assets/3348398/12219645/57e0e98a-b787-11e5-8cd1-59f2190669d8.png)
 2.  如果不介意将 react 打包到一起，请在 alias 中直接指向 react 的文件。可以提高 webpack 搜索的速度。准备部署上线时记得将换成 react.min，能减少文件大小 (减少约 600kb)  
     [![w2](https://cloud.githubusercontent.com/assets/3348398/12219647/64904914-b787-11e5-9736-8199c7f6a064.png)](https://cloud.githubusercontent.com/assets/3348398/12219647/64904914-b787-11e5-9736-8199c7f6a064.png)
@@ -216,7 +216,7 @@ plugins: [
 ];
 ```
 
-如果你不想用 inject 模式，但又想使用 html-webpack-plugin，那你需要在 html 里用<script> 标签放入对应的 js，以及用入对应的 css。记住，这些资源的路径是在生成目录下的，写路径的时候请写生成目录下的相对路径。
+如果你不想用 inject 模式，但又想使用 html-webpack-plugin，那你需要在 html 里用&lt;script> 标签放入对应的 js，以及用入对应的 css。记住，这些资源的路径是在生成目录下的，写路径的时候请写生成目录下的相对路径。
 
 ### 优化点八. html-webpack-plugin 不用使 inject 模式没又 md5，而且不支持文件内联怎么破？
 

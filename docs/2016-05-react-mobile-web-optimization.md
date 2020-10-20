@@ -182,11 +182,11 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 -   尽量使传入的数据扁平化一点
 -   比较的时候做一些限制，避免溢出栈
 
-先上一下列表页的代码，如下图。这里当时是学习了 PC 家校群的做法，将 component 作为 props 传入。这里的<Scroll> 封装的是滚动检测的逻辑，而<List> 则是列表页的渲染，<Empty> 是列表为空的时候展示的内容，<Loading> 是列表底部加载的显示横条。
+先上一下列表页的代码，如下图。这里当时是学习了 PC 家校群的做法，将 component 作为 props 传入。这里的&lt;Scroll> 封装的是滚动检测的逻辑，而&lt;List> 则是列表页的渲染，&lt;Empty> 是列表为空的时候展示的内容，&lt;Loading> 是列表底部加载的显示横条。
 
 ![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15650834/f629ef0c-26ad-11e6-8aae-6826ed95134f.png&objectId=1190000005599249&token=9103fba897d5ce056eaad83839f9a1dc)
 
-针对 deepCompare 的第 1 个要点，扁平化数据，我们很明显就能定位出其中一个问题了。例如<Empty>，我们传入了 props.hw，这个 props 包括了两个列表的数据。但这样的结构就会是这样
+针对 deepCompare 的第 1 个要点，扁平化数据，我们很明显就能定位出其中一个问题了。例如&lt;Empty>，我们传入了 props.hw，这个 props 包括了两个列表的数据。但这样的结构就会是这样
 
 ```javascript
 props.hw = {
@@ -224,17 +224,17 @@ type 本组件ReactComponent
 
 因此，针对 component 的比较，有一些是可以忽略的，例如 $$typeof, \_store, \_self, \_source, \_owner。type 这个比较复杂，可以比较，但仅限于我们定好的比较深度。如果不做这些忽略，这个深比较将会比较消耗性能。关于这个 deepCompare 的代码，我放在了 [pure-render-deepCompare-decorator](https://github.com/lcxfs1991/pure-render-deepCompare-decorator)。
 
-不过其实，将 component 当作 props 传入更为灵活，而且能够增加组件的复用性，但从上面看来，是比较消耗性能的。看了官方文档之后，我们尝试换种写法，主要就是采用<Scroll> 包裹<List> 的做法，然后用 this.props.children 在<Scroll> 里面渲染，并将<Empty>, <Loading> 抽出来。
+不过其实，将 component 当作 props 传入更为灵活，而且能够增加组件的复用性，但从上面看来，是比较消耗性能的。看了官方文档之后，我们尝试换种写法，主要就是采用&lt;Scroll> 包裹&lt;List> 的做法，然后用 this.props.children 在&lt;Scroll> 里面渲染，并将&lt;Empty>, &lt;Loading> 抽出来。
 
 ![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15651574/0a952a24-26b3-11e6-9b35-b6dc3f2407ee.png&objectId=1190000005599249&token=f153386699e0751f74e0d1f3ca38ed6a)
 
 ![](https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/3348398/15651568/06274ff8-26b3-11e6-9310-26f7d71cb67e.png&objectId=1190000005599249&token=0e0e6a883891082e897bc2b69fcfe6e3)
 
-本以为 React 可能会对 children 这个 props 有什么特殊处理，但它依然是将 children 当作 props，传和 shouldComponentUpdate，这就迫使父元素<Scroll> 要去判断是否要重新渲染，进而跳到子无素<List> 再去判断是否要进入步判断。
+本以为 React 可能会对 children 这个 props 有什么特殊处理，但它依然是将 children 当作 props，传和 shouldComponentUpdate，这就迫使父元素&lt;Scroll> 要去判断是否要重新渲染，进而跳到子无素&lt;List> 再去判断是否要进入步判断。
 
-那<Scroll> 究竟要不要去做这重判断呢？针对列表页这种情况，我们觉得可以暂时不做，由于<Scroll> 包裹的元素不多，<Scroll> 可以先重复渲染，然后再交由子元素<List> 自己再去判断。这样我们对 [pure-render-deepCompare-decorator](https://github.com/lcxfs1991/pure-render-deepCompare-decorator) 要进行一些修改，当轮到 props.children 判断的时候，我们要求父元素直接重新渲染，这样就能交给子元素去做下一步的处理。
+那&lt;Scroll> 究竟要不要去做这重判断呢？针对列表页这种情况，我们觉得可以暂时不做，由于&lt;Scroll> 包裹的元素不多，&lt;Scroll> 可以先重复渲染，然后再交由子元素&lt;List> 自己再去判断。这样我们对 [pure-render-deepCompare-decorator](https://github.com/lcxfs1991/pure-render-deepCompare-decorator) 要进行一些修改，当轮到 props.children 判断的时候，我们要求父元素直接重新渲染，这样就能交给子元素去做下一步的处理。
 
-如果<Scroll> 包裹的只有<List> 还好，如果还有像<Empty>, <Loading> 甚至其它更多的子元素，那<Scroll> 重新渲染会触发其它子元素去运算，判断自己是否要做重新渲染，这就造成了浪费。react 的官方论坛上已经有人提出，React 的将父子元素的重复渲染的决策都放在 shouldComponentUpdate，可能导致了耦合 [Shouldcomponentupdate And Children](https://discuss.reactjs.org/t/shouldcomponentupdate-and-children/2055)。
+如果&lt;Scroll> 包裹的只有&lt;List> 还好，如果还有像&lt;Empty>, &lt;Loading> 甚至其它更多的子元素，那&lt;Scroll> 重新渲染会触发其它子元素去运算，判断自己是否要做重新渲染，这就造成了浪费。react 的官方论坛上已经有人提出，React 的将父子元素的重复渲染的决策都放在 shouldComponentUpdate，可能导致了耦合 [Shouldcomponentupdate And Children](https://discuss.reactjs.org/t/shouldcomponentupdate-and-children/2055)。
 
 性能优化小 Tips  
 

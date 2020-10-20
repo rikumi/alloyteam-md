@@ -9,11 +9,11 @@ source_link: http://www.alloyteam.com/2012/10/high-performance-css/
 
 ## 避免使用 @import
 
-有两种方式加载样式文件，一种是 link 元素，另一种是 CSS 2.1 加入 @import。而在外部的 CSS 文件中使用 @import 会使得页面在加载时增加额外的延迟。虽然规则允许在样式中调用 @import 来导入其它的 CSS，但浏览器不能并行下载样式，就会导致页面增添了额外的往返耗时。比如，第一个 CSS 文件 first.css 包含了以下内容：@import url ("second.css")。那么浏览器就必须先把 first.css 下载、解析和执行后，才发现及处理第二个文件 second.css。简单的解决方法是使用<link> 标记来替代 @import，比如下面的写法就能够并行下载 CSS 文件，从而加快页面加载速度：
+有两种方式加载样式文件，一种是 link 元素，另一种是 CSS 2.1 加入 @import。而在外部的 CSS 文件中使用 @import 会使得页面在加载时增加额外的延迟。虽然规则允许在样式中调用 @import 来导入其它的 CSS，但浏览器不能并行下载样式，就会导致页面增添了额外的往返耗时。比如，第一个 CSS 文件 first.css 包含了以下内容：@import url ("second.css")。那么浏览器就必须先把 first.css 下载、解析和执行后，才发现及处理第二个文件 second.css。简单的解决方法是使用&lt;link> 标记来替代 @import，比如下面的写法就能够并行下载 CSS 文件，从而加快页面加载速度：
 
 ```c
-<link rel="stylesheet" href=""first.css"" />
-<link rel="stylesheet" href="second.css" />
+&lt;link rel="stylesheet" href=""first.css"" />
+&lt;link rel="stylesheet" href="second.css" />
 ```
 
 需要注意的是一个页面中的 CSS 文件不宜过多，否则应该简化及合并外部的 CSS 文件以节省往返请求时间 (RTT) 提升页面加载速度。

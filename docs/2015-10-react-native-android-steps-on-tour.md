@@ -47,7 +47,7 @@ Facebook  在 2015.9.15 发布了 React Native for Android，把 JavaScript 
 
 **2** 用 android studio 创建一个项目 并且能跑起来，这段教程可以直接去网上少，一般配置无误的情况下，很容易跑出一个 android helloword 来，你只需要保持之前的 node package 服务开启，程序依然会去寻找 <http://localhost:8081/index.android.bundle?platform=android> 这个文件的。只是你的 android 模拟器是通过 android studio 来管理了。
 
-**3** 在按照 <http://facebook.github.io/react-native/docs/embedded-app-android.html#content> 配置你的结合项目时，还要注意在 AndroidManifest.xml 文件里面添加**<activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />** 这样才能开启调试模式。
+**3** 在按照 <http://facebook.github.io/react-native/docs/embedded-app-android.html#content> 配置你的结合项目时，还要注意在 AndroidManifest.xml 文件里面添加**&lt;activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />** 这样才能开启调试模式。
 
 **4** 对于 android 项目来说，react native 的支持也是就在 Activity 里面创建了一个 ReactRootView![](http://7jpp2v.com1.z0.glb.clouddn.com/77.png)，对这不是 webview，然后将 Activity 的其他事件生命周期等等都交给 react manager 来管理，所以对于 react native 的 android 页面，就可以简单理解成一个 activety 里面套一个 reactrootview 这个 view 去加载并 jsbundle 文件，渲染出原生 native 的 ui 组件。
 
@@ -71,7 +71,7 @@ Facebook  在 2015.9.15 发布了 React Native for Android，把 JavaScript 
 
 **6** 使用 text 的 numberOfLines 可以实现文本截取省略号，即 css 的 text-overflow 属性。
 
-**7** 默认情况下如果元素超过了父元素，是不可以滚动的，必须在外部套一个<ScrollView> 才可以。
+**7** 默认情况下如果元素超过了父元素，是不可以滚动的，必须在外部套一个&lt;ScrollView> 才可以。
 
 **8** react native 里面没有 z-index 的概念，是根据 jsx 语法里面定义组件的顺序来实现的，后写的组件会覆盖在先写的组件上。
 

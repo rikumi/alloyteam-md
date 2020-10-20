@@ -59,7 +59,7 @@ So even if WinJS is not mandatory inside HTML5 Metro projects, don’t underesti
 In order to display the articles’ content, we need another piece of HTML. Navigate to the “_default.html_” page and insert this one:
 
 ```html
-<div id="articlecontent"></div>;
+&lt;div id="articlecontent">&lt;/div>;
 ```
 
 We will insert the article’s content by code. Open “_default.js_”. Just above the Binding.List instantiation, insert this code:
@@ -97,7 +97,7 @@ For instance, if you try to insert some HTML downloaded from the « public web �
 
 But if you really know what you’re doing, you have the choice to “by-pass” this automatic check by calling the **_setInnerHTMLUnsafe()_**function.
 
-Linked to the security context also, inserting an <iframe> in your application is slightly different for instance. If you’re interested in the details, here are some articles to read:
+Linked to the security context also, inserting an &lt;iframe> in your application is slightly different for instance. If you’re interested in the details, here are some articles to read:
 
 \- [HTML, CSS, and JavaScript features and differences](http://msdn.microsoft.com/en-us/library/windows/apps/hh465380.aspx)  
 - [Features and restrictions by context](http://msdn.microsoft.com/en-us/library/windows/apps/hh465373.aspx)  
@@ -184,7 +184,7 @@ Well, as I feel you still want to play with Blend, let’s add another feature. 
 
 Once you know that, don’t hesitate to put some emphasis on the code in a way or in another to catch the eye of the developers.
 
-In the Channel9 case, they had the excellent idea to insert the code parts into <pre> tags. It will simplify our life to style this part.
+In the Channel9 case, they had the excellent idea to insert the code parts into &lt;pre> tags. It will simplify our life to style this part.
 
 Add a new CSS rule “**#articlecontent pre**”.
 
@@ -200,7 +200,7 @@ You will then be able to use this wonderful color editor to make your choice:
 
 But if you’re a poor developer like myself, you will probably have a natural tendency to choose the worst color ever. So, click on the color picked icon and choose the nearest Blend grey. It’s obviously a good grey.
 
-To definitely conclude, on the <pre>, set the “**overflow-x”** property to auto and the “**overflow-y”** to “**hidden”**.
+To definitely conclude, on the &lt;pre>, set the “**overflow-x”** property to auto and the “**overflow-y”** to “**hidden”**.
 
 Pressing F5 will bring you this kind of experience:
 

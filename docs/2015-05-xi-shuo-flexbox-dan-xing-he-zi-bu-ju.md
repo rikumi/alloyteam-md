@@ -16,24 +16,24 @@ source_link: http://www.alloyteam.com/2015/05/xi-shuo-flexbox-dan-xing-he-zi-bu-
  [![图片 1](http://www.alloyteam.com/wp-content/uploads/2015/05/图片1.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/图片1.png) 
 
 ```html
-<ul id="ranktop3">
+&lt;ul id="ranktop3">
         {" "}
-    <li>
-               <div class="ranktab">1</div>       <p>fdeg</p>      {" "}
-        <p>霸气值：170</p>    {" "}
-    </li>
+    &lt;li>
+               &lt;div class="ranktab">1&lt;/div>       &lt;p>fdeg&lt;/p>      {" "}
+        &lt;p>霸气值：170&lt;/p>    {" "}
+    &lt;/li>
            {" "}
-    <li>
-               <div class="ranktab">2</div>       <p>bling</p>      {" "}
-        <p>霸气值：160</p>    {" "}
-    </li>
+    &lt;li>
+               &lt;div class="ranktab">2&lt;/div>       &lt;p>bling&lt;/p>      {" "}
+        &lt;p>霸气值：160&lt;/p>    {" "}
+    &lt;/li>
         {" "}
-    <li>
-               <div class="ranktab">3</div>       <p>lea</p>      {" "}
-        <p>霸气值：150</p>    {" "}
-    </li>
+    &lt;li>
+               &lt;div class="ranktab">3&lt;/div>       &lt;p>lea&lt;/p>      {" "}
+        &lt;p>霸气值：150&lt;/p>    {" "}
+    &lt;/li>
      
-</ul>;
+&lt;/ul>;
 ```
 
 ```css
@@ -121,30 +121,30 @@ display: flex;display: -webkit-box; 这两个属性的方法作用相同。
 **Example 2： flexbox 不等分布局**
 
 ```html
-<div class="container">
+&lt;div class="container">
         
-    <section class="initial">
+    &lt;section class="initial">
               
-        <p>
+        &lt;p>
                       空间足够的时候，我的宽度是200px，如果空间不足，  
                         我会变窄到100px，但不会再窄了。       
-        </p>
+        &lt;/p>
             
-    </section>
+    &lt;/section>
         
-    <section class="none">
-              <p>         无论窗口如何变化，我的宽度一直是200px。       </p>    
-    </section>
+    &lt;section class="none">
+              &lt;p>         无论窗口如何变化，我的宽度一直是200px。       &lt;/p>    
+    &lt;/section>
         
-    <section class="flex1">
-              <p>        我会占满剩余宽度的1/3。       </p>    
-    </section>
+    &lt;section class="flex1">
+              &lt;p>        我会占满剩余宽度的1/3。       &lt;/p>    
+    &lt;/section>
         
-    <section class="flex2">
-              <p>        我会占满剩余宽度的2/3。       </p>    
-    </section>
+    &lt;section class="flex2">
+              &lt;p>        我会占满剩余宽度的2/3。       &lt;/p>    
+    &lt;/section>
      
-</div>;
+&lt;/div>;
 ```
 
 ```css
@@ -210,25 +210,25 @@ display: flex;display: -webkit-box; 这两个属性的方法作用相同。
 **Example 3： flexbox 基本页面布局**
 
 ```html
-<div class="container">
-      <nav>
-<div class="container">
-      <nav>
-        <ul>
-          <li>
-         <a href="http://www.alloyteam.com/">menu1</a>
-          </li>
-       </ul>
-     </nav>
-   <div class="content">
-      <section >
+&lt;div class="container">
+      &lt;nav>
+&lt;div class="container">
+      &lt;nav>
+        &lt;ul>
+          &lt;li>
+         &lt;a href="http://www.alloyteam.com/">menu1&lt;/a>
+          &lt;/li>
+       &lt;/ul>
+     &lt;/nav>
+   &lt;div class="content">
+      &lt;section >
          ...
-     </section>
-         <section>
+     &lt;/section>
+         &lt;section>
        ...
-      </section>
-   </div>
- </div>
+      &lt;/section>
+   &lt;/div>
+ &lt;/div>
 ```
 
 ```css
@@ -254,13 +254,13 @@ Example 4： flexbox 的居中布局
 * * *
 
 ```c
-<div class="vertical-container">
-  <section class="vertically-centered">
-    <p>
+&lt;div class="vertical-container">
+  &lt;section class="vertically-centered">
+    &lt;p>
       CSS里总算是有了一种简单的垂直居中布局的方法了！
-    </p>
-  </section>
-</div>
+    &lt;/p>
+  &lt;/section>
+&lt;/div>
 ```
 
 ```css

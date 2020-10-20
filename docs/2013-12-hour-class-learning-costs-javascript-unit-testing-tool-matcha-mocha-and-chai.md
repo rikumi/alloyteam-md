@@ -186,46 +186,28 @@ should 的风格非常接近自然语言。bizai.should.be.a ('HandsomeBody') = 
 
 把三者引入，进行一些设置， 看代码即可。
 
-````html
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Unit Testing with Mocha and Chai</title>
+```html
+&lt;!doctype html>
+&lt;html lang="en">
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;title>Unit Testing with Mocha and Chai&lt;/title>
  
-<!-- Mocha -->
-<link rel="stylesheet" href="lib/mocha.css">
-
-```html
-<script src="lib/mocha.js"></script>
-````
-
-```html
-<script>mocha.setup('bdd'); //设置单元测试模式为BDD模式 </script>
-```
-
+&lt;!-- Mocha -->
+&lt;link rel="stylesheet" href="lib/mocha.css">
+&lt;script src="lib/mocha.js">&lt;/script>
+&lt;script>mocha.setup('bdd'); //设置单元测试模式为BDD模式 &lt;/script>
  
-
-<!-- Chai -->
-
-```html
-<script src="lib/chai.js"></script>
-```
-
-```html
-<script>chai.Should(); //设置断言模式为 Should模式 </script>
-```
-
+&lt;!-- Chai -->
+&lt;script src="lib/chai.js">&lt;/script>
+&lt;script>chai.Should(); //设置断言模式为 Should模式 &lt;/script>
  
-
-</head>
-<body>
+&lt;/head>
+&lt;body>
  
-<div id="mocha"></div>
-<!--  这里可以引入你的测试js，或直接写在下面 -->
-
-```html
-<script>
+&lt;div id="mocha">&lt;/div>
+&lt;!--  这里可以引入你的测试js，或直接写在下面 -->
+&lt;script>
 describe('My first Unit Test',function(){
     before(function(){
         console.log('AAAAAAAa')
@@ -246,19 +228,13 @@ beforeEach(function(){
     console.log('before every test');
 });
  
-</script>
-```
-
-```html
-<script>
+&lt;/script>
+&lt;script>
 mocha.run();  //  注意不要漏了这个，在js最后启动mocha
-</script>
-```
-
+&lt;/script>
  
-
-</body>
-</html>
+&lt;/body>
+&lt;/html>
 ```
 
 # 反思

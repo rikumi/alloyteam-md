@@ -61,22 +61,22 @@ source_link: http://www.alloyteam.com/2013/12/js-calculate-the-number-of-bytes-o
             len;
         charset = charset ? charset.toLowerCase() : '';
         if(charset === 'utf-16' || charset === 'utf16'){
-            for(i = 0, len = str.length; i < len; i++){
+            for(i = 0, len = str.length; i &lt; len; i++){
                 charCode = str.charCodeAt(i);
-                if(charCode <= 0xffff){
+                if(charCode &lt;= 0xffff){
                     total += 2;
                 }else{
                     total += 4;
                 }
             }
         }else{
-            for(i = 0, len = str.length; i < len; i++){
+            for(i = 0, len = str.length; i &lt; len; i++){
                 charCode = str.charCodeAt(i);
-                if(charCode <= 0x007f) {
+                if(charCode &lt;= 0x007f) {
                     total += 1;
-                }else if(charCode <= 0x07ff){
+                }else if(charCode &lt;= 0x07ff){
                     total += 2;
-                }else if(charCode <= 0xffff){
+                }else if(charCode &lt;= 0xffff){
                     total += 3;
                 }else{
                     total += 4;

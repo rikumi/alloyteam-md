@@ -64,12 +64,12 @@ alloyTouch = new AlloyTouch({
     },
     lockDirection: false,
     change: function (v) {
-        if (v <= this.min + 5 && !loading) {
+        if (v &lt;= this.min + 5 && !loading) {
             loading = true;
             loadMore();
         }
-        if (v < 0) {
-            if (v < -140) v = -140;
+        if (v &lt; 0) {
+            if (v &lt; -140) v = -140;
             var scaleY = (240 + v) / 240;
             header.scaleY = scaleY;
             userLogo.scaleX = userLogo.scaleY = scaleY;
@@ -176,12 +176,12 @@ function resetMin() {
 
 ```javascript
 change: function (v) {
-    if (v <= this.min + 5 && !loading) {
+    if (v &lt;= this.min + 5 && !loading) {
         loading = true;
         loadMore();
     }
-    if (v < 0) {
-        if (v < -140) v = -140;
+    if (v &lt; 0) {
+        if (v &lt; -140) v = -140;
         var scaleY = (240 + v) / 240;
         header.scaleY = scaleY;
         userLogo.scaleX = userLogo.scaleY = scaleY;

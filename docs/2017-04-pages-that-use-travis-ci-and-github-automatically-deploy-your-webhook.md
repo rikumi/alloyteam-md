@@ -69,7 +69,7 @@ When you are asked to enter passphrase, please type enter to skip.
     Enter passphrase (empty for no passphrase):
      
 
-Then open **deploy_key.pub** and copy whole file content. Add that deploy key to your repository at `https://github.com/<your name>/<your repo>/settings/keys`.
+Then open **deploy_key.pub** and copy whole file content. Add that deploy key to your repository at `https://github.com/&lt;your name>/&lt;your repo>/settings/keys`.
 
 ![deploy keys in github](https://cloud.githubusercontent.com/assets/3348398/25069705/ba001bae-22bb-11e7-9a26-d120acc259ce.png)  
 (deploy keys in github)

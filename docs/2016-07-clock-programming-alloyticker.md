@@ -137,7 +137,7 @@ var dt = currentTime - startTime;
 ```c
 var dt = this.currentTime - this.startTime;
 //计算关键帧索引的结果
-if (dt < 0) {
+if (dt &lt; 0) {
     this.index = -1;
 } else {
     this.index = Math.floor(dt / this.interval) % this.length;
@@ -173,7 +173,7 @@ AlloyTicker.prototype = {
                     this.currentTime += this.clockwise
                         ? this.intervalTime
                         : -1 * this.intervalTime;
-                    if (this.currentTime < 0) this.currentTime = 0;
+                    if (this.currentTime &lt; 0) this.currentTime = 0;
                     this.tick();
                 }
             }.bind(this),

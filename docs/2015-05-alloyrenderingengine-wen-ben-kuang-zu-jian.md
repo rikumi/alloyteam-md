@@ -135,7 +135,7 @@ Github: <https://github.com/AlloyTeam/AlloyGameEngine>
             var width = this.measureCtx.measureText(
                 str.substring(index, str.length - 1)
             ).width;
-            if (width < this.option.width - this.option.fontSize) {
+            if (width &lt; this.option.width - this.option.fontSize) {
                 return this.getFitStr(str, --index);
             } else {
                 return str.substring(index++, str.length - 1);

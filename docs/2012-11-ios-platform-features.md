@@ -114,7 +114,7 @@ iOS 上的 Safari 提供了浏览网页的界面。虽然 iOS 上的 Safari 与�
 
 iOS 上的 Safari 支持 cookies。Cookies 可以通过保存用户的环境（context）、偏好以及曾输入的数据让用户和网页内容的交互更加流畅。
 
-iOS 上的 Safari 不支持 Flash 和 Java, 或者其他第三方插件。作为弥补，Safari 支持 HTML5 的<audio> 和<video> 标记，用以播放音频和视频的流媒体。此外还有 JavaScript 和 CSS3 的变形，透明和运动效果，用以展示动态内容。
+iOS 上的 Safari 不支持 Flash 和 Java, 或者其他第三方插件。作为弥补，Safari 支持 HTML5 的&lt;audio> 和&lt;video> 标记，用以播放音频和视频的流媒体。此外还有 JavaScript 和 CSS3 的变形，透明和运动效果，用以展示动态内容。
 
 iOS 上的 Safari 将手势解释为对 “如何展示内容” 的操控，而非对内容本身。轻敲可以触发 Sagari 给网页发送一个 onclick 事件，这与鼠标单击相似。但是很多鼠标动作没有相匹配的姿势，比如说 hover。
 

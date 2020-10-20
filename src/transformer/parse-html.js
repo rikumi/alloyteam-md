@@ -8,9 +8,8 @@ const td = new Turndown({
 td.use(gfm.gfm);
 
 const transformHTMLToMarkdown = (html) => {
-  return td.turndown(html)
-    // 普通文本中的 script 标签不知道为啥不会被转义，先手动加上代码块
-    .replace(/(<script\b[\s\S]*?>[\s\S]*?<\/\s*script>)/ig, '\n```html\n$1\n```\n');
+  // 正文中被转义的 HTML 标签在输出的时候不知道为啥会被解除转义，这里多转义一次
+  return td.turndown(html.replace(/&lt;/g, '&amp;lt;'));
 };
 
 module.exports = transformHTMLToMarkdown;

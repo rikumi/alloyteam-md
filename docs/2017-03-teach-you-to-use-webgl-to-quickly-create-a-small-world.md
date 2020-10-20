@@ -71,7 +71,7 @@ var x, y;
 var aPo = [0, 0, 0];
 var aIndex = [];
 var s = 1;
-for (var i = 1; i <= 36; i++) {
+for (var i = 1; i &lt;= 36; i++) {
     angle = Math.PI * 2 * (i / 36);
     x = Math.cos(angle) * 0.5;
     y = Math.sin(angle) * 0.5;
@@ -164,7 +164,7 @@ function loadFile(src, cb) {
 function handleLine(str) {
     var result = [];
     result = str.split("\n");
-    for (var i = 0; i < result.length; i++) {
+    for (var i = 0; i &lt; result.length; i++) {
         if (/^#/.test(result[i]) || !result[i]) {
             // 注释部分过滤掉
             result.splice(i, 1);
@@ -324,7 +324,7 @@ precision highp float;
  
 void main() {
     float dist = distance(gl_PointCoord, vec2(0.5, 0.5)); // 计算距离
-    if(dist < 0.5) {
+    if(dist &lt; 0.5) {
         gl_FragColor = vec4(0.9, 0.9, 0.8, pow((1.0 - dist * 2.0), 3.0));
     } else {
         discard; // 丢弃

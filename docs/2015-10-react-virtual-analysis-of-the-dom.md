@@ -43,7 +43,7 @@ function Raw() {
     var data = _buildData(),
         html = "";
     ...
-    for(var i=0; i<data.length; i++) {
+    for(var i=0; i&lt;data.length; i++) {
         var render = template;
         render = render.replace("{{className}}", "");
         render = render.replace("{{label}}", data[i].label);
@@ -62,7 +62,7 @@ function Raw() {
     var data = _buildData(), 
         html = ""; 
     ... 
-    for(var i=0; i<data.length; i++) { 
+    for(var i=0; i&lt;data.length; i++) { 
         var render = template; 
         render = render.replace("{{className}}", ""); 
         render = render.replace("{{label}}", data[i].label); 

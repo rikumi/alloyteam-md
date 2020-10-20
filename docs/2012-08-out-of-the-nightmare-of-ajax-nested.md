@@ -114,7 +114,7 @@ param 表示传递给请求的参数，可以是一个 plain object 对象。也
 var a = Dance.Request({
     url: "a.do",
     param: function (before) {
-        if (currPage < 7) {
+        if (currPage &lt; 7) {
             return {
                 page: currPage + 1,
             };

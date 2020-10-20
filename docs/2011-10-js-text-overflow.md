@@ -29,7 +29,7 @@ var ellipsis = function (element) {
     temp.className = "check-text-length-node";
     element.parentNode.appendChild(temp);
     var realWidth = temp.clientWidth;
-    if (realWidth <= limitWidth) {
+    if (realWidth &lt;= limitWidth) {
         return;
     }
     temp.innerHTML = ellipsisText;
@@ -38,7 +38,7 @@ var ellipsis = function (element) {
     str = str.replace(/\s+/g, " ");
     var s,
         totalWidth = 0;
-    for (var i = 0, len = str.length; i < len; i++) {
+    for (var i = 0, len = str.length; i &lt; len; i++) {
         s = str.charAt(i);
         temp.innerHTML = s === " " ? "&nbsp;" : s;
         totalWidth += temp.clientWidth;

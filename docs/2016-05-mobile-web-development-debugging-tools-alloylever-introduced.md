@@ -42,19 +42,13 @@ web 调试有几个非常频繁的刚需：看 log、看 error、看 AJAX 发包
 
 你的页面只需要引用一个 js 即可！
 
-````html
-
 ```html
-<script src="alloylever.js"></script>
-````
-
-;
-
-````
+&lt;script src="alloylever.js">&lt;/script>;
+```
 
 但是需要注意的是，该 js 必须引用在其他脚本之前。至于为什么，看下面的原理。
 
-### Console 截获  
+### Console 截获
 
 ```javascript
 window.console = {
@@ -67,7 +61,7 @@ var self = this;
         self.log(msg, item);
     };
 });
-````
+```
 
 重写了 console 方法，并且保存下 window 下真正的方法进行执行，并且注入自己的事件。
 
@@ -83,7 +77,7 @@ window.XMLHttpRequest = function () {
 window.XMLHttpRequest.realXHR = XHR;
 var self = this;
 function checkSuccess(xhr) {
-    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+    if ((xhr.status >= 200 && xhr.status &lt; 300) || xhr.status == 304) {
         self.option.xhrs.push({
             url: xhr.responseURL,
             json: JSON.stringify(JSON.parse(xhr.responseText), null, "\t"),

@@ -39,7 +39,7 @@ var Demo = React.createClass({
     },
     render() {
         return (
-            <Animated.View
+            &lt;Animated.View
                 style={[
                     styles.demo,
                     {
@@ -48,9 +48,9 @@ var Demo = React.createClass({
                 ]}
             >
                                 
-                <Text style={styles.text}>悄悄的，我出现了</Text>
+                &lt;Text style={styles.text}>悄悄的，我出现了&lt;/Text>
                             
-            </Animated.View>
+            &lt;/Animated.View>
         );
     },
 });
@@ -69,7 +69,7 @@ var styles = StyleSheet.create({
 
 [![demo1](http://www.alloyteam.com/wp-content/uploads/2016/01/demo1.gif)](http://www.alloyteam.com/wp-content/uploads/2016/01/demo1.gif)
 
-是不是很简单易懂 &lt;(▰˘◡˘▰)> 和 JQuery 的 Animation 用法很类似。
+是不是很简单易懂&lt;(▰˘◡˘▰)> 和 JQuery 的 Animation 用法很类似。
 
 ### 步骤拆解
 
@@ -104,7 +104,7 @@ componentDidMount() {
         })).start();
 }，
 render() {
-    return (<Animated.View style={[styles.demo, {
+    return (&lt;Animated.View style={[styles.demo, {
             opacity: this.state.fadeInOpacity,
                 transform: [{
                     rotateZ: this.state.rotation.interpolate({
@@ -112,13 +112,13 @@ render() {
                         outputRange: ['0deg', '360deg']
                     })
                 }]
-            }]}><Animated.Text style={{
+            }]}>&lt;Animated.Text style={{
                 fontSize: this.state.fontSize.interpolate({
                     inputRange: [0,1],
                     outputRange: [12,26]
                 })
-            }}>我骑着七彩祥云出现了😈💨</Animated.Text>
-            </Animated.View>
+            }}>我骑着七彩祥云出现了😈💨&lt;/Animated.Text>
+            &lt;/Animated.View>
     );
 }
 ```
@@ -191,7 +191,7 @@ componentDidMount() {
 render() {
     var views = this.state.anim.map(function(value, i) {
         return (
-            <Animated.View
+            &lt;Animated.View
                 key={i}
                 style={[styles.demo, styles['demo' + i], {
                     left: value.interpolate({
@@ -199,15 +199,15 @@ render() {
                         outputRange: [0,200]
                     })
                 }]}>
-                <Text style={styles.text}>我是第{i + 1}个View</Text>
+                &lt;Text style={styles.text}>我是第{i + 1}个View&lt;/Text>
  
-            </Animated.View>
+            &lt;/Animated.View>
         );
     });
-    return <View style={styles.container}>
-               <Text>sequence/delay/stagger/parallel演示</Text>
+    return &lt;View style={styles.container}>
+               &lt;Text>sequence/delay/stagger/parallel演示&lt;/Text>
                {views}
-           </View>;
+           &lt;/View>;
 }
 ```
 
@@ -283,9 +283,9 @@ getInitialState() {
  
 render(){
     return (
-        <div style={{left: this.state.left}}>
-            <Child />
-        </div>
+        &lt;div style={{left: this.state.left}}>
+            &lt;Child />
+        &lt;/div>
     );
 }
  
@@ -307,7 +307,7 @@ onChange(value) {
 -   关键词：
 
     -   ShouldComponentUpdate
-    -   <StaticContainer>（静态容器）
+    -   &lt;StaticContainer>（静态容器）
     -   Element Caching（元素缓存）
     -   Raw DOM Mutation（原生 DOM 操作）
     -   ↑↑↓↓←→←→BA（秘籍）
@@ -320,7 +320,7 @@ onChange(value) {
 
 然而并非所有的子元素都是一成不变的，粗暴地返回 false 的话子元素就变成一滩死水了。而且组件间应该是独立的，子组件很可能是其他人写的，父元素不能依赖于子元素的实现。
 
-### <StaticContainer>（静态容器）
+### &lt;StaticContainer>（静态容器）
 
 这时候可以考虑封装一个容器，管理 ShouldCompontUpdate，如图示：
 
@@ -343,12 +343,12 @@ class StaticContainer extends React.Component {
 // 父元素嵌入StaticContainer
 render() {
     return (
-        <div style={{left: this.state.left}}>
-            <StaticContainer
+        &lt;div style={{left: this.state.left}}>
+            &lt;StaticContainer
             shouldUpdate={!this.state.isAnimating}>
-                <ExpensiveChild />
-            </StaticContainer>
-        </div>
+                &lt;ExpensiveChild />
+            &lt;/StaticContainer>
+        &lt;/div>
     );
 }
 ```
@@ -359,11 +359,11 @@ render() {
 
 ```c
 render(){
-    this._child = this._child || <ExpensiveChild />;
+    this._child = this._child || &lt;ExpensiveChild />;
     return (
-        <div style={{left:this.state.left}}>
+        &lt;div style={{left:this.state.left}}>
             {this._child}
-        </div>
+        &lt;/div>
     );
 }
 ```
@@ -401,9 +401,9 @@ _Uncaught Exception: Cannot call ‘style’ of null_
 ```css
 render(){
     return(
-        <Animated.div style={{left: this.state.left}}>
-             <ExpensiveChild />
-        </Animated.div>
+        &lt;Animated.div style={{left: this.state.left}}>
+             &lt;ExpensiveChild />
+        &lt;/Animated.div>
     );
 }
  
@@ -439,7 +439,7 @@ Animated.div = class extends React.Component{
         );
     },
     render() {
-        return <div ...{this._props} />;
+        return &lt;div ...{this._props} />;
     }
 }
 ```

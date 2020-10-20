@@ -48,7 +48,7 @@ function _performance(){
    if( perf  && timing ) {
       var arr = [];
       var navigationStart = timing[points[0]];
-      for(var i=0,l=points.length;i<l;i++){
+      for(var i=0,l=points.length;i&lt;l;i++){
          arr[i] = timing[points[i]] - navigationStart;
       }
    var url = REPORT_URL + arr.join("-");
@@ -66,34 +66,19 @@ function _performance(){
 
 在 JS 或者 CSS 加载之前打上时间戳，加载之后打上时间戳，并且将数据上报到后台。加载时间反映了页面白屏，可操作的等待时间。
 
-````html
-
 ```html
-<script>var cssLoadStart = +new Date</script>
-````
-
-<link rel="stylesheet" href="xxx.css" type="text/css" media="all">
-<link rel="stylesheet" href="xxx1.css" type="text/css" media="all">
-<link rel="stylesheet" href="xxx2.css" type="text/css" media="all">
-<sript>
+&lt;script>var cssLoadStart = +new Date&lt;/script>
+&lt;link rel="stylesheet" href="xxx.css" type="text/css" media="all">
+&lt;link rel="stylesheet" href="xxx1.css" type="text/css" media="all">
+&lt;link rel="stylesheet" href="xxx2.css" type="text/css" media="all">
+&lt;sript>
    var cssLoadTime = (+new Date) - cssLoadStart;
    var jsLoadStart = +new Date;
-</script>
-
-```html
-<script type="text/javascript" src="xx1.js"></script>
-```
-
-```html
-<script type="text/javascript" src="xx2.js"></script>
-```
-
-```html
-<script type="text/javascript" src="xx3.js"></script>
-```
-
-```html
-<script>
+&lt;/script>
+&lt;script type="text/javascript" src="xx1.js">&lt;/script>
+&lt;script type="text/javascript" src="xx2.js">&lt;/script>
+&lt;script type="text/javascript" src="xx3.js">&lt;/script>
+&lt;script>
    var jsLoadTime = (+new Date) - jsLoadStart;
    var REPORT_URL = 'xxx/cgi?data='
    var img = new Image;
@@ -101,16 +86,14 @@ function _performance(){
       img = null;
    };
    img.src = REPORT_URL + cssLoadTime + '-' + jsLoadTime;
-</script>
+&lt;/script>
 ```
 
-````
-
 ```html
-<a href="https://github.com/perltzhu/js-data-report" target="_blank">
+&lt;a href="https://github.com/perltzhu/js-data-report" target="_blank">
      
-</a>;
-````
+&lt;/a>;
+```
 
 ## 参考资料：
 

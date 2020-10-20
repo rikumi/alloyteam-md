@@ -23,75 +23,61 @@ source_link: http://www.alloyteam.com/2012/03/videoply/
 
 ## step1:HTML5 标记
 
-````html
- 
- 
-        <!--Meta tags-->
- 
-        <!--Title-->
- 
-        <!--Stylesheets-->
- 
-        <!--jQuery-->
 ```html
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-````
-
+ 
+ 
+        &lt;!--Meta tags-->
+ 
+        &lt;!--Title-->
+ 
+        &lt;!--Stylesheets-->
+ 
+        &lt;!--jQuery-->&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">&lt;/script>
  
         &lt;!--[if lt IE 9]>
-
-            
-
-```html
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            &lt;script src="http://html5shim.googlecode.com/svn/trunk/html5.js">&lt;/script>
+        &lt;![endif]-->
 ```
 
-        &lt;![endif]-->
+## Step 2: 下载 jPlayer 插件
 
-````
-
-Step 2: 下载 jPlayer 插件
----------------------
-
-插件地址： [jplayer.org]( jplayer.org)  
+插件地址： [jplayer.org](http://www.alloyteam.com/2012/03/videoply/jplayer.org)  
 然后在 head 里面引用，当然是基于 Jquery 的插件
 
-Step 3: Player 标记
------------------
+## Step 3: Player 标记
 
 html 如下：
 
 Update Required Here's a message which will appear if the video isn't supported. A Flash alternative can be used here if you fancy it.
 
-Step 4: Controls 标记
--------------------
+## Step 4: Controls 标记
 
 html 如下：
 
 ```html
-<!--play and pause buttons-->
-<a class="jp-play" tabindex="1" href="javascript:;">play</a>
-<a class="jp-pause" tabindex="1" href="javascript:;">pause</a>
+&lt;!--play and pause buttons-->
+&lt;a class="jp-play" tabindex="1" href="javascript:;">play&lt;/a>
+&lt;a class="jp-pause" tabindex="1" href="javascript:;">pause&lt;/a>
  
-<!--progress bar-->
-````
-
-```html
-<span class="time-sep">/</span>;
+&lt;!--progress bar-->
 ```
 
 ```html
-<!--mute / unmute toggle-->
-<a class="jp-mute" title="mute" tabindex="2" href="javascript:;">mute</a>
-<a class="jp-unmute" title="unmute" tabindex="2" href="javascript:;">unmute</a>
- 
-<!--volume bar-->
+&lt;span class="time-sep">/&lt;/span>;
 ```
 
 ```html
-<!--full screen toggle-->
-<a class="jp-full-screen" title="full screen" tabindex="3" href="javascript:;">full screen</a>
-<a class="jp-restore-screen" title="restore screen" tabindex="3" href="javascript:;">restore screen</a>
+&lt;!--mute / unmute toggle-->
+&lt;a class="jp-mute" title="mute" tabindex="2" href="javascript:;">mute&lt;/a>
+&lt;a class="jp-unmute" title="unmute" tabindex="2" href="javascript:;">unmute&lt;/a>
+ 
+&lt;!--volume bar-->
+```
+
+```html
+&lt;!--full screen toggle-->
+&lt;a class="jp-full-screen" title="full screen" tabindex="3" href="javascript:;">full screen&lt;/a>
+&lt;a class="jp-restore-screen" title="restore screen" tabindex="3" href="javascript:;">restore screen&lt;/a>
 ```
 
 主要包含：  
@@ -112,10 +98,8 @@ webm (Vorbis/VP8)
 wav  
 使用代码如下：
 
-````html
-<!--instantiate-->
 ```html
-<script type="text/javascript">// <![CDATA[
+&lt;!--instantiate-->&lt;script type="text/javascript">// &lt;![CDATA[
 $(document).ready(function(){
  
     $("#jquery_jplayer_1").jPlayer({
@@ -137,15 +121,12 @@ $(document).ready(function(){
     });
  
 });
-// ]]></script>
-````
+// ]]>&lt;/script>
+```
 
-````
+更多使用方法见：[jplayer.org](http://www.alloyteam.com/2012/03/videoply/jplayer.org)
 
-更多使用方法见：[jplayer.org](jplayer.org)
-
-Step 6: Video 基本样式
-------------------
+## Step 6: Video 基本样式
 
 css 代码如下:
 
@@ -198,7 +179,7 @@ body {
     left: 0;
     z-index:1000;
 }
-````
+```
 
 ## Step 7: 基本控制样式
 

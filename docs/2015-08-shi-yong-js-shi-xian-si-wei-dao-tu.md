@@ -89,7 +89,7 @@ function resetBrotherPosition(node, areaHeight) {
         node.father.children.forEach(function (curNode) {
             // 遍历同级节点
             if (curNode != node) {
-                if (brother.y < node.y) {
+                if (brother.y &lt; node.y) {
                     // 向上移动brother节点的代码写在这
                 } else {
                     // 向下移动brother节点的代码写在这

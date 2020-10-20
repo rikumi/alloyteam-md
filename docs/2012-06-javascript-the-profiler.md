@@ -10,14 +10,14 @@ source_link: http://www.alloyteam.com/2012/06/javascript-the-profiler/
 **每一字节代码都有其温度，而我们提供代码的温度计。**
 
 ```javascript
-for (var i = 0; i < 100; i++) {
+for (var i = 0; i &lt; 100; i++) {
     console.log(i);
 }
 ```
 
 这个是 javascript 中一个简单 for 循环，声明 i 初始值为 0，判断 i 是否小于 100，若是则执行语句，然后 i 增加 1。所以 _var i=0_ 只执行 1 次，条件条件表达式  _i&lt;100_  会执行 101 次，增量 _i++_ 执行 100 次，_console.log(i)_ 执行 100 次。
 
-<table><tbody><tr><td>语句</td><td>次数</td></tr><tr><td>var i=0</td><td>1</td></tr><tr><td>i&lt;100</td><td>101</td></tr><tr><td>i++</td><td>100</td></tr><tr><td>console.log(i)</td><td>100</td></tr></tbody></table>
+<table><tbody><tr><td>语句</td><td>次数</td></tr><tr><td>var i=0</td><td>1</td></tr><tr><td>i&amp;lt;100</td><td>101</td></tr><tr><td>i++</td><td>100</td></tr><tr><td>console.log(i)</td><td>100</td></tr></tbody></table>
 
 转换语句代码与执行次数的映射数据我们得到一份其代码执行热度图，非常形象生动的呈现了代码的真实执行情况，标示出了每一语句的执行热度，我们说这是每一个字节代码的真实温度。
 

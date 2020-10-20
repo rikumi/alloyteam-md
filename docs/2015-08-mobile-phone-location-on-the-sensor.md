@@ -125,14 +125,12 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
 
 首先我们创建一个 dom 节点
 
-    <div id="geoloc"></div>
+    &lt;div id="geoloc">&lt;/div>
 
 判断浏览器支持 `Geolocation API` 后，通过参数的 corrds 属性就可以取到经纬度坐标了，如下
 
-````javascript
-   
-```html
-<script>
+```javascript
+   &lt;script>
     function getElem(id) {
         return typeof id === 'string' ? document.getElementById(id) : id;
     }
@@ -151,24 +149,17 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
     } else {
         getElem('geo_loc').innerHTML = "您当前使用的浏览器不支持Geolocation服务";
     }
-    </script>
-````
-
-````
+    &lt;/script>
+```
 
 下一步我们要引入一个谷歌地图来定位，这里需要引入谷歌地图的 API，如下
 
-    
-```html
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-````
+    &lt;script type="text/javascript" src="[http://maps.google.com/maps/api/js?sensor=false">&lt;/script>](http://maps.google.com/maps/api/js?sensor=false%22%3E%3C/script%3E)
 
 接着对获取经纬度的函数做一个改造
 
-````go
- 
-```html
-<script>
+```go
+ &lt;script>
     function success(position) {
         var mapcanvas = document.createElement('div');
         mapcanvas.id = 'mapcanvas';
@@ -196,22 +187,18 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
     if (navigator.geolocation) {
        navigator.geolocation.getCurrentPosition(success); 
     }
-    </script>
-````
-
+    &lt;/script>
 ```
 
 如下图所示，我们已经获取到当前位置的地图坐标呈现
 
-  
-[![图片4](http://www.alloyteam.com/wp-content/uploads/2015/08/图片4-300x167.png)](http://www.alloyteam.com/wp-content/uploads/2015/08/图片4.png)  
-\[图 N.3 笔者当前坐标位置\]
+[![图片 4](http://www.alloyteam.com/wp-content/uploads/2015/08/图片4-300x167.png)](http://www.alloyteam.com/wp-content/uploads/2015/08/图片4.png)  
+\[图 N.3 笔者当前坐标位置]
 
 进一步地，根据地理位置坐标，通过公共 API 获取用户的  天气信息 –  周边新闻 –  热点资讯  等…  
 如 QQ 会员的用户关怀，与天气结合，如果是阴雨天气，红毛小 Q 以拟人姿态提醒用户多带把伞；晴好高温天气可以提醒用户擦防晒液防紫外线等…
 
-感谢大家阅读，同事感谢小伙伴 junda 对文章提出的专业建议！O(∩\_∩)O
-```
+感谢大家阅读，同事感谢小伙伴 junda 对文章提出的专业建议！O (∩\_∩)O
 
 
 <!-- {% endraw %} - for jekyll -->

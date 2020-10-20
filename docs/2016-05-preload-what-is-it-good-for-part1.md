@@ -19,7 +19,7 @@ source_link: http://www.alloyteam.com/2016/05/preload-what-is-it-good-for-part1/
 
 几周前，我在 Chrome Canary 提交了对 preload 的支持，解决了一些 bug，预计将在四月中旬合入 Chrome 稳定版。但 preload 到底是什么？它有什么用处？对你有什么好处呢？
 
-好吧，<link rel="preload"> 它是一种声明式的获取（fetch）指令。
+好吧，&lt;link rel="preload"> 它是一种声明式的获取（fetch）指令。
 
 用人话来讲，它是一种告诉浏览器开始获取一项确定资源的方式，因为我们是作者（或者服务器管理员，或者聪明的服务器开发），我们是知道浏览器将很快需要那一项资源的。
 
@@ -27,13 +27,13 @@ source_link: http://www.alloyteam.com/2016/05/preload-what-is-it-good-for-part1/
 
 ===============
 
-嗯，也不算是真有。<link rel="prefetch"> 已经被支持一段时间了，也有不错的[兼容性](http://caniuse.com/#feat=link-rel-prefetch)。在此基础上，Chrome 也对[<link rel="subresource">](https://web.archive.org/web/20150907034803/https://www.chromium.org/spdy/link-headers-and-server-hint/link-rel-subresource) 支持好一段时间了，所以 preload 有什么新特性？它跟前面这几个指令有什么区别？它们都告知浏览器去获取资源，是吧？
+嗯，也不算是真有。&lt;link rel="prefetch"> 已经被支持一段时间了，也有不错的[兼容性](http://caniuse.com/#feat=link-rel-prefetch)。在此基础上，Chrome 也对[&lt;link rel="subresource">](https://web.archive.org/web/20150907034803/https://www.chromium.org/spdy/link-headers-and-server-hint/link-rel-subresource) 支持好一段时间了，所以 preload 有什么新特性？它跟前面这几个指令有什么区别？它们都告知浏览器去获取资源，是吧？
 
 确实是的，但是它们有一些重要的区别，这些区别使得 preload 成为一项全新的指令，做出之前指令所不能做到的事情。
 
-<link rel="prefetch"> 是一种告诉浏览器**获取一项可能被**下一页访问**所需要的资源**方式。这意味着资源将以较低优先级地获取（因为浏览器知道当前页面所需要的资源，要比我们猜测在下一页访问所需资源更重要）。这意味着 prefetch 的主要用途是加速下一页访问速度，而不是当前页面的速度。
+&lt;link rel="prefetch"> 是一种告诉浏览器**获取一项可能被**下一页访问**所需要的资源**方式。这意味着资源将以较低优先级地获取（因为浏览器知道当前页面所需要的资源，要比我们猜测在下一页访问所需资源更重要）。这意味着 prefetch 的主要用途是加速下一页访问速度，而不是当前页面的速度。
 
-<link rel="subresource"> 原本是计划处理当前页面的，但是在一些特别的场景失败了。由于 Web 开发者无法定义资源的优先级，所以浏览器（实际只有 Chrome 和基于 Chromium 的浏览器）使用同等较低的优先级加载资源，也就是说大多数情况，即使没有 subresource，请求也是同一时机发出的。
+&lt;link rel="subresource"> 原本是计划处理当前页面的，但是在一些特别的场景失败了。由于 Web 开发者无法定义资源的优先级，所以浏览器（实际只有 Chrome 和基于 Chromium 的浏览器）使用同等较低的优先级加载资源，也就是说大多数情况，即使没有 subresource，请求也是同一时机发出的。
 
 Preload 如何做得更好？  
 
@@ -63,7 +63,7 @@ preload 最基本的使用方式是**提前加载较晚发现的资源**。虽�
 做法可能如下
 
 ```html
-<link rel="preload" href="late_discovered_thing.js" as="script">
+&lt;link rel="preload" href="late_discovered_thing.js" as="script">
 ```
 
 as 属性告诉浏览器什么类型的资源将被下载。as 可能的取值有：
@@ -89,7 +89,7 @@ as 属性告诉浏览器什么类型的资源将被下载。as 可能的取值�
 但是，你可以对一定需要的字体使用 preload 指令，摆脱上述的复杂问题。像这样：
 
 ```c
-<link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
+&lt;link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
 ```
 
 有一点需要指明，获取字体时[必须加上 crossorigin 属性](https://github.com/w3c/preload/issues/32)，就如[使用 CORS 的匿名模式获取](https://drafts.csswg.org/css-fonts/#font-fetching-requirements)一样。是的，即使你的字体与页面同域，抱歉……
@@ -131,21 +131,21 @@ document.body.appendChild(script);
 另一个酷炫的技巧，是使用 onload 处理函数来创建一些基于标签的异步加载器。[Scott Jehl](https://twitter.com/scottjehl) 做了这方面的第一个[实验](https://github.com/filamentgroup/loadCSS/issues/59)，作为他的 loadCSS 库。简单说，你可以这么使用：
 
 ```html
-<link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'">
+&lt;link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'">
 ```
 
 在标签里获取异步的样式表！Scott 还有一个该特性的 [demo](http://filamentgroup.github.io/loadCSS/test/preload.html) 页面。
 
 该特性同样可以应用在脚本上。
 
-话说我们不是已经有<script async> 了吗？嗯，<script async> 确实不错，但它会阻塞 window 的 onload 事件。在一些情况，这可能是你希望的，而有些情况并不是。
+话说我们不是已经有&lt;script async> 了吗？嗯，&lt;script async> 确实不错，但它会阻塞 window 的 onload 事件。在一些情况，这可能是你希望的，而有些情况并不是。
 
 比如说你想下载一个上报分析脚本，希望尽快去加载它（以避免分析脚本漏掉一些访客上报），但不想它对用户体验有任何影响，也就是不希望它对 onload 造成延迟。（你可以说 [onload](http://www.stevesouders.com/blog/2013/05/13/moving-beyond-window-onload/) 不是影响用户的唯一因素，但缩短转菊花的时间总是一件好事）。
 
 有了 preload，实现起来就很容易了：
 
 ```javascript
-<link rel="preload" as="script" href="async_script.js"
+&lt;link rel="preload" as="script" href="async_script.js"
 onload="var script = document.createElement('script');
         script.src = this.href;
         document.body.appendChild(script);">

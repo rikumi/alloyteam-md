@@ -52,13 +52,13 @@ function correctingVertexList(vertexList) {
         minY = firstVertex.y,
         i = 1,
         len = vertexList.length;
-    for (; i < len; i++) {
+    for (; i &lt; len; i++) {
         var vertex = vertexList[i];
-        vertex.x < minX && (minX = vertex.x);
-        vertex.y < minY && (minY = vertex.y);
+        vertex.x &lt; minX && (minX = vertex.x);
+        vertex.y &lt; minY && (minY = vertex.y);
     }
     i = 0;
-    for (; i < len; i++) {
+    for (; i &lt; len; i++) {
         var vertex = vertexList[i];
         vertex.x -= minX;
         vertex.y -= minY;

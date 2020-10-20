@@ -29,11 +29,7 @@ AlloyDesigner 安装使用方法有 3 种：
 
 1.  安装位 Chrome 的插件；
 2.  将 AlloyDesigner 添加到收藏栏；
-3.  在 html 代码中引入 AlloyDesigner 的 js 文件：
-
-```html
-<script src='alloydesigner.js' type='text/javascript'></script>
-```
+3.  在 html 代码中引入 AlloyDesigner 的 js 文件：&lt;script src='alloydesigner.js' type='text/javascript'>&lt;/script>
 
 　　AlloyDesigner 使用指引：启动 AlloyDesigner 后，首先，将视觉稿图片加入页面，然后用 AlloyDesigner 将其在页面中拖拽定位，接着用 AlloyDesigner 提供的测距功能量出每个 DOM 元素的宽高、margin、padding 等，如果需要提取颜色，可以用 AlloyDesigner 提供的颜色拾取功能进行拾取。
 

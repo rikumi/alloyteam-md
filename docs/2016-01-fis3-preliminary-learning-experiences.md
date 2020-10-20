@@ -105,21 +105,11 @@ css 中的资源定位
 
 **2、内容嵌入**
 
-````html
-
 ```html
-<script src="partial/common/mod.js?__inline"></script>
-````
-
-;
-
+&lt;script src="partial/common/mod.js?__inline">&lt;/script>;
 ```
 
-```
-
-\_\_inline('demo.js');
-
-````
+    __inline('demo.js');
 
 **3、依赖声明**
 
@@ -128,7 +118,7 @@ css 中的资源定位
  * index.css
  * @require main.css
  */
-````
+```
 
 fis3 的设计原则是 “基于依赖关系表的静态资源管理系统与模块化框架设计”，所以我们就从静态资源管理和模块化两方面来理解下 fis3。
 
@@ -175,21 +165,15 @@ Fis3 默认不支持模块化开发，所以需要 **fis3-hook-commonjs/fis3-hoo
 
 **4、文件入口**
 
-````html
-
 ```html
-<script>require('pages/xxx/main');</script>
-````
-
-;
-
-````
+&lt;script>require('pages/xxx/main');&lt;/script>;
+```
 
 **5、js 引用**
 
 ```javascript
 var hello = require("./canvas.js");
-````
+```
 
 除了依赖声明内置语法中资源间相互依赖的语法，fis3 还可以解析以下几种语法。
 

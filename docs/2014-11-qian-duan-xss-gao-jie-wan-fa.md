@@ -11,23 +11,17 @@ source_link: http://www.alloyteam.com/2014/11/qian-duan-xss-gao-jie-wan-fa/
 
 以下是他给我的原题：
 
-````html
-(function escape(input) {
-    input = input.replace(/[;\\\/<>a-zA-Z]/g, "_").slice(0, 1500);
-    return (
-        "
 ```html
-<script>[][([![]]+[])[++[++[++[[]][+[]]][+[]]][+[]]]+([]+{})[++[[]][+[]]]+([!![]]+[])[++[[]][+[]]]+([!![]]+[])[+[]]]" +
+(function escape(input) {
+    input = input.replace(/[;\\\/&lt;>a-zA-Z]/g, "_").slice(0, 1500);
+    return (
+        "&lt;script>[][([![]]+[])[++[++[++[[]][+[]]][+[]]][+[]]]+([]+{})[++[[]][+[]]]+([!![]]+[])[++[[]][+[]]]+([!![]]+[])[+[]]]" +
         input +
-        "</script>
-````
-
- "
+        "&lt;/script> "
     );
 })("?");
-要求可以弹出 alert 框；
-
-````
+要求可以弹出alert框;
+```
 
 初略看了一下，感觉这是在逗我么。。。这么搞，js 都 [Brainfuck](http://en.wikipedia.org/wiki/Brainfuck "Brainfuck wiki") 化了啊。
 
@@ -69,7 +63,7 @@ console.assert(fib(46) === 1836311903);
 console.assert(fib(47) === 2971215073);
 console.assert(fib(63) === 6557470319842);
 console.log("done!");
-````
+```
 
 这两者非常类似，充斥了大量 "\[]()+" 的符号。
 

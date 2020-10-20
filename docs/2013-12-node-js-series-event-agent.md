@@ -109,9 +109,7 @@ var EventProxy = require("eventproxy");
 
 在页面中嵌入脚本即可使用：
 
-```html
-<script src="https://raw.github.com/JacksonTian/eventproxy/master/lib/eventproxy.js"></script>
-```
+&lt;script src="[https://raw.github.com/JacksonTian/eventproxy/master/lib/eventproxy.js">&lt;/script>](https://raw.github.com/JacksonTian/eventproxy/master/lib/eventproxy.js%22%3E%3C/script%3E)
 
 使用：
 

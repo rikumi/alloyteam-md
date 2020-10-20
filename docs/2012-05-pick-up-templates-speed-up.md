@@ -16,23 +16,17 @@ source_link: http://www.alloyteam.com/2012/05/pick-up-templates-speed-up/
 呼～～总算到正题了 (- -||). 说回来，页面模板的代码到底要放哪呢？
 
 1.  放在 js 文件中；
-2.  放在页面不可见的地方，比如 
-
-```html
-<script type="text/plain"></script>
-```
-
- 标签内；
+2.  放在页面不可见的地方，比如 &lt;script type="text/plain">&lt;/script> 标签内；
 
 话说很久很久以前，我也是把模板写在 js 里面的，然后需要修改的时候就崩溃了～在一堆字符串里面找到想要改动的地方就像是在一坨黄色的屎里面找个金戒指 (恶...). 过了不久学乖了，把模板像写 html 那样换行和缩进，就跟下面一样.
 
 ```html
 var html =
     '\
-    <div id="container">\
-    <div>...</div>\
-    <div>...</div>\
-</div>';
+    &lt;div id="container">\
+    &lt;div>...&lt;/div>\
+    &lt;div>...&lt;/div>\
+&lt;/div>';
 ```
 
 然后代价是 -- 要给会混淆的引号转义以及每行末尾都要一个反斜杠！oh~ 天啊，我可是程序员啊，为什么要做这种重复无趣的工作！
@@ -101,7 +95,7 @@ var outputHtmlFile = "./out/index.html";
 var inputJsFile = "./js/mb.templates.js";
 var outputJsFile = "./out/js/mb.templates.js";
 var content = fs.readFileSync(inputHtmlFile).toString();
-var regex = /<script\s*id="(\w+)"\s*type="text\/plain"\s*>([\s\S]*?)<\/script>/gi;
+var regex = /&lt;script\s*id="(\w+)"\s*type="text\/plain"\s*>([\s\S]*?)&lt;\/script>/gi;
 var result = {};
 content = content.replace(regex, function (m, $1, $2) {
     result[$1] = $2.replace(/\n|\r/g, "");

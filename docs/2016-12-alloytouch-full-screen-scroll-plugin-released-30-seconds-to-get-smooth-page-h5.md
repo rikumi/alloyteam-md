@@ -34,25 +34,25 @@ source_link: http://www.alloyteam.com/2016/12/alloytouch-full-screen-scroll-plug
 但是不写脚本肯定没有灵活性咯？！不是的。这里不仅仅可以通过在 HTML 配置一些参数，还可通过插件的回调函数进行一些逻辑注入。就拿上面大家扫码看到的例子的**部分 HTML** 来分析下 AlloyTouch.FullPage 的使用姿势：
 
 ```html
- <div id="fullpage">
-        <div>
-            <div>
-                <div class="animated" data-show="bounceInLeft" data-hide="bounceOutLeft">AlloyTouch Introduction</div>
-                <div class="animated" data-delay="500" data-show="bounceInUp" data-hide="zoomOut"><img src="asset/alloytouch.png"></div>
-                <div class="animated" data-delay="1200" data-show="bounceIn" data-hide="bounceOut">By AlloyTeam</div>
-            </div>
-        </div>
+ &lt;div id="fullpage">
+        &lt;div>
+            &lt;div>
+                &lt;div class="animated" data-show="bounceInLeft" data-hide="bounceOutLeft">AlloyTouch Introduction&lt;/div>
+                &lt;div class="animated" data-delay="500" data-show="bounceInUp" data-hide="zoomOut">&lt;img src="asset/alloytouch.png">&lt;/div>
+                &lt;div class="animated" data-delay="1200" data-show="bounceIn" data-hide="bounceOut">By AlloyTeam&lt;/div>
+            &lt;/div>
+        &lt;/div>
         
-        <div>
-            <div>
-                <div class="animated"  data-delay="100" data-show="flipInY" data-hide="flipOutY" >Powerful Features</div>
-                <div class="animated"  data-delay="400" data-show="zoomIn" data-hide="zoomOut"><img src="asset/power.png"></div>
-            </div>
-        </div>
+        &lt;div>
+            &lt;div>
+                &lt;div class="animated"  data-delay="100" data-show="flipInY" data-hide="flipOutY" >Powerful Features&lt;/div>
+                &lt;div class="animated"  data-delay="400" data-show="zoomIn" data-hide="zoomOut">&lt;img src="asset/power.png">&lt;/div>
+            &lt;/div>
+        &lt;/div>
         ...
         ...
         ...
- </div>
+ &lt;/div>
 ```
 
 注意，上面只是部分 HTML，而且我已经把一些和插件配置无关的 HTML 去掉了。下面一一进行分析：
@@ -103,11 +103,11 @@ new AlloyTouch({
     touchEnd: function (evt, v, index) {
         var step_v = index * this.step * -1;
         var dx = v - step_v;
-        if (v < this.min) {
+        if (v &lt; this.min) {
             this.to(this.min);
         } else if (v > this.max) {
             this.to(this.max);
-        } else if (Math.abs(dx) < 30) {
+        } else if (Math.abs(dx) &lt; 30) {
             this.to(step_v);
         } else if (dx > 0) {
             self.prev();

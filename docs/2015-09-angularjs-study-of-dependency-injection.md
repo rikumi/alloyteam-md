@@ -84,7 +84,7 @@ var inject = {
     },
     resolve: function (deps, func, scope) {
         var arr = [];
-        for (var i = 0; i < deps.length; i++) {
+        for (var i = 0; i &lt; deps.length; i++) {
             if (this.dependencies.hasOwnProperty(deps[i])) {
                 arr.push(this.dependencies[deps[i]]);
             }
@@ -179,7 +179,7 @@ resolve: function(func, scope) {
                 console.log(argDecl);
                 var deps = argDecl[1].split(',');
                 var arr = [];
-                for (var i = 0 ; i < deps.length ; i++) {
+                for (var i = 0 ; i &lt; deps.length ; i++) {
                     if (this.dependencies.hasOwnProperty(deps[i])) {
                        arr.push(this.dependencies[deps[i]])
                     }
@@ -230,7 +230,7 @@ resolve: function(func, scope) {
                 }
  
                 var arr = [];
-                for (var i = 0 ; i < deps.length ; i++) {
+                for (var i = 0 ; i &lt; deps.length ; i++) {
                     if (this.dependencies.hasOwnProperty(deps[i])) {
                        arr.push(this.dependencies[deps[i]])
                     }

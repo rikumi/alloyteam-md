@@ -47,7 +47,7 @@ slider.onmousedown = function (e) {
     function isDown() {
         var rect = context.cube.getBoundingClientRect();
         var y = rect.top;
-        if (rect.bottom < mouseY) {
+        if (rect.bottom &lt; mouseY) {
             down();
             id ||
                 (id = setInterval(function () {

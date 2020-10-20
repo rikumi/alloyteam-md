@@ -22,7 +22,7 @@ source_link: http://www.alloyteam.com/2014/10/androidcliptopadding-he-androidcli
 clipToPadding 就是说控件的绘制区域是否在 padding 里面的，true 的情况下如果你设置了 padding 那么绘制的区域就往里缩，clipChildren 是指子控件是否超过 padding 区域，这两个属性默认是 true 的，所以在设置了 padding 情况下，默认滚动是在 padding 内部的，要达到上面的效果主要把这两个属性设置了 false 那么这样子控件就能画到 padding 的区域了。
 
 ```html
-    <ListView
+    &lt;ListView
         android:layout_gravity="center_vertical"
         android:id="@+id/list"
         android:clipChildren="false"

@@ -90,21 +90,15 @@ function*(req, res) {
 
 这种方案的改动小，而且容错比较容易实现。例如，我在手 Q 群成员分布中，在 html 里加入如下代码：
 
-````
-
-```html
-<script>
-    {{'xw-data'}}
-</script>
-````
-
-````
+    &lt;script>
+        {{'xw-data'}}
+    &lt;/script>
 
 然后在直出入口文件做替换：
 
 ```javascript
 this.body = tpl.init().replace("{{'xw-data'}}", "var xw_data = " + body + ";");
-````
+```
 
 然后在 js 文件里对 xw_data 做判断，如果有数据，直接去渲染，如果没数据，走旧有逻辑。
 
@@ -130,51 +124,39 @@ BigPipe 实际上也可以算作出直的一种特殊方案，最选是由 Faceb
 
 BigPipe 的渲染方式，首先是在页面头部添加一个全局的加载 Pagelet 的 onPageletArrive 函数，然后渲染出 HTML 各 Pagelet 的占位标签，等各标签的数据到达的时候，依次调用全局 onPageletArrive 加载函数进行渲染。如以下代码。
 
-````html
-<html>
-<head>
-<!-- 全局 onPageletArrive function -->
-
 ```html
-<script>
+&lt;html>
+&lt;head>
+&lt;!-- 全局 onPageletArrive function -->
+&lt;script>
 window.onPageletArrive = function(obj){
     // load css
     // load js
     // load html
 };
-</script>
-````
-
-</head>
-<body>
-<!-- Pagelet 占位 -->
-<div id="pagelet1"></div>
-<div id="pagelet2"></div>
+&lt;/script>
+&lt;/head>
+&lt;body>
+&lt;!-- Pagelet 占位 -->
+&lt;div id="pagelet1">&lt;/div>
+&lt;div id="pagelet2">&lt;/div>
 ….
-<div id="pageletN"></div>
-<!-- 后台返回的js代码，用于直接吐出执行全局onPageletArrive -->
-
-```html
-<script>
+&lt;div id="pageletN">&lt;/div>
+&lt;!-- 后台返回的js代码，用于直接吐出执行全局onPageletArrive -->
+&lt;script>
 onPageletArrive({
     "id" : "pagelet1",
     "css" : [ ],
-    "js" : [ ] "content" : <html>
+    "js" : [ ] "content" : &lt;html>
     "onload": [JavaScript init code]
 });
-</script>
-```
-
+&lt;/script>
 …
-
-```html
-<script>
+&lt;script>
     // onPageletArrive for pageletN
-</script>
-```
-
-</body>
-</html>
+&lt;/script>
+&lt;/body>
+&lt;/html>
 ```
 
 从开发模式来说，BigPipe 这种的写法比较适合组件化、模块化的前端开发模式。从网站规模来说，对于大型网站的优化效果会比较明显，毕竟分步吐出内容也是会有延时存在的，对于小型网站来说，有可能直接吐出所有内容会比分步吐出更快。
@@ -198,58 +180,34 @@ onPageletArrive({
 相应地，我们得出如下的占位符。
 
 ```html
-<section>
-<!-- 活跃群成员 -->
-<div id="active"></div>
-<!-- 男女比例 -->
-<div id="gender"></div>
-<!-- 成员省份 -->
-<div id="area"></div>
+&lt;section>
+&lt;!-- 活跃群成员 -->
+&lt;div id="active">&lt;/div>
+&lt;!-- 男女比例 -->
+&lt;div id="gender">&lt;/div>
+&lt;!-- 成员省份 -->
+&lt;div id="area">&lt;/div>
  
-<!-- age -->
-<div id="age"></div>
-</section>
+&lt;!-- age -->
+&lt;div id="age">&lt;/div>
+&lt;/section>
 ```
 
 **(2) 设计每个 Pagelet 需要渲染的内容，并对前后台的代码进行分工**
 
 根据 Facebook 的方式，每个 Pagelet 都有自己独立需要加载的样式，JS 文件，模板文件。这对于小型项目来说，大可不必。如手 Q 群成员分布项目中，我已直接将样式内联，模板文件也存在变量当中。因此，前端全局渲染函数主要负责将内容嵌入占位符当中。因此在 head 标签内，我设定了一个 componentRender 的函数，用于负责将后台吐出的内容嵌入占位符。代码大概如下:
 
-````html
+```html
 function componentRender(target, tplString) {
 // targetObj.innerHTML = tplString
 }
  
 而后台的代码，则在拼好模板字符串之后，分步吐出内容，代码大体如下：
-this.push("
-```html
-<script>componentRender(\"#active\," + tplString )</script>
-````
-
-");
-this.push("
-
-```html
-<script>componentRender(\"#gender\," + tplString )</script>
+this.push("&lt;script>componentRender(\"#active\," + tplString )&lt;/script>");
+this.push("&lt;script>componentRender(\"#gender\," + tplString )&lt;/script>");
+this.push("&lt;script>componentRender(\"#area\," + tplString )&lt;/script>");
+this.push("&lt;script>componentRender(\"#age\," + tplString )&lt;/script>");
 ```
-
-");
-this.push("
-
-```html
-<script>componentRender(\"#area\," + tplString )</script>
-```
-
-");
-this.push("
-
-```html
-<script>componentRender(\"#age\," + tplString )</script>
-```
-
-");
-
-````
 
 对于后台的代码，尤其是使用 Koa 框架，可能会无从入手，大家可以参考 Github 上的 [BigPipe Example](https://github.com/koajs/bigpipe-example)。大体的写法和解释如下：
 
@@ -282,7 +240,7 @@ module.exports = function* () {
     const View = createChunkedView(end);
     yield* new View(this).end();
 };
-````
+```
 
 **3. 成果**
 

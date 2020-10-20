@@ -13,28 +13,18 @@ Google 作为业界的领头羊，为 HTML5 代码规范作出了详尽实用的
 
 建议在指向图片或其他媒体文件、样式表和脚本的 URL 地址中省略 http：https&#x3A; 协议部分，除非已知相应文件不能同时兼容 2 个协议。
 
-<br>  
-<!-- Not recommended 不推荐 --><br>  
-
-```html
-<script src="http://www.google.com/js/gweb/analytics/autotrack.js"></script>
-```
-
-<br>  
-<!-- Recommended 推荐--><br>  
-
-```html
-<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
-```
-
-<br>  
-/\* Not recommended 不推荐 \*/<br>  
-.example {<br>  
-background: url(http://www.google.com/images/example);<br>  
-}<br>  
-/\* Recommended 推荐 \*/<br>  
-.example {<br>  
-background: url(//www.google.com/images/example);<br>  
+&lt;br>  
+&lt;!-- Not recommended 不推荐 -->&lt;br>  
+&lt;script src="[http://www.google.com/js/gweb/analytics/autotrack.js">&lt;/script>&lt;br>](http://www.google.com/js/gweb/analytics/autotrack.js%22%3E%3C/script%3E%3Cbr%3E)  
+&lt;!-- Recommended 推荐 -->&lt;br>  
+&lt;script src="//[www.google.com/js/gweb/analytics/autotrack.js">&lt;/script>&lt;br>](http://www.google.com/js/gweb/analytics/autotrack.js%22%3E%3C/script%3E%3Cbr%3E)  
+/\* Not recommended 不推荐 \*/&lt;br>  
+.example {&lt;br>  
+background: url([http://www.google.com/images/example);&lt;br>](<http://www.google.com/images/example);%3Cbr%3E>)  
+}&lt;br>  
+/\* Recommended 推荐 \*/&lt;br>  
+.example {&lt;br>  
+background: url(//[www.google.com/images/example);&lt;br>](<http://www.google.com/images/example);%3Cbr%3E>)  
 }
 
 注：这个倒是真正平日不注意的，只要是绝对地址，http：总是带着。如果仔细想一想，还真有道理。
@@ -44,7 +34,7 @@ background: url(//www.google.com/images/example);<br>
 
 [?](http://www.mxria.com/html5/h201205111471.htm#)
 
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></td><td><div><div><code>&lt;ul&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;li&gt;mxria.com&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;li&gt;www.mxria.com&lt;br&gt;</code></div><div><code>&lt;/ul&gt;&lt;br&gt;</code></div><div><code>.example {&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>color</code><code>: </code><code>blue</code><code>;&lt;br&gt;</code></div><div><code>}</code></div></div></td></tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></td><td><div><div><code>&amp;lt;ul&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;li&gt;mxria.com&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;li&gt;www.mxria.com&amp;lt;br&gt;</code></div><div><code>&amp;lt;/ul&gt;&amp;lt;br&gt;</code></div><div><code>.example {&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>color</code><code>: </code><code>blue</code><code>;&amp;lt;br&gt;</code></div><div><code>}</code></div></div></td></tr></tbody></table>
 
 **3. 大小写：只使用小写**
 
@@ -52,18 +42,18 @@ background: url(//www.google.com/images/example);<br>
 
 [?](http://www.mxria.com/html5/h201205111471.htm#)
 
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></td><td><div><div><code>&lt;br&gt;</code></div><div><code>&lt;!-- Not recommended 不推荐--&gt;&lt;br&gt;</code></div><div><code>&lt;A HREF=</code><code>"/"</code><code>&gt;Home&lt;/A&gt;&lt;br&gt;</code></div><div><code>&lt;!-- Recommended 推荐--&gt;&lt;br&gt;</code></div><div><code>&lt;img src=</code><code>"mxria.png"</code> <code>alt=</code><code>"MXRIA"</code><code>&gt;</code></div></div></td></tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></td><td><div><div><code>&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Not recommended 不推荐--&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;A HREF=</code><code>"/"</code><code>&gt;Home&amp;lt;/A&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Recommended 推荐--&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;img src=</code><code>"mxria.png"</code> <code>alt=</code><code>"MXRIA"</code><code>&gt;</code></div></div></td></tr></tbody></table>
 
 **4. 尾随空格  
 **尾随空格是不必要的，容易搞复杂 diff 文件。这个绝对是经验教训的总结！！！
 
 [?](http://www.mxria.com/html5/h201205111471.htm#)
 
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div></td><td><div><div><code>&lt;!-- Not recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;p&gt;What?_&lt;br&gt;</code></div><div><code>&lt;!-- Recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;p&gt;Yes please.</code></div></div></td></tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div></td><td><div><div><code>&amp;lt;!-- Not recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;p&gt;What?_&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;p&gt;Yes please.</code></div></div></td></tr></tbody></table>
 
 **5. 编码格式：使用 UTF-8**
 
-请确保您的编辑器使用的字符编码？？为 UTF-8，没有字节顺序标记。在 html 模板或文档中通过 <meta charset="utf-8"> 来
+请确保您的编辑器使用的字符编码？？为 UTF-8，没有字节顺序标记。在 html 模板或文档中通过 &lt;meta charset="utf-8"> 来
 
 定义编码格式。关于编码格式参考 Character Sets & Encodings in XHTML, HTML and CSS
 
@@ -77,7 +67,7 @@ background: url(//www.google.com/images/example);<br>
 
 **8. 文档类型：使用 HTML5**
 
-使用<!DOCTYPE html>.HTML（text/html）类型文件相对 XHTML（alication/xhtml+xml）文件，在浏览器及框架支持上和优化空间上都要好很多。  
+使用&lt;!DOCTYPE html>.HTML（text/html）类型文件相对 XHTML（alication/xhtml+xml）文件，在浏览器及框架支持上和优化空间上都要好很多。  
 **9.HTML 合法性验证**
 
 合法的使用 HTML，并利用 w3c 的工具（W3C HTML validator）进行检查。唯一例外就是因为性能原因需要压缩文件大小。  
@@ -85,14 +75,14 @@ background: url(//www.google.com/images/example);<br>
 
 [?](http://www.mxria.com/html5/h201205111471.htm#)
 
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></td><td><div><div><code>&lt;br&gt;</code></div><div><code>&lt;!-- Not recommended 不推荐--&gt;&lt;br&gt;</code></div><div><code>&lt;title&gt;Test&lt;/title&gt;&lt;br&gt;</code></div><div><code>&lt;article&gt;This is only a test.&lt;br&gt;</code></div><div><code>&lt;!-- Recommended 推荐--&gt;&lt;br&gt;</code></div><div><code>&lt;!DOCTYPE html&gt;&lt;br&gt;</code></div><div><code>&lt;meta charset=</code><code>"utf-8"</code><code>&gt;&lt;br&gt;</code></div><div><code>&lt;title&gt;Test&lt;/title&gt;&lt;br&gt;</code></div><div><code>&lt;article&gt;This is only a test.&lt;/article&gt;</code></div></div></td></tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></td><td><div><div><code>&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Not recommended 不推荐--&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;title&gt;Test&amp;lt;/title&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;article&gt;This is only a test.&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Recommended 推荐--&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;!DOCTYPE html&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;meta charset=</code><code>"utf-8"</code><code>&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;title&gt;Test&amp;lt;/title&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;article&gt;This is only a test.&amp;lt;/article&gt;</code></div></div></td></tr></tbody></table>
 
 **10. 语义性  
 **根据目的来合理使用 HTML，这点对于 HTML5 而言尤为重要。下面例子可以对比，能实现同样的结果，但效率和可读性却有很大差别。
 
 [?](http://www.mxria.com/html5/h201205111471.htm#)
 
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></td><td><div><div><code>&lt;br&gt;</code></div><div><code>&lt;!-- Not recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;div onclick=</code><code>"goToRecommendations();"</code><code>&gt;All recommendations&lt;/div&gt;&lt;br&gt;</code></div><div><code>&lt;!-- Recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;a href=</code><code>"recommendations/"</code><code>&gt;All recommendations&lt;/a&gt;</code></div></div></td></tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></td><td><div><div><code>&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Not recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;div onclick=</code><code>"goToRecommendations();"</code><code>&gt;All recommendations&amp;lt;/div&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;a href=</code><code>"recommendations/"</code><code>&gt;All recommendations&amp;lt;/a&gt;</code></div></div></td></tr></tbody></table>
 
 对于 HTML5 而言，例如 header、footer、nav、section 等跟 div 能实现的功能基本类似，但是语义性上有着天壤之别。
 
@@ -107,7 +97,7 @@ background: url(//www.google.com/images/example);<br>
 
 [?](http://www.mxria.com/html5/h201205111471.htm#)
 
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></td><td><div><div><code>&lt;strong&gt;&lt;br&gt;</code></div><div><code>&lt;/strong&gt;&lt;!-- Not recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;!DOCTYPE html&gt;&lt;br&gt;</code></div><div><code>&lt;html&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;head&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;title&gt;Spending money, spending bytes&lt;/title&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;/head&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;body&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;p&gt;Sic.&lt;/p&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;/body&gt;&lt;br&gt;</code></div><div><code>&lt;/html&gt;&lt;br&gt;</code></div><div><code>&lt;!-- Recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;!DOCTYPE html&gt;&lt;br&gt;</code></div><div><code>&lt;title&gt;Saving money, saving bytes&lt;/title&gt;&lt;br&gt;</code></div><div><code>&lt;p&gt;Qed.</code></div></div></td></tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></td><td><div><div><code>&amp;lt;strong&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;/strong&gt;&amp;lt;!-- Not recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;!DOCTYPE html&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;html&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;head&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&amp;lt;title&gt;Spending money, spending bytes&amp;lt;/title&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;/head&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;body&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&amp;lt;p&gt;Sic.&amp;lt;/p&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;/body&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;/html&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;!DOCTYPE html&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;title&gt;Saving money, saving bytes&amp;lt;/title&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;p&gt;Qed.</code></div></div></td></tr></tbody></table>
 
 **13. 实体引用  
 **假定开发团队内，文件和编辑器都是使用同样的编码格式（UTF-8），则没有必要使用实体引用的方式，例如—,
@@ -119,14 +109,14 @@ background: url(//www.google.com/images/example);<br>
 
 [?](http://www.mxria.com/html5/h201205111471.htm#)
 
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></td><td><div><div><code>&lt;br&gt;</code></div><div><code>&lt;!-- Not recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;link rel=</code><code>"stylesheet"</code> <code>href=</code><code>"//www.google.com/css/maia.css"</code><code>&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>type=</code><code>"text/css"</code><code>&gt;&lt;br&gt;</code></div><div><code>&lt;!-- Recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;link rel=</code><code>"stylesheet"</code> <code>href=</code><code>"//www.google.com/css/maia.css"</code><code>&gt;&lt;br&gt;</code></div><div><code>&lt;!-- Not recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;script src=</code><code>"//www.google.com/js/gweb/analytics/autotrack.js"</code><code>&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>type=</code><code>"text/javascript"</code><code>&gt;&lt;/script&gt;&lt;br&gt;</code></div><div><code>&lt;!-- Recommended --&gt;&lt;br&gt;</code></div><div><code>&lt;script src=</code><code>"//www.google.com/js/gweb/analytics/autotrack.js"</code><code>&gt;&lt;/script&gt;</code></div></div></td></tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></td><td><div><div><code>&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Not recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;link rel=</code><code>"stylesheet"</code> <code>href=</code><code>"//www.google.com/css/maia.css"</code><code>&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>type=</code><code>"text/css"</code><code>&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;link rel=</code><code>"stylesheet"</code> <code>href=</code><code>"//www.google.com/css/maia.css"</code><code>&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Not recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;script src=</code><code>"//www.google.com/js/gweb/analytics/autotrack.js"</code><code>&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>type=</code><code>"text/javascript"</code><code>&gt;&amp;lt;/script&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;!-- Recommended --&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;script src=</code><code>"//www.google.com/js/gweb/analytics/autotrack.js"</code><code>&gt;&amp;lt;/script&gt;</code></div></div></td></tr></tbody></table>
 
 **15.block，list 或 table 元素  
 **针对每个 block，list 或 table 元素另起一行，并在每个子元素前缩进。这样可读性好，例如：
 
 [?](http://www.mxria.com/html5/h201205111471.htm#)
 
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div></td><td><div><div><code>&lt;blockquote&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;&lt;br&gt;</code></div><div><code>&lt;/blockquote&gt;&lt;br&gt;</code></div><div><code>&lt;ul&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;li&gt;Moe&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;li&gt;Larry&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;li&gt;Curly&lt;br&gt;</code></div><div><code>&lt;/ul&gt;&lt;br&gt;</code></div><div><code>&lt;table&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;thead&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;tr&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;th scope=</code><code>"col"</code><code>&gt;Income&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;th scope=</code><code>"col"</code><code>&gt;Taxes&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&lt;tbody&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;tr&gt;&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;td&gt;$ 5.00&lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&lt;td&gt;$ 4.50&lt;br&gt;</code></div><div><code>&lt;/table&gt;</code></div></div></td></tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div></td><td><div><div><code>&amp;lt;blockquote&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;p&gt;&amp;lt;em&gt;Space&amp;lt;/em&gt;, the final frontier.&amp;lt;/p&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;/blockquote&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;ul&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;li&gt;Moe&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;li&gt;Larry&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;li&gt;Curly&amp;lt;br&gt;</code></div><div><code>&amp;lt;/ul&gt;&amp;lt;br&gt;</code></div><div><code>&amp;lt;table&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;thead&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&amp;lt;tr&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&amp;lt;th scope=</code><code>"col"</code><code>&gt;Income&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&amp;lt;th scope=</code><code>"col"</code><code>&gt;Taxes&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;</code><code>&amp;lt;tbody&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&amp;lt;tr&gt;&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&amp;lt;td&gt;$ 5.00&amp;lt;br&gt;</code></div><div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code>&amp;lt;td&gt;$ 4.50&amp;lt;br&gt;</code></div><div><code>&amp;lt;/table&gt;</code></div></div></td></tr></tbody></table>
 
 对于使用 HTML5 的朋友，可以参考。当然，不同团队还会整理出适合自己的代码规范，上述应该来说属于比较基本的规则内容。
 

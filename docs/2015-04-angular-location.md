@@ -83,28 +83,28 @@ HTML5 模式
 
 Angular 内部做了向下兼容，采用本模式后，在低版本的浏览器仍会用 Hashbang 来降级处理，两种模式的 URL 也能自动实现相互转换，无需开发者关注。不过，以下三种情况，Angular 不会做转换：
 
--   带有 target 的链接 <a href="/ext/link?a=b" target="\_self">link</a>
--   跳往其他域名的绝对路径 <a href="http://angularjs.org/">link</a>
--   非当前根路径下的链接 <a href="/not-my-base/link">link</a>
+-   带有 target 的链接 &lt;a href="/ext/link?a=b" target="\_self">link&lt;/a>
+-   跳往其他域名的绝对路径 &lt;a href="[http://angularjs.org/">link&lt;/a>](http://angularjs.org/%22%3Elink%3C/a%3E)
+-   非当前根路径下的链接 &lt;a href="/not-my-base/link">link&lt;/a>
 
 **记得设置页面的根目录**。
 
 如果你的应用挂在根目录（<https://myapp.com/），则设置为：>
 
 ```html
-<head>
-  <base href="/">
+&lt;head>
+  &lt;base href="/">
   ...
-</head>
+&lt;/head>
 ```
 
 如果挂在子目录（<https://myapp.com/subapp/），则设置为：>
 
 ```html
-<head>
-  <base href="/subapp/">
+&lt;head>
+  &lt;base href="/subapp/">
   ...
-</head>
+&lt;/head>
 ```
 
 不设置会导致 Angular 无法正确处理相对链接和回退到 hashbang 模式。

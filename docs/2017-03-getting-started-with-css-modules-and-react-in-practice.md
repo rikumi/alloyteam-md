@@ -97,13 +97,13 @@ CSS Modules 能最大化地结合现有 CSS 生态 (预处理器 / 后处理器�
 // components/Button.js
 import styles from "./Button.css";
 console.log(styles);
-buttonElem.outerHTML = `<button class=${styles.normal}>Submit</button>`;
+buttonElem.outerHTML = `&lt;button class=${styles.normal}>Submit&lt;/button>`;
 ```
 
 生成的 HTML 是
 
 ```html
-<button class="button--normal-abc53">Submit</button>;
+&lt;button class="button--normal-abc53">Submit&lt;/button>;
 ```
 
 注意到 `button--normal-abc53` 是 CSS Modules 按照 `localIdentName` 自动生成的 class 名。其中的 `abc53` 是按照给定算法生成的序列码。经过这样混淆处理后，class 名基本就是唯一的，大大降低了项目中样式覆盖的几率。同时在生产环境下修改规则，生成更短的 class 名，可以提高 CSS 的压缩率。
@@ -138,10 +138,10 @@ import styles from "./table.css";
 export default class Table extends React.Component {
     render() {
         return (
-            <div className={styles.table}>
-                            <div className={styles.row}>            </div>
+            &lt;div className={styles.table}>
+                            &lt;div className={styles.row}>            &lt;/div>
                         
-            </div>
+            &lt;/div>
         );
     }
 }
@@ -150,10 +150,10 @@ export default class Table extends React.Component {
 渲染出来的组件出来
 
 ```c
-<div class="table__table___32osj">
-    <div class="table__row___2w27N">
-    </div>
-</div>
+&lt;div class="table__table___32osj">
+    &lt;div class="table__row___2w27N">
+    &lt;/div>
+&lt;/div>
  
 ```
 
@@ -169,7 +169,7 @@ import CSSModules from "react-css-modules";
 import styles from "./table.css";
 class Table extends React.Component {
     render() {
-        return <div styleName="table">        </div>;
+        return &lt;div styleName="table">        &lt;/div>;
     }
 }
 export default CSSModules(Table, styles);
@@ -189,8 +189,8 @@ import styles from './table.css';
  
 class Table extends React.Component {
     render () {
-        return <div styleName='table'>
-        </div>;
+        return &lt;div styleName='table'>
+        &lt;/div>;
     }
 }
  
@@ -268,8 +268,8 @@ import './table.module.styl';
  
 class Table extends React.Component {
     render () {
-        return <div styleName='table'>
-        </div>;
+        return &lt;div styleName='table'>
+        &lt;/div>;
     }
 }
  

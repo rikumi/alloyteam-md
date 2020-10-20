@@ -33,10 +33,10 @@ var MyContainer = React.createClass({
     },
     render: function () {
         return (
-            <div>
+            &lt;div>
                 The curItem is: {this.state.curItem}
-                <List list={this.state.list} changeItem={this.changeItem} />
-            </div>
+                &lt;List list={this.state.list} changeItem={this.changeItem} />
+            &lt;/div>
         );
     },
 });
@@ -46,26 +46,26 @@ var List = React.createClass({
     },
     render: function () {
         return (
-            <ul>
+            &lt;ul>
                 {function () {
                     var self = this;
                     return this.props.list.map(function (item) {
                         return (
-                            <li onClick={self.onClickItem.bind(self, item)}>
+                            &lt;li onClick={self.onClickItem.bind(self, item)}>
                                 I am {item}, click me!
-                            </li>
+                            &lt;/li>
                         );
                     });
                 }.bind(this)()}
                  
-            </ul>
+            &lt;/ul>
         );
     },
 });
-ReactDOM.render(<MyContainer />, document.getElementById("example"));
+ReactDOM.render(&lt;MyContainer />, document.getElementById("example"));
 ```
 
-<MyContainer /> 是<List /> 的父组件，<MyContainer /> 通过 props 传递 list 数据给<List /> 组件，如果<MyContainer /> 中的 list 改变，<List /> 会重新渲染列表数据。而<List /> 可以通过<MyContainer /> 传来的 changeItem 函数，改变<MyContainer /> 的 curItem 数据。
+&lt;MyContainer /> 是&lt;List /> 的父组件，&lt;MyContainer /> 通过 props 传递 list 数据给&lt;List /> 组件，如果&lt;MyContainer /> 中的 list 改变，&lt;List /> 会重新渲染列表数据。而&lt;List /> 可以通过&lt;MyContainer /> 传来的 changeItem 函数，改变&lt;MyContainer /> 的 curItem 数据。
 
 **1.2  兄弟组件**
 
@@ -87,11 +87,11 @@ var MyContainer = React.createClass({
     },
     render: function () {
         return (
-            <div>
+            &lt;div>
                 The curItem is: {this.state.curItem}
-                <List list={this.state.list} curItem={this.state.curItem} />
-                <SelectionButtons changeItem={this.changeItem} />
-            </div>
+                &lt;List list={this.state.list} curItem={this.state.curItem} />
+                &lt;SelectionButtons changeItem={this.changeItem} />
+            &lt;/div>
         );
     },
 });
@@ -102,18 +102,18 @@ var List = React.createClass({
             background: "red",
         };
         return (
-            <ul>
+            &lt;ul>
                  
                 {function () {
                     var self = this;
                     return this.props.list.map(function (item) {
                         var itemStyle =
                             item == self.props.curItem ? selectedStyle : {};
-                        return <li style={itemStyle}>I am {item}!</li>;
+                        return &lt;li style={itemStyle}>I am {item}!&lt;/li>;
                     });
                 }.bind(this)()}
                  
-            </ul>
+            &lt;/ul>
         );
     },
 });
@@ -123,21 +123,21 @@ var SelectionButtons = React.createClass({
     },
     render: function () {
         return (
-            <div>
-                <button onClick={this.onClickItem.bind(this, "item1")}>
+            &lt;div>
+                &lt;button onClick={this.onClickItem.bind(this, "item1")}>
                     item1
-                </button>
-                <button onClick={this.onClickItem.bind(this, "item2")}>
+                &lt;/button>
+                &lt;button onClick={this.onClickItem.bind(this, "item2")}>
                     item2
-                </button>
-            </div>
+                &lt;/button>
+            &lt;/div>
         );
     },
 });
-ReactDOM.render(<MyContainer />, document.getElementById("example"));
+ReactDOM.render(&lt;MyContainer />, document.getElementById("example"));
 ```
 
-如上述代码所示，共享数据 curItem 作为 state 放在父组件<MyContainer /> 中，将回调函数 changeItem 传给<SelectionButtons /> 用于改变 curItem，将 curItem 传给<List /> 用于高亮当前被选择的 item。
+如上述代码所示，共享数据 curItem 作为 state 放在父组件&lt;MyContainer /> 中，将回调函数 changeItem 传给&lt;SelectionButtons /> 用于改变 curItem，将 curItem 传给&lt;List /> 用于高亮当前被选择的 item。
 
 **2.  组件层次太深的噩梦**
 
@@ -158,7 +158,7 @@ var EventEmitter = {
     _events: {},
     dispatch: function (event, data) {
         if (!this._events[event]) return; // no one is listening to this event
-        for (var i = 0; i < this._events[event].length; i++)
+        for (var i = 0; i &lt; this._events[event].length; i++)
             this._events[event][i](data);
     },
     subscribe: function (event, callback) {
@@ -179,10 +179,10 @@ var EventEmitter = {
 var MyContainer = React.createClass({
     render: function () {
         return (
-            <div>
-                <CurItemPanel />
-                <SelectionButtons />
-            </div>
+            &lt;div>
+                &lt;CurItemPanel />
+                &lt;SelectionButtons />
+            &lt;/div>
         );
     },
 });
@@ -204,7 +204,7 @@ var CurItemPanel = React.createClass({
         EventEmitter.unSubscribe("changeItem");
     },
     render: function () {
-        return <p>The curItem is:  {this.state.curItem}</p>;
+        return &lt;p>The curItem is:  {this.state.curItem}&lt;/p>;
     },
 });
 var SelectionButtons = React.createClass({
@@ -213,18 +213,18 @@ var SelectionButtons = React.createClass({
     },
     render: function () {
         return (
-            <div>
-                <button onClick={this.onClickItem.bind(this, "item1")}>
+            &lt;div>
+                &lt;button onClick={this.onClickItem.bind(this, "item1")}>
                     item1
-                </button>
-                <button onClick={this.onClickItem.bind(this, "item2")}>
+                &lt;/button>
+                &lt;button onClick={this.onClickItem.bind(this, "item2")}>
                     item2
-                </button>
-            </div>
+                &lt;/button>
+            &lt;/div>
         );
     },
 });
-ReactDOM.render(<MyContainer />, document.getElementById("example"));
+ReactDOM.render(&lt;MyContainer />, document.getElementById("example"));
 ```
 
 事件绑定和解绑可以分别放在 componentDidMount 和 componentWillUnMount 中。由于事件是全局的，最好保证在 componentWillUnMount 中解绑事件，否则，下一次初始化组件时事件可能会绑定多次。 使用事件模型，组件之间无论是父子关系还是非父子关系都可以直接沟通，从而解决了组件间层层回调传递的问题，但是频繁地使用事件实现组件间沟通会使整个程序的数据流向越来越乱，因此，组件间的沟通还是要尽量遵循单向数据流机制。
@@ -259,10 +259,10 @@ var MyContainer = React.createClass({
     },
     render: function () {
         return (
-            <div>
-                <CurItemWrapper />
-                <ListWrapper changeItem={this.changeItem} />
-            </div>
+            &lt;div>
+                &lt;CurItemWrapper />
+                &lt;ListWrapper changeItem={this.changeItem} />
+            &lt;/div>
         );
     },
 });
@@ -276,9 +276,9 @@ childContextTypes 用于验证上下文的数据类型，这个属性是必须�
 var CurItemWrapper = React.createClass({
     render: function () {
         return (
-            <div>
-                <CurItemPanel />
-            </div>
+            &lt;div>
+                &lt;CurItemPanel />
+            &lt;/div>
         );
     },
 });
@@ -287,12 +287,12 @@ var CurItemPanel = React.createClass({
         curItem: React.PropTypes.any,
     },
     render: function () {
-        return <p>The curItem is: {this.context.curItem}</p>;
+        return &lt;p>The curItem is: {this.context.curItem}&lt;/p>;
     },
 });
 ```
 
-在<CurItemPanel /> 通过 this.context.curItem 属性访问 curItem，无需让<CurItemWrapper /> 将 curItem 传递过来。必须在 contextTypes 中设置 curItem 的验证类型，否则 this.context 是访问不了 curItem 的。
+在&lt;CurItemPanel /> 通过 this.context.curItem 属性访问 curItem，无需让&lt;CurItemWrapper /> 将 curItem 传递过来。必须在 contextTypes 中设置 curItem 的验证类型，否则 this.context 是访问不了 curItem 的。
 
 **ListWrapper 组件和 List 组件：**
 
@@ -300,9 +300,9 @@ var CurItemPanel = React.createClass({
 var ListWrapper = React.createClass({
     render: function () {
         return (
-            <div>
-                <List />
-            </div>
+            &lt;div>
+                &lt;List />
+            &lt;/div>
         );
     },
 });
@@ -315,20 +315,20 @@ var List = React.createClass({
     },
     render: function () {
         return (
-            <ul>
-                <li onClick={this.onClickItem.bind(this, "item1")}>
+            &lt;ul>
+                &lt;li onClick={this.onClickItem.bind(this, "item1")}>
                     I am item1, click me!
-                </li>
-                <li onClick={this.onClickItem.bind(this, "item2")}>
+                &lt;/li>
+                &lt;li onClick={this.onClickItem.bind(this, "item2")}>
                     I am item2, click me!
-                </li>
-            </ul>
+                &lt;/li>
+            &lt;/ul>
         );
     },
 });
 ```
 
-同上，<List /> 可以通过 this.context.changeItem 获取<MyContainer /> 的改变 curItem 的 changeItem 函数。
+同上，&lt;List /> 可以通过 this.context.changeItem 获取&lt;MyContainer /> 的改变 curItem 的 changeItem 函数。
 
 **5. Redux**
 
@@ -355,11 +355,11 @@ import { render } from "react-dom";
 import App from "./App";
 let store = createStore(reducers);
 render(
-    <Provider store={store}>
+    &lt;Provider store={store}>
             
-        <App />
+        &lt;App />
           
-    </Provider>,
+    &lt;/Provider>,
     document.getElementById("root")
 );
 ```
@@ -411,13 +411,13 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
+            &lt;div>
                         
-                <CurItemPanel />
+                &lt;CurItemPanel />
                         
-                <List />
+                &lt;List />
                       
-            </div>
+            &lt;/div>
         );
     }
 }
@@ -430,7 +430,7 @@ class CurItemPanel extends Component {
         super(props, context);
     }
     render() {
-        return <div>The curItem is: {this.context.curItem}</div>;
+        return &lt;div>The curItem is: {this.context.curItem}&lt;/div>;
     }
 }
 CurItemPanel.contextTypes = {
@@ -445,17 +445,17 @@ class List extends Component {
     }
     render() {
         return (
-            <ul>
+            &lt;ul>
                         
-                <li onClick={this.onClickItem.bind(this, "item1")}>
+                &lt;li onClick={this.onClickItem.bind(this, "item1")}>
                     I am item1, click me!
-                </li>
+                &lt;/li>
                         
-                <li onClick={this.onClickItem.bind(this, "item2")}>
+                &lt;li onClick={this.onClickItem.bind(this, "item2")}>
                     I am item2, click me!
-                </li>
+                &lt;/li>
                       
-            </ul>
+            &lt;/ul>
         );
     }
 }
@@ -475,7 +475,7 @@ function mapDispatchToProps(dispatch) {
 export default connect(select, mapDispatchToProps)(App);
 ```
 
-上述代码中，Store 是直接与智能组件<App /> 交互的，所以 Store 将 state 数据 curItem 和 dispatch 函数 changeItem 作为 props 传给了<App />。在<App /> 中将 curItem 数据和 changeItem 函数作为上下文，作为子组件的笨拙组件就可以之间通过上下文访问这些数据，无需通过 props 获取。
+上述代码中，Store 是直接与智能组件&lt;App /> 交互的，所以 Store 将 state 数据 curItem 和 dispatch 函数 changeItem 作为 props 传给了&lt;App />。在&lt;App /> 中将 curItem 数据和 changeItem 函数作为上下文，作为子组件的笨拙组件就可以之间通过上下文访问这些数据，无需通过 props 获取。
 
 注：
 
@@ -507,9 +507,9 @@ npm install transdux --save
     import { render } from 'react-dom';
      
     render(
-      <Transdux>
-        <App />
-      </Transdux>,
+      &lt;Transdux>
+        &lt;App />
+      &lt;/Transdux>,
       document.getElementById('root')
     );
 
@@ -536,12 +536,12 @@ class App extends Component {
     render() {
         // 应该传入调用了store.dispatch回调函数给笨拙组件
         return (
-            <div>
+            &lt;div>
                         {this.state.msg}
                         
-                <ChangeButton />
+                &lt;ChangeButton />
                       
-            </div>
+            &lt;/div>
         );
     }
 }
@@ -559,16 +559,16 @@ export default mixin(App, actions);
       }
       render() {
         return (
-          <div>
-            <button onClick={this.click.bind(this)}>change content</button>
-          </div>
+          &lt;div>
+            &lt;button onClick={this.click.bind(this)}>change content&lt;/button>
+          &lt;/div>
      
         )
       }
     }
     export default mixin(ChangeButton, {});
 
-mixin 方法扩为<ChangeButton /> 扩展了一个 dispatch 方法。dispatch 方法需要三个参数：接手消息的组件、改变组件的 actions、传递的对象。<ChangeButton /> 的按钮事件处理函数调用了该 dispatch 后，会改变<App /> 中的状态。
+mixin 方法扩为&lt;ChangeButton /> 扩展了一个 dispatch 方法。dispatch 方法需要三个参数：接手消息的组件、改变组件的 actions、传递的对象。&lt;ChangeButton /> 的按钮事件处理函数调用了该 dispatch 后，会改变&lt;App /> 中的状态。
 
 使用了 Clojure 的 Channel 通信机制，实现了组件与组件之间的直接通信。这种通信的效果类似与 events，每个组件可以维护着自己的 state，然后用 mixin 包装自己传给其他组件改变状态。
 

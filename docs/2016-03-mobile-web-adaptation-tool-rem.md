@@ -79,9 +79,9 @@ rem 进行屏幕适配
       height: 10rem;
       background-color: red;
  }
-<div class="con">
+&lt;div class="con">
         
-</div>
+&lt;/div>
 ```
 
 ![](http://7jpp2v.com1.z0.glb.clouddn.com/div.png)
@@ -97,9 +97,9 @@ html {
       height: 10rem;
       background-color: red;
  }
-<div class="con">
+&lt;div class="con">
         
-</div>
+&lt;/div>
 ```
 
 再来看看结果：
@@ -182,9 +182,9 @@ iphone6: 375px  / 10 =37.5px
       height: px2rem(200px);
       background-color: red;
 }
-<div class="con">
+&lt;div class="con">
         
-</div>
+&lt;/div>
 document.addEventListener('DOMContentLoaded', function(e) {
                 document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
 }, false);

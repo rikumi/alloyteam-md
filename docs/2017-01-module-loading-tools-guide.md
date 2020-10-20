@@ -25,39 +25,17 @@ source_link: http://www.alloyteam.com/2017/01/module-loading-tools-guide/
 
 对于前端来说，最简单的模块化就是拆分成多个文件，然后在 html 里就会出现如下的代码：
 
-````html
-
 ```html
-<script src="/js/module_a/a1.js"></script>
-````
-
-```html
-<script src="/js/module_a/a2.js"></script>
+&lt;script src="/js/module_a/a1.js">&lt;/script>
+&lt;script src="/js/module_a/a2.js">&lt;/script>
+&lt;script src="/js/module_b/b1.js">&lt;/script>
+&lt;script src="/js/module_c/c1.js">&lt;/script>
+&lt;script src="/js/module_c/c2.js">&lt;/script>
+&lt;script src="/js/module_c/c3.js">&lt;/script>
+&lt;script src="/js/module_c/c4.js">&lt;/script>
 ```
 
-```html
-<script src="/js/module_b/b1.js"></script>
-```
-
-```html
-<script src="/js/module_c/c1.js"></script>
-```
-
-```html
-<script src="/js/module_c/c2.js"></script>
-```
-
-```html
-<script src="/js/module_c/c3.js"></script>
-```
-
-```html
-<script src="/js/module_c/c4.js"></script>
-```
-
-````
-
-各位有没有觉得这种代码有点儿难看？像这样的代码不止难看，依赖也不清晰，假如上面的 module\_b 只是因为 module\_a 的需要才引入的，那么当我们去掉 module\_a 时还得搜一下相关文档或者源码，当我们检索出确确实实只有 module\_a 才依赖了 module\_b，我们才敢放心的把 module\_b 给去掉。
+各位有没有觉得这种代码有点儿难看？像这样的代码不止难看，依赖也不清晰，假如上面的 module_b 只是因为 module_a 的需要才引入的，那么当我们去掉 module_a 时还得搜一下相关文档或者源码，当我们检索出确确实实只有 module_a 才依赖了 module_b，我们才敢放心的把 module_b 给去掉。
 
 因此，就衍生了像 requirejs 之类模块加载工具，同时还能处理依赖关系。其实像 requirejs 和 webpack 之类的构建工具处理模块化时很相似，只是处理模块依赖的时机不同，requirejs 是直接在浏览器里处理，而 webpack 则是在上线前就将模块进行打包。而在代码上两者最大的差异就是，requirejs 需要每个模块包裹一层依赖代码（其实这层代码也可以借由构建工具生成），而 webpack 则会在打包后的代码里注入一下模块化的脚本。事实上这两者也不是水火不容，这主要看项目的技术选型。
 
@@ -65,7 +43,7 @@ source_link: http://www.alloyteam.com/2017/01/module-loading-tools-guide/
 
 需求  
 
------
+* * *
 
 使用方式我们就做得简单一点，只暴露一个方法出来：define 方法。
 
@@ -79,7 +57,7 @@ define(["/js/a.js", "/js/b.js"], function (a, b) {
         },
     };
 });
-````
+```
 
 每个模块都用 define 来定义，声明依赖的模块和回调方法。回调中可以返回一个对象，也可以不返回值。如果返回对象则会被注入到依赖这个模块的模块回调方法中，如果不返回值则注入空对象。同时依赖的模块可以是纯文本文件或 json 文件，如果纯文本，注入进来的会是该文件的字符串内容，如果是 json 文件则注入 json 对象：
 
@@ -327,7 +305,7 @@ var runLoading = function (url, deps, callback) {
     }
     url = formatURL(url);
     if (STATUS[url] === DEFINED) return; // 已定义 // 加载依赖模块
-    for (var i = 0, l = deps.length; i < l; i++) {
+    for (var i = 0, l = deps.length; i &lt; l; i++) {
         deps[i] = formatURL(deps[i] || "", url); // 格式化依赖列表中的url
         loadResource(deps[i]); // 加载资源
     }
@@ -396,7 +374,7 @@ var runWaiting = (function () {
  */
 var runDefining = function (item) {
     var args = []; // 遍历依赖列表
-    for (var i = 0, len = item.deps.length; i < len; i++) {
+    for (var i = 0, len = item.deps.length; i &lt; len; i++) {
         var it = item.deps[i];
         RESULTS[it] = RESULTS[it] || {};
         args.push(RESULTS[it]);

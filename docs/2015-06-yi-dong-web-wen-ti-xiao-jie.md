@@ -10,7 +10,7 @@ source_link: http://www.alloyteam.com/2015/06/yi-dong-web-wen-ti-xiao-jie/
 ### **Meta 标签：**
 
 ```html
-<meta
+&lt;meta
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"
     name="viewport"
 />;
@@ -19,8 +19,8 @@ source_link: http://www.alloyteam.com/2015/06/yi-dong-web-wen-ti-xiao-jie/
 这个想必大家都知道，当页面在手机上显示时，增加这个 meta 可以让页面强制让文档的宽度与设备的宽度保持 1:1，并且文档最大的宽度比例是 1.0，且不允许用户点击屏幕放大浏览。
 
 ```c
-<meta content="telephone=no" name="format-detection" />
-<meta content="email=no" name="format-detection" />
+&lt;meta content="telephone=no" name="format-detection" />
+&lt;meta content="email=no" name="format-detection" />
 ```
 
 这两个属性分别对 ios 上自动识别电话和 android 上自动识别邮箱做了限制。
@@ -145,21 +145,21 @@ click 事件因为要等待双击确认，会有 300ms 的延迟，体验并不�
 ### **IOS 里面 fixed 的文本框焦点居中**
 
 ```html
-<!DOCTYPE html>
-    <head>
+&lt;!DOCTYPE html>
+    &lt;head>
     input {
        position:fixed;
        top:0;left:0;
     }
-    </head>
-    <body>
-        <div class="header">
-            <form action="">
-                <label>Testfield: <input type="text" /></label>
-            </form>
-        </div>
-    </body>
-</html>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="header">
+            &lt;form action="">
+                &lt;label>Testfield: &lt;input type="text" />&lt;/label>
+            &lt;/form>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
 ```
 
 在 ios 里面，当一个文本框的样式为 fixed 时候，如果这个文本框获得焦点，它的位置就会乱掉，由于 ios 里面做了自适应居中，这个 fixed 的文本框会跑到页面中间。类似：
@@ -225,9 +225,9 @@ top: 15px;
 简单的说，由于在移动端我们经常会使用 tap (touchstart) 事件来替换掉 click 事件，那么就会有一种场景是：
 
 ```html
-<div id="mengceng"></div>
+&lt;div id="mengceng">&lt;/div>
  
-<a href="www.qq.com">www.qq.com</a>
+&lt;a href="www.qq.com">www.qq.com&lt;/a>
 ```
 
 div 是绝对定位的蒙层 z-index 高于 a，而 a 标签是页面中的一个链接，我们给 div 绑定 tap 事件：
@@ -256,13 +256,13 @@ u 在移动端，网络请求是很珍贵的资源，尤其在 2g 或者 3g 网�
 
 #### **手机拍照和上传图片**
 
-<input type="file"> 的 accept 属性
+&lt;input type="file"> 的 accept 属性
 
 ```html
-<!-- 选择照片 -->
-<input type=file accept="image/*">
-<!-- 选择视频 -->
-<input type=file accept="video/*">
+&lt;!-- 选择照片 -->
+&lt;input type=file accept="image/*">
+&lt;!-- 选择视频 -->
+&lt;input type=file accept="video/*">
 ```
 
 **动画效果时开启硬件加速**
@@ -316,9 +316,9 @@ ios
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
 }
-<div class="wrap">
-    <div class="box"></div>
-</div>
+&lt;div class="wrap">
+    &lt;div class="box">&lt;/div>
+&lt;/div>
 ```
 
 #### 设置 placeholder 时候 focus 时候文字没有隐藏

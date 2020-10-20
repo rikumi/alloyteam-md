@@ -39,13 +39,13 @@ void function iife() {
 当浏览其遇到一个 `javascript:URI`，它会运算带有 URI 的代码，然后将计算结果替换当前页面的内容，除非它的返回值是 undefined。void 操作符可以被用于返回 undefined。
 
 ```html
-<a href="javascript:void(0);">
+&lt;a href="javascript:void(0);">
   Click here to do nothing
-</a>
+&lt;/a>
  
-<a href="javascript:void(document.body.style.backgroundColor='green');">
+&lt;a href="javascript:void(document.body.style.backgroundColor='green');">
   Click here for green background
-</a>
+&lt;/a>
  
 ```
 

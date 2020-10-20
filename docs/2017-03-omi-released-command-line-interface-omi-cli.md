@@ -97,26 +97,26 @@ class Header extends Omi.Component {
     }
     style() {
         return `
-        <style>
+        &lt;style>
         .menu a:hover{
             color: white;
         }
-        </style>
+        &lt;/style>
         `;
     }
     render() {
         return `
-    <div class="head bord-btm">
-        <div class="logo_box">
-            <a href="https://github.com/AlloyTeam/omi"></a>
-        </div>
-        <ul class="menu">
-            <li class="github_li"><a href="https://github.com/AlloyTeam/omi">Github</a>
-            <li><a href="http://alloyteam.github.io/omi/example/playground/">Playground</a></li>
-            <li><a href="https://github.com/AlloyTeam/omi/tree/master/docs">[Edit the Docs]</a></li>
-            </li>
-        </ul>
-    </div>`;
+    &lt;div class="head bord-btm">
+        &lt;div class="logo_box">
+            &lt;a href="https://github.com/AlloyTeam/omi">&lt;/a>
+        &lt;/div>
+        &lt;ul class="menu">
+            &lt;li class="github_li">&lt;a href="https://github.com/AlloyTeam/omi">Github&lt;/a>
+            &lt;li>&lt;a href="http://alloyteam.github.io/omi/example/playground/">Playground&lt;/a>&lt;/li>
+            &lt;li>&lt;a href="https://github.com/AlloyTeam/omi/tree/master/docs">[Edit the Docs]&lt;/a>&lt;/li>
+            &lt;/li>
+        &lt;/ul>
+    &lt;/div>`;
     }
 }
 export default Header;

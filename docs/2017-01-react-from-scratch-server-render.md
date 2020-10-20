@@ -176,12 +176,12 @@ var App = React.createClass({
     },
     render: function () {
         return (
-            <div>
-                                <span>the count is: </span>
+            &lt;div>
+                                &lt;span>the count is: &lt;/span>
                                 
-                <span onClick={this._increment}>{this.state.count}</span>
+                &lt;span onClick={this._increment}>{this.state.count}&lt;/span>
                             
-            </div>
+            &lt;/div>
         );
     },
 });
@@ -211,52 +211,41 @@ app.listen(port, function () {
 
 server/page.js：暴露一个根组件转化为字符串的方法
 
-````html
+```html
 var React = require("react");
 var ReactDOMServer = require("react-dom/server");
 var App = require("../app/App");
 var ReactDOM = require("react-dom");
 module.exports = function (props) {
     var content = ReactDOMServer.renderToString(
-        <App initialCount={props.initialCount}></App>
+        &lt;App initialCount={props.initialCount}>&lt;/App>
     );
     var propsScript = "var APP_PROPS = " + JSON.stringify(props);
     var html = ReactDOMServer.renderToStaticMarkup(
-        <html>
-                        <head>            </head>
+        &lt;html>
+                        &lt;head>            &lt;/head>
                         
-            <body>
+            &lt;body>
                                 
-                <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
+                &lt;div id="root" dangerouslySetInnerHTML={{ __html: content }} />
                                 
-                
-```html
-<script
+                &lt;script
                     dangerouslySetInnerHTML={{ __html: propsScript }}
-                ></script>
-````
-
+                >&lt;/script>
                                 
-                
-
-```html
-<script src={"assets/entry.generator.js"}></script>
-```
-
+                &lt;script src={"assets/entry.generator.js"}>&lt;/script>
                             
-            </body>
+            &lt;/body>
                     
-        </html>
+        &lt;/html>
     );
     return html;
-
 };
+```
 
-````
+为了让服务器端和客户端的 props 一致，将一个服务器生成的首屏 props 赋给客户端的全局变量 APP_PROPS，在客户端初始化根组件时使用这个 APP_PROPS 根组件的 props。
 
-为了让服务器端和客户端的 props 一致，将一个服务器生成的首屏 props 赋给客户端的全局变量 APP\_PROPS，在客户端初始化根组件时使用这个 APP\_PROPS 根组件的 props。
-
-app/entry.js：客户端入口文件，用于在客户端渲染根组件，别忘了使用在服务器端写入的 APP\_PROPS 初始化根组件的 props
+app/entry.js：客户端入口文件，用于在客户端渲染根组件，别忘了使用在服务器端写入的 APP_PROPS 初始化根组件的 props
 
 ```javascript
 var React = require("react"),
@@ -264,10 +253,10 @@ var React = require("react"),
     App = require("./App");
 var APP_PROPS = window.APP_PROPS || {};
 ReactDOM.render(
-    <App initialCount={APP_PROPS.initialCount} />,
+    &lt;App initialCount={APP_PROPS.initialCount} />,
     document.getElementById("root")
 );
-````
+```
 
 源代码放在 github 上，懒得复制粘贴搭建项目的同学可以猛戳[这里](https://github.com/RockyRen/react-webpack-server-render-example)
 

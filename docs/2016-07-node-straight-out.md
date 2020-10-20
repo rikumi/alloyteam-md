@@ -38,7 +38,7 @@ source_link: http://www.alloyteam.com/2016/07/node-straight-out/
 在模式 1 中，第 1 点用户输入 url 时 server 端不做其他处理直接返回 html ，在第 4 点向 server 请求获取数据。那么，同样都是向 server 请求获取，如果在第 1 点中将请求数据放在 server 上，将拿到的数据拼接到 HTML 上一并返回，那么可减少在前端页面上的一次数据请求时间。 这就是模式 2 - 数据直出所做的事，处理方式也很简单
 
 1.  用户输入 url ，在 server 返回 HTML 前去请求获取页面需要的数据
-2.  将数据拼接到 HTML 上 并 一起返回给前端（可以插入 script 标签将数据添加到全局变量上，或放到某个标签的 data 属性中，如 <body data-serverData = '{list:\[1,2,3\]}' >）
+2.  将数据拼接到 HTML 上 并 一起返回给前端（可以插入 script 标签将数据添加到全局变量上，或放到某个标签的 data 属性中，如 &lt;body data-serverData = '{list:\[1,2,3]}' >）
 3.  在前端的 JS 代码中判断是否已在服务端拿到数据，直接拿该数据进行渲染页面，不再做数据请求
 
 具体可下面的流程图看出这种模式下

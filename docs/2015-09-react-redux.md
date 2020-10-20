@@ -269,10 +269,10 @@ class FilmApp extends Component {
  
   // 为各个 React 组件提供 state 数据 及 actions
   return (
-    <div>
-      <Header films={films} actions={actions}/>
-      <Section films={films} deleteFilm={actions.deleteFilm}/>
-    </div>
+    &lt;div>
+      &lt;Header films={films} actions={actions}/>
+      &lt;Section films={films} deleteFilm={actions.deleteFilm}/>
+    &lt;/div>
   );
   }
 }
@@ -310,7 +310,7 @@ export default connect(select)(FilmApp);
 Connect 组件需要 store。这个需求由 Redux 提供的另一个组件 Provider 来提供。源码中，Provider 继承了 React.Component，所以可以以 React 组件的形式来为 Provider 注入 store，从而使得其子组件能够在上下文中得到 store 对象。如
 
 ```javascript
-<Provider store={store}>    {() => <FilmApp />}</Provider>;
+&lt;Provider store={store}>    {() => &lt;FilmApp />}&lt;/Provider>;
 ```
 
 在 React 0.13 及以前的版本中，Provider 渲染子组件是通过执行 children ()，如

@@ -54,7 +54,7 @@ source_link: http://www.alloyteam.com/2015/06/he-xian-tui-dao-luo-ji-jian-xi-yu-
 如果用程序描述吉他品丝的关系就是：
 
 ```html
-<span class="keyword">var</span> scale = [<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>]; <span class="comment">//3-4是半音，7-1也是半音，相隔1品；其他是全音，相隔2品</span>
+&lt;span class="keyword">var&lt;/span> scale = [&lt;span class="number">2&lt;/span>, &lt;span class="number">2&lt;/span>, &lt;span class="number">1&lt;/span>, &lt;span class="number">2&lt;/span>, &lt;span class="number">2&lt;/span>, &lt;span class="number">2&lt;/span>, &lt;span class="number">1&lt;/span>]; &lt;span class="comment">//3-4是半音，7-1也是半音，相隔1品；其他是全音，相隔2品&lt;/span>
  
 ```
 
@@ -68,10 +68,10 @@ source_link: http://www.alloyteam.com/2015/06/he-xian-tui-dao-luo-ji-jian-xi-yu-
 与众不同的是，这把尺子首尾相连，更像一个循环的圈。
 
 ```html
-刻度：      <span class="number">2</span>品      <span class="number">2</span>品       <span class="number">1</span>品       <span class="number">2</span>品      <span class="number">2</span>品       <span class="number">2</span>品       <span class="number">1</span>品       <span class="number">2</span>品       <span class="number">2</span>品
+刻度：      &lt;span class="number">2&lt;/span>品      &lt;span class="number">2&lt;/span>品       &lt;span class="number">1&lt;/span>品       &lt;span class="number">2&lt;/span>品      &lt;span class="number">2&lt;/span>品       &lt;span class="number">2&lt;/span>品       &lt;span class="number">1&lt;/span>品       &lt;span class="number">2&lt;/span>品       &lt;span class="number">2&lt;/span>品
 和弦：C  +----> D  +----> E  +----> F  +----> G  +----> A  +----> B  +----> C  +----> D  +----> ……
-音符：<span class="keyword">Do</span> +----> Re +----> Me +----> Fa +----> So +----> La +----> Ti +----> <span class="keyword">Do</span> +----> Re +----> ……
-整数：<span class="number">1</span>  +----> <span class="number">2</span>  +----> <span class="number">3</span>  +----> <span class="number">4</span>  +----> <span class="number">5</span>  +----> <span class="number">6</span>  +----> <span class="number">7</span>  +----> <span class="number">1</span>  +----> <span class="number">2</span>  +----> ……
+音符：&lt;span class="keyword">Do&lt;/span> +----> Re +----> Me +----> Fa +----> So +----> La +----> Ti +----> &lt;span class="keyword">Do&lt;/span> +----> Re +----> ……
+整数：&lt;span class="number">1&lt;/span>  +----> &lt;span class="number">2&lt;/span>  +----> &lt;span class="number">3&lt;/span>  +----> &lt;span class="number">4&lt;/span>  +----> &lt;span class="number">5&lt;/span>  +----> &lt;span class="number">6&lt;/span>  +----> &lt;span class="number">7&lt;/span>  +----> &lt;span class="number">1&lt;/span>  +----> &lt;span class="number">2&lt;/span>  +----> ……
  
 ```
 
@@ -109,44 +109,44 @@ source_link: http://www.alloyteam.com/2015/06/he-xian-tui-dao-luo-ji-jian-xi-yu-
 至此我们可以列出，用 E 指法和 A 指法推导的所有和弦的横按位置：
 
 ```html
-<span class="keyword">var</span> positions = {
-    <span class="string">"E"</span>: {
-        <span class="string">"A"</span>: <span class="number">5</span>,
-        <span class="string">"A#"</span>: <span class="number">6</span>,
-        <span class="string">"Bb"</span>: <span class="number">6</span>,
-        <span class="string">"B"</span>: <span class="number">7</span>,
-        <span class="string">"C"</span>: <span class="number">8</span>,
-        <span class="string">"C#"</span>: <span class="number">9</span>,
-        <span class="string">"Db"</span>: <span class="number">9</span>,
-        <span class="string">"D"</span>: <span class="number">10</span>,
-        <span class="string">"D#"</span>: <span class="number">11</span>,
-        <span class="string">"Eb"</span>: <span class="number">11</span>,
-        <span class="string">"E"</span>: <span class="number">12</span>,
-        <span class="string">"F"</span>: <span class="number">1</span>,
-        <span class="string">"F#"</span>: <span class="number">2</span>,
-        <span class="string">"Gb"</span>: <span class="number">2</span>,
-        <span class="string">"G"</span>: <span class="number">3</span>,
-        <span class="string">"G#"</span>: <span class="number">4</span>,
-        <span class="string">"Ab"</span>: <span class="number">4</span>
+&lt;span class="keyword">var&lt;/span> positions = {
+    &lt;span class="string">"E"&lt;/span>: {
+        &lt;span class="string">"A"&lt;/span>: &lt;span class="number">5&lt;/span>,
+        &lt;span class="string">"A#"&lt;/span>: &lt;span class="number">6&lt;/span>,
+        &lt;span class="string">"Bb"&lt;/span>: &lt;span class="number">6&lt;/span>,
+        &lt;span class="string">"B"&lt;/span>: &lt;span class="number">7&lt;/span>,
+        &lt;span class="string">"C"&lt;/span>: &lt;span class="number">8&lt;/span>,
+        &lt;span class="string">"C#"&lt;/span>: &lt;span class="number">9&lt;/span>,
+        &lt;span class="string">"Db"&lt;/span>: &lt;span class="number">9&lt;/span>,
+        &lt;span class="string">"D"&lt;/span>: &lt;span class="number">10&lt;/span>,
+        &lt;span class="string">"D#"&lt;/span>: &lt;span class="number">11&lt;/span>,
+        &lt;span class="string">"Eb"&lt;/span>: &lt;span class="number">11&lt;/span>,
+        &lt;span class="string">"E"&lt;/span>: &lt;span class="number">12&lt;/span>,
+        &lt;span class="string">"F"&lt;/span>: &lt;span class="number">1&lt;/span>,
+        &lt;span class="string">"F#"&lt;/span>: &lt;span class="number">2&lt;/span>,
+        &lt;span class="string">"Gb"&lt;/span>: &lt;span class="number">2&lt;/span>,
+        &lt;span class="string">"G"&lt;/span>: &lt;span class="number">3&lt;/span>,
+        &lt;span class="string">"G#"&lt;/span>: &lt;span class="number">4&lt;/span>,
+        &lt;span class="string">"Ab"&lt;/span>: &lt;span class="number">4&lt;/span>
     },
-    <span class="string">"A"</span>: {
-        <span class="string">"A"</span>: <span class="number">12</span>,
-        <span class="string">"A#"</span>: <span class="number">1</span>,
-        <span class="string">"Bb"</span>: <span class="number">1</span>,
-        <span class="string">"B"</span>: <span class="number">2</span>,
-        <span class="string">"C"</span>: <span class="number">3</span>,
-        <span class="string">"C#"</span>: <span class="number">4</span>,
-        <span class="string">"Db"</span>: <span class="number">4</span>,
-        <span class="string">"D"</span>: <span class="number">5</span>,
-        <span class="string">"D#"</span>: <span class="number">6</span>,
-        <span class="string">"Eb"</span>: <span class="number">6</span>,
-        <span class="string">"E"</span>: <span class="number">7</span>,
-        <span class="string">"F"</span>: <span class="number">8</span>,
-        <span class="string">"F#"</span>: <span class="number">9</span>,
-        <span class="string">"Gb"</span>: <span class="number">9</span>,
-        <span class="string">"G"</span>: <span class="number">10</span>,
-        <span class="string">"G#"</span>: <span class="number">11</span>,
-        <span class="string">"Ab"</span>: <span class="number">11</span>
+    &lt;span class="string">"A"&lt;/span>: {
+        &lt;span class="string">"A"&lt;/span>: &lt;span class="number">12&lt;/span>,
+        &lt;span class="string">"A#"&lt;/span>: &lt;span class="number">1&lt;/span>,
+        &lt;span class="string">"Bb"&lt;/span>: &lt;span class="number">1&lt;/span>,
+        &lt;span class="string">"B"&lt;/span>: &lt;span class="number">2&lt;/span>,
+        &lt;span class="string">"C"&lt;/span>: &lt;span class="number">3&lt;/span>,
+        &lt;span class="string">"C#"&lt;/span>: &lt;span class="number">4&lt;/span>,
+        &lt;span class="string">"Db"&lt;/span>: &lt;span class="number">4&lt;/span>,
+        &lt;span class="string">"D"&lt;/span>: &lt;span class="number">5&lt;/span>,
+        &lt;span class="string">"D#"&lt;/span>: &lt;span class="number">6&lt;/span>,
+        &lt;span class="string">"Eb"&lt;/span>: &lt;span class="number">6&lt;/span>,
+        &lt;span class="string">"E"&lt;/span>: &lt;span class="number">7&lt;/span>,
+        &lt;span class="string">"F"&lt;/span>: &lt;span class="number">8&lt;/span>,
+        &lt;span class="string">"F#"&lt;/span>: &lt;span class="number">9&lt;/span>,
+        &lt;span class="string">"Gb"&lt;/span>: &lt;span class="number">9&lt;/span>,
+        &lt;span class="string">"G"&lt;/span>: &lt;span class="number">10&lt;/span>,
+        &lt;span class="string">"G#"&lt;/span>: &lt;span class="number">11&lt;/span>,
+        &lt;span class="string">"Ab"&lt;/span>: &lt;span class="number">11&lt;/span>
     }
 };
  
@@ -214,17 +214,17 @@ Raphael.js 以其兼容性（IE6+），实用性，以及良好的接口著称�
 在官方的入门例子里，可看到从元素定义到事件绑定，基本我们平时处理 dom 没多大区别。
 
 ```html
-<span class="comment">//创建一个画布</span>
-<span class="keyword">var</span> paper = <span class="keyword">new</span> Raphael(<span class="string">"paper"</span>, <span class="number">500</span>, <span class="number">500</span>);
-<span class="comment">//画圆</span>
-<span class="keyword">var</span> circle = paper.circle(<span class="number">50</span>, <span class="number">50</span>, <span class="number">40</span>);
+&lt;span class="comment">//创建一个画布&lt;/span>
+&lt;span class="keyword">var&lt;/span> paper = &lt;span class="keyword">new&lt;/span> Raphael(&lt;span class="string">"paper"&lt;/span>, &lt;span class="number">500&lt;/span>, &lt;span class="number">500&lt;/span>);
+&lt;span class="comment">//画圆&lt;/span>
+&lt;span class="keyword">var&lt;/span> circle = paper.circle(&lt;span class="number">50&lt;/span>, &lt;span class="number">50&lt;/span>, &lt;span class="number">40&lt;/span>);
 circle.attr({
-    <span class="string">"stroke"</span>: <span class="string">"red"</span>,
-    <span class="string">"stroke-width"</span>: <span class="number">4</span>,
-    <span class="string">"fill"</span>: <span class="string">"blue"</span>
+    &lt;span class="string">"stroke"&lt;/span>: &lt;span class="string">"red"&lt;/span>,
+    &lt;span class="string">"stroke-width"&lt;/span>: &lt;span class="number">4&lt;/span>,
+    &lt;span class="string">"fill"&lt;/span>: &lt;span class="string">"blue"&lt;/span>
 });
-circle.mousedown(<span class="keyword">function</span> () {
-    circle.attr(<span class="string">"fill"</span>, <span class="string">"red"</span>);
+circle.mousedown(&lt;span class="keyword">function&lt;/span> () {
+    circle.attr(&lt;span class="string">"fill"&lt;/span>, &lt;span class="string">"red"&lt;/span>);
 });
  
 ```

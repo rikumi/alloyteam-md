@@ -92,10 +92,10 @@ HOW，该怎么做
 让我们一瞅伪码，[猛击我看 demo](http://jsbin.com/firufo/4)
 
 ```html
-<div class="float">
-        <div class="item">1</div>
-        ...     <div class="item">6</div>
-</div>;
+&lt;div class="float">
+        &lt;div class="item">1&lt;/div>
+        ...     &lt;div class="item">6&lt;/div>
+&lt;/div>;
 ```
 
 ```css
@@ -187,26 +187,26 @@ demo 中我们看到中间那条竖空白间隙错位了，为什么？按照预
 我们来看下伪码，[猛击我看 demo](http://jsbin.com/takiti/9)：
 
 ```html
-<div class="wrap-box wrap-6">
+&lt;div class="wrap-box wrap-6">
         
-    <div class="flex-inner">
-              <div class="flex-box1 flex-item"></div>
+    &lt;div class="flex-inner">
+              &lt;div class="flex-box1 flex-item">&lt;/div>
               
-        <div class="flex-box2">
-                    <div class="flex-item"></div>
-                    <div class="flex-item"></div>
+        &lt;div class="flex-box2">
+                    &lt;div class="flex-item">&lt;/div>
+                    &lt;div class="flex-item">&lt;/div>
                   
-        </div>
+        &lt;/div>
             
-    </div>
+    &lt;/div>
         
-    <div class="flex-inner">
-              <div class="flex-item"></div>
-              <div class="flex-item"></div>
-              <div class="flex-item"></div>
+    &lt;div class="flex-inner">
+              &lt;div class="flex-item">&lt;/div>
+              &lt;div class="flex-item">&lt;/div>
+              &lt;div class="flex-item">&lt;/div>
             
-    </div>
-</div>;
+    &lt;/div>
+&lt;/div>;
 ```
 
 ```css

@@ -87,7 +87,7 @@ require([
     var tabContainer = new RenderModel({
         renderContainer: "#tabWrap",
         data: {},
-        renderTmpl: "<li soda-repeat='item in data.tabs'>{{item}}</li>",
+        renderTmpl: "&lt;li soda-repeat='item in data.tabs'>{{item}}&lt;/li>",
         event: function () {
             // tab's event
         },
@@ -151,16 +151,16 @@ require([
 
 下面以较为简洁的方式介绍这份标准，力求大家能够快速了解实现组件化的内容。（对这部分了解的同学，可以跳过这一小节）
 
-**1. <template> 模板能力**
+**1. &lt;template> 模板能力**
 
 模板这东西大家最熟悉不过了，前些年见的较多的模板性能大战 artTemplate，juicer，tmpl，underscoretemplate 等等。而现在又有 [mustachejs](https://github.com/janl/mustache.js/) 无逻辑模板引擎等新入选手。可是大家有没有想过，这么基础的能力，原生 HTML5 是不支持的（T_T）。
 
 而今天 WebComponent 将要提供原生的模板能力
 
 ```html
-<template id="datapcikerTmpl">
-    <div>我是原生的模板</div>
-</template>;
+&lt;template id="datapcikerTmpl">
+    &lt;div>我是原生的模板&lt;/div>
+&lt;/template>;
 ```
 
 template 标签内定义了 datapcikerTmpl 的模板，需要使用的时候就要 `innerHTML= document.querySelector('#datapcikerTmpl').content`；可以看出这个原生的模板够原始，模板占位符等功能都没有，对于动态数据渲染模板只能自力更新。
@@ -172,14 +172,14 @@ ShadowDom 可以理解为一份有独立作用域的 html 片段。这些 html �
 ```javascript
 var wrap = document.querySelector("#wrap");
 var shadow = wrap.createShadowRoot();
-shadow.innerHTML = "<p>you can not see me </p>";
+shadow.innerHTML = "&lt;p>you can not see me &lt;/p>";
 ```
 
 在具体 dom 节点上使用 createShadowRoot 方法即可生成其 ShadowDom。就像在整份 Html 的屋子里面，新建了一个 shadow 的房间。房间外的人都不知道房间内有什么，保持 shadowDom 的独立性。
 
 **3. 自定义原生标签**
 
-初次接触 [Angularjs](https://angularjs.org/) 的 directive 指令功能，设定好组件的逻辑后，一个<Datepicker /> 就能引入整个组件。如此狂炫酷炸碉堡天的功能，实在令人拍手称快，跃地三尺。
+初次接触 [Angularjs](https://angularjs.org/) 的 directive 指令功能，设定好组件的逻辑后，一个&lt;Datepicker /> 就能引入整个组件。如此狂炫酷炸碉堡天的功能，实在令人拍手称快，跃地三尺。
 
 ```javascript
 var tmpl = document.querySelector("#datapickerTmpl");
@@ -198,12 +198,12 @@ Object.create 方式继承 HTMLElement.prototype，得到一个新的 prototype�
 
 最后，registerElement 的方法传递我们的 prototype 来注册自定义标签。
 
-上面的代码开始略显复杂了，把前面两个能力 “模板”“shadowDom” 结合，形成组件的内部逻辑。最后通过 registerElement 的方式注册组件。之后可以愉快地<datapicker></datapicker> 的使用。
+上面的代码开始略显复杂了，把前面两个能力 “模板”“shadowDom” 结合，形成组件的内部逻辑。最后通过 registerElement 的方式注册组件。之后可以愉快地&lt;datapicker>&lt;/datapicker> 的使用。
 
 **4. imports 解决组件间的依赖**
 
 ```html
-<link rel="import" href="datapciker.html">
+&lt;link rel="import" href="datapciker.html">
 ```
 
 这个类 php 最常用的 html 导入功能，HTML 原生也能支持了。
@@ -212,7 +212,7 @@ WebComponents 标准内容大概到这里，是的，我这里没有什么 Demo�
 
 我们简单来回顾一下 WebCompoents 的四部分功能：
 
-1 .<template> 定义组件的 HTML 模板能力
+1 .&lt;template> 定义组件的 HTML 模板能力
 
 2. Shadow Dom 封装组件的内部结构，并且保持其独立性
 
@@ -334,9 +334,9 @@ WebComponents 的标准之一，需要模板能力。本是以为是我们熟悉
 对比起 JSX 的高度内聚，所有事件逻辑就是在本身 jsx 文件内，绑定的就是自身的 showInfo 方法。组件化的特性能立马体现出来。
 
 ```javascript
-<p className="td-info" onClick={this.showInfo}>
+&lt;p className="td-info" onClick={this.showInfo}>
     {obj.info}
-</p>;
+&lt;/p>;
 ```
 
 （注意：虽然写法上我们好像是 HTML 的内联事件处理器，但是在 React 底层并没有实际赋值类似 onClick 属性，内层还是使用类似事件代理的方式，高效地维护着事件处理器）
@@ -344,9 +344,9 @@ WebComponents 的标准之一，需要模板能力。本是以为是我们熟悉
 再来看一段 style 的 jsx。其实 jsx 没有对样式有硬性规定，我们完全可遵循之前的定义 class 的逻辑。任何一段样式都应该用 class 来定义。在 jsx 你也完全可以这样做。但是出于组件的独立性，我建议一些只有 “一次性” 的样式直接使用 style 赋值更好。减少冗余的 class。
 
 ```javascript
-<div className="list" style={{ background: "#ddd" }}>
+&lt;div className="list" style={{ background: "#ddd" }}>
        {list_html}
-</div>;
+&lt;/div>;
 ```
 
 或许 JSX 内部有负责繁琐的逻辑样式，可 JSX 的自定义标签能力，组件的黑盒性立马能体验出来，是不是瞬间美好了很多。
@@ -354,10 +354,10 @@ WebComponents 的标准之一，需要模板能力。本是以为是我们熟悉
 ```c
 render: function(){
     return (
-      <div>
-         <Menus bannerNums={this.state.list.length}></Menus>
-         <TableList data={this.state.list}></TableList>
-      </div>
+      &lt;div>
+         &lt;Menus bannerNums={this.state.list.length}>&lt;/Menus>
+         &lt;TableList data={this.state.list}>&lt;/TableList>
+      &lt;/div>
    );
 }
 ```
@@ -510,11 +510,11 @@ var Slider = React.createClass({
     },
     render: function () {
         return (
-            <div>
-                               <Clip data={this.props.imgs} />
-                               <img className="loading" src={spinnerImg} />
+            &lt;div>
+                               &lt;Clip data={this.props.imgs} />
+                               &lt;img className="loading" src={spinnerImg} />
                             
-            </div>
+            &lt;/div>
         );
     },
 });
@@ -568,9 +568,9 @@ var Banner = new React.createClass({
     ...
     render: function(){
         return (
-            <div>
-                <div className={styles.classA}></div>
-            </div>
+            &lt;div>
+                &lt;div className={styles.classA}>&lt;/div>
+            &lt;/div>
         )
     }
 });

@@ -77,16 +77,9 @@ var model = new Model({
 
 node 端
 
-    res.body += ('
-    ```html
-    <script>var NodeOut=true;');
-    res.body += ('</script>
-
-');
-
- 
-
-````
+    res.body += ('&lt;script>var NodeOut=true;');
+    res.body += ('&lt;/script>');
+     
 
 浏览器端
 
@@ -96,7 +89,7 @@ if (typeof nodeOut !== "undefined") {
     EventBind(); //不再拉取数据
     return;
 }
-````
+```
 
 
 <!-- {% endraw %} - for jekyll -->

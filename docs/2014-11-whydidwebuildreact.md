@@ -45,7 +45,7 @@ React 采用了不同的方法。
 
 因为 React 拥有自己的轻量的 document 展示层，所以我们可以用这个来做一些很酷的东西：
 
--   Facebook 有用<canvas> 而不是 HTML 来渲染的动态图表。
+-   Facebook 有用&lt;canvas> 而不是 HTML 来渲染的动态图表。
 -   Instagram 是一个完全采用 React 和 [Backbone.Router](http://backbonejs.org/#Router "backbone.Router") 构建的单页应用。设计者会定期地贡献使用 JSX 编写的 React 代码。
 -   我们已经构建了在一个 web worker 中运行 React 应用程序的内部原型还有使用 React 通过 Objective-C 的桥接接口来操纵**原生的 iOS 视图层** 
 -   为了 SEO、性能、共享代码还有项目整体的灵活性，你可以[在服务器端运行 React](https://github.com/petehunt/react-server-rendering-example)。

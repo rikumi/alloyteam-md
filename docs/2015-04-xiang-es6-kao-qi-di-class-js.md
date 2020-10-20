@@ -38,7 +38,7 @@ var Ninja = Person.extend({
 ```
 
 ```html
-<span style="font-family: sans-serif, Arial, Verdana, 'Trebuchet MS'; line-height: 1.6;">init为构造函数，通过this._super()访问</span><strong style="font-family: sans-serif, Arial, Verdana, 'Trebuchet MS'; line-height: 1.6;">父类同名方法</strong><span style="font-family: sans-serif, Arial, Verdana, 'Trebuchet MS'; line-height: 1.6;">。</span>
+&lt;span style="font-family: sans-serif, Arial, Verdana, 'Trebuchet MS'; line-height: 1.6;">init为构造函数，通过this._super()访问&lt;/span>&lt;strong style="font-family: sans-serif, Arial, Verdana, 'Trebuchet MS'; line-height: 1.6;">父类同名方法&lt;/strong>&lt;span style="font-family: sans-serif, Arial, Verdana, 'Trebuchet MS'; line-height: 1.6;">。&lt;/span>
 ```
 
 这种看上去很酷很方便的继承方式，居然有一个致命的缺陷。那就是：

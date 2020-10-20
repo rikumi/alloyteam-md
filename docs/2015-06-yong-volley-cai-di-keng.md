@@ -112,7 +112,7 @@ public String getBodyContentType() {
  if (mParams != null) {
         Uri uri = Uri.parse(url);
         Uri.Builder builder = uri.buildUpon();
-         for (HashMap.Entry<String, String> entry : mParams.entrySet()) {
+         for (HashMap.Entry&lt;String, String> entry : mParams.entrySet()) {
             builder.appendQueryParameter(entry.getKey(), entry.getValue());
         }
         mUrl = builder.build().toString();

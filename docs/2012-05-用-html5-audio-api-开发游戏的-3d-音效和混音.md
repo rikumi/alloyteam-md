@@ -23,9 +23,9 @@ source_link: http://www.alloyteam.com/2012/05/%e7%94%a8html5-audio-api%e5%bc%80%
 
 ## 网页上的游戏音频
 
-简单的游戏使用`<audio>` 标签可能就足够了。然而，许多浏览器提供的简陋实现导致音频毛刺和高延迟的出现。这可能只是暂时性的问题，因为厂商们都在努力改进各自的实现。要了解`<audio>` 标签的支持情况，我们可以使用 [areweplayingyet.org](http://areweplayingyet.org/) 所提供的优秀测试工具。
+简单的游戏使用`&lt;audio>` 标签可能就足够了。然而，许多浏览器提供的简陋实现导致音频毛刺和高延迟的出现。这可能只是暂时性的问题，因为厂商们都在努力改进各自的实现。要了解`&lt;audio>` 标签的支持情况，我们可以使用 [areweplayingyet.org](http://areweplayingyet.org/) 所提供的优秀测试工具。
 
-一旦深入`<audio>` 标签规范，就会清楚了解到有很多事情根本不能用它实现。这并不奇怪，因为它主要被设计来支持多媒体播放。这些限制包括：
+一旦深入`&lt;audio>` 标签规范，就会清楚了解到有很多事情根本不能用它实现。这并不奇怪，因为它主要被设计来支持多媒体播放。这些限制包括：
 
 -   无法为声音信号使用滤波器
 -   无法访问原始的 PCM（宇捷：即 WAV）数据
@@ -86,9 +86,9 @@ source_link: http://www.alloyteam.com/2012/05/%e7%94%a8html5-audio-api%e5%bc%80%
 
 ### 缺少的环节：Web Audio 的 Audio 标签
 
-现在许多游戏开发商为背景音乐使用`<audio>` 标签，因为它非常适合流媒体内容。现在你可以通过`<audio>` 标签把内容带入网络音频的上下文。
+现在许多游戏开发商为背景音乐使用`&lt;audio>` 标签，因为它非常适合流媒体内容。现在你可以通过`&lt;audio>` 标签把内容带入网络音频的上下文。
 
-<audio> 标签支持流媒体相当有用，因为它可以让你立即播放背景音乐，而无须等待下载所有内容。在网络音频 API 支持音频流之后，你可以操作或分析它们。下面的例子为通过`<audio>` 标签播放的音乐使用了一个低通滤波器：
+&lt;audio> 标签支持流媒体相当有用，因为它可以让你立即播放背景音乐，而无须等待下载所有内容。在网络音频 API 支持音频流之后，你可以操作或分析它们。下面的例子为通过`&lt;audio>` 标签播放的音乐使用了一个低通滤波器：
 
 **\[html]** [view plain](http://blog.csdn.net/hfahe/article/details/7443276# "view plain")[copy](http://blog.csdn.net/hfahe/article/details/7443276# "copy")
 
@@ -100,7 +100,7 @@ source_link: http://www.alloyteam.com/2012/05/%e7%94%a8html5-audio-api%e5%bc%80%
 6.  mediaSourceNode.connect(filter);
 7.  filter.connect(context.destination);
 
-关于`<audio>` 标签和网络音频 API 整合更多的讨论，可以看看这篇[短文](http://updates.html5rocks.com/2012/02/HTML5-audio-and-the-Web-Audio-API-are-BFFs)。
+关于`&lt;audio>` 标签和网络音频 API 整合更多的讨论，可以看看这篇[短文](http://updates.html5rocks.com/2012/02/HTML5-audio-and-the-Web-Audio-API-are-BFFs)。
 
 ## 音效
 

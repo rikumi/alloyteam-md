@@ -49,11 +49,11 @@ Path/to/cache.js
 
 \# version：2012-03-20
 
-3）给 <html> 标签加 manifest 属性，并引用 manifest 文件
+3）给 &lt;html> 标签加 manifest 属性，并引用 manifest 文件
 
 具体可以参考：HTML5 缓存: cache manifest
 
-<html manifest="path/to/name-of.manifest">
+&lt;html manifest="path/to/name-of.manifest">
 
 ### 离线应用访问及更新流程
 

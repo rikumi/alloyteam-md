@@ -13,7 +13,7 @@ source_link: http://www.alloyteam.com/2016/11/alloyteam-conf-2016/
 
 [![1](http://www.alloyteam.com/wp-content/uploads/2016/11/13.png)](http://ac.alloyteam.com/summary.html)   [![2](http://www.alloyteam.com/wp-content/uploads/2016/11/2.jpg)](http://ac.alloyteam.com)   [![3](http://www.alloyteam.com/wp-content/uploads/2016/11/3.jpg)](https://ke.qq.com/course/162149#term_id=100192304)
 
-       2016.10.23 由 AlloyTeam  团队发起的 <AC2016> Alloyteam Conf 2016 前端技术大会，在腾讯大厦 2 楼多功能成功举办。今年对大会进行全面升级，分享延长至全天，增加报名邀请码机制，圆桌会议面对面讨论等精彩环节，加上 AlloyTeam 多年以来在业界比较深远的影响力，官网上线后报名人数剧增，出现一码难求的情况，大会当天更是人员爆满、氛围热烈！  以下将从大会的整体情况，大会现场以及观众反馈来回顾此次大会。
+       2016.10.23 由 AlloyTeam  团队发起的 &lt;AC2016> Alloyteam Conf 2016 前端技术大会，在腾讯大厦 2 楼多功能成功举办。今年对大会进行全面升级，分享延长至全天，增加报名邀请码机制，圆桌会议面对面讨论等精彩环节，加上 AlloyTeam 多年以来在业界比较深远的影响力，官网上线后报名人数剧增，出现一码难求的情况，大会当天更是人员爆满、氛围热烈！  以下将从大会的整体情况，大会现场以及观众反馈来回顾此次大会。
 
 [![4](http://www.alloyteam.com/wp-content/uploads/2016/11/4.jpg)](http://www.alloyteam.com/wp-content/uploads/2016/11/4.jpg)
 

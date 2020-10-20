@@ -119,7 +119,7 @@ Events = function() {
  
              stack = ( _ref = obj[ key ] ) != null ? _ref : obj[ key ] = [];
  
-             for ( _i = 0, _len = stack.length; _i < _len; _i++ ) {
+             for ( _i = 0, _len = stack.length; _i &lt; _len; _i++ ) {
  
                fn = stack[ _i ];
  

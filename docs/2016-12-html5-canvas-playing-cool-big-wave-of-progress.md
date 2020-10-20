@@ -60,13 +60,13 @@ var waveWidth = 300,
 function tick() {
     offset -= 5;
     progress += progressStep;
-    if (progress > 220 || progress < 0) progressStep *= -1;
+    if (progress > 220 || progress &lt; 0) progressStep *= -1;
     if (-1 * offset === d2) offset = 0;
     ctx.clearRect(0, 0, c.width, c.height);
     ctx.beginPath();
     var offsetY = startY - progress;
     ctx.moveTo(startX - offset, offsetY);
-    for (var i = 0; i < waveCount; i++) {
+    for (var i = 0; i &lt; waveCount; i++) {
         var dx = i * d2;
         var offsetX = dx + startX - offset;
         ctx.quadraticCurveTo(

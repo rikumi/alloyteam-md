@@ -21,27 +21,18 @@ CSP 的默认策略是不允许 inline 脚本执行，所以当我们没有必�
 
 为了避免上述问题，我们可以使用 nonce 方式加强的 CSP 策略。nonce 方式是指每次页面访问都产生一个唯一 id，通过给内联脚本增加一个 nonce 属性，并且使其属性值 (id) 与返回的 CSP nonce-{id} 对应。只有当两者一致时，对应的内联脚本才被允许执行。于是，即使网页被注入异常的脚本，因为攻击者不知道当时 nonce 的随机 id 值，所以注入的脚本不会被执行。从而让网页变得更加安全。
 
-````html
-Content-Security-Policy: script-src 'nonce-5fAifFSghuhdf'
-
 ```html
-<script nonce="5fAifFSghuhdf">
+Content-Security-Policy: script-src 'nonce-5fAifFSghuhdf'
+&lt;script nonce="5fAifFSghuhdf">
 // ...
-</script>
-````
-
+&lt;/script>
 ```
 
-那么，当我们通过动态生成脚本并进行插入时，nonce 也会将我们的正常代码拦截在外。所以在这种场景下，我们需要配套使用 CSP 提供的 'strict-dynamic'，'strict-dynamic' 模式允许让被信任的脚本插入并放行正常脚本执行。
+那么，当我们通过动态生成脚本并进行插入时，nonce 也会将我们的正常代码拦截在外。所以在这种场景下，我们需要配套使用 CSP 提供的'strict-dynamic'，'strict-dynamic' 模式允许让被信任的脚本插入并放行正常脚本执行。
 
-```
+    Content-Security-Policy: script-src 'nonce-5fAifFSghuhdf' 'strict-dynamic'
 
-Content-Security-Policy: script-src 'nonce-5fAifFSghuhdf' 'strict-dynamic'
-
-````
-
-Nonce 的部署方式
------------
+## Nonce 的部署方式
 
 ### 前端
 
@@ -50,13 +41,7 @@ Nonce 的部署方式
 我们可以通过构建的方式为页面中 script 标签添加 nonce 属性，并添加一个占位符，如
 
 ```html
-
-```html
-<script nonce="NONCE_TOKEN">// ...</script>
-````
-
-;
-
+&lt;script nonce="NONCE_TOKEN">// ...&lt;/script>;
 ```
 
 ### 后端
@@ -65,26 +50,24 @@ Nonce 的部署方式
 
 方式一：服务端处理
 
-*   当页面在服务端渲染时，html 作为模板在服务端进行处理后输出，我们可以在后端生产唯一 id
-*   通过模板变量将 id 注入到 html 中实现替换 NONCE\_TOKEN 占位符
-*   与此同时，将 CSP 返回头进行对应设置
+-   当页面在服务端渲染时，html 作为模板在服务端进行处理后输出，我们可以在后端生产唯一 id
+-   通过模板变量将 id 注入到 html 中实现替换 NONCE_TOKEN 占位符
+-   与此同时，将 CSP 返回头进行对应设置
 
 方式二：Nginx 处理
 
-*   Nginx 中可以使用内置变量的 $request\_id 作为唯一 id，而当 nginx 版本不支持时，则可以借助 lua 去生产一个 uuid；
-*   接着通过 Nginx 的 sub\_filter NONCE\_TOKEN 'id' 将页面中的 NONCE\_TOKEN 占位符替换为 id，或者使用 lua 进行替换；
-*   最后使用 add\_header Content-Security-Policy "script-src 'nonce-{id}' ... 添加对应的 CSP 返回头。
+-   Nginx 中可以使用内置变量的 $request_id 作为唯一 id，而当 nginx 版本不支持时，则可以借助 lua 去生产一个 uuid；
+-   接着通过 Nginx 的 sub_filter NONCE_TOKEN 'id' 将页面中的 NONCE_TOKEN 占位符替换为 id，或者使用 lua 进行替换；
+-   最后使用 add_header Content-Security-Policy "script-src 'nonce-{id}' ... 添加对应的 CSP 返回头。
 
-当然，为了避免攻击者提前注入一段脚本，并在 script 标签上同样添加了 nonce="NONCE\_TOKEN" ，后端的 “误” 替换，导致这段提前注入的脚本进行执行。我们需要保密好项目的占位符，取一个特殊的占位符，并行动起来吧！
+当然，为了避免攻击者提前注入一段脚本，并在 script 标签上同样添加了 nonce="NONCE_TOKEN" ，后端的 “误” 替换，导致这段提前注入的脚本进行执行。我们需要保密好项目的占位符，取一个特殊的占位符，并行动起来吧！
 
-小结
---
+## 小结
 
 CSP 的应用场景越来越多，逐步地优化策略才能更好地守护我们的项目安全。
 
 [查看更多文章 >>](https://github.com/joeyguo/blog)  
-[https://github.com/joeyguo/blog](https://github.com/joeyguo/blog)
-```
+<https://github.com/joeyguo/blog>
 
 
 <!-- {% endraw %} - for jekyll -->

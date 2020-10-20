@@ -95,11 +95,11 @@ module.exports = function (grunt) {
         uglify: {
             options: {
                 banner:
-                    '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+                    '/*! &lt;%= pkg.name %> &lt;%= grunt.template.today("yyyy-mm-dd") %> */\n',
             },
             build: {
-                src: "src/<%= pkg.name %>.js",
-                dest: "build/<%= pkg.name %>.min.js",
+                src: "src/&lt;%= pkg.name %>.js",
+                dest: "build/&lt;%= pkg.name %>.min.js",
             },
         },
     }); // 加载提供 "uglify" 任务的插件
@@ -132,7 +132,7 @@ build 就是构建配制，其中 src 就是构建的源文件，dest 就是构�
 
 在官网搜索想要的插件，在项目目录下运行
 
-    npm install <module> --save-dev
+    npm install &lt;module> --save-dev
 
 在 gruntfile.js 中根据插件文件添加任务和选项，然后使用 shell 运行 grunt 命令
 
@@ -196,7 +196,7 @@ grunt.registerMultiTask('{your task name}', '', function() {
           return false;
         } else {
  
-          var commentsReg = /<!--.*?-->/g;
+          var commentsReg = /&lt;!--.*?-->/g;
  
           //读到当前文件
           var html = grunt.file.read(filepath);

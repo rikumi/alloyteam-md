@@ -32,24 +32,24 @@ source_link: http://www.alloyteam.com/2015/05/sublime%e7%9a%84colorscheme/
 但是头疼的是，我不喜欢他的 **标题** 颜色，想改。看了代码，摘录一段：
 
 ```html
-<dict>
-      <key>name</key>
-      <string>Markup: Underline</string>
-      <key>scope</key>
-      <string>markup.underline</string>
-      <key>settings</key>
+&lt;dict>
+      &lt;key>name&lt;/key>
+      &lt;string>Markup: Underline&lt;/string>
+      &lt;key>scope&lt;/key>
+      &lt;string>markup.underline&lt;/string>
+      &lt;key>settings&lt;/key>
       
-    <dict>
-              <key>fontStyle</key>
-              <string>underline</string>
-              <key>foreground</key>
+    &lt;dict>
+              &lt;key>fontStyle&lt;/key>
+              &lt;string>underline&lt;/string>
+              &lt;key>foreground&lt;/key>
               
-        <string>
-            <span class="comment">#839496</string>
-        </span>
+        &lt;string>
+            &lt;span class="comment">#839496&lt;/string>
+        &lt;/span>
           
-    </dict>
-</dict>;
+    &lt;/dict>
+&lt;/dict>;
 ```
 
 一头雾水，完全不知道 `how does it working` ，也就无从改起。
@@ -67,19 +67,19 @@ source_link: http://www.alloyteam.com/2015/05/sublime%e7%9a%84colorscheme/
 sublime text 的 color scheme 是通过 `scopes` 来定义 `color` 的，我们可以安装插件 `ScopeHunter` 来查看光标出的 `scopes` ，从而可以自定义颜色。
 
 ```html
-<dict>
-  <key>name</key>
-  <string>Markup: Underline</string>
-  <key>scope</key>  <!-- 这里就是 scope，知道了这个，其他就好办 -->
-  <string>markup.underline</string>
-  <key>settings</key>
-  <dict>
-      <key>fontStyle</key>
-      <string>underline</string>
-      <key>foreground</key>
-      <string><span class="comment">#839496</string></span>
-  </dict>
-</dict>
+&lt;dict>
+  &lt;key>name&lt;/key>
+  &lt;string>Markup: Underline&lt;/string>
+  &lt;key>scope&lt;/key>  &lt;!-- 这里就是 scope，知道了这个，其他就好办 -->
+  &lt;string>markup.underline&lt;/string>
+  &lt;key>settings&lt;/key>
+  &lt;dict>
+      &lt;key>fontStyle&lt;/key>
+      &lt;string>underline&lt;/string>
+      &lt;key>foreground&lt;/key>
+      &lt;string>&lt;span class="comment">#839496&lt;/string>&lt;/span>
+  &lt;/dict>
+&lt;/dict>
  
 ```
 
@@ -89,27 +89,27 @@ sublime text 的 color scheme 是通过 `scopes` 来定义 `color` 的，我们�
 少说多做，幸福一生。
 
 ```html
-<dict>
-        <key>name</key>
-        <string>Markdown</string>
-        <key>scope</key>
-        <string>text.html.markdown</string>
-        <key>settings</key>
+&lt;dict>
+        &lt;key>name&lt;/key>
+        &lt;string>Markdown&lt;/string>
+        &lt;key>scope&lt;/key>
+        &lt;string>text.html.markdown&lt;/string>
+        &lt;key>settings&lt;/key>
         
-    <dict>
-                <key>background</key>
+    &lt;dict>
+                &lt;key>background&lt;/key>
                 
-        <string>
-            <span class="comment">#ffffff</string>
-        </span>
-                <key>foreground</key>
+        &lt;string>
+            &lt;span class="comment">#ffffff&lt;/string>
+        &lt;/span>
+                &lt;key>foreground&lt;/key>
                 
-        <string>
-            <span class="comment">#666666</string>
-        </span>
+        &lt;string>
+            &lt;span class="comment">#666666&lt;/string>
+        &lt;/span>
             
-    </dict>
-</dict>;
+    &lt;/dict>
+&lt;/dict>;
 ```
 
 马上把上面的代码加入 `color scheme`，有效果，嗯，现在比较大的问题是 `lineHighlight`（鼠标所在行高亮）比较突兀。
@@ -127,983 +127,983 @@ Perfect!
 附上我的 `color scheme` `Obsidian.tmTheme` ：
 
 ```html
-<?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="preprocessor">?></span>
-<!DOCTYPE plist <span class="keyword">PUBLIC</span> <span class="string">"-//Apple//DTD PLIST 1.0//EN"</span> <span class="string">"http://www.apple.com/DTDs/PropertyList-1.0.dtd"</span>>
-<plist version=<span class="string">"1.0"</span>>
-<dict>
-    <key>author</key>
-    <string>Marcus Ekwall</string>
-    <key>modify</key>
-    <string>jerry</string>
-    <key>name</key>
-    <string>Obsidian</string>
-    <key>version</key>
-    <string><span class="number">0.1</span></string>
-    <key>settings</key>
-    <<span class="keyword">array</span>>
-        <!-- <span class="keyword">global</span> -->
-        <dict>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#293134</string></span>
-                <key>caret</key>
-                <string><span class="comment">#E0E2E4</string></span>
-                <key>foreground</key>
-                <string><span class="comment">#81969A</string></span>
-                <key>invisibles</key>
-                <string><span class="comment">#BFBFBF</string></span>
-                <key>lineHighlight</key>
-                <string><span class="comment">#E5E5E520</string></span>
-                <key>selection</key>
-                <string><span class="comment">#0D0F0F</string></span>
-            </dict>
-        </dict>
-        <dict>
-          <key>name</key>
-          <string>Text base</string>
-          <key>scope</key>
-          <string>text</string>
-          <key>settings</key>
-          <dict>
-            <key>background</key>
-            <string><span class="comment">#293134</string></span>
-            <key>foreground</key>
-            <string><span class="comment">#E0E2E4</string></span>
-          </dict>
-        </dict>
-        <dict>
-          <key>name</key>
-          <string>Source base</string>
-          <key>scope</key>
-          <string>source</string>
-          <key>settings</key>
-          <dict>
-            <key>background</key>
-            <string><span class="comment">#293134</string></span>
-            <key>foreground</key>
-            <string><span class="comment">#E0E2E4</string></span>
-          </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Comment</string>
-            <key>scope</key>
-            <string>comment</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#66747B</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Comment Block</string>
-            <key>scope</key>
-            <string>comment.block</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
-                <key>foreground</key>
-                <string><span class="comment">#66747B</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Comment Doc</string>
-            <key>scope</key>
-            <string>comment.documentation</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#66747B</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>String</string>
-            <key>scope</key>
-            <string>string</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#EC7600</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Number</string>
-            <key>scope</key>
-            <string>constant.numeric</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#FFCD22</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Built-in constant</string>
-            <key>scope</key>
-            <string>constant.language</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#93C763</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>User-defined constant</string>
-            <key>scope</key>
-            <string>constant.character, constant.other</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Variable</string>
-            <key>scope</key>
-            <string>variable.language, variable.other</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#678CB1</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: Variable</string>
-            <key>scope</key>
-            <string>variable.language.js</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#93C763</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Keyword</string>
-            <key>scope</key>
-            <string>keyword</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#93C763</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Operator</string>
-            <key>scope</key>
-            <string>keyword.operator</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#E0E2E4</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Storage</string>
-            <key>scope</key>
-            <string>storage</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#93C763</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string><span class="keyword">Class</span> name</string>
-            <key>scope</key>
-            <string>entity.name.<span class="keyword">class</span></string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Inherited <span class="keyword">class</span></string>
-            <key>scope</key>
-            <string>entity.other.inherited-<span class="keyword">class</span></string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string><span class="keyword">Function</span> name</string>
-            <key>scope</key>
-            <string>entity.name.<span class="keyword">function</span></string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#678CB1</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string><span class="keyword">Function</span> argument</string>
-            <key>scope</key>
-            <string>variable.parameter</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Tag name</string>
-            <key>scope</key>
-            <string>entity.name.tag</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#408080</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Tag attribute</string>
-            <key>scope</key>
-            <string>entity.other.attribute-name</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#808040</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Library <span class="keyword">function</span></string>
-            <key>scope</key>
-            <string>support.<span class="keyword">function</span></string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Library constant</string>
-            <key>scope</key>
-            <string>support.constant</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Library <span class="keyword">class</span>/type</string>
-            <key>scope</key>
-            <string>support.type, support.<span class="keyword">class</span></string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Library variable</string>
-            <key>scope</key>
-            <string>support.other.variable</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Invalid</string>
-            <key>scope</key>
-            <string>invalid</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Embedded section</string>
-            <key>scope</key>
-            <string>punctuation.section.embedded</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#D955C1</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Keyword Operator <span class="keyword">Class</span></string>
-            <key>scope</key>
-            <string>keyword.operator.<span class="keyword">class</span></string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#96989A</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Delimiter</string>
-            <key>scope</key>
-            <string>meta.delimiter</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#96979A</string></span>
-            </dict>
-        </dict>
-        <dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Round brace</string>
-            <key>scope</key>
-            <string>meta.brace</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#E8E2B7</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Curly brace</string>
-            <key>scope</key>
-            <string>meta.brace.curly</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#96979A</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: Embedded</string>
-            <key>scope</key>
-            <string>source.js.embedded</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#262C2F</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: Variable</string>
-            <key>scope</key>
-            <string>variable.language.js</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#93C763</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: <span class="keyword">Function</span> name</string>
-            <key>scope</key>
-            <string>entity.name.<span class="keyword">function</span>.js</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#E0E2E4</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: Instance</string>
-            <key>scope</key>
-            <string>entity.name.type.instance.js</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>underline, bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#AFC0E5</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: <span class="keyword">Class</span></string>
-            <key>scope</key>
-            <string>support.<span class="keyword">class</span>.js</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#78D023</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: Modifier</string>
-            <key>scope</key>
-            <string>storage.modifier.js</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#78D023</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: Constant</string>
-            <key>scope</key>
-            <string>support.constant.js, support.constant.dom.js</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#78D023</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: Operator <span class="keyword">and</span> terminator</string>
-            <key>scope</key>
-            <string>keyword.operator.js, punctuation.terminator.statement.js</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#E0E2E4</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>JavaScript: Console</string>
-            <key>scope</key>
-            <string>entity.name.type.object.js.firebug, keyword.other.js</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#DA4236</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>CSS: Embedded</string>
-            <key>scope</key>
-            <string>source.css.embedded</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#262C2F</string></span>
-                <key>foreground</key>
-                <string><span class="comment">#E0E2E4</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>CSS: Directive</string>
-            <key>scope</key>
-            <string>keyword.control.at-rule.import.css</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#A082BD</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>CSS: <span class="keyword">Class</span></string>
-            <key>scope</key>
-            <string>entity.other.attribute-name.<span class="keyword">class</span>.css</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#93C763</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>CSS: Tag</string>
-            <key>scope</key>
-            <string>entity.name.tag.css</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#B3B689</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>CSS: Property</string>
-            <key>scope</key>
-            <string>support.type.property-name.css, meta.property-name.css</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#678CB1</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>CSS: Unit</string>
-            <key>scope</key>
-            <string>keyword.other.unit.css</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#E0E2E4</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>CSS: Parameter</string>
-            <key>scope</key>
-            <string>variable.parameter.misc.css</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#EC7600</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>CSS: ID</string>
-            <key>scope</key>
-            <string>entity.other.attribute-name.id.css</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#D5AB55</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>CSS: Definition</string>
-            <key>scope</key>
-            <string>punctuation.definition.entity.css</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#9CB4AA</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>HTML/XML: String</string>
-            <key>scope</key>
-            <string>string.quoted.double.html, string.quoted.single.html, string.quoted.double.xml, string.quoted.single.xml</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#E1E2CF</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>HTML/XML: Definition</string>
-            <key>scope</key>
-            <string>punctuation.definition.tag.begin.html, punctuation.definition.tag.end.html, punctuation.definition.tag.html, punctuation.definition.tag.begin.xml, punctuation.definition.tag.end.xml, punctuation.definition.tag.xml, meta.tag.no-content</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#557182</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>XML: Tag</string>
-            <key>scope</key>
-            <string>entity.name.tag.xml, entity.name.tag.localname.xml</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#678CB1</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>XML: Definition</string>
-            <key>scope</key>
-            <string>meta.tag.preprocessor.xml punctuation.definition.tag.xml</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#557182</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>XML: Value</string>
-            <key>scope</key>
-            <string>constant.other.name.xml, string.quoted.other.xml</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#E0E2E4</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>DocType HTML: Tag</string>
-            <key>scope</key>
-            <string>meta.tag.sgml.doctype</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#557182</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>DocType: Root</string>
-            <key>scope</key>
-            <string>meta.tag.sgml.doctype variable.documentroot.xml, meta.tag.sgml.doctype.html</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#D5AB55</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>DocType: Keyword</string>
-            <key>scope</key>
-            <string>keyword.doctype, entity.name.tag.doctype</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#557182</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>DocType: Variable</string>
-            <key>scope</key>
-            <string>variable.documentroot</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#E0E2E4</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>PHP: Embedded</string>
-            <key>scope</key>
-            <string>source.php.embedded</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#252C30</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>PHP: Word</string>
-            <key>scope</key>
-            <string>support.<span class="keyword">function</span>.construct.php</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#93C763</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>PHP: Constant</string>
-            <key>scope</key>
-            <string>constant.other.php</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#D39745</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>PHP: Operator</string>
-            <key>scope</key>
-            <string>keyword.operator.string.php, keyword.operator.<span class="keyword">class</span>.php, keyword.operator.comparison.php, punctuation.definition.<span class="keyword">array</span>.begin.php, punctuation.definition.<span class="keyword">array</span>.end.php, punctuation.terminator.expression.php</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#E8E2B7</string></span>
-            </dict>
-        </dict>
+&lt;?xml version=&lt;span class="string">"1.0"&lt;/span> encoding=&lt;span class="string">"UTF-8"&lt;/span>&lt;span class="preprocessor">?>&lt;/span>
+&lt;!DOCTYPE plist &lt;span class="keyword">PUBLIC&lt;/span> &lt;span class="string">"-//Apple//DTD PLIST 1.0//EN"&lt;/span> &lt;span class="string">"http://www.apple.com/DTDs/PropertyList-1.0.dtd"&lt;/span>>
+&lt;plist version=&lt;span class="string">"1.0"&lt;/span>>
+&lt;dict>
+    &lt;key>author&lt;/key>
+    &lt;string>Marcus Ekwall&lt;/string>
+    &lt;key>modify&lt;/key>
+    &lt;string>jerry&lt;/string>
+    &lt;key>name&lt;/key>
+    &lt;string>Obsidian&lt;/string>
+    &lt;key>version&lt;/key>
+    &lt;string>&lt;span class="number">0.1&lt;/span>&lt;/string>
+    &lt;key>settings&lt;/key>
+    &lt;&lt;span class="keyword">array&lt;/span>>
+        &lt;!-- &lt;span class="keyword">global&lt;/span> -->
+        &lt;dict>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#293134&lt;/string>&lt;/span>
+                &lt;key>caret&lt;/key>
+                &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#81969A&lt;/string>&lt;/span>
+                &lt;key>invisibles&lt;/key>
+                &lt;string>&lt;span class="comment">#BFBFBF&lt;/string>&lt;/span>
+                &lt;key>lineHighlight&lt;/key>
+                &lt;string>&lt;span class="comment">#E5E5E520&lt;/string>&lt;/span>
+                &lt;key>selection&lt;/key>
+                &lt;string>&lt;span class="comment">#0D0F0F&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+          &lt;key>name&lt;/key>
+          &lt;string>Text base&lt;/string>
+          &lt;key>scope&lt;/key>
+          &lt;string>text&lt;/string>
+          &lt;key>settings&lt;/key>
+          &lt;dict>
+            &lt;key>background&lt;/key>
+            &lt;string>&lt;span class="comment">#293134&lt;/string>&lt;/span>
+            &lt;key>foreground&lt;/key>
+            &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+          &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+          &lt;key>name&lt;/key>
+          &lt;string>Source base&lt;/string>
+          &lt;key>scope&lt;/key>
+          &lt;string>source&lt;/string>
+          &lt;key>settings&lt;/key>
+          &lt;dict>
+            &lt;key>background&lt;/key>
+            &lt;string>&lt;span class="comment">#293134&lt;/string>&lt;/span>
+            &lt;key>foreground&lt;/key>
+            &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+          &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Comment&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>comment&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#66747B&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Comment Block&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>comment.block&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>italic&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#66747B&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Comment Doc&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>comment.documentation&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#66747B&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>String&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>string&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#EC7600&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Number&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>constant.numeric&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#FFCD22&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Built-in constant&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>constant.language&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#93C763&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>User-defined constant&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>constant.character, constant.other&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Variable&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>variable.language, variable.other&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#678CB1&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: Variable&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>variable.language.js&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#93C763&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Keyword&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>keyword&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#93C763&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Operator&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>keyword.operator&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Storage&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>storage&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#93C763&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>&lt;span class="keyword">Class&lt;/span> name&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.name.&lt;span class="keyword">class&lt;/span>&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Inherited &lt;span class="keyword">class&lt;/span>&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.other.inherited-&lt;span class="keyword">class&lt;/span>&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>&lt;span class="keyword">Function&lt;/span> name&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.name.&lt;span class="keyword">function&lt;/span>&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#678CB1&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>&lt;span class="keyword">Function&lt;/span> argument&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>variable.parameter&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Tag name&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.name.tag&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#408080&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Tag attribute&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.other.attribute-name&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#808040&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Library &lt;span class="keyword">function&lt;/span>&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>support.&lt;span class="keyword">function&lt;/span>&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Library constant&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>support.constant&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Library &lt;span class="keyword">class&lt;/span>/type&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>support.type, support.&lt;span class="keyword">class&lt;/span>&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Library variable&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>support.other.variable&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Invalid&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>invalid&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Embedded section&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>punctuation.section.embedded&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#D955C1&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Keyword Operator &lt;span class="keyword">Class&lt;/span>&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>keyword.operator.&lt;span class="keyword">class&lt;/span>&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#96989A&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Delimiter&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>meta.delimiter&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#96979A&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Round brace&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>meta.brace&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E8E2B7&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Curly brace&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>meta.brace.curly&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#96979A&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: Embedded&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>source.js.embedded&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#262C2F&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: Variable&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>variable.language.js&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#93C763&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: &lt;span class="keyword">Function&lt;/span> name&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.name.&lt;span class="keyword">function&lt;/span>.js&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: Instance&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.name.type.instance.js&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>underline, bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#AFC0E5&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: &lt;span class="keyword">Class&lt;/span>&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>support.&lt;span class="keyword">class&lt;/span>.js&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#78D023&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: Modifier&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>storage.modifier.js&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#78D023&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: Constant&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>support.constant.js, support.constant.dom.js&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#78D023&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: Operator &lt;span class="keyword">and&lt;/span> terminator&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>keyword.operator.js, punctuation.terminator.statement.js&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>JavaScript: Console&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.name.type.object.js.firebug, keyword.other.js&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#DA4236&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>CSS: Embedded&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>source.css.embedded&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#262C2F&lt;/string>&lt;/span>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>CSS: Directive&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>keyword.control.at-rule.import.css&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#A082BD&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>CSS: &lt;span class="keyword">Class&lt;/span>&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.other.attribute-name.&lt;span class="keyword">class&lt;/span>.css&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#93C763&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>CSS: Tag&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.name.tag.css&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#B3B689&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>CSS: Property&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>support.type.property-name.css, meta.property-name.css&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#678CB1&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>CSS: Unit&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>keyword.other.unit.css&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>CSS: Parameter&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>variable.parameter.misc.css&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#EC7600&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>CSS: ID&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.other.attribute-name.id.css&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#D5AB55&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>CSS: Definition&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>punctuation.definition.entity.css&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#9CB4AA&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>HTML/XML: String&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>string.quoted.double.html, string.quoted.single.html, string.quoted.double.xml, string.quoted.single.xml&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E1E2CF&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>HTML/XML: Definition&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>punctuation.definition.tag.begin.html, punctuation.definition.tag.end.html, punctuation.definition.tag.html, punctuation.definition.tag.begin.xml, punctuation.definition.tag.end.xml, punctuation.definition.tag.xml, meta.tag.no-content&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#557182&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>XML: Tag&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>entity.name.tag.xml, entity.name.tag.localname.xml&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#678CB1&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>XML: Definition&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>meta.tag.preprocessor.xml punctuation.definition.tag.xml&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#557182&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>XML: Value&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>constant.other.name.xml, string.quoted.other.xml&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>DocType HTML: Tag&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>meta.tag.sgml.doctype&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#557182&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>DocType: Root&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>meta.tag.sgml.doctype variable.documentroot.xml, meta.tag.sgml.doctype.html&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#D5AB55&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>DocType: Keyword&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>keyword.doctype, entity.name.tag.doctype&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#557182&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>DocType: Variable&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>variable.documentroot&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E0E2E4&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>PHP: Embedded&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>source.php.embedded&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#252C30&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>PHP: Word&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>support.&lt;span class="keyword">function&lt;/span>.construct.php&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#93C763&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>PHP: Constant&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>constant.other.php&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#D39745&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>PHP: Operator&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>keyword.operator.string.php, keyword.operator.&lt;span class="keyword">class&lt;/span>.php, keyword.operator.comparison.php, punctuation.definition.&lt;span class="keyword">array&lt;/span>.begin.php, punctuation.definition.&lt;span class="keyword">array&lt;/span>.end.php, punctuation.terminator.expression.php&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E8E2B7&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
  
-        <!-- markdown -->
-        <dict>
-            <key>name</key>
-            <string>diff: deleted</string>
-            <key>scope</key>
-            <string>markup.deleted</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#EAE3CA</string></span>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#D3201F</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>diff: changed</string>
-            <key>scope</key>
-            <string>markup.changed</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#EAE3CA</string></span>
-                <key>fontStyle</key>
-                <string></string>
-                <key>foreground</key>
-                <string><span class="comment">#BF3904</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>diff: inserted</string>
-            <key>scope</key>
-            <string>markup.inserted</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#EAE3CA</string></span>
-                <key>foreground</key>
-                <string><span class="comment">#219186</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markdown</string>
-            <key>scope</key>
-            <string>text.html.markdown</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#ffffff</string></span>
-                <key>foreground</key>
-                <string><span class="comment">#666666</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markdown</string>
-            <key>scope</key>
-            <string>text.html.markdown</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#ffffff</string></span>
-                <key>foreground</key>
-                <string><span class="comment">#666666</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markdown: Linebreak</string>
-            <key>scope</key>
-            <string>text.html.markdown meta.dummy.line-<span class="keyword">break</span></string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#A57706</string></span>
-                <key>foreground</key>
-                <string><span class="comment">#E0EDDD</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markdown: Raw</string>
-            <key>scope</key>
-            <string>text.html.markdown markup.raw.inline</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#F8F8F8</string></span>
-                <key>foreground</key>
-                <string><span class="comment">#269186</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markup: Heading</string>
-            <key>scope</key>
-            <string>markup.heading</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#000000</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markup: Italic</string>
-            <key>scope</key>
-            <string>markup.italic</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
-                <key>foreground</key>
-                <string><span class="comment">#839496</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markup: Bold</string>
-            <key>scope</key>
-            <string>markup.bold</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#ec7600</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markup: Underline</string>
-            <key>scope</key>
-            <string>markup.underline</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>underline</string>
-                <key>foreground</key>
-                <string><span class="comment">#839496</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markup: Quote</string>
-            <key>scope</key>
-            <string>markup.quote</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
-                <key>foreground</key>
-                <string><span class="comment">#268bd2</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markup: <span class="keyword">List</span></string>
-            <key>scope</key>
-            <string>markup.<span class="keyword">list</span></string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#afc0e5</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markup: Raw</string>
-            <key>scope</key>
-            <string>markup.raw</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string><span class="comment">#b58900</string></span>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Markup: Separator</string>
-            <key>scope</key>
-            <string>meta.separator</string>
-            <key>settings</key>
-            <dict>
-                <key>background</key>
-                <string><span class="comment">#eee8d5</string></span>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string><span class="comment">#268bd2</string></span>
-            </dict>
-        </dict>
-    </<span class="keyword">array</span>>
-    <key>uuid</key>
-    <string><span class="number">70442</span>A54-<span class="number">7505</span>-<span class="number">46</span>E2-AAD8-<span class="number">44691</span>BBC53DF</string>
-</dict>
-</plist>
+        &lt;!-- markdown -->
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>diff: deleted&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.deleted&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#EAE3CA&lt;/string>&lt;/span>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#D3201F&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>diff: changed&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.changed&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#EAE3CA&lt;/string>&lt;/span>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#BF3904&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>diff: inserted&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.inserted&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#EAE3CA&lt;/string>&lt;/span>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#219186&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markdown&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>text.html.markdown&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#ffffff&lt;/string>&lt;/span>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#666666&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markdown&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>text.html.markdown&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#ffffff&lt;/string>&lt;/span>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#666666&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markdown: Linebreak&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>text.html.markdown meta.dummy.line-&lt;span class="keyword">break&lt;/span>&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#A57706&lt;/string>&lt;/span>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#E0EDDD&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markdown: Raw&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>text.html.markdown markup.raw.inline&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#F8F8F8&lt;/string>&lt;/span>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#269186&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markup: Heading&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.heading&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#000000&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markup: Italic&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.italic&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>italic&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#839496&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markup: Bold&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.bold&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#ec7600&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markup: Underline&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.underline&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>underline&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#839496&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markup: Quote&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.quote&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>italic&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#268bd2&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markup: &lt;span class="keyword">List&lt;/span>&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.&lt;span class="keyword">list&lt;/span>&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#afc0e5&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markup: Raw&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>markup.raw&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#b58900&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Markup: Separator&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>meta.separator&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>&lt;span class="comment">#eee8d5&lt;/string>&lt;/span>
+                &lt;key>fontStyle&lt;/key>
+                &lt;string>bold&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>&lt;span class="comment">#268bd2&lt;/string>&lt;/span>
+            &lt;/dict>
+        &lt;/dict>
+    &lt;/&lt;span class="keyword">array&lt;/span>>
+    &lt;key>uuid&lt;/key>
+    &lt;string>&lt;span class="number">70442&lt;/span>A54-&lt;span class="number">7505&lt;/span>-&lt;span class="number">46&lt;/span>E2-AAD8-&lt;span class="number">44691&lt;/span>BBC53DF&lt;/string>
+&lt;/dict>
+&lt;/plist>
  
 ```
 

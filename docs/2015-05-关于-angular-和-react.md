@@ -71,15 +71,15 @@ js 已经有了 coffeescript、typescript 等，以后还有 es6，难道还要�
 第一个组件，hello 系列，先看 react 的实现
 
 ```html
-<span class="keyword">var</span> HelloMessage = React.createClass({displayName: <span class="string">"HelloMessage"</span>,
-  render: <span class="keyword">function</span>() {
-    <span class="keyword">return</span> React.createElement(<span class="string">"div"</span>, <span class="keyword">null</span>, <span class="string">"Hello "</span>, <span class="keyword">this</span>.props.name);
+&lt;span class="keyword">var&lt;/span> HelloMessage = React.createClass({displayName: &lt;span class="string">"HelloMessage"&lt;/span>,
+  render: &lt;span class="keyword">function&lt;/span>() {
+    &lt;span class="keyword">return&lt;/span> React.createElement(&lt;span class="string">"div"&lt;/span>, &lt;span class="keyword">null&lt;/span>, &lt;span class="string">"Hello "&lt;/span>, &lt;span class="keyword">this&lt;/span>.props.name);
   }
 });
  
 React.render(
-    React.createElement(HelloMessage, {name: <span class="string">"John"</span>}), 
-    document.getElementById(<span class="string">'container'</span>)
+    React.createElement(HelloMessage, {name: &lt;span class="string">"John"&lt;/span>}), 
+    document.getElementById(&lt;span class="string">'container'&lt;/span>)
 );
  
 ```
@@ -89,15 +89,15 @@ React.render(
 template.html
 
 ```html
-<div>Hello {{ name }} </div>;
+&lt;div>Hello {{ name }} &lt;/div>;
 ```
 
 controller
 
 ```html
-<span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>);
-app.controller(<span class="string">'testController'</span>,[<span class="string">"$scope"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>){
-    <span class="variable">$scope</span>.name = <span class="string">'John'</span>;
+&lt;span class="keyword">var&lt;/span> app = angular.module(&lt;span class="string">'app'&lt;/span>);
+app.controller(&lt;span class="string">'testController'&lt;/span>,[&lt;span class="string">"$scope"&lt;/span>,&lt;span class="keyword">function&lt;/span>(&lt;span class="variable">$scope&lt;/span>){
+    &lt;span class="variable">$scope&lt;/span>.name = &lt;span class="string">'John'&lt;/span>;
 }]);
  
 ```
@@ -105,12 +105,12 @@ app.controller(<span class="string">'testController'</span>,[<span class="string
 再看一看用 angular 式组件，使用 directive
 
 ```html
-<span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>);
-app.directive(<span class="string">'myComponent'</span>,<span class="keyword">function</span>(){
-    <span class="keyword">return</span> {
-        link:<span class="keyword">function</span>(scope,element,attrs){
-            <span class="keyword">var</span> name = attrs.name;
-            element.text(<span class="string">'Hello '</span> + name);
+&lt;span class="keyword">var&lt;/span> app = angular.module(&lt;span class="string">'app'&lt;/span>);
+app.directive(&lt;span class="string">'myComponent'&lt;/span>,&lt;span class="keyword">function&lt;/span>(){
+    &lt;span class="keyword">return&lt;/span> {
+        link:&lt;span class="keyword">function&lt;/span>(scope,element,attrs){
+            &lt;span class="keyword">var&lt;/span> name = attrs.name;
+            element.text(&lt;span class="string">'Hello '&lt;/span> + name);
         }
     }
 });
@@ -120,7 +120,7 @@ app.directive(<span class="string">'myComponent'</span>,<span class="keyword">fu
 html:
 
 ```html
-<myComponent name="John"></myComponent>;
+&lt;myComponent name="John">&lt;/myComponent>;
 ```
 
 # 组件组合
@@ -131,13 +131,13 @@ react 的组件组合非常简单，使用 `React.createElement` 方法即可。
 例如给上面定义的 `HelloMessage` 的外层添加一个 `div`，可以这样写：
 
 ```html
-<span class="keyword">var</span> HelloMessageWithDiv = React.createClass({
-    displayName:<span class="string">'HelloMessageWithDiv'</span>,
-    render:<span class="keyword">function</span>(){
-        <span class="keyword">return</span> React.createElement(
-            <span class="string">'div'</span>,
-            <span class="keyword">null</span>,
-            React.createElement(HelloMessage, {name: <span class="string">"John"</span>})
+&lt;span class="keyword">var&lt;/span> HelloMessageWithDiv = React.createClass({
+    displayName:&lt;span class="string">'HelloMessageWithDiv'&lt;/span>,
+    render:&lt;span class="keyword">function&lt;/span>(){
+        &lt;span class="keyword">return&lt;/span> React.createElement(
+            &lt;span class="string">'div'&lt;/span>,
+            &lt;span class="keyword">null&lt;/span>,
+            React.createElement(HelloMessage, {name: &lt;span class="string">"John"&lt;/span>})
         );
     }
 });
@@ -147,9 +147,9 @@ react 的组件组合非常简单，使用 `React.createElement` 方法即可。
 angular 也很简单，直接写 html 即可
 
 ```html
-<div>
-    <myComponent name="John"></myComponent>
-</div>;
+&lt;div>
+    &lt;myComponent name="John">&lt;/myComponent>
+&lt;/div>;
 ```
 
 react 对 dom 的封装都在 React.DOM 命名空间下，而 coffeescipt 支持解构赋值语法，所以用 coffee 的写法也可以媲美 jsx 的语法，例如：
@@ -157,16 +157,16 @@ react 对 dom 的封装都在 React.DOM 命名空间下，而 coffeescipt 支持
 ```html
 {div,h1,h2,h3,h4,input,span} = React.DOM
 React.render(
-    div <span class="keyword">null</span>,<span class="string">'head.'</span>,
-        div <span class="keyword">null</span>,<span class="string">'nav'</span>,
-            ul <span class="keyword">null</span>,
-                li <span class="keyword">null</span>,<span class="string">'li1'</span>
-                li <span class="keyword">null</span>,<span class="string">'li2'</span>
-        div <span class="keyword">null</span>,<span class="string">'container'</span>,
-            h1 <span class="keyword">null</span>,<span class="string">'title'</span>
-            div <span class="keyword">null</span>,<span class="string">'content'</span>
-                h2 <span class="keyword">null</span>,<span class="string">'h2'</span>
-,document.getElementById <span class="string">'container'</span> )
+    div &lt;span class="keyword">null&lt;/span>,&lt;span class="string">'head.'&lt;/span>,
+        div &lt;span class="keyword">null&lt;/span>,&lt;span class="string">'nav'&lt;/span>,
+            ul &lt;span class="keyword">null&lt;/span>,
+                li &lt;span class="keyword">null&lt;/span>,&lt;span class="string">'li1'&lt;/span>
+                li &lt;span class="keyword">null&lt;/span>,&lt;span class="string">'li2'&lt;/span>
+        div &lt;span class="keyword">null&lt;/span>,&lt;span class="string">'container'&lt;/span>,
+            h1 &lt;span class="keyword">null&lt;/span>,&lt;span class="string">'title'&lt;/span>
+            div &lt;span class="keyword">null&lt;/span>,&lt;span class="string">'content'&lt;/span>
+                h2 &lt;span class="keyword">null&lt;/span>,&lt;span class="string">'h2'&lt;/span>
+,document.getElementById &lt;span class="string">'container'&lt;/span> )
  
 ```
 

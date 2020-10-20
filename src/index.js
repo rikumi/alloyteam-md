@@ -79,8 +79,8 @@ const processFile = async (src) => {
     const relative = formatFileName(src);
     const file = path.join(dir, relative);
     fs.writeFileSync(file, formatFile({ src, title, date, author, content }));
-    indexContent = `- ${date} [${title}](./${relative}) by ${author}\n` + indexContent;
-    fs.writeFileSync(indexFile, '# 文章\n\n' + indexContent);
+    indexContent = `# [${title}](./${relative})\n${date} by ${author}\n\n` + indexContent;
+    fs.writeFileSync(indexFile, indexContent);
   });
   return { next };
 };

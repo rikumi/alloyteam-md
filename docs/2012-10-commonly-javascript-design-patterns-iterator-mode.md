@@ -13,7 +13,7 @@ array 的迭代器：
 
 ```javascript
 forEach = function (ary, fn) {
-    for (var i = 0, l = ary.length; i &lt; l; i++) {
+    for (var i = 0, l = ary.length; i < l; i++) {
         var c = ary[i];
         if (fn.call(c, i, c) === false) {
             return false;

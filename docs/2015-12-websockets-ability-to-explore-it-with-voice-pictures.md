@@ -169,18 +169,18 @@ function decodeDataFrame(e) {
 		};
  
 	if(frame.PayloadLength === 126) {
-		frame.PayloadLength = (e[i++] &lt;&lt; 8) + e[i++];
+		frame.PayloadLength = (e[i++] << 8) + e[i++];
 	}
  
 	if(frame.PayloadLength === 127) {
 		i += 4;
-		frame.PayloadLength = (e[i++] &lt;&lt; 24) + (e[i++] &lt;&lt; 16) + (e[i++] &lt;&lt; 8) + e[i++];
+		frame.PayloadLength = (e[i++] << 24) + (e[i++] << 16) + (e[i++] << 8) + e[i++];
 	}
  
 	if(frame.Mask) {
 		frame.MaskingKey = [e[i++], e[i++], e[i++], e[i++]];
  
-		for(j = 0, s = []; j &lt; frame.PayloadLength; j++) {
+		for(j = 0, s = []; j < frame.PayloadLength; j++) {
 			s.push(e[i+j] ^ frame.MaskingKey[j%4]);
 		}
 	} else {
@@ -205,10 +205,10 @@ function encodeDataFrame(e) {
     var s = [],
         o = new Buffer(e.PayloadData),
         l = o.length;
-    s.push((e.FIN &lt;&lt; 7) + e.Opcode);
-    if (l &lt; 126) {
+    s.push((e.FIN << 7) + e.Opcode);
+    if (l < 126) {
         s.push(l);
-    } else if (l &lt; 0x10000) {
+    } else if (l < 0x10000) {
         s.push(126, (l & 0xff00) >> 8, l & 0xff);
     } else {
         s.push(
@@ -265,7 +265,7 @@ fs.readdir("skyland", function (err, files) {
     if (err) {
         throw err;
     }
-    for (var i = 0; i &lt; files.length; i++) {
+    for (var i = 0; i < files.length; i++) {
         fs.readFile("skyland/" + files[i], function (err, data) {
             if (err) {
                 throw err;
@@ -278,10 +278,10 @@ function encodeImgFrame(buf) {
     var s = [],
         l = buf.length,
         ret = [];
-    s.push((1 &lt;&lt; 7) + 2);
-    if (l &lt; 126) {
+    s.push((1 << 7) + 2);
+    if (l < 126) {
         s.push(l);
-    } else if (l &lt; 0x10000) {
+    } else if (l < 0x10000) {
         s.push(126, (l & 0xff00) >> 8, l & 0xff);
     } else {
         s.push(
@@ -516,7 +516,7 @@ var SRecorder = function (stream) {
             //合并
             var data = new Float32Array(this.size);
             var offset = 0;
-            for (var i = 0; i &lt; this.buffer.length; i++) {
+            for (var i = 0; i < this.buffer.length; i++) {
                 data.set(this.buffer[i], offset);
                 offset += this.buffer[i].length;
             } //压缩
@@ -527,7 +527,7 @@ var SRecorder = function (stream) {
             var result = new Float32Array(length);
             var index = 0,
                 j = 0;
-            while (index &lt; length) {
+            while (index < length) {
                 result[index] = data[j];
                 j += compression;
                 index++;
@@ -550,7 +550,7 @@ var SRecorder = function (stream) {
             var channelCount = 1; //单声道
             var offset = 0;
             var writeString = function (str) {
-                for (var i = 0; i &lt; str.length; i++) {
+                for (var i = 0; i < str.length; i++) {
                     data.setUint8(offset + i, str.charCodeAt(i));
                 }
             }; // 资源交换文件标识符
@@ -585,18 +585,18 @@ var SRecorder = function (stream) {
             data.setUint32(offset, dataLength, true);
             offset += 4; // 写入采样数据
             if (sampleBits === 8) {
-                for (var i = 0; i &lt; bytes.length; i++, offset++) {
+                for (var i = 0; i < bytes.length; i++, offset++) {
                     var s = Math.max(-1, Math.min(1, bytes[i]));
-                    var val = s &lt; 0 ? s * 0x8000 : s * 0x7fff;
+                    var val = s < 0 ? s * 0x8000 : s * 0x7fff;
                     val = parseInt(255 / (65535 / (val + 32768)));
                     data.setInt8(offset, val, true);
                 }
             } else {
-                for (var i = 0; i &lt; bytes.length; i++, offset += 2) {
+                for (var i = 0; i < bytes.length; i++, offset += 2) {
                     var s = Math.max(-1, Math.min(1, bytes[i]));
                     data.setInt16(
                         offset,
-                        s &lt; 0 ? s * 0x8000 : s * 0x7fff,
+                        s < 0 ? s * 0x8000 : s * 0x7fff,
                         true
                     );
                 }

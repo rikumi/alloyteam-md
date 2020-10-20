@@ -55,21 +55,21 @@ l slideshow.effects.js          这个是向 JXAnimation 中添加一些�
 以下 HTML 和 JS 代码
 
 ```html
-    &lt;body>
+    <body>
  
         图片轮播器Demo
  
-        &lt;div id="picplayer" style="position:relative;width:300px;height:300px;">
+        <div id="picplayer" style="position:relative;width:300px;height:300px;">
  
-            &lt;img src="http://img.jb51.net/online/picPlayer/1.jpg">
+            <img src="http://img.jb51.net/online/picPlayer/1.jpg">
  
-        &lt;/div>
+        </div>
  
-        &lt;button id="prev" onclick="SlideShow.prev();">上一页&lt;/button>
+        <button id="prev" onclick="SlideShow.prev();">上一页</button>
  
-        &lt;button id="next" onclick="SlideShow.next();">下一页&lt;/button>
+        <button id="next" onclick="SlideShow.next();">下一页</button>
  
-        &lt;script>
+        <script>
  
             var pics1 = [
  
@@ -95,9 +95,9 @@ l slideshow.effects.js          这个是向 JXAnimation 中添加一些�
  
             };
  
-        &lt;/script>
+        </script>
  
-    &lt;/body>
+    </body>
 ```
 
 代码还是挺清爽的。

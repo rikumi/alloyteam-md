@@ -63,7 +63,7 @@ preload 最基本的使用方式是**提前加载较晚发现的资源**。虽�
 做法可能如下
 
 ```html
-&lt;link rel="preload" href="late_discovered_thing.js" as="script">
+<link rel="preload" href="late_discovered_thing.js" as="script">
 ```
 
 as 属性告诉浏览器什么类型的资源将被下载。as 可能的取值有：
@@ -89,7 +89,7 @@ as 属性告诉浏览器什么类型的资源将被下载。as 可能的取值�
 但是，你可以对一定需要的字体使用 preload 指令，摆脱上述的复杂问题。像这样：
 
 ```c
-&lt;link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
 ```
 
 有一点需要指明，获取字体时[必须加上 crossorigin 属性](https://github.com/w3c/preload/issues/32)，就如[使用 CORS 的匿名模式获取](https://drafts.csswg.org/css-fonts/#font-fetching-requirements)一样。是的，即使你的字体与页面同域，抱歉……
@@ -131,7 +131,7 @@ document.body.appendChild(script);
 另一个酷炫的技巧，是使用 onload 处理函数来创建一些基于标签的异步加载器。[Scott Jehl](https://twitter.com/scottjehl) 做了这方面的第一个[实验](https://github.com/filamentgroup/loadCSS/issues/59)，作为他的 loadCSS 库。简单说，你可以这么使用：
 
 ```html
-&lt;link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'">
+<link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'">
 ```
 
 在标签里获取异步的样式表！Scott 还有一个该特性的 [demo](http://filamentgroup.github.io/loadCSS/test/preload.html) 页面。
@@ -145,7 +145,7 @@ document.body.appendChild(script);
 有了 preload，实现起来就很容易了：
 
 ```javascript
-&lt;link rel="preload" as="script" href="async_script.js"
+<link rel="preload" as="script" href="async_script.js"
 onload="var script = document.createElement('script');
         script.src = this.href;
         document.body.appendChild(script);">

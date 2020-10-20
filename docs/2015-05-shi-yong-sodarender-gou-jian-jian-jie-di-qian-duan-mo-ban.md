@@ -27,55 +27,55 @@ SodaRender 是一款具有类似 Angular 模板写法的模板引擎，使用 So
 假如你还在使用 JS 和模板混杂的前端模板引擎，在它不至于使你的模板变得一团遭的时候，它们看起来是这样的
 
 ```javascript
-&lt;% for(var i = 0; i &lt; data.length; i ++){
+<% for(var i = 0; i < data.length; i ++){
    var item = data[i];
 %>
-&lt;li id="&lt;%=item.id%>">&lt;%=item.name%>&lt;/li>
-&lt;% } %>
+<li id="<%=item.id%>"><%=item.name%></li>
+<% } %>
 ```
 
 在使用 sodaRender 重构之后，你的代码看起来是这样的
 
 ```html
-&lt;li soda-repeat="item in data" id="{{item.id}}">{{item.name}}&lt;/li>
+<li soda-repeat="item in data" id="{{item.id}}">{{item.name}}</li>
 ```
 
 如果你还想继续为一大堆的 % 噩梦所揪挠，那你的模板可能看起来是这样的
 
 ```javascript
-&lt;div class="&lt;% if(item.status === 'curr'){%>active&lt;%}else{%>common&lt;%}%>">
-    &lt;%=item.name%>
-&lt;/div>
+<div class="<% if(item.status === 'curr'){%>active<%}else{%>common<%}%>">
+    <%=item.name%>
+</div>
 ```
 
 如果你希望更简洁的阅读，你可能会选择 sodaRender
 
 ```html
-&lt;div soda-class="item.status === 'curr' ? 'active': 'common'">
+<div soda-class="item.status === 'curr' ? 'active': 'common'">
      {{item.name}}
-&lt;/div>
+</div>
 ```
 
 如果还想在你的模板中混合函数，那么你的模板会更糟糕，如下
 
 ```javascript
-&lt;% for(var i = 0; i &lt; data.length; i ++){
+<% for(var i = 0; i < data.length; i ++){
    var item = data[i];
    var formatTime = function(time){
-       if(item &lt; + new Date()){
+       if(item < + new Date()){
        }else{
          // .....
        }
    }
 %>
-&lt;li id="&lt;%=item.id%>">&lt;%=formatTime(item.time)%>&lt;/li>
-&lt;% } %>
+<li id="<%=item.id%>"><%=formatTime(item.time)%></li>
+<% } %>
 ```
 
 这样几乎要把后来的人逼疯了，这时候如果考虑 sodaRender
 
 ```html
-&lt;li soda-repeat="item in data" id="{{item.id}}">{{item.time|formatTime}}&lt;/li>
+<li soda-repeat="item in data" id="{{item.id}}">{{item.time|formatTime}}</li>
 ```
 
 如果你希望改善你的模板中的这些状况，或者你不幸被我说中了，那么请移步这里吧 [SodaRender](https://github.com/AlloyTeam/SodaRender)

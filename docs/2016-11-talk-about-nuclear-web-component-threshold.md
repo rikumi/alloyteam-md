@@ -30,29 +30,29 @@ CSS 层叠样式？保佑不要污染别的 HTML!
 如果 HTML 绑定的事件是局部作用域那就再好不过了！我真的见过模版代码里出现下面的代码：
 
 ```html
-&lt;div onclick="xxx()">&lt;/div>;
+<div onclick="xxx()"></div>;
 ```
 
 然后在 js 里找到了下面的代码：
 
 ```javascript
-&lt;script>    window.xxx = function(){}&lt;/script>;
+<script>    window.xxx = function(){}</script>;
 ```
 
 要绑定的事件一多，得污染多少全局变量啊。所以还有的工程师这么干：
 
 ```html
-&lt;div onclick="ns.xxx()">&lt;/div>
-&lt;div onclick="ns.xxxx()">&lt;/div>
+<div onclick="ns.xxx()"></div>
+<div onclick="ns.xxxx()"></div>
 ```
 
 然后在 js 里找到了下面的代码：
 
 ```javascript
-&lt;script>
+<script>
         window.ns = {};       ns.xx = function(){}
              ns.xxx = function(){}
-&lt;/script>;
+</script>;
 ```
 
 这里貌似比不设定 namespace 好很多，但是还是妥协的结果。一般希望能封装成组件，组件的 HTML 里绑定的事件就是组件内定义的事件，内聚内聚！！  
@@ -99,7 +99,7 @@ Hello,Nuclear!
 ```javascript
 var HelloNuclear = Nuclear.create({
     render: function () {
-        return "&lt;div>Hello , {{name}} !&lt;/div>";
+        return "<div>Hello , {{name}} !</div>";
     },
 });
 new HelloNuclear({ name: "Nuclear" }, "body");
@@ -115,14 +115,14 @@ new HelloNuclear({ name: "Nuclear" }, "body");
 var EventDemo = Nuclear.create({
     clickHandler: function (evt, target, other1, other2) {
         //MouseEvent {isTrusted: true, screenX: 51, screenY: 87, clientX: 51, clientY: 21…}
-        console.log(evt); //&lt;div onclick="Nuclear.instances[0].clickHandler(event,this,'otherParameter1','otherParameter2')">Click Me!&lt;/div>
+        console.log(evt); //<div onclick="Nuclear.instances[0].clickHandler(event,this,'otherParameter1','otherParameter2')">Click Me!</div>
         console.log(target); //otherParameter1
         console.log(other1); //otherParameter2
         console.log(other2);
         alert("Hello Nuclear!");
     },
     render: function () {
-        return "&lt;div onclick=\"clickHandler(event,this,'otherParameter1','otherParameter2')\">Click Me!&lt;/div>";
+        return "<div onclick=\"clickHandler(event,this,'otherParameter1','otherParameter2')\">Click Me!</div>";
     },
 });
 new EventDemo({ seen: true }, "body");
@@ -136,14 +136,14 @@ new EventDemo({ seen: true }, "body");
 var ConditionDemo = Nuclear.create({
     render: function () {
         return "{{#seen}}\
-                    &lt;div>\
+                    <div>\
                         you can see me\
-                    &lt;/div>\
+                    </div>\
                 {{/seen}}\
                 {{^seen}}\
-                    &lt;div>\
+                    <div>\
                         yan can not see me\
-                    &lt;/div>\
+                    </div>\
                 {{/seen}}";
     },
 });
@@ -162,7 +162,7 @@ setTimeout(function () {
 ```javascript
 var LoopDemo = Nuclear.create({
     render: function () {
-        return "&lt;ul>{{#list}}&lt;li>姓名:{{name}} 年龄:{{age}}&lt;/li>{{/list}}&lt;/ul>";
+        return "<ul>{{#list}}<li>姓名:{{name}} 年龄:{{age}}</li>{{/list}}</ul>";
     },
 });
 var ld = new LoopDemo(
@@ -195,19 +195,19 @@ Array 的变更也能监听到，能够自动触发 Dom 的变更。
 * * *
 
 ```html
-&lt;body>
+<body>
  
-    &lt;div>I'm other div!! my color is not red!!&lt;/div>
+    <div>I'm other div!! my color is not red!!</div>
  
-    &lt;script src="../dist/nuclear.js">&lt;/script>
+    <script src="../dist/nuclear.js"></script>
  
-    &lt;script type="text/javascript">
+    <script type="text/javascript">
         var ScopedCSSDemo = Nuclear.create({
             clickHandler: function () {
                 alert("my color is red!");
             },
             render: function () {
-                return '&lt;div onclick="clickHandler()">my color is red!&lt;/div>'
+                return '<div onclick="clickHandler()">my color is red!</div>'
             },
             style: function () {
                 return 'div { cursor:pointer; color:red }';
@@ -216,9 +216,9 @@ Array 的变更也能监听到，能够自动触发 Dom 的变更。
         //第三个参数true代表 增量（increment）到body里，而非替换（replace）body里的
         new ScopedCSSDemo ({ seen: true }, "body" ,true);
  
-    &lt;/script>
+    </script>
  
-&lt;/body>
+</body>
 ```
 
 组件外的 div 不会被组件内的 CSS 污染。
@@ -230,8 +230,8 @@ Array 的变更也能监听到，能够自动触发 Dom 的变更。
 讨厌反斜杠可以使用 ES20XX template literals、或者 split to js、css 和 html 文件然后通过构建组装使用。也可以用 template 标签或者 textare 存放模板。
 
 ```html
-&lt;template id="myTemplate">
-    &lt;style>
+<template id="myTemplate">
+    <style>
         h3 {
             color: red;
         }
@@ -239,21 +239,21 @@ Array 的变更也能监听到，能够自动触发 Dom 的变更。
         button {
             color: green;
         }
-    &lt;/style>
+    </style>
  
-    &lt;div>
-        &lt;div>
-            &lt;h3>TODO&lt;/h3>
-            &lt;ul>{{#items}}&lt;li>{{.}}&lt;/li>{{/items}}&lt;/ul>
-            &lt;form onsubmit="add(event)">
-                &lt;input nc-id="textBox" value="{{inputValue}}" type="text">
-                &lt;button>Add #{{items.length}}&lt;/button>
-            &lt;/form>
-        &lt;/div>
-    &lt;/div>
-&lt;/template>
+    <div>
+        <div>
+            <h3>TODO</h3>
+            <ul>{{#items}}<li>{{.}}</li>{{/items}}</ul>
+            <form onsubmit="add(event)">
+                <input nc-id="textBox" value="{{inputValue}}" type="text">
+                <button>Add #{{items.length}}</button>
+            </form>
+        </div>
+    </div>
+</template>
  
-&lt;script>
+<script>
     var TodoApp = Nuclear.create({
         install: function () {
             this.todoTpl = document.querySelector("#myTemplate").innerHTML;
@@ -270,7 +270,7 @@ Array 的变更也能监听到，能够自动触发 Dom 的变更。
  
     new TodoApp({ inputValue: "", items: [] }, "body");
  
-&lt;/script>
+</script>
 ```
 
 组件嵌套  
@@ -278,24 +278,24 @@ Array 的变更也能监听到，能够自动触发 Dom 的变更。
 * * *
 
 ```html
-&lt;script>
+<script>
     var TodoList = Nuclear.create({
         render: function () {
-            return '&lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>';
+            return '<ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>';
         }
     });
  
-&lt;/script>
+</script>
  
-&lt;script>
+<script>
     var TodoTitle = Nuclear.create({
         render: function () {
-            return '&lt;h3>{{title}}&lt;/h3>';
+            return '<h3>{{title}}</h3>';
         }
     });
-&lt;/script>
+</script>
  
-&lt;script>
+<script>
  
     var TodoApp = Nuclear.create({
         install: function () {
@@ -315,19 +315,19 @@ Array 的变更也能监听到，能够自动触发 Dom 的变更。
         },
         render: function () {
             //or  any_namespace.xx.xxx.TodoList 对应的 nc-constructor="any_namespace.xx.xxx.TodoList"
-            return '&lt;div>\
-                        &lt;child nc-constructor="TodoTitle">&lt;/child>\
-                        &lt;child nc-constructor="TodoList"  nc-name="list">&lt;/child>\
-                        &lt;form onsubmit="add(event)" >\
-                          &lt;input nc-id="textBox" value="{{inputValue}}" type="text"  />\
-                          &lt;button>Add #'+ this.length + '&lt;/button>\
-                         &lt;/form>\
-                   &lt;/div>';
+            return '<div>\
+                        <child nc-constructor="TodoTitle"></child>\
+                        <child nc-constructor="TodoList"  nc-name="list"></child>\
+                        <form onsubmit="add(event)" >\
+                          <input nc-id="textBox" value="{{inputValue}}" type="text"  />\
+                          <button>Add #'+ this.length + '</button>\
+                         </form>\
+                   </div>';
         }
     });
  
     new TodoApp({ inputValue: "" }, "body");
-&lt;/script>
+</script>
 ```
 
 通过在父对象的 install 里设置 this.childrenOptions 来把 option 传给子节点。
@@ -345,14 +345,14 @@ function todo(Nuclear, server) {
                 this.option.items.push(this.textBox.value);
             },
             render: function () {
-                return `&lt;div>
-                      &lt;h3>TODO&lt;/h3>
-                      &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>
-                      &lt;form onsubmit="add(event)" >
-                          &lt;input nc-id="textBox" type="text"  value="" />
-                          &lt;button>Add #{{items.length}}&lt;/button>
-                      &lt;/form>
-                    &lt;/div>`;
+                return `<div>
+                      <h3>TODO</h3>
+                      <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>
+                      <form onsubmit="add(event)" >
+                          <input nc-id="textBox" type="text"  value="" />
+                          <button>Add #{{items.length}}</button>
+                      </form>
+                    </div>`;
             },
             style: function () {
                 return `h3 { color:red; }
@@ -402,21 +402,21 @@ app.listen(3000);
 浏览器端使用的代码：
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-&lt;/head>
-&lt;body>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
  {{{todo}}}
  
- &lt;script src="./nuclear.js">&lt;/script>
- &lt;script src="./todo.js">&lt;/script>
- &lt;script>
+ <script src="./nuclear.js"></script>
+ <script src="./todo.js"></script>
+ <script>
     var Todo= todo(Nuclear);
     new Todo('body');
- &lt;/script>
-&lt;/body>
-&lt;/html>
+ </script>
+</body>
+</html>
 ```
 
 这样，组件的代码不需要任何变更就可以在 server 和 client 同时使用。

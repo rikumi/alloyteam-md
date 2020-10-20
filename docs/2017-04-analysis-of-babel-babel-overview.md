@@ -66,7 +66,7 @@ traverse(ast, {
                 var arg = parent.arguments;
                 var serviceName = arg[0];
                 var serviceFunc = arg[1];
-                for (var i = 0; i &lt; arg.length; i++) {
+                for (var i = 0; i < arg.length; i++) {
                     if (arg[i].type === "FunctionExpression") {
                         serviceFunc = arg[i];
                         break;
@@ -79,7 +79,7 @@ traverse(ast, {
                     var end = serviceFunc.end;
                     var funcStr = source.substring(start, end); //params里是注入的代码
                     var injectArr = [];
-                    for (var j = 0; j &lt; params.length; j++) {
+                    for (var j = 0; j < params.length; j++) {
                         injectArr.push(params[j].name);
                     }
                     var injectStr = injectArr.join('","');
@@ -182,7 +182,7 @@ interface Position {
 再看 Program 的定义
 
 ```css
-interface Program &lt;: Node {
+interface Program <: Node {
   type: "Program";
   sourceType: "script" | "module";
   body: [ Statement | ModuleDeclaration ];

@@ -176,7 +176,7 @@ function addImg(img) {
     $("#list").find("> li:last-child").html("").append(img);
 }
 function prepend() {
-    $("&lt;li>").html("loading...").appendTo($("#list"));
+    $("<li>").html("loading...").appendTo($("#list"));
 }
 function run() {
     $("#done").hide();

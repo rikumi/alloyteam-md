@@ -23,7 +23,7 @@ function circle(context, x, y, a) { // x,y是坐标;a是半径
     var r = 1/a; // ①注意：此处r可以写死，不过不同情况下写死的值不同
     context.beginPath();
     context.moveTo(x + a, y);
-    for(var i = 0; i &lt; 2 * Math.PI; i += r) {
+    for(var i = 0; i < 2 * Math.PI; i += r) {
         context.lineTo(x + a * Math.cos(i), y + a * Math.sin(i));
     }
     context.closePath();
@@ -46,7 +46,7 @@ function EllipseOne(context, x, y, a, b) {
     var step = (a > b) ? 1 / a : 1 / b;
     context.beginPath();
     context.moveTo(x + a, y);
-    for(var i = 0; i &lt; 2 * Math.PI; i += step) {
+    for(var i = 0; i < 2 * Math.PI; i += step) {
         context.lineTo(x + a * Math.cos(i), y + b * Math.sin(i));
     }
     context.closePath();
@@ -143,8 +143,8 @@ function EllipseFive(context, x, y, a, b) {
     var d = b*b + a*a*(-b + 0.25);
     var mx = a * a / Math.sqrt(a * a + b * b);
  
-    while(tx &lt;= mx) {
-        if(d &lt; 0) {
+    while(tx <= mx) {
+        if(d < 0) {
             d += b * b * (2 * tx + 3);
         } else {
             ty--;
@@ -161,7 +161,7 @@ function EllipseFive(context, x, y, a, b) {
  
     d = b * b * (tx + 0.5) * (tx + 0.5) + a * a * (ty - 1) * (ty - 1) - a * a * b * b;
     while (ty > 0) {
-        if (d &lt; 0) {
+        if (d < 0) {
             tx++;
             d += b*b*(2 * tx + 2) + a*a*(-2 * ty + 3);
         }
@@ -180,7 +180,7 @@ function EllipseFive(context, x, y, a, b) {
     function setPix(x, y){
         console.log(x, y);
         var index = getStartIndex(x, y);
-        for(var i = 0; i&lt; 4; i++) {
+        for(var i = 0; i< 4; i++) {
             if(i == 3) {
                 imageData[index + i] = 255;
             }

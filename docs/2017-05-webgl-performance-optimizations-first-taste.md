@@ -193,15 +193,15 @@ x,y 方向上都有着渐变，不再是第一节上面一个色的了，此时�
     ……
     var colorArr = [];
     var temp;
-    for(i = 1; i &lt;= granularity; i++) {
+    for(i = 1; i <= granularity; i++) {
         temp = 0.8 - (i / granularity * 0.7);
-        for(j = 1; j &lt;= granularity; j++) {
+        for(j = 1; j <= granularity; j++) {
             colorArr.push([0.8 - (j / granularity * 0.7), temp, 0.1, 1.0]);
         }
     }
     ……
-    for(i = 0; i &lt; granularity; i++) {
-        for(j = 0; j &lt; granularity; j++) {
+    for(i = 0; i < granularity; i++) {
+        for(j = 0; j < granularity; j++) {
             webgl.uniform4fv(uMaterialDiffuse, colorArr[i * granularity + j]);
             webgl.drawElements(webgl.TRIANGLES, 6, webgl.UNSIGNED_SHORT, (i * granularity * 6 + j * 6) * 2);
         }

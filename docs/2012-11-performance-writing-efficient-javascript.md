@@ -211,10 +211,10 @@ var moduleA = (function () {
             this.addEvents();
         },
         addTable: function () {
-            for (var i = 0; i &lt; rows; i++) {
-                $tr = $("&lt;tr>&lt;/tr>");
-                for (var j = 0; j &lt; this.data.length; j++) {
-                    $tr.append("&lt;td>" + this.data[j]["id"] + "&lt;/td>");
+            for (var i = 0; i < rows; i++) {
+                $tr = $("<tr></tr>");
+                for (var j = 0; j < this.data.length; j++) {
+                    $tr.append("<td>" + this.data[j]["id"] + "</td>");
                 }
                 $tr.appendTo($tbody);
             }
@@ -248,9 +248,9 @@ var moduleD = (function () {
             var td, tr;
             var frag = document.createDocumentFragment();
             var frag2 = document.createDocumentFragment();
-            for (var i = 0; i &lt; rows; i++) {
+            for (var i = 0; i < rows; i++) {
                 tr = document.createElement("tr");
-                for (var j = 0; j &lt; this.data.length; j++) {
+                for (var j = 0; j < this.data.length; j++) {
                     td = document.createElement("td");
                     td.appendChild(document.createTextNode(this.data[j]));
                     frag2.appendChild(td);
@@ -430,7 +430,7 @@ while (i--) {
 var a = [1, 2, 3, 4];
 // Don't do this:
 a = []; // Here V8 knows nothing about the array
-for (var i = 1; i &lt;= 4; i++) {
+for (var i = 1; i <= 4; i++) {
     a.push(i);
 }
 ```
@@ -464,12 +464,12 @@ Nitro (Safari) 对预分配的数组更有利。而在其他引擎（V8，Spider
 ```javascript
 // Empty array
 var arr = [];
-for (var i = 0; i &lt; 1000000; i++) {
+for (var i = 0; i < 1000000; i++) {
     arr[i] = i;
 }
 // Pre-allocated array
 var arr = new Array(1000000);
-for (var i = 0; i &lt; 1000000; i++) {
+for (var i = 0; i < 1000000; i++) {
     arr[i] = i;
 }
 ```
@@ -530,7 +530,7 @@ _“Profile” 选项卡展示了代码性能信息。_
 
 一个很好的分析介绍，阅读 Zack Grossbart 的 [JavaScript Profiling With The Chrome Developer Tools](http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/)。
 
-提示：在理想情况下，若想确保你的分析并未受到已安装的应用程序或扩展的任何影响，可以使用`--user-data-dir &lt;empty_directory>` 标志来启动 Chrome。在大多数情况下，这种方法优化测试应该是足够的，但也需要你更多的时间。这是 V8 标志能有所帮助的。
+提示：在理想情况下，若想确保你的分析并未受到已安装的应用程序或扩展的任何影响，可以使用`--user-data-dir <empty_directory>` 标志来启动 Chrome。在大多数情况下，这种方法优化测试应该是足够的，但也需要你更多的时间。这是 V8 标志能有所帮助的。
 
 ### 避免内存泄漏 ——3 快照技术
 
@@ -571,7 +571,7 @@ _回流时间图表_
 ```javascript
 function addDivs(element) {
     var div;
-    for (var i = 0; i &lt; 20; i++) {
+    for (var i = 0; i < 20; i++) {
         div = document.createElement("div");
         div.innerHTML = "Heya!";
         element.appendChild(div);
@@ -585,7 +585,7 @@ function addDivs(element) {
 function addDivs(element) {
     var div; // Creates a new empty DocumentFragment.
     var fragment = document.createDocumentFragment();
-    for (var i = 0; i &lt; 20; i++) {
+    for (var i = 0; i < 20; i++) {
         div = document.createElement("a");
         div.innerHTML = "Heya!";
         fragment.appendChild(div);

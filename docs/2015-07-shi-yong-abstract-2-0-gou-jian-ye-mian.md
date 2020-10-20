@@ -45,7 +45,7 @@ var renderTop = function () {
             bid: 10038,
         },
         success: function (data) {
-            for (var i = 0; i &lt; data.posts.length; i++) {
+            for (var i = 0; i < data.posts.length; i++) {
                 var item = data.posts[i];
                 item.flag = getFlag(item.flag);
             } // 渲染模板了
@@ -70,7 +70,7 @@ var topInfo = new RenderModel({
     renderTmpl: topTmpl,
     renderContainer: $("#top"),
     processData: function (data) {
-        for (var i = 0; i &lt; data.posts.length; i++) {
+        for (var i = 0; i < data.posts.length; i++) {
             var item = data.posts[i];
             item.flag = getFlag(item.flag);
         }
@@ -98,7 +98,7 @@ var renderTop = function(){
            bid: 10038
        },
        success: function(data){
-            for(var i = 0; i &lt; data.posts.length; i ++){
+            for(var i = 0; i < data.posts.length; i ++){
                var item = data.posts[i];
                item.flag = getFlag(item.flag);
             }
@@ -137,7 +137,7 @@ var topInfo = new RenderModel({
     renderTmpl: topTmpl,
     renderContainer: $("#top"),
     processData: function (data) {
-        for (var i = 0; i &lt; data.posts.length; i++) {
+        for (var i = 0; i < data.posts.length; i++) {
             var item = data.posts[i];
             item.flag = getFlag(item.flag);
         }
@@ -165,7 +165,7 @@ var renderTop = function(){
            bid: 10038
        },
        success: function(data){
-            for(var i = 0; i &lt; data.posts.length; i ++){
+            for(var i = 0; i < data.posts.length; i ++){
                var item = data.posts[i];
                item.flag = getFlag(item.flag);
             }
@@ -200,7 +200,7 @@ var renderBottom = function(){
            bid: 10038
        },
        success: function(data){
-            for(var i = 0; i &lt; data.posts.length; i ++){
+            for(var i = 0; i < data.posts.length; i ++){
                var item = data.posts[i];
                item.flag = getFlag(item.flag);
             }
@@ -241,7 +241,7 @@ var topInfo = new RenderModel({
     renderTmpl: topTmpl,
     renderContainer: $("#top"),
     processData: function (data) {
-        for (var i = 0; i &lt; data.posts.length; i++) {
+        for (var i = 0; i < data.posts.length; i++) {
             var item = data.posts[i];
             item.flag = getFlag(item.flag);
         }
@@ -255,7 +255,7 @@ var bottomInfo = new RenderModel({
     renderTmpl: bottomTmpl,
     renderContainer: $("#bottom"),
     processData: function (data) {
-        for (var i = 0; i &lt; data.posts.length; i++) {
+        for (var i = 0; i < data.posts.length; i++) {
             var item = data.posts[i];
             item.flag = getFlag(item.flag);
         }
@@ -299,7 +299,7 @@ var topInfo = new RenderModel({
     renderTmpl: topTmpl,
     renderContainer: $("#top"),
     processData: function (data) {
-        for (var i = 0; i &lt; data.posts.length; i++) {
+        for (var i = 0; i < data.posts.length; i++) {
             var item = data.posts[i];
             item.flag = getFlag(item.flag);
         }
@@ -313,7 +313,7 @@ var bottomInfo = new RenderModel({
     renderTmpl: bottomTmpl,
     renderContainer: $("#bottom"),
     processData: function (data) {
-        for (var i = 0; i &lt; data.posts.length; i++) {
+        for (var i = 0; i < data.posts.length; i++) {
             var item = data.posts[i];
             item.flag = getFlag(item.flag);
         }
@@ -336,7 +336,7 @@ var postList = new ScrollModel({
     renderTmpl: postTmpl,
     renderContainer: $("#postList"),
     processData: function (data) {
-        for (var i = 0; i &lt; data.posts.length; i++) {
+        for (var i = 0; i < data.posts.length; i++) {
             var item = data.posts[i];
             item.flag = getFlag(item.flag);
         }

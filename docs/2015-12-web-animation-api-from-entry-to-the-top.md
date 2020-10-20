@@ -160,13 +160,13 @@ Google’s demos  如果你希望用 WAAPI 挑战更炫酷的动画，特别�
 为了在现代浏览器厂商还没完全跟进到位的时候抢先用上 WAAPI，我们可以选择引入针对 Web Animation API 的 Polyfill 库 \[[https://github.com/web-animations/web-animations-js\\\]，从而在](https://github.com/web-animations/web-animations-js/]，从而在) IE/Firefox/Safari 等浏览器上体验到 WAAPI 的精彩。
 
 ```html
-&lt;script src="https://cdn.jsdelivr.net/web-animations/latest/web-animations.min.js">&lt;/script>
-&lt;script>
+<script src="https://cdn.jsdelivr.net/web-animations/latest/web-animations.min.js"></script>
+<script>
   document.body.animate([
     {'background': 'red'},
     {'background': 'green'}
   ], 1000);
-&lt;/script>
+</script>
 ```
 
 移动端浏览器，Android 5.0 以上的 Android Browser 和 Chrome for Android 本身就已经支持 WAAPI 了，加上 Polyfill 之后，iOS 的 Safari 也支持了。别忘了，还有我大手 Q 的 X5 内核浏览器。

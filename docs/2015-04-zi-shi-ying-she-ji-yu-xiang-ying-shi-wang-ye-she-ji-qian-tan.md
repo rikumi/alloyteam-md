@@ -56,7 +56,7 @@ source_link: http://www.alloyteam.com/2015/04/zi-shi-ying-she-ji-yu-xiang-ying-s
 也可以把要套用的描述独立成外部档案：
 
 ```html
-&lt;link rel="stylesheet" media="screen and (max-width: 400px)" href="mini.css" />;
+<link rel="stylesheet" media="screen and (max-width: 400px)" href="mini.css" />;
 ```
 
 **Min Width：**若浏览区域的宽度大于 800 像素，则下方的 CSS 描述就会立即被套用：
@@ -84,27 +84,27 @@ source_link: http://www.alloyteam.com/2015/04/zi-shi-ying-she-ji-yu-xiang-ying-s
 **针对 iPhone4 提供专用的 css 设定档：**
 
 ```c
-&lt;link rel= "stylesheet"  media= "only screen and (-webkit-min-device-pixel-ratio: 2)"  type= "text/css"  href= "iphone4.css"  />
+<link rel= "stylesheet"  media= "only screen and (-webkit-min-device-pixel-ratio: 2)"  type= "text/css"  href= "iphone4.css"  />
 ```
 
 针对 iPad 的 Portrait Mode (直立) 与 Landscape Mode (横躺) 两种浏览模式给予不同的 css 设定档：
 
 ```html
-&lt;link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css">
+<link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css">
  
-&lt;link rel="stylesheet" media="all and (orientation:landscape)" href="landscape.css">
+<link rel="stylesheet" media="all and (orientation:landscape)" href="landscape.css">
 ```
 
 ### **Skill 2  在网页头部加上 viewport 标签**
 
 ```c
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
 浏览器推出了 “viewport meta” 标签，许多移动浏览器现在都支持这个标签，W3C  协议定义 [viewport meta](http://www.w3.org/TR/css-device-adapt/)  目前还属于草案，很多人都會在 html head  处加上 viewport  这个 meta data，一个典型的移动端 viewport 如下所示：
 
 ```html
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
 该属性可以控制视窗口宽度的大小。它可以被设置为实际的具体像素 width= 600 或为特殊设备设置宽度值。
@@ -145,7 +145,7 @@ user-scalable，这个属性可以让使用者能否放大、缩小页面，如�
 如果在手机端我们希望网页呈现固定，不希望使用者随意缩放，直接设定如下
 
 ```html
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
 如果希望在不同 **device** 使用不同缩放大小，就必须使用 javascript，检测 UA (User agent)，动态设定 viewport，如下：

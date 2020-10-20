@@ -14,15 +14,15 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **最简单的页面**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-  &lt;/body>
-&lt;/html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+  </head>
+  <body>
+    <img src="download-button.png">
+  </body>
+</html>
 ```
 
 我们打开 chrome 的控制台查看 timeline
@@ -42,16 +42,16 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **含有 css 的页面**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-    &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-  &lt;/body>
-&lt;/html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+  </head>
+  <body>
+    <img src="download-button.png">
+  </body>
+</html>
 ```
 
 我们打开 chrome 的控制台查看 timeline
@@ -67,17 +67,17 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **含有 javascript 和 css 的页面**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-      &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-  &lt;script type="text/javascript" src="H5FullscreenPage.js">&lt;/script>
-  &lt;/body>
-&lt;/html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+  </head>
+  <body>
+    <img src="download-button.png">
+  <script type="text/javascript" src="H5FullscreenPage.js"></script>
+  </body>
+</html>
 ```
 
 我们打开 chrome 的控制台查看 timeline
@@ -101,17 +101,17 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **使用 async 的 javascript**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-      &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-      &lt;script async src="H5FullscreenPage.js" type ="text/javascript" >&lt;/script >
-  &lt;/body>
-&lt;/html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+  </head>
+  <body>
+    <img src="download-button.png">
+      <script async src="H5FullscreenPage.js" type ="text/javascript" ></script >
+  </body>
+</html>
 ```
 
 [![6](http://www.alloyteam.com/wp-content/uploads/2015/05/6.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/6.png)
@@ -127,18 +127,18 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **外联 js 在 css 前面**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-      &lt;script src="H5FullscreenPage.js" type ="text/javascript" >&lt;/script >
-      &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
-      &lt;link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-  &lt;/body>
-&lt;/html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+      <script src="H5FullscreenPage.js" type ="text/javascript" ></script >
+      <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
+  </head>
+  <body>
+    <img src="download-button.png">
+  </body>
+</html>
 ```
 
 ![](http://1.lvming6816077.sinaapp.com/testaa/xx1.png)
@@ -150,18 +150,18 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **外联 js 在 css 中间**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-      &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
-      &lt;script src="H5FullscreenPage.js" type ="text/javascript" >&lt;/script >
-      &lt;link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-  &lt;/body>
-&lt;/html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+      <script src="H5FullscreenPage.js" type ="text/javascript" ></script >
+      <link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
+  </head>
+  <body>
+    <img src="download-button.png">
+  </body>
+</html>
 ```
 
 ![](http://1.lvming6816077.sinaapp.com/testaa/xx2.png)
@@ -173,18 +173,18 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **外联 js 在 css 最后**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-      &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
-      &lt;link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
-      &lt;script src="H5FullscreenPage.js" type ="text/javascript" >&lt;/script >
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-  &lt;/body>
-&lt;/html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
+      <script src="H5FullscreenPage.js" type ="text/javascript" ></script >
+  </head>
+  <body>
+    <img src="download-button.png">
+  </body>
+</html>
 ```
 
 ![](http://1.lvming6816077.sinaapp.com/testaa/xx3.png)
@@ -196,21 +196,21 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **内嵌 js 在 css 前面**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-      &lt;script type ="text/javascript" >
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+      <script type ="text/javascript" >
       	var f = 1;
           f++;
-      &lt;/script >
-      &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
-      &lt;link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-  &lt;/body>
-&lt;/html>
+      </script >
+      <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
+  </head>
+  <body>
+    <img src="download-button.png">
+  </body>
+</html>
 ```
 
 ![](http://1.lvming6816077.sinaapp.com/testaa/xx4.png)
@@ -222,21 +222,21 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **内嵌 js 在 css 中间**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-      &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
-      &lt;script type ="text/javascript" >
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+      <script type ="text/javascript" >
       	var f = 1;
           f++;
-      &lt;/script >
-      &lt;link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-  &lt;/body>
-&lt;/html>
+      </script >
+      <link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
+  </head>
+  <body>
+    <img src="download-button.png">
+  </body>
+</html>
 ```
 
 ![](http://1.lvming6816077.sinaapp.com/testaa/xx5.png)
@@ -248,21 +248,21 @@ html css javascript 可以算是前端必须掌握的东西了，但是我们的
 **内嵌 js 在 css 最后**
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>test&lt;/title>
-      &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
-      &lt;link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
-      &lt;script type ="text/javascript" >
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="page-animation.css" media="screen">
+      <script type ="text/javascript" >
       	var f = 1;
           f++;
-      &lt;/script >
-  &lt;/head>
-  &lt;body>
-    &lt;img src="download-button.png">
-  &lt;/body>
-&lt;/html>
+      </script >
+  </head>
+  <body>
+    <img src="download-button.png">
+  </body>
+</html>
 ```
 
 ![](http://1.lvming6816077.sinaapp.com/testaa/xx6.png)

@@ -34,17 +34,17 @@ class Main extends Omi.Component {
         this.update();
     }
     render() {
-        return `&lt;div>
-                    &lt;h1>Pagination Example&lt;/h1>
-                    &lt;Content name="content" />
-                    &lt;Pagination
+        return `<div>
+                    <h1>Pagination Example</h1>
+                    <Content name="content" />
+                    <Pagination
                         name="pagination"
                         :data-total="100"
                         :data-page-size="10"
                         :data-num-edge="1"
                         :data-num-display="4"　　　　　
                         onPageChange="handlePageChange" />
-                &lt;/div>`;
+                </div>`;
     }
 }
 ```
@@ -197,16 +197,16 @@ class Todo extends Omi.Component {
         this.data.text = evt.target.value;
     }
     render() {
-        return `&lt;div>
-                    &lt;h3>TODO&lt;/h3>
-                    &lt;button onclick="clear">Clear&lt;/button>
-                    &lt;List name="list" data="$store.data" />
-                    &lt;form onsubmit="add" >
-                        &lt;input type="text" onchange="handleChange"  value="{{text}}"  />
-                        &lt;button>Add #{{length}}&lt;/button>
-                    &lt;/form>
+        return `<div>
+                    <h3>TODO</h3>
+                    <button onclick="clear">Clear</button>
+                    <List name="list" data="$store.data" />
+                    <form onsubmit="add" >
+                        <input type="text" onchange="handleChange"  value="{{text}}"  />
+                        <button>Add #{{length}}</button>
+                    </form>
  
-                &lt;/div>`;
+                </div>`;
     }
 }
 export default Todo;
@@ -228,7 +228,7 @@ export default Todo;
 再看上面的子组件声明:
 
 ```html
-&lt;List name="list" data="$store.data" />;
+<List name="list" data="$store.data" />;
 ```
 
 这样相当于把 this.$store.data 传递给了 List 组件。所以在 List 内部，就不再需要写 beforeRender 方法转换了。
@@ -239,7 +239,7 @@ class List extends Omi.Component {
         super(data);
     }
     render() {
-        return ` &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>`;
+        return ` <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>`;
     }
 }
 ```

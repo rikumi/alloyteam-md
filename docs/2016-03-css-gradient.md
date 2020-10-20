@@ -69,9 +69,9 @@ Gradient 有几个子特性，下面一一列出。
 
     linear-gradient() = linear-gradient(
       [ | to ]?,
-      &lt;color-stop-list>
+      <color-stop-list>
     )
-    &lt;side-or-corner> = [left | right] || [top | bottom]
+    <side-or-corner> = [left | right] || [top | bottom]
 
 第一个参数指明了颜色渐变的方向：
 
@@ -163,7 +163,7 @@ radial gradient 其实就是颜色从一个点以同心圆或者椭圆向外渐�
 
     radial-gradient() = radial-gradient(
       [ || ]? [ at ]? ,
-      &lt;color-stop-list>
+      <color-stop-list>
     )
 
 -   position 用来指定渐变圆心的位置，默认为 center，[赋值规则](https://drafts.csswg.org/css-backgrounds-3/#position)与 background-positon 的类似；
@@ -191,12 +191,12 @@ radial gradient 其实就是颜色从一个点以同心圆或者椭圆向外渐�
       [ [ circle               || ]                          [ at ]? , |
         [ ellipse              || [ | ]{2} ]    [ at ]? , |
         [ [ circle | ellipse ] || ]                  [ at ]? , |
-        at &lt;position> ,
+        at <position> ,
       ]?
-      &lt;color-stop> [ ,
+      <color-stop> [ ,
     ]+
     )
-    &lt;extent-keyword> = closest-corner | closest-side | farthest-corner | farthest-side
+    <extent-keyword> = closest-corner | closest-side | farthest-corner | farthest-side
 
 🌰[栗子一](http://codepen.io/sxlzll/pen/vGEBRa)
 

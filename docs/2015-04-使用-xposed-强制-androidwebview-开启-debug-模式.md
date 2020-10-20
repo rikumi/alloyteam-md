@@ -10,7 +10,7 @@ source_link: http://www.alloyteam.com/2015/04/%e4%bd%bf%e7%94%a8xposed%e5%bc%ba%
 从 <https://developer.chrome.com/devtools/docs/remote-debugging> 我们可以知道在 android 4.4 + 可以通过在 apk 中使用下面的代码开启 webview 的 chrome 远程调试
 
 ```html
-WebView.setWebContentsDebuggingEnabled(&lt;span class="keyword">true&lt;/span>);
+WebView.setWebContentsDebuggingEnabled(<span class="keyword">true</span>);
 ```
 
 但我们开发中接触的 apk 往往是第三方的，没谁会为我们开启 webContentsDebuggingEnabled。而 Xposed 能强制做到这一点
@@ -20,21 +20,21 @@ WebView.setWebContentsDebuggingEnabled(&lt;span class="keyword">true&lt;/span>);
 Xposed 能够勾住 (Hook) Android 应用程序对象的方法，实现 AOP，一个简单的例子：
 
 ```html
-&lt;span class="keyword">public&lt;/span> &lt;span class="keyword">class&lt;/span> WebViewHook &lt;span class="keyword">implements&lt;/span> IXposedHookLoadPackage {
-    &lt;span class="comment">// handleLoadPackage 会在android加载每一个apk后执行&lt;/span>
-    &lt;span class="keyword">public&lt;/span> void handleLoadPackage(LoadPackageParam lpparam) throws Throwable {
-        &lt;span class="comment">// 可以从lpparam中获取当前apk的名字&lt;/span>
-        &lt;span class="keyword">if&lt;/span> (! lpparam.packageName.equals(&lt;span class="string">"com.tencent.mobileqq"&lt;/span>)) {
-            &lt;span class="keyword">return&lt;/span>;
+<span class="keyword">public</span> <span class="keyword">class</span> WebViewHook <span class="keyword">implements</span> IXposedHookLoadPackage {
+    <span class="comment">// handleLoadPackage 会在android加载每一个apk后执行</span>
+    <span class="keyword">public</span> void handleLoadPackage(LoadPackageParam lpparam) throws Throwable {
+        <span class="comment">// 可以从lpparam中获取当前apk的名字</span>
+        <span class="keyword">if</span> (! lpparam.packageName.equals(<span class="string">"com.tencent.mobileqq"</span>)) {
+            <span class="keyword">return</span>;
         }
-        XposedBridge.log(&lt;span class="string">"WebViewHook handleLoadPackage: "&lt;/span> + lpparam.packageName);
-        &lt;span class="comment">// 勾住 WebView 所有的构造器&lt;/span>
-        XposedBridge.hookAllConstructors(WebView.&lt;span class="keyword">class&lt;/span>, &lt;span class="keyword">new&lt;/span> XC_MethodHook() {
+        XposedBridge.log(<span class="string">"WebViewHook handleLoadPackage: "</span> + lpparam.packageName);
+        <span class="comment">// 勾住 WebView 所有的构造器</span>
+        XposedBridge.hookAllConstructors(WebView.<span class="keyword">class</span>, <span class="keyword">new</span> XC_MethodHook() {
             @Override
-            &lt;span class="keyword">protected&lt;/span> void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                &lt;span class="comment">// 打开webContentsDebuggingEnabled&lt;/span>
-                XposedHelpers.callStaticMethod(WebView.&lt;span class="keyword">class&lt;/span>, &lt;span class="string">"setWebContentsDebuggingEnabled"&lt;/span>, &lt;span class="keyword">true&lt;/span>);
-                XposedBridge.log(&lt;span class="string">"WebViewHook new WebView(): "&lt;/span> + packageName);
+            <span class="keyword">protected</span> void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                <span class="comment">// 打开webContentsDebuggingEnabled</span>
+                XposedHelpers.callStaticMethod(WebView.<span class="keyword">class</span>, <span class="string">"setWebContentsDebuggingEnabled"</span>, <span class="keyword">true</span>);
+                XposedBridge.log(<span class="string">"WebViewHook new WebView(): "</span> + packageName);
             }
         });
     }

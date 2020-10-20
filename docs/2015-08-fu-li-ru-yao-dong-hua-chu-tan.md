@@ -110,9 +110,9 @@ function eachCircleDot(imageData, ox, oy, r, callback) {
         right = ox + r,
         top = oy - r,
         bottom = oy + r;
-    for (var x = left; x &lt; right; x++) {
-        for (var y = top; y &lt; bottom; y++) {
-            if (distanceSqr(x, y, ox, oy) &lt;= sqr(r)) {
+    for (var x = left; x < right; x++) {
+        for (var y = top; y < bottom; y++) {
+            if (distanceSqr(x, y, ox, oy) <= sqr(r)) {
                 callback({
                     x: x,
                     y: y,

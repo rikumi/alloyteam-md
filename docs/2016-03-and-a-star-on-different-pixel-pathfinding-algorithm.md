@@ -141,16 +141,16 @@ function isLineCross(a1, a2, b1, b2) {
         throw 'to much times';
     }
     var delta = determinant(a2.x - a1.x, b1.x - b2.x, a2.y - a1.y, b1.y - b2.y);
-    if(delta &lt;= (1e-6) && delta >= -(1e-6)) {
+    if(delta <= (1e-6) && delta >= -(1e-6)) {
         return false;
     }
     var namenda = determinant(b1.x - a1.x, b1.x - b2.x, b1.y - a1.y, b1.y - b2.y) / delta;
-    if(namenda > 1 || namenda &lt; 0) {
+    if(namenda > 1 || namenda < 0) {
         return false;
     }
  
     var miu = determinant(a2.x - a1.x, b1.x - a1.x, a2.y - a1.y, b1.y - a1.y) / delta;
-    if(miu > 1 || miu &lt; 0) {
+    if(miu > 1 || miu < 0) {
         return false;
     }
  
@@ -177,7 +177,7 @@ if (isInObstacles(outPoint, end, obstacles)) {
 function isInObstacles(start, end, obstacles) {
     var index = 0;
     var result;
-    for (var i = 0; i &lt; obstacles.length - 1; i++) {
+    for (var i = 0; i < obstacles.length - 1; i++) {
         result = isLineCross(start, end, obstacles[i], obstacles[i + 1]);
         if (result) {
             index++;
@@ -225,7 +225,7 @@ function redressPoint(aPoint, bPoint, limit) {
             x: tmpX,
             y: tmpY,
         };
-        if (tmpY &lt; limit.maxY && tmpY > limit.minY) {
+        if (tmpY < limit.maxY && tmpY > limit.minY) {
             // 根据刚刚矫正偏移的x，y判断是否出了AABB，没有则以y为基准偏移x重新矫正
             if (bPoint.y > aPoint.y) {
                 tmpY = limit.minY;
@@ -293,7 +293,7 @@ function check(start, end, obstacles) {
                 x: currEnd.x + changeX * index,
                 y: currEnd.y + changeY * index
             };
-            for(var i = 0; i &lt; obstacles.length - 1; i++) {
+            for(var i = 0; i < obstacles.length - 1; i++) {
                 result = isLineCross(nextStart, nextEnd, obstacles[i], obstacles[i + 1]);
                 if(result) { // 连线碰撞
                     x1 = obstacles[i]; // 最后碰撞边上的点
@@ -318,7 +318,7 @@ function check(start, end, obstacles) {
                 x: currEnd.x - (changeX * index),
                 y: currEnd.y - (changeY * index)
             };
-            for(i = 0; i &lt; obstacles.length - 1; i++) {
+            for(i = 0; i < obstacles.length - 1; i++) {
                 result = isLineCross(nextStart, nextEnd, obstacles[i], obstacles[i + 1]);
                 if(result) {
                     x2 = obstacles[i];
@@ -366,7 +366,7 @@ function check(start, end, obstacles) {
  
         var symbolX;
         var symbolY;
-        if(dis1 &lt; dis2) { // 比较距离的大小，得出必过点，此时x是必过点
+        if(dis1 < dis2) { // 比较距离的大小，得出必过点，此时x是必过点
             // 下面两个if用来将必过点往整个障碍物外面偏移一点
             if(x.y > y.y) {
                 symbolY = 1;
@@ -404,7 +404,7 @@ function check(start, end, obstacles) {
         // 将必过点添加到最终路径
         f.index = end.index;
         globalPath.splice(f.index, 0, f);
-        for(var i = 0; i &lt; globalPath.length; i++) {
+        for(var i = 0; i < globalPath.length; i++) {
             globalPath[i].index = i;
         }
         // 下一轮计算前这些值设置为undefined

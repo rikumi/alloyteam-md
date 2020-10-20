@@ -36,12 +36,12 @@ Polymer 框架可以分为三个层次：
 #### 1.3 核心层和元素层，即组件 UI 和组件逻辑
 
 ```html
-&lt;polymer-panels
+<polymer-panels
     on-select="panelSelectHandler"
     selected="{{selectedPanelIndex}}"
 >
         
-&lt;/polymer-panels>;
+</polymer-panels>;
 ```
 
 其架构是面向组件的，它由 HTML5 元素组成，元素甚至可以用户界面，比如动画是元素，它没有 UI，而是代替点。同时响应式设计内建了许多 Widget，这意味着它们能自适应多种给定的平台，如手机、平板、桌面等。
@@ -51,11 +51,11 @@ Polymer 框架可以分为三个层次：
 ##### 1. 先看下面 polymer 的一个例子代码
 
 ```html
-    &lt;script  src="../components/platform/platform.js">&lt;/script>
-    &lt;!-- 下面用到的几个组件 -->
-    &lt;link rel="import" href="../components/core-header-panel/core-header-panel.html">
-    &lt;link rel="import" href="../components/core-toolbar/core-toolbar.html">
-    &lt;link rel="import" href="../components/paper-tabs/paper-tabs.html">
+    <script  src="../components/platform/platform.js"></script>
+    <!-- 下面用到的几个组件 -->
+    <link rel="import" href="../components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="../components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="../components/paper-tabs/paper-tabs.html">
  
 ```
 
@@ -66,17 +66,17 @@ HTML imports 提供了依赖管理，确保自定义元素及其所有的依赖�
 ##### 3. 要增加一个工具条 (toolbar), 可以在 body 标签内添加下面的代码:
 
 ```html
-    &lt;core-header-panel> 
-        &lt;core-toolbar> 
-        &lt;!-- 添加一些选项卡,以paper-开头的是Material design风格的标签,具有很炫酷的效果 --> 
-        &lt;paper-tabs valueattr=&lt;span class="string">"name"&lt;/span> selected=&lt;span class="string">"all"&lt;/span> &lt;span class="keyword">self&lt;/span>-end> 
-            &lt;paper-tab name=&lt;span class="string">"all"&lt;/span>>所有&lt;/paper-tab> 
-                &lt;paper-tab name=&lt;span class="string">"favorites"&lt;/span>>收藏&lt;/paper-tab> 
-                &lt;/paper-tabs> 
-            &lt;/core-toolbar> 
-        &lt;!-- 主要的页面内容将会放在这里 -->  
-        &lt;/core-header-panel>  
-    &lt;core-header-panel>
+    <core-header-panel> 
+        <core-toolbar> 
+        <!-- 添加一些选项卡,以paper-开头的是Material design风格的标签,具有很炫酷的效果 --> 
+        <paper-tabs valueattr=<span class="string">"name"</span> selected=<span class="string">"all"</span> <span class="keyword">self</span>-end> 
+            <paper-tab name=<span class="string">"all"</span>>所有</paper-tab> 
+                <paper-tab name=<span class="string">"favorites"</span>>收藏</paper-tab> 
+                </paper-tabs> 
+            </core-toolbar> 
+        <!-- 主要的页面内容将会放在这里 -->  
+        </core-header-panel>  
+    <core-header-panel>
  
 ```
 
@@ -91,19 +91,19 @@ Polymer 支持双向的数据绑定。数据绑定通过扩展 HTML 和 DOM API 
 对于 Polymer elements 来说，数据模型始终就是 element 本身。比如想想这个简单的 element：
 
 ```html
-&lt;polymer-element name=&lt;span class="string">"name-tag"&lt;/span>>
-  &lt;template>
-    这是一个 &lt;b>{{owner}}&lt;/b> 的 name-tag element。
-  &lt;/template>
-  &lt;script>
-    Polymer(&lt;span class="string">'name-tag'&lt;/span>, {
-      &lt;span class="comment">// initialize the element's model&lt;/span>
-      ready: &lt;span class="keyword">function&lt;/span>() {
-        &lt;span class="keyword">this&lt;/span>.owner = &lt;span class="string">'Rafael'&lt;/span>;
+<polymer-element name=<span class="string">"name-tag"</span>>
+  <template>
+    这是一个 <b>{{owner}}</b> 的 name-tag element。
+  </template>
+  <script>
+    Polymer(<span class="string">'name-tag'</span>, {
+      <span class="comment">// initialize the element's model</span>
+      ready: <span class="keyword">function</span>() {
+        <span class="keyword">this</span>.owner = <span class="string">'Rafael'</span>;
       }
     });
-  &lt;/script>
-&lt;/polymer-element>
+  </script>
+</polymer-element>
  
 ```
 
@@ -119,29 +119,29 @@ Polymer 支持双向的数据绑定。数据绑定通过扩展 HTML 和 DOM API 
 这点实现原理就比较简单，使用了 template 包含一段 html 片段，那这段 html 片段开始是隐藏的，将会在渲染完成后再插入到页面中，个人分析，这样做的一个主要原因就是防止 mvvm 中 html 未初始化时的模板代码到正式生成 html 页面过程中闪的过程，使用 angular 或 avalon 的话一般会遇到这样的问题
 
 ```html
-&lt;polymer-element name=&lt;span class="string">"greeting-tag"&lt;/span>>
-  &lt;!-- 最外面的 template 定义了 element 的 shadow DOM -->
-  &lt;template>
-    &lt;ul>
-      &lt;template repeat=&lt;span class="string">"{{s in salutations}}"&lt;/span>>
-        &lt;li>{{s.what}}: &lt;input type=&lt;span class="string">"text"&lt;/span> value=&lt;span class="string">"{{s.who}}"&lt;/span>>&lt;/li>
-      &lt;/template>
-    &lt;/ul>
-  &lt;/template>
-  &lt;script>
-    Polymer(&lt;span class="string">'greeting-tag'&lt;/span>, {
-      ready: &lt;span class="keyword">function&lt;/span>() {
-        &lt;span class="comment">// 植入 element 的数据模型 (数组 salutations)&lt;/span>
-        &lt;span class="keyword">this&lt;/span>.salutations = [
-          {what: &lt;span class="string">'Hello'&lt;/span>, who: &lt;span class="string">'World'&lt;/span>},
-          {what: &lt;span class="string">'GoodBye'&lt;/span>, who: &lt;span class="string">'DOM APIs'&lt;/span>},
-          {what: &lt;span class="string">'Hello'&lt;/span>, who: &lt;span class="string">'Declarative'&lt;/span>},
-          {what: &lt;span class="string">'GoodBye'&lt;/span>, who: &lt;span class="string">'Imperative'&lt;/span>}
+<polymer-element name=<span class="string">"greeting-tag"</span>>
+  <!-- 最外面的 template 定义了 element 的 shadow DOM -->
+  <template>
+    <ul>
+      <template repeat=<span class="string">"{{s in salutations}}"</span>>
+        <li>{{s.what}}: <input type=<span class="string">"text"</span> value=<span class="string">"{{s.who}}"</span>></li>
+      </template>
+    </ul>
+  </template>
+  <script>
+    Polymer(<span class="string">'greeting-tag'</span>, {
+      ready: <span class="keyword">function</span>() {
+        <span class="comment">// 植入 element 的数据模型 (数组 salutations)</span>
+        <span class="keyword">this</span>.salutations = [
+          {what: <span class="string">'Hello'</span>, who: <span class="string">'World'</span>},
+          {what: <span class="string">'GoodBye'</span>, who: <span class="string">'DOM APIs'</span>},
+          {what: <span class="string">'Hello'</span>, who: <span class="string">'Declarative'</span>},
+          {what: <span class="string">'GoodBye'</span>, who: <span class="string">'Imperative'</span>}
         ];
       }
     });
-  &lt;/script>
-&lt;/polymer-element>
+  </script>
+</polymer-element>
  
 ```
 

@@ -90,9 +90,9 @@ function fixDeps(fn, deps) {
         })
     );
     var cloneNodes = [].concat(nodes); //过滤new nodes 中的symbo nodes
-    for (var i = 0, len = nodes.length; i &lt; len; i++) {
+    for (var i = 0, len = nodes.length; i < len; i++) {
         var nodeA = nodes[i].node;
-        for (var j = 0, cLen = cloneNodes.length; j &lt; cLen; j++) {
+        for (var j = 0, cLen = cloneNodes.length; j < cLen; j++) {
             var nodeB = cloneNodes[j].node;
             if (nodeB.expression === nodeA) {
                 nodes.splice(i, 1);
@@ -144,7 +144,7 @@ function getFullName(deps, name) {
         len = deps.length,
         matchCount = 0,
         result = [];
-    for (; i &lt; len; i++) {
+    for (; i < len; i++) {
         var fullName = deps[i];
         if (fullName.split(".").pop() === name) {
             matchCount++;
@@ -175,7 +175,7 @@ function isInScopeChainVariables(scope, name) {
 function isInArray(arr, name) {
     var i = 0,
         len = arr.length;
-    for (; i &lt; len; i++) {
+    for (; i < len; i++) {
         if (arr[i] === name) {
             return true;
         }

@@ -38,17 +38,17 @@ React  挑战了很多传统的知识，第一眼看上去可能很多想法有
 CalendarControl.html：
 
 ```html
-&lt;!DOCTYPE  html>
-&lt;html>
-&lt;head>
-1 &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-2 &lt;script src="./build/react.js">&lt;/script>
-3 &lt;script src="./build/browser.min.js">&lt;/script>
-&lt;style type="text/css">&lt;/style>
-4 &lt;script type="text/babel">&lt;/script>
-&lt;/head>
-&lt;body>&lt;/body>
-&lt;/html>
+<!DOCTYPE  html>
+<html>
+<head>
+1 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+2 <script src="./build/react.js"></script>
+3 <script src="./build/browser.min.js"></script>
+<style type="text/css"></style>
+4 <script type="text/babel"></script>
+</head>
+<body></body>
+</html>
 ```
 
 下面对标行逐一做个解释：
@@ -70,64 +70,64 @@ line4  script  标签的 type  属性为 text/babel 。这是因为 Reac
 将代码分解后，代码结构如下：
 
 ```html
-&lt;script type="text/babel">	
+<script type="text/babel">	
 		var CalendarHeader = React.createClass({
 			render:function(){
 				return(
-					&lt;div className="headerborder">
-						&lt;p>20月&lt;/p>
-						&lt;p>2015年&lt;/p>
-						&lt;p className="triangle-left"> &lt;/p>
-						&lt;p className="triangle-right"> &lt;/p>
-					&lt;/div>
+					<div className="headerborder">
+						<p>20月</p>
+						<p>2015年</p>
+						<p className="triangle-left"> </p>
+						<p className="triangle-right"> </p>
+					</div>
 				)
 			}
 		});	
 		var CalendarBody = React.createClass({
 			render:function(){
 				return(
-					&lt;div>
-						&lt;div className="weekday">
-							&lt;ul>		
-								&lt;li>SUN&lt;/li>
-								&lt;li>MON&lt;/li>
-								&lt;li>TUE&lt;/li>
-								&lt;li>WED&lt;/li>
-								&lt;li>THU&lt;/li>
-								&lt;li>FRI&lt;/li>
-								&lt;li>SAT&lt;/li>
-							&lt;/ul>
-						&lt;/div>
-						&lt;div className="CalendarDay">
-							&lt;ul>
-								&lt;li>1&lt;/li>
-								&lt;li>2&lt;/li>
-								&lt;li>3&lt;/li>
-								&lt;li>4&lt;/li>
-								&lt;li>5&lt;/li>
-								&lt;li>6&lt;/li>
-								&lt;li>7&lt;/li>
-							&lt;/ul>
-						&lt;/div>
-					&lt;/div>
+					<div>
+						<div className="weekday">
+							<ul>		
+								<li>SUN</li>
+								<li>MON</li>
+								<li>TUE</li>
+								<li>WED</li>
+								<li>THU</li>
+								<li>FRI</li>
+								<li>SAT</li>
+							</ul>
+						</div>
+						<div className="CalendarDay">
+							<ul>
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+								<li>5</li>
+								<li>6</li>
+								<li>7</li>
+							</ul>
+						</div>
+					</div>
 				)
 			}
 		});
 		var CalendarControl = React.createClass({
 			render:function(){
 				return(
-					&lt;div>
-						&lt;CalendarHeader  />
-						&lt;CalendarBody  />
-					&lt;/div>
+					<div>
+						<CalendarHeader  />
+						<CalendarBody  />
+					</div>
 				)
 			}
 		});
 		React.render(
-			&lt;CalendarControl />,
+			<CalendarControl />,
 			document.body
 		);
-	&lt;/script>
+	</script>
 ```
 
 注：
@@ -166,16 +166,16 @@ var CalendarHeader = React.createClass({
     },
     render: function () {
         return (
-            &lt;div className="headerborder">
-                &lt;p style={{ "line-height": 30 }}>20月&lt;/p>
-                &lt;p>2015年&lt;/p>
-                &lt;p className="triangle-left" onClick={this.handleLeftClick}>
+            <div className="headerborder">
+                <p style={{ "line-height": 30 }}>20月</p>
+                <p>2015年</p>
+                <p className="triangle-left" onClick={this.handleLeftClick}>
                     {" "}
-                &lt;/p>
-                &lt;p className="triangle-right" onClick={this.handleRightClick}>
+                </p>
+                <p className="triangle-right" onClick={this.handleRightClick}>
                     {" "}
-                &lt;/p>
-            &lt;/div>
+                </p>
+            </div>
         );
     },
 });
@@ -199,7 +199,7 @@ var CalendarHeader = React.createClass({
     handleLeftClick: function () {
         var newMonth = parseInt(this.state.month) - 1;
         var year = this.state.year;
-        if (newMonth &lt; 1) {
+        if (newMonth < 1) {
             year--;
             newMonth = 12;
         }
@@ -220,16 +220,16 @@ var CalendarHeader = React.createClass({
     },
     render: function () {
         return (
-            &lt;div className="headerborder">
-                &lt;p style={{ "line-height": 30 }}>{this.state.month}月&lt;/p>
-                &lt;p>{this.state.year}年&lt;/p>
-                &lt;p className="triangle-left" onClick={this.handleLeftClick}>
+            <div className="headerborder">
+                <p style={{ "line-height": 30 }}>{this.state.month}月</p>
+                <p>{this.state.year}年</p>
+                <p className="triangle-left" onClick={this.handleLeftClick}>
                     {" "}
-                &lt;/p>
-                &lt;p className="triangle-right" onClick={this.handleRightClick}>
+                </p>
+                <p className="triangle-right" onClick={this.handleRightClick}>
                     {" "}
-                &lt;/p>
-            &lt;/div>
+                </p>
+            </div>
         );
     },
 });
@@ -297,16 +297,16 @@ handleFilterUpdate: function(filterYear,filterMonth) {
 ```javascript
 	render:function(){
 				return(
-					&lt;div className="calendarBorder"  >
-						&lt;CalendarHeader 
+					<div className="calendarBorder"  >
+						<CalendarHeader 
 							year = {this.state.year}
 							month = {this.state.month}
 							updateFilter={this.handleFilterUpdate}   />
-						&lt;CalendarBody 
+						<CalendarBody 
 							year = {this.state.year}
 							month = {this.state.month}
 							day = {this.state.day} />
-					&lt;/div>
+					</div>
 				)
 			}
 ```
@@ -317,7 +317,7 @@ handleFilterUpdate: function(filterYear,filterMonth) {
                      handleLeftClick:function(){
 				var newMonth = parseInt(this.state.month) - 1;
 				var year = this.state.year;
-				if(newMonth &lt; 1){
+				if(newMonth < 1){
 					year --;
 					newMonth = 12;
 				}
@@ -379,32 +379,32 @@ handleFilterUpdate: function(filterYear,filterMonth) {
 				var getDays = this.getMonthDays(),
 					FirstDayWeek = this.getFirstDayWeek(),
 					day = this.props.day ;
-					for(var i = 0 ;i &lt; FirstDayWeek; i++ ){
+					for(var i = 0 ;i < FirstDayWeek; i++ ){
 						arry1[i] = i;
 					}
-					for(var i = 0 ;i &lt; getDays; i++ ){
+					for(var i = 0 ;i < getDays; i++ ){
 						arry2[i] = (i+1);
 					}
 					
-				var node1 = arry1.map(function(item){return &lt;li>&lt;/li>})
-				var node2 = arry2.map(function(item){return (day == item)?&lt;li style={{"background-color": "#eee"}}>{item}&lt;/li>: &lt;li>{item}&lt;/li>})
+				var node1 = arry1.map(function(item){return <li></li>})
+				var node2 = arry2.map(function(item){return (day == item)?<li style={{"background-color": "#eee"}}>{item}</li>: <li>{item}</li>})
 				return(
-					&lt;div>
-						&lt;div className="weekday">
-							&lt;ul>		
-								&lt;li>SUN&lt;/li>
-								&lt;li>MON&lt;/li>
-								&lt;li>TUE&lt;/li>
-								&lt;li>WED&lt;/li>
-								&lt;li>THU&lt;/li>
-								&lt;li>FRI&lt;/li>
-								&lt;li>SAT&lt;/li>
-							&lt;/ul>
-						&lt;/div>
-						&lt;div className="CalendarDay">
-							&lt;ul>{node1}{node2}&lt;/ul>
-						&lt;/div>
-					&lt;/div>
+					<div>
+						<div className="weekday">
+							<ul>		
+								<li>SUN</li>
+								<li>MON</li>
+								<li>TUE</li>
+								<li>WED</li>
+								<li>THU</li>
+								<li>FRI</li>
+								<li>SAT</li>
+							</ul>
+						</div>
+						<div className="CalendarDay">
+							<ul>{node1}{node2}</ul>
+						</div>
+					</div>
 				)
 			}
 ```
@@ -421,21 +421,21 @@ var arry1 = [],
 var getDays = this.getMonthDays(),
     FirstDayWeek = this.getFirstDayWeek(),
     day = this.props.day;
-for (var i = 0; i &lt; FirstDayWeek; i++) {
+for (var i = 0; i < FirstDayWeek; i++) {
     arry1[i] = i;
 }
-for (var i = 0; i &lt; getDays; i++) {
+for (var i = 0; i < getDays; i++) {
     arry2[i] = i + 1;
 }
 
 var node1 = arry1.map(function (item) {
-    return &lt;li>&lt;/li>;
+    return <li></li>;
 });
 var node2 = arry2.map(function (item) {
     return day == item ? (
-        &lt;li style={{ "background-color": "#eee" }}>{item}&lt;/li>
+        <li style={{ "background-color": "#eee" }}>{item}</li>
     ) : (
-        &lt;li>{item}&lt;/li>
+        <li>{item}</li>
     );
 });
 ```

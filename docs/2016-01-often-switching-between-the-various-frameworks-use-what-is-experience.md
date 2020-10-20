@@ -43,16 +43,16 @@ backbonejs
 在保证项目结构清晰的情况下。我会尽量拆分文件，这样便于管理和扩展，业务文件我按照 model 和 view 做了下拆分。程序入口则是 todo.html, 如下，文档结构非常简单
 
 ```c
-&lt;— todo.html —>
-&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-    &lt;meta charset=’utf-8’ > 
-    &lt;title>BtoDo&lt;/title>
-    &lt;script type=’text/javascript’ src=’lib/underscore.min.js’>&lt;/script>
-    &lt;script type=’text/javascript’ src=’lib/jquery-2.1.4.min.js’>&lt;/script>
-    &lt;script type=’text/javascript’ src=’lib/backbone.min.js’>&lt;/script>
-    &lt;style type=’text/css’>
+<— todo.html —>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=’utf-8’ > 
+    <title>BtoDo</title>
+    <script type=’text/javascript’ src=’lib/underscore.min.js’></script>
+    <script type=’text/javascript’ src=’lib/jquery-2.1.4.min.js’></script>
+    <script type=’text/javascript’ src=’lib/backbone.min.js’></script>
+    <style type=’text/css’>
         .list-wrapper{
             margin: 20px auto ;
             width: 300px;
@@ -68,27 +68,27 @@ backbonejs
             color: blue;
             cursor: pointer;
         }
-    &lt;/style>
-&lt;/head>
-&lt;body>
-    &lt;div class=’list-wrapper’ id=’todo_panel’>
-        &lt;h2>Todo&lt;/h2>
-        &lt;span id=’remaining’>&lt;/span> remaining [archive]
-        &lt;ul id=’todo_list’ >
-        &lt;/ul>
-        &lt;form onsubmit=”return false” >
-            &lt;input placeHolder=’foo foo’  type=’text’> &lt;button class=’add_btn’ >Add&lt;/button>
-        &lt;/form>
-    &lt;/div>
-    &lt;script type=’text/template’ id=’list_template’ >
-        &lt;% for( var p in data ){%>
-        &lt;li &lt;%if(data[p].done){%>class=’done-true’&lt;%}%> >’  &lt;%if(data[p].done){%>checked&lt;%}%> >&lt;%=data[p].todo%>&lt;/li>
-        &lt;%}%>
-    &lt;/script>
-    &lt;script type=’text/javascript’ src=’app/todo.model.js’>&lt;/script>
-    &lt;script type=’text/javascript’ src=’app/todo.view.js’>&lt;/script>
-&lt;/body>
-&lt;/html>
+    </style>
+</head>
+<body>
+    <div class=’list-wrapper’ id=’todo_panel’>
+        <h2>Todo</h2>
+        <span id=’remaining’></span> remaining [archive]
+        <ul id=’todo_list’ >
+        </ul>
+        <form onsubmit=”return false” >
+            <input placeHolder=’foo foo’  type=’text’> <button class=’add_btn’ >Add</button>
+        </form>
+    </div>
+    <script type=’text/template’ id=’list_template’ >
+        <% for( var p in data ){%>
+        <li <%if(data[p].done){%>class=’done-true’<%}%> >’  <%if(data[p].done){%>checked<%}%> ><%=data[p].todo%></li>
+        <%}%>
+    </script>
+    <script type=’text/javascript’ src=’app/todo.model.js’></script>
+    <script type=’text/javascript’ src=’app/todo.view.js’></script>
+</body>
+</html>
 ```
 
 下面是 Model,Model 可以看成一个描述业务的数据模型，描述越详细，越原子越好，而在此项目中，最原子的数据单元，就是每条计划，所有的需求交互都是围绕每一条计划来行动。而计划是批量的，每个计划都具有相同的行为和操作，所以我声明了一个 Collection_Collection 是所有相同 Model 的一个集合_, 用一个 Collection 来描述业务数据。声明里给了两个默认计划。全局上挂载这个对象，方便外部文件存取.(项目简单，就直接写了，一般会建议包装一个方法来导出单个文件内部方法或者变量。便于全局管理)
@@ -142,7 +142,7 @@ backbonejs
                 this.listenTo(this.collection, ‘changed’, this.render);
             } ,
             render: function( model , collection ) {
-                var tpl = _.template(‘&lt;%= rest %> of &lt;%= total %> ‘) ,
+                var tpl = _.template(‘<%= rest %> of <%= total %> ‘) ,
                     rest = 0  , 
                     p ,
                     data = collection.toJSON() ;
@@ -231,13 +231,13 @@ angularjs
 [![angluarjs](http://www.alloyteam.com/wp-content/uploads/2016/01/angluarjs.png)](http://www.alloyteam.com/wp-content/uploads/2016/01/angluarjs.png)
 
 ```c
-&lt;–!html–>
-&lt;!doctype html>
-&lt;html ng-app=”todoApp”>
-  &lt;head>
-    &lt;script type=”text/javascript” src=’lib/angular.min.js’>&lt;/script>
-    &lt;script src=”app/todo.js”>&lt;/script>
-    &lt;style type=”text/css”>
+<–!html–>
+<!doctype html>
+<html ng-app=”todoApp”>
+  <head>
+    <script type=”text/javascript” src=’lib/angular.min.js’></script>
+    <script src=”app/todo.js”></script>
+    <style type=”text/css”>
     .done-true {
       text-decoration: line-through;
       color: grey;
@@ -246,28 +246,28 @@ angularjs
         margin: 20px auto ;
         width: 300px;
     }
-    &lt;/style>
-  &lt;/head> 
-  &lt;body>
-    &lt;div class=’list-wrapper’>
-        &lt;h2>Todo&lt;/h2>
-        &lt;div ng-controller=”TodoListController as todoList”>
-          &lt;span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining&lt;/span>
-          [&lt;a href="””">archive&lt;/a>]
-          &lt;ul class=”unstyled”>
-            &lt;li ng-repeat=”todo in todoList.todos”>
-              &lt;input type=”checkbox” ng-model=”todo.done”>
-              &lt;span class=”done-{{todo.done}}”>{{todo.text}}&lt;/span>
-            &lt;/li>
-          &lt;/ul>
-          &lt;form ng-submit=”todoList.addTodo()”>
-            &lt;input type=”text” ng-model=”todoList.todoText”  size=”30”
+    </style>
+  </head> 
+  <body>
+    <div class=’list-wrapper’>
+        <h2>Todo</h2>
+        <div ng-controller=”TodoListController as todoList”>
+          <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+          [<a href="””">archive</a>]
+          <ul class=”unstyled”>
+            <li ng-repeat=”todo in todoList.todos”>
+              <input type=”checkbox” ng-model=”todo.done”>
+              <span class=”done-{{todo.done}}”>{{todo.text}}</span>
+            </li>
+          </ul>
+          <form ng-submit=”todoList.addTodo()”>
+            <input type=”text” ng-model=”todoList.todoText”  size=”30”
                    placeholder=”foo foo”>
-            &lt;input class=”btn-primary” type=”submit” value=”add”>
-          &lt;/form>
-        &lt;/div>
-    &lt;/div>
-&lt;/body>
+            <input class=”btn-primary” type=”submit” value=”add”>
+          </form>
+        </div>
+    </div>
+</body>
 ```
 
 这是个取自官网的示例图，可以看到代码非常精简，基本流程如下。声明了一个 module 容器，然后在 controller 中处理几个行为，界面行为完全在 html 模版中来处理，controller 里面不再耦合任何 dom 操作。
@@ -322,14 +322,14 @@ Reactjs
 下面进入正题看代码，文档并没有特别需要说明的地方，为了方便和我没有配置整套的 React 环境，只是用了 demo 环境，引入了一个翻译 jsx 的库:
 
 ```c
-&lt;!–html–>
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>Hello React&lt;/title>
-    &lt;script src=”lib/react.js”>&lt;/script>
-    &lt;script src=”lib/JSXTransformer.js”>&lt;/script>
-    &lt;style type=”text/css”>
+<!–html–>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello React</title>
+    <script src=”lib/react.js”></script>
+    <script src=”lib/JSXTransformer.js”></script>
+    <style type=”text/css”>
         .done-true {
           text-decoration: line-through;
           color: grey;
@@ -345,13 +345,13 @@ Reactjs
             color: blue;
             cursor: pointer;
         }
-    &lt;/style>
-  &lt;/head>
-  &lt;body>
-    &lt;div class=’list-wrapper’ id=”example”>&lt;/div>
-    &lt;script type=”text/jsx” src=”app/todo.js”>&lt;/script>
-  &lt;/body>
-&lt;/html>
+    </style>
+  </head>
+  <body>
+    <div class=’list-wrapper’ id=”example”></div>
+    <script type=”text/jsx” src=”app/todo.js”></script>
+  </body>
+</html>
 ```
 
 业务代码，专注于 UI 的库，首先需要的是拆分视图，这点与其它库并无太大区别。但是如何拆，如何确定各个视图之间的关系则是有套路的，且大致过下下面的代码.
@@ -370,7 +370,7 @@ var ToDoTips = React.createClass({
                     ++remains ;
                 }
             } );
-        return &lt;span>{remains}/{items.length}&lt;/span>;
+        return <span>{remains}/{items.length}</span>;
     }
 });
 /**
@@ -406,13 +406,13 @@ var TodoList = React.createClass({
         var that = this ;
         var createItem = function( item , index ) {
             var itemClass = item.done ? ‘done-true’ : ‘’ ; 
-            return &lt;li className={itemClass} >&lt;input type=’checkbox’ data-index={index} onClick={that.toggle} checked = {item.done} />{item.todo}&lt;/li>;
+            return <li className={itemClass} ><input type=’checkbox’ data-index={index} onClick={that.toggle} checked = {item.done} />{item.todo}</li>;
         };
         return (
-            &lt;div>
-                &lt;span>remaining &lt;ToDoTips items = {this.state.items} /> [archive]&lt;/span>
-                &lt;ul>{ this.state.items.map(createItem)}&lt;/ul>
-            &lt;/div>
+            <div>
+                <span>remaining <ToDoTips items = {this.state.items} /> [archive]</span>
+                <ul>{ this.state.items.map(createItem)}</ul>
+            </div>
         );
     }
 });
@@ -437,16 +437,16 @@ var TodoApp = React.createClass({
     },
     render: function() {
         return (
-            &lt;div>
-                &lt;h3>TODO&lt;/h3>
-                &lt;TodoList items = {this.state.items} nextItem={this.state.nextItem}  />
-                &lt;form onSubmit={this.handleSubmit} >
-                  &lt;input 
+            <div>
+                <h3>TODO</h3>
+                <TodoList items = {this.state.items} nextItem={this.state.nextItem}  />
+                <form onSubmit={this.handleSubmit} >
+                  <input 
                     placeholder=’foo foo’
                     name=’text’   />
-                  &lt;button>{‘Add #’ + (this.state.items.length + 1)}&lt;/button>
-                &lt;/form>
-            &lt;/div>
+                  <button>{‘Add #’ + (this.state.items.length + 1)}</button>
+                </form>
+            </div>
           );
     }
 });
@@ -458,7 +458,7 @@ var sourceData = [
             {todo:’learn React’, done:true},
             {todo:’build an React app’, done:false}];
 React.render(
-            &lt;TodoApp  sourceData = {sourceData} />, 
+            <TodoApp  sourceData = {sourceData} />, 
             document.getElementById(‘example’)
             );
 ```

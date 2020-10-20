@@ -37,12 +37,12 @@ source_link: http://www.alloyteam.com/2016/10/implement-a-simple-template-engine
 
 ```javascript
 // 前端
-var html = window.parse("&lt;div>${content}&lt;/div>", {
+var html = window.parse("<div>${content}</div>", {
     content: "june",
 });
 // 后端
 const parse = require("tpl");
-var html = parse("&lt;div>${content}&lt;/div>", {
+var html = parse("<div>${content}</div>", {
     content: "june",
 });
 ```
@@ -222,7 +222,7 @@ let len = content.length; 
 let preCode = ''; // 表达式前的代码 
 let endCode = ''; // 最后一段代码 
 let stmJs = ''; // 表达式 
-while(beg &lt; len) { 
+while(beg < len) { 
   /* 开始符 */ 
   stmbeg = content.indexOf('{', beg); 
   while(content.charAt(stmbeg - 1) === '\\\\') { 
@@ -352,7 +352,7 @@ const regmap = [ 
   // if语句结束 
   {reg: /^\\/\\s*if/i, val: '}'}, 
   // list语句开始 
-  {reg: /^list\\s+([\\S]+)\\s+as\\s+([\\S]+)/i, val: (all, arr, item) => {return `for(var __INDEX__=0;__INDEX__&lt;${arr}.length;__INDEX__++) {var ${item}=${arr}[__INDEX__];var ${item}_index=__INDEX__;`;}}, 
+  {reg: /^list\\s+([\\S]+)\\s+as\\s+([\\S]+)/i, val: (all, arr, item) => {return `for(var __INDEX__=0;__INDEX__<${arr}.length;__INDEX__++) {var ${item}=${arr}[__INDEX__];var ${item}_index=__INDEX__;`;}}, 
   // list语句结束 
   {reg: /^\\/\\s*list/i, val: '}'}, 
   // var 语句 
@@ -374,17 +374,17 @@ const regmap = [ 
       escape: (str) => { 
         // 防注入转码映射表 
         var escapeMap = { 
-          '&lt;': '&lt;', 
+          '<': '&lt;', 
           '>': '&gt;', 
           '&': '&amp;', 
           ' ': '&nbsp;', 
           '"': '&quot;', 
           "'": '&#39;', 
-          '\\n': '&lt;br/>', 
+          '\\n': '<br/>', 
           '\\r': '' 
         }; 
      
-        return str.replace(/\\&lt;|\\>|\\&|\\r|\\n|\\s|\\'|\\"/g, (one) => { 
+        return str.replace(/\\<|\\>|\\&|\\r|\\n|\\s|\\'|\\"/g, (one) => { 
           return escapeMap[one]; 
         }); 
       } 

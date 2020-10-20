@@ -93,7 +93,7 @@ react 版使用方式:
 ```html
 render() {
     return (
-        &lt;AlloyFinger
+        <AlloyFinger
             onTap={this.onTap.bind(this)}
             onMultipointStart={this.onMultipointStart.bind(this)}
             onLongTap={this.onLongTap.bind(this)}
@@ -103,8 +103,8 @@ render() {
             onPressMove={this.onPressMove.bind(this)}
             onMultipointEnd={this.onMultipointEnd.bind(this)}
             onDoubleTap={this.onDoubleTap.bind(this)}>
-            &lt;div className="test">你要监听手势的Dom!&lt;/div>
-        &lt;/AlloyFinger>
+            <div className="test">你要监听手势的Dom!</div>
+        </AlloyFinger>
     );
 }
 ```

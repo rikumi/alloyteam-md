@@ -30,11 +30,11 @@ source_link: http://www.alloyteam.com/2016/12/transformjs-fun-planet/
 ```c
 function randomPoints() {
     var x, y, z, j = -1, i = 0;
-    for (; i &lt; size; i++) {
+    for (; i < size; i++) {
         x = getRandomNumber(-250, 250);
         y = getRandomNumber(-250, 250);
         j *= -1;
-        if (x * x + y * y &lt;= r * r) {
+        if (x * x + y * y <= r * r) {
             z = j * Math.sqrt(Math.abs(r * r - x * x - y * y));
             positions.push({x: x, y: y, z: z});
             rd_positions.push({x: x, y: y, z: z});
@@ -58,7 +58,7 @@ function randomPoints() {
 function createImgs() {
     var i = 0,
         len = positions.length;
-    for (; i &lt; len; i++) {
+    for (; i < len; i++) {
         var img = document.createElement("img");
         img.style.position = "absolute";
         img.style.left = "0px";
@@ -82,7 +82,7 @@ function createImgs() {
 function positionsProjection() {
     var index = 0,
         len = positions.length;
-    for (; index &lt; len; index++) {
+    for (; index < len; index++) {
         var p = positions[index];
         var rp = rd_positions[index]; //perspective projection //rp.x = p.x * distance / Math.abs(camera_position.z - p.z); //rp.y =  p.y * distance / Math.abs(camera_position.z - p.z); //orthogonal projection
         rp.x = p.x;
@@ -121,7 +121,7 @@ function rotate() {
         z,
         i = 0,
         len=positions.length;
-    for (; i &lt; len; i++) {
+    for (; i < len; i++) {
         cx = positions[i].x;
         z = positions[i].z;
         positions[i].x = positions[i].x * Math.cos(step_angle) - positions[i].z * Math.sin(step_angle);
@@ -149,7 +149,7 @@ function transformImg(img, i) {
 function render() {
     var i = 0,
         len = positions.length;
-    for (; i &lt; len; i++) {
+    for (; i < len; i++) {
         transformImg(img_list[i], i);
     }
 }
@@ -220,7 +220,7 @@ function transformImg(img, i) {
 function render() {
     var i = 0,
         len = positions.length;
-    for (; i &lt; len; i++) {
+    for (; i < len; i++) {
         transformImg(img_list[i], i);
     }
 }

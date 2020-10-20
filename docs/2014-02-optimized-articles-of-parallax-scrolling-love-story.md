@@ -125,12 +125,12 @@ hack 的手法核心就是：在原来的使用 scroll 事件的视差滚动，�
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-&lt;/style>
-&lt;body>
+</style>
+<body>
  
-&lt;div id="scene_back" class="scene">&lt;/div>
-&lt;div id="scene_center" class="scene">&lt;/div>
-&lt;div id="scene_front" class="scene">&lt;/div>
+<div id="scene_back" class="scene"></div>
+<div id="scene_center" class="scene"></div>
+<div id="scene_front" class="scene"></div>
 ```
 
 js 基本上只是把原来的 top，改为 backgroundPostionY 而已。
@@ -159,21 +159,21 @@ function onScroll(e) {
 视差滚动需要很多元素效果图片，由于运动轨迹不同，不能用传统的 sprite 合图，所以会产生很多额外的 http 请求。但是这里应该思考，把视差滚动运动轨迹相同的元素合图，例如
 
 ```c
-&lt;div id="scene_back" class="scene">
-  &lt;img id="pokemon1" src="./img/001.png">
-  &lt;img id="pokemon4" src="./img/004.png">
-  &lt;img id="pokemon7" src="./img/007.png">
-&lt;/div>
-&lt;div id="scene_center" class="scene">
-  &lt;img id="pokemon2" src="./img/002.png">
-  &lt;img id="pokemon5" src="./img/005.png">
-  &lt;img id="pokemon8" src="./img/008.png">
-&lt;/div>
-&lt;div id="scene_front" class="scene">
-  &lt;img id="pokemon3" src="./img/003.png">
-  &lt;img id="pokemon6" src="./img/006.png">
-  &lt;img id="pokemon9" src="./img/009.png">
-&lt;/div>
+<div id="scene_back" class="scene">
+  <img id="pokemon1" src="./img/001.png">
+  <img id="pokemon4" src="./img/004.png">
+  <img id="pokemon7" src="./img/007.png">
+</div>
+<div id="scene_center" class="scene">
+  <img id="pokemon2" src="./img/002.png">
+  <img id="pokemon5" src="./img/005.png">
+  <img id="pokemon8" src="./img/008.png">
+</div>
+<div id="scene_front" class="scene">
+  <img id="pokemon3" src="./img/003.png">
+  <img id="pokemon6" src="./img/006.png">
+  <img id="pokemon9" src="./img/009.png">
+</div>
 ```
 
 我们特殊把运动规则相同的元素都放到一个 div 里面，这里面可以把每个 scene 里的 img 合图，减少 http 请求数并且可以统一 js 操作处理。当然，合图大小如果过大也不好，自个权衡取最优吧。
@@ -209,25 +209,25 @@ function onScroll(e) {
 由于是使用了 mousewheel，可以不是用 backgroundPosition 的方式写视差而用 left，top 属性。核心代码如下，以 art1_oldLeft 为整个视差运动的判断标准，在某个范围如何” 拐弯 “。
 
 ```html
-&lt;div class="container">
-  &lt;article id="article1">
-  &lt;h1>阿姆施特朗回旋加速喷气式阿姆施特朗炮&lt;/h1>
-  &lt;div class="content">。。。。。。。内容。。。。。。&lt;/div>
-  &lt;img src="./img/somepic1.jpg" width="400px" height="250px">
-  &lt;div class="content">。。。。。。。内容。。。。。。&lt;/div>
-  &lt;div class="roadbg1">&lt;/div>&lt;!-- 注意我道路的dom放到了article里面-->
-  &lt;div class="roadangle">&lt;/div>
-&lt;/article>
+<div class="container">
+  <article id="article1">
+  <h1>阿姆施特朗回旋加速喷气式阿姆施特朗炮</h1>
+  <div class="content">。。。。。。。内容。。。。。。</div>
+  <img src="./img/somepic1.jpg" width="400px" height="250px">
+  <div class="content">。。。。。。。内容。。。。。。</div>
+  <div class="roadbg1"></div><!-- 注意我道路的dom放到了article里面-->
+  <div class="roadangle"></div>
+</article>
  
-&lt;article id="article2">
-   &lt;h1>阿姆施特朗回旋加速喷气式阿姆施特朗炮&lt;/h1>
-   &lt;div class="content">。。。。。。。内容。。。。。。&lt;/div>
-   &lt;img src="./img/somepic1.jpg" width="400px" height="250px">
-   &lt;div class="content">。。。。。。。内容。。。。。。&lt;/div>
-   &lt;div class="roadbg2">&lt;/div>
-&lt;/article>
+<article id="article2">
+   <h1>阿姆施特朗回旋加速喷气式阿姆施特朗炮</h1>
+   <div class="content">。。。。。。。内容。。。。。。</div>
+   <img src="./img/somepic1.jpg" width="400px" height="250px">
+   <div class="content">。。。。。。。内容。。。。。。</div>
+   <div class="roadbg2"></div>
+</article>
  
-&lt;/div>
+</div>
 ```
 
 ```javascript
@@ -240,10 +240,10 @@ function mouseWheelHandler(e) {
         art2_oldTop = getOldStyle(article2, "top");
     var newTop = 0,
         range = 100;
-    if (art1_oldLeft &lt; 50 && art1_oldLeft > -560) {
+    if (art1_oldLeft < 50 && art1_oldLeft > -560) {
         newTop = art1_oldTop + delta * 50;
         range = 40;
-    } else if (art1_oldLeft &lt;= -560) {
+    } else if (art1_oldLeft <= -560) {
         newTop = -700;
     } else {
         newTop = 0;
@@ -284,21 +284,21 @@ QQ 浏览器的官网一直是视差滚动界的佼佼者，[http://browser.qq.c
   line-height: 3000px;
   font-size: 200px;
 }
-&lt;/style>
-&lt;body>
+</style>
+<body>
  
-&lt;div class="container">
-  &lt;div id="rotateBlock" class="rotateBlock">
-  &lt;div id="green_b" class="block green_b">
-    Green &lt;span class="sub_head"> Happiness is under the tree that year&lt;/span>
-  &lt;/div>
-  &lt;div id="orange_b" class="block orange_b">
-    Red &lt;span class="sub_head"> Youth is like a fire &lt;/span>
-  &lt;/div>
-  &lt;div id="blue_b" class="block blue_b">
-    Blue &lt;span class="sub_head">Life is like a boat &lt;/span>
-  &lt;/div>
-&lt;/div>
+<div class="container">
+  <div id="rotateBlock" class="rotateBlock">
+  <div id="green_b" class="block green_b">
+    Green <span class="sub_head"> Happiness is under the tree that year</span>
+  </div>
+  <div id="orange_b" class="block orange_b">
+    Red <span class="sub_head"> Youth is like a fire </span>
+  </div>
+  <div id="blue_b" class="block blue_b">
+    Blue <span class="sub_head">Life is like a boat </span>
+  </div>
+</div>
 ```
 
 class 为 block 就是我们的视差元素，他的父类为 rotateBlock，进行了 transform 旋转，视差元素扩大一定程度的长宽就能看出效果。
@@ -349,18 +349,18 @@ html,body{
   color: rgba(255,255,255,.5);
   -webkit-transition:left .5s;
 }
-&lt;/style>
-&lt;body>
+</style>
+<body>
  
-&lt;div class="center_location">
+<div class="center_location">
  
-  &lt;div id="rotateBlock" class="rotateBlock">
-    &lt;div id="green_b" class="block green_b">Green for Youth&lt;/div>
-    &lt;div id="orange_b" class="block orange_b">Red for Sunshine&lt;/div>
-    &lt;div id="blue_b" class="block blue_b">Blue for Life&lt;/div>
-  &lt;/div>
+  <div id="rotateBlock" class="rotateBlock">
+    <div id="green_b" class="block green_b">Green for Youth</div>
+    <div id="orange_b" class="block orange_b">Red for Sunshine</div>
+    <div id="blue_b" class="block blue_b">Blue for Life</div>
+  </div>
  
-&lt;/div>
+</div>
 ```
 
 [v_demo6_qqbrowser.html](http://www.alloyteam.com/wp-content/uploads/2014/02/v_demo6_qqbrowser.html)

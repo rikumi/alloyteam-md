@@ -24,9 +24,9 @@ source_link: http://www.alloyteam.com/2016/07/preload-what-is-it-good-for-part2/
 我们可以**使用 Preload 提前加载这些资源**，并且使用 media 属性，做到只加载需要的资源：
 
 ```html
-&lt;link rel="preload" as="image" href="map.png" media="(max-width: 600px)">
+<link rel="preload" as="image" href="map.png" media="(max-width: 600px)">
  
-&lt;link rel="preload" as="script" href="map.js" media="(min-width: 601px)">
+<link rel="preload" as="script" href="map.js" media="(min-width: 601px)">
 ```
 
 HTTP 首部（Headers）  
@@ -38,9 +38,9 @@ link 标签带来另外一个特性就是，它可以[代表一个 HTTP 的首�
 HTTP 响应首部的例子：
 
 ```css
-Link: &lt;thing_to_load.js>;rel="preload";as="script"
+Link: <thing_to_load.js>;rel="preload";as="script"
  
-Link: &lt;thing_to_load.woff2>;rel="preload";as="font";crossorigin
+Link: <thing_to_load.woff2>;rel="preload";as="font";crossorigin
 ```
 
 当做优化的人与当初书写标签的人，不是同一个人时，HTTP 首部可谓信手拈来。特别明显的例子是，当一个**外部优化引擎**，对内容进行扫描和优化的时候（透露下，[我正在实现的一个](https://www.akamai.com/us/en/resources/front-end-optimization-feo.jsp)）。

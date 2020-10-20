@@ -92,19 +92,19 @@ Angular 内部做了向下兼容，采用本模式后，在低版本的浏览器
 如果你的应用挂在根目录（<https://myapp.com/），则设置为：>
 
 ```html
-&lt;head>
-  &lt;base href="/">
+<head>
+  <base href="/">
   ...
-&lt;/head>
+</head>
 ```
 
 如果挂在子目录（<https://myapp.com/subapp/），则设置为：>
 
 ```html
-&lt;head>
-  &lt;base href="/subapp/">
+<head>
+  <base href="/subapp/">
   ...
-&lt;/head>
+</head>
 ```
 
 不设置会导致 Angular 无法正确处理相对链接和回退到 hashbang 模式。

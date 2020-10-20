@@ -22,10 +22,10 @@ source_link: http://www.alloyteam.com/2016/12/alloytouch-and-three-js-3d-model-i
 * * *
 
 ```javascript
-&lt;script src="asset/three.js">&lt;/script>
-&lt;script src="../../alloy_touch.js">&lt;/script>
+<script src="asset/three.js"></script>
+<script src="../../alloy_touch.js"></script>
  
-&lt;script>
+<script>
     var camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
     camera.position.z = 500;
  
@@ -61,7 +61,7 @@ source_link: http://www.alloyteam.com/2016/12/alloytouch-and-three-js-3d-model-i
         factor: 0.08,               //运动期间的摩擦力
         moveFactor: 0.2     //拖拽期间的摩擦力
     })
-&lt;/script>
+</script>
 ```
 
 factor 需要自己不断去调试出最佳的值，让松手之后的惯性运动的速率和时间达到最佳的效果。  
@@ -84,9 +84,9 @@ moveFactor 需要自己不断去调试出最佳的值，就是让横向拖拽的
 * * *
 
 ```html
-&lt;script src="asset/three.js">&lt;/script>
-&lt;script src="../../alloy_touch.js">&lt;/script>
-&lt;script>
+<script src="asset/three.js"></script>
+<script src="../../alloy_touch.js"></script>
+<script>
     ...
     ...
     ...
@@ -101,7 +101,7 @@ moveFactor 需要自己不断去调试出最佳的值，就是让横向拖拽的
         moveFactor: 0.2 ,       //拖拽期间的摩擦力
         inertia: false      //禁止惯性运动
     })
-&lt;/script>
+</script>
 ```
 
 开始 AlloyTouch 吧  

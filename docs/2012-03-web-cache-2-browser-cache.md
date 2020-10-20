@@ -46,7 +46,7 @@ source_link: http://www.alloyteam.com/2012/03/web-cache-2-browser-cache/
 
 Web 开发者可以在 HTML 页面的&lt;head> 节点中加入&lt;meta> 标签，代码如下：
 
-    &lt;META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 
 上述代码的作用是告诉浏览器当前页面不被缓存，每次访问都需要去服务器拉取。使用上很简单，但只有部分浏览器可以支持，而且所有缓存代理服务器都不支持，因为代理不解析 HTML 内容本身。
 

@@ -44,12 +44,12 @@ var text = say("Functional Programming"); // => This is Functional Programming
 ```javascript
 // 非纯函数（函数内依赖函数外的变量值）
 var title = "Functional Programming";
-var say = () => "This is not" + title; // &lt;= 依赖了全局变量 title
+var say = () => "This is not" + title; // <= 依赖了全局变量 title
 ```
 
 ```javascript
 // 纯函数
-var say = (title) => "This is " + title; // &lt;= 依赖了以参数 title 传入
+var say = (title) => "This is " + title; // <= 依赖了以参数 title 传入
 say("Functional Programming");
 ```
 
@@ -62,7 +62,7 @@ say("Functional Programming");
 ```javascript
 // 可变数据
 var arr = ["Functional", "Programming"];
-arr[0] = "Other"; // &lt;= 修改了arr[0]的值
+arr[0] = "Other"; // <= 修改了arr[0]的值
 console.log(arr); // => ["Other", "Programming"] // 变量arr值已经被修改
 ```
 

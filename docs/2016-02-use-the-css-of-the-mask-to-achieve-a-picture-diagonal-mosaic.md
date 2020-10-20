@@ -40,11 +40,11 @@ source_link: http://www.alloyteam.com/2016/02/use-the-css-of-the-mask-to-achieve
 OK，先看代码，然后我再来解释。
 
 ```html
-&lt;div class="img-container">
-            &lt;div class="img-left">&lt;/div>
-            &lt;div class="img-right">&lt;/div>
+<div class="img-container">
+            <div class="img-left"></div>
+            <div class="img-right"></div>
         
-&lt;/div>;
+</div>;
 ```
 
 然后是 CSS

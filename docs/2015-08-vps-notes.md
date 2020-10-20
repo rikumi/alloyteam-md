@@ -184,7 +184,7 @@ VPS 环境搭建与恢复
     // -h 表示主机名
     // -u 表示用户名，注意这里是 mysql 的用户名而不是 VPS 服务器的用户名
     // -p 表示输入密码
-    $ mysql -hlocalhost -uroot -p girls_db &lt; dump_girls_db.sql
+    $ mysql -hlocalhost -uroot -p girls_db < dump_girls_db.sql
 
 -   启动所需要的服务
 
@@ -320,7 +320,7 @@ $ ssh-keygen -t rsa -b 4096 -C "your_email@gmail.com"
 
 复制生成的公钥：
 
-    $ pbcopy &lt; ~/.ssh/id_rsa.pub
+    $ pbcopy < ~/.ssh/id_rsa.pub
 
 将公钥添加到 git 仓库的（如 github 的添加地址为：[https://github.com/settings/ssh）](https://github.com/settings/ssh%EF%BC%89)
 

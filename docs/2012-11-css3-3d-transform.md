@@ -78,14 +78,14 @@ demo 的基本结构和样式如下代码
 ```
 
 ```html
-&lt;div class="stage">
+<div class="stage">
             
-    &lt;div class="container">
-                    &lt;div class="child">&lt;/div>
+    <div class="container">
+                    <div class="child"></div>
                 
-    &lt;/div>
+    </div>
         
-&lt;/div>;
+</div>;
 ```
 
 [![](http://www.alloyteam.com/wp-content/uploads/2012/11/图片6.png "图片 6")](http://www.alloyteam.com/wp-content/uploads/2012/11/图片6.png)

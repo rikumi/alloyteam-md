@@ -23,14 +23,14 @@ var TodoApp = Nuclear.create({
         form.addEventListener("submit", this.add.bind(this), false);
     },
     render: function () {
-        return '&lt;div>\
-                 &lt;h3>TODO&lt;/h3>\
-                 &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>\
-                  &lt;form >\
-                   &lt;input type="text"  />\
-                   &lt;button>Add #{{items.length}}&lt;/button>\
-                 &lt;/form>\
-                &lt;/div>';
+        return '<div>\
+                 <h3>TODO</h3>\
+                 <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>\
+                  <form >\
+                   <input type="text"  />\
+                   <button>Add #{{items.length}}</button>\
+                 </form>\
+                </div>';
     },
 });
 new TodoApp({ items: [] }, "#container");
@@ -68,14 +68,14 @@ var TodoApp = Nuclear.create(
             );
         },
         render: function () {
-            return '&lt;div>\
-                 &lt;h3>TODO&lt;/h3>\
-                 &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>\
-                 &lt;form nc-id="form" >\
-                   &lt;input nc-id="textBox" type="text"  />\
-                   &lt;button>Add #{{items.length}}&lt;/button>\
-                 &lt;/form>\
-               &lt;/div>';
+            return '<div>\
+                 <h3>TODO</h3>\
+                 <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>\
+                 <form nc-id="form" >\
+                   <input nc-id="textBox" type="text"  />\
+                   <button>Add #{{items.length}}</button>\
+                 </form>\
+               </div>';
         },
     },
     {
@@ -100,14 +100,14 @@ var TodoApp = Nuclear.create({
         this.option.items.push(this.textBox.value);
     },
     render: function () {
-        return '&lt;div>\
-                 &lt;h3>TODO&lt;/h3>\
-                 &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>\
-                 &lt;form onsubmit="add(event)" >\
-                   &lt;input nc-id="textBox" type="text"  />\
-                   &lt;button>Add #{{items.length}}&lt;/button>\
-                &lt;/form>\
-               &lt;/div>';
+        return '<div>\
+                 <h3>TODO</h3>\
+                 <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>\
+                 <form onsubmit="add(event)" >\
+                   <input nc-id="textBox" type="text"  />\
+                   <button>Add #{{items.length}}</button>\
+                </form>\
+               </div>';
     },
 });
 new TodoApp({ items: [] }, "#container");
@@ -129,7 +129,7 @@ new TodoApp({ items: [] }, "#container");
 ```html
 var TodoList = Nuclear.create({
     render: function () {
-        return "&lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>";
+        return "<ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>";
     },
 });
 var TodoApp = TodoList.create({
@@ -139,14 +139,14 @@ var TodoApp = TodoList.create({
     },
     render: function () {
         return (
-            "&lt;div>\
-                 &lt;h3>TODO&lt;/h3>" +
+            "<div>\
+                 <h3>TODO</h3>" +
             this._super.render() +
-            '&lt;form  onsubmit="add(event)" >\
-                   &lt;input nc-id="textBox" type="text"  />\
-                   &lt;button>Add #{{items.length}}&lt;/button>\
-                 &lt;/form>\
-               &lt;/div>'
+            '<form  onsubmit="add(event)" >\
+                   <input nc-id="textBox" type="text"  />\
+                   <button>Add #{{items.length}}</button>\
+                 </form>\
+               </div>'
         );
     },
 });
@@ -162,7 +162,7 @@ TodoApp 不过是 TodoList 的炎黄子孙，故 TodoApp 可以通过 this.\_sup
 ```javascript
 var TodoList = Nuclear.create({
     render: function () {
-        return "&lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>";
+        return "<ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>";
     },
 });
 var TodoApp = Nuclear.create({
@@ -176,16 +176,16 @@ var TodoApp = Nuclear.create({
     },
     render: function () {
         return (
-            "&lt;div>\
-                 &lt;h3>TODO&lt;/h3>" +
+            "<div>\
+                 <h3>TODO</h3>" +
             this.todoList.render() +
-            '&lt;form onsubmit="add(event)" >\
-                   &lt;input nc-id="textBox" type="text"  />\
-                   &lt;button>Add #' +
+            '<form onsubmit="add(event)" >\
+                   <input nc-id="textBox" type="text"  />\
+                   <button>Add #' +
             this.todoList.option.items.length +
-            "&lt;/button>\
-                 &lt;/form>\
-               &lt;/div>"
+            "</button>\
+                 </form>\
+               </div>"
         );
     },
 });
@@ -202,7 +202,7 @@ new TodoApp({}, "#todo2Container");
 ```javascript
 var TodoList = Nuclear.create({
     render: function () {
-        return "&lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>";
+        return "<ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>";
     },
 });
 var TodoApp = Nuclear.create({
@@ -215,14 +215,14 @@ var TodoApp = Nuclear.create({
     },
     render: function () {
         return (
-            "&lt;div>\
-                 &lt;h3>TODO&lt;/h3>" +
+            "<div>\
+                 <h3>TODO</h3>" +
             this.todoList.render() +
-            '&lt;form  onsubmit="add(event)"  >\
-                   &lt;input nc-id="textBox" type="text"  />\
-                   &lt;button>Add #{{items.length}}&lt;/button>\
-                 &lt;/form>\
-               &lt;/div>'
+            '<form  onsubmit="add(event)"  >\
+                   <input nc-id="textBox" type="text"  />\
+                   <button>Add #{{items.length}}</button>\
+                 </form>\
+               </div>'
         );
     },
 });
@@ -242,14 +242,14 @@ var TodoApp = Nuclear.create({
         this.option.items.push(this.textBox.value);
     },
     render: function () {
-        return '&lt;div>\
-             &lt;h3>TODO&lt;/h3>\
-             &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>\
-             &lt;form onsubmit="add(event)" >\
-               &lt;input nc-id="textBox" type="text"  />\
-               &lt;button>Add #{{items.length}}&lt;/button>\
-             &lt;/form>\
-           &lt;/div>';
+        return '<div>\
+             <h3>TODO</h3>\
+             <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>\
+             <form onsubmit="add(event)" >\
+               <input nc-id="textBox" type="text"  />\
+               <button>Add #{{items.length}}</button>\
+             </form>\
+           </div>';
     },
 });
 var todo = new TodoApp({ items: [] });
@@ -269,14 +269,14 @@ var TodoApp = Nuclear.create({
         this.option.items.push(this.textBox.value);
     },
     render: function () {
-        return '&lt;div>\
-                  &lt;h3>TODO&lt;/h3>\
-                  &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>\
-                  &lt;form onsubmit="add(event)" >\
-                   &lt;input nc-id="textBox" type="text"  />\
-                   &lt;button>Add #{{items.length}}&lt;/button>\
-                 &lt;/form>\
-               &lt;/div>';
+        return '<div>\
+                  <h3>TODO</h3>\
+                  <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>\
+                  <form onsubmit="add(event)" >\
+                   <input nc-id="textBox" type="text"  />\
+                   <button>Add #{{items.length}}</button>\
+                 </form>\
+               </div>';
     },
     style: function () {
         return "h3 { color:red; }\
@@ -299,25 +299,25 @@ style 方法内的样式自会对自身生效，不会污染其他组件。可�
     壁垒:古代军营四周的围墙;森严:整齐,严肃。原指军事戒备严密。现也用来比喻彼此界限划得很分明。
 
 ```html
-&lt;template id="myTemplate">
-    &lt;style scoped>
+<template id="myTemplate">
+    <style scoped>
         h3 { color:red; }
         button{ color:green;}
-    &lt;/style>
+    </style>
  
-    &lt;div>
-        &lt;div>
-            &lt;h3>TODO&lt;/h3>
-            &lt;ul>{{#items}}&lt;li>{{.}}&lt;/li>{{/items}}&lt;/ul>
-            &lt;form onsubmit="add(event)">
-                &lt;input nc-id="textBox" type="text">
-                &lt;button>Add #{{items.length}}&lt;/button>
-            &lt;/form>
-        &lt;/div>
-    &lt;/div>
-&lt;/template>
+    <div>
+        <div>
+            <h3>TODO</h3>
+            <ul>{{#items}}<li>{{.}}</li>{{/items}}</ul>
+            <form onsubmit="add(event)">
+                <input nc-id="textBox" type="text">
+                <button>Add #{{items.length}}</button>
+            </form>
+        </div>
+    </div>
+</template>
  
-&lt;script>
+<script>
     var TodoApp = Nuclear.create({
         install:function() {
             this.todoTpl = document.querySelector("#myTemplate").innerHTML;
@@ -332,18 +332,18 @@ style 方法内的样式自会对自身生效，不会污染其他组件。可�
     });
  
     new TodoApp({ items: [] }, "#todoListContainer");
-&lt;/script>
+</script>
 ```
 
 不用担心 template 标签的兼容性问题，Nuclear 帮你处理好了。支持所有现代浏览器 (包括 IE9+)。  
 Nuclear 也在 js 里进行了动态插入了 template {display: none !important;}。但是 js 还没执行到且浏览器不兼容 template 的话，用户会看到一闪而过的模板原始代码。  
 所以为了避免 IE9 一闪而过的模板原始代码直接显示，建议在 head 中加入。
 
-    &lt;style>
+    <style>
         template { 
             display: none !important; 
         }
-    &lt;/style>
+    </style>
 
 如果你像手 Q hybrid 应用那样只需要兼容 webkit 的话，天生支持 template，就不用加入上面的兼容样式。
 
@@ -358,14 +358,14 @@ var TodoApp = Nuclear.create({
         this.option.items.push(this.textBox.value);
     },
     render: function () {
-        return `&lt;div>
-                  &lt;h3>TODO&lt;/h3>
-                  &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>
-                  &lt;form onsubmit="add(event)" >
-                   &lt;input nc-id="textBox" type="text"  />
-                   &lt;button>Add #{{items.length}}&lt;/button>
-                 &lt;/form>
-               &lt;/div>`;
+        return `<div>
+                  <h3>TODO</h3>
+                  <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>
+                  <form onsubmit="add(event)" >
+                   <input nc-id="textBox" type="text"  />
+                   <button>Add #{{items.length}}</button>
+                 </form>
+               </div>`;
     },
     style: function () {
         return `h3 { color:red; }
@@ -387,18 +387,18 @@ var TodoApp = Nuclear.create({
         this.option.items.push(this.textBox.value);
     },
     render: function () {
-        return `&lt;style scoped>
+        return `<style scoped>
                   h3 { color:red; }
                   button{ color:green;}
-                &lt;/style>
-                &lt;div>
-                  &lt;h3>TODO&lt;/h3>
-                  &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>
-                  &lt;form onsubmit="add(event)" >
-                   &lt;input nc-id="textBox" type="text"  />
-                   &lt;button>Add #{{items.length}}&lt;/button>
-                 &lt;/form>
-                &lt;/div>`;
+                </style>
+                <div>
+                  <h3>TODO</h3>
+                  <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>
+                  <form onsubmit="add(event)" >
+                   <input nc-id="textBox" type="text"  />
+                   <button>Add #{{items.length}}</button>
+                 </form>
+                </div>`;
     },
 });
 ```

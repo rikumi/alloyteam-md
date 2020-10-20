@@ -194,7 +194,7 @@ oC.addEventListener(
         }
         if (camera.ry >= Math.PI / 2) {
             camera.ry = Math.PI / 2;
-        } else if (camera.ry &lt;= -Math.PI / 2) {
+        } else if (camera.ry <= -Math.PI / 2) {
             camera.ry = -Math.PI / 2;
         }
     },
@@ -313,8 +313,8 @@ check: function(arr) {
     var i;
     var id;
  
-    for(i = 0; i &lt; this.ids.length; i++) {
-        if(Math.abs(this.ids[i][0] - r) &lt;= 1 && Math.abs(this.ids[i][1] - g) &lt;= 1 && Math.abs(this.ids[i][2] - b) &lt;= 1) {
+    for(i = 0; i < this.ids.length; i++) {
+        if(Math.abs(this.ids[i][0] - r) <= 1 && Math.abs(this.ids[i][1] - g) <= 1 && Math.abs(this.ids[i][2] - b) <= 1) {
             console.log('命中!');
             id = this.ids[i][0] + this.ids[i][1] + this.ids[i][2];
             this[id].leave();

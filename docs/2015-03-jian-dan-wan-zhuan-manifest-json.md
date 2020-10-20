@@ -10,8 +10,8 @@ source_link: http://www.alloyteam.com/2015/03/jian-dan-wan-zhuan-manifest-json/
 回想最早年资源版本控制，是不是类似如下
 
 ```html
-&lt;script src="a.js?t=20140404">&lt;/script>
-&lt;script src="a.js?v=1.1.0">&lt;/script>
+<script src="a.js?t=20140404"></script>
+<script src="a.js?v=1.1.0"></script>
  
 ```
 
@@ -22,9 +22,9 @@ source_link: http://www.alloyteam.com/2015/03/jian-dan-wan-zhuan-manifest-json/
 最基本的 rev 玩法
 
 ```html
-&lt;!-- build:js js/all.js -->
-&lt;script src="js/all.js">&lt;/script>
-&lt;!-- endbuild -->
+<!-- build:js js/all.js -->
+<script src="js/all.js"></script>
+<!-- endbuild -->
  
 ```
 
@@ -83,10 +83,10 @@ return gulp
 调用方
 
 ```html
-&lt;script src="/js/console.js">&lt;/script>
-&lt;script src="/js/plugin.js?___md5">&lt;/script>
-&lt;script src="/js/section.js?___md5">&lt;/script>
-&lt;script src="/js/index.js?___md5">&lt;/script>
+<script src="/js/console.js"></script>
+<script src="/js/plugin.js?___md5"></script>
+<script src="/js/section.js?___md5"></script>
+<script src="/js/index.js?___md5"></script>
  
 ```
 

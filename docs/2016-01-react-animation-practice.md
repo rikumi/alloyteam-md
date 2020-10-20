@@ -84,17 +84,17 @@ var Carousel = React.createClass({
     },
     render: function () {
         return (
-            &lt;div className="carousel">
+            <div className="carousel">
                                     
-                &lt;ReactCSSTransitionGroup
+                <ReactCSSTransitionGroup
                     transitionName={this.props.transitionName}
                 >
                                             
-                    &lt;img src={this.props.imageSrc} key={this.props.imageSrc} />
+                    <img src={this.props.imageSrc} key={this.props.imageSrc} />
                                         
-                &lt;/ReactCSSTransitionGroup>
+                </ReactCSSTransitionGroup>
                                 
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -185,9 +185,9 @@ var Carousel = React.createClass({
 ```html
 render: function() { 
       return ( 
-           &lt;ReactCSSTransitionGroup transitionName="example" transitionAppear={true} > 
-		&lt;h1>Fading at Initial Mount&lt;/h1> 
-           &lt;/ReactCSSTransitionGroup> 
+           <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} > 
+		<h1>Fading at Initial Mount</h1> 
+           </ReactCSSTransitionGroup> 
       ); 
 }
 ```
@@ -219,9 +219,9 @@ render: function() {
       例如：
 
 ```javascript
-&lt;ReactTransitionGroup component=“ul” className="example" > 
+<ReactTransitionGroup component=“ul” className="example" > 
 	... 
-&lt;/ReactTransitionGroup>
+</ReactTransitionGroup>
 ```
 
 ### 3、 生命周期
@@ -333,9 +333,9 @@ componentWillEnter (callback) {
       所以我们的轮播图就要改为这样实现：
 
 ```c
-&lt;ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={300} >
-         &lt;img src={this.props.imageSrc} key={this.props.imageSrc} />
-&lt;/ReactCSSTransitionGroup>
+<ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={300} >
+         <img src={this.props.imageSrc} key={this.props.imageSrc} />
+</ReactCSSTransitionGroup>
 ```
 
 （三）间隔动画  
@@ -369,10 +369,10 @@ var Todo = React.createClass(
 		requestAnimationFrame(this. resolveAnimationFrame);
 	},
 	render: function() {
-		return &lt;div style={{left: this.state.left}}>This will animate!&lt;/div>;
+		return <div style={{left: this.state.left}}>This will animate!</div>;
 	},
 	resolveAnimationFrame: function() {
-		if(this.state.left &lt;= 100) {
+		if(this.state.left <= 100) {
 			this.setState({
 				left: this.state.left + 1
 			});
@@ -394,10 +394,10 @@ var Todo = React.createClass(
 		setTimeout(this. resolveAnimationFrame, this.props.tick);
 	},
 	render: function() {
-		return &lt;div style={{left: this.state.left}}>This will animate!&lt;/div>;
+		return <div style={{left: this.state.left}}>This will animate!</div>;
 	},
 	resolveAnimationFrame: function() {
-		if(this.state.left &lt;= 100) {
+		if(this.state.left <= 100) {
 			this.setState({
 				left: this.state.left + 1
 			});

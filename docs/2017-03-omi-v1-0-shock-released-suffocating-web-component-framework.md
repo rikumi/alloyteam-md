@@ -113,9 +113,9 @@ class Hello extends Omi.Component {
     }
     render() {
         return `
-      &lt;div>
-        &lt;h1 onclick="handleClick">Hello ,{{name}}!&lt;/h1>
-      &lt;/div>
+      <div>
+        <h1 onclick="handleClick">Hello ,{{name}}!</h1>
+      </div>
         `;
     }
 }
@@ -128,9 +128,9 @@ class Hello extends Omi.Component {
     handleClick(str, num) {}
     render() {
         return `
-      &lt;div>
-        &lt;h1 onclick="handleClick('test', 1)">Hello ,{{name}}!&lt;/h1>
-      &lt;/div>
+      <div>
+        <h1 onclick="handleClick('test', 1)">Hello ,{{name}}!</h1>
+      </div>
         `;
     }
 }

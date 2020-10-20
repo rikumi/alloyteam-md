@@ -36,18 +36,18 @@ source_link: http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/
 2.  如果已安装 git，可使用 git clone 源码至目标目录：
 
     ```html
-    &lt;span class="nv">$ &lt;/span>git clone https://github.com/AlloyTeam/Qing.git
+    <span class="nv">$ </span>git clone https://github.com/AlloyTeam/Qing.git
     ```
 3.  如果已安装了 Mod.js, 推荐在目标目录执行：
 
     ```c
-    &lt;span class="nv">$ &lt;/span>m download AlloyTeam/Qing
+    <span class="nv">$ </span>m download AlloyTeam/Qing
     ```
 
     第一次使用 `m download` 命令，需要先安装 `mod-tar` 插件：
 
     ```html
-    &lt;span class="nv">$ &lt;/span>npm install mod-tar -g
+    <span class="nv">$ </span>npm install mod-tar -g
     ```
 4.  如果您是一位女开发，请忽略下文直接联系笔者，深圳优先。
 
@@ -86,10 +86,10 @@ Qing 推荐模块化的开发过程，模块化开发后无论在代码可维护
 通过原生 CSS 内置的 @import 机制管理 CSS 模块，在构建过程中会自动合并压缩（在下文的优化章节也有说明）：
 
 ```html
-&lt;span class="k">@import&lt;/span> &lt;span class="s2">"normalize.css"&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">@import&lt;/span> &lt;span class="s2">"widget1.css"&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">@import&lt;/span> &lt;span class="s2">"widget2.css"&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">@import&lt;/span> &lt;span class="s2">"widget3.css"&lt;/span>&lt;span class="p">;&lt;/span>
+<span class="k">@import</span> <span class="s2">"normalize.css"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"widget1.css"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"widget2.css"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"widget3.css"</span><span class="p">;</span>
 ```
 
 #### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#js%E6%A8%A1%E5%9D%97%E5%8C%96)JS 模块化
@@ -97,19 +97,19 @@ Qing 推荐模块化的开发过程，模块化开发后无论在代码可维护
 约定引入 AMD 规范来管理 JS 模块，关于第一次接触 AMD 的读者，笔者推荐可以先 Google 了解后再进行下一步：
 
 ```html
-&lt;span class="c1">// main.js&lt;/span>
-&lt;span class="nx">define&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s2">"./app"&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">){&lt;/span>
-    &lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">init&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="p">})&lt;/span>
+<span class="c1">// main.js</span>
+<span class="nx">define</span><span class="p">([</span><span class="s2">"./app"</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">){</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">init</span><span class="p">()</span>
+<span class="p">})</span>
 ```
 
 ```html
-&lt;span class="c1">// app.js&lt;/span>
-&lt;span class="nx">define&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kd">function&lt;/span>&lt;span class="p">(){&lt;/span>
-    &lt;span class="k">return&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">init&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(){}&lt;/span>
-    &lt;span class="p">}&lt;/span>
-&lt;span class="p">})&lt;/span>
+<span class="c1">// app.js</span>
+<span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
 ```
 
 #### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#html%E6%A8%A1%E5%9D%97%E5%8C%96)HTML 模块化
@@ -119,32 +119,32 @@ HTML 模块指代 HTML 模版文件，通过 `requirejs-tmpl` 插件将 HTML 分
 命令自动安装插件：
 
 ```html
-&lt;span class="c">&lt;!-- tpl/headerTpl.html -->&lt;/span>
-&lt;span class="nt">&lt;header>&lt;/span>&lt;span class="err">&lt;&lt;/span>%= title %>&lt;span class="nt">&lt;/header>&lt;/span>
-&lt;span class="c">&lt;!-- HTMl模版可依赖其他HTML模块 -->&lt;/span>
-&lt;span class="err">&lt;&lt;/span>%@ ./navTpl.html %>
+<span class="c"><!-- tpl/headerTpl.html --></span>
+<span class="nt"><header></span><span class="err"><</span>%= title %><span class="nt"></header></span>
+<span class="c"><!-- HTMl模版可依赖其他HTML模块 --></span>
+<span class="err"><</span>%@ ./navTpl.html %>
 ```
 
 ```html
-&lt;span class="c">&lt;!-- tpl/navTpl.html -->&lt;/span>
-&lt;span class="nt">&lt;a&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"&lt;%= url %>"&lt;/span>&lt;span class="nt">>&lt;/span>View On Github&lt;span class="nt">&lt;/a>&lt;/span>
+<span class="c"><!-- tpl/navTpl.html --></span>
+<span class="nt"><a</span> <span class="na">href=</span><span class="s">"<%= url %>"</span><span class="nt">></span>View On Github<span class="nt"></a></span>
 ```
 
 ```html
-&lt;span class="c">&lt;!-- tpl/footerTpl.html -->&lt;/span>
-&lt;span class="nt">&lt;footer>&lt;/span>&lt;span class="err">&lt;&lt;/span>%= copyright %>&lt;span class="nt">&lt;/header>&lt;/span>
+<span class="c"><!-- tpl/footerTpl.html --></span>
+<span class="nt"><footer></span><span class="err"><</span>%= copyright %><span class="nt"></header></span>
 ```
 
 在 HTML 模版的引入是基于 `requirejs` 的插件机制，所以在具体路径前需加上 `tmpl!` 前缀，表示其是 HTML 模版，例如：`tmpl!../tpl/headerTpl.html`。  
 引用的模版已通过插件自动编译，得到的函数如 `headerTpl` 直接传入需要绑定的数据即可：
 
 ```html
-&lt;span class="c1">// js/app.js&lt;/span>
-&lt;span class="nx">define&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s2">"tmpl!../tpl/headerTpl.html"&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">"tmpl!../tpl/footerTpl.html"&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">headerTpl&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">footerTpl&lt;/span>&lt;span class="p">){&lt;/span>
-    &lt;span class="kd">var&lt;/span> &lt;span class="nx">html1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">headerTpl&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="nx">title&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"Hello Qing"&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">url&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"http://github.com/AlloyTeam/Qing"&lt;/span>&lt;span class="p">})&lt;/span>
-    &lt;span class="kd">var&lt;/span> &lt;span class="nx">html2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">footerTpl&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="nx">copyright&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"AlloyTeam"&lt;/span>&lt;span class="p">})&lt;/span>
-    &lt;span class="c1">// balabala&lt;/span>
-&lt;span class="p">})&lt;/span>
+<span class="c1">// js/app.js</span>
+<span class="nx">define</span><span class="p">([</span><span class="s2">"tmpl!../tpl/headerTpl.html"</span><span class="p">,</span> <span class="s2">"tmpl!../tpl/footerTpl.html"</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">headerTpl</span><span class="p">,</span> <span class="nx">footerTpl</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">html1</span> <span class="o">=</span> <span class="nx">headerTpl</span><span class="p">({</span><span class="nx">title</span><span class="o">:</span> <span class="s2">"Hello Qing"</span><span class="p">,</span> <span class="nx">url</span><span class="o">:</span> <span class="s2">"http://github.com/AlloyTeam/Qing"</span><span class="p">})</span>
+    <span class="kd">var</span> <span class="nx">html2</span> <span class="o">=</span> <span class="nx">footerTpl</span><span class="p">({</span><span class="nx">copyright</span><span class="o">:</span> <span class="s2">"AlloyTeam"</span><span class="p">})</span>
+    <span class="c1">// balabala</span>
+<span class="p">})</span>
 ```
 
 ### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7%E7%9A%84%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85)自动化工具的环境安装
@@ -155,7 +155,7 @@ HTML 模块指代 HTML 模版文件，通过 `requirejs-tmpl` 插件将 HTML 分
 Mod.js 是基于 Node.js 的工作流工具，安装 Node.js 环境后使用 NPM 安装 Mod.js:
 
 ```html
-&lt;span class="nv">$ &lt;/span>npm install modjs -g
+<span class="nv">$ </span>npm install modjs -g
 ```
 
 ### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E4%B8%80%E9%94%AE%E6%9E%84%E5%BB%BA)一键构建
@@ -163,7 +163,7 @@ Mod.js 是基于 Node.js 的工作流工具，安装 Node.js 环境后使用 NPM
 成功安装 Mod.js 后，进入 Modfile 所在的项目根目录，只需执行 `m` 命令，一切如此简单，如假包换的一键构建：
 
 ```html
-&lt;span class="nv">$ &lt;/span>m
+<span class="nv">$ </span>m
 ```
 
 执行完成后会在当前目录下生成 `dist` 目录输出构建后的结果。
@@ -179,95 +179,95 @@ Mod.js 是基于 Node.js 的工作流工具，安装 Node.js 环境后使用 NPM
 Qing 支持传统的手动模块加载管理与基于 AMD 的模块加载管理方式，同时我们推荐使用 Require.js 作为开发过程中的模块加载工具。
 
 ```html
-&lt;span class="c">&lt;!-- JS模块模块手动管理 -->&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/fastclick.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/spin.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/main.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="c"><!-- JS模块模块手动管理 --></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/fastclick.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/spin.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/main.js"</span><span class="nt">></script></span>
 ```
 
 传统的手动添加模块会自动合并，其按照合并连续引入资源的规则进行，最终输出：
 
 ```html
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/89ef9b6e.fastclick_main_3_520.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/89ef9b6e.fastclick_main_3_520.js"</span><span class="nt">></script></span>
 ```
 
 ```html
-&lt;span class="c">&lt;!-- data-main属性值为执行入口JS文件地址 -->&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-main=&lt;/span>&lt;span class="s">"js/main"&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"http://requirejs.org/docs/release/2.1.6/minified/require.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="c"><!-- data-main属性值为执行入口JS文件地址 --></span>
+<span class="nt"><script </span><span class="na">data-main=</span><span class="s">"js/main"</span> <span class="na">src=</span><span class="s">"http://requirejs.org/docs/release/2.1.6/minified/require.js"</span><span class="nt">></script></span>
 ```
 
 通过模块加载器方式，Qing 会自动移除模块加载器本身，其并不打包进最终输出的文件：
 
 ```c
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/89ef9b6e.main.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/89ef9b6e.main.js"</span><span class="nt">></script></span>
 ```
 
 Qing 默认开启的是移除 `define` 生成模块管理器无依赖代码的 `stripDefine` 优化模式。`stripDefine` 优化模式的配置在 `Modfile.js` 的 build 任务中：
 
 ```html
-&lt;span class="nx">build&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"./index.html"&lt;/span>&lt;span class="p">,&lt;/span>
-    &lt;span class="nx">stripDefine&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>
-&lt;span class="p">}&lt;/span>
+<span class="nx">build</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">src</span><span class="o">:</span> <span class="s2">"./index.html"</span><span class="p">,</span>
+    <span class="nx">stripDefine</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">}</span>
 ```
 
 在 `stripDefine` 优化模式下，基于 AMD 规范文件：
 
 ```html
-&lt;span class="c1">// base/clone.js&lt;/span>
-&lt;span class="nx">define&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kd">function&lt;/span>&lt;span class="p">(){&lt;/span>
-    &lt;span class="k">return&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">obj&lt;/span>&lt;span class="p">){&lt;/span>
-        &lt;span class="k">return&lt;/span> &lt;span class="nb">Object&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">create&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">obj&lt;/span>&lt;span class="p">)&lt;/span>
-    &lt;span class="p">}&lt;/span>
-&lt;span class="p">})&lt;/span>
+<span class="c1">// base/clone.js</span>
+<span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">})</span>
 ```
 
 ```html
-&lt;span class="c1">// foo.js&lt;/span>
-&lt;span class="nx">define&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s1">'./base/clone'&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">clone&lt;/span>&lt;span class="p">){&lt;/span>
-    &lt;span class="k">return&lt;/span> &lt;span class="nx">clone&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="nx">foo&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">})&lt;/span>
-&lt;span class="p">})&lt;/span>
+<span class="c1">// foo.js</span>
+<span class="nx">define</span><span class="p">([</span><span class="s1">'./base/clone'</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">clone</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">clone</span><span class="p">({</span><span class="nx">foo</span><span class="o">:</span><span class="mi">1</span><span class="p">})</span>
+<span class="p">})</span>
 ```
 
 ```html
-&lt;span class="c1">// bar.js&lt;/span>
-&lt;span class="nx">define&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s1">'./base/clone'&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">clone&lt;/span>&lt;span class="p">){&lt;/span>
-    &lt;span class="k">return&lt;/span> &lt;span class="nx">clone&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="nx">bar&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">})&lt;/span>
-&lt;span class="p">})&lt;/span>
+<span class="c1">// bar.js</span>
+<span class="nx">define</span><span class="p">([</span><span class="s1">'./base/clone'</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">clone</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">clone</span><span class="p">({</span><span class="nx">bar</span><span class="o">:</span><span class="mi">2</span><span class="p">})</span>
+<span class="p">})</span>
 ```
 
 ```html
-&lt;span class="c1">// main.js&lt;/span>
-&lt;span class="nx">define&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">'./foo'&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">'./bar'&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">foo&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">bar&lt;/span>&lt;span class="p">){&lt;/span>
-    &lt;span class="nx">foo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">bar&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span>
-    &lt;span class="nx">bar&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">foo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="p">})&lt;/span>
+<span class="c1">// main.js</span>
+<span class="nx">define</span><span class="p">(</span><span class="s1">'./foo'</span><span class="p">,</span> <span class="s1">'./bar'</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">){</span>
+    <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">bar</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">})</span>
 ```
 
 编译后会在移除 define 的同时将模块代码转换为变量声明格式的代码：
 
 ```html
-&lt;span class="p">(&lt;/span>&lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">window&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">undefined&lt;/span>&lt;span class="p">){&lt;/span>
-    &lt;span class="kd">var&lt;/span> &lt;span class="nx">base_clone&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kd">function&lt;/span>&lt;span class="p">(){&lt;/span>
-         &lt;span class="k">return&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">obj&lt;/span>&lt;span class="p">){&lt;/span>
-             &lt;span class="k">return&lt;/span> &lt;span class="nb">Object&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">create&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">obj&lt;/span>&lt;span class="p">)&lt;/span>
-         &lt;span class="p">}&lt;/span>
-    &lt;span class="p">})();&lt;/span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">base_clone</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+         <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+             <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+         <span class="p">}</span>
+    <span class="p">})();</span>
  
-    &lt;span class="kd">var&lt;/span> &lt;span class="nx">foo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">clone&lt;/span>&lt;span class="p">){&lt;/span>
-        &lt;span class="k">return&lt;/span> &lt;span class="nx">clone&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="nx">bar&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">})&lt;/span>
-    &lt;span class="p">})(&lt;/span>&lt;span class="nx">base_clone&lt;/span>&lt;span class="p">);&lt;/span>
+    <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">clone</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">clone</span><span class="p">({</span><span class="nx">bar</span><span class="o">:</span><span class="mi">2</span><span class="p">})</span>
+    <span class="p">})(</span><span class="nx">base_clone</span><span class="p">);</span>
  
-    &lt;span class="kd">var&lt;/span> &lt;span class="nx">foo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">clone&lt;/span>&lt;span class="p">){&lt;/span>
-        &lt;span class="k">return&lt;/span> &lt;span class="nx">clone&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="nx">foo&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">})&lt;/span>
-    &lt;span class="p">})(&lt;/span>&lt;span class="nx">base_clone&lt;/span>&lt;span class="p">);&lt;/span>
+    <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">clone</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">clone</span><span class="p">({</span><span class="nx">foo</span><span class="o">:</span><span class="mi">1</span><span class="p">})</span>
+    <span class="p">})(</span><span class="nx">base_clone</span><span class="p">);</span>
  
-    &lt;span class="kd">var&lt;/span> &lt;span class="nx">main&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">foo&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">bar&lt;/span>&lt;span class="p">){&lt;/span>
-        &lt;span class="nx">foo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">bar&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span>
-        &lt;span class="nx">bar&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">foo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
-    &lt;span class="p">})(&lt;/span>&lt;span class="nx">foo&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">bar&lt;/span>&lt;span class="p">);&lt;/span>
+    <span class="kd">var</span> <span class="nx">main</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">){</span>
+        <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="nx">bar</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">})(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
  
-&lt;span class="p">})(&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">)&lt;/span>
+<span class="p">})(</span><span class="k">this</span><span class="p">)</span>
 ```
 
 #### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E5%90%88%E5%B9%B6css-imports)合并 CSS @imports
@@ -275,15 +275,15 @@ Qing 默认开启的是移除 `define` 生成模块管理器无依赖代码的 `
 在页面中引入了样式文件 `css/main.css`：
 
 ```html
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/main.css"&lt;/span>&lt;span class="nt">>&lt;/span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/main.css"</span><span class="nt">></span>
 ```
 
 而 `css/main.css` 中使用了 CSS`@import` 机制来引入其他模块的样式文件：
 
 ```ruby
-&lt;span class="k">@import&lt;/span> &lt;span class="s2">"foo.css"&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">@import&lt;/span> &lt;span class="s2">"bar.css"&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">@import&lt;/span> &lt;span class="s2">"baz.css"&lt;/span>&lt;span class="p">;&lt;/span>
+<span class="k">@import</span> <span class="s2">"foo.css"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"bar.css"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"baz.css"</span><span class="p">;</span>
 ```
 
 使用 CSS 原生 `@import` 机制模块化开发 CSS 是 Qing 推荐的方式，然不做优化直接发布到线上必然有性能问题，这是绝不允许的。
@@ -295,21 +295,21 @@ Qing 在构建的时候会自动侦测所有引入的样式文件是否使用了
 当页面中引入了多个样式文件或脚本文件：
 
 ```html
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/base.css"&lt;/span>&lt;span class="nt">>&lt;/span>
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/typo.css"&lt;/span>&lt;span class="nt">>&lt;/span>
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/main.css"&lt;/span>&lt;span class="nt">>&lt;/span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/base.css"</span><span class="nt">></span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/typo.css"</span><span class="nt">></span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/main.css"</span><span class="nt">></span>
  
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/fastclick.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/spin.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/main.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/fastclick.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/spin.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/main.js"</span><span class="nt">></script></span>
 ```
 
 构建程序会将多个连续的静态资源文件进行合并：
 
 ```html
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/89ef9b6e.base_main_3_630.css"&lt;/span>&lt;span class="nt">>&lt;/span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/89ef9b6e.base_main_3_630.css"</span><span class="nt">></span>
  
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/89ef9b6e.fastclick_main_3_520.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/89ef9b6e.fastclick_main_3_520.js"</span><span class="nt">></script></span>
 ```
 
 #### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#data-rev%E9%85%8D%E7%BD%AE)data-rev 配置
@@ -318,19 +318,19 @@ Qing 会自动给所有优化后的静态资源加上类似 `89ef9b6e.` 的指�
 可以通过 `data-no-rev` 声明来关闭，也可以 `data-rev` 声明开启。
 
 ```html
-&lt;span class="nt">&lt;html&lt;/span> &lt;span class="na">data-no-rev&lt;/span>&lt;span class="nt">>&lt;/span>
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/main.css"&lt;/span>&lt;span class="nt">>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-rev&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/main.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;img&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"img/foo.png"&lt;/span>&lt;span class="nt">>&lt;/span>
+<span class="nt"><html</span> <span class="na">data-no-rev</span><span class="nt">></span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/main.css"</span><span class="nt">></span>
+<span class="nt"><script </span><span class="na">data-rev</span> <span class="na">src=</span><span class="s">"js/main.js"</span><span class="nt">></script></span>
+<span class="nt"><img</span> <span class="na">src=</span><span class="s">"img/foo.png"</span><span class="nt">></span>
 ```
 
-如上通过在 HTML 标签中`&lt;html data-no-rev>` 设置全局的策略，同时可在具体的标签上覆盖全局设置，如上构建后的结果：
+如上通过在 HTML 标签中`<html data-no-rev>` 设置全局的策略，同时可在具体的标签上覆盖全局设置，如上构建后的结果：
 
 ```html
-&lt;span class="nt">&lt;html>&lt;/span>
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/main.css"&lt;/span>&lt;span class="nt">>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/89ef9b6e.main.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;img&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"img/foo.png"&lt;/span>&lt;span class="nt">>&lt;/span>
+<span class="nt"><html></span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/main.css"</span><span class="nt">></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/89ef9b6e.main.js"</span><span class="nt">></script></span>
+<span class="nt"><img</span> <span class="na">src=</span><span class="s">"img/foo.png"</span><span class="nt">></span>
 ```
 
 #### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#data-stand-alone%E9%85%8D%E7%BD%AE)data-stand-alone 配置
@@ -340,17 +340,17 @@ Qing 会自动给所有优化后的静态资源加上类似 `89ef9b6e.` 的指�
 Qing 在默认构建约定的基础上同时提供了基于 DOM 的 `data-stand-alone` 配置。
 
 ```html
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-stand-alone&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"vendor/jquery-2.0.3.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/foo.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/bar.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/baz.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><script </span><span class="na">data-stand-alone</span> <span class="na">src=</span><span class="s">"vendor/jquery-2.0.3.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/foo.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/bar.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/baz.js"</span><span class="nt">></script></span>
 ```
 
 构建结果：
 
 ```html
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-stand-alone&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"vendor/92cf6237.jquery-2.0.3.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/92cf6237.foo_baz_3_168.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><script </span><span class="na">data-stand-alone</span> <span class="na">src=</span><span class="s">"vendor/92cf6237.jquery-2.0.3.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/92cf6237.foo_baz_3_168.js"</span><span class="nt">></script></span>
 ```
 
 #### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#data-group%E9%85%8D%E7%BD%AE)data-group 配置
@@ -360,19 +360,19 @@ Qing 在默认构建约定的基础上同时提供了基于 DOM 的 `data-stand-
 所以通常如何来控制打包粒度是需要监控数据来支撑的。Qing 在构建中提供了 `data-group` 分组参数来辅助打包粒度的控制：
 
 ```html
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">1&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/foo.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">1&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/bar.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">1&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/baz.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">2&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/qux.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">2&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/quux.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">2&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/corge.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">1</span> <span class="na">src=</span><span class="s">"js/foo.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">1</span> <span class="na">src=</span><span class="s">"js/bar.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">1</span> <span class="na">src=</span><span class="s">"js/baz.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">2</span> <span class="na">src=</span><span class="s">"js/qux.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">2</span> <span class="na">src=</span><span class="s">"js/quux.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">2</span> <span class="na">src=</span><span class="s">"js/corge.js"</span><span class="nt">></script></span>
 ```
 
 构建结果：
 
 ```html
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">1&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/92cf6237.foo_baz_3_168.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">2&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/090430cf.qux_corge_3_171.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">1</span> <span class="na">src=</span><span class="s">"js/92cf6237.foo_baz_3_168.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">2</span> <span class="na">src=</span><span class="s">"js/090430cf.qux_corge_3_171.js"</span><span class="nt">></script></span>
 ```
 
 #### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#data-url-prepend%E9%85%8D%E7%BD%AE)data-url-prepend 配置
@@ -380,21 +380,21 @@ Qing 在默认构建约定的基础上同时提供了基于 DOM 的 `data-stand-
 资源 CDN 化是基本的优化策略，
 
 ```html
-&lt;span class="nt">&lt;html&lt;/span> &lt;span class="na">data-url-prepend=&lt;/span>&lt;span class="s">"http://cdn1.qq.com/"&lt;/span>&lt;span class="nt">>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">1&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/foo.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">1&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/bar.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">1&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/baz.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">2&lt;/span> &lt;span class="na">data-url-prepend=&lt;/span>&lt;span class="s">"http://cdn2.qq.com/"&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/qux.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">2&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/quux.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">data-group=&lt;/span>&lt;span class="s">2&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"js/corge.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><html</span> <span class="na">data-url-prepend=</span><span class="s">"http://cdn1.qq.com/"</span><span class="nt">></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">1</span> <span class="na">src=</span><span class="s">"js/foo.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">1</span> <span class="na">src=</span><span class="s">"js/bar.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">1</span> <span class="na">src=</span><span class="s">"js/baz.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">2</span> <span class="na">data-url-prepend=</span><span class="s">"http://cdn2.qq.com/"</span> <span class="na">src=</span><span class="s">"js/qux.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">2</span> <span class="na">src=</span><span class="s">"js/quux.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">data-group=</span><span class="s">2</span> <span class="na">src=</span><span class="s">"js/corge.js"</span><span class="nt">></script></span>
 ```
 
 构建结果：
 
 ```c
-&lt;html>
-&lt;script data-group=1 src="http://cdn1.qq.com/js/92cf6237.foo_baz_3_168.js">&lt;/script>
-&lt;script data-group=2 src="http://cdn2.qq.com/js/090430cf.qux_corge_3_171.js">&lt;/script>
+<html>
+<script data-group=1 src="http://cdn1.qq.com/js/92cf6237.foo_baz_3_168.js"></script>
+<script data-group=2 src="http://cdn2.qq.com/js/090430cf.qux_corge_3_171.js"></script>
  
 ```
 
@@ -406,68 +406,68 @@ Qing 在默认构建约定的基础上同时提供了基于 DOM 的 `data-stand-
 ##### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E5%86%85%E5%B5%8C%E6%A0%B7%E5%BC%8F)内嵌样式
 
 ```html
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/base.css?embed"&lt;/span>&lt;span class="nt">>&lt;/span>
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/typo.css"&lt;/span>&lt;span class="nt">>&lt;/span>
-&lt;span class="nt">&lt;link&lt;/span> &lt;span class="na">rel=&lt;/span>&lt;span class="s">"stylesheet"&lt;/span> &lt;span class="na">href=&lt;/span>&lt;span class="s">"css/main.css"&lt;/span>&lt;span class="nt">>&lt;/span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/base.css?embed"</span><span class="nt">></span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/typo.css"</span><span class="nt">></span>
+<span class="nt"><link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/main.css"</span><span class="nt">></span>
 ```
 
 构建结果：
 
 ```html
-&lt;span class="nt">
-    &lt;style>&lt;/span>
-    &lt;span class="nt">css&lt;/span>
-    &lt;span class="o">/&lt;/span>
-    &lt;span class="nt">base&lt;/span>
-    &lt;span class="nc">.css&lt;/span>
-    &lt;span class="o">...&lt;/span>
-    &lt;span class="nt">css&lt;/span>
-    &lt;span class="o">/&lt;/span>
-    &lt;span class="nt">typo&lt;/span>
-    &lt;span class="nc">.css&lt;/span>
-    &lt;span class="o">...&lt;/span>
-    &lt;span class="nt">css&lt;/span>
-    &lt;span class="o">/&lt;/span>
-    &lt;span class="nt">main&lt;/span>
-    &lt;span class="nc">.css&lt;/span>
-    &lt;span class="o">...&lt;/span>
-    &lt;span class="nt">&lt;/style>
-&lt;/span>;
+<span class="nt">
+    <style></span>
+    <span class="nt">css</span>
+    <span class="o">/</span>
+    <span class="nt">base</span>
+    <span class="nc">.css</span>
+    <span class="o">...</span>
+    <span class="nt">css</span>
+    <span class="o">/</span>
+    <span class="nt">typo</span>
+    <span class="nc">.css</span>
+    <span class="o">...</span>
+    <span class="nt">css</span>
+    <span class="o">/</span>
+    <span class="nt">main</span>
+    <span class="nc">.css</span>
+    <span class="o">...</span>
+    <span class="nt"></style>
+</span>;
 ```
 
 ##### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E5%86%85%E5%B5%8C%E8%84%9A%E6%9C%AC)内嵌脚本
 
 ```html
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/fastclick.js?embed"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/spin.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
-&lt;span class="nt">&lt;script &lt;/span>&lt;span class="na">src=&lt;/span>&lt;span class="s">"js/main.js"&lt;/span>&lt;span class="nt">>&lt;/script>&lt;/span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/fastclick.js?embed"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/spin.js"</span><span class="nt">></script></span>
+<span class="nt"><script </span><span class="na">src=</span><span class="s">"js/main.js"</span><span class="nt">></script></span>
 ```
 
 构建结果：
 
 ```html
-&lt;span class="nt">
-    &lt;script>&lt;/span>
-    &lt;span class="nx">js&lt;/span>
-    &lt;span class="o">/&lt;/span>
-    &lt;span class="nx">fastclick&lt;/span>
-    &lt;span class="p">.&lt;/span>
-    &lt;span class="nx">js&lt;/span>
-    &lt;span class="p">...&lt;/span>
-    &lt;span class="nx">js&lt;/span>
-    &lt;span class="o">/&lt;/span>
-    &lt;span class="nx">spin&lt;/span>
-    &lt;span class="p">.&lt;/span>
-    &lt;span class="nx">js&lt;/span>
-    &lt;span class="p">...&lt;/span>
-    &lt;span class="nx">js&lt;/span>
-    &lt;span class="o">/&lt;/span>
-    &lt;span class="nx">main&lt;/span>
-    &lt;span class="p">.&lt;/span>
-    &lt;span class="nx">js&lt;/span>
-    &lt;span class="p">...&lt;/span>
-    &lt;span class="nt">&lt;/script>
-&lt;/span>;
+<span class="nt">
+    <script></span>
+    <span class="nx">js</span>
+    <span class="o">/</span>
+    <span class="nx">fastclick</span>
+    <span class="p">.</span>
+    <span class="nx">js</span>
+    <span class="p">...</span>
+    <span class="nx">js</span>
+    <span class="o">/</span>
+    <span class="nx">spin</span>
+    <span class="p">.</span>
+    <span class="nx">js</span>
+    <span class="p">...</span>
+    <span class="nx">js</span>
+    <span class="o">/</span>
+    <span class="nx">main</span>
+    <span class="p">.</span>
+    <span class="nx">js</span>
+    <span class="p">...</span>
+    <span class="nt"></script>
+</span>;
 ```
 
 ##### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E5%86%85%E5%B5%8C%E5%9B%BE%E7%89%87)内嵌图片
@@ -475,33 +475,33 @@ Qing 在默认构建约定的基础上同时提供了基于 DOM 的 `data-stand-
 ###### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E5%86%85%E5%B5%8Ccss%E9%87%8C)内嵌 CSS 里
 
 ```html
-&lt;span class="nf">#foo&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="k">background&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="sx">url('../img/icon.png?embed')&lt;/span> &lt;span class="k">no-repeat&lt;/span>&lt;span class="p">;&lt;/span>
-    &lt;span class="k">height&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="m">24px&lt;/span>&lt;span class="p">;&lt;/span>
-    &lt;span class="k">width&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="m">24px&lt;/span>
-&lt;span class="p">}&lt;/span>
+<span class="nf">#foo</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url('../img/icon.png?embed')</span> <span class="k">no-repeat</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">24px</span>
+<span class="p">}</span>
 ```
 
 构建结果：
 
 ```html
-&lt;span class="nf">#foo&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="k">background&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="sx">url(data:image/png;base64,iVBORw0...)&lt;/span> &lt;span class="k">no-repeat&lt;/span>&lt;span class="p">;&lt;/span>
-    &lt;span class="k">height&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="m">24px&lt;/span>&lt;span class="p">;&lt;/span>
-    &lt;span class="k">width&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="m">24px&lt;/span>
-&lt;span class="p">}&lt;/span>
+<span class="nf">#foo</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(data:image/png;base64,iVBORw0...)</span> <span class="k">no-repeat</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">24px</span>
+<span class="p">}</span>
 ```
 
 ###### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E5%86%85%E5%B5%8Chtml%E9%87%8C)内嵌 HTML 里
 
 ```html
-&lt;span class="nt">&lt;img&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"./img/icon.png?embed"&lt;/span>&lt;span class="nt">>&lt;/span>
+<span class="nt"><img</span> <span class="na">src=</span><span class="s">"./img/icon.png?embed"</span><span class="nt">></span>
 ```
 
 构建结果：
 
 ```html
-&lt;span class="nt">&lt;img&lt;/span> &lt;span class="na">src=&lt;/span>&lt;span class="s">"data:image/png;base64,iVBORw0..."&lt;/span>&lt;span class="nt">>&lt;/span>
+<span class="nt"><img</span> <span class="na">src=</span><span class="s">"data:image/png;base64,iVBORw0..."</span><span class="nt">></span>
 ```
 
 ### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E5%9F%BA%E7%A1%80%E5%BA%93)基础库
@@ -520,45 +520,45 @@ Qing 总是想法设法的让开发过程更自动更流畅，在 Qing 模版的
 除了 tmpl 插件下载至 `js/`目录其他所有第三方库都默认下载至 `js/vendor/`目录：
 
 ```html
-&lt;span class="p">{&lt;/span>
-    &lt;span class="nx">options&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"js/vendor/"&lt;/span>
-    &lt;span class="p">},&lt;/span>
-    &lt;span class="nx">fastclick&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"https://raw.github.com/ftlabs/fastclick/master/lib/fastclick.js"&lt;/span>
-    &lt;span class="p">},&lt;/span>
-    &lt;span class="nx">spin&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"https://raw.github.com/fgnass/spin.js/gh-pages/dist/spin.js"&lt;/span>
-    &lt;span class="p">},&lt;/span>
-    &lt;span class="nx">zepto&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"http://zeptojs.com/zepto.js"&lt;/span>
-    &lt;span class="p">},&lt;/span>
-    &lt;span class="nx">jquery1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"http://code.jquery.com/jquery-1.10.2.js"&lt;/span>
-    &lt;span class="p">},&lt;/span>
-    &lt;span class="nx">jquery2&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"http://code.jquery.com/jquery-2.0.3.js"&lt;/span>
-    &lt;span class="p">},&lt;/span>
-    &lt;span class="nx">requirejs&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"http://requirejs.org/docs/release/2.1.9/comments/require.js"&lt;/span>
-    &lt;span class="p">},&lt;/span>
-    &lt;span class="nx">tmpl&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">'js/'&lt;/span>&lt;span class="p">,&lt;/span>
-        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"https://raw.github.com/modulejs/requirejs-tmpl/master/tmpl.js"&lt;/span>
-    &lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
+<span class="p">{</span>
+    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">dest</span><span class="o">:</span> <span class="s2">"js/vendor/"</span>
+    <span class="p">},</span>
+    <span class="nx">fastclick</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"https://raw.github.com/ftlabs/fastclick/master/lib/fastclick.js"</span>
+    <span class="p">},</span>
+    <span class="nx">spin</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"https://raw.github.com/fgnass/spin.js/gh-pages/dist/spin.js"</span>
+    <span class="p">},</span>
+    <span class="nx">zepto</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"http://zeptojs.com/zepto.js"</span>
+    <span class="p">},</span>
+    <span class="nx">jquery1</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"http://code.jquery.com/jquery-1.10.2.js"</span>
+    <span class="p">},</span>
+    <span class="nx">jquery2</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"http://code.jquery.com/jquery-2.0.3.js"</span>
+    <span class="p">},</span>
+    <span class="nx">requirejs</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"http://requirejs.org/docs/release/2.1.9/comments/require.js"</span>
+    <span class="p">},</span>
+    <span class="nx">tmpl</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">dest</span><span class="o">:</span> <span class="s1">'js/'</span><span class="p">,</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"https://raw.github.com/modulejs/requirejs-tmpl/master/tmpl.js"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 ```
 
 下载全部库至本地方式非常简单，只需在根目录下执行：
 
 ```html
-&lt;span class="nv">$ &lt;/span>m vendor
+<span class="nv">$ </span>m vendor
 ```
 
 如只需下载 Zepto：
 
 ```c
-&lt;span class="nv">$ &lt;/span>m download:zepto
+<span class="nv">$ </span>m download:zepto
 ```
 
 ### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E7%A4%BE%E5%8C%BA)社区

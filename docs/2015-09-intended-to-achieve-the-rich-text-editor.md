@@ -31,26 +31,26 @@ source_link: http://www.alloyteam.com/2015/09/intended-to-achieve-the-rich-text-
 比如一段代码
 
 ```html
-&lt;div>abcd&lt;/div>;
+<div>abcd</div>;
 ```
 
 如果 abc 被选中之后，执行 execCommand 之后的代码是在 abc 外包裹一个 strong 标签  
 变成
 
-    &lt;div>&lt;strong>abc&lt;/strong>d&lt;/div>
+    <div><strong>abc</strong>d</div>
 
 如果 b 再次选中执行 execCommand ('bold') 命令后，会变成
 
 ```html
-&lt;div>
-    &lt;strong>a&lt;/strong>b&lt;strong>c&lt;/strong>
-&lt;/div>;
+<div>
+    <strong>a</strong>b<strong>c</strong>
+</div>;
 ```
 
 可以看到原来的 strong 被分离了，变成单独的两个，还有一些更复杂的情况，如下
 
 ```html
-&lt;div>&lt;strong>ab&lt;u>&lt;strong>cd&lt;u>b&lt;span>&lt;strong>pp&lt;/strong>&lt;/span>&lt;/u>&lt;strong>&lt;/u>&lt;/strong>&lt;/div>
+<div><strong>ab<u><strong>cd<u>b<span><strong>pp</strong></span></u><strong></u></strong></div>
 ```
 
 像这个串，如果没有良好的理论基础与抽象建模，靠手动的代码去处理基乎是不可能的。
@@ -90,7 +90,7 @@ var scan = function (node, inhrintStyles) {
         if (styleTagNames.indexOf(node.tagName.toLowerCase()) > -1) {
             // inhrintStyles存在此style 不重复增加
             var exists = 0;
-            for (var i = 0; i &lt; inhrintStyles.length; i++) {
+            for (var i = 0; i < inhrintStyles.length; i++) {
                 if (inhrintStyles[i].tagName === node.tagName) {
                     exists = 1;
                     break;
@@ -101,7 +101,7 @@ var scan = function (node, inhrintStyles) {
             }
             styleNodes.push(node);
         }
-        for (var i = 0; i &lt; node.childNodes.length; i++) {
+        for (var i = 0; i < node.childNodes.length; i++) {
             scan(node.childNodes[i], inhrintStyles);
         }
     }
@@ -113,7 +113,7 @@ scan(tree, []);
 
 ```javascript
 // 删除样式节点
-for (var i = 0; i &lt; styleNodes.length; i++) {
+for (var i = 0; i < styleNodes.length; i++) {
     var styleNode = styleNodes[i];
     var childNodes = styleNode.childNodes;
     var fragment = document.createDocumentFragment();
@@ -130,7 +130,7 @@ for (var i = 0; i &lt; styleNodes.length; i++) {
 
 ```javascript
 // 对叶子结点进行样式插入
-for (var i = 0; i &lt; leafNodes.length; i++) {
+for (var i = 0; i < leafNodes.length; i++) {
     var leafNode = leafNodes[i];
     if (leafNode.node.nodeValue === "") {
         leafNode.node.parentNode.removeChild(leafNode.node);

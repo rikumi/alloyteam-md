@@ -70,7 +70,7 @@ HTML5 中提供了一种新的 CSS 语法 ——@media，学名是 Media Query�
 除了上述两点，还需要在页面上增加一个 viewport 的 meta 标签，否则在手机上可能会有页面自动缩放的情况。例如：
 
 ```html
-&lt;meta name="viewport" content="width=device-width; initial-scale=1.0">
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
 ```
 
 总结一下：响应式布局有三个关键点：

@@ -33,10 +33,10 @@ var MyContainer = React.createClass({
     },
     render: function () {
         return (
-            &lt;div>
+            <div>
                 The curItem is: {this.state.curItem}
-                &lt;List list={this.state.list} changeItem={this.changeItem} />
-            &lt;/div>
+                <List list={this.state.list} changeItem={this.changeItem} />
+            </div>
         );
     },
 });
@@ -46,23 +46,23 @@ var List = React.createClass({
     },
     render: function () {
         return (
-            &lt;ul>
+            <ul>
                 {function () {
                     var self = this;
                     return this.props.list.map(function (item) {
                         return (
-                            &lt;li onClick={self.onClickItem.bind(self, item)}>
+                            <li onClick={self.onClickItem.bind(self, item)}>
                                 I am {item}, click me!
-                            &lt;/li>
+                            </li>
                         );
                     });
                 }.bind(this)()}
                  
-            &lt;/ul>
+            </ul>
         );
     },
 });
-ReactDOM.render(&lt;MyContainer />, document.getElementById("example"));
+ReactDOM.render(<MyContainer />, document.getElementById("example"));
 ```
 
 &lt;MyContainer /> 是&lt;List /> 的父组件，&lt;MyContainer /> 通过 props 传递 list 数据给&lt;List /> 组件，如果&lt;MyContainer /> 中的 list 改变，&lt;List /> 会重新渲染列表数据。而&lt;List /> 可以通过&lt;MyContainer /> 传来的 changeItem 函数，改变&lt;MyContainer /> 的 curItem 数据。
@@ -87,11 +87,11 @@ var MyContainer = React.createClass({
     },
     render: function () {
         return (
-            &lt;div>
+            <div>
                 The curItem is: {this.state.curItem}
-                &lt;List list={this.state.list} curItem={this.state.curItem} />
-                &lt;SelectionButtons changeItem={this.changeItem} />
-            &lt;/div>
+                <List list={this.state.list} curItem={this.state.curItem} />
+                <SelectionButtons changeItem={this.changeItem} />
+            </div>
         );
     },
 });
@@ -102,18 +102,18 @@ var List = React.createClass({
             background: "red",
         };
         return (
-            &lt;ul>
+            <ul>
                  
                 {function () {
                     var self = this;
                     return this.props.list.map(function (item) {
                         var itemStyle =
                             item == self.props.curItem ? selectedStyle : {};
-                        return &lt;li style={itemStyle}>I am {item}!&lt;/li>;
+                        return <li style={itemStyle}>I am {item}!</li>;
                     });
                 }.bind(this)()}
                  
-            &lt;/ul>
+            </ul>
         );
     },
 });
@@ -123,18 +123,18 @@ var SelectionButtons = React.createClass({
     },
     render: function () {
         return (
-            &lt;div>
-                &lt;button onClick={this.onClickItem.bind(this, "item1")}>
+            <div>
+                <button onClick={this.onClickItem.bind(this, "item1")}>
                     item1
-                &lt;/button>
-                &lt;button onClick={this.onClickItem.bind(this, "item2")}>
+                </button>
+                <button onClick={this.onClickItem.bind(this, "item2")}>
                     item2
-                &lt;/button>
-            &lt;/div>
+                </button>
+            </div>
         );
     },
 });
-ReactDOM.render(&lt;MyContainer />, document.getElementById("example"));
+ReactDOM.render(<MyContainer />, document.getElementById("example"));
 ```
 
 如上述代码所示，共享数据 curItem 作为 state 放在父组件&lt;MyContainer /> 中，将回调函数 changeItem 传给&lt;SelectionButtons /> 用于改变 curItem，将 curItem 传给&lt;List /> 用于高亮当前被选择的 item。
@@ -158,7 +158,7 @@ var EventEmitter = {
     _events: {},
     dispatch: function (event, data) {
         if (!this._events[event]) return; // no one is listening to this event
-        for (var i = 0; i &lt; this._events[event].length; i++)
+        for (var i = 0; i < this._events[event].length; i++)
             this._events[event][i](data);
     },
     subscribe: function (event, callback) {
@@ -179,10 +179,10 @@ var EventEmitter = {
 var MyContainer = React.createClass({
     render: function () {
         return (
-            &lt;div>
-                &lt;CurItemPanel />
-                &lt;SelectionButtons />
-            &lt;/div>
+            <div>
+                <CurItemPanel />
+                <SelectionButtons />
+            </div>
         );
     },
 });
@@ -204,7 +204,7 @@ var CurItemPanel = React.createClass({
         EventEmitter.unSubscribe("changeItem");
     },
     render: function () {
-        return &lt;p>The curItem is:  {this.state.curItem}&lt;/p>;
+        return <p>The curItem is:  {this.state.curItem}</p>;
     },
 });
 var SelectionButtons = React.createClass({
@@ -213,18 +213,18 @@ var SelectionButtons = React.createClass({
     },
     render: function () {
         return (
-            &lt;div>
-                &lt;button onClick={this.onClickItem.bind(this, "item1")}>
+            <div>
+                <button onClick={this.onClickItem.bind(this, "item1")}>
                     item1
-                &lt;/button>
-                &lt;button onClick={this.onClickItem.bind(this, "item2")}>
+                </button>
+                <button onClick={this.onClickItem.bind(this, "item2")}>
                     item2
-                &lt;/button>
-            &lt;/div>
+                </button>
+            </div>
         );
     },
 });
-ReactDOM.render(&lt;MyContainer />, document.getElementById("example"));
+ReactDOM.render(<MyContainer />, document.getElementById("example"));
 ```
 
 事件绑定和解绑可以分别放在 componentDidMount 和 componentWillUnMount 中。由于事件是全局的，最好保证在 componentWillUnMount 中解绑事件，否则，下一次初始化组件时事件可能会绑定多次。 使用事件模型，组件之间无论是父子关系还是非父子关系都可以直接沟通，从而解决了组件间层层回调传递的问题，但是频繁地使用事件实现组件间沟通会使整个程序的数据流向越来越乱，因此，组件间的沟通还是要尽量遵循单向数据流机制。
@@ -259,10 +259,10 @@ var MyContainer = React.createClass({
     },
     render: function () {
         return (
-            &lt;div>
-                &lt;CurItemWrapper />
-                &lt;ListWrapper changeItem={this.changeItem} />
-            &lt;/div>
+            <div>
+                <CurItemWrapper />
+                <ListWrapper changeItem={this.changeItem} />
+            </div>
         );
     },
 });
@@ -276,9 +276,9 @@ childContextTypes 用于验证上下文的数据类型，这个属性是必须�
 var CurItemWrapper = React.createClass({
     render: function () {
         return (
-            &lt;div>
-                &lt;CurItemPanel />
-            &lt;/div>
+            <div>
+                <CurItemPanel />
+            </div>
         );
     },
 });
@@ -287,7 +287,7 @@ var CurItemPanel = React.createClass({
         curItem: React.PropTypes.any,
     },
     render: function () {
-        return &lt;p>The curItem is: {this.context.curItem}&lt;/p>;
+        return <p>The curItem is: {this.context.curItem}</p>;
     },
 });
 ```
@@ -300,9 +300,9 @@ var CurItemPanel = React.createClass({
 var ListWrapper = React.createClass({
     render: function () {
         return (
-            &lt;div>
-                &lt;List />
-            &lt;/div>
+            <div>
+                <List />
+            </div>
         );
     },
 });
@@ -315,14 +315,14 @@ var List = React.createClass({
     },
     render: function () {
         return (
-            &lt;ul>
-                &lt;li onClick={this.onClickItem.bind(this, "item1")}>
+            <ul>
+                <li onClick={this.onClickItem.bind(this, "item1")}>
                     I am item1, click me!
-                &lt;/li>
-                &lt;li onClick={this.onClickItem.bind(this, "item2")}>
+                </li>
+                <li onClick={this.onClickItem.bind(this, "item2")}>
                     I am item2, click me!
-                &lt;/li>
-            &lt;/ul>
+                </li>
+            </ul>
         );
     },
 });
@@ -355,11 +355,11 @@ import { render } from "react-dom";
 import App from "./App";
 let store = createStore(reducers);
 render(
-    &lt;Provider store={store}>
+    <Provider store={store}>
             
-        &lt;App />
+        <App />
           
-    &lt;/Provider>,
+    </Provider>,
     document.getElementById("root")
 );
 ```
@@ -411,13 +411,13 @@ class App extends Component {
     }
     render() {
         return (
-            &lt;div>
+            <div>
                         
-                &lt;CurItemPanel />
+                <CurItemPanel />
                         
-                &lt;List />
+                <List />
                       
-            &lt;/div>
+            </div>
         );
     }
 }
@@ -430,7 +430,7 @@ class CurItemPanel extends Component {
         super(props, context);
     }
     render() {
-        return &lt;div>The curItem is: {this.context.curItem}&lt;/div>;
+        return <div>The curItem is: {this.context.curItem}</div>;
     }
 }
 CurItemPanel.contextTypes = {
@@ -445,17 +445,17 @@ class List extends Component {
     }
     render() {
         return (
-            &lt;ul>
+            <ul>
                         
-                &lt;li onClick={this.onClickItem.bind(this, "item1")}>
+                <li onClick={this.onClickItem.bind(this, "item1")}>
                     I am item1, click me!
-                &lt;/li>
+                </li>
                         
-                &lt;li onClick={this.onClickItem.bind(this, "item2")}>
+                <li onClick={this.onClickItem.bind(this, "item2")}>
                     I am item2, click me!
-                &lt;/li>
+                </li>
                       
-            &lt;/ul>
+            </ul>
         );
     }
 }
@@ -507,9 +507,9 @@ npm install transdux --save
     import { render } from 'react-dom';
      
     render(
-      &lt;Transdux>
-        &lt;App />
-      &lt;/Transdux>,
+      <Transdux>
+        <App />
+      </Transdux>,
       document.getElementById('root')
     );
 
@@ -536,12 +536,12 @@ class App extends Component {
     render() {
         // 应该传入调用了store.dispatch回调函数给笨拙组件
         return (
-            &lt;div>
+            <div>
                         {this.state.msg}
                         
-                &lt;ChangeButton />
+                <ChangeButton />
                       
-            &lt;/div>
+            </div>
         );
     }
 }
@@ -559,9 +559,9 @@ export default mixin(App, actions);
       }
       render() {
         return (
-          &lt;div>
-            &lt;button onClick={this.click.bind(this)}>change content&lt;/button>
-          &lt;/div>
+          <div>
+            <button onClick={this.click.bind(this)}>change content</button>
+          </div>
      
         )
       }

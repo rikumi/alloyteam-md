@@ -172,11 +172,11 @@ match(
     (error, redirectLocation, renderProps) => {
         if (renderProps) {
             reactHtml = renderToString(
-                &lt;Provider store={store}>
+                <Provider store={store}>
                                 
-                    &lt;RouterContext {...renderProps} />
+                    <RouterContext {...renderProps} />
                             
-                &lt;/Provider>
+                </Provider>
             );
         } else {
             res.body = "404";
@@ -193,16 +193,16 @@ const { pathname, search, hash } = window.location;
 const location = `${pathname}${search}${hash}`;
 match({ routes: routeConfig, location: location }, () => {
     render(
-        &lt;Provider store={store}>
+        <Provider store={store}>
             {" "}
             //  Redux相关             
-            &lt;div>
+            <div>
                                 
-                &lt;Router routes={routeConfig} history={history} /> // Router 相关
+                <Router routes={routeConfig} history={history} /> // Router 相关
                             
-            &lt;/div>
+            </div>
                     
-        &lt;/Provider>,
+        </Provider>,
         document.getElementById("pages")
     );
 });

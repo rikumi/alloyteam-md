@@ -15,21 +15,21 @@ source_link: http://www.alloyteam.com/2015/05/react-zhi-chu-shi-xian-yu-yuan-li/
 对于 MVVM，HTML 片段即为配置，而直出后的 HTML 无法还原配置，所以问题不是 MVVM 能否直出，而是在于直出后的片段能否还原原来的配置。下面是一个简单的例子：
 
 ```html
-&lt;sapn>Hello {name}!&lt;/span>;
+<sapn>Hello {name}!</span>;
 ```
 
 上面这段 HTML 配置和数据在一起，直出后会变成：
 
 ```html
-&lt;span>Hello world!&lt;/span>;
+<span>Hello world!</span>;
 ```
 
 这时候当我们失去了 name 的值改变的时候会导致页面渲染这个细节。当然，如果为了实现 MVVM 直出我们可能有另外的方法来解决，例如直出结果变成这样：
 
 ```html
-&lt;span>
-    Hello &lt;span q-text="name">world&lt;/span>!
-&lt;/span>;
+<span>
+    Hello <span q-text="name">world</span>!
+</span>;
 ```
 
 这时候我们是可以把丢失的信息找回来的，当然结构可能和我们想象的有些差别。当然还有其他问题，例如直出 HTML 不一定能反向还原数据，由于篇幅问题，这里不展开讨论。
@@ -47,20 +47,20 @@ source_link: http://www.alloyteam.com/2015/05/react-zhi-chu-shi-xian-yu-yuan-li/
 具体例子可以参考，<https://github.com/DavidWells/isomorphic-react-example/>，下面是其渲染路由的写法：
 
 ```html
-&lt;span class="comment">// https://github.com/DavidWells/isomorphic-react-example/blob/master/app/routes/coreRoutes.js&lt;/span>
+<span class="comment">// https://github.com/DavidWells/isomorphic-react-example/blob/master/app/routes/coreRoutes.js</span>
  
-&lt;span class="keyword">var&lt;/span> React = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">'react/addons'&lt;/span>);
-&lt;span class="keyword">var&lt;/span> ReactApp = React.createFactory(&lt;span class="keyword">require&lt;/span>(&lt;span class="string">'../components/ReactApp'&lt;/span>).ReactApp);
+<span class="keyword">var</span> React = <span class="keyword">require</span>(<span class="string">'react/addons'</span>);
+<span class="keyword">var</span> ReactApp = React.createFactory(<span class="keyword">require</span>(<span class="string">'../components/ReactApp'</span>).ReactApp);
  
-module.exports = &lt;span class="keyword">function&lt;/span>(app) {
+module.exports = <span class="keyword">function</span>(app) {
  
-    app.get(&lt;span class="string">'/'&lt;/span>, &lt;span class="keyword">function&lt;/span>(req, res){
-        &lt;span class="comment">// React.renderToString takes your component&lt;/span>
-        &lt;span class="comment">// and generates the markup&lt;/span>
-        &lt;span class="keyword">var&lt;/span> reactHtml = React.renderToString(ReactApp({}));
-        &lt;span class="comment">// Output html rendered by react&lt;/span>
-        &lt;span class="comment">// console.log(myAppHtml);&lt;/span>
-        res.render(&lt;span class="string">'index.ejs'&lt;/span>, {reactOutput: reactHtml});
+    app.get(<span class="string">'/'</span>, <span class="keyword">function</span>(req, res){
+        <span class="comment">// React.renderToString takes your component</span>
+        <span class="comment">// and generates the markup</span>
+        <span class="keyword">var</span> reactHtml = React.renderToString(ReactApp({}));
+        <span class="comment">// Output html rendered by react</span>
+        <span class="comment">// console.log(myAppHtml);</span>
+        res.render(<span class="string">'index.ejs'</span>, {reactOutput: reactHtml});
     });
  
 };
@@ -75,11 +75,11 @@ OK，我们现在知道如何利用 React 实现直出，以及如何前后端�
 
 ```html
 React.createClass({
-    render: &lt;span class="keyword">function&lt;/span> () {
-        &lt;span class="keyword">return&lt;/span> (
-            &lt;p>
+    render: <span class="keyword">function</span> () {
+        <span class="keyword">return</span> (
+            <p>
                 Hello {name}!           
-            &lt;/p>
+            </p>
         );
     }
 })
@@ -96,36 +96,36 @@ React.createClass({
 
 ### 重复渲染？没门
 
-刚刚的例子，如果我们通过 React.renderToString 拿到`&lt;Test />` 可以发现是：
+刚刚的例子，如果我们通过 React.renderToString 拿到`<Test />` 可以发现是：
 
 ```html
-&lt;p data-reactid=".0" data-react-checksum="-793171045">
-    &lt;span data-reactid=".0.0">Hello &lt;/span>
-    &lt;span data-reactid=".0.1">world&lt;/span>
-    &lt;span data-reactid=".0.2">!&lt;/span>
-&lt;/p>;
+<p data-reactid=".0" data-react-checksum="-793171045">
+    <span data-reactid=".0.0">Hello </span>
+    <span data-reactid=".0.1">world</span>
+    <span data-reactid=".0.2">!</span>
+</p>;
 ```
 
-我们可以发现一个有趣的属性 `data-react-checksum`，这是啥？实际上这是上面这段 HTML 片段的 adler32 算法值。实际上调用 `React.render(&lt;MyComponent />, container);` 时候做了下面一些事情：
+我们可以发现一个有趣的属性 `data-react-checksum`，这是啥？实际上这是上面这段 HTML 片段的 adler32 算法值。实际上调用 `React.render(<MyComponent />, container);` 时候做了下面一些事情：
 
 -   看看 container 是否为空，不为空则认为有可能是直出了结果。
 -   接下来第一个元素是否有 `data-react-checksum` 属性，如果有则通过 React.renderToString 拿到前端的，通过 adler32 算法得到的值和 `data-react-checksum` 对比，如果一致则表示，无需渲染，否则重新渲染，下面是 adler32 算法实现：
 
 ```html
-&lt;span class="keyword">var&lt;/span> MOD = &lt;span class="number">65521&lt;/span>;
+<span class="keyword">var</span> MOD = <span class="number">65521</span>;
  
-&lt;span class="comment">// This is a clean-room implementation of adler32 designed for detecting&lt;/span>
-&lt;span class="comment">// if markup is not what we expect it to be. It does not need to be&lt;/span>
-&lt;span class="comment">// cryptographically strong, only reasonably good at detecting if markup&lt;/span>
-&lt;span class="comment">// generated on the server is different than that on the client.&lt;/span>
-&lt;span class="keyword">function&lt;/span> adler32(data) {
-  &lt;span class="keyword">var&lt;/span> a = &lt;span class="number">1&lt;/span>;
-  &lt;span class="keyword">var&lt;/span> b = &lt;span class="number">0&lt;/span>;
-  &lt;span class="keyword">for&lt;/span> (&lt;span class="keyword">var&lt;/span> i = &lt;span class="number">0&lt;/span>; i &lt; data.length; i++) {
+<span class="comment">// This is a clean-room implementation of adler32 designed for detecting</span>
+<span class="comment">// if markup is not what we expect it to be. It does not need to be</span>
+<span class="comment">// cryptographically strong, only reasonably good at detecting if markup</span>
+<span class="comment">// generated on the server is different than that on the client.</span>
+<span class="keyword">function</span> adler32(data) {
+  <span class="keyword">var</span> a = <span class="number">1</span>;
+  <span class="keyword">var</span> b = <span class="number">0</span>;
+  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i < data.length; i++) {
     a = (a + data.charCodeAt(i)) % MOD;
     b = (b + a) % MOD;
   }
-  &lt;span class="keyword">return&lt;/span> a | (b &lt;&lt; &lt;span class="number">16&lt;/span>);
+  <span class="keyword">return</span> a | (b << <span class="number">16</span>);
 }
  
 ```
@@ -133,20 +133,20 @@ React.createClass({
 -   如果需要重新渲染，先通过下面简单的差异算法找到差异在哪里，打印出错误：
 
 ```html
-&lt;span class="comment">/**
+<span class="comment">/**
  * Finds the index of the first character
  * that's not common between the two given strings.
  *
- *&lt;span class="phpdoc"> @return&lt;/span> {number} the index of the character where the strings diverge
- */&lt;/span>
-&lt;span class="keyword">function&lt;/span> firstDifferenceIndex(string1, string2) {
-  &lt;span class="keyword">var&lt;/span> minLen = Math.min(string1.length, string2.length);
-  &lt;span class="keyword">for&lt;/span> (&lt;span class="keyword">var&lt;/span> i = &lt;span class="number">0&lt;/span>; i &lt; minLen; i++) {
-    &lt;span class="keyword">if&lt;/span> (string1.charAt(i) !== string2.charAt(i)) {
-      &lt;span class="keyword">return&lt;/span> i;
+ *<span class="phpdoc"> @return</span> {number} the index of the character where the strings diverge
+ */</span>
+<span class="keyword">function</span> firstDifferenceIndex(string1, string2) {
+  <span class="keyword">var</span> minLen = Math.min(string1.length, string2.length);
+  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i < minLen; i++) {
+    <span class="keyword">if</span> (string1.charAt(i) !== string2.charAt(i)) {
+      <span class="keyword">return</span> i;
     }
   }
-  &lt;span class="keyword">return&lt;/span> string1.length === string2.length ? -&lt;span class="number">1&lt;/span> : minLen;
+  <span class="keyword">return</span> string1.length === string2.length ? -<span class="number">1</span> : minLen;
 }
  
 ```
@@ -154,73 +154,73 @@ React.createClass({
 下面是首屏渲染时的主要逻辑，可以发现 React 对首屏实际上也是通过 innerHTML 来渲染的：
 
 ```html
-_mountImageIntoNode: &lt;span class="keyword">function&lt;/span>(markup, container, shouldReuseMarkup) {
-    (&lt;span class="string">"production"&lt;/span> !== process.env.NODE_ENV ? invariant(
+_mountImageIntoNode: <span class="keyword">function</span>(markup, container, shouldReuseMarkup) {
+    (<span class="string">"production"</span> !== process.env.NODE_ENV ? invariant(
       container && (
         (container.nodeType === ELEMENT_NODE_TYPE || container.nodeType === DOC_NODE_TYPE)
       ),
-      &lt;span class="string">'mountComponentIntoNode(...): Target container is not valid.'&lt;/span>
+      <span class="string">'mountComponentIntoNode(...): Target container is not valid.'</span>
     ) : invariant(container && (
       (container.nodeType === ELEMENT_NODE_TYPE || container.nodeType === DOC_NODE_TYPE)
     )));
  
-    &lt;span class="keyword">if&lt;/span> (shouldReuseMarkup) {
-      &lt;span class="keyword">var&lt;/span> rootElement = getReactRootElementInContainer(container);
-      &lt;span class="keyword">if&lt;/span> (ReactMarkupChecksum.canReuseMarkup(markup, rootElement)) {
-        &lt;span class="keyword">return&lt;/span>;
-      } &lt;span class="keyword">else&lt;/span> {
-        &lt;span class="keyword">var&lt;/span> checksum = rootElement.getAttribute(
+    <span class="keyword">if</span> (shouldReuseMarkup) {
+      <span class="keyword">var</span> rootElement = getReactRootElementInContainer(container);
+      <span class="keyword">if</span> (ReactMarkupChecksum.canReuseMarkup(markup, rootElement)) {
+        <span class="keyword">return</span>;
+      } <span class="keyword">else</span> {
+        <span class="keyword">var</span> checksum = rootElement.getAttribute(
           ReactMarkupChecksum.CHECKSUM_ATTR_NAME
         );
         rootElement.removeAttribute(ReactMarkupChecksum.CHECKSUM_ATTR_NAME);
  
-        &lt;span class="keyword">var&lt;/span> rootMarkup = rootElement.outerHTML;
+        <span class="keyword">var</span> rootMarkup = rootElement.outerHTML;
         rootElement.setAttribute(
           ReactMarkupChecksum.CHECKSUM_ATTR_NAME,
           checksum
         );
  
-        &lt;span class="keyword">var&lt;/span> diffIndex = firstDifferenceIndex(markup, rootMarkup);
-        &lt;span class="keyword">var&lt;/span> difference = &lt;span class="string">' (client) '&lt;/span> +
-          markup.substring(diffIndex - &lt;span class="number">20&lt;/span>, diffIndex + &lt;span class="number">20&lt;/span>) +
-          &lt;span class="string">'n (server) '&lt;/span> + rootMarkup.substring(diffIndex - &lt;span class="number">20&lt;/span>, diffIndex + &lt;span class="number">20&lt;/span>);
+        <span class="keyword">var</span> diffIndex = firstDifferenceIndex(markup, rootMarkup);
+        <span class="keyword">var</span> difference = <span class="string">' (client) '</span> +
+          markup.substring(diffIndex - <span class="number">20</span>, diffIndex + <span class="number">20</span>) +
+          <span class="string">'n (server) '</span> + rootMarkup.substring(diffIndex - <span class="number">20</span>, diffIndex + <span class="number">20</span>);
  
-        (&lt;span class="string">"production"&lt;/span> !== process.env.NODE_ENV ? invariant(
+        (<span class="string">"production"</span> !== process.env.NODE_ENV ? invariant(
           container.nodeType !== DOC_NODE_TYPE,
-          &lt;span class="string">'You're trying to render a component to the document using '&lt;/span> +
-          &lt;span class="string">'server rendering but the checksum was invalid. This usually '&lt;/span> +
-          &lt;span class="string">'means you rendered a different component type or props on '&lt;/span> +
-          &lt;span class="string">'the client from the one on the server, or your render() '&lt;/span> +
-          &lt;span class="string">'methods are impure. React cannot handle this case due to '&lt;/span> +
-          &lt;span class="string">'cross-browser quirks by rendering at the document root. You '&lt;/span> +
-          &lt;span class="string">'should look for environment dependent code in your components '&lt;/span> +
-          &lt;span class="string">'and ensure the props are the same client and server side:n%s'&lt;/span>,
+          <span class="string">'You're trying to render a component to the document using '</span> +
+          <span class="string">'server rendering but the checksum was invalid. This usually '</span> +
+          <span class="string">'means you rendered a different component type or props on '</span> +
+          <span class="string">'the client from the one on the server, or your render() '</span> +
+          <span class="string">'methods are impure. React cannot handle this case due to '</span> +
+          <span class="string">'cross-browser quirks by rendering at the document root. You '</span> +
+          <span class="string">'should look for environment dependent code in your components '</span> +
+          <span class="string">'and ensure the props are the same client and server side:n%s'</span>,
           difference
         ) : invariant(container.nodeType !== DOC_NODE_TYPE));
  
-        &lt;span class="keyword">if&lt;/span> (&lt;span class="string">"production"&lt;/span> !== process.env.NODE_ENV) {
-          (&lt;span class="string">"production"&lt;/span> !== process.env.NODE_ENV ? warning(
-            &lt;span class="keyword">false&lt;/span>,
-            &lt;span class="string">'React attempted to reuse markup in a container but the '&lt;/span> +
-            &lt;span class="string">'checksum was invalid. This generally means that you are '&lt;/span> +
-            &lt;span class="string">'using server rendering and the markup generated on the '&lt;/span> +
-            &lt;span class="string">'server was not what the client was expecting. React injected '&lt;/span> +
-            &lt;span class="string">'new markup to compensate which works but you have lost many '&lt;/span> +
-            &lt;span class="string">'of the benefits of server rendering. Instead, figure out '&lt;/span> +
-            &lt;span class="string">'why the markup being generated is different on the client '&lt;/span> +
-            &lt;span class="string">'or server:n%s'&lt;/span>,
+        <span class="keyword">if</span> (<span class="string">"production"</span> !== process.env.NODE_ENV) {
+          (<span class="string">"production"</span> !== process.env.NODE_ENV ? warning(
+            <span class="keyword">false</span>,
+            <span class="string">'React attempted to reuse markup in a container but the '</span> +
+            <span class="string">'checksum was invalid. This generally means that you are '</span> +
+            <span class="string">'using server rendering and the markup generated on the '</span> +
+            <span class="string">'server was not what the client was expecting. React injected '</span> +
+            <span class="string">'new markup to compensate which works but you have lost many '</span> +
+            <span class="string">'of the benefits of server rendering. Instead, figure out '</span> +
+            <span class="string">'why the markup being generated is different on the client '</span> +
+            <span class="string">'or server:n%s'</span>,
             difference
-          ) : &lt;span class="keyword">null&lt;/span>);
+          ) : <span class="keyword">null</span>);
         }
       }
     }
  
-    (&lt;span class="string">"production"&lt;/span> !== process.env.NODE_ENV ? invariant(
+    (<span class="string">"production"</span> !== process.env.NODE_ENV ? invariant(
       container.nodeType !== DOC_NODE_TYPE,
-      &lt;span class="string">'You're trying to render a component to the document but '&lt;/span> +
-        &lt;span class="string">'you didn't use server rendering. We can't do this '&lt;/span> +
-        &lt;span class="string">'without using server rendering due to cross-browser quirks. '&lt;/span> +
-        &lt;span class="string">'See React.renderToString() for server rendering.'&lt;/span>
+      <span class="string">'You're trying to render a component to the document but '</span> +
+        <span class="string">'you didn't use server rendering. We can't do this '</span> +
+        <span class="string">'without using server rendering due to cross-browser quirks. '</span> +
+        <span class="string">'See React.renderToString() for server rendering.'</span>
     ) : invariant(container.nodeType !== DOC_NODE_TYPE));
  
     setInnerHTML(container, markup);
@@ -233,23 +233,23 @@ _mountImageIntoNode: &lt;span class="keyword">function&lt;/span>(markup, contain
 尝试一下下面的代码，想想 React 为啥认为这是错误的？
 
 ```html
-&lt;span class="keyword">var&lt;/span> Test = React.createClass({
-  getInitialState: &lt;span class="keyword">function&lt;/span>() {
-    &lt;span class="keyword">return&lt;/span> {name: &lt;span class="string">'world'&lt;/span>};
+<span class="keyword">var</span> Test = React.createClass({
+  getInitialState: <span class="keyword">function</span>() {
+    <span class="keyword">return</span> {name: <span class="string">'world'</span>};
   },
-  render: &lt;span class="keyword">function&lt;/span>() {
-    &lt;span class="keyword">return&lt;/span> (
-        &lt;p>Hello&lt;/p>
-        &lt;p>
-            Hello {&lt;span class="keyword">this&lt;/span>.state.name}!
-        &lt;/p>
+  render: <span class="keyword">function</span>() {
+    <span class="keyword">return</span> (
+        <p>Hello</p>
+        <p>
+            Hello {<span class="keyword">this</span>.state.name}!
+        </p>
     );
   }
 });
  
 React.render(
-  &lt;Test />,
-  document.getElementById(&lt;span class="string">'content'&lt;/span>)
+  <Test />,
+  document.getElementById(<span class="string">'content'</span>)
 );
  
  

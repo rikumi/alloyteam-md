@@ -22,33 +22,33 @@ source_link: http://www.alloyteam.com/2015/04/beforeafter%e4%bc%aa%e5%85%83%e7%b
 利用这两个伪类，可以实现需要简单的图标，例如搜索的放大镜，叉叉，箭头等等
 
 ```html
-&lt;span class="comment">//视频播放图标&lt;/span>
-.course[data-type=&lt;span class="string">"2"&lt;/span>] {
+<span class="comment">//视频播放图标</span>
+.course[data-type=<span class="string">"2"</span>] {
     .course__cover {
         &:before, &:after {
-            content: &lt;span class="string">''&lt;/span>;
+            content: <span class="string">''</span>;
             display: block;
             position: absolute;
-            left: &lt;span class="number">5&lt;/span>px;
-            bottom: &lt;span class="number">5&lt;/span>px;
+            left: <span class="number">5</span>px;
+            bottom: <span class="number">5</span>px;
         }
-        &:after {   &lt;span class="comment">//实现圈圈&lt;/span>
-            width: &lt;span class="number">20&lt;/span>px;
-            height: &lt;span class="number">20&lt;/span>px;
-            border: &lt;span class="number">2&lt;/span>px solid white;
-            background: rgba(&lt;span class="number">0&lt;/span>, &lt;span class="number">0&lt;/span>, &lt;span class="number">0&lt;/span>, .&lt;span class="number">6&lt;/span>);
-            border-radius: &lt;span class="number">12&lt;/span>px;
+        &:after {   <span class="comment">//实现圈圈</span>
+            width: <span class="number">20</span>px;
+            height: <span class="number">20</span>px;
+            border: <span class="number">2</span>px solid white;
+            background: rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">6</span>);
+            border-radius: <span class="number">12</span>px;
             background-clip: padding-box;
         }
-        &:before {  &lt;span class="comment">//实现三角形&lt;/span>
-            height: &lt;span class="number">0&lt;/span>;
-            width: &lt;span class="number">0&lt;/span>;
-            border-left: &lt;span class="number">8&lt;/span>px solid white;
-            border-top: &lt;span class="number">5&lt;/span>px solid transparent;
-            border-bottom: &lt;span class="number">5&lt;/span>px solid transparent;
-            margin-left: &lt;span class="number">9&lt;/span>px;
-            margin-bottom: &lt;span class="number">7&lt;/span>px;
-            z-index: &lt;span class="number">5&lt;/span>;
+        &:before {  <span class="comment">//实现三角形</span>
+            height: <span class="number">0</span>;
+            width: <span class="number">0</span>;
+            border-left: <span class="number">8</span>px solid white;
+            border-top: <span class="number">5</span>px solid transparent;
+            border-bottom: <span class="number">5</span>px solid transparent;
+            margin-left: <span class="number">9</span>px;
+            margin-bottom: <span class="number">7</span>px;
+            z-index: <span class="number">5</span>;
         }
     }
 }
@@ -65,16 +65,16 @@ source_link: http://www.alloyteam.com/2015/04/beforeafter%e4%bc%aa%e5%85%83%e7%b
 当主元素实在没办法扩大自身的时候，可以利用:before, :after 来实现可点区域的扩大，还记得伪元素的特性之一，伪元素属于主元素，点伪元素就是点击主元素。
 
 ```html
-&lt;span class="comment">//利用这个样式可以把可点区域扩大为40px宽，高度原理一样&lt;/span>
+<span class="comment">//利用这个样式可以把可点区域扩大为40px宽，高度原理一样</span>
 &:before {
-    content: &lt;span class="string">""&lt;/span>;
+    content: <span class="string">""</span>;
     display: block;
     position: absolute;
-    width: &lt;span class="number">40&lt;/span>px；
-    left: &lt;span class="number">50&lt;/span>%;
-    margin-left: -&lt;span class="number">20&lt;/span>px;
-    top: &lt;span class="number">0&lt;/span>;
-    height: &lt;span class="number">50&lt;/span>px;   &lt;span class="comment">//随便&lt;/span>
+    width: <span class="number">40</span>px；
+    left: <span class="number">50</span>%;
+    margin-left: -<span class="number">20</span>px;
+    top: <span class="number">0</span>;
+    height: <span class="number">50</span>px;   <span class="comment">//随便</span>
 }
  
 ```
@@ -95,23 +95,23 @@ source_link: http://www.alloyteam.com/2015/04/beforeafter%e4%bc%aa%e5%85%83%e7%b
 ```css
 .empty__bg {
     display: inline-block;
-    width: &lt;span class="number">95&lt;/span>px;
-    height: &lt;span class="number">92&lt;/span>px;
-    background: url(../../img/bg_empty_center@&lt;span class="number">2&lt;/span>x.png) no-repeat;
-    background-size: &lt;span class="number">95&lt;/span>px &lt;span class="number">92&lt;/span>px;
+    width: <span class="number">95</span>px;
+    height: <span class="number">92</span>px;
+    background: url(../../img/bg_empty_center@<span class="number">2</span>x.png) no-repeat;
+    background-size: <span class="number">95</span>px <span class="number">92</span>px;
     position: relative;
-    margin-bottom: &lt;span class="number">16&lt;/span>px;    &lt;span class="comment">//注意这里需要留好位置放置after元素（它是absolute进去的）&lt;/span>
+    margin-bottom: <span class="number">16</span>px;    <span class="comment">//注意这里需要留好位置放置after元素（它是absolute进去的）</span>
     &:after {
-        content: &lt;span class="string">"暂无学习计划"&lt;/span>;
+        content: <span class="string">"暂无学习计划"</span>;
         display: block;
-        font-size: &lt;span class="number">14&lt;/span>px;
-        line-height: &lt;span class="number">24&lt;/span>px;
+        font-size: <span class="number">14</span>px;
+        line-height: <span class="number">24</span>px;
         text-align: center;
-        width: &lt;span class="number">100&lt;/span>%;
-        color: &lt;span class="comment">#909090;&lt;/span>
+        width: <span class="number">100</span>%;
+        color: <span class="comment">#909090;</span>
         position: absolute;
-        top: &lt;span class="number">100&lt;/span>%;
-        left: &lt;span class="number">0&lt;/span>;
+        top: <span class="number">100</span>%;
+        left: <span class="number">0</span>;
     }
 }
  
@@ -134,12 +134,12 @@ source_link: http://www.alloyteam.com/2015/04/beforeafter%e4%bc%aa%e5%85%83%e7%b
 下面看一个例子：
 
 ```html
-&lt;span class="comment">//html:&lt;/span>
-&lt;span class="comment">//&lt;a class="datepicker__link z-today" href="javascript:void(0)" data-monthstr="04月" data-weekstr="周三" data-k="2015422">&lt;span>22&lt;/span>&lt;/a>&lt;/span>
-&lt;span class="comment">//&lt;li class="datepicker__item">&lt;a class="datepicker__link" href="javascript:void(0)" data-monthstr="04月" data-weekstr="周四" data-k="2015423">&lt;span>23&lt;/span>&lt;/a>&lt;/li>&lt;/span>
-&lt;span class="comment">//&lt;a class="datepicker__link z-active" href="javascript:void(0)" data-monthstr="04月" data-weekstr="周五" data-k="2015424">&lt;span>24&lt;/span>&lt;/a>&lt;/span>
+<span class="comment">//html:</span>
+<span class="comment">//<a class="datepicker__link z-today" href="javascript:void(0)" data-monthstr="04月" data-weekstr="周三" data-k="2015422"><span>22</span></a></span>
+<span class="comment">//<li class="datepicker__item"><a class="datepicker__link" href="javascript:void(0)" data-monthstr="04月" data-weekstr="周四" data-k="2015423"><span>23</span></a></li></span>
+<span class="comment">//<a class="datepicker__link z-active" href="javascript:void(0)" data-monthstr="04月" data-weekstr="周五" data-k="2015424"><span>24</span></a></span>
  
-&lt;span class="comment">//core css&lt;/span>
+<span class="comment">//core css</span>
 .datepicker__link {
     &:before {
         content: attr(data-monthStr);

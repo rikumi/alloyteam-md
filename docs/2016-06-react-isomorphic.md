@@ -127,7 +127,7 @@ React 在客户端通过 checksum 判断是否需要重新 render
 ```javascript
 Class Wrapper extends Component {
   render() {
-    return (&lt;h1>{Math.random()}&lt;/h1>);
+    return (<h1>{Math.random()}</h1>);
   }
 };
 ```
@@ -137,7 +137,7 @@ Class Wrapper extends Component {
 ```javascript
 Class Wrapper extends Component {
   render() {
-    return (&lt;h1>{this.props.randomNum}&lt;/h1>);
+    return (<h1>{this.props.randomNum}</h1>);
   }
 };
 ```
@@ -146,7 +146,7 @@ Class Wrapper extends Component {
 
 ```javascript
 let randomNum = Math.random();
-var html = ReacDOMServer.renderToString(&lt;Wrapper randomNum={randomNum} />);
+var html = ReacDOMServer.renderToString(<Wrapper randomNum={randomNum} />);
 ```
 
 ### 5. 平台区分

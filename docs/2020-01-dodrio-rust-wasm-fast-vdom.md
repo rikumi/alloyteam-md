@@ -31,7 +31,7 @@ source_link: http://www.alloyteam.com/2020/01/dodrio-rust-wasm-fast-vdom/
 bump_allocate(size, align):
     aligned_pointer = round_up_to(self.pointer, align)
     new_pointer = aligned_pointer + size
-    if no overflow and new_pointer &lt; self.end_of_chunk:
+    if no overflow and new_pointer < self.end_of_chunk:
         self.pointer = new_pointer
         return aligned_pointer
     else:
@@ -55,7 +55,7 @@ Dodrio “Hello, World!” 例子：
     }
      
     impl Render for Hello {
-        fn render&lt;'a, 'bump>(&'a self, bump: &'bump Bump) -> Node&lt;'bump>
+        fn render<'a, 'bump>(&'a self, bump: &'bump Bump) -> Node<'bump>
         where
             'a: 'bump,
         {
@@ -75,7 +75,7 @@ struct Counter {
 }
  
 impl Render for Counter {
-    fn render&lt;'a, 'bump>(&'a self, bump: &'bump Bump) -> Node&lt;'bump>
+    fn render<'a, 'bump>(&'a self, bump: &'bump Bump) -> Node<'bump>
     where
         'a: 'bump,
     {
@@ -85,7 +85,7 @@ impl Render for Counter {
                 text(count.into_bump_str()),
                 button(bump)
                     .on("click", |root, vdom, _event| {
-                        let counter = root.unwrap_mut::&lt;Counter>();
+                        let counter = root.unwrap_mut::<Counter>();
                         counter.count += 1;
                         vdom.schedule_render();
                     })

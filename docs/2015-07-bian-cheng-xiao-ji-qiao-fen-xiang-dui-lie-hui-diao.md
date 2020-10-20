@@ -73,7 +73,7 @@ queuePool.add( function( callback /**后续执行函数**/ ){
         success : function( response ){
             var data = [] , i = 0 ,
                 result = response.result.data;
-            for( ; i &lt; result.length ; ++i ){
+            for( ; i < result.length ; ++i ){
                 data.push( Number( result[i].counter ) );
             }
             $(el).kendoSparkline({

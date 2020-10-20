@@ -106,7 +106,7 @@ css 中的资源定位
 **2、内容嵌入**
 
 ```html
-&lt;script src="partial/common/mod.js?__inline">&lt;/script>;
+<script src="partial/common/mod.js?__inline"></script>;
 ```
 
     __inline('demo.js');
@@ -166,7 +166,7 @@ Fis3 默认不支持模块化开发，所以需要 **fis3-hook-commonjs/fis3-hoo
 **4、文件入口**
 
 ```html
-&lt;script>require('pages/xxx/main');&lt;/script>;
+<script>require('pages/xxx/main');</script>;
 ```
 
 **5、js 引用**

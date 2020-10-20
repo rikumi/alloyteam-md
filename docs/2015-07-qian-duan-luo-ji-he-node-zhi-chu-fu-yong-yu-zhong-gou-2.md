@@ -77,8 +77,8 @@ var model = new Model({
 
 node 端
 
-    res.body += ('&lt;script>var NodeOut=true;');
-    res.body += ('&lt;/script>');
+    res.body += ('<script>var NodeOut=true;');
+    res.body += ('</script>');
      
 
 浏览器端

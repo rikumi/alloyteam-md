@@ -64,7 +64,7 @@ function handleWithMeta() {
 }
 function handleWithSample(e) {
     var samples = e.frameBuffer;
-    for (var i = 0; i &lt; bufferLenth; i++) {
+    for (var i = 0; i < bufferLenth; i++) {
         // do something with audio data
         dosomething(samples[i]);
     }

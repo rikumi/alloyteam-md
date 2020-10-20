@@ -26,17 +26,17 @@ source_link: http://www.alloyteam.com/2012/03/videoply/
 ```html
  
  
-        &lt;!--Meta tags-->
+        <!--Meta tags-->
  
-        &lt;!--Title-->
+        <!--Title-->
  
-        &lt;!--Stylesheets-->
+        <!--Stylesheets-->
  
-        &lt;!--jQuery-->&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">&lt;/script>
+        <!--jQuery--><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
  
-        &lt;!--[if lt IE 9]>
-            &lt;script src="http://html5shim.googlecode.com/svn/trunk/html5.js">&lt;/script>
-        &lt;![endif]-->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 ```
 
 ## Step 2: 下载 jPlayer 插件
@@ -55,29 +55,29 @@ Update Required Here's a message which will appear if the video isn't supported.
 html 如下：
 
 ```html
-&lt;!--play and pause buttons-->
-&lt;a class="jp-play" tabindex="1" href="javascript:;">play&lt;/a>
-&lt;a class="jp-pause" tabindex="1" href="javascript:;">pause&lt;/a>
+<!--play and pause buttons-->
+<a class="jp-play" tabindex="1" href="javascript:;">play</a>
+<a class="jp-pause" tabindex="1" href="javascript:;">pause</a>
  
-&lt;!--progress bar-->
+<!--progress bar-->
 ```
 
 ```html
-&lt;span class="time-sep">/&lt;/span>;
+<span class="time-sep">/</span>;
 ```
 
 ```html
-&lt;!--mute / unmute toggle-->
-&lt;a class="jp-mute" title="mute" tabindex="2" href="javascript:;">mute&lt;/a>
-&lt;a class="jp-unmute" title="unmute" tabindex="2" href="javascript:;">unmute&lt;/a>
+<!--mute / unmute toggle-->
+<a class="jp-mute" title="mute" tabindex="2" href="javascript:;">mute</a>
+<a class="jp-unmute" title="unmute" tabindex="2" href="javascript:;">unmute</a>
  
-&lt;!--volume bar-->
+<!--volume bar-->
 ```
 
 ```html
-&lt;!--full screen toggle-->
-&lt;a class="jp-full-screen" title="full screen" tabindex="3" href="javascript:;">full screen&lt;/a>
-&lt;a class="jp-restore-screen" title="restore screen" tabindex="3" href="javascript:;">restore screen&lt;/a>
+<!--full screen toggle-->
+<a class="jp-full-screen" title="full screen" tabindex="3" href="javascript:;">full screen</a>
+<a class="jp-restore-screen" title="restore screen" tabindex="3" href="javascript:;">restore screen</a>
 ```
 
 主要包含：  
@@ -99,7 +99,7 @@ wav
 使用代码如下：
 
 ```html
-&lt;!--instantiate-->&lt;script type="text/javascript">// &lt;![CDATA[
+<!--instantiate--><script type="text/javascript">// <![CDATA[
 $(document).ready(function(){
  
     $("#jquery_jplayer_1").jPlayer({
@@ -121,7 +121,7 @@ $(document).ready(function(){
     });
  
 });
-// ]]>&lt;/script>
+// ]]></script>
 ```
 
 更多使用方法见：[jplayer.org](http://www.alloyteam.com/2012/03/videoply/jplayer.org)

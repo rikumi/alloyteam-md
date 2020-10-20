@@ -31,10 +31,10 @@ const Title = styled.h1`
 `;
 class App extends React.Component {
     render() {
-        return &lt;Title>Hello world&lt;/Title>;
+        return <Title>Hello world</Title>;
     }
 }
-render(&lt;App />, document.getElementById("app"));
+render(<App />, document.getElementById("app"));
 ```
 
 结果：  
@@ -53,12 +53,12 @@ styled.h1 函数返回一个 React Component，styled components 会为这个 Re
 class Title extends React.Component {
     render() {
         const className = `title${this.props.primary ? " title-primary" : ""}`;
-        return &lt;div className={className}>{this.props.children}&lt;/div>;
+        return <div className={className}>{this.props.children}</div>;
     }
 }
 ```
 
-    &lt;Title primary>Hello world&lt;/Title>
+    <Title primary>Hello world</Title>
      
 
 styled components 使用 props 来控制样式，将控制样式代码放在样式组件中，使 React 组件更加简洁：
@@ -71,7 +71,7 @@ const Title = styled.h1`
 `;
 ```
 
-    &lt;Title primary>Hello world&lt;/Title>
+    <Title primary>Hello world</Title>
      
 
 上面两种写法非常相似，实际上还是要用 CSS 的语法编写样式。但是第一种写法需要 className 或 style 作为 “中间人” 使 JS 找到对应的样式，而 styled components 的写法中样式组件暴露 props 让外层 JS 来控制样式，不再需要 className 或 style 这样的 “中间人”，**移除了样式和组件间的映射关系**。
@@ -152,11 +152,11 @@ const Wrapper = styled.div`
 ```
 
 ```html
-&lt;Wrapper>
-        &lt;div>You'd better don't do that like so:&lt;/div>
-        &lt;div className="content1">I am red&lt;/div>
-        &lt;div className="content2">I am green&lt;/div>
-&lt;/Wrapper>;
+<Wrapper>
+        <div>You'd better don't do that like so:</div>
+        <div className="content1">I am red</div>
+        <div className="content2">I am green</div>
+</Wrapper>;
 ```
 
 不推荐在 styled components 中使用嵌套，因为样式组件的子组件的 className 不会被编译成随机值，这些子组件的类还是会受 CSS 的全局作用域影响。

@@ -26,13 +26,13 @@ source_link: http://www.alloyteam.com/2017/01/module-loading-tools-guide/
 对于前端来说，最简单的模块化就是拆分成多个文件，然后在 html 里就会出现如下的代码：
 
 ```html
-&lt;script src="/js/module_a/a1.js">&lt;/script>
-&lt;script src="/js/module_a/a2.js">&lt;/script>
-&lt;script src="/js/module_b/b1.js">&lt;/script>
-&lt;script src="/js/module_c/c1.js">&lt;/script>
-&lt;script src="/js/module_c/c2.js">&lt;/script>
-&lt;script src="/js/module_c/c3.js">&lt;/script>
-&lt;script src="/js/module_c/c4.js">&lt;/script>
+<script src="/js/module_a/a1.js"></script>
+<script src="/js/module_a/a2.js"></script>
+<script src="/js/module_b/b1.js"></script>
+<script src="/js/module_c/c1.js"></script>
+<script src="/js/module_c/c2.js"></script>
+<script src="/js/module_c/c3.js"></script>
+<script src="/js/module_c/c4.js"></script>
 ```
 
 各位有没有觉得这种代码有点儿难看？像这样的代码不止难看，依赖也不清晰，假如上面的 module_b 只是因为 module_a 的需要才引入的，那么当我们去掉 module_a 时还得搜一下相关文档或者源码，当我们检索出确确实实只有 module_a 才依赖了 module_b，我们才敢放心的把 module_b 给去掉。
@@ -305,7 +305,7 @@ var runLoading = function (url, deps, callback) {
     }
     url = formatURL(url);
     if (STATUS[url] === DEFINED) return; // 已定义 // 加载依赖模块
-    for (var i = 0, l = deps.length; i &lt; l; i++) {
+    for (var i = 0, l = deps.length; i < l; i++) {
         deps[i] = formatURL(deps[i] || "", url); // 格式化依赖列表中的url
         loadResource(deps[i]); // 加载资源
     }
@@ -374,7 +374,7 @@ var runWaiting = (function () {
  */
 var runDefining = function (item) {
     var args = []; // 遍历依赖列表
-    for (var i = 0, len = item.deps.length; i &lt; len; i++) {
+    for (var i = 0, len = item.deps.length; i < len; i++) {
         var it = item.deps[i];
         RESULTS[it] = RESULTS[it] || {};
         args.push(RESULTS[it]);

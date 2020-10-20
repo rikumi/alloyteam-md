@@ -38,15 +38,15 @@ background-attachment: fixed || scroll || local
 ```javascript
 window.addEventListener("scroll", function (e) {
     var scrollTop = window.scrollY;
-    if (scrollTop > 0 && scrollTop &lt; articleHeight) {
+    if (scrollTop > 0 && scrollTop < articleHeight) {
         title1.classList.add("title-anim");
         content1.classList.add("content-anim");
-    } else if (scrollTop >= articleHeight && scrollTop &lt; articleHeight * 2) {
+    } else if (scrollTop >= articleHeight && scrollTop < articleHeight * 2) {
         title2.classList.add("title-anim");
         content2.classList.add("content-anim");
     } else if (
         scrollTop >= articleHeight * 2 &&
-        scrollTop &lt; articleHeight * 3
+        scrollTop < articleHeight * 3
     ) {
         title3.classList.add("title-anim2");
         content3.classList.add("content-anim");
@@ -70,21 +70,21 @@ window.addEventListener("scroll", function (e) {
 在 dom 结构上，把同一层的 dom 元素都放到一个 div 里面，html 结构如下。
 
 ```c
-&lt;div id="scene_back" class="scene">
-    &lt;img id="pokemon1" src="./img/001.png">
-    &lt;img id="pokemon4" src="./img/004.png">
-    &lt;img id="pokemon7" src="./img/007.png">
-&lt;/div>
-&lt;div id="scene_center" class="scene">
-    &lt;img id="pokemon2" src="./img/002.png">
-    &lt;img id="pokemon5" src="./img/005.png">
-    &lt;img id="pokemon8" src="./img/008.png">
-&lt;/div>
-&lt;div id="scene_front" class="scene">
-    &lt;img id="pokemon3" src="./img/003.png">
-    &lt;img id="pokemon6" src="./img/006.png">
-    &lt;img id="pokemon9" src="./img/009.png">
-&lt;/div>
+<div id="scene_back" class="scene">
+    <img id="pokemon1" src="./img/001.png">
+    <img id="pokemon4" src="./img/004.png">
+    <img id="pokemon7" src="./img/007.png">
+</div>
+<div id="scene_center" class="scene">
+    <img id="pokemon2" src="./img/002.png">
+    <img id="pokemon5" src="./img/005.png">
+    <img id="pokemon8" src="./img/008.png">
+</div>
+<div id="scene_front" class="scene">
+    <img id="pokemon3" src="./img/003.png">
+    <img id="pokemon6" src="./img/006.png">
+    <img id="pokemon9" src="./img/009.png">
+</div>
 ```
 
 在页面滚动过程中，我们获取页面的 scrollTop 的值，根据不同参数值去设置各自 scene 的 top 值，这样滚动页面的时候，不同的速度就出来了

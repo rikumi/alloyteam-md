@@ -23,10 +23,10 @@ source_link: http://www.alloyteam.com/2012/05/pick-up-templates-speed-up/
 ```html
 var html =
     '\
-    &lt;div id="container">\
-    &lt;div>...&lt;/div>\
-    &lt;div>...&lt;/div>\
-&lt;/div>';
+    <div id="container">\
+    <div>...</div>\
+    <div>...</div>\
+</div>';
 ```
 
 然后代价是 -- 要给会混淆的引号转义以及每行末尾都要一个反斜杠！oh~ 天啊，我可是程序员啊，为什么要做这种重复无趣的工作！
@@ -95,7 +95,7 @@ var outputHtmlFile = "./out/index.html";
 var inputJsFile = "./js/mb.templates.js";
 var outputJsFile = "./out/js/mb.templates.js";
 var content = fs.readFileSync(inputHtmlFile).toString();
-var regex = /&lt;script\s*id="(\w+)"\s*type="text\/plain"\s*>([\s\S]*?)&lt;\/script>/gi;
+var regex = /<script\s*id="(\w+)"\s*type="text\/plain"\s*>([\s\S]*?)<\/script>/gi;
 var result = {};
 content = content.replace(regex, function (m, $1, $2) {
     result[$1] = $2.replace(/\n|\r/g, "");

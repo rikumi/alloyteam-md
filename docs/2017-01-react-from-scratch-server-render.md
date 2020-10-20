@@ -176,12 +176,12 @@ var App = React.createClass({
     },
     render: function () {
         return (
-            &lt;div>
-                                &lt;span>the count is: &lt;/span>
+            <div>
+                                <span>the count is: </span>
                                 
-                &lt;span onClick={this._increment}>{this.state.count}&lt;/span>
+                <span onClick={this._increment}>{this.state.count}</span>
                             
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -218,26 +218,26 @@ var App = require("../app/App");
 var ReactDOM = require("react-dom");
 module.exports = function (props) {
     var content = ReactDOMServer.renderToString(
-        &lt;App initialCount={props.initialCount}>&lt;/App>
+        <App initialCount={props.initialCount}></App>
     );
     var propsScript = "var APP_PROPS = " + JSON.stringify(props);
     var html = ReactDOMServer.renderToStaticMarkup(
-        &lt;html>
-                        &lt;head>            &lt;/head>
+        <html>
+                        <head>            </head>
                         
-            &lt;body>
+            <body>
                                 
-                &lt;div id="root" dangerouslySetInnerHTML={{ __html: content }} />
+                <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
                                 
-                &lt;script
+                <script
                     dangerouslySetInnerHTML={{ __html: propsScript }}
-                >&lt;/script>
+                ></script>
                                 
-                &lt;script src={"assets/entry.generator.js"}>&lt;/script>
+                <script src={"assets/entry.generator.js"}></script>
                             
-            &lt;/body>
+            </body>
                     
-        &lt;/html>
+        </html>
     );
     return html;
 };
@@ -253,7 +253,7 @@ var React = require("react"),
     App = require("./App");
 var APP_PROPS = window.APP_PROPS || {};
 ReactDOM.render(
-    &lt;App initialCount={APP_PROPS.initialCount} />,
+    <App initialCount={APP_PROPS.initialCount} />,
     document.getElementById("root")
 );
 ```

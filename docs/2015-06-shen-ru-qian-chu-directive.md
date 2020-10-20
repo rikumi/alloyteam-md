@@ -12,9 +12,9 @@ source_link: http://www.alloyteam.com/2015/06/shen-ru-qian-chu-directive/
 举个小例子，比如我们有一个 header 组件，它的 HTML 片段内容是：  
 
 ```html
-&lt;div class="header">
-    &lt;button>按钮&lt;/button>
-&lt;/div>;
+<div class="header">
+    <button>按钮</button>
+</div>;
 ```
 
 如果我们希望给这里的按钮添加一个高亮的 class，用 zepto 的代码是这样写的：
@@ -35,9 +35,9 @@ $btn.addClass("highlight");
 我们使用 “binding-class” 作为动态添加 class 的绑定声明：
 
 ```html
-&lt;div class="header">
-        &lt;button binding-class="highlight:isOn">按钮&lt;/button>
-&lt;/div>;
+<div class="header">
+        <button binding-class="highlight:isOn">按钮</button>
+</div>;
 ```
 
 实现该绑定声明：
@@ -89,9 +89,9 @@ Object.defineProperty(data, "isOn", {
 这就是 MVVM 的数据绑定的实现，在框架帮助下完成以上一系列的绑定行为，要完成根据状态给按钮添加／移除高亮的 class，我们只需要这样一个属性标志：  
 
 ```html
-&lt;div class="header">
-        &lt;button binding-class="highlight: isOn">按钮&lt;/button>
-&lt;/div>;
+<div class="header">
+        <button binding-class="highlight: isOn">按钮</button>
+</div>;
 ```
 
 个人认为，使用属性声明的方式自动化绑定优于具名选择器的方式操作 DOM 元素。从开发效率角度，我们省去了 “_给元素命名”_／“_查询目标元素_”／“_进行 DOM 操作_” 这 3 步操作，从维护性角度，我们也省却了 “_知道文档结构”_／“_知道选择器标志_”2 个步骤。

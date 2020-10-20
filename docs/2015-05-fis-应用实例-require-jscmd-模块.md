@@ -39,7 +39,7 @@ demo 已经放在 github，下载请[猛戳](https://github.com/chyingp/blog/tre
 ├── fis-conf.js
 ├── index.html
 ├── lib
-│   └── &lt;span class="keyword">require&lt;/span>.min.js
+│   └── <span class="keyword">require</span>.min.js
 └── modules
     ├── index.js
     └── util.js
@@ -51,30 +51,30 @@ demo 已经放在 github，下载请[猛戳](https://github.com/chyingp/blog/tre
 首先，我们看下 `index.html`，引用了 `require.min.js`，并加载了 `modules/index` 模块，跟着执行回调，没了。
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-    &lt;title>CMD to AMD&lt;/title>
-&lt;/head>
-&lt;body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CMD to AMD</title>
+</head>
+<body>
  
-&lt;script type=&lt;span class="string">"text/javascript"&lt;/span> src=&lt;span class="string">"lib/require.min.js"&lt;/span>>&lt;/script>
-&lt;script type=&lt;span class="string">"text/javascript"&lt;/span>>
-    &lt;span class="keyword">require&lt;/span>([&lt;span class="string">'modules/index'&lt;/span>], &lt;span class="keyword">function&lt;/span>(mod){
-        mod(&lt;span class="string">'capser'&lt;/span>);
+<script type=<span class="string">"text/javascript"</span> src=<span class="string">"lib/require.min.js"</span>></script>
+<script type=<span class="string">"text/javascript"</span>>
+    <span class="keyword">require</span>([<span class="string">'modules/index'</span>], <span class="keyword">function</span>(mod){
+        mod(<span class="string">'capser'</span>);
     });
-&lt;/script>
-&lt;/body>
-&lt;/html>
+</script>
+</body>
+</html>
  
 ```
 
 接下来，我们看下 `index.js`。也很简单，加载依赖的模块 `modules/util`，接着暴露出本身模块，其实就是调用 `Utill` 模块的方法 deubg。
 
 ```html
-&lt;span class="keyword">var&lt;/span> Util = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">'modules/util'&lt;/span>);
+<span class="keyword">var</span> Util = <span class="keyword">require</span>(<span class="string">'modules/util'</span>);
  
-module.exports = &lt;span class="keyword">function&lt;/span>(nick) {
+module.exports = <span class="keyword">function</span>(nick) {
     
     Util.debug(nick);
 };
@@ -85,8 +85,8 @@ module.exports = &lt;span class="keyword">function&lt;/span>(nick) {
 
 ```html
 module.exports = {
-    debug: &lt;span class="keyword">function&lt;/span>(msg){
-        alert(&lt;span class="string">'Message is: '&lt;/span> + msg);
+    debug: <span class="keyword">function</span>(msg){
+        alert(<span class="string">'Message is: '</span> + msg);
     }
 };
  
@@ -95,9 +95,9 @@ module.exports = {
 如果换成熟悉的 AMD，`index.js` 应该是这样子的。那么思路就很清晰了。对 CMD 模块进行 `define` 包裹，同时将模块的依赖添加进去。
 
 ```html
-defind([&lt;span class="string">"modules/util"&lt;/span>], &lt;span class="keyword">function&lt;/span>(Util){
+defind([<span class="string">"modules/util"</span>], <span class="keyword">function</span>(Util){
  
-    &lt;span class="keyword">return&lt;/span> &lt;span class="keyword">function&lt;/span>(msg){
+    <span class="keyword">return</span> <span class="keyword">function</span>(msg){
         Util.debug(msg)
     };
 });
@@ -117,14 +117,14 @@ defind([&lt;span class="string">"modules/util"&lt;/span>], &lt;span class="keywo
 fis.config.merge({
     modules: {
         postprocessor: {
-            js: [&lt;span class="string">'jswrapper'&lt;/span>],
+            js: [<span class="string">'jswrapper'</span>],
         },
     },
     settings: {
         postprocessor: {
             jswrapper: {
-                type: &lt;span class="string">'amd'&lt;/span>,
-                wrapAll: &lt;span class="keyword">false&lt;/span>,
+                type: <span class="string">'amd'</span>,
+                wrapAll: <span class="keyword">false</span>,
             },
         },
     },
@@ -138,23 +138,23 @@ fis.config.merge({
     roadmap: {      
         path: [
             {
-                reg : /^/(modules/.+).(js)$/i,   &lt;span class="comment">// modules目录下的所有js文件&lt;/span>
-                isMod : &lt;span class="keyword">true&lt;/span>,  &lt;span class="comment">// isMod为true，表示资源是模块资源，需要进行模块化包裹&lt;/span>
-                id : &lt;span class="string">'$1'&lt;/span>,  &lt;span class="comment">// 这里这里！！将资源的id替换成 reg 第一个子表达式匹配到的字符串，比如 /modules/index.js，id则为 modules/index&lt;/span>
-                release : &lt;span class="string">'$&'&lt;/span>  &lt;span class="comment">// 发布路径，跟当前路径是一样的，看正则。。&lt;/span>
+                reg : /^/(modules/.+).(js)$/i,   <span class="comment">// modules目录下的所有js文件</span>
+                isMod : <span class="keyword">true</span>,  <span class="comment">// isMod为true，表示资源是模块资源，需要进行模块化包裹</span>
+                id : <span class="string">'$1'</span>,  <span class="comment">// 这里这里！！将资源的id替换成 reg 第一个子表达式匹配到的字符串，比如 /modules/index.js，id则为 modules/index</span>
+                release : <span class="string">'$&'</span>  <span class="comment">// 发布路径，跟当前路径是一样的，看正则。。</span>
             }           
         ]
     },
     modules: {
         postprocessor: {
-            js: [&lt;span class="string">'jswrapper'&lt;/span>]
+            js: [<span class="string">'jswrapper'</span>]
         }
     },
     settings: {
         postprocessor : {
             jswrapper : {
-                type: &lt;span class="string">'amd'&lt;/span>,
-                wrapAll: &lt;span class="keyword">false&lt;/span>
+                type: <span class="string">'amd'</span>,
+                wrapAll: <span class="keyword">false</span>
             }
         }
     }

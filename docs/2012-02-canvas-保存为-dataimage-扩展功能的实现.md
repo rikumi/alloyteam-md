@@ -162,7 +162,7 @@ var Canvas2Image = function () {
         imgInfoHeader.push(dataSize % 256);
  
         // blank space
-        for (var i = 0; i &lt; 16; i ++) {
+        for (var i = 0; i < 16; i ++) {
             imgInfoHeader.push(0);
         }
  
@@ -173,13 +173,13 @@ var Canvas2Image = function () {
         do {
             var offsetY = width * (y - 1) * 4;
             var strPixelRow = '';
-            for (var x = 0; x &lt; width; x ++) {
+            for (var x = 0; x < width; x ++) {
                 var offsetX = 4 * x;
                 strPixelRow += String.fromCharCode(imgData[offsetY + offsetX + 2]);
                 strPixelRow += String.fromCharCode(imgData[offsetY + offsetX + 1]);
                 strPixelRow += String.fromCharCode(imgData[offsetY + offsetX]);
             }
-            for (var n = 0; n &lt; padding; n ++) {
+            for (var n = 0; n < padding; n ++) {
                 strPixelRow += String.fromCharCode(0);
             }
  

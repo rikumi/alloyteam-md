@@ -43,9 +43,9 @@ npm 上有一个 dns 的框架，可以做域名解析
 -   正向解析
 
 ```html
-&lt;span class="keyword">var&lt;/span> dns = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">'dns'&lt;/span>);
-dns.lookup(&lt;span class="string">'www.google.com'&lt;/span>, &lt;span class="keyword">function&lt;/span> onLookup(err, addresses, family) {
-  console.log(&lt;span class="string">'addresses:'&lt;/span>, addresses);
+<span class="keyword">var</span> dns = <span class="keyword">require</span>(<span class="string">'dns'</span>);
+dns.lookup(<span class="string">'www.google.com'</span>, <span class="keyword">function</span> onLookup(err, addresses, family) {
+  console.log(<span class="string">'addresses:'</span>, addresses);
 });
  
 ```
@@ -53,20 +53,20 @@ dns.lookup(&lt;span class="string">'www.google.com'&lt;/span>, &lt;span class="k
 -   反向解析
 
 ```html
-&lt;span class="keyword">var&lt;/span> dns = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">'dns'&lt;/span>);
+<span class="keyword">var</span> dns = <span class="keyword">require</span>(<span class="string">'dns'</span>);
  
-dns.resolve4(&lt;span class="string">'www.google.com'&lt;/span>, &lt;span class="keyword">function&lt;/span> (err, addresses) {
-  &lt;span class="keyword">if&lt;/span> (err) &lt;span class="keyword">throw&lt;/span> err;
+dns.resolve4(<span class="string">'www.google.com'</span>, <span class="keyword">function</span> (err, addresses) {
+  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
  
-  console.log(&lt;span class="string">'addresses: '&lt;/span> + JSON.stringify(addresses));
+  console.log(<span class="string">'addresses: '</span> + JSON.stringify(addresses));
  
-  addresses.&lt;span class="keyword">forEach&lt;/span>(&lt;span class="keyword">function&lt;/span> (a) {
-    dns.reverse(a, &lt;span class="keyword">function&lt;/span> (err, hostnames) {
-      &lt;span class="keyword">if&lt;/span> (err) {
-        &lt;span class="keyword">throw&lt;/span> err;
+  addresses.<span class="keyword">forEach</span>(<span class="keyword">function</span> (a) {
+    dns.reverse(a, <span class="keyword">function</span> (err, hostnames) {
+      <span class="keyword">if</span> (err) {
+        <span class="keyword">throw</span> err;
       }
  
-      console.log(&lt;span class="string">'reverse for '&lt;/span> + a + &lt;span class="string">': '&lt;/span> + JSON.stringify(hostnames));
+      console.log(<span class="string">'reverse for '</span> + a + <span class="string">': '</span> + JSON.stringify(hostnames));
     });
   });
 });

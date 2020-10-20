@@ -41,7 +41,7 @@ source_link: http://www.alloyteam.com/2017/02/the-beauty-of-the-lines-break-line
 利用 path 的这些命令我们可以实现我们想要的任何线条组合，以一段简单的线条为例:
 
 ```html
-&lt;path
+<path
     id="path"
     fill="none"
     stroke="#000"
@@ -161,22 +161,22 @@ stroke-dasharray: 0, 511; 表示实线和空隙的长度分别为 0 和 511，�
 可以看到上面的动画效果和文章最初显示的动画效果还是有区别的，要想实现文章最初的动画效果，需要用到 SVG 的&lt;symbol> 和 &lt;use> 来实现，读者可以在网上查一下这两个标签的用法。
 
 ```html
-&lt;symbol id="pathSymbol">
-    &lt;path  class="path" stroke="#00adef"  d="M281.221,261.806c0,2.756-2.166,4.922-4.922,4.922l0,0h-33.964c-11.715-24.119-31.503-59.855-47.156-68.026
+<symbol id="pathSymbol">
+    <path  class="path" stroke="#00adef"  d="M281.221,261.806c0,2.756-2.166,4.922-4.922,4.922l0,0h-33.964c-11.715-24.119-31.503-59.855-47.156-68.026
   c-15.751,7.974-35.637,43.907-47.451,68.026h-33.865l0,0c-2.756,0-4.922-2.166-4.922-4.922l0,0l0,0c0-0.295,0-0.689,0.098-0.984
   c0,0,14.078-69.109,79.15-129.161c-2.953-2.56-5.907-5.119-8.959-7.58c-1.87-1.575-2.166-4.233-0.591-6.104
   c1.575-1.772,4.43-2.166,6.497-0.689c3.347,2.461,6.694,5.218,9.746,8.073c3.15-2.953,6.497-5.71,10.041-8.368
   c2.067-1.378,4.922-1.083,6.497,0.689c1.575,1.87,1.28,4.529-0.591,6.104c-3.052,2.56-6.104,5.218-9.155,7.876
   c65.27,59.953,79.446,129.161,79.446,129.161C281.221,261.117,281.221,261.412,281.221,261.806L281.221,261.806L281.221,261.806z"/>
-    &lt;path  class="path" stroke="#00adef"  d="M194.589,212.583h0.984l0,0c19.886,28.451,31.503,54.145,31.503,54.145h-63.99C163.086,266.728,174.703,241.034,194.589,212.583
+    <path  class="path" stroke="#00adef"  d="M194.589,212.583h0.984l0,0c19.886,28.451,31.503,54.145,31.503,54.145h-63.99C163.086,266.728,174.703,241.034,194.589,212.583
 L194.589,212.583z"/>
-&lt;/symbol>
-&lt;g>
-  &lt;use xlink:href="#pathSymbol"
-    id="path1">&lt;/use>
-    &lt;use xlink:href="#pathSymbol"
-      id="path2">&lt;/use>
-&lt;/g>
+</symbol>
+<g>
+  <use xlink:href="#pathSymbol"
+    id="path1"></use>
+    <use xlink:href="#pathSymbol"
+      id="path2"></use>
+</g>
  
 ```
 
@@ -221,26 +221,26 @@ L194.589,212.583z"/>
  
 效果：
  
-&lt;a href="https://oc5n93kni.qnssl.com/blog/buluofuza.gif">&lt;img class="alignnone size-full wp-image-670" src="https://oc5n93kni.qnssl.com/blog/buluofuza.gif" alt="" width="279" height="237" />&lt;/a>
+<a href="https://oc5n93kni.qnssl.com/blog/buluofuza.gif"><img class="alignnone size-full wp-image-670" src="https://oc5n93kni.qnssl.com/blog/buluofuza.gif" alt="" width="279" height="237" /></a>
  
 那么如何实现alloyteam的文字动画呢，其实原理也是利用了stroke-dasharray和stroke-dashoffset，这两个属性不仅可以作用在&lt;path&gt;上，同样可以作用在&lt;text&gt;上。
 ```html
-&lt;symbol id="text">
-    &lt;text x="30%" y="35%" class="text">QQ&lt;/text>
-  &lt;/symbol>
+<symbol id="text">
+    <text x="30%" y="35%" class="text">QQ</text>
+  </symbol>
  
-  &lt;g>
-    &lt;use xlink:href="#text"
-      class="use-text">&lt;/use>
-      &lt;use xlink:href="#text"
-        class="use-text">&lt;/use>
-        &lt;use xlink:href="#text"
-          class="use-text">&lt;/use>
-          &lt;use xlink:href="#text"
-            class="use-text">&lt;/use>
-            &lt;use xlink:href="#text"
-              class="use-text">&lt;/use>
-  &lt;/g>
+  <g>
+    <use xlink:href="#text"
+      class="use-text"></use>
+      <use xlink:href="#text"
+        class="use-text"></use>
+        <use xlink:href="#text"
+          class="use-text"></use>
+          <use xlink:href="#text"
+            class="use-text"></use>
+            <use xlink:href="#text"
+              class="use-text"></use>
+  </g>
  
 ````
 

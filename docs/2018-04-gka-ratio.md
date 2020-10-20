@@ -133,12 +133,12 @@ Github：<https://github.com/gkajs/gka>
 当背景图片设置 background-size 为具体值时，图片将以该值的大小进行填充展示。二倍图的处理其实就是按照这个原理来实现的。举个例子，二倍图的宽高为 80px 60px，那么可以通过缩小一倍，即设置 background-size 为 40px 30px 来得到展示中需要的宽高，这样在 retina 屏幕下，图片将保持清晰。示例代码如下
 
 ```html
-&lt;style>
+<style>
 .bg {
   background-size: 40px 30px;
   background: url(./img.png)
-&lt;/style>
-&lt;div class="bg">&lt;/div>
+</style>
+<div class="bg"></div>
  
 ```
 

@@ -63,7 +63,7 @@ W3C 给出最简单的音频上下文，音源节点直接连接到了播放设�
 
     // 音频原始数据节点，可通过ajax、input方式引入音频格式文件
     AudioBufferSourceNode
-    // 音频媒体标签节点，可通过关联&lt;audio>标签
+    // 音频媒体标签节点，可通过关联<audio>标签
     MediaElementAudioSourceNode
     // 实时音频流节点，可通过getUserMedia获取实时输入的音频流数据
     MediaStreamAudioSourceNode
@@ -113,7 +113,7 @@ W3C 给出最简单的音频上下文，音源节点直接连接到了播放设�
 });
 ```
 
-使用 `createBufferSource` 节点创建音源节点主要有两种方式引入音频文件：`XMLHttpRequest` 与`&lt;input type="file"/>`，这里就尝试 XMLHttpRequest 方式
+使用 `createBufferSource` 节点创建音源节点主要有两种方式引入音频文件：`XMLHttpRequest` 与`<input type="file"/>`，这里就尝试 XMLHttpRequest 方式
 
 ```javascript
 // 请求音频文件

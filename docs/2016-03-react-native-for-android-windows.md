@@ -140,10 +140,10 @@ import Demo from "./android_src/Demo";
 class HelloAndroid extends Component {
     render() {
         return (
-            &lt;View style={styles.container}>
-                        &lt;Demo>&lt;/Demo>
+            <View style={styles.container}>
+                        <Demo></Demo>
                       
-            &lt;/View>
+            </View>
         );
     }
 }
@@ -176,11 +176,11 @@ class Demo extends Component {
     }
     render() {
         return (
-            &lt;ScrollView style={{ flex: 1, marginBottom: 50 }}>
+            <ScrollView style={{ flex: 1, marginBottom: 50 }}>
                                 
-                &lt;Slider data={this.state.banner} />
+                <Slider data={this.state.banner} />
                             
-            &lt;/ScrollView>
+            </ScrollView>
         );
     }
 }
@@ -216,25 +216,25 @@ var Slider = React.createClass({
         var imgs = imgsRenderData.map((banner, i) => {
             console.log(banner.banner_url);
             return (
-                &lt;View style={{ flexDirection: "column" }} key={i}>
+                <View style={{ flexDirection: "column" }} key={i}>
                                         
-                    &lt;TouchableOpacity delayPressIn={0} style={{ flex: 1 }}>
+                    <TouchableOpacity delayPressIn={0} style={{ flex: 1 }}>
                                                 
-                        &lt;Image
+                        <Image
                             key={i}
                             source={{ uri: banner.banner_url }}
                             style={{ flex: 1 }}
                         />
                                             
-                    &lt;/TouchableOpacity>
+                    </TouchableOpacity>
                                     
-                &lt;/View>
+                </View>
             );
         }); // var dots = this.renderDots();
         return (
-            &lt;View>
+            <View>
                                 
-                &lt;ViewPagerAndroid
+                <ViewPagerAndroid
                     style={{ flex: 1, height: 160 }}
                     initialPage={1}
                     ref={(viewPager) => {
@@ -245,9 +245,9 @@ var Slider = React.createClass({
                 >
                                         {imgs}
                                     
-                &lt;/ViewPagerAndroid>
+                </ViewPagerAndroid>
                             
-            &lt;/View>
+            </View>
         );
     },
     getImgsRenderData(data) {

@@ -70,7 +70,7 @@ main.js 中，在创建 woker 线程后，立即调用了 postMessage 方法传�
 ```javascript
 // Create a 32MB "file" and fill it.
 var uInt8Array = new Uint8Array(1024 * 1024 * 32); // 32MB
-for (var i = 0; i &lt; uInt8Array.length; ++i) {
+for (var i = 0; i < uInt8Array.length; ++i) {
     uInt8Array[i] = i;
 }
 worker.postMessage(uInt8Array.buffer, [uInt8Array.buffer]);
@@ -127,7 +127,7 @@ Java SE 6 提供了 javax.swing.SwingWorker 类，Swing Worker  设计用于需
 假定我们在 UI 界面点击一次下载按钮，在按钮的事件处理函数中，需要去加载一张 Icon 图片，图片加载完成后，将 icon 在 UI 界面展示出来。
 
 ```javascript
-SwingWorker testWorker = new SwingWorker&lt;Icon , Void>(){  
+SwingWorker testWorker = new SwingWorker<Icon , Void>(){  
       @Override  
        protected Icon doInBackground() throws Exception {  
         Icon icon = retrieveImage(strImageUrl);   

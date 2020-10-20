@@ -53,7 +53,7 @@ p2.sayHelloTo(p1);
 
 ```javascript
 var boxy = new J.ui.Boxy(); //创建对象
-boxy.getPanel().setHtml("&lt;h1>Message&lt;/h1>&lt;p>Welcome to alloyteam.com&lt;/p>"); //填入内容html
+boxy.getPanel().setHtml("<h1>Message</h1><p>Welcome to alloyteam.com</p>"); //填入内容html
 ```
 
 就是这样简单，点击[这里看运行结果](http://www.alloyteam.com/wp-content/uploads/2013/09/jx_ui_demo.html)。  

@@ -16,10 +16,10 @@ source_link: http://www.alloyteam.com/2015/05/tou-guo-text-biao-qian-kan-reactna
 这点大家应该都比较清楚，如果使用 View 标签输出文本，ReactNative 是会直接报错的，我们必须用 Text 标签包起来。
 
     // 直接编译不通过，少年
-    &lt;View>  Some text &lt;/View>
+    <View>  Some text </View>
      
     // success
-    &lt;View> &lt;Text>Some text &lt;/Text>&lt;/View>
+    <View> <Text>Some text </Text></View>
 
 **二，关于 Text 的嵌套**
 
@@ -28,15 +28,15 @@ Text 元素是一种特殊的相对布局。如果 Text 标签嵌套 Text 标签
 看官方的一个 Demo：
 
 ```c
-&lt;Text style={{marginBottom: 20}}>
-     &lt;Text >你的所言所行，全都闪烁着光芒，太过刺目，于是我闭上了眼睛，，，&lt;/Text>
-     &lt;Text style={{width:300,height:40,containerBackgroundColor:'#454545',color:'#ECD011'}}>但是内心还是无法停止对你的憧憬&lt;/Text>
-&lt;/Text>
+<Text style={{marginBottom: 20}}>
+     <Text >你的所言所行，全都闪烁着光芒，太过刺目，于是我闭上了眼睛，，，</Text>
+     <Text style={{width:300,height:40,containerBackgroundColor:'#454545',color:'#ECD011'}}>但是内心还是无法停止对你的憧憬</Text>
+</Text>
  
-&lt;View style={{marginBottom: 20}}>
-    &lt;Text>你的所言所行，全都闪烁着光芒，太过刺目，于是我闭上了眼睛，，，&lt;/Text>
-    &lt;Text style={{width: 300,height:40,containerBackgroundColor:'#454545',color:'#ECD011'}}>但是内心还是无法停止对你的憧憬&lt;/Text>
-&lt;/View>
+<View style={{marginBottom: 20}}>
+    <Text>你的所言所行，全都闪烁着光芒，太过刺目，于是我闭上了眼睛，，，</Text>
+    <Text style={{width: 300,height:40,containerBackgroundColor:'#454545',color:'#ECD011'}}>但是内心还是无法停止对你的憧憬</Text>
+</View>
 ```
 
 [![8706026](http://www.alloyteam.com/wp-content/uploads/2015/05/8706026.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/8706026.png)
@@ -47,14 +47,14 @@ Text 元素是一种特殊的相对布局。如果 Text 标签嵌套 Text 标签
 
 再来举个看个例子
 
-    &lt;View style={{padding: 0, backgroundColor: '#454545', flexDirection: 'row'}}>
-       &lt;Text style={[ {backgroundColor: 'red', padding: 30, flex: 1}]}>
+    <View style={{padding: 0, backgroundColor: '#454545', flexDirection: 'row'}}>
+       <Text style={[ {backgroundColor: 'red', padding: 30, flex: 1}]}>
          	设置padding和flex
-       &lt;/Text>
-       &lt;Text style={[ {backgroundColor: 'red', margin: 30, flex: 1}]}>
+       </Text>
+       <Text style={[ {backgroundColor: 'red', margin: 30, flex: 1}]}>
          	设置margin和flex
-       &lt;/Text>
-    &lt;/View>
+       </Text>
+    </View>
 
 [![1277332](http://www.alloyteam.com/wp-content/uploads/2015/05/1277332.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/1277332.png)
 
@@ -64,8 +64,8 @@ Text 元素是一种特殊的相对布局。如果 Text 标签嵌套 Text 标签
 
 废话不多说，我们直接看个例子。
 
-    &lt;View style={{color: 'red'}}>&lt;Text>你好，我的父层是View&lt;/Text>&lt;/View>
-    &lt;Text style={{color: 'red'}}>&lt;Text>你好，我的父层是Text&lt;/Text>&lt;/Text>
+    <View style={{color: 'red'}}><Text>你好，我的父层是View</Text></View>
+    <Text style={{color: 'red'}}><Text>你好，我的父层是Text</Text></Text>
 
 [![12201882](http://www.alloyteam.com/wp-content/uploads/2015/05/12201882.png)](http://www.alloyteam.com/wp-content/uploads/2015/05/12201882.png)
 

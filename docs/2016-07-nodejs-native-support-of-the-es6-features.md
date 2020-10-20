@@ -91,7 +91,7 @@ node 版本：v4.4.4
 var i = 0;
 var start = +new Date(),
     duration;
-while (i++ &lt; 1000000) {
+while (i++ < 1000000) {
     var a = 1;
     var b = "1";
     var c = true;
@@ -111,7 +111,7 @@ console.log(duration);
 let i = 0;
 let start = +new Date(),
     duration;
-while (i++ &lt; 1000000) {
+while (i++ < 1000000) {
     const a = 1;
     const b = "1";
     const c = true;
@@ -142,7 +142,7 @@ function A() {
 A.prototype.getName = function () {
     return this.name;
 };
-while (i++ &lt; 100000) {
+while (i++ < 100000) {
     var a = new A();
     a.getName();
 }
@@ -167,7 +167,7 @@ class A {
         return this.name;
     }
 }
-while (i++ &lt; 100000) {
+while (i++ < 100000) {
     const a = new A();
     a.getName();
 }
@@ -189,7 +189,7 @@ console.log(duration);
 var i = 0;
 var start = +new Date(),
     duration;
-while (i++ &lt; 1000000) {
+while (i++ < 1000000) {
     var map = {};
     map["key"] = "value";
 }
@@ -206,7 +206,7 @@ console.log(duration);
 let i = 0;
 let start = +new Date(),
     duration;
-while (i++ &lt; 1000000) {
+while (i++ < 1000000) {
     let map = new Map();
     map.set("key", "value");
 }
@@ -232,7 +232,7 @@ var vars = {
     name: "haha",
     address: "tencent",
 };
-while (i++ &lt; 1000000) {
+while (i++ < 1000000) {
     var str = "string text " + vars.name + "string " + vars.address;
 }
 duration = +new Date() - start;
@@ -252,7 +252,7 @@ let vars = {
     name: "haha",
     address: "tencent",
 };
-while (i++ &lt; 1000000) {
+while (i++ < 1000000) {
     let str = `string text ${vars.name} string ${vars.address}`;
 }
 duration = +new Date() - start;

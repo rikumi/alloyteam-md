@@ -135,8 +135,8 @@ function getPerformanceTiming() {
         // 资源类型
         entryType: "resource",
         // 谁发起的请求
-        initiatorType: "link", // link 即 &lt;link> 标签
-                               // script 即 &lt;script>
+        initiatorType: "link", // link 即 <link> 标签
+                               // script 即 <script>
                                // redirect 即重定向
         // 加载时间
         duration: 18.13399999809917,
@@ -232,7 +232,7 @@ function randomFunc(n) {
     var nameStart = "markStart" + n;
     var nameEnd = "markEnd" + n; // 函数执行前做个标记
     window.performance.mark(nameStart);
-    for (var i = 0; i &lt; n; i++) {
+    for (var i = 0; i < n; i++) {
         // do nothing
     } // 函数执行后再做个标记
     window.performance.mark(nameEnd); // 然后测量这个两个标记间的时间距离，并保存起来

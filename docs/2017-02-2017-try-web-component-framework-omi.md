@@ -46,11 +46,11 @@ class Hello extends Omi.Component {
     }
     style() {
         return `
-            &lt;style>
+            <style>
                 h1{
                     cursor:pointer;
                 }
-            &lt;/style>
+            </style>
          `;
     }
     handleClick(target, evt) {
@@ -58,9 +58,9 @@ class Hello extends Omi.Component {
     }
     render() {
         return `
-        &lt;div>
-            &lt;h1 onclick="handleClick(this, event)">Hello ,{{name}}!&lt;/h1>
-        &lt;/div>
+        <div>
+            <h1 onclick="handleClick(this, event)">Hello ,{{name}}!</h1>
+        </div>
         `;
     }
 }
@@ -80,17 +80,17 @@ Omi.render(new Hello({ name: "Omi" }), "body");
   ...
   render() {
         return  `
-        &lt;div>
-            &lt;div>Test&lt;/div>
-            &lt;Hello data-name="Omi" />
-        &lt;/div>
+        <div>
+            <div>Test</div>
+            <Hello data-name="Omi" />
+        </div>
         `;
     }
     ...
  
 ```
 
-注意，style 方法里面 return 包裹的`&lt;style>&lt;/style>` 不是必须的。主要是方便识别成 jsx 文件时候有 css 语法高亮。
+注意，style 方法里面 return 包裹的`<style></style>` 不是必须的。主要是方便识别成 jsx 文件时候有 css 语法高亮。
 
 [\[点击这里 -> 在线试试\]](http://alloyteam.github.io/omi/website/redirect.html?type=hello_nest)
 
@@ -103,21 +103,21 @@ Omi.render(new Hello({ name: "Omi" }), "body");
 ```html
 var Hello = Omi.create("Hello", {
     style: function () {
-        return "&lt;style>h1{ cursor:pointer }&lt;/style>";
+        return "<style>h1{ cursor:pointer }</style>";
     },
     handleClick: function (dom) {
         alert(dom.innerHTML);
     },
     render: function () {
-        return ' &lt;div>&lt;h1 onclick="handleClick(this, event)">Hello ,{{name}}!&lt;/h1>&lt;/div>';
+        return ' <div><h1 onclick="handleClick(this, event)">Hello ,{{name}}!</h1></div>';
     },
 });
 var Test = Omi.create("Test", {
     render: function () {
-        return '&lt;div>\
-                    &lt;div>Test&lt;/div>\
-                    &lt;Hello data-name="Omi" />\
-                &lt;/div>';
+        return '<div>\
+                    <div>Test</div>\
+                    <Hello data-name="Omi" />\
+                </div>';
     },
 });
 Omi.render(new Test(), "#test");

@@ -206,7 +206,7 @@ SpookyV2 更适合在 XBOXOne 中使用。
 ```javascript
 function addictiveHash(key = "", prime) {
     let hash = 0;
-    for (let i = 0; i &lt; key.length; ++i) {
+    for (let i = 0; i < key.length; ++i) {
         hash += key.charCodeAt(i);
     }
     return hash % prime;
@@ -222,8 +222,8 @@ console.log(addictiveHash("abb", 31)); // 14
 ```javascript
 function rotatingHash(key = "", prime) {
     let hash = 0;
-    for (let i = 0; i &lt; key.length; ++i) {
-        hash = (hash &lt;&lt; 4) ^ (hash >> 28) ^ key.charCodeAt(i);
+    for (let i = 0; i < key.length; ++i) {
+        hash = (hash << 4) ^ (hash >> 28) ^ key.charCodeAt(i);
     }
     return hash % prime;
 }
@@ -245,18 +245,18 @@ function adler32(str) {
         M = 0,
         c = 0,
         d = 0;
-    for (var i = 0; i &lt; L; ) {
+    for (var i = 0; i < L; ) {
         M = Math.min(L - i, 3850);
         while (M > 0) {
             c = str.charCodeAt(i++);
-            if (c &lt; 0x80) {
+            if (c < 0x80) {
                 a += c;
-            } else if (c &lt; 0x800) {
+            } else if (c < 0x800) {
                 a += 192 | ((c >> 6) & 31);
                 b += a;
                 --M;
                 a += 128 | (c & 63);
-            } else if (c >= 0xd800 && c &lt; 0xe000) {
+            } else if (c >= 0xd800 && c < 0xe000) {
                 c = (c & 1023) + 64;
                 d = str.charCodeAt(i++) & 1023;
                 a += 240 | ((c >> 8) & 7);
@@ -265,7 +265,7 @@ function adler32(str) {
                 a += 128 | ((c >> 2) & 63);
                 b += a;
                 --M;
-                a += 128 | ((d >> 6) & 15) | ((c & 3) &lt;&lt; 4);
+                a += 128 | ((d >> 6) & 15) | ((c & 3) << 4);
                 b += a;
                 --M;
                 a += 128 | (d & 63);
@@ -284,7 +284,7 @@ function adler32(str) {
         a = 15 * (a >>> 16) + (a & 65535);
         b = 15 * (b >>> 16) + (b & 65535);
     }
-    return (b % 65521 &lt;&lt; 16) | a % 65521;
+    return (b % 65521 << 16) | a % 65521;
 }
 console.log(adler32("test", 31)); // 73204161
 console.log(adler32("abc", 31)); // 38600999
@@ -318,21 +318,21 @@ function signed_crc_table() {
 var T = signed_crc_table();
 function crc32(str, seed) {
     var C = seed ^ -1;
-    for (var i = 0, L = str.length, c, d; i &lt; L; ) {
+    for (var i = 0, L = str.length, c, d; i < L; ) {
         c = str.charCodeAt(i++);
-        if (c &lt; 0x80) {
+        if (c < 0x80) {
             C = (C >>> 8) ^ T[(C ^ c) & 0xff];
-        } else if (c &lt; 0x800) {
+        } else if (c < 0x800) {
             C = (C >>> 8) ^ T[(C ^ (192 | ((c >> 6) & 31))) & 0xff];
             C = (C >>> 8) ^ T[(C ^ (128 | (c & 63))) & 0xff];
-        } else if (c >= 0xd800 && c &lt; 0xe000) {
+        } else if (c >= 0xd800 && c < 0xe000) {
             c = (c & 1023) + 64;
             d = str.charCodeAt(i++) & 1023;
             C = (C >>> 8) ^ T[(C ^ (240 | ((c >> 8) & 7))) & 0xff];
             C = (C >>> 8) ^ T[(C ^ (128 | ((c >> 2) & 63))) & 0xff];
             C =
                 (C >>> 8) ^
-                T[(C ^ (128 | ((d >> 6) & 15) | ((c & 3) &lt;&lt; 4))) & 0xff];
+                T[(C ^ (128 | ((d >> 6) & 15) | ((c & 3) << 4))) & 0xff];
             C = (C >>> 8) ^ T[(C ^ (128 | (d & 63))) & 0xff];
         } else {
             C = (C >>> 8) ^ T[(C ^ (224 | ((c >> 12) & 15))) & 0xff];

@@ -187,27 +187,27 @@ should 的风格非常接近自然语言。bizai.should.be.a ('HandsomeBody') = 
 把三者引入，进行一些设置， 看代码即可。
 
 ```html
-&lt;!doctype html>
-&lt;html lang="en">
-&lt;head>
-&lt;meta charset="UTF-8">
-&lt;title>Unit Testing with Mocha and Chai&lt;/title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Unit Testing with Mocha and Chai</title>
  
-&lt;!-- Mocha -->
-&lt;link rel="stylesheet" href="lib/mocha.css">
-&lt;script src="lib/mocha.js">&lt;/script>
-&lt;script>mocha.setup('bdd'); //设置单元测试模式为BDD模式 &lt;/script>
+<!-- Mocha -->
+<link rel="stylesheet" href="lib/mocha.css">
+<script src="lib/mocha.js"></script>
+<script>mocha.setup('bdd'); //设置单元测试模式为BDD模式 </script>
  
-&lt;!-- Chai -->
-&lt;script src="lib/chai.js">&lt;/script>
-&lt;script>chai.Should(); //设置断言模式为 Should模式 &lt;/script>
+<!-- Chai -->
+<script src="lib/chai.js"></script>
+<script>chai.Should(); //设置断言模式为 Should模式 </script>
  
-&lt;/head>
-&lt;body>
+</head>
+<body>
  
-&lt;div id="mocha">&lt;/div>
-&lt;!--  这里可以引入你的测试js，或直接写在下面 -->
-&lt;script>
+<div id="mocha"></div>
+<!--  这里可以引入你的测试js，或直接写在下面 -->
+<script>
 describe('My first Unit Test',function(){
     before(function(){
         console.log('AAAAAAAa')
@@ -228,13 +228,13 @@ beforeEach(function(){
     console.log('before every test');
 });
  
-&lt;/script>
-&lt;script>
+</script>
+<script>
 mocha.run();  //  注意不要漏了这个，在js最后启动mocha
-&lt;/script>
+</script>
  
-&lt;/body>
-&lt;/html>
+</body>
+</html>
 ```
 
 # 反思

@@ -47,7 +47,7 @@ iter.next();//{value:undefined，done:true}
 让我们先看一个示例，下面方法声明实现了一个产生和返回枚举数的迭代器
 
 ```c
-public IEnumerable &lt;int> Example()
+public IEnumerable <int> Example()
 {
 		yield return 1;
 		yield return 2;
@@ -62,7 +62,7 @@ public IEnumerable &lt;int> Example()
 ```javascript
 class YieldClass
 {
-    public IEnumerable&lt;int> Example()//迭代器
+    public IEnumerable<int> Example()//迭代器
     {
 	yield return 1;
 	yield return 2;
@@ -95,7 +95,7 @@ class Program
 ```javascript
 [CompilerGenerated]
 private sealed class YieldEnumerator : 
-   IEnumerable&lt;object>, IEnumerator&lt;object>
+   IEnumerable<object>, IEnumerator<object>
 {
     // Fields字段
     private int state;
@@ -108,7 +108,7 @@ private sealed class YieldEnumerator :
     public YieldEnumerator(int state);
     private bool MoveNext();
     [DebuggerHidden]
-    IEnumerator&lt;int> IEnumerable&lt;int>.GetEnumerator();
+    IEnumerator<int> IEnumerable<int>.GetEnumerator();
     [DebuggerHidden]
     IEnumerator IEnumerable.GetEnumerator();
     [DebuggerHidden]
@@ -116,7 +116,7 @@ private sealed class YieldEnumerator :
     void IDisposable.Dispose();
  
     // Properties属性
-    object IEnumerator&lt;object>.Current 
+    object IEnumerator<object>.Current 
     { [DebuggerHidden] get; }
  
     object IEnumerator.Current 

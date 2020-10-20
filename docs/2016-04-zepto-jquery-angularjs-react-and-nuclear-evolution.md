@@ -20,27 +20,27 @@ source_link: http://www.alloyteam.com/2016/04/zepto-jquery-angularjs-react-and-n
 互联网的春风刚刮来的时候，人们当时利用三剑客制作网页。
 
 ```html
-&lt;div onclick="showMsg()">&lt;/div>
+<div onclick="showMsg()"></div>
  
-&lt;script>
+<script>
     function showMsg(){
         alert("恭喜你实现第一个人机交互程序");
     }
-&lt;/script>
+</script>
 ```
 
 这里会发现 showMsg 必须是全局的，onclick 触发才能访问，这样就会导致每绑一个事件就要污染一个全局变量。这点问题难不倒前端工程师，加个超级 namespace，所有的事件挂在它下面:
 
 ```html
-&lt;div onclick="SuperNamespce.showMsg1()">&lt;/div>
-&lt;div onclick="SuperNamespce.showMsg2()">&lt;/div>
-&lt;script>
+<div onclick="SuperNamespce.showMsg1()"></div>
+<div onclick="SuperNamespce.showMsg2()"></div>
+<script>
     var SuperNamespce={};
     SuperNamespce.showMsg1=function(){
     }
     SuperNamespce.showMsg2=function(){
     }
-&lt;/script>
+</script>
 ```
 
 但是也有问题，比如这样的场景：
@@ -87,10 +87,10 @@ util 库时代
 开发者们按照上面总结的最佳实践，重构了上面的代码：
 
 ```html
-&lt;div id="myID1">&lt;/div>
-&lt;div id="myID2">&lt;/div>
+<div id="myID1"></div>
+<div id="myID2"></div>
  
-&lt;script>
+<script>
     var myID1 = document.getElementById("myID1");
     var myID2 = document.getElementById("myID2")
     myID1.onclick = function () {
@@ -99,7 +99,7 @@ util 库时代
     myID2.onclick = function () {
         alert(2);
     }
-&lt;/script>
+</script>
 ```
 
 这给开发者们带来了另外一个麻烦的问题，以前声明式直接在 div 上绑定事件不需要查找 dom，所以不需要标记 id，现在每个需要绑定事件的 dom 都需要标记 id 用于 js 查找。而且，这种写法依旧没有改变声明式事件绑定的一个问题：
@@ -178,14 +178,14 @@ AngularJS
 * * *
 
 ```javascript
-&lt;div ng-app="myApp" ng-controller="personCtrl">
-&lt;button ng-click="toggle()">隐藏/显示&lt;/button>
-&lt;p ng-show="myVar">
+<div ng-app="myApp" ng-controller="personCtrl">
+<button ng-click="toggle()">隐藏/显示</button>
+<p ng-show="myVar">
 AngularJS
-&lt;/p>
-&lt;/div>
+</p>
+</div>
  
-&lt;script>
+<script>
 var app = angular.module('myApp', []);
 app.controller('personCtrl', function($scope) {
     $scope.myVar = true;
@@ -193,7 +193,7 @@ app.controller('personCtrl', function($scope) {
         $scope.myVar = !$scope.myVar;
     };
 });
-&lt;/script>
+</script>
 ```
 
 因为 AngularJS 通过 ng-click 绑定事件，所以没有解决。
@@ -217,13 +217,13 @@ var Photo = React.createClass({
     render: function () {
         var buttonClass = this.state.liked ? "active" : "";
         return (
-            &lt;div className="photo">
+            <div className="photo">
                         
-                &lt;button onClick={this.toggleLiked} className={buttonClass}>
+                <button onClick={this.toggleLiked} className={buttonClass}>
                     点我
-                &lt;/button>
+                </button>
                       
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -253,14 +253,14 @@ var TodoApp = Nuclear.create({
         this.option.items.push(this.textBox.value);
     },
     render: function () {
-        return '&lt;div>\
-                    &lt;h3>TODO&lt;/h3>\
-                    &lt;ul> {{#items}} &lt;li>{{.}}&lt;/li> {{/items}}&lt;/ul>\
-                    &lt;form onsubmit="add(event)" >\
-                        &lt;input nc-id="textBox" type="text"  />\
-                        &lt;button>Add #{{items.length}}&lt;/button>\
-                    &lt;/form>\
-                &lt;/div>';
+        return '<div>\
+                    <h3>TODO</h3>\
+                    <ul> {{#items}} <li>{{.}}</li> {{/items}}</ul>\
+                    <form onsubmit="add(event)" >\
+                        <input nc-id="textBox" type="text"  />\
+                        <button>Add #{{items.length}}</button>\
+                    </form>\
+                </div>';
     },
 });
 new TodoApp({ items: [] }, "#todoListContainer");
@@ -269,16 +269,16 @@ new TodoApp({ items: [] }, "#todoListContainer");
 会在 html 里生成如下的结构：
 
 ```html
-&lt;div data-nuclearid="0">
-    &lt;div>
-        &lt;h3>TODO&lt;/h3>
-        &lt;ul>&lt;/ul>
-        &lt;form onsubmit="Nuclear.instances[0].add(event)">
-            &lt;input nc-id="textBox" type="text">
-            &lt;button>Add #0&lt;/button>
-        &lt;/form>
-    &lt;/div>
-&lt;/div>
+<div data-nuclearid="0">
+    <div>
+        <h3>TODO</h3>
+        <ul></ul>
+        <form onsubmit="Nuclear.instances[0].add(event)">
+            <input nc-id="textBox" type="text">
+            <button>Add #0</button>
+        </form>
+    </div>
+</div>
 ```
 
 更为具体的对应可以看这张图片：  

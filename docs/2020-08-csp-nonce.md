@@ -23,9 +23,9 @@ CSP 的默认策略是不允许 inline 脚本执行，所以当我们没有必�
 
 ```html
 Content-Security-Policy: script-src 'nonce-5fAifFSghuhdf'
-&lt;script nonce="5fAifFSghuhdf">
+<script nonce="5fAifFSghuhdf">
 // ...
-&lt;/script>
+</script>
 ```
 
 那么，当我们通过动态生成脚本并进行插入时，nonce 也会将我们的正常代码拦截在外。所以在这种场景下，我们需要配套使用 CSP 提供的'strict-dynamic'，'strict-dynamic' 模式允许让被信任的脚本插入并放行正常脚本执行。
@@ -41,7 +41,7 @@ Content-Security-Policy: script-src 'nonce-5fAifFSghuhdf'
 我们可以通过构建的方式为页面中 script 标签添加 nonce 属性，并添加一个占位符，如
 
 ```html
-&lt;script nonce="NONCE_TOKEN">// ...&lt;/script>;
+<script nonce="NONCE_TOKEN">// ...</script>;
 ```
 
 ### 后端

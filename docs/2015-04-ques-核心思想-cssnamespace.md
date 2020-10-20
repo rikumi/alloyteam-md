@@ -15,30 +15,30 @@ source_link: http://www.alloyteam.com/2015/04/ques%e6%a0%b8%e5%bf%83%e6%80%9d%e6
 
 -   Shadow DOM Style
 
-Shadow DOM 的样式是完全隔离的，这就意味着即使你在主文档中有一个针对全部 `&lt;h3>` 标签的样式选择器，这个样式也不会不经你的允许便影响到 shadow DOM 的元素。
+Shadow DOM 的样式是完全隔离的，这就意味着即使你在主文档中有一个针对全部 `<h3>` 标签的样式选择器，这个样式也不会不经你的允许便影响到 shadow DOM 的元素。
 
 举个例子：
 
 ![举个栗子](http://7tszky.com1.z0.glb.clouddn.com/Fst7pnZpcfxtdFcqOCQw6aWM2iMZ)
 
 ```html
-&lt;body>  
-  &lt;style>
+<body>  
+  <style>
     button {
-      font-size: &lt;span class="number">18&lt;/span>px;
-      font-family: &lt;span class="string">'华文行楷'&lt;/span>;
+      font-size: <span class="number">18</span>px;
+      font-family: <span class="string">'华文行楷'</span>;
     }
-  &lt;/style>
-  &lt;button>我是一个普通的按钮&lt;/button>
-  &lt;div>&lt;/div>
+  </style>
+  <button>我是一个普通的按钮</button>
+  <div></div>
  
-  &lt;script>
-    &lt;span class="keyword">var&lt;/span> host = document.querySelector(&lt;span class="string">'div'&lt;/span>);
-    &lt;span class="keyword">var&lt;/span> root = host.createShadowRoot();
-    root.innerHTML = &lt;span class="string">'&lt;style>button { font-size: 24px; color: blue; } &lt;/style>'&lt;/span> +
-                     &lt;span class="string">'&lt;button>我是一个影子按钮&lt;/button>'&lt;/span>
-  &lt;/script>
-&lt;/body>
+  <script>
+    <span class="keyword">var</span> host = document.querySelector(<span class="string">'div'</span>);
+    <span class="keyword">var</span> root = host.createShadowRoot();
+    root.innerHTML = <span class="string">'<style>button { font-size: 24px; color: blue; } </style>'</span> +
+                     <span class="string">'<button>我是一个影子按钮</button>'</span>
+  </script>
+</body>
  
 ```
 
@@ -55,36 +55,36 @@ Shadow DOM 的样式是完全隔离的，这就意味着即使你在主文档中
 例如，如果要写一个类似 `button:hover` 的样式，需要写成这样子：
 
 ```html
-&lt;span class="keyword">var&lt;/span> Button = React.createClass({
+<span class="keyword">var</span> Button = React.createClass({
   styles: {
     container: {
-      fontSize: &lt;span class="string">'13px'&lt;/span>,
-      backgroundColor: &lt;span class="string">'rgb(233, 234, 237)'&lt;/span>,
-      border: &lt;span class="string">'1px solid #cdced0'&lt;/span>,
-      borderRadius: &lt;span class="number">2&lt;/span>,
-      boxShadow: &lt;span class="string">'0 1px 1px rgba(0, 0, 0, 0.05)'&lt;/span>,
-      padding: &lt;span class="string">'0 8px'&lt;/span>,
-      margin: &lt;span class="number">2&lt;/span>,
-      lineHeight: &lt;span class="string">'23px'&lt;/span>
+      fontSize: <span class="string">'13px'</span>,
+      backgroundColor: <span class="string">'rgb(233, 234, 237)'</span>,
+      border: <span class="string">'1px solid #cdced0'</span>,
+      borderRadius: <span class="number">2</span>,
+      boxShadow: <span class="string">'0 1px 1px rgba(0, 0, 0, 0.05)'</span>,
+      padding: <span class="string">'0 8px'</span>,
+      margin: <span class="number">2</span>,
+      lineHeight: <span class="string">'23px'</span>
     },
     depressed: {
-      backgroundColor: &lt;span class="string">'#4e69a2'&lt;/span>,
-      borderColor: &lt;span class="string">'#1A356E'&lt;/span>,
-      color: &lt;span class="string">'#FFF'&lt;/span>
+      backgroundColor: <span class="string">'#4e69a2'</span>,
+      borderColor: <span class="string">'#1A356E'</span>,
+      color: <span class="string">'#FFF'</span>
     },
   },
   propTypes: {
     isDepressed: React.PropTypes.bool,
     style: React.PropTypes.object,
   },
-  render: &lt;span class="keyword">function&lt;/span>() {
-    &lt;span class="keyword">return&lt;/span> (
-      &lt;button style={m(
-        &lt;span class="keyword">this&lt;/span>.styles.container,
-        &lt;span class="comment">// 如果压下按钮，mixin压下的style&lt;/span>
-        &lt;span class="keyword">this&lt;/span>.props.isDepressed && &lt;span class="keyword">this&lt;/span>.styles.depressed,
-        &lt;span class="keyword">this&lt;/span>.props.style
-      )}>{&lt;span class="keyword">this&lt;/span>.props.children}&lt;/button>
+  render: <span class="keyword">function</span>() {
+    <span class="keyword">return</span> (
+      <button style={m(
+        <span class="keyword">this</span>.styles.container,
+        <span class="comment">// 如果压下按钮，mixin压下的style</span>
+        <span class="keyword">this</span>.props.isDepressed && <span class="keyword">this</span>.styles.depressed,
+        <span class="keyword">this</span>.props.style
+      )}>{<span class="keyword">this</span>.props.children}</button>
     );
   }
 });
@@ -108,14 +108,14 @@ Shadow DOM 的样式是完全隔离的，这就意味着即使你在主文档中
 可以发现我们的 css 是这么写的：
 
 ```html
-.&lt;span class="variable">$__title&lt;/span> {
-    margin: &lt;span class="number">0&lt;/span> auto;
-    font-size: &lt;span class="number">14&lt;/span>px;
-    cursor: &lt;span class="keyword">default&lt;/span>;
-    padding-left: &lt;span class="number">10&lt;/span>px;
+.<span class="variable">$__title</span> {
+    margin: <span class="number">0</span> auto;
+    font-size: <span class="number">14</span>px;
+    cursor: <span class="keyword">default</span>;
+    padding-left: <span class="number">10</span>px;
     -webkit-user-select: none;
 }
-&lt;span class="comment">/** 太长忽略 **/&lt;/span>
+<span class="comment">/** 太长忽略 **/</span>
  
 ```
 
@@ -123,13 +123,13 @@ Shadow DOM 的样式是完全隔离的，这就意味着即使你在主文档中
 
 ```html
 .qtree__title {
-    margin: &lt;span class="number">0&lt;/span> auto;
-    font-size: &lt;span class="number">14&lt;/span>px;
-    cursor: &lt;span class="keyword">default&lt;/span>;
-    padding-left: &lt;span class="number">10&lt;/span>px;
+    margin: <span class="number">0</span> auto;
+    font-size: <span class="number">14</span>px;
+    cursor: <span class="keyword">default</span>;
+    padding-left: <span class="number">10</span>px;
     -webkit-user-select: none;
 }
-&lt;span class="comment">/** 太长忽略 **/&lt;/span>
+<span class="comment">/** 太长忽略 **/</span>
  
 ```
 

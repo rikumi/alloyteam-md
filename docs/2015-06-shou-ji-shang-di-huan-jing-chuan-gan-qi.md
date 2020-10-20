@@ -72,9 +72,9 @@ devicelight 事件只有一个 value 属性，随着测试设备不同可能有�
 // 根据数值变换网页主题
 
 ```javascript
-if (event.value &lt; 50) {
+if (event.value < 50) {
     document.body.className = "dark-theme";
-} else if (event.value &lt; 10000) {
+} else if (event.value < 10000) {
     document.body.className = "classic-theme";
 } else {
     document.body.className = "light-theme";

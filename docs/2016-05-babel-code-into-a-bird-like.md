@@ -261,7 +261,7 @@ function func1(x = 1, y = 2) {
 ```javascript
 function func() {
     var _ref =
-        arguments.length &lt;= 0 || arguments[0] === undefined
+        arguments.length <= 0 || arguments[0] === undefined
             ? { x: 0, y: 0 }
             : arguments[0];
     var x = _ref.x;
@@ -270,9 +270,9 @@ function func() {
 }
 function func1() {
     var x =
-        arguments.length &lt;= 0 || arguments[0] === undefined ? 1 : arguments[0];
+        arguments.length <= 0 || arguments[0] === undefined ? 1 : arguments[0];
     var y =
-        arguments.length &lt;= 1 || arguments[1] === undefined ? 2 : arguments[1];
+        arguments.length <= 1 || arguments[1] === undefined ? 2 : arguments[1];
     return [x, y];
 }
 ```
@@ -299,7 +299,7 @@ function func(x) {
         var _len = arguments.length,
             y = Array(_len > 1 ? _len - 1 : 0),
             _key = 1;
-        _key &lt; _len;
+        _key < _len;
         _key++
     ) {
         y[_key - 1] = arguments[_key];
@@ -561,8 +561,8 @@ var b = 10;
 function tag(strings) {
     console.log(strings[0]); // "Hello "
     console.log(strings[1]); // " world "
-    console.log(arguments.length &lt;= 1 ? undefined : arguments[1]); // 15
-    console.log(arguments.length &lt;= 2 ? undefined : arguments[2]); // 50
+    console.log(arguments.length <= 1 ? undefined : arguments[1]); // 15
+    console.log(arguments.length <= 2 ? undefined : arguments[2]); // 50
     return "Bazinga!";
 }
 tag(_templateObject, a + b, a * b);
@@ -710,7 +710,7 @@ function _classCallCheck(instance, Constructor) {
 // 创建类
 var _createClass = (function () {
     function defineProperties(target, props) {
-        for (var i = 0; i &lt; props.length; i++) {
+        for (var i = 0; i < props.length; i++) {
             var descriptor = props[i]; // es6规范要求类方法为non-enumerable
             descriptor.enumerable = descriptor.enumerable || false;
             descriptor.configurable = true; // 对于setter和getter方法，writable为false

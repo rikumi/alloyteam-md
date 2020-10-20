@@ -126,7 +126,7 @@ output: {
 
 ```javascript
 test("scroll to bottom", (done) => {
-    const wrapper = mount(&lt;Wrapper />);
+    const wrapper = mount(<Wrapper />);
     window.addEventListener("scroll", function (e) {
         setTimeout(() => {
             try {
@@ -177,7 +177,7 @@ window.navigator.userAgent = str;
 然后，去找到这个绑定的元素，进行事件监听和分发就好了：
 
 ```javascript
-const wrapper = mount(&lt;Wrapper />),
+const wrapper = mount(<Wrapper />),
       scrollComp = wrapper.find(Scroll),
       scrollContainer = scrollComp.nodes[0].scrollContainer;
  

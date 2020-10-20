@@ -49,16 +49,16 @@ mvvm 类框架的实现原理不复杂，大致如下：
 3.  dirty check：比如 angular。对 angular 的研究够多了，这里也不赘述了。
 
 ```html
-&lt;span class="comment">//方式1 vs. 方式2&lt;/span>
-&lt;span class="comment">//方式1：&lt;/span>
-vm.&lt;span class="variable">$set&lt;/span>(aaa, &lt;span class="number">1&lt;/span>);    &lt;span class="comment">//会触发变动逻辑&lt;/span>
-vm._data.aaa = &lt;span class="number">2&lt;/span>;   &lt;span class="comment">//不会触发变动逻辑，不过这不是框架希望的操作，可以被hack&lt;/span>
-vm.&lt;span class="variable">$get&lt;/span>(aaa);       &lt;span class="comment">//2&lt;/span>
+<span class="comment">//方式1 vs. 方式2</span>
+<span class="comment">//方式1：</span>
+vm.<span class="variable">$set</span>(aaa, <span class="number">1</span>);    <span class="comment">//会触发变动逻辑</span>
+vm._data.aaa = <span class="number">2</span>;   <span class="comment">//不会触发变动逻辑，不过这不是框架希望的操作，可以被hack</span>
+vm.<span class="variable">$get</span>(aaa);       <span class="comment">//2</span>
  
-&lt;span class="comment">//方式2：&lt;/span>
-vm.aaa = &lt;span class="number">1&lt;/span>;         &lt;span class="comment">//一定会触发变动逻辑&lt;/span>
-vm._data.aaa = &lt;span class="number">2&lt;/span>;   &lt;span class="comment">//也可以找到内部的data进行修改，但是没用&lt;/span>
-vm.aaa;             &lt;span class="comment">//1&lt;/span>
+<span class="comment">//方式2：</span>
+vm.aaa = <span class="number">1</span>;         <span class="comment">//一定会触发变动逻辑</span>
+vm._data.aaa = <span class="number">2</span>;   <span class="comment">//也可以找到内部的data进行修改，但是没用</span>
+vm.aaa;             <span class="comment">//1</span>
  
 ```
 
@@ -147,12 +147,12 @@ mixin 的作用是在实例化 Vue 的时候混入一些功能，它可以混入
 这里需要注意的是在模板中不能使用 {{}}，否则在还没初始化之前，页面会显示奇怪的东西，比如：
 
 ```html
-&lt;p>hello, {{name}}&lt;/p>      &lt;!--初始化前，页面会直接展示hello, {{name}}-->
-&lt;img src=&lt;span class="string">"{{imgSrc}}"&lt;/span> />    &lt;!--初始化前，会报错，can not find http:&lt;span class="comment">//xxx.com/{{imgSrc}}-->&lt;/span>
+<p>hello, {{name}}</p>      <!--初始化前，页面会直接展示hello, {{name}}-->
+<img src=<span class="string">"{{imgSrc}}"</span> />    <!--初始化前，会报错，can not find http:<span class="comment">//xxx.com/{{imgSrc}}--></span>
  
-&lt;!--正确的写法：-->
-&lt;p v-text=&lt;span class="string">"'hello, '+name"&lt;/span>>hello&lt;/p>
-&lt;img v-attr=&lt;span class="string">"src: imgSrc"&lt;/span> />
+<!--正确的写法：-->
+<p v-text=<span class="string">"'hello, '+name"</span>>hello</p>
+<img v-attr=<span class="string">"src: imgSrc"</span> />
  
 ```
 
@@ -169,7 +169,7 @@ el 参数可以接收 query string，也可以直接是一个 dom 节点，如�
 上面这种方式是在页面中没有组件的【坑】的情况下使用的，如果页面为组件留了【坑】，比如：
 
 ```html
-&lt;section &lt;span class="keyword">class&lt;/span>=&lt;span class="string">"hotRecord"&lt;/span> id=&lt;span class="string">"js-hotRecord"&lt;/span>>&lt;/section>
+<section <span class="keyword">class</span>=<span class="string">"hotRecord"</span> id=<span class="string">"js-hotRecord"</span>></section>
  
 ```
 
@@ -192,39 +192,39 @@ el 参数可以接收 query string，也可以直接是一个 dom 节点，如�
 下面简单介绍一个自定义 directive——lazyload：
 
 ```html
-&lt;span class="keyword">function&lt;/span> addSrc(){}
-&lt;span class="keyword">function&lt;/span> load(){}
+<span class="keyword">function</span> addSrc(){}
+<span class="keyword">function</span> load(){}
  
 module.exports = {
-    bind: &lt;span class="keyword">function&lt;/span>() {
-        &lt;span class="keyword">if&lt;/span> (!hasBind) { &lt;span class="comment">//全局事件只绑定一次&lt;/span>
-            hasBind = &lt;span class="keyword">true&lt;/span>;
-            (document.querySelector(&lt;span class="string">'.z-scroller'&lt;/span>) || window).addEventListener(&lt;span class="string">'scroll'&lt;/span>, T.debounce(load, &lt;span class="number">100&lt;/span>), &lt;span class="keyword">false&lt;/span>);
+    bind: <span class="keyword">function</span>() {
+        <span class="keyword">if</span> (!hasBind) { <span class="comment">//全局事件只绑定一次</span>
+            hasBind = <span class="keyword">true</span>;
+            (document.querySelector(<span class="string">'.z-scroller'</span>) || window).addEventListener(<span class="string">'scroll'</span>, T.debounce(load, <span class="number">100</span>), <span class="keyword">false</span>);
         }
-        &lt;span class="comment">//这里也可以使用data属性来获取&lt;/span>
-        &lt;span class="keyword">var&lt;/span> defaultSrc = &lt;span class="keyword">this&lt;/span>.el.getAttribute(&lt;span class="string">'data-defaultsrc'&lt;/span>);
-        &lt;span class="keyword">if&lt;/span> (defaultSrc) addSrc(&lt;span class="keyword">this&lt;/span>.el, defaultSrc);    &lt;span class="comment">//先使用默认图片&lt;/span>
+        <span class="comment">//这里也可以使用data属性来获取</span>
+        <span class="keyword">var</span> defaultSrc = <span class="keyword">this</span>.el.getAttribute(<span class="string">'data-defaultsrc'</span>);
+        <span class="keyword">if</span> (defaultSrc) addSrc(<span class="keyword">this</span>.el, defaultSrc);    <span class="comment">//先使用默认图片</span>
     },
-    update: &lt;span class="keyword">function&lt;/span>(src) {
-        &lt;span class="comment">//directive初始化时，会调用一次bind和update，bind没有传入src，只有update才会传入src&lt;/span>
-        &lt;span class="comment">//因此只能在update这里拿到需要lazyload的src&lt;/span>
-        &lt;span class="comment">//lazyload不允许修改src，这里限制只会执行一次update，防止src被修改造成的影响&lt;/span>
-        &lt;span class="comment">//注：接受src改变可以实现，只是需要一些复杂的处理，这里为了简单起见不让src改变&lt;/span>
-        &lt;span class="keyword">if&lt;/span> (&lt;span class="keyword">this&lt;/span>.init) &lt;span class="keyword">return&lt;/span>;  
-        &lt;span class="keyword">this&lt;/span>.init = &lt;span class="keyword">true&lt;/span>;
+    update: <span class="keyword">function</span>(src) {
+        <span class="comment">//directive初始化时，会调用一次bind和update，bind没有传入src，只有update才会传入src</span>
+        <span class="comment">//因此只能在update这里拿到需要lazyload的src</span>
+        <span class="comment">//lazyload不允许修改src，这里限制只会执行一次update，防止src被修改造成的影响</span>
+        <span class="comment">//注：接受src改变可以实现，只是需要一些复杂的处理，这里为了简单起见不让src改变</span>
+        <span class="keyword">if</span> (<span class="keyword">this</span>.init) <span class="keyword">return</span>;  
+        <span class="keyword">this</span>.init = <span class="keyword">true</span>;
  
-        &lt;span class="comment">//如果图片已经加载了，就不需要注册了，这里也可以使用data属性来区分&lt;/span>
-        &lt;span class="keyword">var&lt;/span> isLoad = parseInt(&lt;span class="keyword">this&lt;/span>.el.getAttribute(&lt;span class="string">'data-isload'&lt;/span>));
-        &lt;span class="keyword">if&lt;/span> (isLoad) &lt;span class="keyword">return&lt;/span>;
+        <span class="comment">//如果图片已经加载了，就不需要注册了，这里也可以使用data属性来区分</span>
+        <span class="keyword">var</span> isLoad = parseInt(<span class="keyword">this</span>.el.getAttribute(<span class="string">'data-isload'</span>));
+        <span class="keyword">if</span> (isLoad) <span class="keyword">return</span>;
  
-        &lt;span class="comment">//注册需要lazyload的图片&lt;/span>
-        &lt;span class="keyword">list&lt;/span>[index++] = &lt;span class="keyword">this&lt;/span>;
-        &lt;span class="keyword">list&lt;/span>[index++] = src;
+        <span class="comment">//注册需要lazyload的图片</span>
+        <span class="keyword">list</span>[index++] = <span class="keyword">this</span>;
+        <span class="keyword">list</span>[index++] = src;
     }
-    &lt;span class="comment">//这里有一个最大的问题：由于有local的存在，会创建两个一模一样的lazyload directive&lt;/span>
-    &lt;span class="comment">//按理说应该定义一个unbind，但是在unbind中找到并除掉local创建出来的lazyload directive会比较麻烦&lt;/span>
-    &lt;span class="comment">//因此在load函数里面做了一个处理：如果发现需要lazyload的节点不在文档树中，则剔除掉这个lazyload&lt;/span>
-    &lt;span class="comment">//通过这个直接省掉了unbind函数&lt;/span>
+    <span class="comment">//这里有一个最大的问题：由于有local的存在，会创建两个一模一样的lazyload directive</span>
+    <span class="comment">//按理说应该定义一个unbind，但是在unbind中找到并除掉local创建出来的lazyload directive会比较麻烦</span>
+    <span class="comment">//因此在load函数里面做了一个处理：如果发现需要lazyload的节点不在文档树中，则剔除掉这个lazyload</span>
+    <span class="comment">//通过这个直接省掉了unbind函数</span>
 };
  
 ```
@@ -244,8 +244,8 @@ module.exports = {
 最初看到下面的代码真的会觉得很奇怪
 
 ```html
-&lt;h3 v-&lt;span class="keyword">if&lt;/span>=&lt;span class="string">"hasTitle"&lt;/span>>xxx&lt;/h3>
-&lt;p v-&lt;span class="keyword">if&lt;/span>=&lt;span class="string">"!hasTitle"&lt;/span>>xxx&lt;/p>
+<h3 v-<span class="keyword">if</span>=<span class="string">"hasTitle"</span>>xxx</h3>
+<p v-<span class="keyword">if</span>=<span class="string">"!hasTitle"</span>>xxx</p>
  
 ```
 
@@ -269,14 +269,14 @@ module.exports = {
 因为 vue 实例本身就有 event 功能，因此这里解决的办法是创建一个全局的空 vue 对象，把它作为全局的事件代理：
 
 ```html
-&lt;span class="comment">//common/vue/vue.ext.js 回头看前面对该文件的介绍可以看到这句&lt;/span>
-Vue.noopVue = &lt;span class="keyword">new&lt;/span> Vue({});
+<span class="comment">//common/vue/vue.ext.js 回头看前面对该文件的介绍可以看到这句</span>
+Vue.noopVue = <span class="keyword">new</span> Vue({});
  
-&lt;span class="comment">//a.js&lt;/span>
-Vue.noopVue.&lt;span class="variable">$on&lt;/span>(&lt;span class="string">'someEvent'&lt;/span>, &lt;span class="keyword">function&lt;/span>() {});
+<span class="comment">//a.js</span>
+Vue.noopVue.<span class="variable">$on</span>(<span class="string">'someEvent'</span>, <span class="keyword">function</span>() {});
  
-&lt;span class="comment">//b.js&lt;/span>
-Vue.noopVue.&lt;span class="variable">$emit&lt;/span>(&lt;span class="string">'someEvent'&lt;/span>, [opts]);
+<span class="comment">//b.js</span>
+Vue.noopVue.<span class="variable">$emit</span>(<span class="string">'someEvent'</span>, [opts]);
  
 ```
 

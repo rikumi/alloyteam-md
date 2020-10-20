@@ -28,10 +28,10 @@ _CSS introduces the concepts of pseudo-elements and pseudo-classes  to permit
 下面是一个简单的 html 列表片段：
 
 ```html
-&lt;ul>
-        &lt;li>我是第一个&lt;/li>
-        &lt;li>我是第二个&lt;/li>
-&lt;/ul>;
+<ul>
+        <li>我是第一个</li>
+        <li>我是第二个</li>
+</ul>;
 ```
 
 如果想要给第一项添加样式，可以在为第一个&lt;li> 添加一个类，并在该类中定义对应样式：
@@ -39,10 +39,10 @@ _CSS introduces the concepts of pseudo-elements and pseudo-classes  to permit
 **HTML:**
 
 ```html
-&lt;ul>
-        &lt;li class="first-item">我是第一个&lt;/li>
-        &lt;li>我是第二个&lt;/li>
-&lt;/ul>;
+<ul>
+        <li class="first-item">我是第一个</li>
+        <li>我是第二个</li>
+</ul>;
 ```
 
 **CSS:**
@@ -56,10 +56,10 @@ _CSS introduces the concepts of pseudo-elements and pseudo-classes  to permit
 **HTML:**
 
 ```html
-&lt;ul>
-        &lt;li>我是第一个&lt;/li>
-        &lt;li>我是第二个&lt;/li>
-&lt;/ul>;
+<ul>
+        <li>我是第一个</li>
+        <li>我是第二个</li>
+</ul>;
 ```
 
 **CSS:**
@@ -71,7 +71,7 @@ _CSS introduces the concepts of pseudo-elements and pseudo-classes  to permit
 下面是另一个简单的 html 段落片段：
 
 ```html
-&lt;p>Hello World, and wish you have a good day!&lt;/p>;
+<p>Hello World, and wish you have a good day!</p>;
 ```
 
 如果想要给该段落的第一个字母添加样式，可以在第一个字母中包裹一个&lt;span> 元素，并设置该 span 元素的样式：
@@ -79,9 +79,9 @@ _CSS introduces the concepts of pseudo-elements and pseudo-classes  to permit
 **HTML:**
 
 ```html
-&lt;p>
-    &lt;span class="first">H&lt;/span>ello World, and wish you have a good day!
-&lt;/p>;
+<p>
+    <span class="first">H</span>ello World, and wish you have a good day!
+</p>;
 ```
 
 **CSS:**
@@ -97,7 +97,7 @@ _CSS introduces the concepts of pseudo-elements and pseudo-classes  to permit
 **HTML:**
 
 ```html
-&lt;p>Hello World, and wish you have a good day!&lt;/p>;
+<p>Hello World, and wish you have a good day!</p>;
 ```
 
 **CSS:**
@@ -171,12 +171,12 @@ _Please note that the new CSS3 way of writing pseudo-elements is to use a double
 **HTML:**
 
 ```html
-&lt;ul>
-        &lt;li class="first-item">一些文本&lt;/li>
-        &lt;li>一些文本&lt;/li>
-        &lt;li>一些文本&lt;/li>
-        &lt;li>一些文本&lt;/li>
-&lt;/ul>;
+<ul>
+        <li class="first-item">一些文本</li>
+        <li>一些文本</li>
+        <li>一些文本</li>
+        <li>一些文本</li>
+</ul>;
 ```
 
 **CSS:**
@@ -196,11 +196,11 @@ li:not(.first-item) {
 **HTML:**
 
 ```html
-&lt;ul>
-        &lt;li>这里的文本是橙色的&lt;/li>
-        &lt;li>一些文本&lt;/li>
-        &lt;li>一些文本&lt;/li>
-&lt;/ul>;
+<ul>
+        <li>这里的文本是橙色的</li>
+        <li>一些文本</li>
+        <li>一些文本</li>
+</ul>;
 ```
 
 **CSS:**
@@ -220,11 +220,11 @@ li:first-child {
 **HTML:**
 
 ```html
-&lt;ul>
-        &lt;li>一些文本&lt;/li>
-        &lt;li>一些文本&lt;/li>
-        &lt;li>这里的文本是橙色的&lt;/li>
-&lt;/ul>;
+<ul>
+        <li>一些文本</li>
+        <li>一些文本</li>
+        <li>这里的文本是橙色的</li>
+</ul>;
 ```
 
 **CSS:**
@@ -244,14 +244,14 @@ li:last-child {
 **HTML:**
 
 ```html
-&lt;ul>
-        &lt;li>这里的文本是橙色的&lt;/li>
+<ul>
+        <li>这里的文本是橙色的</li>
         
-    &lt;li>
-        一些文本 &lt;span>这里的文本是橙色的&lt;/span>
-    &lt;/li>
-        &lt;li>一些文本&lt;/li>
-&lt;/ul>;
+    <li>
+        一些文本 <span>这里的文本是橙色的</span>
+    </li>
+        <li>一些文本</li>
+</ul>;
 ```
 
 **CSS:**
@@ -271,14 +271,14 @@ ul :first-of-type {
 **HTML:**
 
 ```html
-&lt;ul>
+<ul>
         
-    &lt;li>
-        一些文本&lt;span>一些文本&lt;/span> &lt;span>这里的文本是橙色的&lt;/span>
-    &lt;/li>
-        &lt;li>一些文本&lt;/li>
-        &lt;li>这里的文本是橙色的&lt;/li>
-&lt;/ul>;
+    <li>
+        一些文本<span>一些文本</span> <span>这里的文本是橙色的</span>
+    </li>
+        <li>一些文本</li>
+        <li>这里的文本是橙色的</li>
+</ul>;
 ```
 
 **CSS:**
@@ -301,18 +301,18 @@ ul :last-of-type {
 如下例，有以下 HTML 列表：
 
 ```html
-&lt;ol>
-        &lt;li>Alpha&lt;/li>
-        &lt;li>Beta&lt;/li>
-        &lt;li>Gamma&lt;/li>
-        &lt;li>Delta&lt;/li>
-        &lt;li>Epsilon&lt;/li>
-        &lt;li>Zeta&lt;/li>
-        &lt;li>Eta&lt;/li>
-        &lt;li>Theta&lt;/li>
-        &lt;li>Iota&lt;/li>
-        &lt;li>Kappa&lt;/li>
-&lt;/ol>;
+<ol>
+        <li>Alpha</li>
+        <li>Beta</li>
+        <li>Gamma</li>
+        <li>Delta</li>
+        <li>Epsilon</li>
+        <li>Zeta</li>
+        <li>Eta</li>
+        <li>Theta</li>
+        <li>Iota</li>
+        <li>Kappa</li>
+</ol>;
 ```
 
 **CSS:**
@@ -362,12 +362,12 @@ ol :nth-child(2n+6) {
 **HTML:**
 
 ```html
-&lt;article>
-    &lt;h1>我是标题&lt;/h1>
-    &lt;p>一些文本&lt;/p>
-    &lt;a href="">&lt;img src="images/rwd.png" alt="Mastering RWD">&lt;/a>
-    &lt;p>这里的文本是橙色的&lt;/p>
-&lt;/article>
+<article>
+    <h1>我是标题</h1>
+    <p>一些文本</p>
+    <a href=""><img src="images/rwd.png" alt="Mastering RWD"></a>
+    <p>这里的文本是橙色的</p>
+</article>
 ```
 
 **CSS:**
@@ -389,14 +389,14 @@ p:nth-of-type(2) {
 **HTML:**
 
 ```html
-&lt;ul>
-    &lt;li>这里的文本是橙色的&lt;/li>
-&lt;/ul>
+<ul>
+    <li>这里的文本是橙色的</li>
+</ul>
  
-&lt;ul>
-    &lt;li>一些文本&lt;/li>
-    &lt;li>一些文本&lt;/li>
-&lt;/ul>
+<ul>
+    <li>一些文本</li>
+    <li>一些文本</li>
+</ul>
 ```
 
 **CSS:**
@@ -416,15 +416,15 @@ ul :only-child {
 **HTML:**
 
 ```html
-&lt;ul>
-    &lt;li>这里的文本是橙色的&lt;/li>
-    &lt;p>这里不是橙色&lt;/p>
-&lt;/ul>
+<ul>
+    <li>这里的文本是橙色的</li>
+    <p>这里不是橙色</p>
+</ul>
  
-&lt;ul>
-    &lt;li>一些文本&lt;/li>
-    &lt;li>一些文本&lt;/li>
-&lt;/ul>
+<ul>
+    <li>一些文本</li>
+    <li>一些文本</li>
+</ul>
 ```
 
 **CSS:**
@@ -448,13 +448,13 @@ li:only-of-type {
 **HTML:**
 
 ```html
-&lt;article id="target">
+<article id="target">
         
-    &lt;h1>
-        &lt;code>:target&lt;/code> pseudo-class
-    &lt;/h1>
-        &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit!&lt;/p>
-&lt;/article>;
+    <h1>
+        <code>:target</code> pseudo-class
+    </h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit!</p>
+</article>;
 ```
 
 **CSS:**
@@ -476,8 +476,8 @@ li:only-of-type {
 **HTML:**
 
 ```html
-&lt;input type="checkbox"/>
-&lt;label>我同意&lt;/label>
+<input type="checkbox"/>
+<label>我同意</label>
 ```
 
 **CSS:**
@@ -497,10 +497,10 @@ input:checked + label {
 **HTML:**
 
 ```html
-&lt;form action="#">
-        &lt;button>重置&lt;/button>
-        &lt;button type="submit">提交&lt;/button>
-&lt;/form>;
+<form action="#">
+        <button>重置</button>
+        <button type="submit">提交</button>
+</form>;
 ```
 
 **CSS:**
@@ -520,7 +520,7 @@ input:checked + label {
 **HTML:**
 
 ```html
-&lt;input type="text" disabled />;
+<input type="text" disabled />;
 ```
 
 **CSS:**
@@ -548,10 +548,10 @@ input:checked + label {
 **HTML:**
 
 ```html
-&lt;div>这个容器里的背景是橙色的&lt;/div>
-&lt;div> &lt;/div>
-&lt;div>&lt;/div>
-&lt;div>&lt;!-- This comment is not considered content -->&lt;/div>
+<div>这个容器里的背景是橙色的</div>
+<div> </div>
+<div></div>
+<div><!-- This comment is not considered content --></div>
 ```
 
 **CSS:**
@@ -581,7 +581,7 @@ div:empty {
 **HTML:**
 
 ```html
-&lt;input type="number" min="5" max="10">
+<input type="number" min="5" max="10">
 ```
 
 **CSS:**
@@ -609,20 +609,20 @@ indeterminate 的英文意思是 “不确定的”。当某组中的单选框�
 **HTML:**
 
 ```html
-&lt;ul>
-    &lt;li>
-        &lt;input type="radio" name="list" id="option1">
-        &lt;label for="option1">Option 1&lt;/label>
-    &lt;/li>
-    &lt;li>
-        &lt;input type="radio" name="list" id="option2">
-        &lt;label for="option2">Option 2&lt;/label>
-    &lt;/li>
-    &lt;li>
-        &lt;input type="radio" name="list" id="option3">
-        &lt;label for="option3">Option 3&lt;/label>
-    &lt;/li>
-&lt;/ul>
+<ul>
+    <li>
+        <input type="radio" name="list" id="option1">
+        <label for="option1">Option 1</label>
+    </li>
+    <li>
+        <input type="radio" name="list" id="option2">
+        <label for="option2">Option 2</label>
+    </li>
+    <li>
+        <input type="radio" name="list" id="option3">
+        <label for="option3">Option 3</label>
+    </li>
+</ul>
 ```
 
 **CSS:**
@@ -642,7 +642,7 @@ indeterminate 的英文意思是 “不确定的”。当某组中的单选框�
 **HTML:**
 
 ```html
-&lt;input type="email" />;
+<input type="email" />;
 ```
 
 **CSS:**
@@ -666,8 +666,8 @@ input[type=email]:valid {
 **HTML:**
 
 ```c
-&lt;input type="text" required />
-&lt;input type="text" />
+<input type="text" required />
+<input type="text" />
 ```
 
 **CSS:**
@@ -691,7 +691,7 @@ input[type=email]:valid {
 **HTML:**
 
 ```html
-&lt;input type="text" value="I am read only" readonly>
+<input type="text" value="I am read only" readonly>
 ```
 
 **CSS:**
@@ -711,12 +711,12 @@ input:read-only {
 **HTML:**
 
 ```html
-&lt;input type="text" value="获取焦点时背景变黄"/>
+<input type="text" value="获取焦点时背景变黄"/>
  
-&lt;div class="editable" contenteditable>
-    &lt;h1>点击这里可以编辑&lt;/h1>
-    &lt;p>获取焦点时背景变黄&lt;/p>
-&lt;/div>
+<div class="editable" contenteditable>
+    <h1>点击这里可以编辑</h1>
+    <p>获取焦点时背景变黄</p>
+</div>
 ```
 
 **CSS:**
@@ -736,21 +736,21 @@ input:read-only {
 **HTML:**
 
 ```html
-&lt;article>
-    &lt;section>
-        &lt;h1>很正常的一些文本&lt;/h1>
-        &lt;p>很正常的一些文本&lt;/p>
-    &lt;/section>
-    &lt;section>
-        &lt;style scoped>
+<article>
+    <section>
+        <h1>很正常的一些文本</h1>
+        <p>很正常的一些文本</p>
+    </section>
+    <section>
+        <style scoped>
             :scope {
                 font-style: italic;
             }
-        &lt;/style>
-        &lt;h1>这里的文本是斜体的&lt;/h1>
-        &lt;p>这里的文本是斜体的&lt;/p>
-    &lt;/section>
-&lt;/article>
+        </style>
+        <h1>这里的文本是斜体的</h1>
+        <p>这里的文本是斜体的</p>
+    </section>
+</article>
 ```
 
 注：目前支持这个伪类的浏览器只有火狐。
@@ -766,12 +766,12 @@ input:read-only {
 **HTML:**
 
 ```html
-&lt;article dir="rtl">
-    &lt;p>
+<article dir="rtl">
+    <p>
         التدليك واحد من أقدم العلوم الصحية التي عرفها الانسان والذي يتم استخدامه
         لأغراض الشفاء منذ ولاده الطفل.
-    &lt;/p>
-&lt;/article>;
+    </p>
+</article>;
 ```
 
 **CSS:**
@@ -793,13 +793,13 @@ article :dir(rtl) {
 **HTML:**
 
 ```html
-&lt;article dir="ltr">
+<article dir="ltr">
         
-    &lt;p>
+    <p>
         اIf you already know some HTML and CSS and understand the principles of
         responsive web design, then this book is for you.
-    &lt;/p>
-&lt;/article>;
+    </p>
+</article>;
 ```
 
 **CSS:**
@@ -826,15 +826,15 @@ article :dir(ltr) {
 **HTML:**
 
 ```html
-&lt;article lang="en">
-    &lt;q>Lorem ipsum dolor sit amet.&lt;/q>
-&lt;/article>
-&lt;article lang="fr">
-    &lt;q>Lorem ipsum dolor sit amet.&lt;/q>
-&lt;/article>
-&lt;article lang="de">
-    &lt;q>Lorem ipsum dolor sit amet.&lt;/q>
-&lt;/article>
+<article lang="en">
+    <q>Lorem ipsum dolor sit amet.</q>
+</article>
+<article lang="fr">
+    <q>Lorem ipsum dolor sit amet.</q>
+</article>
+<article lang="de">
+    <q>Lorem ipsum dolor sit amet.</q>
+</article>
 ```
 
 **CSS:**
@@ -868,8 +868,8 @@ article :dir(ltr) {
 **HTML:**
 
 ```html
-&lt;h1 id="element">在全屏模式下，这里的文本的背景会变成橙色.&lt;/h1>
-&lt;button>进入全屏模式!&lt;/button>
+<h1 id="element">在全屏模式下，这里的文本的背景会变成橙色.</h1>
+<button>进入全屏模式!</button>
 ```
 
 **JAVASCRIPT:**
@@ -919,7 +919,7 @@ h1:-ms-fullscreen {
 **HTML:**
 
 ```html
-&lt;h1>World&lt;/h1>;
+<h1>World</h1>;
 ```
 
 **CSS:**
@@ -987,7 +987,7 @@ p:first-line {
 **HTML:**
 
 ```html
-&lt;input type="email" placeholder="name@domain.com">
+<input type="email" placeholder="name@domain.com">
 ```
 
 **CSS:**
@@ -1019,8 +1019,8 @@ input:-moz-input-placeholder {
 **HTML:**
 
 ```html
-&lt;h1 id="element">This heading will have a solid background color in full-screen mode.&lt;/h1>
-&lt;button onclick="var el = document.getElementById('element'); el.webkitRequestFullscreen();">Trigger full screen!&lt;/button>
+<h1 id="element">This heading will have a solid background color in full-screen mode.</h1>
+<button onclick="var el = document.getElementById('element'); el.webkitRequestFullscreen();">Trigger full screen!</button>
 ```
 
 **CSS:**

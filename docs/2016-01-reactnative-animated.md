@@ -39,7 +39,7 @@ var Demo = React.createClass({
     },
     render() {
         return (
-            &lt;Animated.View
+            <Animated.View
                 style={[
                     styles.demo,
                     {
@@ -48,9 +48,9 @@ var Demo = React.createClass({
                 ]}
             >
                                 
-                &lt;Text style={styles.text}>悄悄的，我出现了&lt;/Text>
+                <Text style={styles.text}>悄悄的，我出现了</Text>
                             
-            &lt;/Animated.View>
+            </Animated.View>
         );
     },
 });
@@ -104,7 +104,7 @@ componentDidMount() {
         })).start();
 }，
 render() {
-    return (&lt;Animated.View style={[styles.demo, {
+    return (<Animated.View style={[styles.demo, {
             opacity: this.state.fadeInOpacity,
                 transform: [{
                     rotateZ: this.state.rotation.interpolate({
@@ -112,13 +112,13 @@ render() {
                         outputRange: ['0deg', '360deg']
                     })
                 }]
-            }]}>&lt;Animated.Text style={{
+            }]}><Animated.Text style={{
                 fontSize: this.state.fontSize.interpolate({
                     inputRange: [0,1],
                     outputRange: [12,26]
                 })
-            }}>我骑着七彩祥云出现了😈💨&lt;/Animated.Text>
-            &lt;/Animated.View>
+            }}>我骑着七彩祥云出现了😈💨</Animated.Text>
+            </Animated.View>
     );
 }
 ```
@@ -191,7 +191,7 @@ componentDidMount() {
 render() {
     var views = this.state.anim.map(function(value, i) {
         return (
-            &lt;Animated.View
+            <Animated.View
                 key={i}
                 style={[styles.demo, styles['demo' + i], {
                     left: value.interpolate({
@@ -199,15 +199,15 @@ render() {
                         outputRange: [0,200]
                     })
                 }]}>
-                &lt;Text style={styles.text}>我是第{i + 1}个View&lt;/Text>
+                <Text style={styles.text}>我是第{i + 1}个View</Text>
  
-            &lt;/Animated.View>
+            </Animated.View>
         );
     });
-    return &lt;View style={styles.container}>
-               &lt;Text>sequence/delay/stagger/parallel演示&lt;/Text>
+    return <View style={styles.container}>
+               <Text>sequence/delay/stagger/parallel演示</Text>
                {views}
-           &lt;/View>;
+           </View>;
 }
 ```
 
@@ -283,9 +283,9 @@ getInitialState() {
  
 render(){
     return (
-        &lt;div style={{left: this.state.left}}>
-            &lt;Child />
-        &lt;/div>
+        <div style={{left: this.state.left}}>
+            <Child />
+        </div>
     );
 }
  
@@ -343,12 +343,12 @@ class StaticContainer extends React.Component {
 // 父元素嵌入StaticContainer
 render() {
     return (
-        &lt;div style={{left: this.state.left}}>
-            &lt;StaticContainer
+        <div style={{left: this.state.left}}>
+            <StaticContainer
             shouldUpdate={!this.state.isAnimating}>
-                &lt;ExpensiveChild />
-            &lt;/StaticContainer>
-        &lt;/div>
+                <ExpensiveChild />
+            </StaticContainer>
+        </div>
     );
 }
 ```
@@ -359,11 +359,11 @@ render() {
 
 ```c
 render(){
-    this._child = this._child || &lt;ExpensiveChild />;
+    this._child = this._child || <ExpensiveChild />;
     return (
-        &lt;div style={{left:this.state.left}}>
+        <div style={{left:this.state.left}}>
             {this._child}
-        &lt;/div>
+        </div>
     );
 }
 ```
@@ -401,9 +401,9 @@ _Uncaught Exception: Cannot call ‘style’ of null_
 ```css
 render(){
     return(
-        &lt;Animated.div style={{left: this.state.left}}>
-             &lt;ExpensiveChild />
-        &lt;/Animated.div>
+        <Animated.div style={{left: this.state.left}}>
+             <ExpensiveChild />
+        </Animated.div>
     );
 }
  
@@ -439,7 +439,7 @@ Animated.div = class extends React.Component{
         );
     },
     render() {
-        return &lt;div ...{this._props} />;
+        return <div ...{this._props} />;
     }
 }
 ```

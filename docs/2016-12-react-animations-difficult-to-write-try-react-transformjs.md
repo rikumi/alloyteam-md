@@ -50,24 +50,24 @@ API
 //set "translateX", "translateY", "translateZ", "scaleX", "scaleY", "scaleZ", "rotateX", "rotateY", "rotateZ", "skewX", "skewY", "originX", "originY", "originZ"
 render() {
     return (
-        &lt;Transform
+        <Transform
           translateX={100}
           scaleX={0.5}
           originX={0.5}>
-          &lt;div>sth&lt;/div>
-        &lt;/Transform>
+          <div>sth</div>
+        </Transform>
     );
 }
  
 // you can also use other porps, such as "className" or "style"
 render() {
     return (
-        &lt;Transform
+        <Transform
           translateX={100}
           className="ani"
           style={{width: '100px', background: 'red'}}
-          &lt;div>sth&lt;/div>
-        &lt;/Transform>
+          <div>sth</div>
+        </Transform>
     );
 }
 ```
@@ -109,29 +109,29 @@ class Root extends Component {
     }
     render() {
         return (
-            &lt;div>
+            <div>
                         
-                &lt;Transform
+                <Transform
                     rotateZ={this.state.el1.rotateZ}
                     className="test"
                     style={{ backgroundColor: "green" }}
                 >
                               transformjs         
-                &lt;/Transform>
+                </Transform>
                           
-                &lt;Transform
+                <Transform
                     rotateY={this.state.el2.rotateY}
                     className="test"
                     style={{ backgroundColor: "red", left: "200px" }}
                 >
                               transformjs         
-                &lt;/Transform>
+                </Transform>
                         
-            &lt;/div>
+            </div>
         );
     }
 }
-render(&lt;Root />, document.getElementById("root"));
+render(<Root />, document.getElementById("root"));
 ```
 
 更加复杂的详细的使用代码可以看这里：<https://github.com/AlloyTeam/AlloyTouch/blob/master/transformjs/react/example/src/index.jsx>

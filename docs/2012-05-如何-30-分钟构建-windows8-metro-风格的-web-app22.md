@@ -59,7 +59,7 @@ So even if WinJS is not mandatory inside HTML5 Metro projects, don’t underesti
 In order to display the articles’ content, we need another piece of HTML. Navigate to the “_default.html_” page and insert this one:
 
 ```html
-&lt;div id="articlecontent">&lt;/div>;
+<div id="articlecontent"></div>;
 ```
 
 We will insert the article’s content by code. Open “_default.js_”. Just above the Binding.List instantiation, insert this code:

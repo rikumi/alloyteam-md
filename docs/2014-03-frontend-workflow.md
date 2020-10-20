@@ -49,7 +49,7 @@ Mod.js 并不是简单的任务运行器，其内置集成了 Web 前端开发�
 Mod.js:<https://github.com/modjs/mod> 可通过 [NPM](https://npmjs.org/) 来安装最新的版本，在你来到 [Node.js](http://nodejs.org/) 的编程世界时已同时附带了 NPM，当前 Mod.js 最新版本 `0.4.x` 要求 Node.js 要求`>= 0.8.0`：
 
 ```html
-&lt;span class="nv">$ &lt;/span>npm install modjs -g
+<span class="nv">$ </span>npm install modjs -g
 ```
 
 `-g` 参数表示把 Mod.js 安装到全局，如此 `mod` 命令将会在 `system path` 内，方便在任何一个目录启动 Mod.js 任务。
@@ -59,113 +59,113 @@ Mod.js:<https://github.com/modjs/mod> 可通过 [NPM](https://npmjs.org/) 来安
 Mod.js 通过 Modfile.js 文件驱动任务执行，可以手动创建一个 Modfile.js 文件，也可以通过模版初始化一个 Modfile.js 文件：
 
 ```c
-&lt;span class="nv">$ &lt;/span>mod init modfile
+<span class="nv">$ </span>mod init modfile
 ```
 
 Modfile.js 是一个 Plain Node Module, 通过 `Runner` 对象来描述任务的具体执行过程：
 
 ```html
-&lt;span class="c1">// 暴露Runner对象&lt;/span>
-&lt;span class="nx">module&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">exports&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{}&lt;/span>
+<span class="c1">// 暴露Runner对象</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{}</span>
 ```
 
 如是异步配置，则可通过回调模式传递 Runner 对象：
 
 ```html
-&lt;span class="nx">module&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">exports&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">options&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">done&lt;/span>&lt;span class="p">){&lt;/span>
-    &lt;span class="nx">setTimeout&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">(){&lt;/span>
-        &lt;span class="c1">// 回调Runner对象&lt;/span>
-        &lt;span class="kd">var&lt;/span> &lt;span class="nx">runner&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{};&lt;/span>
-        &lt;span class="nx">done&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">runner&lt;/span>&lt;span class="p">);&lt;/span>
-    &lt;span class="p">},&lt;/span> &lt;span class="mi">1000&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="p">}&lt;/span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">done</span><span class="p">){</span>
+    <span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">// 回调Runner对象</span>
+        <span class="kd">var</span> <span class="nx">runner</span> <span class="o">=</span> <span class="p">{};</span>
+        <span class="nx">done</span><span class="p">(</span><span class="nx">runner</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="p">}</span>
 ```
 
 借此一瞥通常 `Runner` 对象的全貌：
 
 ```html
-&lt;span class="nx">module&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">exports&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="nx">version&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">">=0.4.3"&lt;/span>&lt;span class="p">,&lt;/span>
-    &lt;span class="nx">plugins&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">pngcompressor&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="s2">"mod-png-compressor"&lt;/span>&lt;span class="p">,&lt;/span>
-        &lt;span class="nx">compress&lt;/span>      &lt;span class="o">:&lt;/span> &lt;span class="s2">"grunt-contrib-compress"&lt;/span>
-    &lt;span class="p">},&lt;/span>
-    &lt;span class="nx">tasks&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">asset&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"asset"&lt;/span>&lt;span class="p">,&lt;/span>
-        &lt;span class="nx">online&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"online_dist"&lt;/span>&lt;span class="p">,&lt;/span>
-        &lt;span class="nx">offline&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"offline_dist"&lt;/span>&lt;span class="p">,&lt;/span>
-        &lt;span class="nx">offlinePackage&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"{{offline}}/package.zip"&lt;/span>&lt;span class="p">,&lt;/span>
-        &lt;span class="nx">rm&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-            &lt;span class="nx">online&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"{{online}}"&lt;/span>
-            &lt;span class="p">},&lt;/span>
-            &lt;span class="nx">offline&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"{{offline}}"&lt;/span>
-            &lt;span class="p">}&lt;/span>
-        &lt;span class="p">},&lt;/span>
-        &lt;span class="nx">replace&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-            &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">'./js/**/*.js'&lt;/span>&lt;span class="p">,&lt;/span>
-            &lt;span class="nx">search&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"@VERSION"&lt;/span>&lt;span class="p">,&lt;/span>
-            &lt;span class="nx">replace&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">'./package.json'&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">version&lt;/span>
-        &lt;span class="p">},&lt;/span>
-        &lt;span class="nx">build&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-            &lt;span class="nx">options&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">"*.html"&lt;/span>&lt;span class="p">]&lt;/span>
-            &lt;span class="p">},&lt;/span>
-            &lt;span class="nx">online&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"{{online}}"&lt;/span>&lt;span class="p">,&lt;/span>
-                &lt;span class="nx">rev&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>
-            &lt;span class="p">},&lt;/span>
-            &lt;span class="nx">offline&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"{{offline}}"&lt;/span>&lt;span class="p">,&lt;/span>
-                &lt;span class="nx">rev&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span>
-            &lt;span class="p">}&lt;/span>
-        &lt;span class="p">},&lt;/span>
-        &lt;span class="nx">cp&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-            &lt;span class="nx">options&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">"./img/**"&lt;/span>&lt;span class="p">]&lt;/span>
-            &lt;span class="p">},&lt;/span>
-            &lt;span class="nx">online&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"{{online}}/img/"&lt;/span>&lt;span class="p">,&lt;/span>
-                &lt;span class="nx">rev&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>
-            &lt;span class="p">},&lt;/span>
-            &lt;span class="nx">offline&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"{{offline}}/img/"&lt;/span>&lt;span class="p">,&lt;/span>
-                &lt;span class="nx">rev&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span>
-            &lt;span class="p">}&lt;/span>
-        &lt;span class="p">},&lt;/span>
-        &lt;span class="nx">pngcompressor&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-            &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"./img/**/*.png"&lt;/span>
-        &lt;span class="p">},&lt;/span>
-        &lt;span class="nx">compress&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-            &lt;span class="nx">dist&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                &lt;span class="nx">options&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-                    &lt;span class="nx">archive&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">'{{offlinePackage}}'&lt;/span>
-                &lt;span class="p">},&lt;/span>
-                &lt;span class="c1">// includes files in path&lt;/span>
-                &lt;span class="nx">files&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>
-                    &lt;span class="p">{&lt;/span>
-                        &lt;span class="nx">expand&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
-                        &lt;span class="nx">cwd&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">'{{online}}/'&lt;/span>&lt;span class="p">,&lt;/span>
-                        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s1">'*.html'&lt;/span>&lt;span class="p">],&lt;/span>
-                        &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">'qq.com/web'&lt;/span>
-                    &lt;span class="p">},&lt;/span>
-                    &lt;span class="p">{&lt;/span>
-                        &lt;span class="nx">expand&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
-                        &lt;span class="nx">cwd&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">'{{online}}/img'&lt;/span>&lt;span class="p">,&lt;/span>
-                        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s1">'**'&lt;/span>&lt;span class="p">],&lt;/span>
-                        &lt;span class="nx">dest&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">'cdn.qq.com/img'&lt;/span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">version</span><span class="o">:</span> <span class="s2">">=0.4.3"</span><span class="p">,</span>
+    <span class="nx">plugins</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">pngcompressor</span> <span class="o">:</span> <span class="s2">"mod-png-compressor"</span><span class="p">,</span>
+        <span class="nx">compress</span>      <span class="o">:</span> <span class="s2">"grunt-contrib-compress"</span>
+    <span class="p">},</span>
+    <span class="nx">tasks</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">asset</span><span class="o">:</span> <span class="s2">"asset"</span><span class="p">,</span>
+        <span class="nx">online</span><span class="o">:</span> <span class="s2">"online_dist"</span><span class="p">,</span>
+        <span class="nx">offline</span><span class="o">:</span> <span class="s2">"offline_dist"</span><span class="p">,</span>
+        <span class="nx">offlinePackage</span><span class="o">:</span> <span class="s2">"{{offline}}/package.zip"</span><span class="p">,</span>
+        <span class="nx">rm</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">online</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s2">"{{online}}"</span>
+            <span class="p">},</span>
+            <span class="nx">offline</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s2">"{{offline}}"</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">replace</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">src</span><span class="o">:</span> <span class="s1">'./js/**/*.js'</span><span class="p">,</span>
+            <span class="nx">search</span><span class="o">:</span> <span class="s2">"@VERSION"</span><span class="p">,</span>
+            <span class="nx">replace</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./package.json'</span><span class="p">).</span><span class="nx">version</span>
+        <span class="p">},</span>
+        <span class="nx">build</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s2">"*.html"</span><span class="p">]</span>
+            <span class="p">},</span>
+            <span class="nx">online</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s2">"{{online}}"</span><span class="p">,</span>
+                <span class="nx">rev</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">},</span>
+            <span class="nx">offline</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s2">"{{offline}}"</span><span class="p">,</span>
+                <span class="nx">rev</span><span class="o">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">cp</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s2">"./img/**"</span><span class="p">]</span>
+            <span class="p">},</span>
+            <span class="nx">online</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s2">"{{online}}/img/"</span><span class="p">,</span>
+                <span class="nx">rev</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">},</span>
+            <span class="nx">offline</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s2">"{{offline}}/img/"</span><span class="p">,</span>
+                <span class="nx">rev</span><span class="o">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">pngcompressor</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">src</span><span class="o">:</span> <span class="s2">"./img/**/*.png"</span>
+        <span class="p">},</span>
+        <span class="nx">compress</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">dist</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">archive</span><span class="o">:</span> <span class="s1">'{{offlinePackage}}'</span>
+                <span class="p">},</span>
+                <span class="c1">// includes files in path</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nx">expand</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                        <span class="nx">cwd</span><span class="o">:</span> <span class="s1">'{{online}}/'</span><span class="p">,</span>
+                        <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s1">'*.html'</span><span class="p">],</span>
+                        <span class="nx">dest</span><span class="o">:</span> <span class="s1">'qq.com/web'</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="nx">expand</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                        <span class="nx">cwd</span><span class="o">:</span> <span class="s1">'{{online}}/img'</span><span class="p">,</span>
+                        <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s1">'**'</span><span class="p">],</span>
+                        <span class="nx">dest</span><span class="o">:</span> <span class="s1">'cdn.qq.com/img'</span>
  
-                    &lt;span class="p">}&lt;/span>
-                &lt;span class="p">]&lt;/span>
-            &lt;span class="p">}&lt;/span>
-        &lt;span class="p">}&lt;/span>
-    &lt;span class="p">},&lt;/span>
-    &lt;span class="nx">targets&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">"rm"&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">"pngcompressor"&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">"replace"&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">"build"&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">"cp"&lt;/span>&lt;span class="p">],&lt;/span>
-        &lt;span class="nx">offline&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">"default"&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">"compress:dist"&lt;/span>&lt;span class="p">]&lt;/span>
-    &lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">targets</span><span class="o">:</span> <span class="p">{</span>
+        <span class="k">default</span><span class="o">:</span> <span class="p">[</span><span class="s2">"rm"</span><span class="p">,</span> <span class="s2">"pngcompressor"</span><span class="p">,</span> <span class="s2">"replace"</span><span class="p">,</span> <span class="s2">"build"</span><span class="p">,</span> <span class="s2">"cp"</span><span class="p">],</span>
+        <span class="nx">offline</span><span class="o">:</span> <span class="p">[</span><span class="s2">"default"</span><span class="p">,</span> <span class="s2">"compress:dist"</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 ```
 
 -   `version` 描述依赖的 Mod.js 版本
@@ -183,28 +183,28 @@ Mod.js 加载插件的方式是通过 Node 的 require 机制，然后执行暴�
 在命令行下，通常执行 mod 时是需指定 Modfile.js 中某一特定目标，但当存在命名为 default 的目标或配置中只有一个独立目标时，此时目标的指定是可选的，Mod.js 会自动识别唯一的存在或 default 的目标：
 
 ```html
-targets: &lt;span class="o">{&lt;/span>
-    dist: &lt;span class="o">[&lt;/span>&lt;span class="s2">"rm"&lt;/span>, &lt;span class="s2">"cp"&lt;/span>&lt;span class="o">]&lt;/span>
-&lt;span class="o">}&lt;/span>
+targets: <span class="o">{</span>
+    dist: <span class="o">[</span><span class="s2">"rm"</span>, <span class="s2">"cp"</span><span class="o">]</span>
+<span class="o">}</span>
 ```
 
 ```html
-&lt;span class="c"># 等价于 mod dist&lt;/span>
-&lt;span class="nv">$ &lt;/span>mod
+<span class="c"># 等价于 mod dist</span>
+<span class="nv">$ </span>mod
 ```
 
 配置有 default 目标的场景：
 
 ```html
-targets: &lt;span class="o">{&lt;/span>
-    default: &lt;span class="o">[&lt;/span>&lt;span class="s2">"rm"&lt;/span>, &lt;span class="s2">"cp"&lt;/span>&lt;span class="o">]&lt;/span>,
-    other: &lt;span class="o">[&lt;/span>&lt;span class="s2">"compress"&lt;/span>&lt;span class="o">]&lt;/span>
-&lt;span class="o">}&lt;/span>
+targets: <span class="o">{</span>
+    default: <span class="o">[</span><span class="s2">"rm"</span>, <span class="s2">"cp"</span><span class="o">]</span>,
+    other: <span class="o">[</span><span class="s2">"compress"</span><span class="o">]</span>
+<span class="o">}</span>
 ```
 
 ```html
-&lt;span class="c"># 等价于 mod default&lt;/span>
-&lt;span class="nv">$ &lt;/span>mod
+<span class="c"># 等价于 mod default</span>
+<span class="nv">$ </span>mod
 ```
 
 #### [](http://www.alloyteam.com/2014/03/frontend-workflow/#%E6%B7%B1%E5%85%A5%E4%BB%BB%E5%8A%A1)深入任务
@@ -212,11 +212,11 @@ targets: &lt;span class="o">{&lt;/span>
 任务是具体执行的类别，从配置示例开始阐述：
 
 ```html
-&lt;span class="nx">tasks&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="nx">min&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">src&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"./js/*.js"&lt;/span>
-    &lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
+<span class="nx">tasks</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">min</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"./js/*.js"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 ```
 
 以上配置了一个文件压缩的 `min` 类别任务，`src` 描述需要压缩的文件：`js` 目录的所有 js 文件。`src` 支持 unix `glob` 语法来描述输入文件集，其匹配规则如下：
@@ -232,16 +232,16 @@ targets: &lt;span class="o">{&lt;/span>
 示例：
 
 ```html
-c/ab.min.js &lt;span class="o">=&lt;/span>>  c/ab.min.js
-*.js        &lt;span class="o">=&lt;/span>>  a.js b.js c.js
-c/a*.js     &lt;span class="o">=&lt;/span>>  c/a.js  c/ab.js c/ab.min.js
-c/&lt;span class="o">[&lt;/span>a-z&lt;span class="o">]&lt;/span>.js  &lt;span class="o">=&lt;/span>>  c/a.js c/b.js c/c.js
-c/&lt;span class="o">[&lt;/span>!abe&lt;span class="o">]&lt;/span>.js &lt;span class="o">=&lt;/span>>  c/c.js c/d.js
-c/a?.js     &lt;span class="o">=&lt;/span>>  c/ab.js c/ac.js
-c/ab???.js  &lt;span class="o">=&lt;/span>>  c/abdef.js c/abccc.js
-c/&lt;span class="o">[&lt;/span>bdz&lt;span class="o">]&lt;/span>.js  &lt;span class="o">=&lt;/span>>  c/b.js c/d.js c/z.js
-&lt;span class="o">{&lt;/span>a,b,c&lt;span class="o">}&lt;/span>.js  &lt;span class="o">=&lt;/span>>  a.js b.js c.js
-a&lt;span class="o">{&lt;/span>b,c&lt;span class="o">{&lt;/span>d,e&lt;span class="o">}}&lt;/span>x&lt;span class="o">{&lt;/span>y,z&lt;span class="o">}&lt;/span>.js  &lt;span class="o">=&lt;/span>> abxy.js abxz.js  acdxy.js acdxz.js acexy.js acexz.js
+c/ab.min.js <span class="o">=</span>>  c/ab.min.js
+*.js        <span class="o">=</span>>  a.js b.js c.js
+c/a*.js     <span class="o">=</span>>  c/a.js  c/ab.js c/ab.min.js
+c/<span class="o">[</span>a-z<span class="o">]</span>.js  <span class="o">=</span>>  c/a.js c/b.js c/c.js
+c/<span class="o">[</span>!abe<span class="o">]</span>.js <span class="o">=</span>>  c/c.js c/d.js
+c/a?.js     <span class="o">=</span>>  c/ab.js c/ac.js
+c/ab???.js  <span class="o">=</span>>  c/abdef.js c/abccc.js
+c/<span class="o">[</span>bdz<span class="o">]</span>.js  <span class="o">=</span>>  c/b.js c/d.js c/z.js
+<span class="o">{</span>a,b,c<span class="o">}</span>.js  <span class="o">=</span>>  a.js b.js c.js
+a<span class="o">{</span>b,c<span class="o">{</span>d,e<span class="o">}}</span>x<span class="o">{</span>y,z<span class="o">}</span>.js  <span class="o">=</span>> abxy.js abxz.js  acdxy.js acdxz.js acexy.js acexz.js
 ```
 
 更多任务配置规则深入:<https://github.com/modjs/mod/blob/master/doc/tutorial/configuring-tasks.md>
@@ -281,14 +281,14 @@ a&lt;span class="o">{&lt;/span>b,c&lt;span class="o">{&lt;/span>d,e&lt;span clas
 Mod.js 支持 2 种生态的插件：Mod.js 与 Grunt。插件的配置同样是在 Runner 对象下：
 
 ```html
-&lt;span class="nx">plugins&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="c1">// Mod.js NPM 插件&lt;/span>
-    &lt;span class="nx">sprite&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"mod-stylus"&lt;/span>&lt;span class="p">,&lt;/span>
-    &lt;span class="c1">// Mod.js 本地插件&lt;/span>
-    &lt;span class="nx">mytask&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"./tasks/mytask"&lt;/span>
-    &lt;span class="c1">// Grunt NPM 插件&lt;/span>
-    &lt;span class="nx">compress&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">"grunt-contrib-compress"&lt;/span>
-&lt;span class="p">}&lt;/span>
+<span class="nx">plugins</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// Mod.js NPM 插件</span>
+    <span class="nx">sprite</span><span class="o">:</span> <span class="s2">"mod-stylus"</span><span class="p">,</span>
+    <span class="c1">// Mod.js 本地插件</span>
+    <span class="nx">mytask</span><span class="o">:</span> <span class="s2">"./tasks/mytask"</span>
+    <span class="c1">// Grunt NPM 插件</span>
+    <span class="nx">compress</span><span class="o">:</span> <span class="s2">"grunt-contrib-compress"</span>
+<span class="p">}</span>
 ```
 
 同样附上演示项目来辅助不同插件的配置：

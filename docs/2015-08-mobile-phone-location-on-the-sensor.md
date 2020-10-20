@@ -130,7 +130,7 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
 判断浏览器支持 `Geolocation API` 后，通过参数的 corrds 属性就可以取到经纬度坐标了，如下
 
 ```javascript
-   &lt;script>
+   <script>
     function getElem(id) {
         return typeof id === 'string' ? document.getElementById(id) : id;
     }
@@ -149,7 +149,7 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
     } else {
         getElem('geo_loc').innerHTML = "您当前使用的浏览器不支持Geolocation服务";
     }
-    &lt;/script>
+    </script>
 ```
 
 下一步我们要引入一个谷歌地图来定位，这里需要引入谷歌地图的 API，如下
@@ -159,7 +159,7 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
 接着对获取经纬度的函数做一个改造
 
 ```go
- &lt;script>
+ <script>
     function success(position) {
         var mapcanvas = document.createElement('div');
         mapcanvas.id = 'mapcanvas';
@@ -187,7 +187,7 @@ getCurrentPosion 的调用方式为 `getCurrentPosition(onSuccess, onError, o
     if (navigator.geolocation) {
        navigator.geolocation.getCurrentPosition(success); 
     }
-    &lt;/script>
+    </script>
 ```
 
 如下图所示，我们已经获取到当前位置的地图坐标呈现

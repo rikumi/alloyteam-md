@@ -13,11 +13,11 @@ source_link: http://www.alloyteam.com/2014/11/qian-duan-xss-gao-jie-wan-fa/
 
 ```html
 (function escape(input) {
-    input = input.replace(/[;\\\/&lt;>a-zA-Z]/g, "_").slice(0, 1500);
+    input = input.replace(/[;\\\/<>a-zA-Z]/g, "_").slice(0, 1500);
     return (
-        "&lt;script>[][([![]]+[])[++[++[++[[]][+[]]][+[]]][+[]]]+([]+{})[++[[]][+[]]]+([!![]]+[])[++[[]][+[]]]+([!![]]+[])[+[]]]" +
+        "<script>[][([![]]+[])[++[++[++[[]][+[]]][+[]]][+[]]]+([]+{})[++[[]][+[]]]+([!![]]+[])[++[[]][+[]]]+([!![]]+[])[+[]]]" +
         input +
-        "&lt;/script> "
+        "</script> "
     );
 })("?");
 要求可以弹出alert框;

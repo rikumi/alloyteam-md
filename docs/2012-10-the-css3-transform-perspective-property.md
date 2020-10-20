@@ -10,12 +10,12 @@ source_link: http://www.alloyteam.com/2012/10/the-css3-transform-perspective-pro
 以下两行语句有什么区别？
 
 ```html
-&lt;div id="animateTest" 
+<div id="animateTest" 
      style="-webkit-transform: perspective(400px) rotateY(40deg);">
 ```
 
 ```html
-&lt;div id="animateTest" 
+<div id="animateTest" 
      style="-webkit-transform: rotateY(40deg) perspective(400px);">
 ```
 
@@ -49,16 +49,16 @@ CCS3 中的 Transform 是设置界面样式和动画的一大利器。而且在 
 上面的原始的 Div 和图片，下面是旋转后的效果。
 
 ```html
-&lt;div id="animateTest" >
-    &lt;img src="http://imgcache.qq.com/ptlogin/head/1_100.gif" 
+<div id="animateTest" >
+    <img src="http://imgcache.qq.com/ptlogin/head/1_100.gif" 
          width="100" height="100">
-&lt;/div>
+</div>
  
-&lt;div id="animateTest" 
-     style="&lt;span style="color: #ff0000;">-webkit-transform: rotateY(40deg);&lt;/span>">
-    &lt;img src="http://imgcache.qq.com/ptlogin/head/1_100.gif" 
+<div id="animateTest" 
+     style="<span style="color: #ff0000;">-webkit-transform: rotateY(40deg);</span>">
+    <img src="http://imgcache.qq.com/ptlogin/head/1_100.gif" 
          width="100" height="100">
-&lt;/div>
+</div>
 ```
 
 第一张图是原始状态的 DIV，第二张图是旋转后的效果。
@@ -68,11 +68,11 @@ CCS3 中的 Transform 是设置界面样式和动画的一大利器。而且在 
 是不是效果不明显？这是因为镜头离平面太远了，所以旋转效果不明显。现在我们试试 perspective 属性。我们设置 perspect=400px。
 
 ```html
-&lt;div id="animateTest" 
-     style="-webkit-transform: &lt;span style="color: #ff0000;">perspective(400px)&lt;/span> rotateY(40deg);">
-&lt;img src="http://imgcache.qq.com/ptlogin/head/1_100.gif" 
+<div id="animateTest" 
+     style="-webkit-transform: <span style="color: #ff0000;">perspective(400px)</span> rotateY(40deg);">
+<img src="http://imgcache.qq.com/ptlogin/head/1_100.gif" 
      width="100" height="100">
-&lt;/div>
+</div>
 ```
 
 [![](http://www.alloyteam.com/wp-content/uploads/2012/10/image004-300x188.jpg "image004")](http://www.alloyteam.com/wp-content/uploads/2012/10/image004.jpg)
@@ -82,8 +82,8 @@ CCS3 中的 Transform 是设置界面样式和动画的一大利器。而且在 
 不过在 chrome 中发现一个问题，那就是 perspective 一定要在 rotateY（或 rotateX）的前面。如果代码写成下面的情况，perspective 的设置会无效。
 
 ```html
-&lt;div id="animateTest" 
-     style="-webkit-transform: &lt;span style="color: #ff0000;">rotateY(40deg) perspective(400px);&lt;/span>">
+<div id="animateTest" 
+     style="-webkit-transform: <span style="color: #ff0000;">rotateY(40deg) perspective(400px);</span>">
 ```
 
 在 FireFox 中也是这种情况。

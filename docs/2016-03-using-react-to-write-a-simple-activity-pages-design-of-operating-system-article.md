@@ -161,12 +161,12 @@ addAge = () => {
 };
 render: () => {
     return (
-        &lt;div>
-                          名字：&lt;div>{this.state.name} &lt;/div> 
-                        年龄：&lt;div>{this.state.age} &lt;/div>                     
-                        &lt;button onClick={this.addAge}>点击加一岁&lt;/button>
+        <div>
+                          名字：<div>{this.state.name} </div> 
+                        年龄：<div>{this.state.age} </div>                     
+                        <button onClick={this.addAge}>点击加一岁</button>
                                               
-        &lt;/div>
+        </div>
     );
 };
 ```
@@ -245,13 +245,13 @@ function withSnackbar(ComposedComponent) {
         // ...
         render() {
             return (
-                &lt;div>
+                <div>
                               
-                    &lt;ComposedComponent {...this.props} />
+                    <ComposedComponent {...this.props} />
                               
-                    &lt;Snackbar {...this.state} />
+                    <Snackbar {...this.state} />
                             
-                &lt;/div>
+                </div>
             );
         }
     };

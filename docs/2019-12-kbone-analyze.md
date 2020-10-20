@@ -208,7 +208,7 @@ export default function createApp() {
         const container = document.createElement("div");
         container.id = "pages";
         document.body.appendChild(container);
-        render(&lt;Root />, container);
+        render(<Root />, container);
     });
 }
 ```
@@ -224,7 +224,7 @@ this.$_userAgent = `${this.appCodeName}/${appVersion} (${platformContext}) Apple
 
 ```javascript
 if (!process.env.isWxMiniProgram) {
-    render(&lt;Root />, document.getElementById("pages"));
+    render(<Root />, document.getElementById("pages"));
 }
 ```
 

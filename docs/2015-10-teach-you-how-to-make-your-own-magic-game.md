@@ -67,13 +67,13 @@ var leftArr = [120, 80, 40, 0, 40, 80, 120];
 function randomBlock() {
     var r1, r2;
     r1 = Math.random() * 10;
-    if (r1 &lt; 1) {
+    if (r1 < 1) {
         new BlockPanel(0);
     } else {
         r2 = Math.random() * 10;
-        if (r2 &lt; 2) {
+        if (r2 < 2) {
             new BlockPanel(1);
-        } else if (r2 &lt; 6) {
+        } else if (r2 < 6) {
             new BlockPanel(2);
         } else {
             new BlockPanel(3);
@@ -131,7 +131,7 @@ d、当六边形中有一边全部插入节点，消失并加分
 检测的实现代码在 441~549 行，先关注一下 446 行代码
 
 ```c
-if(Math.abs(panelY - yCenterArr[i]) &lt; 10) {
+if(Math.abs(panelY - yCenterArr[i]) < 10) {
     ……
 }
 ```

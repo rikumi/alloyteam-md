@@ -74,10 +74,10 @@ let header = readBytes(pngBuffer, 0, 8); // [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A,
 function readInt32(buffer, offset) {
     offset = offset || 0;
     return (
-        (buffer[offset] &lt;&lt; 24) +
-        (buffer[offset + 1] &lt;&lt; 16) +
-        (buffer[offset + 2] &lt;&lt; 8) +
-        (buffer[offset + 3] &lt;&lt; 0)
+        (buffer[offset] << 24) +
+        (buffer[offset + 1] << 16) +
+        (buffer[offset + 2] << 8) +
+        (buffer[offset + 3] << 0)
     );
 }
 let length = readInt32(readBytes(4)); // 数据块内容长度
@@ -92,7 +92,7 @@ let crc = readBytes(4); // crc冗余校验码
 // 将buffer数组转为字符串
 function bufferToString(buffer) {
     let str = "";
-    for (let i = 0, len = buffer.length; i &lt; len; i++) {
+    for (let i = 0, len = buffer.length; i < len; i++) {
         str += String.fromCharCode(buffer[i]);
     }
     return str;
@@ -187,7 +187,7 @@ data = zlib.inflateSync(new Buffer(data));
 // 读取8位无符号整型数
 function readInt8(buffer, offset) {
     offset = offset || 0;
-    return buffer[offset] &lt;&lt; 0;
+    return buffer[offset] << 0;
 }
 let width; // 解析IHDR数据块时得到的图像宽度
 let height; // 解析IHDR数据块时得到的图像高度
@@ -198,7 +198,7 @@ let bytesPerRow = bytesPerPixel * width; // 每行字节数
 let pixelsBuffer = new Buffer(bytesPerPixel * width * height); // 存储过滤后的像素数据
 let offset = 0; // 当前行的偏移位置
 // 逐行扫描解析
-for (let i = 0, len = data.length; i &lt; len; i += bytesPerRow + 1) {
+for (let i = 0, len = data.length; i < len; i += bytesPerRow + 1) {
     let scanline = Array.prototype.slice.call(data, i + 1, i + 1 + bytesPerRow); // 当前行
     let args = [scanline, bytesPerPixel, bytesPerRow, offset]; // 第一个字节代表过滤类型
     switch (readInt8(data, i)) {
@@ -257,7 +257,7 @@ png 为什么要对图像数据进行过滤呢？
 
 ```javascript
 function filterNone(scanline, bytesPerPixel, bytesPerRow, offset) {
-    for (let i = 0; i &lt; bytesPerRow; i++) {
+    for (let i = 0; i < bytesPerRow; i++) {
         pixelsBuffer[offset + i] = scanline[i];
     }
 }
@@ -269,8 +269,8 @@ function filterNone(scanline, bytesPerPixel, bytesPerRow, offset) {
 
 ```javascript
 function filterSub(scanline, bytesPerPixel, bytesPerRow, offset) {
-    for (let i = 0; i &lt; bytesPerRow; i++) {
-        if (i &lt; bytesPerPixel) {
+    for (let i = 0; i < bytesPerRow; i++) {
+        if (i < bytesPerPixel) {
             // 第一个像素，不作解析
             pixelsBuffer[offset + i] = scanline[i];
         } else {
@@ -289,13 +289,13 @@ function filterSub(scanline, bytesPerPixel, bytesPerRow, offset) {
 
 ```javascript
 function filterUp(scanline, bytesPerPixel, bytesPerRow, offset) {
-    if (offset &lt; bytesPerRow) {
+    if (offset < bytesPerRow) {
         // 第一行，不作解析
-        for (let i = 0; i &lt; bytesPerRow; i++) {
+        for (let i = 0; i < bytesPerRow; i++) {
             pixelsBuffer[offset + i] = scanline[i];
         }
     } else {
-        for (let i = 0; i &lt; bytesPerRow; i++) {
+        for (let i = 0; i < bytesPerRow; i++) {
             let b = pixelsBuffer[offset + i - bytesPerRow];
             let value = scanline[i] + b;
             pixelsBuffer[offset + i] = value & 0xff;
@@ -313,10 +313,10 @@ function filterUp(scanline, bytesPerPixel, bytesPerRow, offset) {
 
 ```javascript
 function filterAverage(scanline, bytesPerPixel, bytesPerRow, offset) {
-    if (offset &lt; bytesPerRow) {
+    if (offset < bytesPerRow) {
         // 第一行，只做Sub
-        for (let i = 0; i &lt; bytesPerRow; i++) {
-            if (i &lt; bytesPerPixel) {
+        for (let i = 0; i < bytesPerRow; i++) {
+            if (i < bytesPerPixel) {
                 // 第一个像素，不作解析
                 pixelsBuffer[offset + i] = scanline[i];
             } else {
@@ -327,8 +327,8 @@ function filterAverage(scanline, bytesPerPixel, bytesPerRow, offset) {
             }
         }
     } else {
-        for (let i = 0; i &lt; bytesPerRow; i++) {
-            if (i &lt; bytesPerPixel) {
+        for (let i = 0; i < bytesPerRow; i++) {
+            if (i < bytesPerPixel) {
                 // 第一个像素，只做Up
                 let b = pixelsBuffer[offset + i - bytesPerRow];
                 let value = scanline[i] + (b >> 1); // 需要除以2
@@ -354,8 +354,8 @@ p = a + b - c
 pa = abs(p - a)
 pb = abs(p - b)
 pc = abs(p - c)
-if pa &lt;= pb and pa &lt;= pc then Pr = a
-else if pb &lt;= pc then Pr = b
+if pa <= pb and pa <= pc then Pr = a
+else if pb <= pc then Pr = b
 else Pr = c
 return Pr
  
@@ -366,10 +366,10 @@ return Pr
 
 ```javascript
 function filterPaeth(scanline, bytesPerPixel, bytesPerRow, offset) {
-    if (offset &lt; bytesPerRow) {
+    if (offset < bytesPerRow) {
         // 第一行，只做Sub
-        for (let i = 0; i &lt; bytesPerRow; i++) {
-            if (i &lt; bytesPerPixel) {
+        for (let i = 0; i < bytesPerRow; i++) {
+            if (i < bytesPerPixel) {
                 // 第一个像素，不作解析
                 pixelsBuffer[offset + i] = scanline[i];
             } else {
@@ -380,8 +380,8 @@ function filterPaeth(scanline, bytesPerPixel, bytesPerRow, offset) {
             }
         }
     } else {
-        for (let i = 0; i &lt; bytesPerRow; i++) {
-            if (i &lt; bytesPerPixel) {
+        for (let i = 0; i < bytesPerRow; i++) {
+            if (i < bytesPerPixel) {
                 // 第一个像素，只做Up
                 let b = pixelsBuffer[offset + i - bytesPerRow];
                 let value = scanline[i] + b;
@@ -396,8 +396,8 @@ function filterPaeth(scanline, bytesPerPixel, bytesPerRow, offset) {
                 let pb = Math.abs(p - b);
                 let pc = Math.abs(p - c);
                 let pr;
-                if (pa &lt;= pb && pa &lt;= pc) pr = a;
-                else if (pb &lt;= pc) pr = b;
+                if (pa <= pb && pa <= pc) pr = a;
+                else if (pb <= pc) pr = b;
                 else pr = c;
                 let value = scanline[i] + pr;
                 pixelsBuffer[offset + i] = value & 0xff;
@@ -416,7 +416,7 @@ let palette; // PLTE数据块内容，即调色板内容
 let colorType; // 解析IHDR数据块时得到的颜色类型
 let transparentPanel; // 透明像素面板，解析tRNS数据块获得
 function getPixel(x, y) {
-    if (x &lt; 0 || x >= width || y &lt; 0 || y >= height) {
+    if (x < 0 || x >= width || y < 0 || y >= height) {
         throw new Error("x或y的值超出了图像边界！");
     }
     let bytesPerPixel = Math.max(1, (colors * bitDepth) / 8); // 每像素字节数

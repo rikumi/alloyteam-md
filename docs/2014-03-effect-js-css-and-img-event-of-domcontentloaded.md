@@ -30,7 +30,7 @@ source_link: http://www.alloyteam.com/2014/03/effect-js-css-and-img-event-of-dom
 接下来看看 [MDN 上有关 DOMContentLoaded 事件的文档](https://developer.mozilla.org/en-US/docs/Web/Reference/Events/DOMContentLoaded)：
 
 > The DOMContentLoaded event is fired when the document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading  
-> Note: Stylesheet loads block script execution, so if you have a `&lt;script>` after a `&lt;link rel="stylesheet" ...>`, the page will not finish parsing - and DOMContentLoaded will not fire - until the stylesheet is loaded.
+> Note: Stylesheet loads block script execution, so if you have a `<script>` after a `<link rel="stylesheet" ...>`, the page will not finish parsing - and DOMContentLoaded will not fire - until the stylesheet is loaded.
 
 这么看来，至少可以得出这么一个理论：DOMContentLoaded 事件本身不会等待 CSS 文件、图片、iframe 加载完成。  
 它的触发时机是：加载完页面，解析完所有标签（不包括执行 CSS 和 JS），并如规范中所说的设置 `interactive` 和执行每个静态的 script 标签中的 JS，然后触发。  
@@ -43,18 +43,18 @@ source_link: http://www.alloyteam.com/2014/03/effect-js-css-and-img-event-of-dom
 index.html:
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html lang="zh-CN">
-&lt;head>
-    &lt;meta charset="UTF-8">
-    &lt;title>&lt;/title>
-    &lt;link rel="stylesheet" type="text/css" href="./css/main.css">
-&lt;/head>
-&lt;body>
-    &lt;p>Content&lt;/p>
-    &lt;img src="./img/chrome-girl.jpg">
-&lt;/body>
-&lt;/html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<body>
+    <p>Content</p>
+    <img src="./img/chrome-girl.jpg">
+</body>
+</html>
 ```
 
 [![71fca778-a249-11e3-8824-2aae4440c857](http://www.alloyteam.com/wp-content/uploads/2014/03/71fca778-a249-11e3-8824-2aae4440c857.png)](http://www.alloyteam.com/wp-content/uploads/2014/03/71fca778-a249-11e3-8824-2aae4440c857.png)  
@@ -69,28 +69,28 @@ Chrome 开发者工具的 Timeline 面板可以帮我们记录下浏览器的一
 index.html:
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html lang="zh-CN">
-&lt;head>
-    &lt;meta charset="UTF-8">
-    &lt;title>&lt;/title>
-    &lt;script type="text/javascript">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
         console.timeStamp('Inline script before link in head');
         window.addEventListener('DOMContentLoaded', function(){
             console.timeStamp('DOMContentLoaded event');
         });
-    &lt;/script>
-    &lt;link rel="stylesheet" type="text/css" href="./css/main.css">
-    &lt;script type="text/javascript">
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <script type="text/javascript">
         console.timeStamp('Inline script after link in head');
-    &lt;/script>
-&lt;/head>
-&lt;body>
-    &lt;p>Content&lt;/p>
-    &lt;img src="./img/chrome-girl.jpg">
-    &lt;script type="text/javascript" src="./js/main.js">&lt;/script>
-&lt;/body>
-&lt;/html>
+    </script>
+</head>
+<body>
+    <p>Content</p>
+    <img src="./img/chrome-girl.jpg">
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
+</html>
 ```
 
 main.js:
@@ -142,24 +142,24 @@ main.js:
 图八对应的代码：
 
 ```html
-&lt;!DOCTYPE html>
-&lt;html lang="zh-CN">
-&lt;head>
-    &lt;meta charset="UTF-8">
-    &lt;title>&lt;/title>
-    &lt;script type="text/javascript">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
         console.timeStamp('Inline script in head');
         window.addEventListener('DOMContentLoaded', function(){
             console.timeStamp('DOMContentLoaded event');
         });
-    &lt;/script>
-&lt;/head>
-&lt;body>
-    &lt;p>Content&lt;/p>
-    &lt;img src="./img/chrome-girl.jpg">
-    &lt;script type="text/javascript" src="./js/main.js">&lt;/script>
-&lt;/body>
-&lt;/html>
+    </script>
+</head>
+<body>
+    <p>Content</p>
+    <img src="./img/chrome-girl.jpg">
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
+</html>
 ```
 
 非常令人惊讶，在有 JS 而没有 CSS 的页面中，img 居然能够在收到数据后就立刻开始解码、绘图（paint)，也就是说，JS 并没有阻塞 img 的展现！这跟我们以前理解的 JS 会阻塞 img 资源的传统观念不太一样，看来 Chrome 对 img 的加载和展现做了新的优化。

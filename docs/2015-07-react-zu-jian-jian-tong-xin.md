@@ -70,19 +70,19 @@ var StudentScoreTable = React.createClass({
     },
     render: function () {
         return (
-            &lt;div>
+            <div>
                               {" "}
-                &lt;GenderFilter
+                <GenderFilter
                     onGenderChange={this.onGenderChange}
                     genderFilter={this.state.genderFilter}
                 />
                               {" "}
-                &lt;NameFilter
+                <NameFilter
                     onNameChange={this.onNameChange}
                     nameFilter={this.state.nameFilter}
                 />
                               {" "}
-                &lt;ScoreTable
+                <ScoreTable
                     scoreNotes={this.state.data}
                     genderFilter={this.state.genderFilter}
                     nameFilter={this.state.nameFilter}
@@ -90,7 +90,7 @@ var StudentScoreTable = React.createClass({
                     modifyItem={this.onModify}
                 />
                           {" "}
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -100,24 +100,24 @@ var GenderFilter = React.createClass({
     },
     render: function () {
         return (
-            &lt;div className="condition-item">
+            <div className="condition-item">
                                 
-                &lt;label>
-                                        &lt;span>按性别筛选&lt;/span>
+                <label>
+                                        <span>按性别筛选</span>
                                         
-                    &lt;select
+                    <select
                         onChange={this.genderChangeHandler}
                         ref="genderFilter"
                     >
-                                                &lt;option value="0">All&lt;/option>
-                                                &lt;option value="1">男生&lt;/option>
-                                                &lt;option value="2">女生&lt;/option>
+                                                <option value="0">All</option>
+                                                <option value="1">男生</option>
+                                                <option value="2">女生</option>
                                             
-                    &lt;/select>
+                    </select>
                                     
-                &lt;/label>
+                </label>
                             
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -127,21 +127,21 @@ var NameFilter = React.createClass({
     },
     render: function () {
         return (
-            &lt;div className="condition-item">
+            <div className="condition-item">
                                 
-                &lt;label>
-                                        &lt;span>按姓名筛选&lt;/span>
+                <label>
+                                        <span>按姓名筛选</span>
                                         
-                    &lt;input
+                    <input
                         type="text"
                         ref="nameFilter"
                         onChange={this.nameChangeHandler}
                         value={this.props.nameFilter}
                     />
                                     
-                &lt;/label>
+                </label>
                             
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -164,7 +164,7 @@ var ScoreTable = React.createClass({
                 if (GENDER[genderFilter] === scoreItem.gender) {
                     !scoreItem.deleteFlag &&
                         scoreNotes.push(
-                            &lt;ScoreItem
+                            <ScoreItem
                                 score={scoreItem}
                                 onDelete={_this.deleteItemHandler}
                                 onModify={_this.modifyItem}
@@ -178,7 +178,7 @@ var ScoreTable = React.createClass({
                 if (scoreItem.name === nameFilter) {
                     !scoreItem.deleteFlag &&
                         scoreNotes.push(
-                            &lt;ScoreItem
+                            <ScoreItem
                                 score={scoreItem}
                                 onDelete={_this.deleteItemHandler}
                                 onModify={_this.modifyItem}
@@ -195,7 +195,7 @@ var ScoreTable = React.createClass({
                 ) {
                     !scoreItem.deleteFlag &&
                         scoreNotes.push(
-                            &lt;ScoreItem
+                            <ScoreItem
                                 score={scoreItem}
                                 onDelete={_this.deleteItemHandler}
                                 onModify={_this.modifyItem}
@@ -206,7 +206,7 @@ var ScoreTable = React.createClass({
             }
             !scoreItem.deleteFlag &&
                 scoreNotes.push(
-                    &lt;ScoreItem
+                    <ScoreItem
                         score={scoreItem}
                         onDelete={_this.deleteItemHandler}
                         onModify={_this.modifyItem}
@@ -214,27 +214,27 @@ var ScoreTable = React.createClass({
                 );
         });
         return (
-            &lt;table>
+            <table>
                                 
-                &lt;thead>
+                <thead>
                                         
-                    &lt;tr>
-                                                &lt;th>姓名&lt;/th>
-                                                &lt;th>性别&lt;/th>
-                                                &lt;th>语文&lt;/th>
-                                                &lt;th>数学&lt;/th>
-                                                &lt;th>操作&lt;/th>
+                    <tr>
+                                                <th>姓名</th>
+                                                <th>性别</th>
+                                                <th>语文</th>
+                                                <th>数学</th>
+                                                <th>操作</th>
                                             
-                    &lt;/tr>
+                    </tr>
                                     
-                &lt;/thead>
+                </thead>
                                 
-                &lt;tbody>
+                <tbody>
                                         {scoreNotes}
                                     
-                &lt;/tbody>
+                </tbody>
                             
-            &lt;/table>
+            </table>
         );
     },
 });
@@ -248,42 +248,42 @@ var ScoreItem = React.createClass({
     render: function () {
         var score = this.props.score;
         return (
-            &lt;tr>
-                                &lt;td>{score.name}&lt;/td>
-                                &lt;td>{score.gender}&lt;/td>
-                                &lt;td>{score.chinese}&lt;/td>
-                                &lt;td>{score.math}&lt;/td>
+            <tr>
+                                <td>{score.name}</td>
+                                <td>{score.gender}</td>
+                                <td>{score.chinese}</td>
+                                <td>{score.math}</td>
                                 
-                &lt;td>
-                    &lt;span className="trigger" onClick={this.modifyHandler}>
+                <td>
+                    <span className="trigger" onClick={this.modifyHandler}>
                         修改
-                    &lt;/span>
-                    &lt;span className="trigger" onClick={this.deleteHandler}>
+                    </span>
+                    <span className="trigger" onClick={this.deleteHandler}>
                         删除
-                    &lt;/span>
-                &lt;/td>
+                    </span>
+                </td>
                             
-            &lt;/tr>
+            </tr>
         );
     },
 });
-React.render(&lt;StudentScoreTable />, document.querySelector(".j-score"));
+React.render(<StudentScoreTable />, document.querySelector(".j-score"));
 ```
 
 当然，功能都是实现了。但我却感觉非常不舒服。首先，让我们来看看数据在这些组件间是怎么通信的（数据怎么在这些组件间传递的）。StudentScoreTable 拥有数据模型，由于这些数据会变，所以使用 state 储存。为了让数据能够传到其子组件，使用了 props，如：
 
 ```c
-&lt;div>
-               &lt;GenderFilter onGenderChange={this.onGenderChange} genderFilter={this.state.genderFilter}/>
-               &lt;NameFilter onNameChange={this.onNameChange} nameFilter={this.state.nameFilter}/>
-               &lt;ScoreTable
+<div>
+               <GenderFilter onGenderChange={this.onGenderChange} genderFilter={this.state.genderFilter}/>
+               <NameFilter onNameChange={this.onNameChange} nameFilter={this.state.nameFilter}/>
+               <ScoreTable
                     scoreNotes={this.state.data}
                     genderFilter={this.state.genderFilter}
                     nameFilter={this.state.nameFilter}
                     deleteScoreItem={this.onDeleteScoreItem}
                     modifyItem={this.onModify}
                />
-           &lt;/div>
+           </div>
 ```
 
 再往下看，就会知道，整个数据从 StudentScoreTable 到其包含的组件，都是使用 props 一层一层传下去的。当 ScoreItem 删除时，为了使用 StudentScoreTable 能够感知到，还利用 props 建立了一个事件传递链接：
@@ -334,13 +334,13 @@ StudentScoreTable = React.createClass({
     },
     render: function () {
         return (
-            &lt;div>
+            <div>
                               {" "}
-                &lt;GenderFilter genderFilter={this.state.genderFilter} />
-                               &lt;NameFilter nameFilter={this.state.nameFilter} />
-                               &lt;ScoreTable scoreNotes={this.state.data} />
+                <GenderFilter genderFilter={this.state.genderFilter} />
+                               <NameFilter nameFilter={this.state.nameFilter} />
+                               <ScoreTable scoreNotes={this.state.data} />
                           {" "}
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -356,24 +356,24 @@ GenderFilter = React.createClass({
     },
     render: function () {
         return (
-            &lt;div className="condition-item">
+            <div className="condition-item">
                                 
-                &lt;label>
-                                        &lt;span>按性别筛选&lt;/span>
+                <label>
+                                        <span>按性别筛选</span>
                                         
-                    &lt;select
+                    <select
                         onChange={this.genderChangeHandler}
                         ref="genderFilter"
                     >
-                                                &lt;option value="0">All&lt;/option>
-                                                &lt;option value="1">男生&lt;/option>
-                                                &lt;option value="2">女生&lt;/option>
+                                                <option value="0">All</option>
+                                                <option value="1">男生</option>
+                                                <option value="2">女生</option>
                                             
-                    &lt;/select>
+                    </select>
                                     
-                &lt;/label>
+                </label>
                             
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -389,21 +389,21 @@ NameFilter = React.createClass({
     },
     render: function () {
         return (
-            &lt;div className="condition-item">
+            <div className="condition-item">
                                 
-                &lt;label>
-                                        &lt;span>按姓名筛选&lt;/span>
+                <label>
+                                        <span>按姓名筛选</span>
                                         
-                    &lt;input
+                    <input
                         type="text"
                         ref="nameFilter"
                         onChange={this.nameChangeHandler}
                         value={this.props.nameFilter}
                     />
                                     
-                &lt;/label>
+                </label>
                             
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -419,7 +419,7 @@ ScoreTable = React.createClass({
                 // 仅genderfilter生效
                 if (GENDER[genderFilter] === scoreItem.gender) {
                     !scoreItem.deleteFlag &&
-                        scoreNotes.push(&lt;ScoreItem score={scoreItem} />);
+                        scoreNotes.push(<ScoreItem score={scoreItem} />);
                 }
                 return;
             }
@@ -427,7 +427,7 @@ ScoreTable = React.createClass({
                 // 仅nameFilter生效
                 if (scoreItem.name === nameFilter) {
                     !scoreItem.deleteFlag &&
-                        scoreNotes.push(&lt;ScoreItem score={scoreItem} />);
+                        scoreNotes.push(<ScoreItem score={scoreItem} />);
                 }
                 return;
             }
@@ -438,35 +438,35 @@ ScoreTable = React.createClass({
                     scoreItem.name === nameFilter
                 ) {
                     !scoreItem.deleteFlag &&
-                        scoreNotes.push(&lt;ScoreItem score={scoreItem} />);
+                        scoreNotes.push(<ScoreItem score={scoreItem} />);
                 }
                 return;
             }
             !scoreItem.deleteFlag &&
-                scoreNotes.push(&lt;ScoreItem score={scoreItem} />);
+                scoreNotes.push(<ScoreItem score={scoreItem} />);
         });
         return (
-            &lt;table>
+            <table>
                                 
-                &lt;thead>
+                <thead>
                                         
-                    &lt;tr>
-                                                &lt;th>姓名&lt;/th>
-                                                &lt;th>性别&lt;/th>
-                                                &lt;th>语文&lt;/th>
-                                                &lt;th>数学&lt;/th>
-                                                &lt;th>操作&lt;/th>
+                    <tr>
+                                                <th>姓名</th>
+                                                <th>性别</th>
+                                                <th>语文</th>
+                                                <th>数学</th>
+                                                <th>操作</th>
                                             
-                    &lt;/tr>
+                    </tr>
                                     
-                &lt;/thead>
+                </thead>
                                 
-                &lt;tbody>
+                <tbody>
                                         {scoreNotes}
                                     
-                &lt;/tbody>
+                </tbody>
                             
-            &lt;/table>
+            </table>
         );
     },
 });
@@ -481,24 +481,24 @@ ScoreItem = React.createClass({
     render: function () {
         var score = this.props.score;
         return (
-            &lt;tr>
-                                &lt;td>{score.name}&lt;/td>
-                                &lt;td>{score.gender}&lt;/td>
-                                &lt;td>{score.chinese}&lt;/td>
-                                &lt;td>{score.math}&lt;/td>
+            <tr>
+                                <td>{score.name}</td>
+                                <td>{score.gender}</td>
+                                <td>{score.chinese}</td>
+                                <td>{score.math}</td>
                                 
-                &lt;td>
-                    &lt;span className="trigger">修改&lt;/span>
-                    &lt;span className="trigger" onClick={this.deleteHandler}>
+                <td>
+                    <span className="trigger">修改</span>
+                    <span className="trigger" onClick={this.deleteHandler}>
                         删除
-                    &lt;/span>
-                &lt;/td>
+                    </span>
+                </td>
                             
-            &lt;/tr>
+            </tr>
         );
     },
 });
-React.render(&lt;StudentScoreTable />, document.querySelector(".j-score"));
+React.render(<StudentScoreTable />, document.querySelector(".j-score"));
 ```
 
 这主要的变化就是要通信的两个组件，直接通过其组件句柄去直接访问其方法，没有了中间环节，代码也简洁了很多。
@@ -555,13 +555,13 @@ StudentScoreTable = React.createClass({
     },
     render: function () {
         return (
-            &lt;div>
+            <div>
                               {" "}
-                &lt;GenderFilter genderFilter={this.state.genderFilter} />
-                               &lt;NameFilter nameFilter={this.state.nameFilter} />
-                               &lt;ScoreTable scoreNotes={this.state.data} />
+                <GenderFilter genderFilter={this.state.genderFilter} />
+                               <NameFilter nameFilter={this.state.nameFilter} />
+                               <ScoreTable scoreNotes={this.state.data} />
                           {" "}
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -575,24 +575,24 @@ GenderFilter = React.createClass({
     },
     render: function () {
         return (
-            &lt;div className="condition-item">
+            <div className="condition-item">
                                 
-                &lt;label>
-                                        &lt;span>按性别筛选&lt;/span>
+                <label>
+                                        <span>按性别筛选</span>
                                         
-                    &lt;select
+                    <select
                         onChange={this.genderChangeHandler}
                         ref="genderFilter"
                     >
-                                                &lt;option value="0">All&lt;/option>
-                                                &lt;option value="1">男生&lt;/option>
-                                                &lt;option value="2">女生&lt;/option>
+                                                <option value="0">All</option>
+                                                <option value="1">男生</option>
+                                                <option value="2">女生</option>
                                             
-                    &lt;/select>
+                    </select>
                                     
-                &lt;/label>
+                </label>
                             
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -605,21 +605,21 @@ NameFilter = React.createClass({
     },
     render: function () {
         return (
-            &lt;div className="condition-item">
+            <div className="condition-item">
                                 
-                &lt;label>
-                                        &lt;span>按姓名筛选&lt;/span>
+                <label>
+                                        <span>按姓名筛选</span>
                                         
-                    &lt;input
+                    <input
                         type="text"
                         ref="nameFilter"
                         onChange={this.nameChangeHandler}
                         value={this.props.nameFilter}
                     />
                                     
-                &lt;/label>
+                </label>
                             
-            &lt;/div>
+            </div>
         );
     },
 });
@@ -635,7 +635,7 @@ ScoreTable = React.createClass({
                 // 仅genderfilter生效
                 if (GENDER[genderFilter] === scoreItem.gender) {
                     !scoreItem.deleteFlag &&
-                        scoreNotes.push(&lt;ScoreItem score={scoreItem} />);
+                        scoreNotes.push(<ScoreItem score={scoreItem} />);
                 }
                 return;
             }
@@ -643,7 +643,7 @@ ScoreTable = React.createClass({
                 // 仅nameFilter生效
                 if (scoreItem.name === nameFilter) {
                     !scoreItem.deleteFlag &&
-                        scoreNotes.push(&lt;ScoreItem score={scoreItem} />);
+                        scoreNotes.push(<ScoreItem score={scoreItem} />);
                 }
                 return;
             }
@@ -654,35 +654,35 @@ ScoreTable = React.createClass({
                     scoreItem.name === nameFilter
                 ) {
                     !scoreItem.deleteFlag &&
-                        scoreNotes.push(&lt;ScoreItem score={scoreItem} />);
+                        scoreNotes.push(<ScoreItem score={scoreItem} />);
                 }
                 return;
             }
             !scoreItem.deleteFlag &&
-                scoreNotes.push(&lt;ScoreItem score={scoreItem} />);
+                scoreNotes.push(<ScoreItem score={scoreItem} />);
         });
         return (
-            &lt;table>
+            <table>
                                 
-                &lt;thead>
+                <thead>
                                         
-                    &lt;tr>
-                                                &lt;th>姓名&lt;/th>
-                                                &lt;th>性别&lt;/th>
-                                                &lt;th>语文&lt;/th>
-                                                &lt;th>数学&lt;/th>
-                                                &lt;th>操作&lt;/th>
+                    <tr>
+                                                <th>姓名</th>
+                                                <th>性别</th>
+                                                <th>语文</th>
+                                                <th>数学</th>
+                                                <th>操作</th>
                                             
-                    &lt;/tr>
+                    </tr>
                                     
-                &lt;/thead>
+                </thead>
                                 
-                &lt;tbody>
+                <tbody>
                                         {scoreNotes}
                                     
-                &lt;/tbody>
+                </tbody>
                             
-            &lt;/table>
+            </table>
         );
     },
 });
@@ -693,24 +693,24 @@ ScoreItem = React.createClass({
     render: function () {
         var score = this.props.score;
         return (
-            &lt;tr>
-                                &lt;td>{score.name}&lt;/td>
-                                &lt;td>{score.gender}&lt;/td>
-                                &lt;td>{score.chinese}&lt;/td>
-                                &lt;td>{score.math}&lt;/td>
+            <tr>
+                                <td>{score.name}</td>
+                                <td>{score.gender}</td>
+                                <td>{score.chinese}</td>
+                                <td>{score.math}</td>
                                 
-                &lt;td>
-                    &lt;span className="trigger">修改&lt;/span>
-                    &lt;span className="trigger" onClick={this.deleteHandler}>
+                <td>
+                    <span className="trigger">修改</span>
+                    <span className="trigger" onClick={this.deleteHandler}>
                         删除
-                    &lt;/span>
-                &lt;/td>
+                    </span>
+                </td>
                             
-            &lt;/tr>
+            </tr>
         );
     },
 });
-React.render(&lt;StudentScoreTable />, document.querySelector(".j-score"));
+React.render(<StudentScoreTable />, document.querySelector(".j-score"));
 ```
 
 在使用 PubSub 后，代码就更清晰明了，而且大家都知道，PubSub 有助于解藕，这非常有助于组织代码结构。

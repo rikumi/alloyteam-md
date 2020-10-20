@@ -21,8 +21,8 @@ function createCircle() {// 创建解锁点的坐标，根据canvas的大小来�
         arr = [];
         restPoint = [];
         r = ctx.canvas.width / (2 + 4 * n);// 公式计算 半径和canvas的大小有关
-        for (var i = 0 ; i &lt; n ; i++) {
-            for (var j = 0 ; j &lt; n ; j++) {
+        for (var i = 0 ; i < n ; i++) {
+            for (var j = 0 ; j < n ; j++) {
                 arr.push({
                     x: j * 4 * r + 3 * r,
                     y: i * 4 * r + 3 * r
@@ -46,10 +46,10 @@ function bindEvent() {
         function (e) {
             var po = getPosition(e);
             console.log(po);
-            for (var i = 0; i &lt; arr.length; i++) {
+            for (var i = 0; i < arr.length; i++) {
                 if (
-                    Math.abs(po.x - arr[i].x) &lt; r &&
-                    Math.abs(po.y - arr[i].y) &lt; r
+                    Math.abs(po.x - arr[i].x) < r &&
+                    Math.abs(po.y - arr[i].y) < r
                 ) {
                     // 用来判断起始点是否在圈圈内部
                     touchFlag = true;
@@ -93,16 +93,16 @@ function bindEvent() {
 function update(po) {
     // 核心变换方法在touchmove时候调用
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    for (var i = 0; i &lt; arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
         // 每帧先把面板画出来
         drawCle(arr[i].x, arr[i].y);
     }
     drawPoint(lastPoint); // 每帧花轨迹
     drawLine(po, lastPoint); // 每帧画圆心
-    for (var i = 0; i &lt; restPoint.length; i++) {
+    for (var i = 0; i < restPoint.length; i++) {
         if (
-            Math.abs(po.x - restPoint[i].x) &lt; r &&
-            Math.abs(po.y - restPoint[i].y) &lt; r
+            Math.abs(po.x - restPoint[i].x) < r &&
+            Math.abs(po.y - restPoint[i].y) < r
         ) {
             drawPoint(restPoint[i].x, restPoint[i].y);
             lastPoint.push(restPoint[i]);

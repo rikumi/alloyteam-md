@@ -27,15 +27,15 @@ Rosin 是一个 Fiddler 插件，协助开发者进行移动端页面开发调�
 -   将 log 存储到本地 `D:Program Files (x86)Fiddler2ScriptsRosinLog`
 
 ```html
-            add: &lt;span class="keyword">function&lt;/span>() {
-            &lt;span class="keyword">Array&lt;/span>.prototype.push.apply(&lt;span class="keyword">this&lt;/span>._queueArr, arguments);
-            &lt;span class="comment">// 定时发送消息&lt;/span>
+            add: <span class="keyword">function</span>() {
+            <span class="keyword">Array</span>.prototype.push.apply(<span class="keyword">this</span>._queueArr, arguments);
+            <span class="comment">// 定时发送消息</span>
             clock.start();
  
-            &lt;span class="comment">//队列达到阈值就触发上传&lt;/span>
-            &lt;span class="keyword">if&lt;/span> (&lt;span class="keyword">this&lt;/span>._queueArr.length >= THRESHOLD) {
-                &lt;span class="keyword">this&lt;/span>._post(&lt;span class="keyword">this&lt;/span>._queueArr.splice(&lt;span class="number">0&lt;/span>, &lt;span class="keyword">this&lt;/span>._queueArr.length));
-                &lt;span class="keyword">return&lt;/span>;
+            <span class="comment">//队列达到阈值就触发上传</span>
+            <span class="keyword">if</span> (<span class="keyword">this</span>._queueArr.length >= THRESHOLD) {
+                <span class="keyword">this</span>._post(<span class="keyword">this</span>._queueArr.splice(<span class="number">0</span>, <span class="keyword">this</span>._queueArr.length));
+                <span class="keyword">return</span>;
             }
         }
  
@@ -55,7 +55,7 @@ JSConsole 是一个 JS 命令行调试工具。
 -   在页面中引入脚本
 
 ```html
-&lt;script src="http://jsconsole.com/remote.js?FAE031CD-74A0-46D3-AE36-757BAB262BEA">&lt;/script>;
+<script src="http://jsconsole.com/remote.js?FAE031CD-74A0-46D3-AE36-757BAB262BEA"></script>;
 ```
 
 ##### 原理
@@ -65,23 +65,23 @@ JSConsole 是一个 JS 命令行调试工具。
 -   页面调用 console 等方法时，实际通过 postMessage 是向 iframe 发送了一条消息。
 
 ```html
-        log: &lt;span class="keyword">function&lt;/span> () {
-         &lt;span class="keyword">var&lt;/span> argsObj = stringify(arguments.length == &lt;span class="number">1&lt;/span> ? 
-                  arguments[&lt;span class="number">0&lt;/span>] : [].slice.call(arguments, &lt;span class="number">0&lt;/span>));
+        log: <span class="keyword">function</span> () {
+         <span class="keyword">var</span> argsObj = stringify(arguments.length == <span class="number">1</span> ? 
+                  arguments[<span class="number">0</span>] : [].slice.call(arguments, <span class="number">0</span>));
         ar response = [];
-        [].&lt;span class="keyword">forEach&lt;/span>.call(arguments, &lt;span class="keyword">function&lt;/span> (args) {
-            response.push(stringify(args, &lt;span class="keyword">true&lt;/span>));
+        [].<span class="keyword">forEach</span>.call(arguments, <span class="keyword">function</span> (args) {
+            response.push(stringify(args, <span class="keyword">true</span>));
         });
  
-        &lt;span class="keyword">var&lt;/span> msg = JSON.stringify({ response: response, 
-              cmd: &lt;span class="string">'remote console.log'&lt;/span>, type: msgType });
+        <span class="keyword">var</span> msg = JSON.stringify({ response: response, 
+              cmd: <span class="string">'remote console.log'</span>, type: msgType });
  
-        &lt;span class="keyword">if&lt;/span> (remoteWindow) {
+        <span class="keyword">if</span> (remoteWindow) {
         remoteWindow.postMessage(msg, origin);
-        } &lt;span class="keyword">else&lt;/span> {
+        } <span class="keyword">else</span> {
             queue.push(msg);
         }    
-        msgType = &lt;span class="string">''&lt;/span>;
+        msgType = <span class="string">''</span>;
         }
  
 ```

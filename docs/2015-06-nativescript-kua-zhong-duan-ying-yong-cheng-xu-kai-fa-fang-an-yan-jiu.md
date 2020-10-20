@@ -13,7 +13,7 @@ source_link: http://www.alloyteam.com/2015/06/nativescript-kua-zhong-duan-ying-y
 -   安装 nativescript
 
 ```html
-&lt;span class="variable">$npm&lt;/span> install -g nativescript
+<span class="variable">$npm</span> install -g nativescript
  
 ```
 
@@ -59,13 +59,13 @@ classpath  D:/androidandroid-sdk-windowstoolslib
 然后 命令行运行一下 tns，如果看到以下提示信息，就可以开始第一个开发了。
 
 ```html
-&lt;span class="comment"># NativeScript&lt;/span>
+<span class="comment"># NativeScript</span>
 ┌─────────┬─────────────────────────────
 ───────────────────────────────────┐
 │ Usage   │ Synopsis                                                       │
-│ General │ $ tns &lt;Command> [Command Parameters] [--command &lt;Options>]     │
-│ Alias   │ $ nativescript &lt;Command> [Command Parameters] [--command       │
-│         │ &lt;Options>]                                                     │
+│ General │ $ tns <Command> [Command Parameters] [--command <Options>]     │
+│ Alias   │ $ nativescript <Command> [Command Parameters] [--command       │
+│         │ <Options>]                                                     │
 └─────────┴─────────────────────────────
 ───────────────────────────────────┘
  
@@ -79,23 +79,23 @@ classpath  D:/androidandroid-sdk-windowstoolslib
 $ tns create demo
 $ cd demo
 $ tns platform add andrdoi/ios
-├── app     &lt;span class="comment">// bower dependencies&lt;/span>
-        ├── App_Resources    &lt;span class="comment">// bower dependencies&lt;/span>
-                        ├── Android  &lt;span class="comment">// android项目的drawble静态图片等文件，项目转换的时候直接拷贝到android项目下&lt;/span>
-                        ├── iOS        &lt;span class="comment">//ios项目用到的图片文件&lt;/span>
-        ├── tns_modules    &lt;span class="comment">//tns node模块，可以用来调用移动设备功能&lt;/span>
-        ├── app.css    &lt;span class="comment">// 内部控件样式&lt;/span>
-        ├── app.js    &lt;span class="comment">// 页面配置入口配置&lt;/span>
+├── app     <span class="comment">// bower dependencies</span>
+        ├── App_Resources    <span class="comment">// bower dependencies</span>
+                        ├── Android  <span class="comment">// android项目的drawble静态图片等文件，项目转换的时候直接拷贝到android项目下</span>
+                        ├── iOS        <span class="comment">//ios项目用到的图片文件</span>
+        ├── tns_modules    <span class="comment">//tns node模块，可以用来调用移动设备功能</span>
+        ├── app.css    <span class="comment">// 内部控件样式</span>
+        ├── app.js    <span class="comment">// 页面配置入口配置</span>
         ├── LICENSE
-        ├── main-page.js    &lt;span class="comment">// 页面js文件&lt;/span>
-        ├── main-page.xml    &lt;span class="comment">// 页面布局文件&lt;/span>
-        ├── main-view-model.js    &lt;span class="comment">// vm对象生成文件&lt;/span>
-        ├── package.json    &lt;span class="comment">// bower dependencies&lt;/span>
-├── node_module     &lt;span class="comment">// node插件忽略&lt;/span>
-├── platforms           &lt;span class="comment">// 转换后的移动端平台代码&lt;/span>
-        ├── android           &lt;span class="comment">// 标准的可移植android项目代码&lt;/span>
-        ├── ios                  &lt;span class="comment">//标准的可移植ios项目代码&lt;/span>
-└──package.json           &lt;span class="comment">//项目信息配置文件 &lt;/span>
+        ├── main-page.js    <span class="comment">// 页面js文件</span>
+        ├── main-page.xml    <span class="comment">// 页面布局文件</span>
+        ├── main-view-model.js    <span class="comment">// vm对象生成文件</span>
+        ├── package.json    <span class="comment">// bower dependencies</span>
+├── node_module     <span class="comment">// node插件忽略</span>
+├── platforms           <span class="comment">// 转换后的移动端平台代码</span>
+        ├── android           <span class="comment">// 标准的可移植android项目代码</span>
+        ├── ios                  <span class="comment">//标准的可移植ios项目代码</span>
+└──package.json           <span class="comment">//项目信息配置文件 </span>
  
 ```
 
@@ -118,9 +118,9 @@ $ tns platform add andrdoi/ios
 -   app.js，页面的预处理入口，表示启动 main-page 这个页面
 
 ```html
-&lt;span class="keyword">var&lt;/span> application = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">"application"&lt;/span>);
-application.mainModule = &lt;span class="string">"main-page"&lt;/span>;
-application.cssFile = &lt;span class="string">"./app.css"&lt;/span>;
+<span class="keyword">var</span> application = <span class="keyword">require</span>(<span class="string">"application"</span>);
+application.mainModule = <span class="string">"main-page"</span>;
+application.cssFile = <span class="string">"./app.css"</span>;
 application.start();
  
 ```
@@ -128,9 +128,9 @@ application.start();
 -   main-page.js 页面的数据绑定处理，将 vm 和方法绑定，也可认为是把 vm 和对象关联绑定
 
 ```html
-&lt;span class="keyword">var&lt;/span> vmModule = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">"./main-view-model"&lt;/span>);
-&lt;span class="keyword">function&lt;/span> pageLoaded(args) {
-    &lt;span class="keyword">var&lt;/span> page = args.object;
+<span class="keyword">var</span> vmModule = <span class="keyword">require</span>(<span class="string">"./main-view-model"</span>);
+<span class="keyword">function</span> pageLoaded(args) {
+    <span class="keyword">var</span> page = args.object;
     page.bindingContext = vmModule.mainViewModel;
 }
 exports.pageLoaded = pageLoaded;
@@ -140,36 +140,36 @@ exports.pageLoaded = pageLoaded;
 -   main-view-model.js 页面的 vm 定义模块，申明方法和数据
 
 ```html
-&lt;span class="keyword">var&lt;/span> __&lt;span class="keyword">extends&lt;/span> = &lt;span class="keyword">this&lt;/span>.__&lt;span class="keyword">extends&lt;/span> || &lt;span class="keyword">function&lt;/span> (d, b) {
-    &lt;span class="keyword">for&lt;/span> (&lt;span class="keyword">var&lt;/span> p in b) &lt;span class="keyword">if&lt;/span> (b.hasOwnProperty(p)) d[p] = b[p];
-    &lt;span class="keyword">function&lt;/span> __() { &lt;span class="keyword">this&lt;/span>.constructor = d; }
+<span class="keyword">var</span> __<span class="keyword">extends</span> = <span class="keyword">this</span>.__<span class="keyword">extends</span> || <span class="keyword">function</span> (d, b) {
+    <span class="keyword">for</span> (<span class="keyword">var</span> p in b) <span class="keyword">if</span> (b.hasOwnProperty(p)) d[p] = b[p];
+    <span class="keyword">function</span> __() { <span class="keyword">this</span>.constructor = d; }
     __.prototype = b.prototype;
-    d.prototype = &lt;span class="keyword">new&lt;/span> __();
+    d.prototype = <span class="keyword">new</span> __();
 };
-&lt;span class="keyword">var&lt;/span> observable = &lt;span class="keyword">require&lt;/span>(&lt;span class="string">"data/observable"&lt;/span>);
+<span class="keyword">var</span> observable = <span class="keyword">require</span>(<span class="string">"data/observable"</span>);
  
-&lt;span class="keyword">var&lt;/span> HelloWorldModel = (&lt;span class="keyword">function&lt;/span> (_super) {
-    __&lt;span class="keyword">extends&lt;/span>(HelloWorldModel, _super);
+<span class="keyword">var</span> HelloWorldModel = (<span class="keyword">function</span> (_super) {
+    __<span class="keyword">extends</span>(HelloWorldModel, _super);
  
-    &lt;span class="keyword">function&lt;/span> HelloWorldModel() {
-        _super.call(&lt;span class="keyword">this&lt;/span>);
-        &lt;span class="keyword">this&lt;/span>.counter = &lt;span class="number">42&lt;/span>;
-        &lt;span class="keyword">this&lt;/span>.set(&lt;span class="string">"message"&lt;/span>, &lt;span class="keyword">this&lt;/span>.counter + &lt;span class="string">" taps left"&lt;/span>);
+    <span class="keyword">function</span> HelloWorldModel() {
+        _super.call(<span class="keyword">this</span>);
+        <span class="keyword">this</span>.counter = <span class="number">42</span>;
+        <span class="keyword">this</span>.set(<span class="string">"message"</span>, <span class="keyword">this</span>.counter + <span class="string">" taps left"</span>);
     }
  
-    HelloWorldModel.prototype.tapAction = &lt;span class="keyword">function&lt;/span> () {
-        &lt;span class="keyword">this&lt;/span>.counter--;
-        &lt;span class="keyword">if&lt;/span> (&lt;span class="keyword">this&lt;/span>.counter &lt;= &lt;span class="number">0&lt;/span>) {
-            &lt;span class="keyword">this&lt;/span>.set(&lt;span class="string">"message"&lt;/span>, &lt;span class="string">"Hoorraaay! You unlocked the NativeScript clicker achievement!"&lt;/span>);
+    HelloWorldModel.prototype.tapAction = <span class="keyword">function</span> () {
+        <span class="keyword">this</span>.counter--;
+        <span class="keyword">if</span> (<span class="keyword">this</span>.counter <= <span class="number">0</span>) {
+            <span class="keyword">this</span>.set(<span class="string">"message"</span>, <span class="string">"Hoorraaay! You unlocked the NativeScript clicker achievement!"</span>);
         }
-        &lt;span class="keyword">else&lt;/span> {
-            &lt;span class="keyword">this&lt;/span>.set(&lt;span class="string">"message"&lt;/span>, &lt;span class="keyword">this&lt;/span>.counter + &lt;span class="string">" taps left"&lt;/span>);
+        <span class="keyword">else</span> {
+            <span class="keyword">this</span>.set(<span class="string">"message"</span>, <span class="keyword">this</span>.counter + <span class="string">" taps left"</span>);
         }
     };
-    &lt;span class="keyword">return&lt;/span> HelloWorldModel;
+    <span class="keyword">return</span> HelloWorldModel;
 })(observable.Observable);
 exports.HelloWorldModel = HelloWorldModel;
-exports.mainViewModel = &lt;span class="keyword">new&lt;/span> HelloWorldModel();
+exports.mainViewModel = <span class="keyword">new</span> HelloWorldModel();
  
 ```
 
@@ -177,19 +177,19 @@ exports.mainViewModel = &lt;span class="keyword">new&lt;/span> HelloWorldModel()
 
 ```html
 .title {
-    font-size: &lt;span class="number">30&lt;/span>;
+    font-size: <span class="number">30</span>;
     horizontal-align: center;
-    margin:&lt;span class="number">20&lt;/span>;
+    margin:<span class="number">20</span>;
 }
  
 button {
-    font-size: &lt;span class="number">42&lt;/span>;
+    font-size: <span class="number">42</span>;
     horizontal-align: center;
 }
  
 .message {
-    font-size: &lt;span class="number">20&lt;/span>;
-    color: &lt;span class="comment">#284848;&lt;/span>
+    font-size: <span class="number">20</span>;
+    color: <span class="comment">#284848;</span>
     horizontal-align: center;
 }
  
@@ -198,18 +198,18 @@ button {
 main-page.xml android 上布局的文件，类似 vm 模板，注意，是 xml 的，不是 html
 
 ```html
-&lt;Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
       
-    &lt;StackLayout>
+    <StackLayout>
             
-        &lt;Label text="Tap the button" cssClass="title" />
+        <Label text="Tap the button" cssClass="title" />
             
-        &lt;Button text="TAP" tap="{{ tapAction }}" />
+        <Button text="TAP" tap="{{ tapAction }}" />
             
-        &lt;Label text="{{ message }}" cssClass="message" textWrap="true" />
+        <Label text="{{ message }}" cssClass="message" textWrap="true" />
           
-    &lt;/StackLayout>
-&lt;/Page>;
+    </StackLayout>
+</Page>;
 ```
 
 ### 4. 总结分析

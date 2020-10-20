@@ -16,8 +16,8 @@ D3 全称 Data-Driven-Documents，这里说的不是暗黑 III，d3 是一款可
 到 [github d3](https://github.com/mbostock/d3) 下载最新版 d3，然后在 html 代码增加标签
 
 ```html
-&lt;script src="path/to/d3.js">&lt;/script>
-&lt;!--more-->
+<script src="path/to/d3.js"></script>
+<!--more-->
 ```
 
 ## step2：创建 SVG 容器
@@ -50,7 +50,7 @@ var data = Array.apply(0, Array(31)).map(function (item, i) {
     // 产生31条数据
     i++;
     return {
-        date: "2013-12-" + (i &lt; 10 ? "0" + i : i),
+        date: "2013-12-" + (i < 10 ? "0" + i : i),
         pv: parseInt(Math.random() * 100),
     };
 });

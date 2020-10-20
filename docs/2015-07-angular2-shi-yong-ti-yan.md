@@ -32,7 +32,7 @@ Angular 团队在这个版本上所做的改变可以用激进来形容，我们
 我们看到了熟悉的 app.js 文件，这是以 app.ts 编译过后的产物，app.ts:
 
 ```html
-/// &lt;reference path="../../typings/angular2/angular2.d.ts" />
+/// <reference path="../../typings/angular2/angular2.d.ts" />
 import { Component, View, bootstrap, For, If } from "angular2/angular2";
 import { TodoStore } from "services/todo/TodoStore";
 @Component({
@@ -40,23 +40,23 @@ import { TodoStore } from "services/todo/TodoStore";
     injectables: [TodoStore], //注入TodoStore
 })
 @View({
-    template: `&lt;div class="page-header">
-                &lt;div class="form-group">
-                 &lt;div class="input-group">
-                  &lt;div class="input-group-addon">Todo&lt;/div>
-                  &lt;input type="text" class="form-control" 
+    template: `<div class="page-header">
+                <div class="form-group">
+                 <div class="input-group">
+                  <div class="input-group-addon">Todo</div>
+                  <input type="text" class="form-control" 
                    placeholder="输入TodoItem" autofocus #newtodo 
                    (keyup)="add($event,newtodo)">
-                 &lt;/div>
-                &lt;/div>
-                &lt;ul class="list-group">
-                 &lt;li class="list-group-item" *for="#todo of todoStore.todoList">
-                  &lt;input type="checkbox" [checked]="todo.done" 
+                 </div>
+                </div>
+                <ul class="list-group">
+                 <li class="list-group-item" *for="#todo of todoStore.todoList">
+                  <input type="checkbox" [checked]="todo.done" 
                    (click)="toggleTodoState(todo)"/> 
-                  &lt;span [class.done]="todo.done">{{todo.text}}&lt;/span>
-                 &lt;/li>
-                &lt;/ul>
-               &lt;/div>`,
+                  <span [class.done]="todo.done">{{todo.text}}</span>
+                 </li>
+                </ul>
+               </div>`,
     directives: [For, If],
 })
 class AppComponent {
@@ -83,23 +83,23 @@ bootstrap(AppComponent);
 inde.html（墙内用户推荐将 traceur-runtime.js/system.src.js/angular2.dev.js 这几个文件保存在本地，这样可以不必忍受各种 404，超时加载）:
 
 ```html
-&lt;html>
-&lt;head>
-    &lt;title>Angular 2 Test&lt;/title>
-    &lt;link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
-    &lt;script src="lib/traceur-runtime.js">&lt;/script>
-    &lt;script src="lib/system.src.js">&lt;/script>
-    &lt;script src="lib/angular2.dev.js">&lt;/script>
-&lt;/head>
+<html>
+<head>
+    <title>Angular 2 Test</title>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <script src="lib/traceur-runtime.js"></script>
+    <script src="lib/system.src.js"></script>
+    <script src="lib/angular2.dev.js"></script>
+</head>
  
-&lt;body>
-    &lt;!-- The app component created in app.ts -->
-    &lt;app>&lt;/app>
-    &lt;script>
+<body>
+    <!-- The app component created in app.ts -->
+    <app></app>
+    <script>
     System.import('app');
-    &lt;/script>
-&lt;/body>
-&lt;/html>
+    </script>
+</body>
+</html>
 ```
 
 services/todo/todo.ts:

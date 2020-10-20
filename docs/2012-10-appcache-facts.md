@@ -13,8 +13,8 @@ Application cache 是 HTML5 中在规范完整性上比较糟糕的特性之一�
 
 **Fact** ：服务器返回 manifest 文件的 MIME 类型必须是 text/cache-manifest, 否则虽配置 manifest 文件但 Appcache 功能并不会启用。
 
-    &lt;strong>&lt;em>&lt;code>建议 manifest 文件以 .appcache 为文件后缀名
-    &lt;/code>&lt;/em>&lt;/strong>
+    <strong><em><code>建议 manifest 文件以 .appcache 为文件后缀名
+    </code></em></strong>
 
 **Fact** ：Appcache 的 manifest 文件有三个可选的配置项目： **CACHE， NETWORK， FALLBACK。**
 
@@ -25,9 +25,9 @@ Application cache 是 HTML5 中在规范完整性上比较糟糕的特性之一�
 **Fact** ：manifest 文件任何的改变包括注释都会触发浏览器更新离线缓存中的所有资源。通常 manifest 的配置策略在每次发布是并不会有改变，为了更新离线缓存我们会在 manifest 的中加入版本注释，在下次发布中则修改 # version 1 注释来知会浏览器更新离线缓存。
 
 ```html
-&lt;strong>
-    &lt;code>CACHE MANIFEST # version 1 CACHE /logo.png ...&lt;/code>
-&lt;/strong>;
+<strong>
+    <code>CACHE MANIFEST # version 1 CACHE /logo.png ...</code>
+</strong>;
 ```
 
 **Fact** ：当需要更新已存在的离线缓存时，浏览器会向服务器发送标准的 **If-Modified-Since** 请求头，当远程的资源未改变与本地缓存一致时，浏览器则不再重新下载。浏览器不会自动去检测列表中资源，必须手动去改变 manifest 文件来触发，我们推荐通过改变 manifest 中的版本注释来触发检测，简单且有效。

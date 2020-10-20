@@ -74,7 +74,7 @@ initNeighbor 方法是获得邻格用的，注意最后有一个随机，将它�
 Grid.prototype.getNeighbor = function () {
     var x, y, neighbor;
     this.choosed = true; // 标记当前格
-    for (var i = 0; i &lt; this.neighbor.length; i++) {
+    for (var i = 0; i < this.neighbor.length; i++) {
         x = this.neighbor[i].x;
         y = this.neighbor[i].y;
         neighbor = maze.grids[y][x];
@@ -164,7 +164,7 @@ Grid.prototype.getNeighbor = function () {
         neighbor,
         ret = [];
     this.choosed = true;
-    for (var i = 0; i &lt; this.neighbor.length; i++) {
+    for (var i = 0; i < this.neighbor.length; i++) {
         x = this.neighbor[i].x;
         y = this.neighbor[i].y;
         neighbor = maze.grids[y][x];
@@ -214,17 +214,17 @@ Maze.prototype.findPath = function () {
 画图部分很简单
 
 ```c
-for(i = 0; i &lt;= 290; i+=20) { // 隔行画横线(横墙)
+for(i = 0; i <= 290; i+=20) { // 隔行画横线(横墙)
     ctx.fillRect(0, i, 390, 10);
 }
  
-for(i = 0; i &lt;= 390; i+=20) { // 隔行画竖线(竖墙)
+for(i = 0; i <= 390; i+=20) { // 隔行画竖线(竖墙)
     ctx.fillRect(i, 0, 10, 290);
 }
  
 ctx.fillStyle = 'white';
  
-for(i = 0; i &lt; this.path.length; i++) { // 打通墙
+for(i = 0; i < this.path.length; i++) { // 打通墙
     ctx.fillRect(10 + this.path[i].x * 10, 10 + this.path[i].y * 10, 10, 10);
 }
 ```
@@ -261,14 +261,14 @@ function getRowWall() {
     var j = 0;
     var x1, x2;
     console.log("getRowWall");
-    for (; i &lt; height; i += 10) {
+    for (; i < height; i += 10) {
         rowWall[i] = [];
         j = 0;
-        while (j &lt; width) {
+        while (j < width) {
             if (isBlack(j, i)) {
                 x1 = j; // 记录横墙开始点
                 j += 10;
-                while (isBlack(j, i) && j &lt; width) {
+                while (isBlack(j, i) && j < width) {
                     j += 10;
                 }
                 x2 = j; // 记录横墙结束点
@@ -302,7 +302,7 @@ function getRowWall() {
 
 ```c
 // k1和k2算作Z轴
-for(i = 0; i &lt; rowWall.length; i += 10) { // rowWall.length
+for(i = 0; i < rowWall.length; i += 10) { // rowWall.length
     item = rowWall[i];
     while((tmp = item.pop())) {
         k1 = (2 * i / height) - 1;

@@ -42,8 +42,8 @@ source_link: http://www.alloyteam.com/2016/12/learn-rxjs/
 做一个搜索功能在前端开发中其实并不陌生，一般的实现方式是：监听文本框的输入事件，将输入内容发送到后台，最终将后台返回的数据进行处理并展示成搜索结果。
 
 ```html
-&lt;input id="text">&lt;/input>
-&lt;script>
+<input id="text"></input>
+<script>
     var text = document.querySelector('#text');
     text.addEventListener('keyup', (e) =>{
         var searchText = e.target.value;
@@ -56,7 +56,7 @@ source_link: http://www.alloyteam.com/2016/12/learn-rxjs/
             }
         });
     });
-&lt;/script>
+</script>
 ```
 
 上面代码实现我们要的功能，但存在两个较大的问题：
@@ -69,8 +69,8 @@ source_link: http://www.alloyteam.com/2016/12/learn-rxjs/
 **减少多余请求数**，可以用 setTimeout 函数节流的方式来处理，核心代码如下
 
 ```html
-&lt;input id="text">&lt;/input>
-&lt;script>
+<input id="text"></input>
+<script>
     var text = document.querySelector('#text'),
         timer = null;
     text.addEventListener('keyup', (e) =>{
@@ -81,14 +81,14 @@ source_link: http://www.alloyteam.com/2016/12/learn-rxjs/
             console.log('发起请求..');
         },250)
     })
-&lt;/script>
+</script>
 ```
 
 **已无用的请求仍然执行**的解决方式，可以在发起请求前声明一个当前搜索的状态变量，后台将搜索的内容及结果一起返回，前端判断返回数据与当前搜索是否一致，一致才走到渲染逻辑。最终代码为
 
 ```html
-&lt;input id="text">&lt;/input>
-&lt;script>
+<input id="text"></input>
+<script>
     var text = document.querySelector('#text'),
         timer = null,
         currentSearch = '';
@@ -114,7 +114,7 @@ source_link: http://www.alloyteam.com/2016/12/learn-rxjs/
             });
         },250)
     })
-&lt;/script>
+</script>
 ```
 
 上面代码基本满足需求，但代码开始显得乱糟糟。我们来使用 RxJS 实现上面代码功能，如下
@@ -196,12 +196,12 @@ var iterator = iterable[Symbol.iterator]();
 while (true) {
     let result;
     try {
-        result = iterator.next(); // &lt;= 获取下一个值
+        result = iterator.next(); // <= 获取下一个值
     } catch (err) {
-        handleError(err); // &lt;= 错误处理
+        handleError(err); // <= 错误处理
     }
     if (result.done) {
-        handleCompleted(); // &lt;= 无更多值（已完成）
+        handleCompleted(); // <= 无更多值（已完成）
         break;
     }
     doSomething(result.value);
@@ -369,20 +369,20 @@ Rx.Observable.of(2).subscribe((v) => console.log(v));
 **方案一？**： 改变事件源，让 Observable 值 X 2
 
 ```c
-Rx.Observable.of(2 * 2 /* &lt;= */).subscribe(v => console.log(v));
+Rx.Observable.of(2 * 2 /* <= */).subscribe(v => console.log(v));
 ```
 
 **方案二？**： 改变响应方式，让 Observer 处理 X 2
 
 ```c
-Rx.Observable.of(2).subscribe(v => console.log(v * 2 /* &lt;= */));
+Rx.Observable.of(2).subscribe(v => console.log(v * 2 /* <= */));
 ```
 
 **优雅方案**： RxJS 提供了优雅的处理方式，可以在事件源 (Observable) 与响应者 (Observer) 之间增加操作流的方法。
 
 ```c
 Rx.Observable.of(2)
-             .map(v => v * 2) /* &lt;= */
+             .map(v => v * 2) /* <= */
              .subscribe(v => console.log(v));
 ```
 
@@ -485,8 +485,8 @@ Rx.Observable.fromEvent(text, "keyup").subscribe((e) => console.log(e));
 ```javascript
 var text = document.querySelector("#text");
 Rx.Observable.fromEvent(text, "keyup")
-    .pluck("target", "value") // &lt;--
-    .mergeMap((url) => Http.get(url)) // &lt;--
+    .pluck("target", "value") // <--
+    .mergeMap((url) => Http.get(url)) // <--
     .subscribe((data) => render(data));
 ```
 
@@ -502,9 +502,9 @@ Rx.Observable.fromEvent(text, "keyup")
 ```javascript
 var text = document.querySelector("#text");
 Rx.Observable.fromEvent(text, "keyup")
-    .debounceTime(250) // &lt;- throttling behaviour
+    .debounceTime(250) // <- throttling behaviour
     .pluck("target", "value")
-    .switchMap((url) => Http.get(url)) // &lt;- Kill the previous requests
+    .switchMap((url) => Http.get(url)) // <- Kill the previous requests
     .subscribe((data) => render(data));
 ```
 

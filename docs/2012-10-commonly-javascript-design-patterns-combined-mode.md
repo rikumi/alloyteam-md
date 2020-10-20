@@ -11,14 +11,14 @@ source_link: http://www.alloyteam.com/2012/10/commonly-javascript-design-pattern
 一个再好不过的例子就是 jquery 对象，大家都知道 1 个 jquery 对象其实是一组对象集合。比如在这样一个 HTML 页面
 
 ```html
-&lt;body>
+<body>
       
-    &lt;div>
-             &lt;span>&lt;/span>
-             &lt;span>&lt;/span>
+    <div>
+             <span></span>
+             <span></span>
           
-    &lt;/div>
-&lt;/body>;
+    </div>
+</body>;
 ```
 
 我们想取消所有节点上绑定的事件，需要这样写

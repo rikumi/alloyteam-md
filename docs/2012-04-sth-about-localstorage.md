@@ -43,11 +43,11 @@ source_link: http://www.alloyteam.com/2012/04/sth-about-localstorage/
 我们主要用到的  
 `  
 length：本地存储数据的个数  
-setItem (key,value)：向 key 字段写入 value 数据  
-getItem (key)：去 key 字段的数据  
-removeItem (key)：移除 key 字段  
-clear ()：清空该域下的所有数据  
-key (i)：获取第 i 个数据的 key   `  
+setItem(key,value)：向 key 字段写入 value 数据  
+getItem(key)：去 key 字段的数据  
+removeItem(key)：移除 key 字段  
+clear()：清空该域下的所有数据  
+key(i)：获取第 i 个数据的 key   `  
 我们还可以像操作一个 Object 一样操作 localStorage
 
 ```javascript

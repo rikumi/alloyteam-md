@@ -70,7 +70,7 @@ retrey: 10000;
 
 `event`
 
-事件类型。如果指定了该字段，则在客户端接收到该条消息时，会在当前的 `EventSource` 对象上触发一个事件，事件类型就是该字段的字段值，你可以使用 `addEventListener () 方法在当前 EventSource` 对象上监听任意类型的命名事件，如果该条消息没有 `event` 字段，则会触发 `onmessage 属性上的事件处理函数`.
+事件类型。如果指定了该字段，则在客户端接收到该条消息时，会在当前的 `EventSource` 对象上触发一个事件，事件类型就是该字段的字段值，你可以使用 `addEventListener() 方法在当前 EventSource` 对象上监听任意类型的命名事件，如果该条消息没有 `event` 字段，则会触发 `onmessage 属性上的事件处理函数`.
 
 `data`
 

@@ -253,7 +253,7 @@ source_link: http://www.alloyteam.com/2012/05/%e7%94%a8html5-audio-api%e5%bc%80%
 4.  mix.connect(meter);
 5.  meter.connect(context.destination);
 
-同时通过下面的 ```processAudio`` 方法可以检测到```削波：
+同时通过下面的 ```processAudio``方法可以检测到```削波：
 
 **\[html]** [view plain](http://blog.csdn.net/hfahe/article/details/7443276# "view plain")[copy](http://blog.csdn.net/hfahe/article/details/7443276# "copy")
 
@@ -281,7 +281,7 @@ source_link: http://www.alloyteam.com/2012/05/%e7%94%a8html5-audio-api%e5%bc%80%
 
 12. }
 
-在通常情况下要小心，因为性能方面的原因，不要过度的使用 `JavaScriptAudioNode`。 在这种情况下，一种替代的方法是为 `getByteFrequencyData` 在音频图里加入 `RealtimeAnalyserNode`，在渲染时通过 ```requestAnimationFrame`` 来检测```。这个方法更有效，但会错过多数信号（包括有可能削波的地方），因为渲染最多发生 60 次，而音频信号的变化更为迅速。
+在通常情况下要小心，因为性能方面的原因，不要过度的使用 `JavaScriptAudioNode`。 在这种情况下，一种替代的方法是为 `getByteFrequencyData` 在音频图里加入 `RealtimeAnalyserNode`，在渲染时通过 ```requestAnimationFrame``来检测```。这个方法更有效，但会错过多数信号（包括有可能削波的地方），因为渲染最多发生 60 次，而音频信号的变化更为迅速。
 
 因为削波的检测非常重要，未来我们很可能将看到网络音频 API 节点内置 `MeterNode`。
 

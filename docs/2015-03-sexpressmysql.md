@@ -139,21 +139,22 @@ module.exports = {
             var param = req.query || req.params;
             // 建立连接，向表中插入值
             // 'INSERT INTO user(id, name, age) VALUES(0,?,?)',
-            connection.query($sql.insert, [param.name, param.age], function (
-                err,
-                result
-            ) {
-                if (result) {
-                    result = {
-                        code: 200,
-                        msg: "增加成功",
-                    };
+            connection.query(
+                $sql.insert,
+                [param.name, param.age],
+                function (err, result) {
+                    if (result) {
+                        result = {
+                            code: 200,
+                            msg: "增加成功",
+                        };
+                    }
+                    // 以json形式，把操作结果返回给前台页面
+                    jsonWrite(res, result);
+                    // 释放连接
+                    connection.release();
                 }
-                // 以json形式，把操作结果返回给前台页面
-                jsonWrite(res, result);
-                // 释放连接
-                connection.release();
-            });
+            );
         });
     },
 };
@@ -226,21 +227,22 @@ module.exports = {
             var param = req.query || req.params;
             // 建立连接，向表中插入值
             // 'INSERT INTO user(id, name, age) VALUES(0,?,?)',
-            connection.query($sql.insert, [param.name, param.age], function (
-                err,
-                result
-            ) {
-                if (result) {
-                    result = {
-                        code: 200,
-                        msg: "增加成功",
-                    };
+            connection.query(
+                $sql.insert,
+                [param.name, param.age],
+                function (err, result) {
+                    if (result) {
+                        result = {
+                            code: 200,
+                            msg: "增加成功",
+                        };
+                    }
+                    // 以json形式，把操作结果返回给前台页面
+                    jsonWrite(res, result);
+                    // 释放连接
+                    connection.release();
                 }
-                // 以json形式，把操作结果返回给前台页面
-                jsonWrite(res, result);
-                // 释放连接
-                connection.release();
-            });
+            );
         });
     },
     delete: function (req, res, next) {

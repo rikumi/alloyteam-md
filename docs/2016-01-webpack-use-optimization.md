@@ -233,13 +233,13 @@ html-webpack-plugin-after-emit
 使用办法：
 
 ```javascript
-compilation.plugin("html-webpack-plugin-before-html-processing", function (
-    htmlPluginData,
-    callback
-) {
-    htmlPluginData.html += "The magic footer";
-    callback();
-});
+compilation.plugin(
+    "html-webpack-plugin-before-html-processing",
+    function (htmlPluginData, callback) {
+        htmlPluginData.html += "The magic footer";
+        callback();
+    }
+);
 ```
 
 不过我还是决定自己开发一个了一个插件  

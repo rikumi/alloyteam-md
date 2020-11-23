@@ -13,14 +13,14 @@ source_link: http://www.alloyteam.com/2016/06/kmdjs-integrated-uglifyjs2-to-buil
 如下面所示，可以直接依赖注入到 function 里，
 
 ```javascript
-kmdjs.define("main", ["util.bom", "app.Ball", "util.dom.test"], function (
-    bom,
-    Ball,
-    test
-) {
-    var ball = new Ball(0, 0, 28, 1, -2, "kmdjs");
-    var vp = bom.getViewport();
-});
+kmdjs.define(
+    "main",
+    ["util.bom", "app.Ball", "util.dom.test"],
+    function (bom, Ball, test) {
+        var ball = new Ball(0, 0, 28, 1, -2, "kmdjs");
+        var vp = bom.getViewport();
+    }
+);
 ```
 
 也可以直接在代码里把 full namespace 加上来调用，如：

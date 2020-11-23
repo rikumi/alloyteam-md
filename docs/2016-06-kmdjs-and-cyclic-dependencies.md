@@ -122,20 +122,20 @@ kmd 的意思是 kernel module definition。该版本和以前的主要变化如
 定义模块
 
 ```javascript
-kmdjs.define("main", ["util.bom", "app.Ball", "util.dom.test"], function (
-    bom,
-    Ball,
-    test
-) {
-    var ball = new Ball(0, 0, 28, 1, -2, "kmdjs");
-    alert(test.m(3, 3));
-    var vp = bom.getViewport();
-    setInterval(function () {
-        ball.tick();
-        (ball.x + ball.r * 2 > vp[2] || ball.x < 0) && (ball.vx *= -1);
-        (ball.y + ball.r * 2 > vp[3] || ball.y < 0) && (ball.vy *= -1);
-    }, 15);
-});
+kmdjs.define(
+    "main",
+    ["util.bom", "app.Ball", "util.dom.test"],
+    function (bom, Ball, test) {
+        var ball = new Ball(0, 0, 28, 1, -2, "kmdjs");
+        alert(test.m(3, 3));
+        var vp = bom.getViewport();
+        setInterval(function () {
+            ball.tick();
+            (ball.x + ball.r * 2 > vp[2] || ball.x < 0) && (ball.vx *= -1);
+            (ball.y + ball.r * 2 > vp[3] || ball.y < 0) && (ball.vy *= -1);
+        }, 15);
+    }
+);
 ```
 
 如果只传两个参数，代表不依赖任何模块。这里和 AMD 一样，在 factory 的回调里把依赖注入到里面。  

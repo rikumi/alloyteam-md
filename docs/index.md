@@ -1,6 +1,3 @@
-# [高质量 JavaScript 精品库集合](./2012-06-high-quality-javascript-boutique-library-collection.md)
-2012-06-27 by TAT.Kinvix
-
 # [是时候使用 JavaScript 严谨模式 (Strict Mode) 提升团队开发效率](./2012-06-it-is-time-to-use-the-javascript-strict-mode-strict-mode-to-enhance-the-efficiency-of-team-development.md)
 2012-06-27 by TAT.Kinvix
 

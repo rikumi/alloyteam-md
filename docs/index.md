@@ -1,21 +1,3 @@
-# [2012 腾讯首届编程马拉松 Hackathon 在腾讯总部拉开帷幕](./2012-06-the-tencent-hackathon-2012.md)
-2012-06-10 by TAT.Kinvix
-
-# [基于 Javascript 和 HTML5 的 Flash Player 播放器 (Mozilla)](./2012-06-javascript-and-html5-flash-player-is-mozilla.md)
-2012-06-08 by TAT.Kinvix
-
-# [Javascript,C++,C#,Java,Lua,Python,Ruby,F# 语言渲染性能评测](./2012-06-javascriptc-speed.md)
-2012-06-08 by TAT.Kinvix
-
-# [腾讯 Web 前端 Javascript 开发框架 JX (Javascript eXtension tools)](./2012-06-jx-framework.md)
-2012-06-06 by TAT.Kinvix
-
-# [Adobe Photoshop CS6 设计套件最新中文版全系列下载汇总 (含 for MacOSX)](./2012-06-adobecs6.md)
-2012-06-06 by TAT.Kinvix
-
-# [Js 对几何变换的简单封装](./2012-06-js-simple-geometric-transformation-the-package.md)
-2012-06-02 by TAT.Cson
-
 # [【Alloy 实验室】Horizon 的各种 Test Cases 集合](./2012-05-laboratory-alloy-a-variety-of-horizons-collection-of-test-cases.md)
 2012-05-31 by TAT.岑安
 

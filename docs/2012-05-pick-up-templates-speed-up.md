@@ -95,7 +95,8 @@ var outputHtmlFile = "./out/index.html";
 var inputJsFile = "./js/mb.templates.js";
 var outputJsFile = "./out/js/mb.templates.js";
 var content = fs.readFileSync(inputHtmlFile).toString();
-var regex = /<script\s*id="(\w+)"\s*type="text\/plain"\s*>([\s\S]*?)<\/script>/gi;
+var regex =
+    /<script\s*id="(\w+)"\s*type="text\/plain"\s*>([\s\S]*?)<\/script>/gi;
 var result = {};
 content = content.replace(regex, function (m, $1, $2) {
     result[$1] = $2.replace(/\n|\r/g, "");

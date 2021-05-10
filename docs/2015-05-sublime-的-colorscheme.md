@@ -33,23 +33,19 @@ source_link: http://www.alloyteam.com/2015/05/sublime%e7%9a%84colorscheme/
 
 ```html
 <dict>
-      <key>name</key>
-      <string>Markup: Underline</string>
-      <key>scope</key>
-      <string>markup.underline</string>
-      <key>settings</key>
-      
-    <dict>
-              <key>fontStyle</key>
-              <string>underline</string>
-              <key>foreground</key>
-              
-        <string>
-            <span class="comment">#839496</string>
-        </span>
-          
-    </dict>
-</dict>;
+  <key>name</key>
+  <string>Markup: Underline</string>
+  <key>scope</key>
+  <string>markup.underline</string>
+  <key>settings</key>
+  <dict>
+      <key>fontStyle</key>
+      <string>underline</string>
+      <key>foreground</key>
+      <string><span class="comment">#839496</string></span>
+  </dict>
+</dict>
+ 
 ```
 
 一头雾水，完全不知道 `how does it working` ，也就无从改起。
@@ -90,26 +86,19 @@ sublime text 的 color scheme 是通过 `scopes` 来定义 `color` 的，我们�
 
 ```html
 <dict>
-        <key>name</key>
-        <string>Markdown</string>
-        <key>scope</key>
-        <string>text.html.markdown</string>
-        <key>settings</key>
-        
-    <dict>
-                <key>background</key>
-                
-        <string>
-            <span class="comment">#ffffff</string>
-        </span>
-                <key>foreground</key>
-                
-        <string>
-            <span class="comment">#666666</string>
-        </span>
-            
-    </dict>
-</dict>;
+    <key>name</key>
+    <string>Markdown</string>
+    <key>scope</key>
+    <string>text.html.markdown</string>
+    <key>settings</key>
+    <dict>
+        <key>background</key>
+        <string><span class="comment">#ffffff</string></span>
+        <key>foreground</key>
+        <string><span class="comment">#666666</string></span>
+    </dict>
+</dict>
+ 
 ```
 
 马上把上面的代码加入 `color scheme`，有效果，嗯，现在比较大的问题是 `lineHighlight`（鼠标所在行高亮）比较突兀。

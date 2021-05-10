@@ -15,7 +15,8 @@ source_link: http://www.alloyteam.com/2015/05/react-zhi-chu-shi-xian-yu-yuan-li/
 对于 MVVM，HTML 片段即为配置，而直出后的 HTML 无法还原配置，所以问题不是 MVVM 能否直出，而是在于直出后的片段能否还原原来的配置。下面是一个简单的例子：
 
 ```html
-<sapn>Hello {name}!</span>;
+<sapn>Hello {name}!</span>
+ 
 ```
 
 上面这段 HTML 配置和数据在一起，直出后会变成：

@@ -82,8 +82,12 @@ var element = document.querySelector("#test"),
     obj = {};
 Transform(obj);
 obj.rotateZ = 90;
-element.style.transform = element.style.msTransform = element.style.OTransform = element.style.MozTransform = element.style.webkitTransform =
-    obj.transform;
+element.style.transform =
+    element.style.msTransform =
+    element.style.OTransform =
+    element.style.MozTransform =
+    element.style.webkitTransform =
+        obj.transform;
 ```
 
 看到了没有，你不仅可以传 DOM 元素进去，也可以传对象字面量。你可以把 obj.transform 打印出来，上面是选择了 90 度，所以它生成出来的 matrix 是：
@@ -98,8 +102,12 @@ var element = document.querySelector("#test"),
 //关闭透视投影
 Transform(obj, true);
 obj.rotateZ = 90;
-element.style.transform = element.style.msTransform = element.style.OTransform = element.style.MozTransform = element.style.webkitTransform =
-    obj.transform;
+element.style.transform =
+    element.style.msTransform =
+    element.style.OTransform =
+    element.style.MozTransform =
+    element.style.webkitTransform =
+        obj.transform;
 ```
 
 生成出来的 matrix 是：
@@ -115,8 +123,12 @@ Transform(obj);
 var tween = new TWEEN.Tween(obj)
     .to({ translateX: 100, translateY: 100 }, 1000)
     .onUpdate(function () {
-        element.style.transform = element.style.msTransform = element.style.OTransform = element.style.MozTransform = element.style.webkitTransform =
-            obj.transform;
+        element.style.transform =
+            element.style.msTransform =
+            element.style.OTransform =
+            element.style.MozTransform =
+            element.style.webkitTransform =
+                obj.transform;
     })
     .start();
 requestAnimationFrame(animate);
@@ -351,10 +363,16 @@ var matrix = Transform.getMatrix2D({
     scaleY: 0.5,
     translateX: 100,
 });
-ele.style.transform = ele.style.msTransform = ele.style.OTransform = ele.style.MozTransform = ele.style.webkitTransform =
-    "matrix(" +
-    [matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty].join(",") +
-    ")";
+ele.style.transform =
+    ele.style.msTransform =
+    ele.style.OTransform =
+    ele.style.MozTransform =
+    ele.style.webkitTransform =
+        "matrix(" +
+        [matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty].join(
+            ","
+        ) +
+        ")";
 ```
 
 **用于 Canvas 和 SVG Transformation**

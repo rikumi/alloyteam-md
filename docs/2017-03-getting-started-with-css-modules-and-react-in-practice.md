@@ -249,8 +249,7 @@ module: {
         },
         {
             test: /\.module.styl$/,
-            loader:
-                "style!css?modules&localIdentName=[name]__[local]!styl?sourceMap=true",
+            loader: "style!css?modules&localIdentName=[name]__[local]!styl?sourceMap=true",
         },
         {
             test: /\.styl$/,

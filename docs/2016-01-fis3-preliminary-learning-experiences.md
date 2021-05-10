@@ -220,11 +220,10 @@ define("pages/index/index", function (require, exports, module) {
 构建后，文件会自动加上如下代码
 
 ```javascript
-define("pages/index/timeDegree-list-tmpl_tpl", function (
-    require,
-    exports,
-    module
-) {});
+define(
+    "pages/index/timeDegree-list-tmpl_tpl",
+    function (require, exports, module) {}
+);
 ```
 
 **与其他构建工具对比**

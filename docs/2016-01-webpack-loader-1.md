@@ -154,7 +154,7 @@ Loader API 将提供给每一个 Loader 的 this 中，API 可以让我们的调
 **emitFile**  emitFile 能够让开发者更方便的输出一个 file 文件，这是 webpack 特有的方法，使用的方法也很直接
 
 ```javascript
-emitFile((name: string), (content: Buffer | String), (sourceMap: { ... }));
+emitFile(name: string, content: Buffer|String, sourceMap: {...})
 ```
 
 在 file-loader 中有调用到 this.emitFile (url, content); 这个方法，具体可以查看其源码了解。

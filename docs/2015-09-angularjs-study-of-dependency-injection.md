@@ -157,12 +157,7 @@ resolve: function(deps, func, scope) {
 打印出 argDecl：
 
 ```javascript
-[
-    "function ($scope,$http)",
-    "$scope,$http",
-    (index: 0),
-    (input: "function ($scope,$http){↵                $scope.test = 1;↵                $http.get('');↵        }"),
-];
+["function ($scope,$http)", "$scope,$http", index: 0, input: "function ($scope,$http){↵                $scope.test = 1;↵                $http.get('');↵        }"]
 ```
 
 可以看到，这个数组拿到了 func 的参数，argDecl［1］ = “$scope,$http”;

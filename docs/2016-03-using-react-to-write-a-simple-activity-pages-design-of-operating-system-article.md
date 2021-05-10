@@ -342,7 +342,8 @@ async function watchResources() {
     watch(path.join(__dirname, "../src/resources/**/*")).then((watcher) => {
         watcher.on("changed", (filePath) => {
             console.log("file changed: ", filePath); // [\/\\] 是为了兼容 windows 下路径分隔的反斜杠
-            const re = /resources[\/\\](.*)[\/\\]components[\/\\](.*)[\/\\](.*)/;
+            const re =
+                /resources[\/\\](.*)[\/\\]components[\/\\](.*)[\/\\](.*)/;
             const results = filePath.match(re);
             if (results && results[1] && results[2]) {
                 event.emit("component", {

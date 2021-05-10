@@ -250,9 +250,9 @@ We now need a function that’ll grad the data from the RSS feed, parse them and
 
 ```javascript
 function downloadC9BlogFeed() {
-    WinJS.xhr({
-        url: "http://channel9.msdn.com/coding4fun/articles/RSS",
-    }).then(function (rss) {});
+    WinJS.xhr({ url: "http://channel9.msdn.com/coding4fun/articles/RSS" }).then(
+        function (rss) {}
+    );
 }
 ```
 

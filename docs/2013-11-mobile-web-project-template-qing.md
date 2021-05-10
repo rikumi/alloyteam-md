@@ -414,25 +414,11 @@ Qing 在默认构建约定的基础上同时提供了基于 DOM 的 `data-stand-
 构建结果：
 
 ```html
-<span class="nt">
-    <style></span>
-    <span class="nt">css</span>
-    <span class="o">/</span>
-    <span class="nt">base</span>
-    <span class="nc">.css</span>
-    <span class="o">...</span>
-    <span class="nt">css</span>
-    <span class="o">/</span>
-    <span class="nt">typo</span>
-    <span class="nc">.css</span>
-    <span class="o">...</span>
-    <span class="nt">css</span>
-    <span class="o">/</span>
-    <span class="nt">main</span>
-    <span class="nc">.css</span>
-    <span class="o">...</span>
-    <span class="nt"></style>
-</span>;
+<span class="nt"><style></span>
+<span class="nt">css</span><span class="o">/</span><span class="nt">base</span><span class="nc">.css</span><span class="o">...</span>
+<span class="nt">css</span><span class="o">/</span><span class="nt">typo</span><span class="nc">.css</span><span class="o">...</span>
+<span class="nt">css</span><span class="o">/</span><span class="nt">main</span><span class="nc">.css</span><span class="o">...</span>
+<span class="nt"></style></span>
 ```
 
 ##### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E5%86%85%E5%B5%8C%E8%84%9A%E6%9C%AC)内嵌脚本
@@ -446,28 +432,11 @@ Qing 在默认构建约定的基础上同时提供了基于 DOM 的 `data-stand-
 构建结果：
 
 ```html
-<span class="nt">
-    <script></span>
-    <span class="nx">js</span>
-    <span class="o">/</span>
-    <span class="nx">fastclick</span>
-    <span class="p">.</span>
-    <span class="nx">js</span>
-    <span class="p">...</span>
-    <span class="nx">js</span>
-    <span class="o">/</span>
-    <span class="nx">spin</span>
-    <span class="p">.</span>
-    <span class="nx">js</span>
-    <span class="p">...</span>
-    <span class="nx">js</span>
-    <span class="o">/</span>
-    <span class="nx">main</span>
-    <span class="p">.</span>
-    <span class="nx">js</span>
-    <span class="p">...</span>
-    <span class="nt"></script>
-</span>;
+<span class="nt"><script></span>
+<span class="nx">js</span><span class="o">/</span><span class="nx">fastclick</span><span class="p">.</span><span class="nx">js</span><span class="p">...</span>
+<span class="nx">js</span><span class="o">/</span><span class="nx">spin</span><span class="p">.</span><span class="nx">js</span><span class="p">...</span>
+<span class="nx">js</span><span class="o">/</span><span class="nx">main</span><span class="p">.</span><span class="nx">js</span><span class="p">...</span>
+<span class="nt"></script></span>
 ```
 
 ##### [](http://www.alloyteam.com/2013/11/mobile-web-project-template-qing/#%E5%86%85%E5%B5%8C%E5%9B%BE%E7%89%87)内嵌图片

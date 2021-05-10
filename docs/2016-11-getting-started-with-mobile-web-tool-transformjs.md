@@ -103,7 +103,12 @@ new TWEEN.Tween(position)
             "px) rotate(" +
             Math.floor(position.rotation) +
             "deg)";
-        element.style.transform = element.style.msTransform = element.style.OTransform = element.style.MozTransform = element.style.webkitTransform = t_str;
+        element.style.transform =
+            element.style.msTransform =
+            element.style.OTransform =
+            element.style.MozTransform =
+            element.style.webkitTransform =
+                t_str;
     });
 ```
 

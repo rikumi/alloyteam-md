@@ -1,12 +1,3 @@
-# [走向匿名化，谈谈微信小程序新授权登录](./2021-04-15431.md)
-2021-04-16 by TAT.rikumi
-
-# [yield 学习](./2021-03-15427.md)
-2021-03-27 by TAT.vorshen
-
-# [callable-object](./2021-03-callable-object.md)
-2021-03-14 by TAT.vorshen
-
 # [深入学习定时器](./2021-03-15389.md)
 2021-03-02 by TAT.vorshen
 
